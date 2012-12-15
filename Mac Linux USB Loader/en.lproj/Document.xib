@@ -48,7 +48,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{463, 235}, {505, 279}}</string>
 				<int key="NSWTFlags">1618480128</int>
-				<string key="NSWindowTitle">Window</string>
+				<string key="NSWindowTitle"/>
 				<string key="NSWindowClass">NSWindow</string>
 				<string key="NSViewClass">View</string>
 				<nil key="NSUserInterfaceItemIdentifier"/>
@@ -334,36 +334,10 @@
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMinSize">{505, 301}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
-				<bool key="NSWindowIsRestorable">YES</bool>
+				<bool key="NSWindowIsRestorable">NO</bool>
 			</object>
 			<object class="NSCustomObject" id="796877042">
 				<string key="NSClassName">NSApplication</string>
-			</object>
-			<object class="NSSplitView" id="625402477">
-				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">268</int>
-				<array class="NSMutableArray" key="NSSubviews">
-					<object class="NSCustomView" id="328750142">
-						<reference key="NSNextResponder" ref="625402477"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrameSize">{163, 42}</string>
-						<reference key="NSSuperview" ref="625402477"/>
-						<string key="NSReuseIdentifierKey">_NS:11</string>
-						<string key="NSClassName">NSView</string>
-					</object>
-					<object class="NSCustomView" id="49693238">
-						<reference key="NSNextResponder" ref="625402477"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{0, 52}, {163, 44}}</string>
-						<reference key="NSSuperview" ref="625402477"/>
-						<string key="NSReuseIdentifierKey">_NS:13</string>
-						<string key="NSClassName">NSView</string>
-					</object>
-				</array>
-				<string key="NSFrameSize">{163, 96}</string>
-				<reference key="NSSuperview"/>
-				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<int key="NSDividerStyle">3</int>
 			</object>
 			<object class="NSCustomObject" id="812085660">
 				<string key="NSClassName">RHAppDelegate</string>
@@ -1120,25 +1094,6 @@
 						<reference key="parent" ref="295041998"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">100202</int>
-						<reference key="object" ref="625402477"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="328750142"/>
-							<reference ref="49693238"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">100203</int>
-						<reference key="object" ref="328750142"/>
-						<reference key="parent" ref="625402477"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">100204</int>
-						<reference key="object" ref="49693238"/>
-						<reference key="parent" ref="625402477"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">100241</int>
 						<reference key="object" ref="700766082"/>
 						<array class="NSMutableArray" key="children">
@@ -1308,9 +1263,6 @@
 				<string key="100198.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100199.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100201.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="100202.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="100203.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="100204.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<array key="100241.IBNSViewMetadataConstraints">
 					<reference ref="983361531"/>
 				</array>

@@ -12,7 +12,6 @@
 		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
 		24434A3B1677D52800DAC959 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 24434A241677D52800DAC959 /* Credits.rtf */; };
 		24434A3C1677D52800DAC959 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24434A261677D52800DAC959 /* InfoPlist.strings */; };
-		24434A3D1677D52800DAC959 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24434A281677D52800DAC959 /* MainMenu.xib */; };
 		24434A3F1677D52800DAC959 /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24434A2C1677D52800DAC959 /* RHAboutViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		24434A401677D52800DAC959 /* RHAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24434A2D1677D52800DAC959 /* RHAboutViewController.xib */; };
 		24434A411677D52800DAC959 /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24434A2F1677D52800DAC959 /* RHAccountsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -34,6 +33,7 @@
 		24CA6C1E1657020C00061D2F /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C18165701F000061D2F /* bootIA32.efi */; };
 		24CA6C1F1657020C00061D2F /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C19165701F000061D2F /* bootX64.efi */; };
 		24DB8AB91659AB0700F7C947 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 24DB8AB81659AB0700F7C947 /* README */; };
+		24F62E7216795AD50016B65A /* bootup.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24F62E7116795AD50016B65A /* bootup.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,7 +55,6 @@
 		24434A221677D52800DAC959 /* AccountsPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccountsPreferences.png; sourceTree = "<group>"; };
 		24434A251677D52800DAC959 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = Credits.rtf; sourceTree = "<group>"; };
 		24434A271677D52800DAC959 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		24434A291677D52800DAC959 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MainMenu.xib; sourceTree = "<group>"; };
 		24434A2B1677D52800DAC959 /* RHAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHAboutViewController.h; sourceTree = "<group>"; };
 		24434A2C1677D52800DAC959 /* RHAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAboutViewController.m; sourceTree = "<group>"; };
 		24434A2D1677D52800DAC959 /* RHAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RHAboutViewController.xib; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		24CA6C19165701F000061D2F /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
 		24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,6 @@
 			children = (
 				24434A241677D52800DAC959 /* Credits.rtf */,
 				24434A261677D52800DAC959 /* InfoPlist.strings */,
-				24434A281677D52800DAC959 /* MainMenu.xib */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -148,8 +147,7 @@
 				24434A191677CE2100DAC959 /* RHPreferences.framework */,
 				24DB8AB81659AB0700F7C947 /* README */,
 				24CA6C17165701F000061D2F /* EFI-Ubuntu */,
-				24CA6C13165701A900061D2F /* Icon.icns */,
-				24CA6C15165701BD00061D2F /* Icon.png */,
+				24F62E7416795AE50016B65A /* Icons */,
 				24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */,
 				24CA6BEC1656F7A700061D2F /* Frameworks */,
 				24CA6BEA1656F7A700061D2F /* Products */,
@@ -220,6 +218,16 @@
 			path = "Resources/EFI-Ubuntu";
 			sourceTree = "<group>";
 		};
+		24F62E7416795AE50016B65A /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				24CA6C13165701A900061D2F /* Icon.icns */,
+				24F62E7116795AD50016B65A /* bootup.icns */,
+				24CA6C15165701BD00061D2F /* Icon.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,12 +291,12 @@
 				24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */,
 				24434A3B1677D52800DAC959 /* Credits.rtf in Resources */,
 				24434A3C1677D52800DAC959 /* InfoPlist.strings in Resources */,
-				24434A3D1677D52800DAC959 /* MainMenu.xib in Resources */,
 				24434A401677D52800DAC959 /* RHAboutViewController.xib in Resources */,
 				24434A421677D52800DAC959 /* RHAccountsViewController.xib in Resources */,
 				24434A441677D52800DAC959 /* RHPreferencesTester-Info.plist in Resources */,
 				24434A461677D52800DAC959 /* RHWideViewController.xib in Resources */,
 				24434A471677D52800DAC959 /* WidePreferences.png in Resources */,
+				24F62E7216795AD50016B65A /* bootup.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,14 +334,6 @@
 				24434A271677D52800DAC959 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		24434A281677D52800DAC959 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24434A291677D52800DAC959 /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 		24CA6BF61656F7A700061D2F /* InfoPlist.strings */ = {
@@ -428,7 +428,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac Linux USB Loader/Mac Linux USB Loader-Prefix.pch";
 				INFOPLIST_FILE = "Mac Linux USB Loader/Mac Linux USB Loader-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -446,7 +446,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac Linux USB Loader/Mac Linux USB Loader-Prefix.pch";
 				INFOPLIST_FILE = "Mac Linux USB Loader/Mac Linux USB Loader-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

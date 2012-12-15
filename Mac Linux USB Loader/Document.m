@@ -12,6 +12,11 @@
 #import "RHPreferences/RHPreferences.h"
 #import "RHPreferences/RHPreferencesWindowController.h"
 
+#import "RHAppDelegate.h"
+#import "RHAboutViewController.h"
+#import "RHAccountsViewController.h"
+#import "RHWideViewController.h"
+
 @implementation Document
 
 @synthesize usbDriveDropdown;
@@ -19,6 +24,7 @@
 @synthesize makeUSBButton;
 @synthesize spinner;
 @synthesize prefsWindow;
+@synthesize preferencesWindowController=_preferencesWindowController;
 
 NSMutableDictionary *usbs;
 NSString *isoFilePath;
@@ -168,5 +174,24 @@ USBDevice *device;
             }
         }
     }
+}
+
+-(IBAction)showPreferences:(id)sender{
+    //if we have not created the window controller yet, create it now
+    if (!_preferencesWindowController){
+        RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
+        RHAboutViewController *about = [[RHAboutViewController alloc] init];
+        RHWideViewController *wide = [[RHWideViewController alloc] init];
+        
+        NSArray *controllers = [NSArray arrayWithObjects:accounts, wide,
+                                [RHPreferencesWindowController flexibleSpacePlaceholderController],
+                                about,
+                                nil];
+        
+        _preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", @"Preferences Window Title")];
+    }
+    
+    [_preferencesWindowController showWindow:self];
+    
 }
 @end

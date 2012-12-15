@@ -29,7 +29,7 @@ NSWindow *window;
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Abort"];
         [alert setMessageText:@"Failed to create bootable USB."];
-        [alert setInformativeText:@"There is already an EFI executable on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool."];
+        [alert setInformativeText:@"There is already EFI firmware on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool."];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return NO;
@@ -52,6 +52,7 @@ NSWindow *window;
     }
 }
 
+
 - (BOOL)copyISO:(NSString *)path:(NSString *)isoFile {
     NSString *finalPath = [NSString stringWithFormat:@"%@/efi/boot/boot.iso", path];
     
@@ -69,6 +70,19 @@ NSWindow *window;
     }
     
     NSLog(@"Writing from %@.", isoFile);
+    
+    NSString *iconPath = [[NSBundle mainBundle] pathForResource:@"bootup" ofType:@"icns" inDirectory:@""];
+    NSString *finalIconPath = [NSString stringWithFormat:@"%@/._.VolumeIcon.icns", path];
+    if ([[NSFileManager new] copyItemAtPath:[[NSURL URLWithString:iconPath] path] toPath:finalIconPath error:nil] == NO) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Abort"];
+        [alert setMessageText:@"Failed to create bootable USB."];
+        [alert setInformativeText:@"Could not copy the Linux ISO to the USB device."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        return NO;
+    }
+    
     // Copy the Linux distro ISO.
     if ([[NSFileManager new] copyItemAtPath:[[NSURL URLWithString:isoFile] path] toPath:finalPath error:nil] == NO) {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -82,6 +96,10 @@ NSWindow *window;
     else {
         return YES;
     }
+}
+
+- (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+    // Empty because under normal processing we need not do anything here.
 }
 
 @end

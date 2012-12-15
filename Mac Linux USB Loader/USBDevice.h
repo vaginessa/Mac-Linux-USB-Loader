@@ -10,6 +10,7 @@
 
 @interface USBDevice : NSObject
 
+- (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (void)setWindow:(NSWindow *) window;
 - (BOOL)prepareUSB:(NSString *)path;
 - (BOOL)copyISO:(NSString *)path:(NSString *)isoFile;

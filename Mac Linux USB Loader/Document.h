@@ -7,12 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "RHPreferences/RHPreferences.h"
 
 @interface Document : NSDocument
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSPanel *prefsWindow;
 @property (unsafe_unretained) IBOutlet NSButton *makeUSBButton;
 @property (unsafe_unretained) IBOutlet NSProgressIndicator *spinner;
+@property (retain) RHPreferencesWindowController *preferencesWindowController;
 - (IBAction)openDiskUtility:(id)sender;
 - (IBAction)eraseLiveBoot:(id)sender;
 - (void)getUSBDeviceList;
