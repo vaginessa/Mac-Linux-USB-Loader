@@ -27,10 +27,6 @@
     // Insert code here to initialize your application
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
-    return YES;
-}
-
 #pragma mark - IBActions
 -(IBAction)showPreferences:(id)sender{
     //if we have not created the window controller yet, create it now
