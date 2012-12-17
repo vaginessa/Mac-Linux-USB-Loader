@@ -94,6 +94,19 @@ NSWindow *window;
         return NO;
     }
     else {
+        NSProcessInfo *pinfo = [NSProcessInfo processInfo];
+        NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
+        NSString *version = [@"Mac OS X " stringByAppendingString:[myarr objectAtIndex:1]];
+        
+        if ([version rangeOfString:@"Mac OS X 10.8"].location != NSNotFound) {
+            NSUserNotification *notification = [[NSUserNotification alloc] init];
+            notification.title = @"Finished Making Live USB";
+            notification.informativeText = @"The live USB has been made successfully.";
+            notification.soundName = NSUserNotificationDefaultSoundName;
+            
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        }
+        
         return YES;
     }
 }

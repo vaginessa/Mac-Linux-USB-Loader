@@ -397,7 +397,7 @@
 				<int key="NSWindowStyleMask">13</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{960, 490}, {480, 200}}</string>
-				<int key="NSWTFlags">1685585920</int>
+				<int key="NSWTFlags">611855360</int>
 				<string key="NSWindowTitle">Mac Linux USB Loader</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
@@ -543,7 +543,7 @@
 				<int key="NSWindowStyleMask">95</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{139, 157}, {447, 303}}</string>
-				<int key="NSWTFlags">-461896704</int>
+				<int key="NSWTFlags">-461894656</int>
 				<string key="NSWindowTitle">About Window</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>

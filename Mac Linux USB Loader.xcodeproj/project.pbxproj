@@ -23,7 +23,7 @@
 		24434A471677D52800DAC959 /* WidePreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A381677D52800DAC959 /* WidePreferences.png */; };
 		244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244E560816755CA300F80E78 /* RHPreferences.framework */; };
 		24C9FCCE1664204B0080E6E4 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C9FCCD1664204B0080E6E4 /* USBDevice.m */; };
-		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; };
+		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6BF61656F7A700061D2F /* InfoPlist.strings */; };
 		24CA6BFA1656F7A700061D2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6BF91656F7A700061D2F /* main.m */; };
 		24CA6C011656F7A700061D2F /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6C001656F7A700061D2F /* Document.m */; };
@@ -130,6 +130,7 @@
 			);
 			name = "Preferences View Controllers";
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		24434A231677D52800DAC959 /* en.lproj */ = {
 			isa = PBXGroup;
@@ -387,7 +388,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -411,7 +412,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
 			name = Release;

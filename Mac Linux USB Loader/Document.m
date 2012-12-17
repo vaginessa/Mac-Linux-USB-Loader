@@ -88,7 +88,6 @@ USBDevice *device;
     if (isoFilePath != nil && [usbDriveDropdown numberOfItems] != 1) {
         [makeUSBButton setEnabled: YES];
     }
-    
     // Exit
 }
 
@@ -123,19 +122,6 @@ USBDevice *device;
 
 - (IBAction)openGithubPage:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader"]];
-}
-
-- (IBAction)showPrefsPane:(id)sender {
-    //if we have not created the window controller yet, create it now
-    /*RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
-    RHAboutViewController *about = [[RHAboutViewController alloc] init];
-    RHWideViewController *wide = [[RHWideViewController alloc] init]; */
-        
-    NSArray *controllers = [NSArray arrayWithObjects:nil, nil];
-
-    RHPreferencesWindowController *preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", @"Preferences Window Title")];
-    
-    [preferencesWindowController showWindow:self];
 }
 
 + (BOOL)autosavesInPlace
