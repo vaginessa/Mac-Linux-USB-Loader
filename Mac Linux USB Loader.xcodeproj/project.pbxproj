@@ -19,6 +19,8 @@
 		24434A461677D52800DAC959 /* RHWideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24434A371677D52800DAC959 /* RHWideViewController.xib */; };
 		24434A471677D52800DAC959 /* WidePreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A381677D52800DAC959 /* WidePreferences.png */; };
 		244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244E560816755CA300F80E78 /* RHPreferences.framework */; };
+		247686021682777A00A8C4AD /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686001682777A00A8C4AD /* bootIA32.efi */; };
+		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
 		24C9FCCE1664204B0080E6E4 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C9FCCD1664204B0080E6E4 /* USBDevice.m */; };
 		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6BF61656F7A700061D2F /* InfoPlist.strings */; };
@@ -27,8 +29,6 @@
 		24CA6C041656F7A700061D2F /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C021656F7A700061D2F /* Document.xib */; };
 		24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C051656F7A700061D2F /* MainMenu.xib */; };
 		24CA6C14165701A900061D2F /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C13165701A900061D2F /* Icon.icns */; };
-		24CA6C1E1657020C00061D2F /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C18165701F000061D2F /* bootIA32.efi */; };
-		24CA6C1F1657020C00061D2F /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C19165701F000061D2F /* bootX64.efi */; };
 		24DB8AB91659AB0700F7C947 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 24DB8AB81659AB0700F7C947 /* README */; };
 		24F62E7216795AD50016B65A /* bootup.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24F62E7116795AD50016B65A /* bootup.icns */; };
 /* End PBXBuildFile section */
@@ -63,6 +63,8 @@
 		24434A371677D52800DAC959 /* RHWideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RHWideViewController.xib; sourceTree = "<group>"; };
 		24434A381677D52800DAC959 /* WidePreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WidePreferences.png; sourceTree = "<group>"; };
 		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
+		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
+		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
 		24C9FCCC1664204B0080E6E4 /* USBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USBDevice.h; sourceTree = "<group>"; };
 		24C9FCCD1664204B0080E6E4 /* USBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USBDevice.m; sourceTree = "<group>"; };
 		24CA6BE91656F7A700061D2F /* Mac Linux USB Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Linux USB Loader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,8 +82,6 @@
 		24CA6C061656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		24CA6C13165701A900061D2F /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		24CA6C18165701F000061D2F /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
-		24CA6C19165701F000061D2F /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
 		24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
@@ -122,13 +122,22 @@
 			sourceTree = "<group>";
 			usesTabs = 0;
 		};
+		247685FF1682777A00A8C4AD /* EFI Loader */ = {
+			isa = PBXGroup;
+			children = (
+				247686001682777A00A8C4AD /* bootIA32.efi */,
+				247686011682777A00A8C4AD /* bootX64.efi */,
+			);
+			path = "EFI Loader";
+			sourceTree = "<group>";
+		};
 		24CA6BDE1656F7A700061D2F = {
 			isa = PBXGroup;
 			children = (
+				247685FF1682777A00A8C4AD /* EFI Loader */,
 				24434A201677D50800DAC959 /* Preferences View Controllers */,
 				24434A191677CE2100DAC959 /* RHPreferences.framework */,
 				24DB8AB81659AB0700F7C947 /* README */,
-				24CA6C17165701F000061D2F /* EFI-Ubuntu */,
 				24F62E7416795AE50016B65A /* Icons */,
 				24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */,
 				24CA6BEC1656F7A700061D2F /* Frameworks */,
@@ -188,16 +197,6 @@
 				24CA6BFB1656F7A700061D2F /* Mac Linux USB Loader-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		24CA6C17165701F000061D2F /* EFI-Ubuntu */ = {
-			isa = PBXGroup;
-			children = (
-				24CA6C18165701F000061D2F /* bootIA32.efi */,
-				24CA6C19165701F000061D2F /* bootX64.efi */,
-			);
-			name = "EFI-Ubuntu";
-			path = "Resources/EFI-Ubuntu";
 			sourceTree = "<group>";
 		};
 		24F62E7416795AE50016B65A /* Icons */ = {
@@ -262,8 +261,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24CA6C1E1657020C00061D2F /* bootIA32.efi in Resources */,
-				24CA6C1F1657020C00061D2F /* bootX64.efi in Resources */,
 				24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */,
 				24CA6C041656F7A700061D2F /* Document.xib in Resources */,
 				24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */,
@@ -276,6 +273,8 @@
 				24434A461677D52800DAC959 /* RHWideViewController.xib in Resources */,
 				24434A471677D52800DAC959 /* WidePreferences.png in Resources */,
 				24F62E7216795AD50016B65A /* bootup.icns in Resources */,
+				247686021682777A00A8C4AD /* bootIA32.efi in Resources */,
+				247686031682777A00A8C4AD /* bootX64.efi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
