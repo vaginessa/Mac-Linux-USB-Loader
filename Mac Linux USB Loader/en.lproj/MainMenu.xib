@@ -405,7 +405,7 @@
 				<string key="NSWindowContentMaxSize">{480, 200}</string>
 				<string key="NSWindowContentMinSize">{480, 200}</string>
 				<object class="NSView" key="NSWindowView" id="280925920">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSButton" id="492218587">
@@ -413,7 +413,6 @@
 							<int key="NSvFlags">293</int>
 							<string key="NSFrame">{{90, 23}, {150, 32}}</string>
 							<reference key="NSSuperview" ref="280925920"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="259774430"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -442,7 +441,6 @@
 							<int key="NSvFlags">269</int>
 							<string key="NSFrame">{{93, 59}, {294, 93}}</string>
 							<reference key="NSSuperview" ref="280925920"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="492218587"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
@@ -484,7 +482,6 @@
 							<int key="NSvFlags">269</int>
 							<string key="NSFrame">{{142, 158}, {196, 22}}</string>
 							<reference key="NSSuperview" ref="280925920"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="153633457"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -509,7 +506,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{251, 23}, {128, 32}}</string>
 							<reference key="NSSuperview" ref="280925920"/>
-							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="341626478">
@@ -530,8 +526,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{480, 200}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="830401206"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -549,7 +543,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="698088862">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSImageView" id="507124753">
@@ -667,7 +661,7 @@
 										<object class="NSTextView" id="48996168">
 											<reference key="NSNextResponder" ref="757830437"/>
 											<int key="NSvFlags">2322</int>
-											<string key="NSFrameSize">{226, 154}</string>
+											<string key="NSFrameSize">{226, 94}</string>
 											<reference key="NSSuperview" ref="757830437"/>
 											<reference key="NSNextKeyView" ref="478119800"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
@@ -782,7 +776,6 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{463, 10000000}</string>
-											<string key="NSMinize">{226, 94}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
@@ -793,7 +786,7 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 									<reference key="NSDocView" ref="48996168"/>
 									<reference key="NSBGColor" ref="753378196"/>
 									<object class="NSCursor" key="NSCursor">
-										<string key="NSHotSpot">{1, -1}</string>
+										<string key="NSHotSpot">{5, 5}</string>
 										<int key="NSCursorType">0</int>
 									</object>
 									<int key="NScvFlags">4</int>
@@ -804,7 +797,6 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 									<string key="NSFrame">{{226, 0}, {15, 94}}</string>
 									<reference key="NSSuperview" ref="433004644"/>
 									<string key="NSReuseIdentifierKey">_NS:83</string>
-									<bool key="NSEnabled">YES</bool>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="433004644"/>
 									<string key="NSAction">_doScroller:</string>
@@ -829,7 +821,7 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 							<reference key="NSSuperview" ref="698088862"/>
 							<reference key="NSNextKeyView" ref="757830437"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
-							<int key="NSsFlags">133200</int>
+							<int key="NSsFlags">133136</int>
 							<reference key="NSVScroller" ref="967479522"/>
 							<reference key="NSHScroller" ref="478119800"/>
 							<reference key="NSContentView" ref="757830437"/>
@@ -839,7 +831,6 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 						</object>
 					</array>
 					<string key="NSFrameSize">{447, 303}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="507124753"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
@@ -864,6 +855,14 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 					<object class="NSMenuItem" id="798307237">
 						<reference key="NSMenu" ref="207868591"/>
 						<string key="NSTitle">Select ISO File</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="1033313550"/>
+						<reference key="NSMixedImage" ref="310636482"/>
+					</object>
+					<object class="NSMenuItem" id="746014863">
+						<reference key="NSMenu" ref="207868591"/>
+						<string key="NSTitle">Show GitHub Repository</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="1033313550"/>
@@ -1060,6 +1059,14 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 						<reference key="destination" ref="621308617"/>
 					</object>
 					<int key="connectionID">732</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openGithubPage:</string>
+						<reference key="source" ref="737481470"/>
+						<reference key="destination" ref="746014863"/>
+					</object>
+					<int key="connectionID">760</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1836,6 +1843,7 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 							<reference ref="621308617"/>
 							<reference ref="798307237"/>
 							<reference ref="178257859"/>
+							<reference ref="746014863"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -2119,6 +2127,11 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 						<reference key="object" ref="631414546"/>
 						<reference key="parent" ref="0"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">759</int>
+						<reference key="object" ref="746014863"/>
+						<reference key="parent" ref="207868591"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2271,6 +2284,7 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 				<string key="753.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="754.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="755.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="759.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="79.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="81.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="83.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2280,7 +2294,7 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">758</int>
+			<int key="maxID">760</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2292,7 +2306,6 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 						<string key="makeLiveUSB:">id</string>
 						<string key="openDiskUtility:">id</string>
 						<string key="openGithubPage:">id</string>
-						<string key="showPrefsPane:">id</string>
 						<string key="updateDeviceList:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -2310,10 +2323,6 @@ VGhhbmtzIGEgbWlsbGlvbiE</bytes>
 						</object>
 						<object class="IBActionInfo" key="openGithubPage:">
 							<string key="name">openGithubPage:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showPrefsPane:">
-							<string key="name">showPrefsPane:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="updateDeviceList:">

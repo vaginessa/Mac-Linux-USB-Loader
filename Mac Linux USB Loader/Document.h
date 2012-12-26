@@ -14,6 +14,7 @@
 @property (strong) IBOutlet NSPanel *prefsWindow;
 @property (unsafe_unretained) IBOutlet NSButton *makeUSBButton;
 @property (unsafe_unretained) IBOutlet NSProgressIndicator *spinner;
+@property (weak) IBOutlet NSProgressIndicator *indeterminate;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 - (IBAction)openDiskUtility:(id)sender;
 - (IBAction)eraseLiveBoot:(id)sender;

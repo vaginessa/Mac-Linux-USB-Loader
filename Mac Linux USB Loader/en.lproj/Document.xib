@@ -391,6 +391,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
+						<string key="label">indeterminate</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="48310739"/>
+					</object>
+					<int key="connectionID">100267</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="275939982"/>
 						<reference key="destination" ref="512844837"/>
@@ -1293,7 +1301,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100266</int>
+			<int key="maxID">100267</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1305,7 +1313,7 @@
 						<string key="makeLiveUSB:">id</string>
 						<string key="openDiskUtility:">id</string>
 						<string key="openGithubPage:">id</string>
-						<string key="showPrefsPane:">id</string>
+						<string key="showPreferences:">id</string>
 						<string key="updateDeviceList:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -1325,8 +1333,8 @@
 							<string key="name">openGithubPage:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="showPrefsPane:">
-							<string key="name">showPrefsPane:</string>
+						<object class="IBActionInfo" key="showPreferences:">
+							<string key="name">showPreferences:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="updateDeviceList:">
@@ -1335,6 +1343,7 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="indeterminate">NSProgressIndicator</string>
 						<string key="makeUSBButton">NSButton</string>
 						<string key="prefsWindow">NSPanel</string>
 						<string key="spinner">NSProgressIndicator</string>
@@ -1342,6 +1351,10 @@
 						<string key="window">NSWindow</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="indeterminate">
+							<string key="name">indeterminate</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="makeUSBButton">
 							<string key="name">makeUSBButton</string>
 							<string key="candidateClassName">NSButton</string>

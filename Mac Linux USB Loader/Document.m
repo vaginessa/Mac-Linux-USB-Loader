@@ -22,6 +22,7 @@
 @synthesize usbDriveDropdown;
 @synthesize window;
 @synthesize makeUSBButton;
+@synthesize indeterminate;
 @synthesize spinner;
 @synthesize prefsWindow;
 @synthesize preferencesWindowController=_preferencesWindowController;
@@ -107,9 +108,12 @@ USBDevice *device;
     
     // Use Grand Central Dispatch (GCD) to copy the files in another thread.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [indeterminate setUsesThreadedAnimation:YES];
+        [indeterminate startAnimation:self];
+        
         [spinner setUsesThreadedAnimation:YES];
-        [spinner setDoubleValue:0.0];
         [spinner setIndeterminate:YES];
+        [spinner setDoubleValue:0.0];
         [spinner startAnimation:self];
         // Make the Live USB!
         if ([device prepareUSB:usbRoot] == YES) {
@@ -117,6 +121,9 @@ USBDevice *device;
             [spinner setDoubleValue:50.0];
             [device copyISO:usbRoot:isoFilePath];
             [spinner setDoubleValue:100.0];
+            [spinner stopAnimation:self];
+            
+            [indeterminate stopAnimation:self];
             [spinner stopAnimation:self];
         }
         else {
@@ -161,7 +168,7 @@ USBDevice *device;
         while (file = [en nextObject]) {
             res = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err];
             if (!res && err) {
-                NSLog(@"oops: %@", err);
+                NSLog(@"Could not delete: %@", err);
             }
         }
     }
@@ -183,6 +190,5 @@ USBDevice *device;
     }
     
     [_preferencesWindowController showWindow:self];
-    
 }
 @end
