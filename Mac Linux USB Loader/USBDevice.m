@@ -71,18 +71,6 @@ NSWindow *window;
     
     NSLog(@"Writing from %@.", isoFile);
     
-    NSString *iconPath = [[NSBundle mainBundle] pathForResource:@"bootup" ofType:@"icns" inDirectory:@""];
-    NSString *finalIconPath = [NSString stringWithFormat:@"%@/._.VolumeIcon.icns", path];
-    if ([[NSFileManager new] copyItemAtPath:[[NSURL URLWithString:iconPath] path] toPath:finalIconPath error:nil] == NO) {
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Abort"];
-        [alert setMessageText:@"Failed to create bootable USB."];
-        [alert setInformativeText:@"Could not copy the Linux ISO to the USB device."];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        return NO;
-    }
-    
     // Copy the Linux distro ISO.
     if ([[NSFileManager new] copyItemAtPath:[[NSURL URLWithString:isoFile] path] toPath:finalPath error:nil] == NO) {
         NSAlert *alert = [[NSAlert alloc] init];

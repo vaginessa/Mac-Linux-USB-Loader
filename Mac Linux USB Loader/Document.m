@@ -104,20 +104,25 @@ USBDevice *device;
     
     NSString* directoryName = [usbDriveDropdown titleOfSelectedItem];
     NSString* usbRoot = [usbs valueForKey:directoryName];
-        
-    [spinner setUsesThreadedAnimation:YES];
-    [spinner setDoubleValue:0.0];
-    [spinner startAnimation:self];
-    // Make the Live USB!
-    if ([device prepareUSB:usbRoot] == YES) {
-        [spinner setDoubleValue:50.0];
-        [device copyISO:usbRoot:isoFilePath];
-        [spinner setDoubleValue:100.0];
-        [spinner stopAnimation:self];
-    }
-    else {
-        // TODO
-    }
+    
+    // Use Grand Central Dispatch (GCD) to copy the files in another thread.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [spinner setUsesThreadedAnimation:YES];
+        [spinner setDoubleValue:0.0];
+        [spinner setIndeterminate:YES];
+        [spinner startAnimation:self];
+        // Make the Live USB!
+        if ([device prepareUSB:usbRoot] == YES) {
+            [spinner setIndeterminate:NO];
+            [spinner setDoubleValue:50.0];
+            [device copyISO:usbRoot:isoFilePath];
+            [spinner setDoubleValue:100.0];
+            [spinner stopAnimation:self];
+        }
+        else {
+            // TODO
+        }
+    }); // End of GCD block
 }
 
 - (IBAction)openGithubPage:(id)sender {
