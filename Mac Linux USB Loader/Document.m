@@ -55,7 +55,14 @@ USBDevice *device;
     isoFilePath = [[self fileURL] absoluteString];
     
     if (isoFilePath != nil) {
-        [makeUSBButton setEnabled: YES];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Abort"];
+        [alert setMessageText:@"Failed to create bootable USB."];
+        [alert setInformativeText:@"Could not copy the Linux ISO to the USB device."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:nil contextInfo:nil];
+        
+        [makeUSBButton setEnabled:NO];
     }
     
     [self getUSBDeviceList];
@@ -136,9 +143,17 @@ USBDevice *device;
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader"]];
 }
 
+- (IBAction)reportBug:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader/issues/new"]];
+}
+
 + (BOOL)autosavesInPlace
 {
     return NO;
+}
+
++ (BOOL)isEntireFileLoaded {
+    return YES;
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
