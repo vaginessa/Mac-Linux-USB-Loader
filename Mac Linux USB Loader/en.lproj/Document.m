@@ -191,7 +191,7 @@ USBDevice *device;
 
 -(IBAction)showPreferences:(id)sender{
     //if we have not created the window controller yet, create it now
-    if (!_preferencesWindowController){
+    if (!_preferencesWindowController) {
         RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
         RHAboutViewController *about = [[RHAboutViewController alloc] init];
         RHWideViewController *wide = [[RHWideViewController alloc] init];

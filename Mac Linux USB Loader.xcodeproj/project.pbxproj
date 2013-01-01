@@ -21,11 +21,11 @@
 		244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244E560816755CA300F80E78 /* RHPreferences.framework */; };
 		247686021682777A00A8C4AD /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686001682777A00A8C4AD /* bootIA32.efi */; };
 		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
-		24C9FCCE1664204B0080E6E4 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C9FCCD1664204B0080E6E4 /* USBDevice.m */; };
+		249E04F71693916400562F64 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04F91693916400562F64 /* USBDevice.m */; };
+		249E04FB1693916900562F64 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04FD1693916900562F64 /* Document.m */; };
 		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6BF61656F7A700061D2F /* InfoPlist.strings */; };
 		24CA6BFA1656F7A700061D2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6BF91656F7A700061D2F /* main.m */; };
-		24CA6C011656F7A700061D2F /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6C001656F7A700061D2F /* Document.m */; };
 		24CA6C041656F7A700061D2F /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C021656F7A700061D2F /* Document.xib */; };
 		24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C051656F7A700061D2F /* MainMenu.xib */; };
 		24CA6C14165701A900061D2F /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C13165701A900061D2F /* Icon.icns */; };
@@ -65,8 +65,9 @@
 		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
 		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
+		249E04F81693916400562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/USBDevice.m; sourceTree = "<group>"; };
+		249E04FC1693916900562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/Document.m; sourceTree = "<group>"; };
 		24C9FCCC1664204B0080E6E4 /* USBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USBDevice.h; sourceTree = "<group>"; };
-		24C9FCCD1664204B0080E6E4 /* USBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USBDevice.m; sourceTree = "<group>"; };
 		24CA6BE91656F7A700061D2F /* Mac Linux USB Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Linux USB Loader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24CA6BED1656F7A700061D2F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		24CA6BF01656F7A700061D2F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -77,7 +78,6 @@
 		24CA6BF91656F7A700061D2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24CA6BFB1656F7A700061D2F /* Mac Linux USB Loader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mac Linux USB Loader-Prefix.pch"; sourceTree = "<group>"; };
 		24CA6BFF1656F7A700061D2F /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		24CA6C001656F7A700061D2F /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		24CA6C031656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
 		24CA6C061656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		24CA6C13165701A900061D2F /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
@@ -178,9 +178,9 @@
 			children = (
 				24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */,
 				24CA6BFF1656F7A700061D2F /* Document.h */,
-				24CA6C001656F7A700061D2F /* Document.m */,
+				249E04FD1693916900562F64 /* Document.m */,
 				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
-				24C9FCCD1664204B0080E6E4 /* USBDevice.m */,
+				249E04F91693916400562F64 /* USBDevice.m */,
 				24CA6C021656F7A700061D2F /* Document.xib */,
 				24CA6C051656F7A700061D2F /* MainMenu.xib */,
 				24CA6BF41656F7A700061D2F /* Supporting Files */,
@@ -286,8 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				24CA6BFA1656F7A700061D2F /* main.m in Sources */,
-				24CA6C011656F7A700061D2F /* Document.m in Sources */,
-				24C9FCCE1664204B0080E6E4 /* USBDevice.m in Sources */,
+				249E04FB1693916900562F64 /* Document.m in Sources */,
+				249E04F71693916400562F64 /* USBDevice.m in Sources */,
 				24434A3F1677D52800DAC959 /* RHAboutViewController.m in Sources */,
 				24434A411677D52800DAC959 /* RHAccountsViewController.m in Sources */,
 				24434A431677D52800DAC959 /* RHAppDelegate.m in Sources */,
@@ -298,6 +298,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		249E04F91693916400562F64 /* USBDevice.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				249E04F81693916400562F64 /* en */,
+			);
+			name = USBDevice.m;
+			sourceTree = "<group>";
+		};
+		249E04FD1693916900562F64 /* Document.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				249E04FC1693916900562F64 /* en */,
+			);
+			name = Document.m;
+			sourceTree = "<group>";
+		};
 		24CA6BF61656F7A700061D2F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
