@@ -84,11 +84,11 @@ NSWindow *window;
     else {
         NSProcessInfo *pinfo = [NSProcessInfo processInfo];
         NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
-        NSString *version = [@"Mac OS X " stringByAppendingString:[myarr objectAtIndex:1]];
+        NSString *version = [myarr objectAtIndex:1];
         
         // Ensure that we are running 10.8 before we display the notification as we still support Lion, which does not have
         // them.
-        if ([version rangeOfString:@"Mac OS X 10.8"].location != NSNotFound) {
+        if ([version rangeOfString:@"10.8"].location != NSNotFound) {
             NSUserNotification *notification = [[NSUserNotification alloc] init];
             notification.title = @"Finished Making Live USB";
             notification.informativeText = @"The live USB has been made successfully.";

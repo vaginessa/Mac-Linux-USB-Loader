@@ -54,14 +54,7 @@ USBDevice *device;
     
     isoFilePath = [[self fileURL] absoluteString];
     
-    if (isoFilePath != nil) {
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Abort"];
-        [alert setMessageText:@"Failed to create bootable USB."];
-        [alert setInformativeText:@"Could not copy the Linux ISO to the USB device."];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:nil contextInfo:nil];
-        
+    if (isoFilePath == nil) {
         [makeUSBButton setEnabled:NO];
     }
     
@@ -119,14 +112,23 @@ USBDevice *device;
         [indeterminate startAnimation:self];
         
         [spinner setUsesThreadedAnimation:YES];
-        [spinner setIndeterminate:YES];
-        [spinner setDoubleValue:0.0];
+        [spinner setIndeterminate:YsetDoubleValue:0.0];
         [spinner startAnimation:self];
-        // Make the Live USB!
+        
         if ([device prepareUSB:usbRoot] == YES) {
             [spinner setIndeterminate:NO];
             [spinner setDoubleValue:50.0];
-            [device copyISO:usbRoot:isoFilePath];
+            
+            if ([device copyISO:usbRoot:isoFilePath] != YES) {
+                NSAlert *alert = [[NSAlert alloc] init];
+                [alert addButtonWithTitle:@"Yes"];
+                [alert addButtonWithTitle:@"No"];
+                [alert setMessageText:@"Failed to create bootable USB."];
+                [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
+                [alert setAlertStyle:NSWarningAlertStyle];
+                [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(copyAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+            }
+            
             [spinner setDoubleValue:100.0];
             [spinner stopAnimation:self];
             
@@ -134,7 +136,14 @@ USBDevice *device;
             [spinner stopAnimation:self];
         }
         else {
-            // TODO
+            // Some form of setup failed. Alert the user.
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert addButtonWithTitle:@"Yes"];
+            [alert addButtonWithTitle:@"No"];
+            [alert setMessageText:@"Failed to create bootable USB."];
+            [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(copyAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         }
     }); // End of GCD block
 }
@@ -206,4 +215,11 @@ USBDevice *device;
     
     [_preferencesWindowController showWindow:self];
 }
+
+- (void)copyAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+    if (returnCode == NSAlertFirstButtonReturn) {
+        NSLog(@"Will erase USB device.");
+    }
+}
+
 @end
