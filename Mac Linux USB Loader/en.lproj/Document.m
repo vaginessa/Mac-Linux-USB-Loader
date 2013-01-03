@@ -112,7 +112,8 @@ USBDevice *device;
         [indeterminate startAnimation:self];
         
         [spinner setUsesThreadedAnimation:YES];
-        [spinner setIndeterminate:YsetDoubleValue:0.0];
+        [spinner setIndeterminate:YES];
+        [spinner setDoubleValue:0.0];
         [spinner startAnimation:self];
         
         if ([device prepareUSB:usbRoot] == YES) {
@@ -178,24 +179,13 @@ USBDevice *device;
 }
 
 - (IBAction)eraseLiveBoot:(id)sender {
-    if ([usbDriveDropdown numberOfItems] != 0) {
-        NSString *directoryName = [usbDriveDropdown titleOfSelectedItem];
-        NSString *usbRoot = [usbs valueForKey:directoryName];
-        NSString *tempPath = [NSString stringWithFormat:@"%@/efi", usbRoot];
-        
-        NSFileManager* fm = [[NSFileManager alloc] init];
-        NSDirectoryEnumerator* en = [fm enumeratorAtPath:tempPath];
-        NSError *err = nil;
-        BOOL res;
-        
-        NSString *file;
-        while (file = [en nextObject]) {
-            res = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err];
-            if (!res && err) {
-                NSLog(@"Could not delete: %@", err);
-            }
-        }
-    }
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"No"];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert setMessageText:@"Are you sure that you want to erase the live boot?"];
+    [alert setInformativeText:@"This will recover space, but is unrecoverable."];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
 -(IBAction)showPreferences:(id)sender{
@@ -206,9 +196,7 @@ USBDevice *device;
         RHWideViewController *wide = [[RHWideViewController alloc] init];
         
         NSArray *controllers = [NSArray arrayWithObjects:accounts, wide,
-                                [RHPreferencesWindowController flexibleSpacePlaceholderController],
-                                about,
-                                nil];
+                                [RHPreferencesWindowController flexibleSpacePlaceholderController], about, nil];
         
         _preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", @"Preferences Window Title")];
     }
@@ -219,6 +207,30 @@ USBDevice *device;
 - (void)copyAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == NSAlertFirstButtonReturn) {
         NSLog(@"Will erase USB device.");
+    }
+}
+
+- (void)eraseAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+    if (returnCode != NSAlertFirstButtonReturn) {
+        NSLog(@"Will erase!");
+        if ([usbDriveDropdown numberOfItems] != 0) {
+            NSString *directoryName = [usbDriveDropdown titleOfSelectedItem];
+            NSString *usbRoot = [usbs valueForKey:directoryName];
+            NSString *tempPath = [NSString stringWithFormat:@"%@/efi", usbRoot];
+            
+            NSFileManager* fm = [[NSFileManager alloc] init];
+            NSDirectoryEnumerator* en = [fm enumeratorAtPath:tempPath];
+            NSError *err = nil;
+            BOOL res;
+            
+            NSString *file;
+            while (file = [en nextObject]) {
+                res = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err];
+                if (!res && err) {
+                    NSLog(@"Could not delete: %@", err);
+                }
+            }
+        }
     }
 }
 
