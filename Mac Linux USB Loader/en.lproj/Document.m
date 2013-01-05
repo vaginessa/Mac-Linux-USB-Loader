@@ -63,31 +63,36 @@ USBDevice *device;
 
 - (void)getUSBDeviceList
 {
-    //Fetch the NSArray of strings of mounted media from the shared workspace
+    // Fetch the NSArray of strings of mounted media from the shared workspace
     NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedRemovableMedia];
     
-    //Setup target variables for the data to be put into
+    // Setup target variables for the data to be put into
     BOOL isRemovable, isWritable, isUnmountable;
     NSString *description, *volumeType;
     
     [usbDriveDropdown removeAllItems]; // Clear the dropdown list.
     [usbs removeAllObjects];           // Clear the dictionary of the list of USB drives.
     
-    //Iterate through the array using fast enumeration
+    // Iterate through the array using fast enumeration
     for (NSString *volumePath in volumes) {
-        //Get filesystem info about each of the mounted volumes
+        // Get filesystem info about each of the mounted volumes
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
             if ([volumeType isEqualToString:@"msdos"]) {
                 NSString * title = [NSString stringWithFormat:@"Drive type %@ at %@", volumeType, volumePath];
-                usbs[title] = volumePath; //Add the path of the usb to a dictionary so later we can tell what USB
-                                          //they are refering to when they select one from a drop down.
+                usbs[title] = volumePath; // Add the path of the usb to a dictionary so later we can tell what USB
+                                          // they are refering to when they select one from a drop down.
                 [usbDriveDropdown addItemWithTitle:title];
             }
         }
     }
     
+    // NSLog(@"There are %li items.", [usbDriveDropdown numberOfItems]);
+    
     if (isoFilePath != nil && [usbDriveDropdown numberOfItems] != 1) {
-        [makeUSBButton setEnabled: YES];
+        [makeUSBButton setEnabled:YES];
+    }
+    else if ([usbDriveDropdown numberOfItems] == 0) { // There are no detected USB ports, at least those formatted as FAT.
+        [makeUSBButton setEnabled:NO];
     }
     // Exit
 }
@@ -97,56 +102,64 @@ USBDevice *device;
 }
 
 - (IBAction)makeLiveUSB:(id)sender {
+    __block BOOL failure = false;
     isoFilePath = [[self fileURL] absoluteString];
     
-    if (isoFilePath == nil) {
-        [makeUSBButton setEnabled: NO];
+    if ([usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Okay"];
+        [alert setMessageText:@"No USB devices detected."];
+        [alert setInformativeText:@"There are no detected USB devices."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        
+        [makeUSBButton setEnabled:NO];
+        
+        return;
     }
     
     NSString* directoryName = [usbDriveDropdown titleOfSelectedItem];
     NSString* usbRoot = [usbs valueForKey:directoryName];
     
+    [indeterminate setUsesThreadedAnimation:YES];
+    [indeterminate startAnimation:self];
+    
+    [spinner setUsesThreadedAnimation:YES];
+    [spinner setIndeterminate:YES];
+    [spinner setDoubleValue:0.0];
+    [spinner startAnimation:self];
+    
     // Use Grand Central Dispatch (GCD) to copy the files in another thread.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [indeterminate setUsesThreadedAnimation:YES];
-        [indeterminate startAnimation:self];
-        
-        [spinner setUsesThreadedAnimation:YES];
-        [spinner setIndeterminate:YES];
-        [spinner setDoubleValue:0.0];
-        [spinner startAnimation:self];
-        
         if ([device prepareUSB:usbRoot] == YES) {
             [spinner setIndeterminate:NO];
             [spinner setDoubleValue:50.0];
             
             if ([device copyISO:usbRoot:isoFilePath] != YES) {
-                NSAlert *alert = [[NSAlert alloc] init];
-                [alert addButtonWithTitle:@"Yes"];
-                [alert addButtonWithTitle:@"No"];
-                [alert setMessageText:@"Failed to create bootable USB."];
-                [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
-                [alert setAlertStyle:NSWarningAlertStyle];
-                [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(copyAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+                failure = YES;
             }
-            
-            [spinner setDoubleValue:100.0];
-            [spinner stopAnimation:self];
-            
-            [indeterminate stopAnimation:self];
-            [spinner stopAnimation:self];
         }
         else {
             // Some form of setup failed. Alert the user.
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"Yes"];
-            [alert addButtonWithTitle:@"No"];
-            [alert setMessageText:@"Failed to create bootable USB."];
-            [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
-            [alert setAlertStyle:NSWarningAlertStyle];
-            [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(copyAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+            failure = YES;
         }
     }); // End of GCD block
+    
+    [spinner setDoubleValue:100.0];
+    [spinner stopAnimation:self];
+    
+    [indeterminate stopAnimation:self];
+    [spinner stopAnimation:self];
+    
+    if (failure) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Yes"];
+        [alert addButtonWithTitle:@"No"];
+        [alert setMessageText:@"Failed to create bootable USB."];
+        [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(copyAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    }
 }
 
 - (IBAction)openGithubPage:(id)sender {
@@ -208,6 +221,10 @@ USBDevice *device;
     if (returnCode == NSAlertFirstButtonReturn) {
         NSLog(@"Will erase USB device.");
     }
+}
+
+- (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+    // Do nothing.
 }
 
 - (void)eraseAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
