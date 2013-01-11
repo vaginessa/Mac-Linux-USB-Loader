@@ -138,18 +138,18 @@ USBDevice *device;
             if ([device copyISO:usbRoot:isoFilePath] != YES) {
                 failure = YES;
             }
+            
+            [spinner setDoubleValue:100.0];
+            [spinner stopAnimation:self];
+            
+            [indeterminate stopAnimation:self];
+            [spinner stopAnimation:self];
         }
         else {
             // Some form of setup failed. Alert the user.
             failure = YES;
         }
     }); // End of GCD block
-    
-    [spinner setDoubleValue:100.0];
-    [spinner stopAnimation:self];
-    
-    [indeterminate stopAnimation:self];
-    [spinner stopAnimation:self];
     
     if (failure) {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -229,7 +229,7 @@ USBDevice *device;
 
 - (void)eraseAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
     if (returnCode != NSAlertFirstButtonReturn) {
-        NSLog(@"Will erase!");
+        // NSLog(@"Will erase!");
         if ([usbDriveDropdown numberOfItems] != 0) {
             NSString *directoryName = [usbDriveDropdown titleOfSelectedItem];
             NSString *usbRoot = [usbs valueForKey:directoryName];
@@ -244,6 +244,13 @@ USBDevice *device;
             while (file = [en nextObject]) {
                 res = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err];
                 if (!res && err) {
+                    NSString *text = [NSString stringWithFormat:@"Error: %@", err];
+                    NSAlert *alert = [[NSAlert alloc] init];
+                    [alert addButtonWithTitle:@"Okay"];
+                    [alert setMessageText:@"Failed to erase live USB."];
+                    [alert setInformativeText:text];
+                    [alert setAlertStyle:NSWarningAlertStyle];
+                    [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
                     NSLog(@"Could not delete: %@", err);
                 }
             }
