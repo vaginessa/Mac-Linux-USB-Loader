@@ -7,8 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ApplicationPreferences.h"
 
 int main(int argc, char *argv[])
 {
+    [ApplicationPreferences new];
     return NSApplicationMain(argc, (const char **)argv);
 }

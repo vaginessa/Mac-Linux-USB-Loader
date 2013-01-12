@@ -399,6 +399,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
+						<string key="label">eraseUSBButton</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="336928385"/>
+					</object>
+					<int key="connectionID">100268</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="275939982"/>
 						<reference key="destination" ref="512844837"/>
@@ -1301,7 +1309,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100267</int>
+			<int key="maxID">100268</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1343,6 +1351,7 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="eraseUSBButton">NSButton</string>
 						<string key="indeterminate">NSProgressIndicator</string>
 						<string key="makeUSBButton">NSButton</string>
 						<string key="prefsWindow">NSPanel</string>
@@ -1351,6 +1360,10 @@
 						<string key="window">NSWindow</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="eraseUSBButton">
+							<string key="name">eraseUSBButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="indeterminate">
 							<string key="name">indeterminate</string>
 							<string key="candidateClassName">NSProgressIndicator</string>

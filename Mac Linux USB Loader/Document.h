@@ -13,6 +13,7 @@
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSPanel *prefsWindow;
 @property (unsafe_unretained) IBOutlet NSButton *makeUSBButton;
+@property (unsafe_unretained) IBOutlet NSButton *eraseUSBButton;
 @property (unsafe_unretained) IBOutlet NSProgressIndicator *spinner;
 @property (weak) IBOutlet NSProgressIndicator *indeterminate;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;

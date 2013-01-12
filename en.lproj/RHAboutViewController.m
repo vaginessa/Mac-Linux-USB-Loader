@@ -13,7 +13,7 @@
 @end
 
 @implementation RHAboutViewController
-@synthesize emailTextField = _emailTextField;
+@synthesize emailTextField = emailTextField;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:@"RHAboutViewController" bundle:nibBundleOrNil];

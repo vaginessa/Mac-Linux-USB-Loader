@@ -9,7 +9,7 @@
 #import "RHAppDelegate.h"
 #import "RHAboutViewController.h"
 #import "RHAccountsViewController.h"
-#import "RHWideViewController.h"
+#import "RHNotificationViewController.h"
 
 @implementation RHAppDelegate
 
@@ -33,9 +33,9 @@
     if (!_preferencesWindowController){
         RHAccountsViewController *accounts = [[[RHAccountsViewController alloc] init] autorelease];
         RHAboutViewController *about = [[[RHAboutViewController alloc] init] autorelease];
-        RHWideViewController *wide = [[[RHWideViewController alloc] init] autorelease];
+        RHNotificationViewController *notifications = [[[RHNotificationViewController alloc] init] autorelease];
         
-        NSArray *controllers = [NSArray arrayWithObjects:accounts, wide, 
+        NSArray *controllers = [NSArray arrayWithObjects:accounts, notifications,
                                 [RHPreferencesWindowController flexibleSpacePlaceholderController], 
                                 about,
                                 nil];

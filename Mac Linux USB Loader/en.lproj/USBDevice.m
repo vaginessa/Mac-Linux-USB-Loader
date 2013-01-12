@@ -69,7 +69,7 @@ NSWindow *window;
         return NO;
     }
     
-    NSLog(@"Writing from %@.", isoFile);
+    // NSLog(@"Writing from %@.", isoFile);
     
     // Copy the Linux distro ISO.
     if ([[NSFileManager new] copyItemAtPath:[[NSURL URLWithString:isoFile] path] toPath:finalPath error:nil] == NO) {

@@ -12,16 +12,19 @@
 #import "RHPreferences/RHPreferences.h"
 #import "RHPreferences/RHPreferencesWindowController.h"
 
+#import "ApplicationPreferences.h"
+
 #import "RHAppDelegate.h"
 #import "RHAboutViewController.h"
 #import "RHAccountsViewController.h"
-#import "RHWideViewController.h"
+#import "RHNotificationViewController.h"
 
 @implementation Document
 
 @synthesize usbDriveDropdown;
 @synthesize window;
 @synthesize makeUSBButton;
+@synthesize eraseUSBButton;
 @synthesize indeterminate;
 @synthesize spinner;
 @synthesize prefsWindow;
@@ -30,12 +33,13 @@
 NSMutableDictionary *usbs;
 NSString *isoFilePath;
 USBDevice *device;
+ApplicationPreferences *applicationPreferences;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        // EMPTY
+        applicationPreferences = [ApplicationPreferences new];
     }
     return self;
 }
@@ -56,6 +60,7 @@ USBDevice *device;
     
     if (isoFilePath == nil) {
         [makeUSBButton setEnabled:NO];
+        [eraseUSBButton setEnabled:NO];
     }
     
     [self getUSBDeviceList];
@@ -90,9 +95,11 @@ USBDevice *device;
     
     if (isoFilePath != nil && [usbDriveDropdown numberOfItems] != 1) {
         [makeUSBButton setEnabled:YES];
+        [eraseUSBButton setEnabled:YES];
     }
     else if ([usbDriveDropdown numberOfItems] == 0) { // There are no detected USB ports, at least those formatted as FAT.
         [makeUSBButton setEnabled:NO];
+        [eraseUSBButton setEnabled:NO];
     }
     // Exit
 }
@@ -114,6 +121,7 @@ USBDevice *device;
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
         [makeUSBButton setEnabled:NO];
+        [eraseUSBButton setEnabled:NO];
         
         return;
     }
@@ -206,9 +214,9 @@ USBDevice *device;
     if (!_preferencesWindowController) {
         RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
         RHAboutViewController *about = [[RHAboutViewController alloc] init];
-        RHWideViewController *wide = [[RHWideViewController alloc] init];
+        RHNotificationViewController *notifications = [[RHNotificationViewController alloc] init];
         
-        NSArray *controllers = [NSArray arrayWithObjects:accounts, wide,
+        NSArray *controllers = [NSArray arrayWithObjects:accounts, notifications,
                                 [RHPreferencesWindowController flexibleSpacePlaceholderController], about, nil];
         
         _preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", @"Preferences Window Title")];
