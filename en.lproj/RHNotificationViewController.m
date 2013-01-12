@@ -17,12 +17,14 @@
 @synthesize notificationCenterButton;
 @synthesize displayNotificationsCheckbox;
 
-ApplicationPreferences *applicationPreferences;
+NSUserDefaults *defaults;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:@"RHNotificationViewController" bundle:nibBundleOrNil];
     if (self){
-        applicationPreferences = [ApplicationPreferences new];
+        defaults = [NSUserDefaults standardUserDefaults];
+        
+        [displayNotificationsCheckbox setState:[defaults boolForKey:@"ShowNotifications"]];
     }
     return self;
 }
@@ -34,7 +36,7 @@ ApplicationPreferences *applicationPreferences;
 - (IBAction)setShowNotifications:(id)sender {
     if ([displayNotificationsCheckbox state] == NSOnState) {
         // Checkbox on.
-        
+        [defaults setBool:YES forKey:@"ShowNotifications"];
     }
 }
 

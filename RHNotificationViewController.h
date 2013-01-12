@@ -9,8 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 
-#import "ApplicationPreferences.h"
-
 @interface RHNotificationViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
     NSButton *notificationCenterButton;
 }

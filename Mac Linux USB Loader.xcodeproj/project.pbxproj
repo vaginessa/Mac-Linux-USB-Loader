@@ -17,7 +17,6 @@
 		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
 		249E04F71693916400562F64 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04F91693916400562F64 /* USBDevice.m */; };
 		249E04FB1693916900562F64 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04FD1693916900562F64 /* Document.m */; };
-		24AD166A16A0E4B90046C51A /* ApplicationPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD166C16A0E4B90046C51A /* ApplicationPreferences.m */; };
 		24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167016A0E85D0046C51A /* RHNotificationViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		24AD167116A0E8610046C51A /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167316A0E8610046C51A /* RHAboutViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167616A0E8650046C51A /* RHAccountsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -62,8 +61,6 @@
 		249E04F81693916400562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/USBDevice.m; sourceTree = "<group>"; };
 		249E04FC1693916900562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/Document.m; sourceTree = "<group>"; };
 		24AD166216A0E1D90046C51A /* RHNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHNotificationViewController.h; sourceTree = "<group>"; };
-		24AD166B16A0E4B90046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/ApplicationPreferences.m; sourceTree = "<group>"; };
-		24AD166D16A0E5300046C51A /* ApplicationPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationPreferences.h; sourceTree = "<group>"; };
 		24AD166F16A0E85D0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHNotificationViewController.m; sourceTree = "<group>"; };
 		24AD167216A0E8610046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAboutViewController.m; sourceTree = "<group>"; };
 		24AD167516A0E8650046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAccountsViewController.m; sourceTree = "<group>"; };
@@ -179,8 +176,6 @@
 		24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */ = {
 			isa = PBXGroup;
 			children = (
-				24AD166D16A0E5300046C51A /* ApplicationPreferences.h */,
-				24AD166C16A0E4B90046C51A /* ApplicationPreferences.m */,
 				24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */,
 				24CA6BFF1656F7A700061D2F /* Document.h */,
 				249E04FD1693916900562F64 /* Document.m */,
@@ -297,7 +292,6 @@
 				24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */,
 				24434A431677D52800DAC959 /* RHAppDelegate.m in Sources */,
 				24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */,
-				24AD166A16A0E4B90046C51A /* ApplicationPreferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,15 +312,6 @@
 				249E04FC1693916900562F64 /* en */,
 			);
 			name = Document.m;
-			sourceTree = "<group>";
-		};
-		24AD166C16A0E4B90046C51A /* ApplicationPreferences.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24AD166B16A0E4B90046C51A /* en */,
-			);
-			name = ApplicationPreferences.m;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		24AD167016A0E85D0046C51A /* RHNotificationViewController.m */ = {

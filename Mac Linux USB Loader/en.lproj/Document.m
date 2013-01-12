@@ -12,8 +12,6 @@
 #import "RHPreferences/RHPreferences.h"
 #import "RHPreferences/RHPreferencesWindowController.h"
 
-#import "ApplicationPreferences.h"
-
 #import "RHAppDelegate.h"
 #import "RHAboutViewController.h"
 #import "RHAccountsViewController.h"
@@ -33,13 +31,12 @@
 NSMutableDictionary *usbs;
 NSString *isoFilePath;
 USBDevice *device;
-ApplicationPreferences *applicationPreferences;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        applicationPreferences = [ApplicationPreferences new];
+        
     }
     return self;
 }
