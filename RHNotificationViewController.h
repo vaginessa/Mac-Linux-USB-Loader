@@ -12,6 +12,7 @@
 @interface RHNotificationViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
     NSButton *notificationCenterButton;
 }
+@property (unsafe_unretained) IBOutlet NSView *panelView;
 
 @property (unsafe_unretained) IBOutlet NSButton *notificationCenterButton;
 @property (unsafe_unretained) IBOutlet NSButton *displayNotificationsCheckbox;

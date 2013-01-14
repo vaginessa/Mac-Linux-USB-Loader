@@ -16,28 +16,41 @@
 
 @synthesize notificationCenterButton;
 @synthesize displayNotificationsCheckbox;
-
-NSUserDefaults *defaults;
+@synthesize panelView;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:@"RHNotificationViewController" bundle:nibBundleOrNil];
     if (self){
-        defaults = [NSUserDefaults standardUserDefaults];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults synchronize];
         
-        [displayNotificationsCheckbox setState:[defaults boolForKey:@"ShowNotifications"]];
+        if ([defaults boolForKey:@"ShowNotifications"] == YES) {
+            [displayNotificationsCheckbox setState:NSOnState];
+        } else {
+            [displayNotificationsCheckbox setState:NSOffState];
+        }
     }
     return self;
 }
 
-- (IBAction)showNotificationCenter:(id)sender {
-    [[NSWorkspace sharedWorkspace] openFile:@"/System/Library/PreferencePanes/Notifications.prefPane"];
+- (IBAction)showNotificationCenter:(NSButton*)sender {
+    NSProcessInfo *pinfo = [NSProcessInfo processInfo];
+    NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
+    NSString *version = [myarr objectAtIndex:1];
+    
+    // Ensure that we are running 10.8 before we display the preferences as we still support Lion, which does not have
+    // notifications.
+    if ([version rangeOfString:@"10.8"].location == NSNotFound) {
+        [sender setEnabled:NO];
+    } else {
+        [[NSWorkspace sharedWorkspace] openFile:@"/System/Library/PreferencePanes/Notifications.prefPane"];
+    }
 }
 
 - (IBAction)setShowNotifications:(id)sender {
-    if ([displayNotificationsCheckbox state] == NSOnState) {
-        // Checkbox on.
-        [defaults setBool:YES forKey:@"ShowNotifications"];
-    }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:@"ShowNotifications"];
+    [defaults synchronize];
 }
 
 #pragma mark - RHPreferencesViewControllerProtocol

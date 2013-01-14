@@ -23,7 +23,6 @@
     return self;
 }
 
-
 #pragma mark - RHPreferencesViewControllerProtocol
 
 -(NSString*)identifier{
