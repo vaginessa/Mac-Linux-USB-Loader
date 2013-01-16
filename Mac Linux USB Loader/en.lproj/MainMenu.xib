@@ -812,7 +812,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="267213294">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSButton" id="228773734">
@@ -820,6 +820,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{285, 13}, {103, 32}}</string>
 							<reference key="NSSuperview" ref="267213294"/>
+							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="324428554">
@@ -843,6 +844,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 48}, {368, 26}}</string>
 							<reference key="NSSuperview" ref="267213294"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="228773734"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -919,6 +921,8 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{402, 92}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="786497336"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -1135,6 +1139,22 @@
 						<reference key="destination" ref="609285721"/>
 					</object>
 					<int key="connectionID">757</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">downloadDistribution:</string>
+						<reference key="source" ref="631414546"/>
+						<reference key="destination" ref="228773734"/>
+					</object>
+					<int key="connectionID">985</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">distroPopUpSelector</string>
+						<reference key="source" ref="631414546"/>
+						<reference key="destination" ref="786497336"/>
+					</object>
+					<int key="connectionID">986</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2766,7 +2786,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">983</int>
+			<int key="maxID">986</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2880,17 +2900,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">RHAppDelegate</string>
 					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">showPreferences:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">showPreferences:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="downloadDistribution:">id</string>
+						<string key="showPreferences:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="downloadDistribution:">
+							<string key="name">downloadDistribution:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showPreferences:">
 							<string key="name">showPreferences:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+					</dictionary>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">window</string>
 						<string key="NS.object.0">NSWindow</string>

@@ -17,10 +17,12 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
+@property (retain) IBOutlet NSPopUpButton *distroPopUpSelector;
 
 
 #pragma mark - IBActions
--(IBAction)showPreferences:(id)sender;
+- (IBAction)showPreferences:(id)sender;
+- (IBAction)downloadDistribution:(id)sender;
 
 
 

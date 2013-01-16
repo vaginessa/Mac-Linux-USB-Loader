@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DistributionDownloader : NSViewController <NSURLDownloadDelegate>
+@interface DistributionDownloader : NSObject <NSURLDownloadDelegate>
 
 - (void)downloadLinuxDistribution:(NSURL*)url:(NSString*)destination;
+- (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 
 @end

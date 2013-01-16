@@ -36,7 +36,7 @@ USBDevice *device;
 {
     self = [super init];
     if (self) {
-        
+        // No initilization needed here.
     }
     return self;
 }
@@ -157,13 +157,20 @@ USBDevice *device;
     }); // End of GCD block
     
     if (failure) {
+        [spinner setIndeterminate:NO];
+        [spinner setDoubleValue:0.0];
+        [spinner stopAnimation:self];
+        
+        [indeterminate stopAnimation:self];
+        [spinner stopAnimation:self];
+        
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Yes"];
         [alert addButtonWithTitle:@"No"];
+        [alert addButtonWithTitle:@"Yes"];
         [alert setMessageText:@"Failed to create bootable USB."];
         [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
         [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(copyAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     }
 }
 
@@ -198,8 +205,8 @@ USBDevice *device;
 
 - (IBAction)eraseLiveBoot:(id)sender {
     NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:@"No"];
     [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
     [alert setMessageText:@"Are you sure that you want to erase the live boot?"];
     [alert setInformativeText:@"This will recover space, but is unrecoverable."];
     [alert setAlertStyle:NSWarningAlertStyle];
@@ -233,7 +240,7 @@ USBDevice *device;
 }
 
 - (void)eraseAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
-    if (returnCode != NSAlertFirstButtonReturn) {
+    if (returnCode == NSAlertFirstButtonReturn) {
         // NSLog(@"Will erase!");
         if ([usbDriveDropdown numberOfItems] != 0) {
             NSString *directoryName = [usbDriveDropdown titleOfSelectedItem];
