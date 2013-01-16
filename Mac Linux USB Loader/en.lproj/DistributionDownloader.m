@@ -55,8 +55,8 @@ NSURLDownload *download;
     // them.
     if ([version rangeOfString:@"10.8"].location != NSNotFound) {
         NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.title = @"File Download Complete";
-        notification.informativeText = @"The ISO was successfully downloaded.";
+        notification.title = @"File Download Failure";
+        notification.informativeText = @"Could not download the file.";
         notification.soundName = NSUserNotificationDefaultSoundName;
         
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
