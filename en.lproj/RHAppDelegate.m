@@ -18,6 +18,9 @@
 @synthesize window = _window;
 @synthesize preferencesWindowController=_preferencesWindowController;
 @synthesize distroPopUpSelector;
+@synthesize closeDistroDownloadSheetButton;
+
+NSWindow *downloadLinuxDistroSheet;
 
 - (void)dealloc
 {
@@ -49,9 +52,20 @@
     [_preferencesWindowController showWindow:self];
 }
 
+- (IBAction)showDownloadDistroSheet:(id)sender {
+    [NSApp beginSheet:sheet modalForWindow:(NSWindow *)_window modalDelegate:self didEndSelector:nil contextInfo:nil];
+}
+
+- (IBAction)closeDownloadDistroSheet:(id)sender {
+    [NSApp endSheet:sheet];
+    [sheet orderOut:sender];
+}
+
 - (IBAction)downloadDistribution:(id)sender {
+    [closeDistroDownloadSheetButton setEnabled:NO];
     NSURL *test = [NSURL URLWithString:@"http://static.binaryage.com/57f6fb3b_shared_img_icons_totalfinder-64.png"];
     [[DistributionDownloader new] downloadLinuxDistribution:test:@"/Users/RyanBowring/Desktop/"];
+    [closeDistroDownloadSheetButton setEnabled:YES];
 }
 
 @end

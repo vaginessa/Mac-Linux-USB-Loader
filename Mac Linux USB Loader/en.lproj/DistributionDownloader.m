@@ -11,16 +11,10 @@
 @implementation DistributionDownloader
 
 NSURLDownload *download;
+NSString *destinationPath;
 
 - (void)downloadLinuxDistribution:(NSURL*)url:(NSString*)destination {
-    /*
-    NSData *urlContents = [url resourceDataUsingCache:YES];
-    if ([urlContents writeToFile:[@"~/Desktop/ubuntu.iso" stringByExpandingTildeInPath] atomically:YES]) {
-        // It was successful, do stuff here
-    } else {
-        // There was a problem writing the file
-    }
-     */
+    destinationPath = destination;
     NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     // create the connection with the request
     // and start loading the data

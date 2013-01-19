@@ -10,20 +10,20 @@
 #import <RHPreferences/RHPreferences.h>
 
 @interface RHAppDelegate : NSObject <NSApplicationDelegate> {
-    
     NSWindow *_window;
     RHPreferencesWindowController *_preferencesWindowController;
+    IBOutlet NSPanel *sheet;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSButton *closeDistroDownloadSheetButton;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (retain) IBOutlet NSPopUpButton *distroPopUpSelector;
 
-
 #pragma mark - IBActions
 - (IBAction)showPreferences:(id)sender;
+- (IBAction)showDownloadDistroSheet:(id)sender;
+- (IBAction)closeDownloadDistroSheet:(id)sender;
 - (IBAction)downloadDistribution:(id)sender;
-
-
 
 @end
