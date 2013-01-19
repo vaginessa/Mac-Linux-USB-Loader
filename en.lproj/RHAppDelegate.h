@@ -26,4 +26,7 @@
 - (IBAction)closeDownloadDistroSheet:(id)sender;
 - (IBAction)downloadDistribution:(id)sender;
 
+#pragma mark - Delegates
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+
 @end

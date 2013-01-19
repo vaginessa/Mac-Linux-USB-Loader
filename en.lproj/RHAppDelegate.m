@@ -52,8 +52,10 @@ NSWindow *downloadLinuxDistroSheet;
     [_preferencesWindowController showWindow:self];
 }
 
+#pragma mark - Distribution Downloader
 - (IBAction)showDownloadDistroSheet:(id)sender {
-    [NSApp beginSheet:sheet modalForWindow:(NSWindow *)_window modalDelegate:self didEndSelector:nil contextInfo:nil];
+    [NSApp beginSheet:sheet modalForWindow:(NSWindow *)_window modalDelegate:self
+       didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
 - (IBAction)closeDownloadDistroSheet:(id)sender {
@@ -66,6 +68,10 @@ NSWindow *downloadLinuxDistroSheet;
     NSURL *test = [NSURL URLWithString:@"http://static.binaryage.com/57f6fb3b_shared_img_icons_totalfinder-64.png"];
     [[DistributionDownloader new] downloadLinuxDistribution:test:@"/Users/RyanBowring/Desktop/"];
     [closeDistroDownloadSheetButton setEnabled:YES];
+}
+
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    // Empty
 }
 
 @end
