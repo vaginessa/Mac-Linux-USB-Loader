@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
 		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -72,6 +72,7 @@
 											<string key="NSFrame">{{168, 13}, {199, 32}}</string>
 											<reference key="NSSuperview" ref="1037603364"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="15053030">
@@ -101,6 +102,7 @@
 											<string key="NSFrame">{{367, 13}, {130, 32}}</string>
 											<reference key="NSSuperview" ref="1037603364"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="160355437">
@@ -175,6 +177,7 @@
 											<string key="NSFrame">{{0, 4}, {166, 166}}</string>
 											<reference key="NSSuperview" ref="1037603364"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSImageCell" key="NSCell" id="365278556">
@@ -211,9 +214,10 @@
 											<string key="NSFrame">{{53, 22}, {446, 20}}</string>
 											<reference key="NSSuperview" ref="295041998"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<string key="NSHuggingPriority">{250, 250}</string>
-											<int key="NSpiFlags">16397</int>
+											<int key="NSpiFlags">24589</int>
 											<double key="NSMaxValue">100</double>
 										</object>
 										<object class="NSProgressIndicator" id="48310739">
@@ -1430,13 +1434,23 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="closeDistroDownloadSheetButton">NSButton</string>
 						<string key="distroPopUpSelector">NSPopUpButton</string>
+						<string key="sheet">NSPanel</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="closeDistroDownloadSheetButton">
+							<string key="name">closeDistroDownloadSheetButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="distroPopUpSelector">
 							<string key="name">distroPopUpSelector</string>
 							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="sheet">
+							<string key="name">sheet</string>
+							<string key="candidateClassName">NSPanel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="window">
 							<string key="name">window</string>
