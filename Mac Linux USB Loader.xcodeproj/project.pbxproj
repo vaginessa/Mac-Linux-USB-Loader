@@ -86,7 +86,7 @@
 		24CA6C13165701A900061D2F /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
-		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
 		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,8 +109,6 @@
 				24AD166216A0E1D90046C51A /* RHNotificationViewController.h */,
 				24AD167016A0E85D0046C51A /* RHNotificationViewController.m */,
 				24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */,
-				24434A211677D52800DAC959 /* AboutPreferences.png */,
-				24434A221677D52800DAC959 /* AccountsPreferences.png */,
 				24434A2B1677D52800DAC959 /* RHAboutViewController.h */,
 				24AD167316A0E8610046C51A /* RHAboutViewController.m */,
 				24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */,
@@ -124,6 +122,16 @@
 			sourceTree = "<group>";
 			usesTabs = 0;
 		};
+		24728A6616BD9C1B00920062 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				24434A211677D52800DAC959 /* AboutPreferences.png */,
+				24434A221677D52800DAC959 /* AccountsPreferences.png */,
+				24728A6416BD9AC300920062 /* Notifications.icns */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		247685FF1682777A00A8C4AD /* EFI Loader */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,11 +144,9 @@
 		24CA6BDE1656F7A700061D2F = {
 			isa = PBXGroup;
 			children = (
-				24728A6416BD9AC300920062 /* Notifications.icns */,
+				24728A6616BD9C1B00920062 /* Icons */,
 				247685FF1682777A00A8C4AD /* EFI Loader */,
 				24434A201677D50800DAC959 /* Preferences View Controllers */,
-				24434A191677CE2100DAC959 /* RHPreferences.framework */,
-				24DB8AB81659AB0700F7C947 /* README */,
 				24F62E7416795AE50016B65A /* Icons */,
 				24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */,
 				24CA6BEC1656F7A700061D2F /* Frameworks */,
@@ -159,6 +165,7 @@
 		24CA6BEC1656F7A700061D2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24434A191677CE2100DAC959 /* RHPreferences.framework */,
 				244E560816755CA300F80E78 /* RHPreferences.framework */,
 				24CA6BED1656F7A700061D2F /* Cocoa.framework */,
 				24CA6BEF1656F7A700061D2F /* Other Frameworks */,
@@ -179,6 +186,7 @@
 		24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */ = {
 			isa = PBXGroup;
 			children = (
+				24DB8AB81659AB0700F7C947 /* README */,
 				24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */,
 				24CA6BFF1656F7A700061D2F /* Document.h */,
 				249E04FD1693916900562F64 /* Document.m */,
