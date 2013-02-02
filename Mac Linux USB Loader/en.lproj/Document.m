@@ -213,22 +213,6 @@ USBDevice *device;
     [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
--(IBAction)showPreferences:(id)sender{
-    //if we have not created the window controller yet, create it now
-    if (!_preferencesWindowController) {
-        RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
-        RHAboutViewController *about = [[RHAboutViewController alloc] init];
-        RHNotificationViewController *notifications = [[RHNotificationViewController alloc] init];
-        
-        NSArray *controllers = [NSArray arrayWithObjects:accounts, notifications,
-                                [RHPreferencesWindowController flexibleSpacePlaceholderController], about, nil];
-        
-        _preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", @"Preferences Window Title")];
-    }
-    
-    [_preferencesWindowController showWindow:self];
-}
-
 - (void)copyAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == NSAlertFirstButtonReturn) {
         NSLog(@"Will erase USB device.");

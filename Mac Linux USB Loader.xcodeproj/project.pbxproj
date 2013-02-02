@@ -12,7 +12,7 @@
 		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
 		244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244E560816755CA300F80E78 /* RHPreferences.framework */; };
 		246ABBE016A4BD560054A649 /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 246ABBE216A4BD560054A649 /* DistributionDownloader.m */; };
-		24728A6516BD9AC300920062 /* Notifications.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24728A6416BD9AC300920062 /* Notifications.icns */; };
+		24728A6816BDA62C00920062 /* Notifications.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24728A6716BDA62B00920062 /* Notifications.icns */; };
 		247686021682777A00A8C4AD /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686001682777A00A8C4AD /* bootIA32.efi */; };
 		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
 		248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -56,7 +56,7 @@
 		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		246ABBDE16A4BD520054A649 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/DistributionDownloader.h; sourceTree = "<group>"; };
 		246ABBE116A4BD560054A649 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/DistributionDownloader.m; sourceTree = "<group>"; };
-		24728A6416BD9AC300920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Notifications.icns; sourceTree = "<group>"; };
+		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
 		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
 		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
 		248ECB8C16AB3168004B8A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAppDelegate.m; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			children = (
 				24434A211677D52800DAC959 /* AboutPreferences.png */,
 				24434A221677D52800DAC959 /* AccountsPreferences.png */,
-				24728A6416BD9AC300920062 /* Notifications.icns */,
+				24728A6716BDA62B00920062 /* Notifications.icns */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 				247686021682777A00A8C4AD /* bootIA32.efi in Resources */,
 				247686031682777A00A8C4AD /* bootX64.efi in Resources */,
 				24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */,
-				24728A6516BD9AC300920062 /* Notifications.icns in Resources */,
+				24728A6816BDA62C00920062 /* Notifications.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
