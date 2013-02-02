@@ -65,7 +65,7 @@ NSWindow *downloadLinuxDistroSheet;
 
 - (IBAction)downloadDistribution:(id)sender {
     [closeDistroDownloadSheetButton setEnabled:NO];
-    NSURL *test = [NSURL URLWithString:@"http://static.binaryage.com/57f6fb3b_shared_img_icons_totalfinder-64.png"];
+    NSURL *test = [NSURL URLWithString:@"http://www.ubuntu.com/start-download?distro=desktop&bits=64&release=latest"];
     [[DistributionDownloader new] downloadLinuxDistribution:test:@"/Users/RyanBowring/Desktop/"];
     [closeDistroDownloadSheetButton setEnabled:YES];
 }

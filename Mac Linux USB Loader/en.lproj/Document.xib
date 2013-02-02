@@ -72,7 +72,6 @@
 											<string key="NSFrame">{{168, 13}, {199, 32}}</string>
 											<reference key="NSSuperview" ref="1037603364"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="15053030">
@@ -102,7 +101,6 @@
 											<string key="NSFrame">{{367, 13}, {130, 32}}</string>
 											<reference key="NSSuperview" ref="1037603364"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="160355437">
@@ -177,7 +175,6 @@
 											<string key="NSFrame">{{0, 4}, {166, 166}}</string>
 											<reference key="NSSuperview" ref="1037603364"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSImageCell" key="NSCell" id="365278556">
@@ -214,7 +211,6 @@
 											<string key="NSFrame">{{53, 22}, {446, 20}}</string>
 											<reference key="NSSuperview" ref="295041998"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<string key="NSHuggingPriority">{250, 250}</string>
 											<int key="NSpiFlags">24589</int>
