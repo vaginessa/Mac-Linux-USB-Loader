@@ -59,7 +59,7 @@
     return NSStringFromClass(self.class);
 }
 -(NSImage*)toolbarItemImage{
-    return [NSImage imageNamed:@"NotificationPreferences"];
+    return [NSImage imageNamed:@"Notifications"];
 }
 -(NSString*)toolbarItemLabel{
     return NSLocalizedString(@"Notifications", @"AboutToolbarItemLabel");
