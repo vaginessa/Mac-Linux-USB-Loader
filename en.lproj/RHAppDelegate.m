@@ -17,6 +17,7 @@
 
 @synthesize window = _window;
 @synthesize preferencesWindowController=_preferencesWindowController;
+@synthesize webView;
 @synthesize distroPopUpSelector;
 @synthesize closeDistroDownloadSheetButton;
 

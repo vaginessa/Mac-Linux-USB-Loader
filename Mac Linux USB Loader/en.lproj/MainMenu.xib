@@ -702,7 +702,7 @@
 			<object class="NSWindowTemplate" id="1012371">
 				<int key="NSWindowStyleMask">271</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{131, 159}, {480, 270}}</string>
+				<string key="NSWindowRect">{{131, 159}, {574, 270}}</string>
 				<int key="NSWTFlags">611845120</int>
 				<string key="NSWindowTitle">Mac Linux USB Loader</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -858,7 +858,7 @@
 							</object>
 						</object>
 					</dictionary>
-					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
+					<array key="NSToolbarIBAllowedItems">
 						<reference ref="752890570"/>
 						<reference ref="1015329073"/>
 						<reference ref="206802098"/>
@@ -876,16 +876,19 @@
 					<array key="NSToolbarIBSelectableItems" id="0"/>
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
+				<string key="NSWindowContentMinSize">{574, 270}</string>
 				<object class="NSView" key="NSWindowView" id="512077415">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
-					<string key="NSFrameSize">{480, 270}</string>
+					<array class="NSMutableArray" key="NSSubviews"/>
+					<string key="NSFrameSize">{574, 270}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSMinSize">{574, 348}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -2158,6 +2161,7 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">1069</int>
 						<reference key="object" ref="512077415"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="1012371"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -2373,7 +2377,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1085</int>
+			<int key="maxID">1267</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2515,6 +2519,7 @@
 						<string key="closeDistroDownloadSheetButton">NSButton</string>
 						<string key="distroPopUpSelector">NSPopUpButton</string>
 						<string key="sheet">NSPanel</string>
+						<string key="webView">WebView</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -2529,6 +2534,10 @@
 						<object class="IBToOneOutletInfo" key="sheet">
 							<string key="name">sheet</string>
 							<string key="candidateClassName">NSPanel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="webView">
+							<string key="name">webView</string>
+							<string key="candidateClassName">WebView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="window">
 							<string key="name">window</string>
@@ -2547,7 +2556,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="Eraser">{32, 32}</string>
+			<string key="Eraser">{128, 128}</string>
 			<string key="Icon">{512, 512}</string>
 			<string key="NSComputer">{32, 32}</string>
 			<string key="NSInfo">{32, 32}</string>

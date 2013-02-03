@@ -17,6 +17,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSButton *closeDistroDownloadSheetButton;
+@property (assign) IBOutlet WebView *webView;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (retain) IBOutlet NSPopUpButton *distroPopUpSelector;
 
