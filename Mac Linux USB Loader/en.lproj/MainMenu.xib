@@ -700,7 +700,7 @@
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSWindowTemplate" id="1012371">
-				<int key="NSWindowStyleMask">271</int>
+				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{131, 159}, {574, 270}}</string>
 				<int key="NSWTFlags">611845120</int>
@@ -869,9 +869,8 @@
 					<array key="NSToolbarIBDefaultItems">
 						<reference ref="206802098"/>
 						<reference ref="816833887"/>
-						<reference ref="592604682"/>
 						<reference ref="1015329073"/>
-						<reference ref="141359838"/>
+						<reference ref="592604682"/>
 					</array>
 					<array key="NSToolbarIBSelectableItems" id="0"/>
 				</object>
@@ -1134,6 +1133,14 @@
 						<reference key="destination" ref="592604682"/>
 					</object>
 					<int key="connectionID">1085</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">window</string>
+						<reference key="source" ref="631414546"/>
+						<reference key="destination" ref="1012371"/>
+					</object>
+					<int key="connectionID">1268</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2377,7 +2384,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1267</int>
+			<int key="maxID">1298</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2519,7 +2526,6 @@
 						<string key="closeDistroDownloadSheetButton">NSButton</string>
 						<string key="distroPopUpSelector">NSPopUpButton</string>
 						<string key="sheet">NSPanel</string>
-						<string key="webView">WebView</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -2534,10 +2540,6 @@
 						<object class="IBToOneOutletInfo" key="sheet">
 							<string key="name">sheet</string>
 							<string key="candidateClassName">NSPanel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="webView">
-							<string key="name">webView</string>
-							<string key="candidateClassName">WebView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="window">
 							<string key="name">window</string>
