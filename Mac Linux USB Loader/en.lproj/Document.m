@@ -80,16 +80,22 @@ USBDevice *device;
         // Get filesystem info about each of the mounted volumes
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
+                // We have a valid mounted media - not necessarily a USB though.
                 NSString * title = [NSString stringWithFormat:@"Drive type %@ at %@", volumeType, volumePath];
                 usbs[title] = volumePath; // Add the path of the usb to a dictionary so later we can tell what USB
                                           // they are refering to when they select one from a drop down.
-                [usbDriveDropdown addItemWithTitle:title];
+                [usbDriveDropdown addItemWithTitle:title]; // Add to the dropdown list.
             }
         }
     }
     
     // NSLog(@"There are %li items.", [usbDriveDropdown numberOfItems]);
     
+    /*
+     Basically, this makes sure that you can't make the live USB if you don't have a file open (shouldn't happen, but a
+     precaution), or if there are no mounted volumes we can use. If we have a mounted volume, though, and we have an ISO,
+     then they can make the live USB.
+     */
     if (isoFilePath != nil && [usbDriveDropdown numberOfItems] != 1) {
         [makeUSBButton setEnabled:YES];
         [eraseUSBButton setEnabled:YES];
@@ -109,6 +115,7 @@ USBDevice *device;
     __block BOOL failure = false;
     isoFilePath = [[self fileURL] absoluteString];
     
+    // If no USBs available, or if no ISO open, display an error and return.
     if ([usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Okay"];
@@ -134,7 +141,8 @@ USBDevice *device;
     [spinner setDoubleValue:0.0];
     [spinner startAnimation:self];
     
-    // Use Grand Central Dispatch (GCD) to copy the files in another thread.
+    // Use Grand Central Dispatch (GCD) to copy the files in another thread. Otherwise, the OS may mark our app as
+    // unresponsive, when it's actually in the middle of a large copy operation.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if ([device prepareUSB:usbRoot] == YES) {
             [spinner setIndeterminate:NO];
@@ -149,13 +157,13 @@ USBDevice *device;
             
             [indeterminate stopAnimation:self];
             [spinner stopAnimation:self];
-        }
-        else {
+        } else {
             // Some form of setup failed. Alert the user.
             failure = YES;
         }
     }); // End of GCD block
     
+    // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
     if (failure) {
         [spinner setIndeterminate:NO];
         [spinner setDoubleValue:0.0];
@@ -170,7 +178,7 @@ USBDevice *device;
         [alert setMessageText:@"Failed to create bootable USB."];
         [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
         [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     }
 }
 
@@ -227,19 +235,23 @@ USBDevice *device;
     if (returnCode == NSAlertFirstButtonReturn) {
         // NSLog(@"Will erase!");
         if ([usbDriveDropdown numberOfItems] != 0) {
+            // Construct the path of the efi folder that we're going to nuke.
             NSString *directoryName = [usbDriveDropdown titleOfSelectedItem];
             NSString *usbRoot = [usbs valueForKey:directoryName];
             NSString *tempPath = [NSString stringWithFormat:@"%@/efi", usbRoot];
             
+            // Need these to recursively delete the folder, because UNIX can't erase a folder without erasing its
+            // contents first, apparently.
             NSFileManager* fm = [[NSFileManager alloc] init];
             NSDirectoryEnumerator* en = [fm enumeratorAtPath:tempPath];
             NSError *err = nil;
             BOOL res;
             
+            // Recursively erase the efi folder.
             NSString *file;
-            while (file = [en nextObject]) {
-                res = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err];
-                if (!res && err) {
+            while (file = [en nextObject]) { // While there are files to remove...
+                res = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err]; // Delete.
+                if (!res && err) { // If there was an error...
                     NSString *text = [NSString stringWithFormat:@"Error: %@", err];
                     NSAlert *alert = [[NSAlert alloc] init];
                     [alert addButtonWithTitle:@"Okay"];
