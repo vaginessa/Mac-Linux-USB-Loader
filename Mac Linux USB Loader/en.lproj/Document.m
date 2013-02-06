@@ -79,7 +79,7 @@ USBDevice *device;
     for (NSString *volumePath in volumes) {
         // Get filesystem info about each of the mounted volumes
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
-            if ([volumeType isEqualToString:@"msdos"]) {
+            if ([volumeType isEqualToString:@"msdos"] && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 NSString * title = [NSString stringWithFormat:@"Drive type %@ at %@", volumeType, volumePath];
                 usbs[title] = volumePath; // Add the path of the usb to a dictionary so later we can tell what USB
                                           // they are refering to when they select one from a drop down.
