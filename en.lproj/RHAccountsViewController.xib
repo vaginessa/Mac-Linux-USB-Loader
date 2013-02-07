@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSButton</string>
@@ -162,7 +162,7 @@
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSButtonCell" key="NSCell" id="271655745">
-											<int key="NSCellFlags">67108864</int>
+											<int key="NSCellFlags">-2080374784</int>
 											<int key="NSCellFlags2">268435456</int>
 											<string key="NSContents">ZIP</string>
 											<reference key="NSSupport" ref="199728202"/>
@@ -216,7 +216,7 @@
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSButtonCell" key="NSCell" id="380993484">
-											<int key="NSCellFlags">-2080374784</int>
+											<int key="NSCellFlags">67108864</int>
 											<int key="NSCellFlags2">268435456</int>
 											<string key="NSContents">DMG</string>
 											<reference key="NSSupport" ref="199728202"/>
