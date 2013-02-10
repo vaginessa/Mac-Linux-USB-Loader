@@ -81,7 +81,7 @@ USBDevice *device;
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 // We have a valid mounted media - not necessarily a USB though.
-                NSString * title = [NSString stringWithFormat:@"Drive type %@ at %@", volumeType, volumePath];
+                NSString * title = [NSString stringWithFormat:@"Install to: Drive %@ of type %@", volumePath, volumeType];
                 usbs[title] = volumePath; // Add the path of the usb to a dictionary so later we can tell what USB
                                           // they are refering to when they select one from a drop down.
                 [usbDriveDropdown addItemWithTitle:title]; // Add to the dropdown list.
@@ -216,7 +216,7 @@ USBDevice *device;
     [alert addButtonWithTitle:@"Yes"];
     [alert addButtonWithTitle:@"No"];
     [alert setMessageText:@"Are you sure that you want to erase the live boot?"];
-    [alert setInformativeText:@"This will recover space, but is unrecoverable."];
+    [alert setInformativeText:@"This will recover space by erasing everything in the EFI folder on the USB drive, but is unrecoverable."];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
