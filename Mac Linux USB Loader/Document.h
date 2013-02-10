@@ -21,7 +21,6 @@
 - (IBAction)eraseLiveBoot:(id)sender;
 - (void)getUSBDeviceList;
 - (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
-- (void)copyAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (IBAction)updateDeviceList:(id)sender;
 - (IBAction)makeLiveUSB:(id)sender;
 - (IBAction)openGithubPage:(id)sender;
