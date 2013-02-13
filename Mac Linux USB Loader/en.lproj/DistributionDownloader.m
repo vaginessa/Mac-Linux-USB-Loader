@@ -16,8 +16,7 @@ NSString *destinationPath;
 - (void)downloadLinuxDistribution:(NSURL*)url:(NSString*)destination {
     destinationPath = destination;
     NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-    // create the connection with the request
-    // and start loading the data
+    // Create the connection with the request and start loading the data.
     [download setDestination:destination allowOverwrite:NO];
     download=[[NSURLDownload alloc] initWithRequest:request delegate:self];
     if (!download) {
