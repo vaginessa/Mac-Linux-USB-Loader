@@ -2,8 +2,8 @@
 //  RHAppDelegate.m
 //  RHPreferencesTester
 //
-//  Created by Richard Heard on 23/05/12.
-//  Copyright (c) 2012 Richard Heard. All rights reserved.
+//  Originally created by Richard Heard on 23/05/12. Subsequently modified by SevenBits.
+//  Copyright (c) 2012-2013 SevenBits. All rights reserved.
 //
 
 #import "RHAppDelegate.h"
