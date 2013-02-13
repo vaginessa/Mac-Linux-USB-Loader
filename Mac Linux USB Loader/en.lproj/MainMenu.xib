@@ -406,7 +406,7 @@
 							<string key="NSToolbarItemPaletteLabel">Create Live USB</string>
 							<string key="NSToolbarItemToolTip"/>
 							<nil key="NSToolbarItemView"/>
-							<object class="NSCustomResource" key="NSToolbarItemImage" id="640999997">
+							<object class="NSCustomResource" key="NSToolbarItemImage" id="294746737">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">Icon</string>
 							</object>
@@ -486,7 +486,7 @@
 							<bool key="NSToolbarIsUserRemovable">YES</bool>
 							<int key="NSToolbarItemVisibilityPriority">0</int>
 						</object>
-						<object class="NSToolbarItem" key="E7055DBC-C209-4E34-8A12-C38461C8F2FB" id="933016136">
+						<object class="NSToolbarItem" key="E7055DBC-C209-4E34-8A12-C38461C8F2FB" id="228566341">
 							<object class="NSMutableString" key="NSToolbarItemIdentifier">
 								<characters key="NS.bytes">E7055DBC-C209-4E34-8A12-C38461C8F2FB</characters>
 							</object>
@@ -570,13 +570,12 @@
 						<reference ref="141359838"/>
 						<reference ref="592604682"/>
 						<reference ref="816833887"/>
-						<reference ref="933016136"/>
+						<reference ref="228566341"/>
 					</array>
 					<array key="NSToolbarIBDefaultItems">
 						<reference ref="206802098"/>
 						<reference ref="816833887"/>
-						<reference ref="752890570"/>
-						<reference ref="933016136"/>
+						<reference ref="228566341"/>
 						<reference ref="1015329073"/>
 						<reference ref="592604682"/>
 					</array>
@@ -633,7 +632,7 @@
 							<object class="NSImageCell" key="NSCell" id="935936500">
 								<int key="NSCellFlags">134217728</int>
 								<int key="NSCellFlags2">33554432</int>
-								<reference key="NSContents" ref="640999997"/>
+								<reference key="NSContents" ref="294746737"/>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<int key="NSAlign">0</int>
 								<int key="NSScale">1</int>
@@ -1152,7 +1151,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">makeKeyAndOrderFront:</string>
 						<reference key="source" ref="888830644"/>
-						<reference key="destination" ref="933016136"/>
+						<reference key="destination" ref="228566341"/>
 					</object>
 					<int key="connectionID">1301</int>
 				</object>
@@ -2134,7 +2133,7 @@
 							<reference ref="141359838"/>
 							<reference ref="592604682"/>
 							<reference ref="816833887"/>
-							<reference ref="933016136"/>
+							<reference ref="228566341"/>
 						</array>
 						<reference key="parent" ref="1012371"/>
 					</object>
@@ -2175,7 +2174,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1300</int>
-						<reference key="object" ref="933016136"/>
+						<reference key="object" ref="228566341"/>
 						<reference key="parent" ref="877082380"/>
 					</object>
 				</array>
