@@ -19,6 +19,7 @@
 @synthesize preferencesWindowController=_preferencesWindowController;
 @synthesize distroPopUpSelector;
 @synthesize closeDistroDownloadSheetButton;
+@synthesize distroDownloadProgressIndicator;
 
 NSWindow *downloadLinuxDistroSheet;
 
@@ -64,10 +65,9 @@ NSWindow *downloadLinuxDistroSheet;
 }
 
 - (IBAction)downloadDistribution:(id)sender {
-    [closeDistroDownloadSheetButton setEnabled:NO];
+    [distroDownloadProgressIndicator startAnimation:self];
     NSURL *test = [NSURL URLWithString:@"http://www.ubuntu.com/start-download?distro=desktop&bits=64&release=latest"];
     [[DistributionDownloader new] downloadLinuxDistribution:test:@"/Users/RyanBowring/Desktop/"];
-    [closeDistroDownloadSheetButton setEnabled:YES];
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {

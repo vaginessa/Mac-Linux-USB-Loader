@@ -19,6 +19,8 @@
 @property (assign) IBOutlet NSButton *closeDistroDownloadSheetButton;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (retain) IBOutlet NSPopUpButton *distroPopUpSelector;
+@property (retain) IBOutlet NSProgressIndicator *distroDownloadProgressIndicator;
+
 
 #pragma mark - IBActions
 - (IBAction)showPreferences:(id)sender;
