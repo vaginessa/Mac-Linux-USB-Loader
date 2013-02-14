@@ -19,9 +19,11 @@
 @synthesize preferencesWindowController=_preferencesWindowController;
 @synthesize distroPopUpSelector;
 @synthesize closeDistroDownloadSheetButton;
+@synthesize distroDownloadButton;
 @synthesize distroDownloadProgressIndicator;
 
 NSWindow *downloadLinuxDistroSheet;
+BOOL canQuit = YES;
 
 - (void)dealloc
 {
@@ -32,6 +34,30 @@ NSWindow *downloadLinuxDistroSheet;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+}
+
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    // Once we get the incineration going, do this to not let the user quit the app until it finishes.
+    if (canQuit) {
+        return YES;
+    } else {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Okay"];
+        [alert setMessageText:@"Operation in progress."];
+        [alert setInformativeText:@"Mac Linux USB Loader is currently in the middle of an operation. Quitting the application at this time would result in corrupted data."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        return NO;
+    }
+}
+
+- (BOOL)canQuit {
+    return canQuit;
+}
+
+- (BOOL)setCanQuit:(BOOL)ableToQuit {
+    canQuit = ableToQuit;
+    return canQuit;
 }
 
 #pragma mark - IBActions
@@ -65,6 +91,9 @@ NSWindow *downloadLinuxDistroSheet;
 }
 
 - (IBAction)downloadDistribution:(id)sender {
+    //[closeDistroDownloadSheetButton setEnabled:NO];
+    [distroDownloadButton setEnabled:NO];
+    canQuit = NO; // Prevent the user from quiting the application until the download has finished.
     [distroDownloadProgressIndicator startAnimation:self];
     NSURL *test = [NSURL URLWithString:@"http://www.ubuntu.com/start-download?distro=desktop&bits=64&release=latest"];
     [[DistributionDownloader new] downloadLinuxDistribution:test:@"/Users/RyanBowring/Desktop/"];

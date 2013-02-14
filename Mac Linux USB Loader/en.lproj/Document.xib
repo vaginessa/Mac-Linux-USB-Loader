@@ -347,6 +347,14 @@
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="796877042"/>
+						<reference key="destination" ref="812085660"/>
+					</object>
+					<int key="connectionID">100308</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
 						<string key="label">usbDriveDropdown</string>
 						<reference key="source" ref="512844837"/>
 						<reference key="destination" ref="605216515"/>
@@ -1344,7 +1352,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100307</int>
+			<int key="maxID">100308</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1466,6 +1474,8 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="closeDistroDownloadSheetButton">NSButton</string>
+						<string key="distroDownloadButton">NSButton</string>
+						<string key="distroDownloadProgressIndicator">NSProgressIndicator</string>
 						<string key="distroPopUpSelector">NSPopUpButton</string>
 						<string key="sheet">NSPanel</string>
 						<string key="window">NSWindow</string>
@@ -1474,6 +1484,14 @@
 						<object class="IBToOneOutletInfo" key="closeDistroDownloadSheetButton">
 							<string key="name">closeDistroDownloadSheetButton</string>
 							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="distroDownloadButton">
+							<string key="name">distroDownloadButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="distroDownloadProgressIndicator">
+							<string key="name">distroDownloadProgressIndicator</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="distroPopUpSelector">
 							<string key="name">distroPopUpSelector</string>

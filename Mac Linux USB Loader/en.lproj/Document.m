@@ -144,6 +144,7 @@ USBDevice *device;
     // Use Grand Central Dispatch (GCD) to copy the files in another thread. Otherwise, the OS may mark our app as
     // unresponsive, when it's actually in the middle of a large copy operation.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
         if ([device prepareUSB:usbRoot] == YES) {
             [spinner setIndeterminate:NO];
             [spinner setDoubleValue:50.0];
@@ -162,6 +163,8 @@ USBDevice *device;
             failure = YES;
         }
     }); // End of GCD block
+    
+    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
     
     // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
     if (failure) {

@@ -17,10 +17,13 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSButton *closeDistroDownloadSheetButton;
+@property (assign) IBOutlet NSButton *distroDownloadButton;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (retain) IBOutlet NSPopUpButton *distroPopUpSelector;
 @property (retain) IBOutlet NSProgressIndicator *distroDownloadProgressIndicator;
 
+- (BOOL)canQuit;
+- (BOOL)setCanQuit:(BOOL)ableToQuit;
 
 #pragma mark - IBActions
 - (IBAction)showPreferences:(id)sender;
