@@ -37,7 +37,7 @@ BOOL canQuit = YES;
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    // Once we get the incineration going, do this to not let the user quit the app until it finishes.
+    // Once we get any operation going, do this to not let the user quit the app until it finishes.
     if (canQuit) {
         return YES;
     } else {
