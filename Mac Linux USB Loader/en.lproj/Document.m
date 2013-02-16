@@ -164,8 +164,6 @@ USBDevice *device;
         }
     }); // End of GCD block
     
-    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
-    
     // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
     if (failure) {
         [spinner setIndeterminate:NO];
@@ -183,6 +181,8 @@ USBDevice *device;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     }
+    
+    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
 }
 
 - (IBAction)openGithubPage:(id)sender {

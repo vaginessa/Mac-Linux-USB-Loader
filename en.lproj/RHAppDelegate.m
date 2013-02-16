@@ -96,7 +96,8 @@ BOOL canQuit = YES;
     canQuit = NO; // Prevent the user from quiting the application until the download has finished.
     [distroDownloadProgressIndicator startAnimation:self];
     NSURL *test = [NSURL URLWithString:@"http://www.ubuntu.com/start-download?distro=desktop&bits=64&release=latest"];
-    [[DistributionDownloader new] downloadLinuxDistribution:test:@"/Users/RyanBowring/Desktop/"];
+    [[DistributionDownloader new] downloadLinuxDistribution:test:
+        [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]];
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
