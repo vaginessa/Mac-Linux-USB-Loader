@@ -4,7 +4,7 @@ The tool is necessary to make certain Linux distributions boot that do not have 
 
 I am currently in the process of transitioning from a proprietary EFI loader to GRUB 2. The properitary EFI loader has a GRUB config file embedded in it, which I cannot access to make changes. Nor do I know which modules he included when he compiled GRUB. For this reason, I need to move to a solution that increases my control.
 
-If you wish to contribute to the code or fork the repository, please do so. The application is currently in beta with major functionality chunks missing and once I reach beta I will need everyone's help to make it a great tool, hopefully along the popularity lines of unetbootin or similar tools.
+If you wish to contribute to the code or fork the repository, please do so. The application is currently in the 1.0 "Consumer Preview", which is a fancy way of saying that I am basically ready for a 1.0 release, but there are a few things I must deal with before I can release it as 1.0.
 
 I created this tool, if you care, for several reasons:
 
@@ -21,4 +21,3 @@ Acknowledgements:
 
 - Used the eraser icon by Oliver Scholtz.
     http://www.iconfinder.com/icondetails/24217/128/clean_delete_eraser_icon
-    
