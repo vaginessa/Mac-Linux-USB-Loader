@@ -3,7 +3,7 @@
 //  Mac Linux USB Loader
 //
 //  Created by SevenBits on 11/26/12.
-//  Copyright (c) 2012 SevenBits. All rights reserved.
+//  Copyright (c) 2012 SevenBits. All rights eraseDidSucceederved.
 //
 
 #import "Document.h"
@@ -142,7 +142,7 @@ USBDevice *device;
     [spinner startAnimation:self];
     
     // Use Grand Central Dispatch (GCD) to copy the files in another thread. Otherwise, the OS may mark our app as
-    // unresponsive, when it's actually in the middle of a large copy operation.
+    // uneraseDidSucceedponsive, when it's actually in the middle of a large copy operation.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
         if ([device prepareUSB:usbRoot] == YES) {
@@ -242,13 +242,13 @@ USBDevice *device;
             NSFileManager* fm = [[NSFileManager alloc] init];
             NSDirectoryEnumerator* en = [fm enumeratorAtPath:tempPath];
             NSError *err = nil;
-            BOOL res;
+            BOOL eraseDidSucceed;
             
             // Recursively erase the efi folder.
             NSString *file;
             while (file = [en nextObject]) { // While there are files to remove...
-                res = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err]; // Delete.
-                if (!res && err) { // If there was an error...
+                eraseDidSucceed = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err]; // Delete.
+                if (!eraseDidSucceed && err) { // If there was an error...
                     NSString *text = [NSString stringWithFormat:@"Error: %@", err];
                     NSAlert *alert = [[NSAlert alloc] init];
                     [alert addButtonWithTitle:@"Okay"];
