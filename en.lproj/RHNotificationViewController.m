@@ -2,8 +2,8 @@
 //  RHAboutViewController.m
 //  RHPreferencesTester
 //
-//  Created by Richard Heard on 17/04/12.
-//  Copyright (c) 2012 Richard Heard. All rights reserved.
+//  Originally created by Richard Heard on 23/05/12. Subsequently modified by SevenBits.
+//  Copyright (c) 2012-2013 SevenBits. All rights reserved.
 //
 
 #import "RHNotificationViewController.h"
@@ -49,8 +49,19 @@
 
 - (IBAction)setShowNotifications:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:NO forKey:@"ShowNotifications"];
+    
+    BOOL showNotifications;
+    if ([displayNotificationsCheckbox state] == NSOnState) {
+        showNotifications = YES;
+    } else {
+        showNotifications = NO;
+    }
+    
+    [defaults setBool:showNotifications forKey:@"ShowNotifications"];
     [defaults synchronize];
+    
+    NSLog(@"Setting show notifications to %ld. Value is now: %c", (long)[displayNotificationsCheckbox state],
+          (BOOL)[defaults boolForKey:@"ShowNotifications"]);
 }
 
 #pragma mark - RHPreferencesViewControllerProtocol
