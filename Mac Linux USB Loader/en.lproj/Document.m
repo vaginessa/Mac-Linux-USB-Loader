@@ -3,7 +3,7 @@
 //  Mac Linux USB Loader
 //
 //  Created by SevenBits on 11/26/12.
-//  Copyright (c) 2012 SevenBits. All rights eraseDidSucceederved.
+//  Copyright (c) 2012 SevenBits. All rights reserved.
 //
 
 #import "Document.h"
