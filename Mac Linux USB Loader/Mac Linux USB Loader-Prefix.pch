@@ -2,6 +2,10 @@
 // Prefix header for all source files of the 'Mac Linux USB Loader' target in the 'Mac Linux USB Loader' project
 //
 
+// Ignore the "used as the name of the previous parameter rather than as part of the selector" warning until I find a way to
+// correct the issue.
+#pragma clang diagnostic ignored "-Wmissing-selector-name"
+
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
