@@ -94,12 +94,15 @@ BOOL canQuit = YES;
 - (IBAction)downloadDistribution:(id)sender {
     if (distroSelectorComboBox != nil && distroSelectorComboBox.indexOfSelectedItem != -1) {
         //[closeDistroDownloadSheetButton setEnabled:NO];
-        [distroDownloadButton setEnabled:NO];
         canQuit = NO; // Prevent the user from quiting the application until the download has finished.
+        
+        [distroDownloadButton setEnabled:NO];
         [distroDownloadProgressIndicator startAnimation:self];
-        NSURL *test = [NSURL URLWithString:@"http://cdimage.ubuntu.com/releases/12.04/release/ubuntu-12.04.2-alternate-amd64+mac.iso"];
-        [[DistributionDownloader new] downloadLinuxDistribution:test:
-         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]];
+        [distroDownloadProgressIndicator setDoubleValue:0.0];
+        
+        NSURL *downloadLocation = [NSURL URLWithString:@"http://releases.ubuntu.com/quantal/ubuntu-12.10-desktop-amd64+mac.iso"];
+        [[DistributionDownloader new] downloadLinuxDistribution:downloadLocation:
+         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:distroDownloadProgressIndicator];
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Okay"];

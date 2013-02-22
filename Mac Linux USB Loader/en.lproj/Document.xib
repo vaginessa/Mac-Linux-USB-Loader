@@ -1477,6 +1477,7 @@
 						<string key="distroDownloadButton">NSButton</string>
 						<string key="distroDownloadProgressIndicator">NSProgressIndicator</string>
 						<string key="distroPopUpSelector">NSPopUpButton</string>
+						<string key="distroSelectorComboBox">NSComboBox</string>
 						<string key="sheet">NSPanel</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
@@ -1496,6 +1497,10 @@
 						<object class="IBToOneOutletInfo" key="distroPopUpSelector">
 							<string key="name">distroPopUpSelector</string>
 							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="distroSelectorComboBox">
+							<string key="name">distroSelectorComboBox</string>
+							<string key="candidateClassName">NSComboBox</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="sheet">
 							<string key="name">sheet</string>
