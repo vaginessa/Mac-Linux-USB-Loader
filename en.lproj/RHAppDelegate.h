@@ -21,6 +21,7 @@
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (retain) IBOutlet NSPopUpButton *distroPopUpSelector;
 @property (retain) IBOutlet NSProgressIndicator *distroDownloadProgressIndicator;
+@property (retain) IBOutlet NSComboBox *distroSelectorComboBox;
 
 - (BOOL)canQuit;
 - (BOOL)setCanQuit:(BOOL)ableToQuit;

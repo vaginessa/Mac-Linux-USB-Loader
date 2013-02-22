@@ -21,6 +21,7 @@
 @synthesize closeDistroDownloadSheetButton;
 @synthesize distroDownloadButton;
 @synthesize distroDownloadProgressIndicator;
+@synthesize distroSelectorComboBox;
 
 NSWindow *downloadLinuxDistroSheet;
 BOOL canQuit = YES;
@@ -91,13 +92,22 @@ BOOL canQuit = YES;
 }
 
 - (IBAction)downloadDistribution:(id)sender {
-    //[closeDistroDownloadSheetButton setEnabled:NO];
-    [distroDownloadButton setEnabled:NO];
-    canQuit = NO; // Prevent the user from quiting the application until the download has finished.
-    [distroDownloadProgressIndicator startAnimation:self];
-    NSURL *test = [NSURL URLWithString:@"http://cdimage.ubuntu.com/releases/12.04/release/ubuntu-12.04.2-alternate-amd64+mac.iso"];
-    [[DistributionDownloader new] downloadLinuxDistribution:test:
-        [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]];
+    if (distroSelectorComboBox != nil && distroSelectorComboBox.indexOfSelectedItem != -1) {
+        //[closeDistroDownloadSheetButton setEnabled:NO];
+        [distroDownloadButton setEnabled:NO];
+        canQuit = NO; // Prevent the user from quiting the application until the download has finished.
+        [distroDownloadProgressIndicator startAnimation:self];
+        NSURL *test = [NSURL URLWithString:@"http://cdimage.ubuntu.com/releases/12.04/release/ubuntu-12.04.2-alternate-amd64+mac.iso"];
+        [[DistributionDownloader new] downloadLinuxDistribution:test:
+         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]];
+    } else {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Okay"];
+        [alert setMessageText:@"No distribution selected."];
+        [alert setInformativeText:@"Please select a distribution first before clicking the download button."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    }
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
