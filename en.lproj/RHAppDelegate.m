@@ -101,8 +101,9 @@ BOOL canQuit = YES;
         [distroDownloadProgressIndicator setDoubleValue:0.0];
         
         NSURL *downloadLocation = [NSURL URLWithString:@"http://releases.ubuntu.com/quantal/ubuntu-12.10-desktop-amd64+mac.iso"];
+        
         [[DistributionDownloader new] downloadLinuxDistribution:downloadLocation:
-         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:distroDownloadProgressIndicator];
+         [NSHomeDirectory() stringByAppendingPathComponent:@"/Desktop/"]:distroDownloadProgressIndicator];
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Okay"];

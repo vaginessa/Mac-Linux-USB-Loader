@@ -22,7 +22,7 @@ long long bytesReceived = 0;
     progress = progressBar;
     NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     // Create the connection with the request and start loading the data.
-    [download setDestination:destination allowOverwrite:NO];
+    [download setDestination:destination allowOverwrite:YES];
     download=[[NSURLDownload alloc] initWithRequest:request delegate:self];
     if (!download) {
         NSLog(@"Download could not be made...");
@@ -30,8 +30,7 @@ long long bytesReceived = 0;
 }
 
 #pragma mark NSURLDownload delegates
-- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error
-{
+- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error {
     // Inform us that the download failed.
     NSLog(@"Download failed! Error - %@ %@",
           [error localizedDescription],
@@ -69,15 +68,13 @@ long long bytesReceived = 0;
     [download setDestination:destinationFilename allowOverwrite:YES];
 }
 
-- (void)downloadDidFinish:(NSURLDownload *)download
-{
-    // Do something with the data.
+- (void)downloadDidFinish:(NSURLDownload *)download {
     NSLog(@"Downloaded file was downloaded:\n%@", download);
     
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Okay"];
     [alert setMessageText:@"Download complete."];
-    [alert setInformativeText:@"The file was downloaded."];
+    [alert setInformativeText:@"The file was downloaded. You can now install it to your USB drive by opening it with the Create Live USB button in the toolbar."];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     
@@ -98,39 +95,36 @@ long long bytesReceived = 0;
     }
 }
 
-- (void)setDownloadResponse:(NSURLResponse *)aDownloadResponse
-{
-    
-    // downloadResponse is an instance variable defined elsewhere.
+/* When the application recieves some information, we get a "download response". Cache it here in an instance variable so that
+   the other methods can access it to get the download progress. This could use a bit of tweaking efficency wise but since
+   the download progresses in another thread it at least won't slow down the download by any marginal amount. */
+- (void)setDownloadResponse:(NSURLResponse *)aDownloadResponse {
     downloadResponse = aDownloadResponse;
 }
 
-- (void)download:(NSURLDownload *)download didReceiveResponse:(NSURLResponse *)response
-{
-    // Reset the progress, this might be called multiple times.
-    // bytesReceived is an instance variable defined elsewhere.
+- (void)download:(NSURLDownload *)download didReceiveResponse:(NSURLResponse *)response {
     bytesReceived = 0;
     
     // Retain the response to use later.
     [self setDownloadResponse:response];
 }
 
-- (void)download:(NSURLDownload *)download didReceiveDataOfLength:(NSUInteger)length
-{
+- (void)download:(NSURLDownload *)download didReceiveDataOfLength:(NSUInteger)length {
     long long expectedLength = [downloadResponse expectedContentLength];
     
     bytesReceived = bytesReceived + length;
     
+    // LOTS of floating point casts and stuff here. This needs to be made more efficent.
     if (expectedLength != NSURLResponseUnknownLength) {
+        // Calculate at what percent complete we are.
         float percentComplete = (bytesReceived/(float)expectedLength)*100.0;
-        //NSLog(@"Percent complete - %f",percentComplete);
         [progress setDoubleValue:(double)percentComplete];
         
         // Add the progress percent to the dock as an overlay.
         [[[NSApplication sharedApplication] dockTile] setBadgeLabel:[NSString stringWithFormat:@"%ld", (long)percentComplete]];
     } else {
         // If the expected content length is unknown, just log the progress.
-        NSLog(@"Bytes received - %lld",bytesReceived);
+        NSLog(@"Bytes received - %lld", bytesReceived);
     }
 }
 
