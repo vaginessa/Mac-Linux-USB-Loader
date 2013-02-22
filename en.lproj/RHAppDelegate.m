@@ -95,7 +95,7 @@ BOOL canQuit = YES;
     [distroDownloadButton setEnabled:NO];
     canQuit = NO; // Prevent the user from quiting the application until the download has finished.
     [distroDownloadProgressIndicator startAnimation:self];
-    NSURL *test = [NSURL URLWithString:@"http://www.ubuntu.com/start-download?distro=desktop&bits=64&release=latest"];
+    NSURL *test = [NSURL URLWithString:@"http://releases.ubuntu.com/quantal/ubuntu-12.10-desktop-amd64+mac.iso"];
     [[DistributionDownloader new] downloadLinuxDistribution:test:
         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]];
 }
