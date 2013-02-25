@@ -49,7 +49,7 @@ USBDevice *device;
 - (void)windowControllerDidLoadNib:(NSWindowController *)controller
 {
     [super windowControllerDidLoadNib:controller];
-    usbs = [[NSMutableDictionary alloc]initWithCapacity:10]; //A maximum capacity of 10 is fine, nobody has that many ports anyway
+    usbs = [[NSMutableDictionary alloc]initWithCapacity:10]; //A maximum capacity of 10 is fine, nobody has that many ports anyway.
     device = [USBDevice new];
     [device setWindow:window];
     
@@ -65,19 +65,19 @@ USBDevice *device;
 
 - (void)getUSBDeviceList
 {
-    // Fetch the NSArray of strings of mounted media from the shared workspace
+    // Fetch the NSArray of strings of mounted media from the shared workspace.
     NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedRemovableMedia];
     
-    // Setup target variables for the data to be put into
+    // Setup target variables for the data to be put into.
     BOOL isRemovable, isWritable, isUnmountable;
     NSString *description, *volumeType;
     
     [usbDriveDropdown removeAllItems]; // Clear the dropdown list.
     [usbs removeAllObjects];           // Clear the dictionary of the list of USB drives.
     
-    // Iterate through the array using fast enumeration
+    // Iterate through the array using fast enumeration.
     for (NSString *volumePath in volumes) {
-        // Get filesystem info about each of the mounted volumes
+        // Get filesystem info about each of the mounted volumes.
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 // We have a valid mounted media - not necessarily a USB though.
@@ -104,7 +104,7 @@ USBDevice *device;
         [makeUSBButton setEnabled:NO];
         [eraseUSBButton setEnabled:NO];
     }
-    // Exit
+    // Exit.
 }
 
 - (IBAction)updateDeviceList:(id)sender {
@@ -146,7 +146,7 @@ USBDevice *device;
     [spinner startAnimation:self];
     
     // Use Grand Central Dispatch (GCD) to copy the files in another thread. Otherwise, the OS may mark our app as
-    // uneraseDidSucceedponsive, when it's actually in the middle of a large copy operation.
+    // unresponsive, when it's actually in the middle of a large copy operation.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
         if ([device prepareUSB:usbRoot] == YES) {
@@ -166,7 +166,7 @@ USBDevice *device;
             // Some form of setup failed. Alert the user.
             failure = YES;
         }
-    }); // End of GCD block
+    }); // End of GCD block.
     
     // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
     if (failure) {
