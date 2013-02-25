@@ -46,9 +46,9 @@ BOOL canQuit = YES; // Can the user quit the application?
         [alert addButtonWithTitle:@"Yes"];
         [alert addButtonWithTitle:@"No"];
         [alert setMessageText:@"Operation in progress."];
-        [alert setInformativeText:@"Mac Linux USB Loader is currently in the middle of an operation. Quitting the application at this time could result in corrupted data."];
+        [alert setInformativeText:@"Mac Linux USB Loader is currently in the middle of an operation. Quitting the application at this time could result in corrupted data. Do you want to quit anyway?"];
         [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(quitSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return NO;
     }
 }
@@ -124,6 +124,13 @@ BOOL canQuit = YES; // Can the user quit the application?
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     // Empty
+}
+
+- (void)quitSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    if (returnCode == NSAlertFirstButtonReturn) {
+        [[NSApp delegate] setCanQuit:YES];
+        [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+    }
 }
 
 @end

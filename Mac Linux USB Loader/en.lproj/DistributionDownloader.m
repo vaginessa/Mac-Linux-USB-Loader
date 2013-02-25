@@ -72,6 +72,7 @@ long long bytesReceived = 0;
 
 - (void)downloadDidFinish:(NSURLDownload *)download {
     NSLog(@"Downloaded file was downloaded:\n%@", download);
+    [[[NSApplication sharedApplication] dockTile] setBadgeLabel:@""];
     
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Okay"];
