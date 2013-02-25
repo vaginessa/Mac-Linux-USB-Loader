@@ -148,16 +148,38 @@ USBDevice *device;
     // Use Grand Central Dispatch (GCD) to copy the files in another thread. Otherwise, the OS may mark our app as
     // unresponsive, when it's actually in the middle of a large copy operation.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // Set up some stuff we need to get the progress of the ISO file copy.
+        
+        // Use the NSFileManager to obtain the size of our ISO file in bytes.
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:[[self fileURL] path] traverseLink:YES];
+        NSNumber *sourceFileSize;
+        
+#ifdef DEBUG
+        NSLog(@"Source file: %@", [[self fileURL] path]);
+#endif
+        
+        if ((sourceFileSize = [sourceAttributes objectForKey:NSFileSize])) {
+            // Set the max value of our progress bar to our source ISO's file size
+            [spinner setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
+        } else {
+            // Couldn't get the file size so we need to bail.
+            NSLog(@"Couldn't get the size of the source ISO.");
+            failure = YES;
+            return;
+        }
+        
+        // Now progress with the copy.
         [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
         if ([device prepareUSB:usbRoot] == YES) {
             [spinner setIndeterminate:NO];
-            [spinner setDoubleValue:50.0];
+            [spinner setUsesThreadedAnimation:YES];
             
-            if ([device copyISO:usbRoot:isoFilePath] != YES) {
+            if ([device copyISO:usbRoot:isoFilePath:spinner:self] != YES) {
                 failure = YES;
             }
             
-            [spinner setDoubleValue:100.0];
+            // [spinner setDoubleValue:100.0];
             [spinner stopAnimation:self];
             
             [indeterminate stopAnimation:self];
@@ -166,10 +188,12 @@ USBDevice *device;
             // Some form of setup failed. Alert the user.
             failure = YES;
         }
+        
+        [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
     }); // End of GCD block.
     
     // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
-    if (failure) {
+    /*if (failure) {
         [spinner setIndeterminate:NO];
         [spinner setDoubleValue:0.0];
         [spinner stopAnimation:self];
@@ -184,9 +208,7 @@ USBDevice *device;
         [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
-    }
-    
-    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+    } */
 }
 
 - (IBAction)openGithubPage:(id)sender {

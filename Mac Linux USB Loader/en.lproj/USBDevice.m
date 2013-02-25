@@ -56,7 +56,7 @@ NSWindow *window;
 }
 
 
-- (BOOL)copyISO:(NSString *)path:(NSString *)isoFile {
+- (BOOL)copyISO:(NSString *)path:(NSString *)isoFile:(NSProgressIndicator *)progressBar:(Document *)document {
     NSString *finalPath = [NSString stringWithFormat:@"%@/efi/boot/boot.iso", path];
     
     // Check if the Linux distro ISO already exists.
@@ -73,6 +73,35 @@ NSWindow *window;
     }
     
     // NSLog(@"Writing from %@.", isoFile);
+    
+    // Make a new thread that reads the size of the file to be copied and sets the progress bar to that amount.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        // Get the size of the ISO file to be copied.
+        NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:[[document fileURL] path] traverseLink:YES];
+        NSNumber *sourceFileSize;
+        
+        sourceFileSize = [sourceAttributes objectForKey:NSFileSize];
+        
+        for (;;) {
+            // Get how big the destination copy file size is.
+            NSDictionary *destAttributes = [fileManager fileAttributesAtPath:path traverseLink:YES];
+            NSNumber *destFileSize;
+            
+            destFileSize = [destAttributes objectForKey:NSFileSize];
+            
+            // Update the progress bar.
+            [progressBar setDoubleValue:[sourceFileSize doubleValue]];
+            
+            // If we've copied everything, quit.
+            if (sourceFileSize == destFileSize || sourceFileSize >= destFileSize) {
+                break;
+            }
+            
+            usleep(1000);
+        }
+    }); // End of GCD block.
     
     // Copy the Linux distro ISO.
     if ([[NSFileManager new] copyItemAtPath:[[NSURL URLWithString:isoFile] path] toPath:finalPath error:nil] == NO) {
