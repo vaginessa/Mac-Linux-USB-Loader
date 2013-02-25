@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RHAppDelegate.h"
 
 @interface DistributionDownloader : NSObject <NSURLDownloadDelegate>
 

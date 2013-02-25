@@ -58,6 +58,8 @@ long long bytesReceived = 0;
         
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
+    
+    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
 }
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
@@ -93,9 +95,11 @@ long long bytesReceived = 0;
         
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
+    
+    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
 }
 
-/* When the application recieves some information, we get a "download response". Cache it here in an instance variable so that
+/* When the application recieves some data, we get a "download response". Cache it here in an instance variable so that
    the other methods can access it to get the download progress. This could use a bit of tweaking efficency wise but since
    the download progresses in another thread it at least won't slow down the download by any marginal amount. */
 - (void)setDownloadResponse:(NSURLResponse *)aDownloadResponse {

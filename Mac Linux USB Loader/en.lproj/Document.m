@@ -112,6 +112,8 @@ USBDevice *device;
 }
 
 - (IBAction)makeLiveUSB:(id)sender {
+    [[NSApp delegate] setCanQuit:NO];
+    
     __block BOOL failure = false;
     isoFilePath = [[self fileURL] absoluteString];
     
@@ -126,6 +128,8 @@ USBDevice *device;
         
         [makeUSBButton setEnabled:NO];
         [eraseUSBButton setEnabled:NO];
+        
+        [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
         
         return;
     }
