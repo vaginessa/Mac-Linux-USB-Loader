@@ -190,6 +190,8 @@ USBDevice *device;
         }
         
         [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+        
+        [self close];
     }); // End of GCD block.
     
     // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
