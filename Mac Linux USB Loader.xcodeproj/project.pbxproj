@@ -85,6 +85,8 @@
 		24CA6C061656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		24CA6C13165701A900061D2F /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
+		24DA702716DBDB4500A7C76C /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/RHAppDelegate.h; sourceTree = "<group>"; };
+		24DA702916DBDB6200A7C76C /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = "Mac Linux USB Loader/en.lproj/DistributionDownloader.h"; sourceTree = "<group>"; };
 		24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
 		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
@@ -191,7 +193,9 @@
 				249E04FD1693916900562F64 /* Document.m */,
 				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
 				249E04F91693916400562F64 /* USBDevice.m */,
+				24DA702616DBDB4500A7C76C /* RHAppDelegate.h */,
 				248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */,
+				24DA702816DBDB6200A7C76C /* DistributionDownloader.h */,
 				246ABBE216A4BD560054A649 /* DistributionDownloader.m */,
 				24CA6C021656F7A700061D2F /* Document.xib */,
 				24CA6C051656F7A700061D2F /* MainMenu.xib */,
@@ -432,6 +436,24 @@
 				24CA6C061656F7A700061D2F /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		24DA702616DBDB4500A7C76C /* RHAppDelegate.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24DA702716DBDB4500A7C76C /* en */,
+			);
+			name = RHAppDelegate.h;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		24DA702816DBDB6200A7C76C /* DistributionDownloader.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24DA702916DBDB6200A7C76C /* en */,
+			);
+			name = DistributionDownloader.h;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
