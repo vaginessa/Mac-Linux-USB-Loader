@@ -10,6 +10,8 @@
 		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		24434A391677D52800DAC959 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A211677D52800DAC959 /* AboutPreferences.png */; };
 		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
+		244C04FF16DD829E0083A0C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244C04FE16DD829E0083A0C9 /* Sparkle.framework */; };
+		244C050216DD82E80083A0C9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C04FE16DD829E0083A0C9 /* Sparkle.framework */; };
 		244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244E560816755CA300F80E78 /* RHPreferences.framework */; };
 		246ABBE016A4BD560054A649 /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 246ABBE216A4BD560054A649 /* DistributionDownloader.m */; };
 		24728A6816BDA62C00920062 /* Notifications.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24728A6716BDA62B00920062 /* Notifications.icns */; };
@@ -43,6 +45,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */,
+				244C050216DD82E80083A0C9 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +57,7 @@
 		24434A221677D52800DAC959 /* AccountsPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccountsPreferences.png; sourceTree = "<group>"; };
 		24434A2B1677D52800DAC959 /* RHAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHAboutViewController.h; sourceTree = "<group>"; };
 		24434A2E1677D52800DAC959 /* RHAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHAccountsViewController.h; sourceTree = "<group>"; };
+		244C04FE16DD829E0083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		246ABBE116A4BD560054A649 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/DistributionDownloader.m; sourceTree = "<group>"; };
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			files = (
 				24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */,
 				244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */,
+				244C04FF16DD829E0083A0C9 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +171,7 @@
 		24CA6BEC1656F7A700061D2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				244C04FE16DD829E0083A0C9 /* Sparkle.framework */,
 				24434A191677CE2100DAC959 /* RHPreferences.framework */,
 				244E560816755CA300F80E78 /* RHPreferences.framework */,
 				24CA6BED1656F7A700061D2F /* Cocoa.framework */,
@@ -503,6 +509,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Downloads/Sparkle 1/With Garbage Collection\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac Linux USB Loader/Mac Linux USB Loader-Prefix.pch";
@@ -521,6 +528,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Downloads/Sparkle 1/With Garbage Collection\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac Linux USB Loader/Mac Linux USB Loader-Prefix.pch";
