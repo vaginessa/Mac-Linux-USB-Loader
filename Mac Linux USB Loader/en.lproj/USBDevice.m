@@ -79,14 +79,14 @@ NSWindow *window;
         NSFileManager *fileManager = [NSFileManager defaultManager];
         
         // Get the size of the ISO file to be copied.
-        NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:[[document fileURL] path] traverseLink:YES];
+        NSDictionary *sourceAttributes = [fileManager attributesOfItemAtPath:[[document fileURL] path] error:nil];
         NSNumber *sourceFileSize;
         
         sourceFileSize = [sourceAttributes objectForKey:NSFileSize];
         
         for (;;) {
             // Get how big the destination copy file size is.
-            NSDictionary *destAttributes = [fileManager fileAttributesAtPath:path traverseLink:YES];
+            NSDictionary *destAttributes = [fileManager attributesOfItemAtPath:path error:nil];
             NSNumber *destFileSize;
             
             destFileSize = [destAttributes objectForKey:NSFileSize];

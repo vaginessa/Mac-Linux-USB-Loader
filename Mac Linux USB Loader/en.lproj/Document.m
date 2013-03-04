@@ -152,7 +152,7 @@ USBDevice *device;
         
         // Use the NSFileManager to obtain the size of our ISO file in bytes.
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:[[self fileURL] path] traverseLink:YES];
+        NSDictionary *sourceAttributes = [fileManager attributesOfItemAtPath:[[self fileURL] path] error:nil];
         NSNumber *sourceFileSize;
         
 #ifdef DEBUG
@@ -195,7 +195,7 @@ USBDevice *device;
     }); // End of GCD block.
     
     // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
-    /*if (failure) {
+    if (failure) {
         [spinner setIndeterminate:NO];
         [spinner setDoubleValue:0.0];
         [spinner stopAnimation:self];
@@ -210,7 +210,7 @@ USBDevice *device;
         [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
-    } */
+    }
 }
 
 - (IBAction)openGithubPage:(id)sender {
