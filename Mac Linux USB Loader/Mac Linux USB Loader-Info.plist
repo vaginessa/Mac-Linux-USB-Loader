@@ -58,5 +58,7 @@
 	<string>http://sevenbits.github.com/appcasts/mlul.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+	<key>SUEnableSystemProfiling</key>
+	<false/>
 </dict>
 </plist>
