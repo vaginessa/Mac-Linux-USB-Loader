@@ -13,7 +13,7 @@
 NSString *volumePath;
 NSWindow *window;
 
-- (void)setWindow:(NSWindow *) win {
+- (void)setWindow:(NSWindow *)win {
     window = win;
 }
 
