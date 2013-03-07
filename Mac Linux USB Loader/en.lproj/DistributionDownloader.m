@@ -43,6 +43,7 @@ long long bytesReceived = 0;
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
     // Show a notification.
     NSProcessInfo *pinfo = [NSProcessInfo processInfo];
     NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
@@ -58,6 +59,9 @@ long long bytesReceived = 0;
         
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
+#else
+    [NSApp requestUserAttention:NSCriticalRequest];
+#endif
     
     [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
 }
@@ -81,6 +85,7 @@ long long bytesReceived = 0;
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
     // Show a notification.
     NSProcessInfo *pinfo = [NSProcessInfo processInfo];
     NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
@@ -96,6 +101,9 @@ long long bytesReceived = 0;
         
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
+#else
+    [NSApp requestUserAttention:NSCriticalRequest];
+#endif
     
     [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
 }

@@ -91,6 +91,10 @@ NSWindow *window;
             
             destFileSize = [destAttributes objectForKey:NSFileSize];
             
+#ifdef DEBUG
+            NSLog(@"Wrote %@ bytes.", destFileSize);
+#endif
+            
             // Update the progress bar.
             [progressBar setDoubleValue:[sourceFileSize doubleValue]];
             
@@ -112,8 +116,8 @@ NSWindow *window;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return NO;
-    }
-    else {
+    } else {
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
         NSProcessInfo *pinfo = [NSProcessInfo processInfo];
         NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
         NSString *version = [myarr objectAtIndex:1];
@@ -128,6 +132,9 @@ NSWindow *window;
             
             [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
         }
+#else
+        [NSApp requestUserAttention:NSCriticalRequest];
+#endif
         
         return YES;
     }

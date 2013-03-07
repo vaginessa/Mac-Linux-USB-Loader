@@ -21,6 +21,7 @@
 		248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		249E04F71693916400562F64 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04F91693916400562F64 /* USBDevice.m */; };
 		249E04FB1693916900562F64 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04FD1693916900562F64 /* Document.m */; };
+		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
 		24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167016A0E85D0046C51A /* RHNotificationViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		24AD167116A0E8610046C51A /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167316A0E8610046C51A /* RHAboutViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167616A0E8650046C51A /* RHAccountsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -40,11 +41,12 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		244E560316755B4A00F80E78 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
 				24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */,
+				24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

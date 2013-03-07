@@ -4,7 +4,7 @@ The tool is necessary to make certain Linux distributions boot that do not have 
 
 I am currently in the process of transitioning from a proprietary EFI loader to GRUB 2. The proprietary EFI loader has a GRUB config file embedded in it, which I cannot access to make changes. Nor do I know which modules he included when he compiled GRUB. For this reason, I need to move to a solution that increases my control.
 
-If you wish to contribute to the code or fork the repository, please do so. Please note that all of the code in the _working_ branch is unstable, and should be used on production machines. The _stable_ branch contains stable, tested code (there is not yet a stable branch, however, as a stable release has not been released yet). The application is currently in the 1.0 "Consumer Preview", which is a fancy way of saying that I am basically ready for a 1.0 release, but there are a few things I must deal with before I can release it as 1.0.
+If you wish to contribute to the code or fork the repository, please do so. Please note that all of the code in the _working_ branch is unstable, and should not be used on production machines. The _stable_ branch contains stable, tested code (there is not yet a stable branch, however, as a stable release has not been released yet). The application is currently in the 1.0 "Consumer Preview", which is a fancy way of saying that I am basically ready for a 1.0 release, but there are a few things I must deal with before I can release it as 1.0.
 
 I created this tool, if you care, for several reasons:
 
