@@ -82,8 +82,13 @@ USBDevice *device;
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 // We have a valid mounted media - not necessarily a USB though.
                 NSString * title = [NSString stringWithFormat:@"Install to: Drive at %@ of type %@", volumePath, volumeType];
+                
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
                 usbs[title] = volumePath; // Add the path of the usb to a dictionary so later we can tell what USB
                                           // they are refering to when they select one from a drop down.
+#elif
+                [usbs setObject:volumePath forKey:title];
+#endif
                 [usbDriveDropdown addItemWithTitle:title]; // Add to the dropdown list.
             }
         }
