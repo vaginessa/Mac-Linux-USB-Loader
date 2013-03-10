@@ -17,6 +17,7 @@
 		24728A6816BDA62C00920062 /* Notifications.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24728A6716BDA62B00920062 /* Notifications.icns */; };
 		247686021682777A00A8C4AD /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686001682777A00A8C4AD /* bootIA32.efi */; };
 		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
+		2479538D16ED01030085057B /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2479538F16ED01030085057B /* Document.xib */; };
 		248317CE16BF146C00313D33 /* Eraser.icns in Resources */ = {isa = PBXBuildFile; fileRef = 248317CD16BF146C00313D33 /* Eraser.icns */; };
 		248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		249E04F71693916400562F64 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04F91693916400562F64 /* USBDevice.m */; };
@@ -69,6 +70,7 @@
 		2479538016ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
 		2479538716ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2479538816ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2479538E16ED01030085057B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
 		248317CD16BF146C00313D33 /* Eraser.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Eraser.icns; path = Resources/Eraser.icns; sourceTree = "<group>"; };
 		248ECB8C16AB3168004B8A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAppDelegate.m; sourceTree = "<group>"; };
 		249E04F81693916400562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/USBDevice.m; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */ = {
 			isa = PBXGroup;
 			children = (
+				2479538F16ED01030085057B /* Document.xib */,
 				24DB8AB81659AB0700F7C947 /* README */,
 				24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */,
 				24CA6BFF1656F7A700061D2F /* Document.h */,
@@ -305,6 +308,7 @@
 				24728A6816BDA62C00920062 /* Notifications.icns in Resources */,
 				248317CE16BF146C00313D33 /* Eraser.icns in Resources */,
 				244C050416DD840E0083A0C9 /* dsa_pub.pem in Resources */,
+				2479538D16ED01030085057B /* Document.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +339,14 @@
 				246ABBE116A4BD560054A649 /* en */,
 			);
 			name = DistributionDownloader.m;
+			sourceTree = "<group>";
+		};
+		2479538F16ED01030085057B /* Document.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2479538E16ED01030085057B /* en */,
+			);
+			name = Document.xib;
 			sourceTree = "<group>";
 		};
 		248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */ = {
