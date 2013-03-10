@@ -46,15 +46,16 @@
 					<object class="NSButton" id="242430835">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{14, 11}, {204, 32}}</string>
+						<string key="NSFrame">{{3, 11}, {227, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="43639011">
 							<int key="NSCellFlags">67108864</int>
 							<int key="NSCellFlags2">134217728</int>
-							<string key="NSContents">Open Notifications Center</string>
+							<string key="NSContents">Abrir centro de notificaciones</string>
 							<object class="NSFont" key="NSSupport" id="134105999">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
@@ -74,7 +75,7 @@
 					<object class="NSTextField" id="860153167">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{50, 47}, {390, 17}}</string>
+						<string key="NSFrame">{{50, 47}, {472, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="242430835"/>
@@ -83,7 +84,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="1033023926">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Notifications require OS X Mountain Lion. They will not appear on Lion.</string>
+							<string key="NSContents">Ver panel de notificaciones requiere OS X Mountain Lion. Opción no disponible en Lion.</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">11</double>
@@ -115,7 +116,7 @@
 					<object class="NSButton" id="117758539">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{18, 70}, {152, 18}}</string>
+						<string key="NSFrame">{{18, 70}, {164, 18}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="860153167"/>
@@ -124,7 +125,7 @@
 						<object class="NSButtonCell" key="NSCell" id="90131385">
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">268435456</int>
-							<string key="NSContents">Display Notifications</string>
+							<string key="NSContents">Mostrar Notificaciones</string>
 							<reference key="NSSupport" ref="134105999"/>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="117758539"/>
@@ -156,7 +157,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="826958771">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">138413056</int>
-							<string key="NSContents">Notifications</string>
+							<string key="NSContents">Notificaciones</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">20</double>

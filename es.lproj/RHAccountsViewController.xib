@@ -48,7 +48,7 @@
 					<object class="NSTextField" id="451264198">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{274, 428}, {147, 17}}</string>
+						<string key="NSFrame">{{274, 428}, {101, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="632084943"/>
@@ -57,7 +57,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="935861533">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Update Check Interval:</string>
+							<string key="NSContents">Actualizar cada</string>
 							<object class="NSFont" key="NSSupport" id="199728202">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
@@ -110,7 +110,7 @@
 							<int key="NSPeriodicInterval">75</int>
 							<object class="NSMenuItem" key="NSMenuItem" id="887117933">
 								<reference key="NSMenu" ref="466232971"/>
-								<string key="NSTitle">Hourly</string>
+								<string key="NSTitle">Hora</string>
 								<string key="NSKeyEquiv"/>
 								<int key="NSMnemonicLoc">2147483647</int>
 								<int key="NSState">1</int>
@@ -133,7 +133,7 @@
 									<reference ref="887117933"/>
 									<object class="NSMenuItem" id="431961869">
 										<reference key="NSMenu" ref="466232971"/>
-										<string key="NSTitle">Weekly</string>
+										<string key="NSTitle">Semana</string>
 										<string key="NSKeyEquiv"/>
 										<int key="NSKeyEquivModMask">1048576</int>
 										<int key="NSMnemonicLoc">2147483647</int>
@@ -145,7 +145,7 @@
 									</object>
 									<object class="NSMenuItem" id="705266349">
 										<reference key="NSMenu" ref="466232971"/>
-										<string key="NSTitle">Monthly</string>
+										<string key="NSTitle">Mes</string>
 										<string key="NSKeyEquiv"/>
 										<int key="NSKeyEquivModMask">1048576</int>
 										<int key="NSMnemonicLoc">2147483647</int>
@@ -157,7 +157,7 @@
 									</object>
 									<object class="NSMenuItem" id="12418251">
 										<reference key="NSMenu" ref="466232971"/>
-										<string key="NSTitle">Yearly</string>
+										<string key="NSTitle">Año</string>
 										<string key="NSKeyEquiv"/>
 										<int key="NSMnemonicLoc">2147483647</int>
 										<reference key="NSOnImage" ref="236839523"/>
@@ -179,7 +179,7 @@
 					<object class="NSButton" id="846471377">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{390, 337}, {111, 32}}</string>
+						<string key="NSFrame">{{375, 337}, {141, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="321654040"/>
@@ -188,7 +188,7 @@
 						<object class="NSButtonCell" key="NSCell" id="275438048">
 							<int key="NSCellFlags">67108864</int>
 							<int key="NSCellFlags2">134217728</int>
-							<string key="NSContents">Check Now</string>
+							<string key="NSContents">Chequear ahora</string>
 							<reference key="NSSupport" ref="199728202"/>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="846471377"/>
@@ -213,7 +213,7 @@
 						<object class="NSButtonCell" key="NSCell" id="701397628">
 							<int key="NSCellFlags">67108864</int>
 							<int key="NSCellFlags2">268435456</int>
-							<string key="NSContents">Automatically Install Updates</string>
+							<string key="NSContents">Instalar automaticamente</string>
 							<reference key="NSSupport" ref="199728202"/>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="733371881"/>
@@ -278,7 +278,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="548034059">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">138413056</int>
-							<string key="NSContents">Application</string>
+							<string key="NSContents">Aplicación</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">20</double>
@@ -294,7 +294,7 @@
 					<object class="NSTextField" id="632084943">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{33, 399}, {220, 28}}</string>
+						<string key="NSFrame">{{33, 385}, {220, 42}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="336796182"/>
@@ -304,7 +304,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="60139258">
 							<int key="NSCellFlags">67108864</int>
 							<int key="NSCellFlags2">272629760</int>
-							<string key="NSContents">Archives cannot be converted yet and are copied with the ISO extention. </string>
+							<string key="NSContents">Los archivos no se puede convertir todavía y se copian con la extensión ISO.</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">11</double>
@@ -347,7 +347,7 @@
 					<object class="NSTextField" id="233705623">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{21, 475}, {135, 17}}</string>
+						<string key="NSFrame">{{21, 475}, {115, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="391037025"/>
@@ -356,7 +356,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="193743028">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Accept Files of Type:</string>
+							<string key="NSContents">Tipos de archivos</string>
 							<reference key="NSSupport" ref="199728202"/>
 							<string key="NSCellIdentifier">_NS:1535</string>
 							<reference key="NSControlView" ref="233705623"/>
@@ -395,7 +395,7 @@
 					<object class="NSButton" id="60844200">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{275, 451}, {139, 18}}</string>
+						<string key="NSFrame">{{275, 451}, {169, 18}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="501334460"/>
@@ -404,7 +404,7 @@
 						<object class="NSButtonCell" key="NSCell" id="1063704806">
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">268435456</int>
-							<string key="NSContents">Check for Updates</string>
+							<string key="NSContents">Chequear actualización</string>
 							<reference key="NSSupport" ref="199728202"/>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="60844200"/>
@@ -422,7 +422,7 @@
 					<object class="NSTextField" id="391037025">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{274, 475}, {60, 17}}</string>
+						<string key="NSFrame">{{274, 475}, {89, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="546224635"/>
@@ -431,7 +431,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="903739688">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Updates:</string>
+							<string key="NSContents">Actualización</string>
 							<reference key="NSSupport" ref="199728202"/>
 							<string key="NSCellIdentifier">_NS:1535</string>
 							<reference key="NSControlView" ref="391037025"/>
@@ -464,16 +464,15 @@
 					<object class="NSButton" id="502400050">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{419, 14}, {101, 32}}</string>
+						<string key="NSFrame">{{400, 14}, {116, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="4798513">
 							<int key="NSCellFlags">67108864</int>
 							<int key="NSCellFlags2">134283264</int>
-							<string key="NSContents">Subscribe</string>
+							<string key="NSContents">Suscribirse</string>
 							<reference key="NSSupport" ref="199728202"/>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="502400050"/>
@@ -489,7 +488,7 @@
 					<object class="NSTextField" id="653872825">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{91, 20}, {326, 22}}</string>
+						<string key="NSFrame">{{91, 20}, {313, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="502400050"/>
@@ -498,7 +497,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="774743125">
 							<int key="NSCellFlags">-1804599231</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Email Address</string>
+							<string key="NSContents">Dirección de E-Mail</string>
 							<reference key="NSSupport" ref="199728202"/>
 							<string key="NSPlaceholderString">example@gmail.com</string>
 							<string key="NSCellIdentifier">_NS:9</string>
@@ -642,7 +641,6 @@
 						<reference key="object" ref="1005"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="653872825"/>
-							<reference ref="502400050"/>
 							<reference ref="321654040"/>
 							<reference ref="77913717"/>
 							<reference ref="336796182"/>
@@ -656,6 +654,7 @@
 							<reference ref="769218225"/>
 							<reference ref="632084943"/>
 							<reference ref="846471377"/>
+							<reference ref="502400050"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

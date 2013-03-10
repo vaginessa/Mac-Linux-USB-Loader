@@ -64,18 +64,9 @@
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
 		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
 		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
-		2479537B16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = es; path = es.lproj/RHNotificationViewController.m; sourceTree = "<group>"; };
 		2479537C16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
-		2479537D16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = es; path = es.lproj/RHAboutViewController.m; sourceTree = "<group>"; };
 		2479537E16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
-		2479537F16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = es; path = es.lproj/RHAccountsViewController.m; sourceTree = "<group>"; };
 		2479538016ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
-		2479538116ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = es; path = es.lproj/Document.m; sourceTree = "<group>"; };
-		2479538216ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = es; path = es.lproj/USBDevice.m; sourceTree = "<group>"; };
-		2479538316ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = es; path = es.lproj/RHAppDelegate.h; sourceTree = "<group>"; };
-		2479538416ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = es; path = es.lproj/RHAppDelegate.m; sourceTree = "<group>"; };
-		2479538516ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = es; path = es.lproj/DistributionDownloader.h; sourceTree = "<group>"; };
-		2479538616ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = es; path = es.lproj/DistributionDownloader.m; sourceTree = "<group>"; };
 		2479538716ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2479538816ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		248317CD16BF146C00313D33 /* Eraser.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Eraser.icns; path = Resources/Eraser.icns; sourceTree = "<group>"; };
@@ -342,7 +333,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				246ABBE116A4BD560054A649 /* en */,
-				2479538616ECFD4B0085057B /* es */,
 			);
 			name = DistributionDownloader.m;
 			sourceTree = "<group>";
@@ -351,7 +341,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				248ECB8C16AB3168004B8A7E /* en */,
-				2479538416ECFD4B0085057B /* es */,
 			);
 			name = RHAppDelegate.m;
 			path = ..;
@@ -361,7 +350,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				249E04F81693916400562F64 /* en */,
-				2479538216ECFD4B0085057B /* es */,
 			);
 			name = USBDevice.m;
 			sourceTree = "<group>";
@@ -370,7 +358,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				249E04FC1693916900562F64 /* en */,
-				2479538116ECFD4B0085057B /* es */,
 			);
 			name = Document.m;
 			sourceTree = "<group>";
@@ -379,7 +366,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				24AD166F16A0E85D0046C51A /* en */,
-				2479537B16ECFD4B0085057B /* es */,
 			);
 			name = RHNotificationViewController.m;
 			sourceTree = "<group>";
@@ -388,7 +374,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				24AD167216A0E8610046C51A /* en */,
-				2479537D16ECFD4B0085057B /* es */,
 			);
 			name = RHAboutViewController.m;
 			sourceTree = "<group>";
@@ -397,7 +382,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				24AD167516A0E8650046C51A /* en */,
-				2479537F16ECFD4B0085057B /* es */,
 			);
 			name = RHAccountsViewController.m;
 			sourceTree = "<group>";
@@ -451,7 +435,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				24DA702716DBDB4500A7C76C /* en */,
-				2479538316ECFD4B0085057B /* es */,
 			);
 			name = RHAppDelegate.h;
 			path = ..;
@@ -461,7 +444,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				24DA702916DBDB6200A7C76C /* en */,
-				2479538516ECFD4B0085057B /* es */,
 			);
 			name = DistributionDownloader.h;
 			path = ..;

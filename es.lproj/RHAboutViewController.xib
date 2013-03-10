@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSCustomObject</string>
@@ -50,7 +50,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="826958771">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">138413056</int>
-							<string key="NSContents">Acknowledgements</string>
+							<string key="NSContents">Creditos y Agradecimientos</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">20</double>
@@ -82,7 +82,7 @@
 					<object class="NSTextField" id="453394071">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{17, 41}, {481, 162}}</string>
+						<string key="NSFrame">{{17, 33}, {481, 170}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -91,15 +91,15 @@
 						<object class="NSTextFieldCell" key="NSCell" id="170236926">
 							<int key="NSCellFlags">67108864</int>
 							<int key="NSCellFlags2">138412032</int>
-							<object class="NSMutableString" key="NSContents">
-								<bytes key="NS.bytes">VGhpcyBhcHBsaWNhdGlvbiBzaW1wbHkgd291bGQgbm90IGhhdmUgZXhpc3RlZCB3aXRob3V0IHRoZSBo
-ZWxwIG9mOgoKVGhlIGRpc3RyaWJ1dGlvbiBjcmVhdG9ycywgd2hvIHRha2Ugb24gdGhlIGFyZHVvdXMg
-am9iIG9mIG1hbmFnaW5nIGFuIG9wZXJhdGluZyBzeXN0ZW0gYWxsIGZvciBmcmVlOwpUaGUgRk9TUyBD
-b21tdW5pdHksIGZvciB0aGUgc2FtZTsKQmlsbCwgd2hvIGdhdmUgbWUgbXkgZmlyc3QgTWFjQm9vazvi
-gKhSaWNoYXJkIEhlYXJkLCBmb3IgaGlzIGV4Y2VsbGVudCBSSFByZWZlcmVuY2VzIGZyYW1ld29yazsK
-YW5kIG90aGVycyB3aG8gaGF2ZSBjb250cmlidXRlZCB0byBtYWtpbmcgdGhpcyBhcHBsaWNhdGlvbiEg
-VGhhbmtzIGEgbWlsbGlvbiHigKg</bytes>
-							</object>
+							<string type="base64-UTF8" key="NSContents">RXN0YSBhcGxpY2FjacOzbiBzZSBoaXpvIHBvc2libGUgZ3JhY2lhcyBhOgoKTG9zIGNyZWFkb3JlcyBk
+ZSBkaXN0cmlidWNpb25lcyBsaWJyZXMgcXVlIGNvbiBzdSBhcmR1byB0cmFiYWpvIGRlc2ludGVyZXNh
+ZG8sIGFwb3lhbiBhIGxhIGNyZWFjacOzbiBkZSBoZXJyYW1pZW50YXMgeSBzaXN0ZW1hcyBsaWJyZXMg
+cGFyYSB0b2RvcywgIGp1bnRvIGEgbGEgY29tdW5pZGFkIGRlIHNvZnR3YXJlIGxpYnJlLgpBIEJpbGwg
+cXVlIG1lIGRpbyBtaSBwcmltZXIgTWFjQm9vay4KUmljaGFyZCBIZWFyZCwgcG9yIHN1IGV4Y2VsZW50
+ZSB0cmFiYWpvIGNvbiBSSFByZWZlcmVuY2VzIGZyYW1ld29yay4KRmFiaW8gR29tZXogKG1vbmZyZW4x
+MCkgcG9yIGxhIHRyYWR1Y2Npw7NuIGEgZXNwYcOxb2wuClkgYSB0b2RvcyBhcXVlbGxvcyBxdWUgY29s
+YWJvcmFyb24gZW4gbGEgY3JlYWNpw7NuIGRlIGVzdGEgYXBsaWNhY2nDs24uClVuIG1pbGzDs24gZGUg
+Z3JhY2lhcw</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
