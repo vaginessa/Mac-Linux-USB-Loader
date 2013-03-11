@@ -259,6 +259,7 @@
 							<string key="NSFrame">{{44, 12}, {468, 20}}</string>
 							<reference key="NSSuperview" ref="883867631"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSHuggingPriority">{250, 250}</string>
 							<int key="NSpiFlags">24589</int>

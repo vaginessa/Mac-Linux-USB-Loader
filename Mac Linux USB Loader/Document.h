@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "RHPreferences/RHPreferences.h"
 
+static NSProgressIndicator *progressIndicator;
+
 @interface Document : NSDocument
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSPanel *prefsWindow;
@@ -28,8 +30,6 @@
 - (IBAction)reportBug:(id)sender;
 
 // A (C!) callback to get the progress of the copy operation.
-static void copyStatusCallback(FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
+static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
                             CFDictionaryRef statusDictionary, void *info);
-
-
 @end

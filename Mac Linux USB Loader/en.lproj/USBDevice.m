@@ -55,7 +55,13 @@ NSWindow *window;
     }
 }
 
-
+/*
+ * THIS FUNCTION IS NO LONGER IN USE
+ * I AM KEEPING THIS LEGACY PURPOSES ONLY
+ *
+ * I don't really want to use this anymore as NSFileManager does not allow you to get the progress of the file
+ * copy.
+ */
 - (BOOL)copyISO:(NSString *)path:(NSString *)isoFile:(NSProgressIndicator *)progressBar:(Document *)document {
     NSString *finalPath = [NSString stringWithFormat:@"%@/efi/boot/boot.iso", path];
     
@@ -74,39 +80,6 @@ NSWindow *window;
     
     // NSLog(@"Writing from %@.", isoFile);
     
-    // Make a new thread that reads the size of the file to be copied and sets the progress bar to that amount.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        
-        // Get the size of the ISO file to be copied.
-        NSDictionary *sourceAttributes = [fileManager attributesOfItemAtPath:[[document fileURL] path] error:nil];
-        NSNumber *sourceFileSize;
-        
-        sourceFileSize = [sourceAttributes objectForKey:NSFileSize];
-        
-        for (;;) {
-            // Get how big the destination copy file size is.
-            NSDictionary *destAttributes = [fileManager attributesOfItemAtPath:path error:nil];
-            NSNumber *destFileSize;
-            
-            destFileSize = [destAttributes objectForKey:NSFileSize];
-            
-#ifdef DEBUG
-            NSLog(@"Wrote %@ bytes.", destFileSize);
-#endif
-            
-            // Update the progress bar.
-            [progressBar setDoubleValue:[sourceFileSize doubleValue]];
-            
-            // If we've copied everything, quit.
-            if (sourceFileSize == destFileSize || sourceFileSize >= destFileSize) {
-                break;
-            }
-            
-            usleep(1000);
-        }
-    }); // End of GCD block.
-    
     // Copy the Linux distro ISO.
     if ([[NSFileManager new] copyItemAtPath:[[NSURL URLWithString:isoFile] path] toPath:finalPath error:nil] == NO) {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -118,6 +91,7 @@ NSWindow *window;
         return NO;
     } else {
 #if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
+        // Show a notification for Mountain Lion users.
         NSProcessInfo *pinfo = [NSProcessInfo processInfo];
         NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
         NSString *version = [myarr objectAtIndex:1];
@@ -131,6 +105,8 @@ NSWindow *window;
             notification.soundName = NSUserNotificationDefaultSoundName;
             
             [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        } else {
+            [NSApp requestUserAttention:NSCriticalRequest];
         }
 #else
         [NSApp requestUserAttention:NSCriticalRequest];

@@ -48,6 +48,8 @@ USBDevice *device;
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)controller
 {
+    progressIndicator = spinner;
+    
     [super windowControllerDidLoadNib:controller];
     usbs = [[NSMutableDictionary alloc]initWithCapacity:10]; //A maximum capacity of 10 is fine, nobody has that many ports anyway.
     device = [USBDevice new];
@@ -120,7 +122,8 @@ USBDevice *device;
     [[NSApp delegate] setCanQuit:NO];
     
     __block BOOL failure = false;
-    isoFilePath = [[self fileURL] absoluteString];
+    //isoFilePath = [[self fileURL] absoluteString];
+    isoFilePath = [[self fileURL] path];
     
     // If no USBs available, or if no ISO open, display an error and return.
     if ([usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
@@ -141,6 +144,7 @@ USBDevice *device;
     
     NSString* directoryName = [usbDriveDropdown titleOfSelectedItem];
     NSString* usbRoot = [usbs valueForKey:directoryName];
+    NSString* finalPath = [NSString stringWithFormat:@"%@/efi/boot/", usbRoot];
     
     [indeterminate setUsesThreadedAnimation:YES];
     [indeterminate startAnimation:self];
@@ -150,54 +154,91 @@ USBDevice *device;
     [spinner setDoubleValue:0.0];
     [spinner startAnimation:self];
     
-    // Use Grand Central Dispatch (GCD) to copy the files in another thread. Otherwise, the OS may mark our app as
-    // unresponsive, when it's actually in the middle of a large copy operation.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // Set up some stuff we need to get the progress of the ISO file copy.
-        
-        // Use the NSFileManager to obtain the size of our ISO file in bytes.
+    // Check if the Linux distro ISO already exists.
+    NSString *temp = [NSString stringWithFormat:@"%@/efi/boot/boot.iso", usbRoot];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:temp];
+    
+    if (fileExists == YES) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Abort"];
+        [alert setMessageText:@"Failed to create bootable USB."];
+        [alert setInformativeText:@"There is already a Linux distro ISO on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        return;
+    }
+
+    // Now progress with the copy.
+    [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
+    if ([device prepareUSB:usbRoot] == YES) {
+        [spinner setIndeterminate:NO];
+        [spinner setUsesThreadedAnimation:YES];
+            
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        // Use the NSFileManager to obtain the size of our source file in bytes.
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSDictionary *sourceAttributes = [fileManager attributesOfItemAtPath:[[self fileURL] path] error:nil];
+        NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:[[self fileURL] path] traverseLink:YES];
         NSNumber *sourceFileSize;
-        
-#ifdef DEBUG
-        NSLog(@"Source file: %@", [[self fileURL] path]);
-#endif
-        
+            
         if ((sourceFileSize = [sourceAttributes objectForKey:NSFileSize])) {
-            // Set the max value of our progress bar to our source ISO's file size
-            [spinner setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
+            // Set the max value to our source file size
+            [progressIndicator setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
         } else {
             // Couldn't get the file size so we need to bail.
-            NSLog(@"Couldn't get the size of the source ISO.");
-            failure = YES;
+            NSLog(@"Unable to obtain size of file being copied.");
             return;
         }
+        [spinner setDoubleValue:0.0];
+            
+        // Get the current run loop and schedule our callback
+        CFRunLoopRef runLoop = CFRunLoopGetCurrent();
+        FSFileOperationRef fileOp = FSFileOperationCreate(kCFAllocatorDefault);
+            
+        OSStatus status = FSFileOperationScheduleWithRunLoop(fileOp, runLoop, kCFRunLoopDefaultMode);
+        if(status) {
+            NSLog(@"Failed to schedule operation with run loop: %d", status);
+            return;
+        }
+             
+        // Create a filesystem ref structure for the source and destination and
+        // populate them with their respective paths from our NSTextFields.
+        FSRef source;
+        FSRef destination;
+            
+        FSPathMakeRef( (const UInt8 *)[[[self fileURL] path] fileSystemRepresentation], &source, NULL );
+            
+        Boolean isDir = true;
+        FSPathMakeRef( (const UInt8 *)[finalPath fileSystemRepresentation], &destination, &isDir );
         
-        // Now progress with the copy.
-        [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
-        if ([device prepareUSB:usbRoot] == YES) {
-            [spinner setIndeterminate:NO];
-            [spinner setUsesThreadedAnimation:YES];
-            
-            if ([device copyISO:usbRoot:isoFilePath:spinner:self] != YES) {
-                failure = YES;
-            }
-            
-            // [spinner setDoubleValue:100.0];
-            [spinner stopAnimation:self];
-            
-            [indeterminate stopAnimation:self];
-            [spinner stopAnimation:self];
-        } else {
-            // Some form of setup failed. Alert the user.
-            failure = YES;
+        // Start the async copy.
+        status = FSCopyObjectAsync(fileOp,
+                                    &source,
+                                    &destination, // Full path to destination dir
+                                    NULL, // Use the same filename as source
+                                    kFSFileOperationDefaultOptions,
+                                    copyStatusCallback,
+                                    0.5, /* how often to fire our callback */
+                                    NULL);
+        
+        CFRelease(fileOp);
+        
+        if(status) {
+            NSLog(@"Failed to begin asynchronous object copy: %d", status);
         }
         
-        [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+        #pragma clang diagnostic warning "-Wdeprecated-declarations"
+            
+        [spinner setDoubleValue:100.0];
+        [spinner stopAnimation:self];
         
-        [self close];
-    }); // End of GCD block.
+        [indeterminate stopAnimation:self];
+        [spinner stopAnimation:self];
+    } else {
+        // Some form of setup failed. Alert the user.
+        failure = YES;
+    }
+        
+    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
     
     // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
     if (failure) {
@@ -215,6 +256,28 @@ USBDevice *device;
         [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
+    } else {
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
+        // Show a notification for Mountain Lion users.
+        NSProcessInfo *pinfo = [NSProcessInfo processInfo];
+        NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
+        NSString *version = [myarr objectAtIndex:1];
+        
+        // Ensure that we are running 10.8 before we display the notification as we still support Lion, which does not have
+        // them.
+        if ([version rangeOfString:@"10.8"].location != NSNotFound) {
+            NSUserNotification *notification = [[NSUserNotification alloc] init];
+            notification.title = @"Finished Making Live USB";
+            notification.informativeText = @"The live USB has been made successfully.";
+            notification.soundName = NSUserNotificationDefaultSoundName;
+            
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        } else {
+            [NSApp requestUserAttention:NSCriticalRequest];
+        }
+#else
+        [NSApp requestUserAttention:NSCriticalRequest];
+#endif
     }
 }
 
@@ -295,5 +358,27 @@ USBDevice *device;
         }
     }
 }
-
 @end
+
+static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
+                            CFDictionaryRef statusDictionary, void *info) {
+    NSLog(@"Callback got called.");
+    
+    // If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
+    // update the progress indicator.
+    if (statusDictionary)
+    {
+        CFNumberRef bytesCompleted;
+        
+        bytesCompleted = (CFNumberRef) CFDictionaryGetValue(statusDictionary, kFSOperationBytesCompleteKey);
+        
+        CGFloat floatBytesCompleted;
+        CFNumberGetValue (bytesCompleted, kCFNumberMaxType, &floatBytesCompleted);
+        
+        NSLog(@"Copied %lld bytes so far.", (unsigned long long)floatBytesCompleted);
+        
+        [progressIndicator setDoubleValue:(double)floatBytesCompleted];
+        [progressIndicator displayIfNeeded];
+    }
+}
+
