@@ -118,6 +118,7 @@ USBDevice *device;
     [self getUSBDeviceList];
 }
 
+// This is too long... this needs to be split up, perhaps with some components in USBDevice like before.
 - (IBAction)makeLiveUSB:(id)sender {
     [[NSApp delegate] setCanQuit:NO];
     
@@ -146,10 +147,10 @@ USBDevice *device;
     NSString* usbRoot = [usbs valueForKey:directoryName];
     NSString* finalPath = [NSString stringWithFormat:@"%@/efi/boot/", usbRoot];
     
-    [indeterminate setUsesThreadedAnimation:YES];
+    [indeterminate setUsesThreadedAnimation:NO];
     [indeterminate startAnimation:self];
     
-    [spinner setUsesThreadedAnimation:YES];
+    [spinner setUsesThreadedAnimation:NO];
     [spinner setIndeterminate:YES];
     [spinner setDoubleValue:0.0];
     [spinner startAnimation:self];
@@ -172,7 +173,7 @@ USBDevice *device;
     [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
     if ([device prepareUSB:usbRoot] == YES) {
         [spinner setIndeterminate:NO];
-        [spinner setUsesThreadedAnimation:YES];
+        [spinner setUsesThreadedAnimation:NO];
             
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         // Use the NSFileManager to obtain the size of our source file in bytes.
@@ -201,7 +202,7 @@ USBDevice *device;
         }
              
         // Create a filesystem ref structure for the source and destination and
-        // populate them with their respective paths from our NSTextFields.
+        // populate them with their respective paths.
         FSRef source;
         FSRef destination;
             
@@ -214,7 +215,7 @@ USBDevice *device;
         status = FSCopyObjectAsync(fileOp,
                                     &source,
                                     &destination, // Full path to destination dir
-                                    NULL, // Use the same filename as source
+                                    CFSTR("boot.iso"), // Copy with the name boot.iso.
                                     kFSFileOperationDefaultOptions,
                                     copyStatusCallback,
                                     0.5, /* how often to fire our callback */
@@ -226,7 +227,7 @@ USBDevice *device;
             NSLog(@"Failed to begin asynchronous object copy: %d", status);
         }
         
-        #pragma clang diagnostic warning "-Wdeprecated-declarations"
+#pragma clang diagnostic warning "-Wdeprecated-declarations"
             
         [spinner setDoubleValue:100.0];
         [spinner stopAnimation:self];
@@ -257,27 +258,6 @@ USBDevice *device;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     } else {
-#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
-        // Show a notification for Mountain Lion users.
-        NSProcessInfo *pinfo = [NSProcessInfo processInfo];
-        NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
-        NSString *version = [myarr objectAtIndex:1];
-        
-        // Ensure that we are running 10.8 before we display the notification as we still support Lion, which does not have
-        // them.
-        if ([version rangeOfString:@"10.8"].location != NSNotFound) {
-            NSUserNotification *notification = [[NSUserNotification alloc] init];
-            notification.title = @"Finished Making Live USB";
-            notification.informativeText = @"The live USB has been made successfully.";
-            notification.soundName = NSUserNotificationDefaultSoundName;
-            
-            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-        } else {
-            [NSApp requestUserAttention:NSCriticalRequest];
-        }
-#else
-        [NSApp requestUserAttention:NSCriticalRequest];
-#endif
     }
 }
 
@@ -362,8 +342,6 @@ USBDevice *device;
 
 static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
                             CFDictionaryRef statusDictionary, void *info) {
-    NSLog(@"Callback got called.");
-    
     // If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
     // update the progress indicator.
     if (statusDictionary)
@@ -375,10 +353,37 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
         CGFloat floatBytesCompleted;
         CFNumberGetValue (bytesCompleted, kCFNumberMaxType, &floatBytesCompleted);
         
+#ifdef DEBUG
         NSLog(@"Copied %lld bytes so far.", (unsigned long long)floatBytesCompleted);
+#endif
         
         [progressIndicator setDoubleValue:(double)floatBytesCompleted];
-        [progressIndicator displayIfNeeded];
+        
+        if (stage == kFSOperationStageComplete) {
+            NSLog(@"Copy operation has completed.");
+            
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
+            // Show a notification for Mountain Lion users.
+            NSProcessInfo *pinfo = [NSProcessInfo processInfo];
+            NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
+            NSString *version = [myarr objectAtIndex:1];
+        
+            // Ensure that we are running 10.8 before we display the notification as we still support Lion, which does not have
+            // them.
+            if ([version rangeOfString:@"10.8"].location != NSNotFound) {
+                NSUserNotification *notification = [[NSUserNotification alloc] init];
+                notification.title = @"Finished Making Live USB";
+                notification.informativeText = @"The live USB has been made successfully.";
+                notification.soundName = NSUserNotificationDefaultSoundName;
+            
+                [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+            } else {
+                [NSApp requestUserAttention:NSCriticalRequest];
+            }
+#else
+            [NSApp requestUserAttention:NSCriticalRequest];
+#endif
+        }
     }
 }
 
