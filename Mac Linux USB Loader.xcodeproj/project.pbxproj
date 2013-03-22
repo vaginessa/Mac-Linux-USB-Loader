@@ -268,11 +268,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
-<<<<<<< HEAD
 				ORGANIZATIONNAME = "";
-=======
-				ORGANIZATIONNAME = "Ryan Bowring";
->>>>>>> f1ac045ba3bf10c62d9d5ebf0e73c43a2fee5c05
 			};
 			buildConfigurationList = 24CA6BE31656F7A700061D2F /* Build configuration list for PBXProject "Mac Linux USB Loader" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -527,10 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader/Mac Linux USB Loader.entitlements";
-<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "Mac Developer";
-=======
->>>>>>> f1ac045ba3bf10c62d9d5ebf0e73c43a2fee5c05
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -550,10 +543,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader/Mac Linux USB Loader.entitlements";
-<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "Mac Developer";
-=======
->>>>>>> f1ac045ba3bf10c62d9d5ebf0e73c43a2fee5c05
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
