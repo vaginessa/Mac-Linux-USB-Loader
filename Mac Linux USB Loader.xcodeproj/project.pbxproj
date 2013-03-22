@@ -268,7 +268,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "Ryan Bowring";
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 24CA6BE31656F7A700061D2F /* Build configuration list for PBXProject "Mac Linux USB Loader" */;
 			compatibilityVersion = "Xcode 3.2";
