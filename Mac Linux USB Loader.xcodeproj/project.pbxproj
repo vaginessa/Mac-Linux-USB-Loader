@@ -62,6 +62,7 @@
 		244C050316DD840E0083A0C9 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		244C050716DD8E460083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
+		245C36C916FD001E00B76647 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		246ABBE116A4BD560054A649 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/DistributionDownloader.m; sourceTree = "<group>"; };
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
 		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		24DA702716DBDB4500A7C76C /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/RHAppDelegate.h; sourceTree = "<group>"; };
 		24DA702916DBDB6200A7C76C /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = "Mac Linux USB Loader/en.lproj/DistributionDownloader.h"; sourceTree = "<group>"; };
-		24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
 		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,8 +201,8 @@
 		24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */ = {
 			isa = PBXGroup;
 			children = (
+				245C36C916FD001E00B76647 /* Mac Linux USB Loader.entitlements */,
 				24DB8AB81659AB0700F7C947 /* README */,
-				24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */,
 				24CA6BFF1656F7A700061D2F /* Document.h */,
 				249E04FD1693916900562F64 /* Document.m */,
 				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
