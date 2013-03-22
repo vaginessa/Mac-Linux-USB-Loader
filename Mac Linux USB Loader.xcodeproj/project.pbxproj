@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
+		24434A391677D52800DAC959 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A211677D52800DAC959 /* AboutPreferences.png */; };
+		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
+		244C050416DD840E0083A0C9 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 244C050316DD840E0083A0C9 /* dsa_pub.pem */; };
+		244C050816DD8E460083A0C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
+		244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244E560816755CA300F80E78 /* RHPreferences.framework */; };
+		246ABBE016A4BD560054A649 /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 246ABBE216A4BD560054A649 /* DistributionDownloader.m */; };
+		24728A6816BDA62C00920062 /* Notifications.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24728A6716BDA62B00920062 /* Notifications.icns */; };
+		247686021682777A00A8C4AD /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686001682777A00A8C4AD /* bootIA32.efi */; };
+		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
+		2479538D16ED01030085057B /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2479538F16ED01030085057B /* Document.xib */; };
+		248317CE16BF146C00313D33 /* Eraser.icns in Resources */ = {isa = PBXBuildFile; fileRef = 248317CD16BF146C00313D33 /* Eraser.icns */; };
+		248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		249E04F71693916400562F64 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04F91693916400562F64 /* USBDevice.m */; };
+		249E04FB1693916900562F64 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04FD1693916900562F64 /* Document.m */; };
+		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
+		24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167016A0E85D0046C51A /* RHNotificationViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		24AD167116A0E8610046C51A /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167316A0E8610046C51A /* RHAboutViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167616A0E8650046C51A /* RHAccountsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */; };
+		24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */; };
+		24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */; };
+		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6BF61656F7A700061D2F /* InfoPlist.strings */; };
+		24CA6BFA1656F7A700061D2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6BF91656F7A700061D2F /* main.m */; };
+		24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C051656F7A700061D2F /* MainMenu.xib */; };
+		24CA6C14165701A900061D2F /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C13165701A900061D2F /* Icon.icns */; };
+		24DB8AB91659AB0700F7C947 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 24DB8AB81659AB0700F7C947 /* README */; };
+		24F62E7216795AD50016B65A /* bootup.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24F62E7116795AD50016B65A /* bootup.icns */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		244E560316755B4A00F80E78 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */,
+				24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		242262D616ED046200804B9D /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/Document.xib; sourceTree = "<group>"; };
+		24434A191677CE2100DAC959 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
+		24434A211677D52800DAC959 /* AboutPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutPreferences.png; sourceTree = "<group>"; };
+		24434A221677D52800DAC959 /* AccountsPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccountsPreferences.png; sourceTree = "<group>"; };
+		24434A2B1677D52800DAC959 /* RHAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHAboutViewController.h; sourceTree = "<group>"; };
+		24434A2E1677D52800DAC959 /* RHAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHAccountsViewController.h; sourceTree = "<group>"; };
+		244C050316DD840E0083A0C9 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		244C050716DD8E460083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
+		246ABBE116A4BD560054A649 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/DistributionDownloader.m; sourceTree = "<group>"; };
+		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
+		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
+		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
+		2479537C16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
+		2479537E16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
+		2479538016ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
+		2479538716ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2479538816ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2479538E16ED01030085057B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
+		248317CD16BF146C00313D33 /* Eraser.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Eraser.icns; path = Resources/Eraser.icns; sourceTree = "<group>"; };
+		248ECB8C16AB3168004B8A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAppDelegate.m; sourceTree = "<group>"; };
+		249E04F81693916400562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/USBDevice.m; sourceTree = "<group>"; };
+		249E04FC1693916900562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/Document.m; sourceTree = "<group>"; };
+		24AD166216A0E1D90046C51A /* RHNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHNotificationViewController.h; sourceTree = "<group>"; };
+		24AD166F16A0E85D0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHNotificationViewController.m; sourceTree = "<group>"; };
+		24AD167216A0E8610046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAboutViewController.m; sourceTree = "<group>"; };
+		24AD167516A0E8650046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAccountsViewController.m; sourceTree = "<group>"; };
+		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
+		24AD167B16A0F2CE0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
+		24AD167E16A0F2D20046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
+		24C9FCCC1664204B0080E6E4 /* USBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USBDevice.h; sourceTree = "<group>"; };
+		24CA6BE91656F7A700061D2F /* Mac Linux USB Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Linux USB Loader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24CA6BED1656F7A700061D2F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		24CA6BF01656F7A700061D2F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		24CA6BF11656F7A700061D2F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		24CA6BF21656F7A700061D2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		24CA6BF51656F7A700061D2F /* Mac Linux USB Loader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mac Linux USB Loader-Info.plist"; sourceTree = "<group>"; };
+		24CA6BF71656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24CA6BF91656F7A700061D2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		24CA6BFB1656F7A700061D2F /* Mac Linux USB Loader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mac Linux USB Loader-Prefix.pch"; sourceTree = "<group>"; };
+		24CA6BFF1656F7A700061D2F /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		24CA6C061656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		24CA6C13165701A900061D2F /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
+		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
+		24DA702716DBDB4500A7C76C /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/RHAppDelegate.h; sourceTree = "<group>"; };
+		24DA702916DBDB6200A7C76C /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = "Mac Linux USB Loader/en.lproj/DistributionDownloader.h"; sourceTree = "<group>"; };
+		24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
+		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
+		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24CA6BE61656F7A700061D2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */,
+				244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */,
+				244C050816DD8E460083A0C9 /* Sparkle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24434A201677D50800DAC959 /* Preferences View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24AD166216A0E1D90046C51A /* RHNotificationViewController.h */,
+				24AD167016A0E85D0046C51A /* RHNotificationViewController.m */,
+				24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */,
+				24434A2B1677D52800DAC959 /* RHAboutViewController.h */,
+				24AD167316A0E8610046C51A /* RHAboutViewController.m */,
+				24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */,
+				24434A2E1677D52800DAC959 /* RHAccountsViewController.h */,
+				24AD167616A0E8650046C51A /* RHAccountsViewController.m */,
+				24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */,
+			);
+			name = "Preferences View Controllers";
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		24728A6616BD9C1B00920062 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				248317CD16BF146C00313D33 /* Eraser.icns */,
+				24434A211677D52800DAC959 /* AboutPreferences.png */,
+				24434A221677D52800DAC959 /* AccountsPreferences.png */,
+				24728A6716BDA62B00920062 /* Notifications.icns */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		247685FF1682777A00A8C4AD /* EFI Loader */ = {
+			isa = PBXGroup;
+			children = (
+				247686001682777A00A8C4AD /* bootIA32.efi */,
+				247686011682777A00A8C4AD /* bootX64.efi */,
+			);
+			path = "EFI Loader";
+			sourceTree = "<group>";
+		};
+		24CA6BDE1656F7A700061D2F = {
+			isa = PBXGroup;
+			children = (
+				24728A6616BD9C1B00920062 /* Icons */,
+				247685FF1682777A00A8C4AD /* EFI Loader */,
+				24434A201677D50800DAC959 /* Preferences View Controllers */,
+				24F62E7416795AE50016B65A /* Icons */,
+				24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */,
+				24CA6BEC1656F7A700061D2F /* Frameworks */,
+				24CA6BEA1656F7A700061D2F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		24CA6BEA1656F7A700061D2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24CA6BE91656F7A700061D2F /* Mac Linux USB Loader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24CA6BEC1656F7A700061D2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				244C050716DD8E460083A0C9 /* Sparkle.framework */,
+				24434A191677CE2100DAC959 /* RHPreferences.framework */,
+				244E560816755CA300F80E78 /* RHPreferences.framework */,
+				24CA6BED1656F7A700061D2F /* Cocoa.framework */,
+				24CA6BEF1656F7A700061D2F /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		24CA6BEF1656F7A700061D2F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24CA6BF01656F7A700061D2F /* AppKit.framework */,
+				24CA6BF11656F7A700061D2F /* CoreData.framework */,
+				24CA6BF21656F7A700061D2F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */ = {
+			isa = PBXGroup;
+			children = (
+				24DB8AB81659AB0700F7C947 /* README */,
+				24DB8AB71659A6D500F7C947 /* Mac Linux USB Loader.entitlements */,
+				24CA6BFF1656F7A700061D2F /* Document.h */,
+				249E04FD1693916900562F64 /* Document.m */,
+				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
+				249E04F91693916400562F64 /* USBDevice.m */,
+				24DA702616DBDB4500A7C76C /* RHAppDelegate.h */,
+				248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */,
+				24DA702816DBDB6200A7C76C /* DistributionDownloader.h */,
+				246ABBE216A4BD560054A649 /* DistributionDownloader.m */,
+				24CA6C051656F7A700061D2F /* MainMenu.xib */,
+				2479538F16ED01030085057B /* Document.xib */,
+				24CA6BF41656F7A700061D2F /* Supporting Files */,
+			);
+			path = "Mac Linux USB Loader";
+			sourceTree = "<group>";
+		};
+		24CA6BF41656F7A700061D2F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				244C050316DD840E0083A0C9 /* dsa_pub.pem */,
+				24CA6BF51656F7A700061D2F /* Mac Linux USB Loader-Info.plist */,
+				24CA6BF61656F7A700061D2F /* InfoPlist.strings */,
+				24CA6BF91656F7A700061D2F /* main.m */,
+				24CA6BFB1656F7A700061D2F /* Mac Linux USB Loader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24F62E7416795AE50016B65A /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				24CA6C13165701A900061D2F /* Icon.icns */,
+				24F62E7116795AD50016B65A /* bootup.icns */,
+				24CA6C15165701BD00061D2F /* Icon.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24CA6BE81656F7A700061D2F /* Mac Linux USB Loader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24CA6C0A1656F7A700061D2F /* Build configuration list for PBXNativeTarget "Mac Linux USB Loader" */;
+			buildPhases = (
+				24CA6BE51656F7A700061D2F /* Sources */,
+				24CA6BE61656F7A700061D2F /* Frameworks */,
+				24CA6BE71656F7A700061D2F /* Resources */,
+				244E560316755B4A00F80E78 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mac Linux USB Loader";
+			productName = "Mac Linux USB Loader";
+			productReference = 24CA6BE91656F7A700061D2F /* Mac Linux USB Loader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24CA6BE01656F7A700061D2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Ryan Bowring";
+			};
+			buildConfigurationList = 24CA6BE31656F7A700061D2F /* Build configuration list for PBXProject "Mac Linux USB Loader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				es,
+			);
+			mainGroup = 24CA6BDE1656F7A700061D2F;
+			productRefGroup = 24CA6BEA1656F7A700061D2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24CA6BE81656F7A700061D2F /* Mac Linux USB Loader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24CA6BE71656F7A700061D2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */,
+				24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */,
+				24CA6C14165701A900061D2F /* Icon.icns in Resources */,
+				24DB8AB91659AB0700F7C947 /* README in Resources */,
+				24434A391677D52800DAC959 /* AboutPreferences.png in Resources */,
+				24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */,
+				24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */,
+				24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */,
+				24F62E7216795AD50016B65A /* bootup.icns in Resources */,
+				247686021682777A00A8C4AD /* bootIA32.efi in Resources */,
+				247686031682777A00A8C4AD /* bootX64.efi in Resources */,
+				24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */,
+				24728A6816BDA62C00920062 /* Notifications.icns in Resources */,
+				248317CE16BF146C00313D33 /* Eraser.icns in Resources */,
+				244C050416DD840E0083A0C9 /* dsa_pub.pem in Resources */,
+				2479538D16ED01030085057B /* Document.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24CA6BE51656F7A700061D2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24CA6BFA1656F7A700061D2F /* main.m in Sources */,
+				249E04FB1693916900562F64 /* Document.m in Sources */,
+				249E04F71693916400562F64 /* USBDevice.m in Sources */,
+				24AD167116A0E8610046C51A /* RHAboutViewController.m in Sources */,
+				24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */,
+				248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */,
+				24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */,
+				246ABBE016A4BD560054A649 /* DistributionDownloader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		246ABBE216A4BD560054A649 /* DistributionDownloader.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				246ABBE116A4BD560054A649 /* en */,
+			);
+			name = DistributionDownloader.m;
+			sourceTree = "<group>";
+		};
+		2479538F16ED01030085057B /* Document.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2479538E16ED01030085057B /* en */,
+				242262D616ED046200804B9D /* es */,
+			);
+			name = Document.xib;
+			sourceTree = "<group>";
+		};
+		248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				248ECB8C16AB3168004B8A7E /* en */,
+			);
+			name = RHAppDelegate.m;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		249E04F91693916400562F64 /* USBDevice.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				249E04F81693916400562F64 /* en */,
+			);
+			name = USBDevice.m;
+			sourceTree = "<group>";
+		};
+		249E04FD1693916900562F64 /* Document.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				249E04FC1693916900562F64 /* en */,
+			);
+			name = Document.m;
+			sourceTree = "<group>";
+		};
+		24AD167016A0E85D0046C51A /* RHNotificationViewController.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24AD166F16A0E85D0046C51A /* en */,
+			);
+			name = RHNotificationViewController.m;
+			sourceTree = "<group>";
+		};
+		24AD167316A0E8610046C51A /* RHAboutViewController.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24AD167216A0E8610046C51A /* en */,
+			);
+			name = RHAboutViewController.m;
+			sourceTree = "<group>";
+		};
+		24AD167616A0E8650046C51A /* RHAccountsViewController.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24AD167516A0E8650046C51A /* en */,
+			);
+			name = RHAccountsViewController.m;
+			sourceTree = "<group>";
+		};
+		24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24AD167816A0F2C80046C51A /* en */,
+				2479537C16ECFD4B0085057B /* es */,
+			);
+			name = RHNotificationViewController.xib;
+			sourceTree = "<group>";
+		};
+		24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24AD167B16A0F2CE0046C51A /* en */,
+				2479537E16ECFD4B0085057B /* es */,
+			);
+			name = RHAboutViewController.xib;
+			sourceTree = "<group>";
+		};
+		24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24AD167E16A0F2D20046C51A /* en */,
+				2479538016ECFD4B0085057B /* es */,
+			);
+			name = RHAccountsViewController.xib;
+			sourceTree = "<group>";
+		};
+		24CA6BF61656F7A700061D2F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24CA6BF71656F7A700061D2F /* en */,
+				2479538816ECFD4B0085057B /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		24CA6C051656F7A700061D2F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24CA6C061656F7A700061D2F /* en */,
+				2479538716ECFD4B0085057B /* es */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		24DA702616DBDB4500A7C76C /* RHAppDelegate.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24DA702716DBDB4500A7C76C /* en */,
+			);
+			name = RHAppDelegate.h;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		24DA702816DBDB6200A7C76C /* DistributionDownloader.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24DA702916DBDB6200A7C76C /* en */,
+			);
+			name = DistributionDownloader.h;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		24CA6C081656F7A700061D2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		24CA6C091656F7A700061D2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		24CA6C0B1656F7A700061D2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader/Mac Linux USB Loader.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Downloads/Sparkle 1/With Garbage Collection\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mac Linux USB Loader/Mac Linux USB Loader-Prefix.pch";
+				INFOPLIST_FILE = "Mac Linux USB Loader/Mac Linux USB Loader-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		24CA6C0C1656F7A700061D2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader/Mac Linux USB Loader.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Downloads/Sparkle 1/With Garbage Collection\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mac Linux USB Loader/Mac Linux USB Loader-Prefix.pch";
+				INFOPLIST_FILE = "Mac Linux USB Loader/Mac Linux USB Loader-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24CA6BE31656F7A700061D2F /* Build configuration list for PBXProject "Mac Linux USB Loader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24CA6C081656F7A700061D2F /* Debug */,
+				24CA6C091656F7A700061D2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24CA6C0A1656F7A700061D2F /* Build configuration list for PBXNativeTarget "Mac Linux USB Loader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24CA6C0B1656F7A700061D2F /* Debug */,
+				24CA6C0C1656F7A700061D2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24CA6BE01656F7A700061D2F /* Project object */;
+}
