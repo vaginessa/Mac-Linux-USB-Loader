@@ -13,15 +13,18 @@
     NSWindow *_window;
     RHPreferencesWindowController *_preferencesWindowController;
     IBOutlet NSPanel *sheet;
+    IBOutlet NSPanel *eraseSheet;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSButton *closeDistroDownloadSheetButton;
+@property (assign) IBOutlet NSButton *closeEraseDownloadSheetButton;
 @property (assign) IBOutlet NSButton *distroDownloadButton;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (retain) IBOutlet NSPopUpButton *distroPopUpSelector;
 @property (retain) IBOutlet NSProgressIndicator *distroDownloadProgressIndicator;
 @property (retain) IBOutlet NSComboBox *distroSelectorComboBox;
+@property (retain) IBOutlet NSPopUpButton *eraseUSBSelector;
 
 - (BOOL)canQuit;
 - (BOOL)setCanQuit:(BOOL)ableToQuit;
@@ -30,7 +33,11 @@
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)showDownloadDistroSheet:(id)sender;
 - (IBAction)closeDownloadDistroSheet:(id)sender;
+- (IBAction)showEraseDistroSheet:(id)sender;
+- (IBAction)closeEraseDistroSheet:(id)sender;
+- (IBAction)detectUSBs:(id)sender;
 - (IBAction)downloadDistribution:(id)sender;
+- (IBAction)eraseSelectedDrive:(id)sender;
 
 #pragma mark - Delegates
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;

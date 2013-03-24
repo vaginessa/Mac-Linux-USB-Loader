@@ -21,9 +21,11 @@ long long bytesReceived = 0;
     destinationPath = destination;
     progress = progressBar;
     NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
     // Create the connection with the request and start loading the data.
     [download setDestination:destination allowOverwrite:YES];
     download=[[NSURLDownload alloc] initWithRequest:request delegate:self];
+    
     if (!download) {
         NSLog(@"Download could not be made...");
     }
@@ -70,7 +72,7 @@ long long bytesReceived = 0;
     NSString *destinationFilename;
     NSString *homeDirectory=NSHomeDirectory();
     
-    destinationFilename=[[homeDirectory stringByAppendingPathComponent:@"Desktop"] stringByAppendingPathComponent:filename];
+    destinationFilename=[[homeDirectory stringByAppendingPathComponent:@"Downloads"] stringByAppendingPathComponent:filename];
     [download setDestination:destinationFilename allowOverwrite:YES];
 }
 
@@ -134,7 +136,7 @@ long long bytesReceived = 0;
         [progress setDoubleValue:(double)percentComplete];
         
         // Add the progress percent to the dock as an overlay.
-        [[[NSApplication sharedApplication] dockTile] setBadgeLabel:[NSString stringWithFormat:@"%ld", (long)percentComplete]];
+        [[[NSApplication sharedApplication] dockTile] setBadgeLabel:[NSString stringWithFormat:@"%ld%%", (long)percentComplete]];
     } else {
         // If the expected content length is unknown, just log the progress.
         NSLog(@"Bytes received - %lld", bytesReceived);

@@ -32,8 +32,7 @@ NSMutableDictionary *usbs;
 NSString *isoFilePath;
 USBDevice *device;
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         // No initilization needed here.
@@ -41,13 +40,11 @@ USBDevice *device;
     return self;
 }
 
-- (NSString *)windowNibName
-{
+- (NSString *)windowNibName {
     return @"Document";
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)controller
-{
+- (void)windowControllerDidLoadNib:(NSWindowController *)controller {
     progressIndicator = spinner;
     
     [super windowControllerDidLoadNib:controller];
@@ -65,8 +62,7 @@ USBDevice *device;
     [self getUSBDeviceList];
 }
 
-- (void)getUSBDeviceList
-{
+- (void)getUSBDeviceList {
     // Fetch the NSArray of strings of mounted media from the shared workspace.
     NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedRemovableMedia];
     
@@ -147,10 +143,10 @@ USBDevice *device;
     NSString* usbRoot = [usbs valueForKey:directoryName];
     NSString* finalPath = [NSString stringWithFormat:@"%@/efi/boot/", usbRoot];
     
-    [indeterminate setUsesThreadedAnimation:NO];
+    [indeterminate setUsesThreadedAnimation:YES];
     [indeterminate startAnimation:self];
     
-    [spinner setUsesThreadedAnimation:NO];
+    [spinner setUsesThreadedAnimation:YES];
     [spinner setIndeterminate:YES];
     [spinner setDoubleValue:0.0];
     [spinner startAnimation:self];
@@ -173,7 +169,7 @@ USBDevice *device;
     [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
     if ([device prepareUSB:usbRoot] == YES) {
         [spinner setIndeterminate:NO];
-        [spinner setUsesThreadedAnimation:NO];
+        [spinner setUsesThreadedAnimation:YES];
             
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         // Use the NSFileManager to obtain the size of our source file in bytes.
@@ -228,8 +224,10 @@ USBDevice *device;
         }
         
 #pragma clang diagnostic warning "-Wdeprecated-declarations"
-            
-        [spinner setDoubleValue:100.0];
+        
+        [self markUsbAsLive:usbRoot]; // Place a file on the USB to identify it as being created by Mac Linux USB Loader.
+        
+        [spinner setDoubleValue:0];
         [spinner stopAnimation:self];
         
         [indeterminate stopAnimation:self];
@@ -238,8 +236,6 @@ USBDevice *device;
         // Some form of setup failed. Alert the user.
         failure = YES;
     }
-        
-    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
     
     // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
     if (failure) {
@@ -259,6 +255,24 @@ USBDevice *device;
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     } else {
     }
+}
+
+- (void)markUsbAsLive:(NSString*)path {
+    NSLog(@"Marking this USB as a live USB...");
+    
+    NSError* error;
+    NSFileManager* manager = [NSFileManager defaultManager];
+
+    NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
+    NSString *str = [NSString stringWithFormat:@"%@\n%@", isoFilePath, path];
+    
+    NSLog(@"Path: %@\nString: %@", filePath, str);
+    
+    [str writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    
+#ifdef DEBUG
+    NSLog(@"Write directory: %@", [manager contentsOfDirectoryAtPath:path error:&error]);
+#endif
 }
 
 - (IBAction)openGithubPage:(id)sender {
@@ -306,6 +320,7 @@ USBDevice *device;
 
 - (void)eraseAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == NSAlertFirstButtonReturn) {
+        [[NSApp delegate] setCanQuit:NO];
         // NSLog(@"Will erase!");
         if ([usbDriveDropdown numberOfItems] != 0) {
             // Construct the path of the efi folder that we're going to nuke.
@@ -336,6 +351,8 @@ USBDevice *device;
                 }
             }
         }
+        
+        [[NSApp delegate] setCanQuit:YES];
     }
 }
 @end
@@ -383,6 +400,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
 #else
             [NSApp requestUserAttention:NSCriticalRequest];
 #endif
+            [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
         }
     }
 }

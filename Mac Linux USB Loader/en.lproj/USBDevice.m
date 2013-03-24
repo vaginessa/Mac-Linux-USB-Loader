@@ -57,7 +57,7 @@ NSWindow *window;
 
 /*
  * THIS FUNCTION IS NO LONGER IN USE
- * I AM KEEPING THIS LEGACY PURPOSES ONLY
+ * I AM KEEPING THIS FOR LEGACY PURPOSES ONLY
  *
  * I don't really want to use this anymore as NSFileManager does not allow you to get the progress of the file
  * copy.

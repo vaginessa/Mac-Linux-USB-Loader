@@ -26,6 +26,7 @@ static NSProgressIndicator *progressIndicator;
 - (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (IBAction)updateDeviceList:(id)sender;
 - (IBAction)makeLiveUSB:(id)sender;
+- (void)markUsbAsLive:(NSString*)path;
 - (IBAction)openGithubPage:(id)sender;
 - (IBAction)reportBug:(id)sender;
 

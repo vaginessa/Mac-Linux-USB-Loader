@@ -22,6 +22,7 @@
 @synthesize distroDownloadButton;
 @synthesize distroDownloadProgressIndicator;
 @synthesize distroSelectorComboBox;
+@synthesize eraseUSBSelector;
 
 NSWindow *downloadLinuxDistroSheet;
 BOOL canQuit = YES; // Can the user quit the application?
@@ -35,6 +36,8 @@ BOOL canQuit = YES; // Can the user quit the application?
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    [eraseUSBSelector removeAllItems];
+    [self detectUSBs:nil];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
@@ -85,6 +88,93 @@ BOOL canQuit = YES; // Can the user quit the application?
     [_preferencesWindowController showWindow:self];
 }
 
+#pragma mark - USB Live Eraser
+
+- (IBAction)showEraseDistroSheet:(id)sender {
+    [NSApp beginSheet:eraseSheet modalForWindow:(NSWindow *)_window modalDelegate:self
+       didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+}
+
+- (IBAction)closeEraseDistroSheet:(id)sender {
+    [NSApp endSheet:eraseSheet];
+    [eraseSheet orderOut:sender];
+}
+
+- (IBAction)detectUSBs:(id)sender {
+    // Fetch the NSArray of strings of mounted media from the shared workspace.
+    NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedRemovableMedia];
+    
+    // Setup target variables for the data to be put into.
+    BOOL isRemovable, isWritable, isUnmountable;
+    NSString *description, *volumeType;
+    
+    [eraseUSBSelector removeAllItems]; // Clear the dropdown list.
+    
+    // Iterate through the array using fast enumeration.
+    for (NSString *volumePath in volumes) {
+        // Get filesystem info about each of the mounted volumes.
+        if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
+            if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
+                if([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/efi/boot/.MLUL-Live-USB", volumePath]]) {
+                    // We have a valid mounted media - not necessarily a USB though.
+                    NSString * title = [NSString stringWithFormat:@"%@", volumePath];
+                
+                    [eraseUSBSelector addItemWithTitle:title]; // Add to the dropdown list.
+                }
+            }
+        }
+    }
+}
+
+- (IBAction)eraseSelectedDrive:(id)sender {
+    [[NSApp delegate] setCanQuit:NO];
+    
+    // NSLog(@"Will erase!");
+    if ([eraseUSBSelector numberOfItems] != 0) {
+        [eraseUSBSelector setEnabled:NO];
+
+        // Construct the path of the efi folder that we're going to nuke.
+        //NSString *directoryName = [eraseUSBSelector titleOfSelectedItem];
+        NSString *usbRoot = [eraseUSBSelector titleOfSelectedItem];
+        NSString *tempPath = [NSString stringWithFormat:@"%@/efi", usbRoot];
+        
+        // Need these to recursively delete the folder, because UNIX can't erase a folder without erasing its
+        // contents first, apparently.
+        NSFileManager* fm = [[NSFileManager alloc] init];
+        NSDirectoryEnumerator* en = [fm enumeratorAtPath:tempPath];
+        NSError *err = nil;
+        BOOL eraseDidSucceed;
+        
+        // Recursively erase the efi folder.
+        NSString *file;
+        while (file = [en nextObject]) { // While there are files to remove...
+            eraseDidSucceed = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err]; // Delete.
+            
+            NSAlert *alert = [[NSAlert alloc] init];
+            
+            if (!eraseDidSucceed && err) { // If there was an error...
+                NSString *text = [NSString stringWithFormat:@"Error: %@", err];
+                [alert addButtonWithTitle:@"Okay"];
+                [alert setMessageText:@"Failed to erase live USB."];
+                [alert setInformativeText:text];
+                [alert setAlertStyle:NSWarningAlertStyle];
+                [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+                NSLog(@"Could not delete: %@", err);
+            } else {
+                [alert addButtonWithTitle:@"Okay"];
+                [alert setMessageText:@"Erase successful."];
+                [alert setInformativeText:@"The live USB has been erased."];
+                [alert setAlertStyle:NSWarningAlertStyle];
+                [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+            }
+        }
+        
+        [eraseUSBSelector setEnabled:YES];
+    }
+    
+    [[NSApp delegate] setCanQuit:YES];
+}
+
 #pragma mark - Distribution Downloader
 - (IBAction)showDownloadDistroSheet:(id)sender {
     [NSApp beginSheet:sheet modalForWindow:(NSWindow *)_window modalDelegate:self
@@ -108,7 +198,7 @@ BOOL canQuit = YES; // Can the user quit the application?
         NSURL *downloadLocation = [NSURL URLWithString:@"http://releases.ubuntu.com/quantal/ubuntu-12.10-desktop-amd64+mac.iso"];
         
         [[DistributionDownloader new] downloadLinuxDistribution:downloadLocation:
-         [NSHomeDirectory() stringByAppendingPathComponent:@"/Desktop/"]:distroDownloadProgressIndicator];
+         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:distroDownloadProgressIndicator];
         
         // The program calls the setCanQuit method in the download delegates. We don't call it here, as this function returns
         // immediately.
