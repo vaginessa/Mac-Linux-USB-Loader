@@ -77,6 +77,7 @@
 		248ECB8C16AB3168004B8A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAppDelegate.m; sourceTree = "<group>"; };
 		249E04F81693916400562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/USBDevice.m; sourceTree = "<group>"; };
 		249E04FC1693916900562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/Document.m; sourceTree = "<group>"; };
+		249EDD7017011D47006E7DAE /* RHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RHAppDelegate.h; sourceTree = "<group>"; };
 		24AD166216A0E1D90046C51A /* RHNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHNotificationViewController.h; sourceTree = "<group>"; };
 		24AD166F16A0E85D0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHNotificationViewController.m; sourceTree = "<group>"; };
 		24AD167216A0E8610046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAboutViewController.m; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		24CA6C061656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		24CA6C13165701A900061D2F /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		24DA702716DBDB4500A7C76C /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/RHAppDelegate.h; sourceTree = "<group>"; };
 		24DA702916DBDB6200A7C76C /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = "Mac Linux USB Loader/en.lproj/DistributionDownloader.h"; sourceTree = "<group>"; };
 		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
 		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 				249E04FD1693916900562F64 /* Document.m */,
 				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
 				249E04F91693916400562F64 /* USBDevice.m */,
-				24DA702616DBDB4500A7C76C /* RHAppDelegate.h */,
+				249EDD7017011D47006E7DAE /* RHAppDelegate.h */,
 				248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */,
 				24DA702816DBDB6200A7C76C /* DistributionDownloader.h */,
 				246ABBE216A4BD560054A649 /* DistributionDownloader.m */,
@@ -443,15 +443,6 @@
 				2479538716ECFD4B0085057B /* es */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		24DA702616DBDB4500A7C76C /* RHAppDelegate.h */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24DA702716DBDB4500A7C76C /* en */,
-			);
-			name = RHAppDelegate.h;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		24DA702816DBDB6200A7C76C /* DistributionDownloader.h */ = {
