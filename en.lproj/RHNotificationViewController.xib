@@ -49,6 +49,7 @@
 						<string key="NSFrame">{{14, 11}, {204, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="43639011">
@@ -189,6 +190,22 @@
 						<reference key="destination" ref="1005"/>
 					</object>
 					<int key="connectionID">2</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.ShowNotifications</string>
+						<reference key="source" ref="117758539"/>
+						<reference key="destination" ref="162967008"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="117758539"/>
+							<reference key="NSDestination" ref="162967008"/>
+							<string key="NSLabel">value: values.ShowNotifications</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.ShowNotifications</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">63</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -344,7 +361,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">61</int>
+			<int key="maxID">63</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

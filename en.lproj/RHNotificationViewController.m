@@ -59,9 +59,6 @@
     
     [defaults setBool:showNotifications forKey:@"ShowNotifications"];
     [defaults synchronize];
-    
-    NSLog(@"Setting show notifications to %ld. Value is now: %c", (long)[displayNotificationsCheckbox state],
-          (BOOL)[defaults boolForKey:@"ShowNotifications"]);
 }
 
 #pragma mark - RHPreferencesViewControllerProtocol

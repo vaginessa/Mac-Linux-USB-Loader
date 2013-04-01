@@ -987,6 +987,7 @@
 							<string key="NSFrame">{{326, 21}, {103, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="21435493">
@@ -1150,7 +1151,7 @@
 						<object class="NSButton" id="222923096">
 							<reference key="NSNextResponder" ref="1033792868"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{252, 21}, {74, 32}}</string>
+							<string key="NSFrame">{{192, 21}, {134, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="811262413"/>
@@ -1159,7 +1160,7 @@
 							<object class="NSButtonCell" key="NSCell" id="799859897">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Open</string>
+								<string key="NSContents">Open in Finder</string>
 								<reference key="NSSupport" ref="541237779"/>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="222923096"/>

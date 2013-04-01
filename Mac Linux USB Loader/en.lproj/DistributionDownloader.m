@@ -96,12 +96,16 @@ long long bytesReceived = 0;
     // Ensure that we are running 10.8 before we display the notification as we still support Lion, which does not have
     // them.
     if ([version rangeOfString:@"10.8"].location != NSNotFound) {
-        NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.title = @"File Download Complete";
-        notification.informativeText = @"The ISO was successfully downloaded.";
-        notification.soundName = NSUserNotificationDefaultSoundName;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        if ((BOOL)[defaults valueForKey:@"ShowNotifications"] == YES) {
+            NSUserNotification *notification = [[NSUserNotification alloc] init];
+            notification.title = @"File Download Complete";
+            notification.informativeText = @"The ISO was successfully downloaded.";
+            notification.soundName = NSUserNotificationDefaultSoundName;
+            
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        }
     }
 #else
     [NSApp requestUserAttention:NSCriticalRequest];

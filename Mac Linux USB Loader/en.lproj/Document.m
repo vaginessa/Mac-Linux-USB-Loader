@@ -376,12 +376,16 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
             // Ensure that we are running 10.8 before we display the notification as we still support Lion, which does not have
             // them.
             if ([version rangeOfString:@"10.8"].location != NSNotFound) {
-                NSUserNotification *notification = [[NSUserNotification alloc] init];
-                notification.title = @"Finished Making Live USB";
-                notification.informativeText = @"The live USB has been made successfully.";
-                notification.soundName = NSUserNotificationDefaultSoundName;
-            
-                [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                
+                if ((BOOL)[defaults valueForKey:@"ShowNotifications"] == YES) {
+                    NSUserNotification *notification = [[NSUserNotification alloc] init];
+                    notification.title = @"Finished Making Live USB";
+                    notification.informativeText = @"The live USB has been made successfully.";
+                    notification.soundName = NSUserNotificationDefaultSoundName;
+                    
+                    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+                }
             } else {
                 [NSApp requestUserAttention:NSCriticalRequest];
             }
