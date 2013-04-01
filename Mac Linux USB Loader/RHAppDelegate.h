@@ -38,6 +38,9 @@
 - (IBAction)detectUSBs:(id)sender;
 - (IBAction)downloadDistribution:(id)sender;
 - (IBAction)eraseSelectedDrive:(id)sender;
+- (IBAction)openGithubPage:(id)sender;
+- (IBAction)openDiskUtility:(id)sender;
+- (IBAction)reportBug:(id)sender;
 
 #pragma mark - Delegates
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;

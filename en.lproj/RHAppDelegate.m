@@ -223,4 +223,16 @@ BOOL canQuit = YES; // Can the user quit the application?
     }
 }
 
+- (IBAction)openDiskUtility:(id)sender {
+    [[NSWorkspace sharedWorkspace] launchApplication:@"/Applications/Utilities/Disk Utility.app"];
+}
+
+- (IBAction)openGithubPage:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader"]];
+}
+
+- (IBAction)reportBug:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader/issues/new"]];
+}
+
 @end

@@ -275,14 +275,6 @@ USBDevice *device;
 #endif
 }
 
-- (IBAction)openGithubPage:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader"]];
-}
-
-- (IBAction)reportBug:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader/issues/new"]];
-}
-
 + (BOOL)autosavesInPlace
 {
     return NO;
@@ -298,10 +290,6 @@ USBDevice *device;
     // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
     // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
     return YES;
-}
-
-- (IBAction)openDiskUtility:(id)sender {
-    [[NSWorkspace sharedWorkspace] launchApplication:@"/Applications/Utilities/Disk Utility.app"];
 }
 
 - (IBAction)eraseLiveBoot:(id)sender {

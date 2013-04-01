@@ -20,15 +20,12 @@ static NSProgressIndicator *progressIndicator;
 @property (weak) IBOutlet NSProgressIndicator *indeterminate;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (unsafe_unretained) IBOutlet NSPopUpButton *usbDriveDropdown;
-- (IBAction)openDiskUtility:(id)sender;
 - (IBAction)eraseLiveBoot:(id)sender;
 - (void)getUSBDeviceList;
 - (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (IBAction)updateDeviceList:(id)sender;
 - (IBAction)makeLiveUSB:(id)sender;
 - (void)markUsbAsLive:(NSString*)path;
-- (IBAction)openGithubPage:(id)sender;
-- (IBAction)reportBug:(id)sender;
 
 // A (C!) callback to get the progress of the copy operation.
 static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
