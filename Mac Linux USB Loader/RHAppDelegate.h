@@ -20,6 +20,7 @@
 @property (assign) IBOutlet NSButton *closeDistroDownloadSheetButton;
 @property (assign) IBOutlet NSButton *closeEraseDownloadSheetButton;
 @property (assign) IBOutlet NSButton *distroDownloadButton;
+@property (assign) IBOutlet NSButton *openDownloadedDistroButton;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (retain) IBOutlet NSPopUpButton *distroPopUpSelector;
 @property (retain) IBOutlet NSProgressIndicator *distroDownloadProgressIndicator;
@@ -33,6 +34,7 @@
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)showDownloadDistroSheet:(id)sender;
 - (IBAction)closeDownloadDistroSheet:(id)sender;
+- (IBAction)openDownloadedDistro:(id)sender;
 - (IBAction)showEraseDistroSheet:(id)sender;
 - (IBAction)closeEraseDistroSheet:(id)sender;
 - (IBAction)detectUSBs:(id)sender;

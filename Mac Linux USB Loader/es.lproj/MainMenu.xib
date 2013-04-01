@@ -969,7 +969,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="1033792868">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSButton" id="846488843">
@@ -977,6 +977,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{4, 21}, {80, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="163365431"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1001,6 +1002,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{325, 21}, {104, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="21435493">
@@ -1024,6 +1026,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{10, 4}, {413, 20}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="222923096"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSHuggingPriority">{250, 250}</string>
@@ -1035,6 +1038,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{10, 73}, {416, 26}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="650594639"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1141,6 +1145,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{7, 55}, {419, 14}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="846488843"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
@@ -1162,11 +1167,12 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{253, 21}, {72, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="811262413"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="799859897">
-								<int key="NSCellFlags">603979776</int>
+								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Abrir</string>
 								<reference key="NSSupport" ref="541237779"/>
@@ -1183,6 +1189,8 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{430, 105}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="865063815"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
@@ -1622,6 +1630,14 @@
 						<reference key="destination" ref="178257859"/>
 					</object>
 					<int key="connectionID">1489</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openDownloadedDistro:</string>
+						<reference key="source" ref="631414546"/>
+						<reference key="destination" ref="222923096"/>
+					</object>
+					<int key="connectionID">1490</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -3810,7 +3826,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1489</int>
+			<int key="maxID">1490</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3850,6 +3866,7 @@
 						<string key="downloadDistribution:">id</string>
 						<string key="eraseSelectedDrive:">id</string>
 						<string key="openDiskUtility:">id</string>
+						<string key="openDownloadedDistro:">id</string>
 						<string key="openGithubPage:">id</string>
 						<string key="reportBug:">id</string>
 						<string key="showDownloadDistroSheet:">id</string>
@@ -3879,6 +3896,10 @@
 						</object>
 						<object class="IBActionInfo" key="openDiskUtility:">
 							<string key="name">openDiskUtility:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="openDownloadedDistro:">
+							<string key="name">openDownloadedDistro:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="openGithubPage:">
@@ -3911,6 +3932,7 @@
 						<string key="distroSelectorComboBox">NSComboBox</string>
 						<string key="eraseSheet">NSPanel</string>
 						<string key="eraseUSBSelector">NSPopUpButton</string>
+						<string key="openDownloadedDistroButton">NSButton</string>
 						<string key="sheet">NSPanel</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
@@ -3946,6 +3968,10 @@
 						<object class="IBToOneOutletInfo" key="eraseUSBSelector">
 							<string key="name">eraseUSBSelector</string>
 							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="openDownloadedDistroButton">
+							<string key="name">openDownloadedDistroButton</string>
+							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="sheet">
 							<string key="name">sheet</string>

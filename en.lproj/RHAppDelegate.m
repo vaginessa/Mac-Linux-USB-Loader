@@ -186,6 +186,25 @@ BOOL canQuit = YES; // Can the user quit the application?
     [sheet orderOut:sender];
 }
 
+- (IBAction)openDownloadedDistro:(id)sender {
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"];
+    path = [NSString stringWithFormat:@"%@/%@", path, @"ubuntu-12.10-desktop-amd64+mac.iso"];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:nil];
+    } else {
+        // ISO file not downloaded yet?
+        [self closeDownloadDistroSheet:sender];
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Okay"];
+        [alert setMessageText:@"File not found."];
+        [alert setInformativeText:@"That distribution's ISO file was not found in your Downloads folder."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    }
+}
+
 - (IBAction)downloadDistribution:(id)sender {
     if (distroSelectorComboBox != nil && distroSelectorComboBox.indexOfSelectedItem != -1) {
         //[closeDistroDownloadSheetButton setEnabled:NO];
