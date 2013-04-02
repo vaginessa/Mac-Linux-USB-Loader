@@ -202,10 +202,10 @@ USBDevice *device;
         FSRef source;
         FSRef destination;
             
-        FSPathMakeRef( (const UInt8 *)[[[self fileURL] path] fileSystemRepresentation], &source, NULL );
+        FSPathMakeRef((const UInt8 *)[[[self fileURL] path] fileSystemRepresentation], &source, NULL);
             
         Boolean isDir = true;
-        FSPathMakeRef( (const UInt8 *)[finalPath fileSystemRepresentation], &destination, &isDir );
+        FSPathMakeRef((const UInt8 *)[finalPath fileSystemRepresentation], &destination, &isDir);
         
         // Start the async copy.
         status = FSCopyObjectAsync(fileOp,
@@ -221,11 +221,14 @@ USBDevice *device;
         
         if(status) {
             NSLog(@"Failed to begin asynchronous object copy: %d", status);
+            failure = YES;
         }
         
 #pragma clang diagnostic warning "-Wdeprecated-declarations"
         
-        [self markUsbAsLive:usbRoot]; // Place a file on the USB to identify it as being created by Mac Linux USB Loader.
+        if (!failure) {
+            [self markUsbAsLive:usbRoot]; // Place a file on the USB to identify it as being created by Mac Linux USB Loader.
+        }
         
         [spinner setDoubleValue:0];
         [spinner stopAnimation:self];
@@ -266,7 +269,9 @@ USBDevice *device;
     NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
     NSString *str = [NSString stringWithFormat:@"%@\n%@", isoFilePath, path];
     
+#ifdef DEBUG
     NSLog(@"Path: %@\nString: %@", filePath, str);
+#endif
     
     [str writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
     
