@@ -35,6 +35,8 @@ NSWindow *window;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return NO;
+        
+        [[NSApp delegate] setCanQuit:YES];
     }
     
     // Make the folder to hold the EFI executable and ISO to boot.
@@ -57,12 +59,11 @@ NSWindow *window;
 
 /*
  * THIS FUNCTION IS NO LONGER IN USE
- * I AM KEEPING THIS FOR LEGACY PURPOSES ONLY
  *
  * I don't really want to use this anymore as NSFileManager does not allow you to get the progress of the file
  * copy.
  */
-- (BOOL)copyISO:(NSString *)path:(NSString *)isoFile:(NSProgressIndicator *)progressBar:(Document *)document {
+/*- (BOOL)copyISO:(NSString *)path:(NSString *)isoFile:(NSProgressIndicator *)progressBar:(Document *)document {
     NSString *finalPath = [NSString stringWithFormat:@"%@/efi/boot/boot.iso", path];
     
     // Check if the Linux distro ISO already exists.
@@ -114,7 +115,7 @@ NSWindow *window;
         
         return YES;
     }
-}
+}*/
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
     // Empty because under normal processing we need not do anything here.

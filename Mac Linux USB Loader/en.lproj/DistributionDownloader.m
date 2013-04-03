@@ -98,7 +98,7 @@ long long bytesReceived = 0;
     if ([version rangeOfString:@"10.8"].location != NSNotFound) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
-        if ((BOOL)[defaults valueForKey:@"ShowNotifications"] == YES) {
+        if ([defaults valueForKey:@"ShowNotifications"]) {
             NSUserNotification *notification = [[NSUserNotification alloc] init];
             notification.title = @"File Download Complete";
             notification.informativeText = @"The ISO was successfully downloaded.";

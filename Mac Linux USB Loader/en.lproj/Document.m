@@ -23,7 +23,6 @@
 @synthesize window;
 @synthesize makeUSBButton;
 @synthesize eraseUSBButton;
-@synthesize indeterminate;
 @synthesize spinner;
 @synthesize prefsWindow;
 @synthesize preferencesWindowController=_preferencesWindowController;
@@ -31,6 +30,8 @@
 NSMutableDictionary *usbs;
 NSString *isoFilePath;
 USBDevice *device;
+
+BOOL isCopying = NO;
 
 - (id)init {
     self = [super init];
@@ -44,7 +45,16 @@ USBDevice *device;
     return @"Document";
 }
 
+- (BOOL)windowShouldClose:(id)sender {
+    if (isCopying) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
 - (void)windowControllerDidLoadNib:(NSWindowController *)controller {
+    /* I KNOW, progress bar names are totally mixed up. Someone want to fix this for me? */
     progressIndicator = spinner;
     
     [super windowControllerDidLoadNib:controller];
@@ -117,6 +127,7 @@ USBDevice *device;
 // This is too long... this needs to be split up, perhaps with some components in USBDevice like before.
 - (IBAction)makeLiveUSB:(id)sender {
     [[NSApp delegate] setCanQuit:NO];
+    isCopying = YES;
     
     __block BOOL failure = false;
     //isoFilePath = [[self fileURL] absoluteString];
@@ -135,6 +146,7 @@ USBDevice *device;
         [eraseUSBButton setEnabled:NO];
         
         [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+        isCopying = NO;
         
         return;
     }
@@ -142,9 +154,6 @@ USBDevice *device;
     NSString* directoryName = [usbDriveDropdown titleOfSelectedItem];
     NSString* usbRoot = [usbs valueForKey:directoryName];
     NSString* finalPath = [NSString stringWithFormat:@"%@/efi/boot/", usbRoot];
-    
-    [indeterminate setUsesThreadedAnimation:YES];
-    [indeterminate startAnimation:self];
     
     [spinner setUsesThreadedAnimation:YES];
     [spinner setIndeterminate:YES];
@@ -162,6 +171,11 @@ USBDevice *device;
         [alert setInformativeText:@"There is already a Linux distro ISO on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool."];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        
+        [spinner stopAnimation:self];
+        [[NSApp delegate] setCanQuit:YES];
+        isCopying = NO;
+        
         return;
     }
 
@@ -229,14 +243,11 @@ USBDevice *device;
         if (!failure) {
             [self markUsbAsLive:usbRoot]; // Place a file on the USB to identify it as being created by Mac Linux USB Loader.
         }
-        
-        [spinner setDoubleValue:0];
-        [spinner stopAnimation:self];
-        
-        [indeterminate stopAnimation:self];
-        [spinner stopAnimation:self];
     } else {
         // Some form of setup failed. Alert the user.
+        [[NSApp delegate] setCanQuit:YES];
+        isCopying = NO;
+        
         failure = YES;
     }
     
@@ -246,7 +257,6 @@ USBDevice *device;
         [spinner setDoubleValue:0.0];
         [spinner stopAnimation:self];
         
-        [indeterminate stopAnimation:self];
         [spinner stopAnimation:self];
         
         NSAlert *alert = [[NSAlert alloc] init];
@@ -270,13 +280,13 @@ USBDevice *device;
     NSString *str = [NSString stringWithFormat:@"%@\n%@", isoFilePath, path];
     
 #ifdef DEBUG
-    NSLog(@"Path: %@\nString: %@", filePath, str);
+    //NSLog(@"Path: %@\nString: %@", filePath, str);
 #endif
     
     [str writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
     
 #ifdef DEBUG
-    NSLog(@"Write directory: %@", [manager contentsOfDirectoryAtPath:path error:&error]);
+    //NSLog(@"Write directory: %@", [manager contentsOfDirectoryAtPath:path error:&error]);
 #endif
 }
 
@@ -346,6 +356,7 @@ USBDevice *device;
         }
         
         [[NSApp delegate] setCanQuit:YES];
+        isCopying = NO;
     }
 }
 @end
@@ -364,13 +375,15 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
         CFNumberGetValue (bytesCompleted, kCFNumberMaxType, &floatBytesCompleted);
         
 #ifdef DEBUG
-        NSLog(@"Copied %lld bytes so far.", (unsigned long long)floatBytesCompleted);
+        //NSLog(@"Copied %lld bytes so far.", (unsigned long long)floatBytesCompleted);
 #endif
         
         [progressIndicator setDoubleValue:(double)floatBytesCompleted];
         
         if (stage == kFSOperationStageComplete) {
             NSLog(@"Copy operation has completed.");
+            
+            [progressIndicator setDoubleValue:0];
             
 #if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
             // Show a notification for Mountain Lion users.
@@ -383,7 +396,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
             if ([version rangeOfString:@"10.8"].location != NSNotFound) {
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                 
-                if ((BOOL)[defaults valueForKey:@"ShowNotifications"] == YES) {
+                if ([defaults valueForKey:@"ShowNotifications"]) {
                     NSUserNotification *notification = [[NSUserNotification alloc] init];
                     notification.title = @"Finished Making Live USB";
                     notification.informativeText = @"The live USB has been made successfully.";
@@ -391,6 +404,15 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
                     
                     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
                 }
+                
+                NSAlert *alert = [[NSAlert alloc] init];
+                [alert addButtonWithTitle:@"Okay"];
+                [alert setMessageText:@"Finished Making Live USB"];
+                [alert setInformativeText:@"The live USB has been made successfully."];
+                [alert setAlertStyle:NSWarningAlertStyle];
+                [alert beginSheetModalForWindow:[NSApp mainWindow]
+                        modalDelegate:(Document *)[[NSDocumentController sharedDocumentController] currentDocument]
+                        didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
             } else {
                 [NSApp requestUserAttention:NSCriticalRequest];
             }
@@ -398,6 +420,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
             [NSApp requestUserAttention:NSCriticalRequest];
 #endif
             [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+            isCopying = NO;
         }
     }
 }

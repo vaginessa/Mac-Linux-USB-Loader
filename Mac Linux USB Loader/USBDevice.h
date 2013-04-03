@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Document.h"
-#include <unistd.h>
+#import "RHAppDelegate.h"
 
 @interface USBDevice : NSObject
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (void)setWindow:(NSWindow *) window;
 - (BOOL)prepareUSB:(NSString *)path;
-- (BOOL)copyISO:(NSString *)path:(NSString *)isoFile:(NSProgressIndicator *)progressBar:(Document *)document;
+//- (BOOL)copyISO:(NSString *)path:(NSString *)isoFile:(NSProgressIndicator *)progressBar:(Document *)document;
 
 @end

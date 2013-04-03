@@ -9,7 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "RHPreferences/RHPreferences.h"
 
+/* Because Document.h is not included by other headers, ignoring this warning should be O.K. */
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
 static NSProgressIndicator *progressIndicator;
+#pragma clang diagnostic pop
 
 @interface Document : NSDocument
 @property (strong) IBOutlet NSWindow *window;
@@ -17,9 +21,9 @@ static NSProgressIndicator *progressIndicator;
 @property (unsafe_unretained) IBOutlet NSButton *makeUSBButton;
 @property (unsafe_unretained) IBOutlet NSButton *eraseUSBButton;
 @property (unsafe_unretained) IBOutlet NSProgressIndicator *spinner;
-@property (weak) IBOutlet NSProgressIndicator *indeterminate;
 @property (retain) RHPreferencesWindowController *preferencesWindowController;
 @property (unsafe_unretained) IBOutlet NSPopUpButton *usbDriveDropdown;
+
 - (IBAction)eraseLiveBoot:(id)sender;
 - (void)getUSBDeviceList;
 - (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
