@@ -222,12 +222,14 @@ BOOL canQuit = YES; // Can the user quit the application?
         // The program calls the setCanQuit method in the download delegates. We don't call it here, as this function returns
         // immediately.
     } else {
+        [self closeDownloadDistroSheet:sender];
+        
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Okay"];
         [alert setMessageText:@"No distribution selected."];
         [alert setInformativeText:@"Please select a distribution first before clicking the download button."];
         [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
     }
 }
 

@@ -17,6 +17,11 @@
 #import "RHAccountsViewController.h"
 #import "RHNotificationViewController.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+static NSProgressIndicator *progressIndicator;
+#pragma clang diagnostic pop
+
 @implementation Document
 
 @synthesize usbDriveDropdown;
@@ -274,7 +279,7 @@ BOOL isCopying = NO;
     NSLog(@"Marking this USB as a live USB...");
     
     NSError* error;
-    NSFileManager* manager = [NSFileManager defaultManager];
+    //NSFileManager* manager = [NSFileManager defaultManager];
 
     NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
     NSString *str = [NSString stringWithFormat:@"%@\n%@", isoFilePath, path];
@@ -410,8 +415,8 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
                 [alert setMessageText:@"Finished Making Live USB"];
                 [alert setInformativeText:@"The live USB has been made successfully."];
                 [alert setAlertStyle:NSWarningAlertStyle];
-                [alert beginSheetModalForWindow:[NSApp mainWindow]
-                        modalDelegate:(Document *)[[NSDocumentController sharedDocumentController] currentDocument]
+                [alert beginSheetModalForWindow:[[[NSDocumentController sharedDocumentController] currentDocument] window]
+                        modalDelegate:[[NSDocumentController sharedDocumentController] currentDocument]
                         didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
             } else {
                 [NSApp requestUserAttention:NSCriticalRequest];

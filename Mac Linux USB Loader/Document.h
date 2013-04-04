@@ -9,12 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "RHPreferences/RHPreferences.h"
 
-/* Because Document.h is not included by other headers, ignoring this warning should be O.K. */
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunused-variable"
-static NSProgressIndicator *progressIndicator;
-#pragma clang diagnostic pop
-
 @interface Document : NSDocument
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSPanel *prefsWindow;
