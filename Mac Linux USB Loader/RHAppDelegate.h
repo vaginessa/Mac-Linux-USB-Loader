@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 
+#import "RecentDocumentsTableViewDataSource.h"
+
 @interface RHAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *_window;
     RHPreferencesWindowController *_preferencesWindowController;
@@ -26,6 +28,8 @@
 @property (retain) IBOutlet NSProgressIndicator *distroDownloadProgressIndicator;
 @property (retain) IBOutlet NSComboBox *distroSelectorComboBox;
 @property (retain) IBOutlet NSPopUpButton *eraseUSBSelector;
+@property (retain) IBOutlet NSTableView *recentFileBrowser;
+@property (retain) IBOutlet RecentDocumentsTableViewDataSource *dataSource;
 
 - (BOOL)canQuit;
 - (BOOL)setCanQuit:(BOOL)ableToQuit;

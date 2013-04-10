@@ -23,6 +23,8 @@
 @synthesize distroDownloadProgressIndicator;
 @synthesize distroSelectorComboBox;
 @synthesize eraseUSBSelector;
+@synthesize recentFileBrowser;
+@synthesize dataSource;
 
 NSWindow *downloadLinuxDistroSheet;
 BOOL canQuit = YES; // Can the user quit the application?
@@ -38,6 +40,11 @@ BOOL canQuit = YES; // Can the user quit the application?
     // Insert code here to initialize your application
     [eraseUSBSelector removeAllItems];
     [self detectUSBs:nil];
+    
+    //[recentFileBrowser setPath:[[[NSDocumentController sharedDocumentController] recentDocumentURLs] objectAtIndex:0]];
+    NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
+    [dataSource setArray:myArray];
+    [recentFileBrowser setDataSource:dataSource];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {

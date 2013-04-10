@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */; };
 		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		24434A391677D52800DAC959 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A211677D52800DAC959 /* AboutPreferences.png */; };
 		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
@@ -53,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentDocumentsTableViewDataSource.h; sourceTree = "<group>"; };
+		2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentDocumentsTableViewDataSource.m; sourceTree = "<group>"; };
 		242262D616ED046200804B9D /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/Document.xib; sourceTree = "<group>"; };
 		24434A191677CE2100DAC959 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		24434A211677D52800DAC959 /* AboutPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutPreferences.png; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */,
 				249EDD7217011F2E006E7DAE /* DistributionDownloader.h */,
 				246ABBE216A4BD560054A649 /* DistributionDownloader.m */,
+				2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */,
+				2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */,
 				24CA6C051656F7A700061D2F /* MainMenu.xib */,
 				2479538F16ED01030085057B /* Document.xib */,
 				24CA6BF41656F7A700061D2F /* Supporting Files */,
@@ -328,6 +333,7 @@
 				248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */,
 				24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */,
 				246ABBE016A4BD560054A649 /* DistributionDownloader.m in Sources */,
+				2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
