@@ -2,7 +2,7 @@
 //  RecentDocumentsTableViewDataSource.h
 //  Mac Linux USB Loader
 //
-//  Created by Ryan Bowring on 4/10/13.
+//  Created by SevenBits on 4/10/13.
 //
 //
 

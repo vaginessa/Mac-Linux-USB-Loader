@@ -107,8 +107,6 @@ BOOL isCopying = NO;
         }
     }
     
-    // NSLog(@"There are %li items.", [usbDriveDropdown numberOfItems]);
-    
     /*
      Basically, this makes sure that you can't make the live USB if you don't have a file open (shouldn't happen, but a
      precaution), or if there are no mounted volumes we can use. If we have a mounted volume, though, and we have an ISO,

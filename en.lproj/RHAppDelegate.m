@@ -41,7 +41,6 @@ BOOL canQuit = YES; // Can the user quit the application?
     [eraseUSBSelector removeAllItems];
     [self detectUSBs:nil];
     
-    //[recentFileBrowser setPath:[[[NSDocumentController sharedDocumentController] recentDocumentURLs] objectAtIndex:0]];
     NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
     [dataSource setArray:myArray];
     [recentFileBrowser setDataSource:dataSource];
@@ -136,7 +135,6 @@ BOOL canQuit = YES; // Can the user quit the application?
 - (IBAction)eraseSelectedDrive:(id)sender {
     [[NSApp delegate] setCanQuit:NO];
     
-    // NSLog(@"Will erase!");
     if ([eraseUSBSelector numberOfItems] != 0) {
         [eraseUSBSelector setEnabled:NO];
 
@@ -214,7 +212,6 @@ BOOL canQuit = YES; // Can the user quit the application?
 
 - (IBAction)downloadDistribution:(id)sender {
     if (distroSelectorComboBox != nil && distroSelectorComboBox.indexOfSelectedItem != -1) {
-        //[closeDistroDownloadSheetButton setEnabled:NO];
         [self setCanQuit:NO]; // Prevent the user from quiting the application until the download has finished.
         
         [distroDownloadButton setEnabled:NO];

@@ -50,13 +50,6 @@
 - (IBAction)setShowNotifications:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    /*BOOL showNotifications;
-    if ([displayNotificationsCheckbox state] == NSOnState) {
-        showNotifications = YES;
-    } else {
-        showNotifications = NO;
-    }*/
-    
 #ifdef DEBUG
     NSLog(@"Setting show notifications to %@", [defaults valueForKey:@"ShowNotifications"]);
 #endif
