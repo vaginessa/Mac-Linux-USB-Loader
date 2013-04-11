@@ -20,17 +20,8 @@ const NSArray *array;
 - (id)tableView:(NSTableView *)tableView
 objectValueForTableColumn:(NSTableColumn *)tableColumn
             row:(NSInteger)row {
-    NSTableColumn *firstColoum = [tableView viewAtColumn:0 row:0 makeIfNecessary:NO];
     [tableColumn setEditable:NO];
-    
-    // Not working yet...
-    if (YES) {
-        return [[array objectAtIndex:row] lastPathComponent];
-    } else if ([tableColumn isEqualTo:firstColoum]) {
-        return [array objectAtIndex:row];
-    } else {
-        return @"(null)";
-    }
+    return [[array objectAtIndex:row] lastPathComponent];
 }
 
 - (void)setArray:(const NSArray *)myArray {

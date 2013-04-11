@@ -33,6 +33,7 @@
 
 - (BOOL)canQuit;
 - (BOOL)setCanQuit:(BOOL)ableToQuit;
+- (void)respondToRecentFileDoubleClick;
 
 #pragma mark - IBActions
 - (IBAction)showPreferences:(id)sender;

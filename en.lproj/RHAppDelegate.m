@@ -44,6 +44,7 @@ BOOL canQuit = YES; // Can the user quit the application?
     NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
     [dataSource setArray:myArray];
     [recentFileBrowser setDataSource:dataSource];
+    [recentFileBrowser setDoubleAction:@selector(respondToRecentFileDoubleClick)];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
@@ -73,6 +74,17 @@ BOOL canQuit = YES; // Can the user quit the application?
     
     canQuit = ableToQuit;
     return canQuit;
+}
+
+- (void)respondToRecentFileDoubleClick {
+    NSInteger clickedRow = [recentFileBrowser clickedRow];
+    
+    if (clickedRow != -1) { // We're in the row.
+        NSDocumentController *docControl = [NSDocumentController sharedDocumentController];
+        NSURL *selectedDocument = (NSURL *)[[docControl recentDocumentURLs] objectAtIndex:clickedRow];
+        NSLog(@"Selected row %ld.", (long)clickedRow);
+        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:selectedDocument display:YES completionHandler:nil];
+    }
 }
 
 #pragma mark - IBActions
