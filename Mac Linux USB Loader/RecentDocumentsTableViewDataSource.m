@@ -12,14 +12,11 @@
 
 const NSArray *array;
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
-{
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return [array count];
 }
 
-- (id)tableView:(NSTableView *)tableView
-objectValueForTableColumn:(NSTableColumn *)tableColumn
-            row:(NSInteger)row {
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     [tableColumn setEditable:NO];
     return [[array objectAtIndex:row] lastPathComponent];
 }

@@ -57,7 +57,7 @@
 	<key>SUEnableSystemProfiling</key>
 	<false/>
 	<key>SUFeedURL</key>
-	<string>http://sevenbits.github.com/appcasts/mlul.xml</string>
+	<string>http://sevenbits.github.io/appcasts/mlul.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>
