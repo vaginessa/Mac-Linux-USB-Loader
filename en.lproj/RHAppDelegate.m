@@ -264,6 +264,13 @@ BOOL canQuit = YES; // Can the user quit the application?
     [[NSWorkspace sharedWorkspace] launchApplication:@"/Applications/Utilities/Disk Utility.app"];
 }
 
+- (IBAction)openCompatibilityTester:(id)sender {
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *helperAppPath = [[mainBundle bundlePath] stringByAppendingString:@"/Contents/Resources/Tools/Compatibility Tester.app"];
+    
+    [[NSWorkspace sharedWorkspace] launchApplication:helperAppPath];
+}
+
 - (IBAction)openGithubPage:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader"]];
 }

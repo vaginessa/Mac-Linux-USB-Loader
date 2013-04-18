@@ -46,6 +46,7 @@
 - (IBAction)downloadDistribution:(id)sender;
 - (IBAction)eraseSelectedDrive:(id)sender;
 - (IBAction)openGithubPage:(id)sender;
+- (IBAction)openCompatibilityTester:(id)sender;
 - (IBAction)openDiskUtility:(id)sender;
 - (IBAction)reportBug:(id)sender;
 
