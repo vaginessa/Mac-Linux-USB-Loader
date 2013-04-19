@@ -2,7 +2,7 @@
 //  CTAppDelegate.m
 //  Compatibility Tester
 //
-//  Created by Ryan Bowring on 4/18/13.
+//  Created by SevenBits on 4/18/13.
 //
 //
 
