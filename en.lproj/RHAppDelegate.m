@@ -230,7 +230,7 @@ BOOL canQuit = YES; // Can the user quit the application?
         [distroDownloadProgressIndicator startAnimation:self];
         [distroDownloadProgressIndicator setDoubleValue:0.0];
         
-        NSURL *downloadLocation = [NSURL URLWithString:@"http://releases.ubuntu.com/quantal/ubuntu-12.10-desktop-amd64+mac.iso"];
+        NSURL *downloadLocation = [NSURL URLWithString:@"http://releases.ubuntu.com/13.04/ubuntu-13.04-desktop-amd64+mac.iso"];
         
         [[DistributionDownloader new] downloadLinuxDistribution:downloadLocation:
          [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:distroDownloadProgressIndicator];
