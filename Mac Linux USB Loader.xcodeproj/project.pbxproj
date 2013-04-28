@@ -37,6 +37,7 @@
 		24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */; };
 		24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */; };
 		24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */; };
+		24BDE431172D920B00E964A0 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BDE430172D920B00E964A0 /* IOKit.framework */; };
 		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6BF61656F7A700061D2F /* InfoPlist.strings */; };
 		24CA6BFA1656F7A700061D2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6BF91656F7A700061D2F /* main.m */; };
@@ -117,6 +118,7 @@
 		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
 		24AD167B16A0F2CE0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
 		24AD167E16A0F2D20046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
+		24BDE430172D920B00E964A0 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		24C9FCCC1664204B0080E6E4 /* USBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USBDevice.h; sourceTree = "<group>"; };
 		24CA6BE91656F7A700061D2F /* Mac Linux USB Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Linux USB Loader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24CA6BED1656F7A700061D2F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24BDE431172D920B00E964A0 /* IOKit.framework in Frameworks */,
 				2419A0C017209608008E0137 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,12 +224,12 @@
 		24CA6BDE1656F7A700061D2F = {
 			isa = PBXGroup;
 			children = (
+				24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */,
+				2419A0C117209608008E0137 /* Compatibility Tester */,
 				24728A6616BD9C1B00920062 /* Icons */,
 				247685FF1682777A00A8C4AD /* EFI Loader */,
 				24434A201677D50800DAC959 /* Preferences View Controllers */,
 				24F62E7416795AE50016B65A /* Icons */,
-				24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */,
-				2419A0C117209608008E0137 /* Compatibility Tester */,
 				24CA6BEC1656F7A700061D2F /* Frameworks */,
 				24CA6BEA1656F7A700061D2F /* Products */,
 			);
@@ -244,6 +247,7 @@
 		24CA6BEC1656F7A700061D2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24BDE430172D920B00E964A0 /* IOKit.framework */,
 				244C050716DD8E460083A0C9 /* Sparkle.framework */,
 				24434A191677CE2100DAC959 /* RHPreferences.framework */,
 				244E560816755CA300F80E78 /* RHPreferences.framework */,
@@ -718,6 +722,7 @@
 				2419A0E817209608008E0137 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24CA6BE31656F7A700061D2F /* Build configuration list for PBXProject "Mac Linux USB Loader" */ = {
 			isa = XCConfigurationList;
