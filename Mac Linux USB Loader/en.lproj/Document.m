@@ -341,7 +341,7 @@ BOOL isCopying = NO;
             NSError *err = nil;
             BOOL eraseDidSucceed;
             
-            // Recursively erase the efi folder.
+            // Recursively erase the EFI folder.
             NSString *file;
             while (file = [en nextObject]) { // While there are files to remove...
                 eraseDidSucceed = [fm removeItemAtPath:[tempPath stringByAppendingPathComponent:file] error:&err]; // Delete.

@@ -264,6 +264,13 @@ BOOL canQuit = YES; // Can the user quit the application?
     [[NSWorkspace sharedWorkspace] launchApplication:@"/Applications/Utilities/Disk Utility.app"];
 }
 
+- (IBAction)updateRecents:(id)sender {
+    NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
+    [dataSource setArray:myArray];
+    [recentFileBrowser setDataSource:dataSource];
+    [recentFileBrowser setDoubleAction:@selector(respondToRecentFileDoubleClick)];
+}
+
 - (IBAction)openCompatibilityTester:(id)sender {
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *helperAppPath = [[mainBundle bundlePath] stringByAppendingString:@"/Contents/Resources/Tools/Compatibility Tester.app"];
