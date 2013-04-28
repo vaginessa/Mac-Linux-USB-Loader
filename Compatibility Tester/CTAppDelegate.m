@@ -49,7 +49,9 @@
         [storage appendAttributedString:string];
     }
     
+    // We've got the computer model, now get everything else.
     [self findGraphicsCard:storage];
+    [self findWirelessCard:storage];
     
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"\n\n"];
     [storage appendAttributedString:string];
@@ -67,6 +69,61 @@
     
     [storage endEditing];
     [spinner stopAnimation:self];
+}
+
+/* Not currently working. Displays graphics card. I am investigating an approach to get the wireless controller. */
+- (void)findWirelessCard:(NSTextStorage*)storage {
+    // Check the PCI devices for video cards.
+    CFMutableDictionaryRef match_dictionary = IOServiceMatching("IOPCIDevice");
+    
+    // Create a iterator to go through the found devices.
+    io_iterator_t entry_iterator;
+    if (IOServiceGetMatchingServices(kIOMasterPortDefault,
+                                     match_dictionary,
+                                     &entry_iterator) == kIOReturnSuccess) {
+        // Actually iterate through the found devices.
+        io_registry_entry_t serviceObject;
+        while ((serviceObject = IOIteratorNext(entry_iterator))) {
+            // Put this services object into a dictionary object.
+            CFMutableDictionaryRef serviceDictionary;
+            if (IORegistryEntryCreateCFProperties(serviceObject,
+                                                  &serviceDictionary,
+                                                  kCFAllocatorDefault,
+                                                  kNilOptions) != kIOReturnSuccess) {
+                // Failed to create a service dictionary, release and go on.
+                IOObjectRelease(serviceObject);
+                continue;
+            }
+            
+            //NSLog(@"%@", serviceDictionary);
+            // If this is a GPU listing, it will have a "model" key
+            // that points to a CFDataRef.
+            const void *model = CFDictionaryGetValue(serviceDictionary, @"model");
+            if (model != nil) {
+                if (CFGetTypeID(model) == CFDataGetTypeID()) {
+                    // Create a string from the CFDataRef.
+                    NSString *s = [[NSString alloc] initWithData:(__bridge NSData *)model encoding:NSASCIIStringEncoding];
+#ifdef DEBUG
+                    //NSLog(@"Found wireless chip: %@", s);
+#endif
+                    
+                    // Append this GPU to the list of detected hardware.
+                    NSAttributedString *string = [[NSAttributedString alloc]
+                                                  initWithString:[NSString stringWithFormat:@"Wireless: %@\n", s]];
+                    [storage appendAttributedString:string];
+                }
+            }
+            
+            // Release the dictionary created by IORegistryEntryCreateCFProperties.
+            CFRelease(serviceDictionary);
+            
+            // Release the serviceObject returned by IOIteratorNext.
+            IOObjectRelease(serviceObject);
+        }
+        
+        // Release the entry_iterator created by IOServiceGetMatchingServices.
+        IOObjectRelease(entry_iterator);
+    }
 }
 
 - (void)findGraphicsCard:(NSTextStorage*)storage {
@@ -128,7 +185,7 @@
      */
     BOOL issue = NO;
     if ([[textView string] rangeOfString:@"Graphics: GeForce"].location != NSNotFound) {
-        NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"WARNING: Possible issue with video card.\n"];
+        NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"WARNING: Possible issue with video card and/or proprietary drivers.\n"];
         [storage appendAttributedString:string];
         
         issue = YES;
