@@ -25,6 +25,11 @@
     [self performSelector:@selector(performSystemCheck)];
 }
 
+- (IBAction)refresh:(id)sender {
+    [textView setString:@""];
+    [self performSelector:@selector(performSystemCheck)];
+}
+
 - (void)performSystemCheck {
     NSTextStorage *storage = [textView textStorage];
     [storage beginEditing];
@@ -45,6 +50,20 @@
     }
     
     [self findGraphicsCard:storage];
+    
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"\n\n"];
+    [storage appendAttributedString:string];
+    BOOL issue = [self checkForCompatibility:storage];
+    
+    if (issue) {
+        NSAttributedString *string = [[NSAttributedString alloc]
+                                      initWithString:@"You may have issues booting Linux on this computer.\n"];
+        [storage appendAttributedString:string];
+    } else {
+        NSAttributedString *string = [[NSAttributedString alloc]
+                                      initWithString:@"Everything appears to be alright. You should be good to go.\n"];
+        [storage appendAttributedString:string];
+    }
     
     [storage endEditing];
     [spinner stopAnimation:self];
@@ -81,7 +100,7 @@
                     // Create a string from the CFDataRef.
                     NSString *s = [[NSString alloc] initWithData:(__bridge NSData *)model encoding:NSASCIIStringEncoding];
 #ifdef DEBUG
-                    NSLog(@"Found GPU: %@", s);
+                    //NSLog(@"Found GPU: %@", s);
 #endif
                     
                     // Append this GPU to the list of detected hardware.
@@ -101,6 +120,20 @@
         // Release the entry_iterator created by IOServiceGetMatchingServices.
         IOObjectRelease(entry_iterator);
     }
+}
+
+- (BOOL)checkForCompatibility:(NSTextStorage*)storage {
+    /*
+     * Scan the system report we just recieved for troublesome hardware components.
+     */
+    BOOL issue = NO;
+    if ([[textView string] rangeOfString:@"Graphics: GeForce"].location != NSNotFound) {
+        NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"WARNING: Possible issue with video card.\n"];
+        [storage appendAttributedString:string];
+        
+        issue = YES;
+    }
+    return issue;
 }
 
 @end

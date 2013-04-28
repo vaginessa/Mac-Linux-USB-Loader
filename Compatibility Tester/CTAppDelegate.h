@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSProgressIndicator *spinner;
 @property (unsafe_unretained) IBOutlet NSTextView *textView;
 
+- (IBAction)refresh:(id)sender;
 - (void)performSystemCheck;
 - (void)findGraphicsCard:(NSTextStorage*)storage;
 
