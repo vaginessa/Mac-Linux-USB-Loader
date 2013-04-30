@@ -205,7 +205,7 @@ BOOL canQuit = YES; // Can the user quit the application?
 
 - (IBAction)openDownloadedDistro:(id)sender {
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"];
-    path = [NSString stringWithFormat:@"%@/%@", path, @"ubuntu-12.10-desktop-amd64+mac.iso"];
+    path = [NSString stringWithFormat:@"%@/%@", path, @"ubuntu-13.04-desktop-amd64.iso"];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         [[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:nil];
@@ -266,9 +266,10 @@ BOOL canQuit = YES; // Can the user quit the application?
 
 - (IBAction)updateRecents:(id)sender {
     NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
+    
+    dataSource = [[RecentDocumentsTableViewDataSource new] init];
     [dataSource setArray:myArray];
     [recentFileBrowser setDataSource:dataSource];
-    [recentFileBrowser setDoubleAction:@selector(respondToRecentFileDoubleClick)];
 }
 
 - (IBAction)openCompatibilityTester:(id)sender {

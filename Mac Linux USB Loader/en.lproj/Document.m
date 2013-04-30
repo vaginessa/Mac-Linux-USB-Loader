@@ -19,6 +19,10 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-variable"
+/*
+ * We should probably use a dictionary or other sort of container object here instead of one static variable.
+ * The problem is that each newly opened document overwrides this, causing the wrong progress bar to update.
+ */
 static NSProgressIndicator *progressIndicator;
 #pragma clang diagnostic pop
 
@@ -133,7 +137,6 @@ BOOL isCopying = NO;
     isCopying = YES;
     
     __block BOOL failure = false;
-    //isoFilePath = [[self fileURL] absoluteString];
     isoFilePath = [[self fileURL] path];
     
     // If no USBs available, or if no ISO open, display an error and return.
@@ -193,7 +196,7 @@ BOOL isCopying = NO;
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:[[self fileURL] path] traverseLink:YES];
         NSNumber *sourceFileSize;
-            
+        
         if ((sourceFileSize = [sourceAttributes objectForKey:NSFileSize])) {
             // Set the max value to our source file size
             [progressIndicator setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
@@ -254,7 +257,6 @@ BOOL isCopying = NO;
         failure = YES;
     }
     
-    // We have to do this because NSAlerts cannot be shown in a GCD block as NSAlert is not thread safe.
     if (failure) {
         [spinner setIndeterminate:NO];
         [spinner setDoubleValue:0.0];
@@ -277,20 +279,11 @@ BOOL isCopying = NO;
     NSLog(@"Marking this USB as a live USB...");
     
     NSError* error;
-    //NSFileManager* manager = [NSFileManager defaultManager];
 
     NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
     NSString *str = [NSString stringWithFormat:@"%@\n%@", isoFilePath, path];
     
-#ifdef DEBUG
-    //NSLog(@"Path: %@\nString: %@", filePath, str);
-#endif
-    
     [str writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
-    
-#ifdef DEBUG
-    //NSLog(@"Write directory: %@", [manager contentsOfDirectoryAtPath:path error:&error]);
-#endif
 }
 
 + (BOOL)autosavesInPlace
@@ -327,7 +320,7 @@ BOOL isCopying = NO;
 - (void)eraseAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == NSAlertFirstButtonReturn) {
         [[NSApp delegate] setCanQuit:NO];
-        // NSLog(@"Will erase!");
+
         if ([usbDriveDropdown numberOfItems] != 0) {
             // Construct the path of the efi folder that we're going to nuke.
             NSString *directoryName = [usbDriveDropdown titleOfSelectedItem];
@@ -364,6 +357,7 @@ BOOL isCopying = NO;
 }
 @end
 
+// Static function for our callback.
 static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
                             CFDictionaryRef statusDictionary, void *info) {
     // If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
@@ -414,7 +408,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
                 [alert setInformativeText:@"The live USB has been made successfully."];
                 [alert setAlertStyle:NSWarningAlertStyle];
                 [alert beginSheetModalForWindow:[[[NSDocumentController sharedDocumentController] currentDocument] window]
-                        modalDelegate:[[NSDocumentController sharedDocumentController] currentDocument]
+                        modalDelegate:[[NSDocumentController sharedDocumentController] currentDocument] // < ^ = issues, see above
                         didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
             } else {
                 [NSApp requestUserAttention:NSCriticalRequest];
