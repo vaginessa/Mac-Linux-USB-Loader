@@ -45,6 +45,14 @@ git clone git://github.com/SevenBits/Mac-Linux-USB-Loader.git
 xcodebuild
 </code></pre>
 
+<blockquote>
+<p>Please note: if you get an error about the certificate "Mac Developer" being present, this means that
+you are not enrolled in the Mac Developer Program. Code signing is enabled as a benefit to Mac
+developers. If you are not enrolled as a paid member of the <strong>Mac</strong> Developer Program, use
+<code>xcodebuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO</code> instead of <code>xcodebuild</code> as shown
+above.</p>
+</blockquote>
+
 <p>You can also go into the Xcode project and build from there, but that makes a debug build that is not useful unless you intend you help develop the application.</p>
 
 <p><a href="http://sevenbits.github.com/downloads/Mac-Linux-USB-Loader.zip">Click here</a> for the most semi-stable recent build (I'll try to keep that up to date ;) ). You can also older download pre-build binaries <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/downloads">here</a>, though using the recent version is recommended in all cases. Building the program yourself is <em>the best way</em> to see the new features.</p>
