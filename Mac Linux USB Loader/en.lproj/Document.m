@@ -300,17 +300,22 @@ BOOL isCopying = NO;
     // Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning NO.
     // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
     // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
+    
     return YES;
 }
 
 - (IBAction)eraseLiveBoot:(id)sender {
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:@"Yes"];
-    [alert addButtonWithTitle:@"No"];
-    [alert setMessageText:@"Are you sure that you want to erase the live boot?"];
-    [alert setInformativeText:@"This will recover space by erasing everything in the EFI folder on the USB drive, but is unrecoverable."];
-    [alert setAlertStyle:NSWarningAlertStyle];
-    [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    if ([usbDriveDropdown numberOfItems] != 0) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Yes"];
+        [alert addButtonWithTitle:@"No"];
+        [alert setMessageText:@"Are you sure that you want to erase the live boot?"];
+        [alert setInformativeText:@"This will recover space by erasing everything in the EFI folder on the USB drive, but is unrecoverable."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    } else {
+        [sender setEnabled:NO];
+    }
 }
 
 - (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
