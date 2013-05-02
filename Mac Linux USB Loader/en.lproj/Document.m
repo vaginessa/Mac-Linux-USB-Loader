@@ -17,15 +17,6 @@
 #import "RHAccountsViewController.h"
 #import "RHNotificationViewController.h"
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunused-variable"
-/*
- * We should probably use a dictionary or other sort of container object here instead of one static variable.
- * The problem is that each newly opened document overwrides this, causing the wrong progress bar to update.
- */
-static NSProgressIndicator *progressIndicator;
-#pragma clang diagnostic pop
-
 @implementation Document
 
 @synthesize usbDriveDropdown;
@@ -64,7 +55,14 @@ BOOL isCopying = NO;
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)controller {
     /* I KNOW, progress bar names are totally mixed up. Someone want to fix this for me? */
-    progressIndicator = spinner;
+    if (windowCallbackReferall == nil) {
+        NSLog(@"Dictionary not initialized. Creating one...");
+        windowCallbackReferall = [[NSMutableDictionary alloc] initWithCapacity:20]; // We can have up to 20 windows open.
+        [windowCallbackReferall setObject:spinner forKey:[[self fileURL] path]];
+    } else {
+        NSLog(@"Dictionary exists. Adding ourselves to it...");
+        [windowCallbackReferall setObject:spinner forKey:[[self fileURL] path]];
+    }
     
     [super windowControllerDidLoadNib:controller];
     usbs = [[NSMutableDictionary alloc] initWithCapacity:10]; //A maximum capacity of 10 is fine, nobody has that many ports anyway.
@@ -198,7 +196,9 @@ BOOL isCopying = NO;
         
         if ((sourceFileSize = [sourceAttributes objectForKey:NSFileSize])) {
             // Set the max value to our source file size
-            [progressIndicator setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
+            NSProgressIndicator *progIn = [windowCallbackReferall objectForKey:[[self fileURL] path]];
+            [progIn setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
+            progIn = nil; // Make sure we release this temporary variable.
         } else {
             // Couldn't get the file size so we need to bail.
             NSLog(@"Unable to obtain size of file being copied.");
@@ -299,7 +299,6 @@ BOOL isCopying = NO;
     // Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning NO.
     // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
     // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
-    
     return YES;
 }
 
@@ -364,6 +363,9 @@ BOOL isCopying = NO;
 // Static function for our callback.
 static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
                             CFDictionaryRef statusDictionary, void *info) {
+    NSLog(@"%@", statusDictionary);
+    NSProgressIndicator *progressIndicator;
+    progressIndicator = [windowCallbackReferall objectForKey:CFDictionaryGetValue(statusDictionary, "")]; // Retrieve the progress bar for the correct window.
     // If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
     // update the progress indicator.
     if (statusDictionary)

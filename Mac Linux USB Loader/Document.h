@@ -9,6 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "RHPreferences/RHPreferences.h"
 
+// A (C!) callback to get the progress of the copy operation.
+static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
+                                CFDictionaryRef statusDictionary, void *info);
+static NSMutableDictionary *windowCallbackReferall;
+
 @interface Document : NSDocument
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSPanel *prefsWindow;
@@ -24,8 +29,4 @@
 - (IBAction)updateDeviceList:(id)sender;
 - (IBAction)makeLiveUSB:(id)sender;
 - (void)markUsbAsLive:(NSString*)path;
-
-// A (C!) callback to get the progress of the copy operation.
-static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
-                            CFDictionaryRef statusDictionary, void *info);
 @end
