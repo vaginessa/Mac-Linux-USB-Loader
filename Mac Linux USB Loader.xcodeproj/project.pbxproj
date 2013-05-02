@@ -48,6 +48,16 @@
 		24F62E7216795AD50016B65A /* bootup.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24F62E7116795AD50016B65A /* bootup.icns */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2494A0F91731E32300D3FB53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24CA6BE01656F7A700061D2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2419A0BE17209608008E0137;
+			remoteInfo = "Compatibility Tester";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		2419A0EE17209672008E0137 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -340,6 +350,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2494A0FA1731E32300D3FB53 /* PBXTargetDependency */,
 			);
 			name = "Mac Linux USB Loader";
 			productName = "Mac Linux USB Loader";
@@ -439,6 +450,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2494A0FA1731E32300D3FB53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2419A0BE17209608008E0137 /* Compatibility Tester */;
+			targetProxy = 2494A0F91731E32300D3FB53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2419A0C417209608008E0137 /* InfoPlist.strings */ = {

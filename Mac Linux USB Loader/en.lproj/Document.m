@@ -67,7 +67,7 @@ BOOL isCopying = NO;
     progressIndicator = spinner;
     
     [super windowControllerDidLoadNib:controller];
-    usbs = [[NSMutableDictionary alloc]initWithCapacity:10]; //A maximum capacity of 10 is fine, nobody has that many ports anyway.
+    usbs = [[NSMutableDictionary alloc] initWithCapacity:10]; //A maximum capacity of 10 is fine, nobody has that many ports anyway.
     device = [USBDevice new];
     [device setWindow:window];
     
@@ -119,8 +119,7 @@ BOOL isCopying = NO;
     if (isoFilePath != nil && [usbDriveDropdown numberOfItems] != 1) {
         [makeUSBButton setEnabled:YES];
         [eraseUSBButton setEnabled:YES];
-    }
-    else if ([usbDriveDropdown numberOfItems] == 0) { // There are no detected USB ports, at least those formatted as FAT.
+    } else if ([usbDriveDropdown numberOfItems] == 0) { // There are no detected USB ports, at least those formatted as FAT.
         [makeUSBButton setEnabled:NO];
         [eraseUSBButton setEnabled:NO];
     }
