@@ -195,7 +195,7 @@ BOOL isCopying = NO;
         NSNumber *sourceFileSize;
         
         if ((sourceFileSize = [sourceAttributes objectForKey:NSFileSize])) {
-            // Set the max value to our source file size
+            // Set the max value to our source file size.
             NSProgressIndicator *progIn = [windowCallbackReferall objectForKey:[[self fileURL] path]];
             [progIn setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
             progIn = nil; // Make sure we release this temporary variable.
