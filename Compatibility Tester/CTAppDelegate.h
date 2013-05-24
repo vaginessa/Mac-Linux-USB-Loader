@@ -15,6 +15,7 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSProgressIndicator *spinner;
 @property (unsafe_unretained) IBOutlet NSTextView *textView;
+@property (weak) IBOutlet NSTextField *label;
 
 - (IBAction)refresh:(id)sender;
 - (void)performSystemCheck;

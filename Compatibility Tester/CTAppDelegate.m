@@ -13,6 +13,7 @@
 @synthesize window;
 @synthesize spinner;
 @synthesize textView;
+@synthesize label;
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
     return YES;
@@ -27,6 +28,7 @@
 
 - (IBAction)refresh:(id)sender {
     [textView setString:@""];
+    [label setStringValue:@"Performing compatibility check..."];
     [self performSelector:@selector(performSystemCheck)];
 }
 
@@ -69,6 +71,7 @@
     
     [storage endEditing];
     [spinner stopAnimation:self];
+    [label setStringValue:@""];
 }
 
 /* Not currently working. Displays graphics card. I am investigating an approach to get the wireless controller. */
