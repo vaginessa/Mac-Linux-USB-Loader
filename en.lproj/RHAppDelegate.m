@@ -89,7 +89,7 @@ BOOL canQuit = YES; // Can the user quit the application?
 
 #pragma mark - IBActions
 - (IBAction)showPreferences:(id)sender {
-    //if we have not created the window controller yet, create it now
+    // If we have not created the window controller yet, create it now.
     if (!_preferencesWindowController){
         RHAccountsViewController *accounts = [[[RHAccountsViewController alloc] init] autorelease];
         RHAboutViewController *about = [[[RHAboutViewController alloc] init] autorelease];
@@ -151,7 +151,6 @@ BOOL canQuit = YES; // Can the user quit the application?
         [eraseUSBSelector setEnabled:NO];
 
         // Construct the path of the efi folder that we're going to nuke.
-        //NSString *directoryName = [eraseUSBSelector titleOfSelectedItem];
         NSString *usbRoot = [eraseUSBSelector titleOfSelectedItem];
         NSString *tempPath = [NSString stringWithFormat:@"%@/efi", usbRoot];
         
