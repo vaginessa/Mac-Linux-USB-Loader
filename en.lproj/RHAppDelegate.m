@@ -29,6 +29,15 @@
 NSWindow *downloadLinuxDistroSheet;
 BOOL canQuit = YES; // Can the user quit the application?
 
+/*
+ * This array of NSStrings will be 
+ */
+NSString *urlArray[] = {
+    @"http://releases.ubuntu.com/13.04/ubuntu-13.04-desktop-amd64+mac.iso", // Ubuntu 13.04 for Mac
+    @"http://linuxfreedom.com/linuxmint/stable/14/linuxmint-14.1-cinnamon-dvd-64bit.iso", // Mint 14.1 US
+    @"http://distro.ibiblio.org/zorin/6/zorin-os-6.3-core-64.iso" // Zorin OS US
+    };
+
 - (void)dealloc
 {
     [_preferencesWindowController release]; _preferencesWindowController = nil;
@@ -204,7 +213,8 @@ BOOL canQuit = YES; // Can the user quit the application?
 
 - (IBAction)openDownloadedDistro:(id)sender {
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"];
-    path = [NSString stringWithFormat:@"%@/%@", path, @"ubuntu-13.04-desktop-amd64.iso"];
+    NSString *isoName = [[[NSURL URLWithString:urlArray[distroSelectorComboBox.indexOfSelectedItem]] path] lastPathComponent];
+    path = [NSString stringWithFormat:@"%@/%@", path, isoName];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         [[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:nil];
@@ -229,7 +239,10 @@ BOOL canQuit = YES; // Can the user quit the application?
         [distroDownloadProgressIndicator startAnimation:self];
         [distroDownloadProgressIndicator setDoubleValue:0.0];
         
-        NSURL *downloadLocation = [NSURL URLWithString:@"http://releases.ubuntu.com/13.04/ubuntu-13.04-desktop-amd64+mac.iso"];
+#ifdef DEBUG
+        NSLog(@"URL: %@", [NSURL URLWithString:urlArray[distroSelectorComboBox.indexOfSelectedItem]]);
+#endif
+        NSURL *downloadLocation = [NSURL URLWithString:urlArray[distroSelectorComboBox.indexOfSelectedItem]];
         
         [[DistributionDownloader new] downloadLinuxDistribution:downloadLocation:
          [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:distroDownloadProgressIndicator];

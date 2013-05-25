@@ -366,8 +366,10 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
     NSLog(@"%@", statusDictionary);
     NSProgressIndicator *progressIndicator;
     progressIndicator = [windowCallbackReferall objectForKey:CFDictionaryGetValue(statusDictionary, "")]; // Retrieve the progress bar for the correct window.
-    // If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
-    // update the progress indicator.
+    
+    /* If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
+     * update the progress indicator.
+     */
     if (statusDictionary)
     {
         CFNumberRef bytesCompleted;
