@@ -55,16 +55,16 @@
     [self findGraphicsCard:storage];
     [self findWirelessCard:storage];
     
-    NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"\n\n"];
-    [storage appendAttributedString:string];
+    [storage appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n\n"]];
     BOOL issue = [self checkForCompatibility:storage];
+    NSAttributedString *string;
     
     if (issue) {
-        NSAttributedString *string = [[NSAttributedString alloc]
+        string = [[NSAttributedString alloc]
                                       initWithString:@"You may have issues booting Linux on this computer.\n"];
         [storage appendAttributedString:string];
     } else {
-        NSAttributedString *string = [[NSAttributedString alloc]
+        string = [[NSAttributedString alloc]
                                       initWithString:@"Everything appears to be alright. You should be good to go.\n"];
         [storage appendAttributedString:string];
     }
@@ -188,7 +188,7 @@
      */
     BOOL issue = NO;
     if ([[textView string] rangeOfString:@"Graphics: GeForce"].location != NSNotFound) {
-        NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"WARNING: Possible issue with video card and/or proprietary drivers.\n"];
+        NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"WARNING: Possible issue with video card and/or proprietary drivers. "];
         [storage appendAttributedString:string];
         
         issue = YES;

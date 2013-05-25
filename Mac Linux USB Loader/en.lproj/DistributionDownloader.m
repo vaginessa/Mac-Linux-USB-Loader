@@ -48,10 +48,11 @@ long long bytesReceived = 0;
 #if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_8)
     // Show a notification for Mountain Lion users.
     Class test = NSClassFromString(@"NSUserNotificationCenter");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Ensure that we are running 10.8 before we display the notification as we still support Lion, which does not have
     // them.
-    if (test != nil) {
+    if (test != nil && [defaults boolForKey:@"ShowNotifications"] == YES) {
         NSUserNotification *notification = [[NSUserNotification alloc] init];
         notification.title = @"File Download Failure";
         notification.informativeText = @"Could not download the file.";
@@ -88,10 +89,11 @@ long long bytesReceived = 0;
 #if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_8)
     // Show a notification for Mountain Lion users.
     Class test = NSClassFromString(@"NSUserNotificationCenter");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Ensure that we are running 10.8 before we display the notification as we still support Lion, which does not have
     // them.
-    if (test != nil) {
+    if (test != nil && [defaults boolForKey:@"ShowNotifications"] == YES) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
         if ([defaults valueForKey:@"ShowNotifications"]) {
