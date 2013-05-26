@@ -1216,7 +1216,7 @@
 								<object class="NSComboTableView" key="NSTableView" id="997444533">
 									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">274</int>
-									<string key="NSFrameSize">{13, 21}</string>
+									<string key="NSFrameSize">{13, 63}</string>
 									<reference key="NSSuperview"/>
 									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:24</string>
@@ -1673,14 +1673,6 @@
 					<int key="connectionID">1085</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">window</string>
-						<reference key="source" ref="631414546"/>
-						<reference key="destination" ref="1012371"/>
-					</object>
-					<int key="connectionID">1268</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">showDownloadDistroSheet:</string>
 						<reference key="source" ref="631414546"/>
@@ -1871,6 +1863,14 @@
 						<reference key="destination" ref="315129226"/>
 					</object>
 					<int key="connectionID">1543</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">window</string>
+						<reference key="source" ref="631414546"/>
+						<reference key="destination" ref="1012371"/>
+					</object>
+					<int key="connectionID">1544</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -4146,7 +4146,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1543</int>
+			<int key="maxID">1544</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

@@ -28,13 +28,13 @@
 		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
 		2479538D16ED01030085057B /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2479538F16ED01030085057B /* Document.xib */; };
 		248317CE16BF146C00313D33 /* Eraser.icns in Resources */ = {isa = PBXBuildFile; fileRef = 248317CD16BF146C00313D33 /* Eraser.icns */; };
-		248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */; };
 		249E04F71693916400562F64 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04F91693916400562F64 /* USBDevice.m */; };
 		249E04FB1693916900562F64 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04FD1693916900562F64 /* Document.m */; };
 		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
-		24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167016A0E85D0046C51A /* RHNotificationViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		24AD167116A0E8610046C51A /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167316A0E8610046C51A /* RHAboutViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167616A0E8650046C51A /* RHAccountsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167016A0E85D0046C51A /* RHNotificationViewController.m */; };
+		24AD167116A0E8610046C51A /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167316A0E8610046C51A /* RHAboutViewController.m */; };
+		24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167616A0E8650046C51A /* RHAccountsViewController.m */; };
 		24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */; };
 		24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */; };
 		24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */; };

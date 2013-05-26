@@ -10,7 +10,7 @@
 #import <RHPreferences/RHPreferences.h>
 
 @interface RHNotificationViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
-    NSButton *notificationCenterButton;
+    //NSButton *notificationCenterButton;
 }
 @property (unsafe_unretained) IBOutlet NSView *panelView;
 

@@ -12,7 +12,7 @@
 #import "RecentDocumentsTableViewDataSource.h"
 
 @interface RHAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *_window;
+    __unsafe_unretained NSWindow *_window;
     RHPreferencesWindowController *_preferencesWindowController;
     IBOutlet NSPanel *sheet;
     IBOutlet NSPanel *eraseSheet;

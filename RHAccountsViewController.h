@@ -10,7 +10,7 @@
 #import <RHPreferences/RHPreferences.h>
 
 @interface RHAccountsViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
-    NSTextField *usernameTextField;
+    //NSTextField *usernameTextField;
 }
 
 @property (unsafe_unretained) IBOutlet NSTextField *usernameTextField;

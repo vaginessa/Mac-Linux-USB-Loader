@@ -15,7 +15,6 @@
 
 @implementation RHAppDelegate
 
-@synthesize window = _window;
 @synthesize preferencesWindowController=_preferencesWindowController;
 @synthesize distroPopUpSelector;
 @synthesize closeDistroDownloadSheetButton;
@@ -30,18 +29,17 @@ NSWindow *downloadLinuxDistroSheet;
 BOOL canQuit = YES; // Can the user quit the application?
 
 /*
- * This array of NSStrings will be 
+ * This array of NSStrings will be full of URLs to ISOs that the user can download.
  */
 NSString *urlArray[] = {
     @"http://releases.ubuntu.com/13.04/ubuntu-13.04-desktop-amd64+mac.iso", // Ubuntu 13.04 for Mac
     @"http://linuxfreedom.com/linuxmint/stable/14/linuxmint-14.1-cinnamon-dvd-64bit.iso", // Mint 14.1 US
-    @"http://distro.ibiblio.org/zorin/6/zorin-os-6.3-core-64.iso" // Zorin OS US
+    @"http://distro.ibiblio.org/zorin/6/zorin-os-6.3-core-64.iso" // Zorin OS 6.3 US
     };
 
 - (void)dealloc
 {
-    [_preferencesWindowController release]; _preferencesWindowController = nil;
-    [super dealloc];
+    _preferencesWindowController = nil;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -100,9 +98,9 @@ NSString *urlArray[] = {
 - (IBAction)showPreferences:(id)sender {
     // If we have not created the window controller yet, create it now.
     if (!_preferencesWindowController){
-        RHAccountsViewController *accounts = [[[RHAccountsViewController alloc] init] autorelease];
-        RHAboutViewController *about = [[[RHAboutViewController alloc] init] autorelease];
-        RHNotificationViewController *notifications = [[[RHNotificationViewController alloc] init] autorelease];
+        RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
+        RHAboutViewController *about = [[RHAboutViewController alloc] init];
+        RHNotificationViewController *notifications = [[RHNotificationViewController alloc] init];
         
         NSArray *controllers = [NSArray arrayWithObjects:accounts, notifications,
                                 [RHPreferencesWindowController flexibleSpacePlaceholderController], 
