@@ -105,7 +105,6 @@
 		244C050316DD840E0083A0C9 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		244C050716DD8E460083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
-		245C36C916FD001E00B76647 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		246ABBE116A4BD560054A649 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/DistributionDownloader.m; sourceTree = "<group>"; };
 		246F593D172F2BAC00442178 /* Icon2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon2.icns; path = Resources/Icon2.icns; sourceTree = "<group>"; };
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
@@ -286,7 +285,6 @@
 		24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */ = {
 			isa = PBXGroup;
 			children = (
-				245C36C916FD001E00B76647 /* Mac Linux USB Loader.entitlements */,
 				24DB8AB81659AB0700F7C947 /* README */,
 				24CA6BFF1656F7A700061D2F /* Document.h */,
 				249E04FD1693916900562F64 /* Document.m */,
@@ -691,7 +689,6 @@
 		24CA6C0B1656F7A700061D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader/Mac Linux USB Loader.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -711,7 +708,6 @@
 		24CA6C0C1656F7A700061D2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader/Mac Linux USB Loader.entitlements";
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
