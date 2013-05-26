@@ -35,7 +35,6 @@
 			<string>NSToolbarFlexibleSpaceItem</string>
 			<string>NSToolbarItem</string>
 			<string>NSToolbarSpaceItem</string>
-			<string>NSUserDefaultsController</string>
 			<string>NSView</string>
 			<string>NSWindowTemplate</string>
 		</array>
@@ -1458,9 +1457,6 @@
 			</object>
 			<object class="NSCustomObject" id="640874440">
 				<string key="NSClassName">RecentDocumentsTableViewDataSource</string>
-			</object>
-			<object class="NSUserDefaultsController" id="873903656">
-				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSMenu" id="666168548">
 				<string key="NSTitle"/>
@@ -3859,11 +3855,6 @@
 						<reference key="parent" ref="512077415"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1523</int>
-						<reference key="object" ref="873903656"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">1528</int>
 						<reference key="object" ref="640874440"/>
 						<reference key="parent" ref="0"/>
@@ -4095,7 +4086,6 @@
 				<string key="1518.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1519.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1520.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="1523.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1528.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1533.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1535.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
