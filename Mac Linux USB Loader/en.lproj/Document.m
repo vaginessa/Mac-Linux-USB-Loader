@@ -363,7 +363,7 @@ BOOL isCopying = NO;
 // Static function for our callback.
 static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
                             CFDictionaryRef statusDictionary, void *info) {
-    NSLog(@"%@", statusDictionary);
+    //NSLog(@"%@", statusDictionary);
     NSProgressIndicator *progressIndicator;
     progressIndicator = [windowCallbackReferall objectForKey:CFDictionaryGetValue(statusDictionary, "")]; // Retrieve the progress bar for the correct window.
     

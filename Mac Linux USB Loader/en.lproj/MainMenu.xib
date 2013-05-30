@@ -1107,6 +1107,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{4, 21}, {75, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="163365431"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1131,6 +1132,8 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{326, 21}, {103, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="21435493">
@@ -1154,6 +1157,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{10, 4}, {413, 20}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="222923096"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSHuggingPriority">{250, 250}</string>
@@ -1165,6 +1169,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{10, 73}, {416, 26}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="650594639"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1188,7 +1193,8 @@
 								<bool key="NSHasVerticalScroller">YES</bool>
 								<array class="NSMutableArray" key="NSPopUpListData">
 									<string>Ubuntu 13.04 for Mac</string>
-									<string>Linux Mint Cinnamon 14.1 (US mirror)</string>
+									<string>Linux Mint 14.1 Cinnamon (US mirror)</string>
+									<string>Linux Mint 15 Cinnamon (US mirror)</string>
 									<string>Zorin OS 6.1</string>
 								</array>
 								<reference key="NSDelegate" ref="865063815"/>
@@ -1261,6 +1267,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{7, 55}, {419, 14}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="846488843"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
@@ -1283,6 +1290,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{192, 21}, {134, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="811262413"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1305,6 +1313,7 @@
 					</array>
 					<string key="NSFrameSize">{430, 105}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="865063815"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
@@ -4001,7 +4010,8 @@
 				<string key="1354.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<array key="1355.IBComboBoxObjectValuesKey.objectValues">
 					<string>Ubuntu 13.04 for Mac</string>
-					<string>Linux Mint Cinnamon 14.1 (US mirror)</string>
+					<string>Linux Mint 14.1 Cinnamon (US mirror)</string>
+					<string>Linux Mint 15 Cinnamon (US mirror)</string>
 					<string>Zorin OS 6.1</string>
 				</array>
 				<string key="1355.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

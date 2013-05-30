@@ -1150,6 +1150,7 @@
 							<string key="NSFrame">{{325, 21}, {104, 32}}</string>
 							<reference key="NSSuperview" ref="1033792868"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="21435493">
@@ -1210,6 +1211,7 @@
 								<array class="NSMutableArray" key="NSPopUpListData">
 									<string>Ubuntu 13.04 para Mac</string>
 									<string>Linux Mint 14.1 (en el EEUU)</string>
+									<string>Linux Mint 15 (en el EEUU)</string>
 									<string>Zorin OS 6.1</string>
 								</array>
 								<reference key="NSDelegate" ref="865063815"/>
@@ -3971,6 +3973,7 @@
 				<array key="1355.IBComboBoxObjectValuesKey.objectValues">
 					<string>Ubuntu 13.04 para Mac</string>
 					<string>Linux Mint 14.1 (en el EEUU)</string>
+					<string>Linux Mint 15 (en el EEUU)</string>
 					<string>Zorin OS 6.1</string>
 				</array>
 				<string key="1355.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
