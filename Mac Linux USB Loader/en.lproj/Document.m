@@ -55,15 +55,6 @@ BOOL isCopying = NO;
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)controller {
     /* I KNOW, progress bar names are totally mixed up. Someone want to fix this for me? */
-    if (windowCallbackReferall == nil) {
-        NSLog(@"Dictionary not initialized. Creating one...");
-        windowCallbackReferall = [[NSMutableDictionary alloc] initWithCapacity:20]; // We can have up to 20 windows open.
-        [windowCallbackReferall setObject:spinner forKey:[[self fileURL] path]];
-    } else {
-        NSLog(@"Dictionary exists. Adding ourselves to it...");
-        [windowCallbackReferall setObject:spinner forKey:[[self fileURL] path]];
-    }
-    
     [super windowControllerDidLoadNib:controller];
     usbs = [[NSMutableDictionary alloc] initWithCapacity:10]; //A maximum capacity of 10 is fine, nobody has that many ports anyway.
     device = [USBDevice new];
@@ -196,9 +187,7 @@ BOOL isCopying = NO;
         
         if ((sourceFileSize = [sourceAttributes objectForKey:NSFileSize])) {
             // Set the max value to our source file size.
-            NSProgressIndicator *progIn = [windowCallbackReferall objectForKey:[[self fileURL] path]];
-            [progIn setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
-            progIn = nil; // Make sure we release this temporary variable.
+            [spinner setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
         } else {
             // Couldn't get the file size so we need to bail.
             NSLog(@"Unable to obtain size of file being copied.");
@@ -227,14 +216,19 @@ BOOL isCopying = NO;
         FSPathMakeRef((const UInt8 *)[finalPath fileSystemRepresentation], &destination, &isDir);
         
         // Start the async copy.
+        FSFileOperationClientContext clientContext;
+        if (spinner != nil) {
+            clientContext.info = (__bridge void *)(spinner);
+        }
+        
         status = FSCopyObjectAsync(fileOp,
-                                    &source,
-                                    &destination, // Full path to destination dir
-                                    CFSTR("boot.iso"), // Copy with the name boot.iso.
-                                    kFSFileOperationDefaultOptions,
-                                    copyStatusCallback,
-                                    0.5, /* how often to fire our callback */
-                                    NULL);
+                                   &source,
+                                   &destination, // Full path to destination dir.
+                                   CFSTR("boot.iso"), // Copy with the name boot.iso.
+                                   kFSFileOperationDefaultOptions,
+                                   copyStatusCallback,
+                                   0.5, // How often to fire our callback.
+                                   &clientContext); // The progress bar that we want to use to update.
         
         CFRelease(fileOp);
         
@@ -363,13 +357,10 @@ BOOL isCopying = NO;
 // Static function for our callback.
 static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
                             CFDictionaryRef statusDictionary, void *info) {
-    //NSLog(@"%@", statusDictionary);
-    NSProgressIndicator *progressIndicator;
-    progressIndicator = [windowCallbackReferall objectForKey:CFDictionaryGetValue(statusDictionary, "")]; // Retrieve the progress bar for the correct window.
-    
     /* If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
      * update the progress indicator.
      */
+    NSProgressIndicator *progressIndicator = (__bridge NSProgressIndicator*)info;
     if (statusDictionary)
     {
         CFNumberRef bytesCompleted;

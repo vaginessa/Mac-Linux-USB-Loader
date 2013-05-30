@@ -2,9 +2,9 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.SystemVersion">12E52</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1283,6 +1283,7 @@
 						<string key="detectUSBs:">id</string>
 						<string key="downloadDistribution:">id</string>
 						<string key="eraseSelectedDrive:">id</string>
+						<string key="openCompatibilityTester:">id</string>
 						<string key="openDiskUtility:">id</string>
 						<string key="openDownloadedDistro:">id</string>
 						<string key="openGithubPage:">id</string>
@@ -1290,6 +1291,7 @@
 						<string key="showDownloadDistroSheet:">id</string>
 						<string key="showEraseDistroSheet:">id</string>
 						<string key="showPreferences:">id</string>
+						<string key="updateRecents:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="closeDownloadDistroSheet:">
@@ -1310,6 +1312,10 @@
 						</object>
 						<object class="IBActionInfo" key="eraseSelectedDrive:">
 							<string key="name">eraseSelectedDrive:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="openCompatibilityTester:">
+							<string key="name">openCompatibilityTester:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="openDiskUtility:">
@@ -1340,6 +1346,10 @@
 							<string key="name">showPreferences:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="updateRecents:">
+							<string key="name">updateRecents:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="closeDistroDownloadSheetButton">NSButton</string>
@@ -1352,7 +1362,7 @@
 						<string key="eraseSheet">NSPanel</string>
 						<string key="eraseUSBSelector">NSPopUpButton</string>
 						<string key="openDownloadedDistroButton">NSButton</string>
-						<string key="recentFileBrowser">NSScrollView</string>
+						<string key="recentFileBrowser">NSTableView</string>
 						<string key="sheet">NSPanel</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
@@ -1399,7 +1409,7 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="recentFileBrowser">
 							<string key="name">recentFileBrowser</string>
-							<string key="candidateClassName">NSScrollView</string>
+							<string key="candidateClassName">NSTableView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="sheet">
 							<string key="name">sheet</string>
