@@ -30,6 +30,13 @@
 NSMutableDictionary *usbs;
 NSString *isoFilePath;
 USBDevice *device;
+FSFileOperationClientContext clientContext;
+
+struct FileCopyInformation {
+    //NSProgressIndicator *progress;
+    //RHAppDelegate *delegate;
+};
+typedef struct FileCopyInformation FileCopyInformation;
 
 BOOL isCopying = NO;
 
@@ -198,7 +205,7 @@ BOOL isCopying = NO;
         // Get the current run loop and schedule our callback
         CFRunLoopRef runLoop = CFRunLoopGetCurrent();
         FSFileOperationRef fileOp = FSFileOperationCreate(kCFAllocatorDefault);
-            
+        
         OSStatus status = FSFileOperationScheduleWithRunLoop(fileOp, runLoop, kCFRunLoopDefaultMode);
         if(status) {
             NSLog(@"Failed to schedule operation with run loop: %d", status);
@@ -216,7 +223,6 @@ BOOL isCopying = NO;
         FSPathMakeRef((const UInt8 *)[finalPath fileSystemRepresentation], &destination, &isDir);
         
         // Start the async copy.
-        FSFileOperationClientContext clientContext;
         if (spinner != nil) {
             clientContext.info = (__bridge void *)(spinner);
         }
@@ -226,7 +232,7 @@ BOOL isCopying = NO;
                                    &destination, // Full path to destination dir.
                                    CFSTR("boot.iso"), // Copy with the name boot.iso.
                                    kFSFileOperationDefaultOptions,
-                                   copyStatusCallback,
+                                   copyStatusCallback, // Our callback function.
                                    0.5, // How often to fire our callback.
                                    &clientContext); // The progress bar that we want to use to update.
         

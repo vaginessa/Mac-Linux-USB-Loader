@@ -16,11 +16,11 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
 @interface Document : NSDocument
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSPanel *prefsWindow;
-@property (unsafe_unretained) IBOutlet NSButton *makeUSBButton;
-@property (unsafe_unretained) IBOutlet NSButton *eraseUSBButton;
-@property (unsafe_unretained) IBOutlet NSProgressIndicator *spinner;
-@property (retain) RHPreferencesWindowController *preferencesWindowController;
-@property (unsafe_unretained) IBOutlet NSPopUpButton *usbDriveDropdown;
+@property (strong) IBOutlet NSButton *makeUSBButton;
+@property (strong) IBOutlet NSButton *eraseUSBButton;
+@property (strong) IBOutlet NSProgressIndicator *spinner;
+@property (strong) RHPreferencesWindowController *preferencesWindowController;
+@property (strong) IBOutlet NSPopUpButton *usbDriveDropdown;
 
 - (IBAction)eraseLiveBoot:(id)sender;
 - (void)getUSBDeviceList;
