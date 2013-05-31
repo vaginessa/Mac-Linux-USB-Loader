@@ -32,12 +32,6 @@ NSString *isoFilePath;
 USBDevice *device;
 FSFileOperationClientContext clientContext;
 
-struct FileCopyInformation {
-    //NSProgressIndicator *progress;
-    //RHAppDelegate *delegate;
-};
-typedef struct FileCopyInformation FileCopyInformation;
-
 BOOL isCopying = NO;
 
 - (id)init {
@@ -224,7 +218,7 @@ BOOL isCopying = NO;
         
         // Start the async copy.
         if (spinner != nil) {
-            clientContext.info = (__bridge void *)(spinner);
+            clientContext.info = (__bridge void *)spinner;
         }
         
         status = FSCopyObjectAsync(fileOp,
@@ -366,7 +360,12 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
     /* If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
      * update the progress indicator.
      */
-    NSProgressIndicator *progressIndicator = (__bridge NSProgressIndicator*)info;
+    NSProgressIndicator *progressIndicator = (__bridge NSProgressIndicator *)(info);
+    
+    if (progressIndicator == nil) {
+        NSLog(@"Progress bar is nil!");
+    }
+    
     if (statusDictionary)
     {
         CFNumberRef bytesCompleted;
@@ -411,9 +410,10 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
                 [alert setMessageText:@"Finished Making Live USB"];
                 [alert setInformativeText:@"The live USB has been made successfully."];
                 [alert setAlertStyle:NSWarningAlertStyle];
-                [alert beginSheetModalForWindow:[[[NSDocumentController sharedDocumentController] currentDocument] window]
+                /*[alert beginSheetModalForWindow:[[[NSDocumentController sharedDocumentController] currentDocument] window]
                         modalDelegate:[[NSDocumentController sharedDocumentController] currentDocument] // < ^ = issues, see above
-                        didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+                        didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];*/
+                [alert runModal];
             } else {
                 [NSApp requestUserAttention:NSCriticalRequest];
             }
