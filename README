@@ -17,7 +17,7 @@ The tool is necessary to make certain Linux distributions boot that do not have 
 
 I am currently in the process of transitioning from a proprietary EFI loader to GRUB 2. The proprietary EFI loader will likely be phased out very soon and replaced by my own EFI loader will the same functionality. Also, my I am currently writing an EFI boot loader called Enterprise that will check your system before loading the EFI boot loader.
 
-If you wish to contribute to the code or fork the repository, please do so. Please note that all of the code in the _working_ branch is unstable, and should not be used on production machines. The _stable_ branch contains stable, tested code (there is not yet a stable branch, however, as a stable release has not been released yet). The application is currently in the 1.0 "Release Preview", which is a fancy way of saying that I am basically ready for a 1.0 release, but there are a few things I must deal with before I can release it as 1.0.
+If you wish to contribute to the code or fork the repository, please do so. Please note that all of the code in the _working_ branch is unstable, and should not be used on production machines. The _stable_ branch contains stable, tested code. The current version of Mac Linux USB Loader is 1.0. Version numbers will likely be higher in development branches.
 
 I created this tool, if you care, for several reasons:
 
