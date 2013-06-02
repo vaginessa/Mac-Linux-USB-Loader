@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */ = {isa = PBXBuildFile; fileRef = 240C7B5B175AE63F00AEAFC9 /* Boot.icns */; };
 		2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */; };
 		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		24434A391677D52800DAC959 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A211677D52800DAC959 /* AboutPreferences.png */; };
@@ -63,6 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		240C7B5B175AE63F00AEAFC9 /* Boot.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Boot.icns; path = Resources/Boot.icns; sourceTree = "<group>"; };
 		2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentDocumentsTableViewDataSource.h; sourceTree = "<group>"; };
 		2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentDocumentsTableViewDataSource.m; sourceTree = "<group>"; };
 		2419A0C317209608008E0137 /* Compatibility Tester-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Compatibility Tester-Info.plist"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		24728A6616BD9C1B00920062 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				240C7B5B175AE63F00AEAFC9 /* Boot.icns */,
 				24CA6C13165701A900061D2F /* Icon.icns */,
 				246F593D172F2BAC00442178 /* Icon2.icns */,
 				24F62E7116795AD50016B65A /* bootup.icns */,
@@ -355,6 +358,7 @@
 				248317CE16BF146C00313D33 /* Eraser.icns in Resources */,
 				244C050416DD840E0083A0C9 /* dsa_pub.pem in Resources */,
 				2479538D16ED01030085057B /* Document.xib in Resources */,
+				240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
