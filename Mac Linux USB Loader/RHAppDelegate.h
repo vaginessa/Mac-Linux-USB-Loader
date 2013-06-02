@@ -39,13 +39,19 @@
 
 #pragma mark - IBActions
 - (IBAction)showPreferences:(id)sender;
+
 - (IBAction)showDownloadDistroSheet:(id)sender;
 - (IBAction)closeDownloadDistroSheet:(id)sender;
+
 - (IBAction)showModifyBootSettingsSheet:(id)sender;
 - (IBAction)closeModifyBootSettingsSheet:(id)sender;
+- (IBAction)blessUSB:(id)sender;
+- (IBAction)blessAndReboot:(id)sender;
+
 - (IBAction)openDownloadedDistro:(id)sender;
 - (IBAction)showEraseDistroSheet:(id)sender;
 - (IBAction)closeEraseDistroSheet:(id)sender;
+
 - (IBAction)detectUSBs:(id)sender;
 - (IBAction)downloadDistribution:(id)sender;
 - (IBAction)eraseSelectedDrive:(id)sender;

@@ -213,6 +213,55 @@ NSString *urlArray[] = {
     [bootSettingsSheet orderOut:sender];
 }
 
+- (IBAction)blessUSB:(id)sender {
+    // Create authorization reference
+    OSStatus status;
+    AuthorizationRef authorizationRef;
+    
+    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
+    if (status != errAuthorizationSuccess) {
+        NSLog(@"Error Creating Initial Authorization: %d", status);
+        return;
+    }
+    
+    // kAuthorizationRightExecute == "system.privilege.admin"
+    AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+    AuthorizationRights rights = {1, &right};
+    AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed |
+    kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
+    
+    // Call AuthorizationCopyRights to determine or extend the allowable rights.
+    status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+    if (status != errAuthorizationSuccess) {
+#ifdef DEBUG
+        NSLog(@"Copy Rights Unsuccessful: %d", status);
+#endif
+        return;
+    }
+    
+    // Set up the command line arguments.
+    char *tool = "/usr/sbin/bless";
+    char *args[] = {"--device", "/dev/disk1", "--setBoot", NULL}; // Hardcode device identifier for now.
+    FILE *pipe = NULL;
+    
+    status = AuthorizationExecuteWithPrivileges(authorizationRef, tool, kAuthorizationFlagDefaults, args, &pipe);
+    if (status != errAuthorizationSuccess) {
+        NSLog(@"Error: %d", status);
+        return;
+    }
+    
+    status = AuthorizationFree(authorizationRef, kAuthorizationFlagDestroyRights);
+}
+
+- (IBAction)blessAndReboot:(id)sender {
+    [self blessUSB:sender];
+    
+    NSDictionary *error;
+    NSAppleScript *restartScript = [[NSAppleScript alloc] initWithSource:@"tell application \"System Events\" to restart"];
+    
+    [restartScript executeAndReturnError:&error];
+}
+
 #pragma mark - Distribution Downloader
 - (IBAction)showDownloadDistroSheet:(id)sender {
     [NSApp beginSheet:sheet modalForWindow:(NSWindow *)_window modalDelegate:self

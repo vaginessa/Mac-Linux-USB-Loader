@@ -10,5 +10,6 @@
 
 int main(int argc, char *argv[])
 {
+    setuid(0);
     return NSApplicationMain(argc, (const char **)argv);
 }

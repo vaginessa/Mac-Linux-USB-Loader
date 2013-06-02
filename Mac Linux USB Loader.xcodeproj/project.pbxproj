@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */ = {isa = PBXBuildFile; fileRef = 240C7B5B175AE63F00AEAFC9 /* Boot.icns */; };
+		240C7B5E175AEDBA00AEAFC9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240C7B5D175AEDBA00AEAFC9 /* Security.framework */; };
 		2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */; };
 		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		24434A391677D52800DAC959 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A211677D52800DAC959 /* AboutPreferences.png */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		240C7B5B175AE63F00AEAFC9 /* Boot.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Boot.icns; path = Resources/Boot.icns; sourceTree = "<group>"; };
+		240C7B5D175AEDBA00AEAFC9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentDocumentsTableViewDataSource.h; sourceTree = "<group>"; };
 		2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentDocumentsTableViewDataSource.m; sourceTree = "<group>"; };
 		2419A0C317209608008E0137 /* Compatibility Tester-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Compatibility Tester-Info.plist"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				240C7B5E175AEDBA00AEAFC9 /* Security.framework in Frameworks */,
 				24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */,
 				244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */,
 				244C050816DD8E460083A0C9 /* Sparkle.framework in Frameworks */,
@@ -233,6 +236,7 @@
 		24CA6BEC1656F7A700061D2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				240C7B5D175AEDBA00AEAFC9 /* Security.framework */,
 				24BDE430172D920B00E964A0 /* IOKit.framework */,
 				244C050716DD8E460083A0C9 /* Sparkle.framework */,
 				24434A191677CE2100DAC959 /* RHPreferences.framework */,
