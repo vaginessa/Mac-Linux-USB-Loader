@@ -8,13 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */; };
-		2419A0C017209608008E0137 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; };
-		2419A0C617209608008E0137 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2419A0C417209608008E0137 /* InfoPlist.strings */; };
-		2419A0C817209608008E0137 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2419A0C717209608008E0137 /* main.m */; };
-		2419A0CC17209608008E0137 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2419A0CA17209608008E0137 /* Credits.rtf */; };
-		2419A0CF17209608008E0137 /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2419A0CE17209608008E0137 /* CTAppDelegate.m */; };
-		2419A0D217209608008E0137 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2419A0D017209608008E0137 /* MainMenu.xib */; };
-		2419A0EF1720968E008E0137 /* Compatibility Tester.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2419A0BF17209608008E0137 /* Compatibility Tester.app */; };
 		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		24434A391677D52800DAC959 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A211677D52800DAC959 /* AboutPreferences.png */; };
 		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
@@ -22,7 +15,6 @@
 		244C050816DD8E460083A0C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
 		244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244E560816755CA300F80E78 /* RHPreferences.framework */; };
 		246ABBE016A4BD560054A649 /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 246ABBE216A4BD560054A649 /* DistributionDownloader.m */; };
-		246F593F172F2BAC00442178 /* Icon2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 246F593D172F2BAC00442178 /* Icon2.icns */; };
 		24728A6816BDA62C00920062 /* Notifications.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24728A6716BDA62B00920062 /* Notifications.icns */; };
 		247686021682777A00A8C4AD /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686001682777A00A8C4AD /* bootIA32.efi */; };
 		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
@@ -38,7 +30,6 @@
 		24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */; };
 		24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */; };
 		24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */; };
-		24BDE431172D920B00E964A0 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BDE430172D920B00E964A0 /* IOKit.framework */; };
 		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6BF61656F7A700061D2F /* InfoPlist.strings */; };
 		24CA6BFA1656F7A700061D2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6BF91656F7A700061D2F /* main.m */; };
@@ -48,16 +39,6 @@
 		24F62E7216795AD50016B65A /* bootup.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24F62E7116795AD50016B65A /* bootup.icns */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2494A0F91731E32300D3FB53 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24CA6BE01656F7A700061D2F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2419A0BE17209608008E0137;
-			remoteInfo = "Compatibility Tester";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		2419A0EE17209672008E0137 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -65,7 +46,6 @@
 			dstPath = Tools;
 			dstSubfolderSpec = 7;
 			files = (
-				2419A0EF1720968E008E0137 /* Compatibility Tester.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +65,6 @@
 /* Begin PBXFileReference section */
 		2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentDocumentsTableViewDataSource.h; sourceTree = "<group>"; };
 		2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentDocumentsTableViewDataSource.m; sourceTree = "<group>"; };
-		2419A0BF17209608008E0137 /* Compatibility Tester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compatibility Tester.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2419A0C317209608008E0137 /* Compatibility Tester-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Compatibility Tester-Info.plist"; sourceTree = "<group>"; };
 		2419A0C517209608008E0137 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2419A0C717209608008E0137 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,15 +128,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2419A0BC17209608008E0137 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24BDE431172D920B00E964A0 /* IOKit.framework in Frameworks */,
-				2419A0C017209608008E0137 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		24CA6BE61656F7A700061D2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				24CA6BE91656F7A700061D2F /* Mac Linux USB Loader.app */,
-				2419A0BF17209608008E0137 /* Compatibility Tester.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -318,23 +287,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2419A0BE17209608008E0137 /* Compatibility Tester */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2419A0EB17209608008E0137 /* Build configuration list for PBXNativeTarget "Compatibility Tester" */;
-			buildPhases = (
-				2419A0BB17209608008E0137 /* Sources */,
-				2419A0BC17209608008E0137 /* Frameworks */,
-				2419A0BD17209608008E0137 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Compatibility Tester";
-			productName = "Compatibility Tester";
-			productReference = 2419A0BF17209608008E0137 /* Compatibility Tester.app */;
-			productType = "com.apple.product-type.application";
-		};
 		24CA6BE81656F7A700061D2F /* Mac Linux USB Loader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24CA6C0A1656F7A700061D2F /* Build configuration list for PBXNativeTarget "Mac Linux USB Loader" */;
@@ -348,7 +300,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2494A0FA1731E32300D3FB53 /* PBXTargetDependency */,
 			);
 			name = "Mac Linux USB Loader";
 			productName = "Mac Linux USB Loader";
@@ -379,23 +330,11 @@
 			projectRoot = "";
 			targets = (
 				24CA6BE81656F7A700061D2F /* Mac Linux USB Loader */,
-				2419A0BE17209608008E0137 /* Compatibility Tester */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2419A0BD17209608008E0137 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2419A0C617209608008E0137 /* InfoPlist.strings in Resources */,
-				2419A0CC17209608008E0137 /* Credits.rtf in Resources */,
-				2419A0D217209608008E0137 /* MainMenu.xib in Resources */,
-				246F593F172F2BAC00442178 /* Icon2.icns in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		24CA6BE71656F7A700061D2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,15 +361,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2419A0BB17209608008E0137 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2419A0C817209608008E0137 /* main.m in Sources */,
-				2419A0CF17209608008E0137 /* CTAppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		24CA6BE51656F7A700061D2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,14 +378,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2494A0FA1731E32300D3FB53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2419A0BE17209608008E0137 /* Compatibility Tester */;
-			targetProxy = 2494A0F91731E32300D3FB53 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2419A0C417209608008E0137 /* InfoPlist.strings */ = {
@@ -596,43 +518,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2419A0E717209608008E0137 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = "Compatibility Tester/Compatibility Tester.entitlements";
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Compatibility Tester/Compatibility Tester-Prefix.pch";
-				INFOPLIST_FILE = "Compatibility Tester/Compatibility Tester-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		2419A0E817209608008E0137 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = "Compatibility Tester/Compatibility Tester.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Compatibility Tester/Compatibility Tester-Prefix.pch";
-				INFOPLIST_FILE = "Compatibility Tester/Compatibility Tester-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		24CA6C081656F7A700061D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -701,6 +586,7 @@
 				INFOPLIST_FILE = "Mac Linux USB Loader/Mac Linux USB Loader-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4EC85424-BBF6-4D59-B580-B1C349102F39";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -720,7 +606,7 @@
 				INFOPLIST_FILE = "Mac Linux USB Loader/Mac Linux USB Loader-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4EC85424-BBF6-4D59-B580-B1C349102F39";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -728,15 +614,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2419A0EB17209608008E0137 /* Build configuration list for PBXNativeTarget "Compatibility Tester" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2419A0E717209608008E0137 /* Debug */,
-				2419A0E817209608008E0137 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		24CA6BE31656F7A700061D2F /* Build configuration list for PBXProject "Mac Linux USB Loader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
