@@ -22,6 +22,7 @@
 @synthesize distroDownloadProgressIndicator;
 @synthesize distroSelectorComboBox;
 @synthesize eraseUSBSelector;
+@synthesize bootUSBSelector;
 @synthesize recentFileBrowser;
 @synthesize dataSource;
 
@@ -135,6 +136,7 @@ NSString *urlArray[] = {
     NSString *description, *volumeType;
     
     [eraseUSBSelector removeAllItems]; // Clear the dropdown list.
+    [bootUSBSelector removeAllItems];
     
     // Iterate through the array using fast enumeration.
     for (NSString *volumePath in volumes) {
@@ -146,6 +148,7 @@ NSString *urlArray[] = {
                     NSString * title = [NSString stringWithFormat:@"%@", volumePath];
                 
                     [eraseUSBSelector addItemWithTitle:title]; // Add to the dropdown list.
+                    [bootUSBSelector addItemWithTitle:title];
                 }
             }
         }
@@ -197,6 +200,17 @@ NSString *urlArray[] = {
     }
     
     [[NSApp delegate] setCanQuit:YES];
+}
+
+#pragma mark - Modify Boot Settings
+- (IBAction)showModifyBootSettingsSheet:(id)sender {
+    [NSApp beginSheet:bootSettingsSheet modalForWindow:(NSWindow *)_window modalDelegate:self
+       didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+}
+
+- (IBAction)closeModifyBootSettingsSheet:(id)sender {
+    [NSApp endSheet:bootSettingsSheet];
+    [bootSettingsSheet orderOut:sender];
 }
 
 #pragma mark - Distribution Downloader

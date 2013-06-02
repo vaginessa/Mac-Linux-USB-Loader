@@ -16,6 +16,7 @@
     RHPreferencesWindowController *_preferencesWindowController;
     IBOutlet NSPanel *sheet;
     IBOutlet NSPanel *eraseSheet;
+    IBOutlet NSPanel *bootSettingsSheet;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -28,6 +29,7 @@
 @property (retain) IBOutlet NSProgressIndicator *distroDownloadProgressIndicator;
 @property (retain) IBOutlet NSComboBox *distroSelectorComboBox;
 @property (retain) IBOutlet NSPopUpButton *eraseUSBSelector;
+@property (retain) IBOutlet NSPopUpButton *bootUSBSelector;
 @property (retain) IBOutlet NSTableView *recentFileBrowser;
 @property (retain) IBOutlet RecentDocumentsTableViewDataSource *dataSource;
 
@@ -39,6 +41,8 @@
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)showDownloadDistroSheet:(id)sender;
 - (IBAction)closeDownloadDistroSheet:(id)sender;
+- (IBAction)showModifyBootSettingsSheet:(id)sender;
+- (IBAction)closeModifyBootSettingsSheet:(id)sender;
 - (IBAction)openDownloadedDistro:(id)sender;
 - (IBAction)showEraseDistroSheet:(id)sender;
 - (IBAction)closeEraseDistroSheet:(id)sender;
