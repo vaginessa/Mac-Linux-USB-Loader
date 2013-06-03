@@ -214,7 +214,25 @@ NSString *urlArray[] = {
 }
 
 - (IBAction)blessUSB:(id)sender {
-    // Create authorization reference
+    // Check if the user has actually selected a USB drive.
+    if ([bootUSBSelector numberOfItems] == 0 || [[bootUSBSelector titleOfSelectedItem] isEqualToString:@""]) {
+#ifdef DEBUG
+        NSLog(@"The user doesn't have any USB drives plugged in.");
+#endif
+        [NSApp endSheet:bootSettingsSheet];
+        [bootSettingsSheet orderOut:sender];
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Okay"];
+        [alert setMessageText:@"No USB drives are plugged in."];
+        [alert setInformativeText:@"You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button the panel."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        
+        [sender setEnabled:NO];
+        return;
+    }
+    // Create authorization reference.
     OSStatus status;
     AuthorizationRef authorizationRef;
     
@@ -322,6 +340,8 @@ NSString *urlArray[] = {
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
     }
 }
+
+#pragma mark - Delegates and User Actions
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     // Empty

@@ -584,7 +584,7 @@
 							</object>
 						</object>
 					</dictionary>
-					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
+					<array key="NSToolbarIBAllowedItems">
 						<reference ref="752890570"/>
 						<reference ref="1015329073"/>
 						<reference ref="206802098"/>
@@ -607,7 +607,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{574, 270}</string>
 				<object class="NSView" key="NSWindowView" id="512077415">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSButton" id="987034470">
@@ -758,7 +758,7 @@
 											<int key="NSvFlags">256</int>
 											<string key="NSFrameSize">{529, 117}</string>
 											<reference key="NSSuperview" ref="174067889"/>
-											<reference key="NSNextKeyView" ref="474737749"/>
+											<reference key="NSNextKeyView" ref="816590857"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<bool key="NSEnabled">YES</bool>
 											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -900,14 +900,13 @@
 							</array>
 							<string key="NSFrame">{{23, 46}, {531, 135}}</string>
 							<reference key="NSSuperview" ref="512077415"/>
-							<reference key="NSNextKeyView" ref="816590857"/>
+							<reference key="NSNextKeyView" ref="174067889"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">723506</int>
 							<reference key="NSVScroller" ref="474737749"/>
 							<reference key="NSHScroller" ref="270597074"/>
 							<reference key="NSContentView" ref="174067889"/>
 							<reference key="NSHeaderClipView" ref="816590857"/>
-							<reference key="NSCornerView" ref="993047887"/>
 							<bytes key="NSScrollAmts">QSAAAEEgAABBmAAAQZgAAA</bytes>
 							<double key="NSMinMagnification">0.25</double>
 							<double key="NSMaxMagnification">4</double>
@@ -915,7 +914,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{574, 270}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="137578640"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
@@ -1117,7 +1115,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="1033792868">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSButton" id="846488843">
@@ -1323,7 +1321,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{430, 105}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="865063815"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
@@ -1344,7 +1341,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="1000860148">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSButton" id="96373081">
@@ -1467,7 +1464,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{505, 93}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="491306010"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>

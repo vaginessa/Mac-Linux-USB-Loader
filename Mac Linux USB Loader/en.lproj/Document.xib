@@ -1278,8 +1278,11 @@
 					<string key="className">RHAppDelegate</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="blessAndReboot:">id</string>
+						<string key="blessUSB:">id</string>
 						<string key="closeDownloadDistroSheet:">id</string>
 						<string key="closeEraseDistroSheet:">id</string>
+						<string key="closeModifyBootSettingsSheet:">id</string>
 						<string key="detectUSBs:">id</string>
 						<string key="downloadDistribution:">id</string>
 						<string key="eraseSelectedDrive:">id</string>
@@ -1290,16 +1293,29 @@
 						<string key="reportBug:">id</string>
 						<string key="showDownloadDistroSheet:">id</string>
 						<string key="showEraseDistroSheet:">id</string>
+						<string key="showModifyBootSettingsSheet:">id</string>
 						<string key="showPreferences:">id</string>
 						<string key="updateRecents:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="blessAndReboot:">
+							<string key="name">blessAndReboot:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="blessUSB:">
+							<string key="name">blessUSB:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="closeDownloadDistroSheet:">
 							<string key="name">closeDownloadDistroSheet:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="closeEraseDistroSheet:">
 							<string key="name">closeEraseDistroSheet:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="closeModifyBootSettingsSheet:">
+							<string key="name">closeModifyBootSettingsSheet:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="detectUSBs:">
@@ -1342,6 +1358,10 @@
 							<string key="name">showEraseDistroSheet:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="showModifyBootSettingsSheet:">
+							<string key="name">showModifyBootSettingsSheet:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="showPreferences:">
 							<string key="name">showPreferences:</string>
 							<string key="candidateClassName">id</string>
@@ -1352,6 +1372,8 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="bootSettingsSheet">NSPanel</string>
+						<string key="bootUSBSelector">NSPopUpButton</string>
 						<string key="closeDistroDownloadSheetButton">NSButton</string>
 						<string key="closeEraseDownloadSheetButton">NSButton</string>
 						<string key="dataSource">RecentDocumentsTableViewDataSource</string>
@@ -1367,6 +1389,14 @@
 						<string key="window">NSWindow</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="bootSettingsSheet">
+							<string key="name">bootSettingsSheet</string>
+							<string key="candidateClassName">NSPanel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="bootUSBSelector">
+							<string key="name">bootUSBSelector</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="closeDistroDownloadSheetButton">
 							<string key="name">closeDistroDownloadSheetButton</string>
 							<string key="candidateClassName">NSButton</string>
