@@ -199,6 +199,7 @@ NSString *urlArray[] = {
         [eraseUSBSelector setEnabled:YES];
     }
     
+    [self detectUSBs:nil]; // Reload the list of USB drives for all main menu functions (eraser, blesser, etc)
     [[NSApp delegate] setCanQuit:YES];
 }
 
@@ -257,12 +258,21 @@ NSString *urlArray[] = {
         return;
     }
     
-    // Set up the command line arguments.
+    /* Set up the command line arguments. */
+    char *efiFile = (char *)[[NSString stringWithFormat:@"%@/efi/boot/bootx64.efi", [bootUSBSelector titleOfSelectedItem]] UTF8String]; // Create the path to the EFI file.
     char *tool = "/usr/sbin/bless";
-    char *args[] = {"--device", "/dev/disk1", "--setBoot", NULL}; // Hardcode device identifier for now.
+    char *args[] = {"--mount", (char *)[[bootUSBSelector titleOfSelectedItem] UTF8String], "--file", efiFile, "--setBoot", NULL};
     FILE *pipe = NULL;
     
+    /*
+     * I know that AuthorizationExecuteWithPrivileges is deprecated since Lion, however, using a helper tool to simply
+     * call bless seems to be overkill at this stage, and since bless is a relatively innocuous tool it should be safe
+     * to do this for the time being.
+     */
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     status = AuthorizationExecuteWithPrivileges(authorizationRef, tool, kAuthorizationFlagDefaults, args, &pipe);
+#pragma clang diagnostic warning "-Wdeprecated-declarations"
+    
     if (status != errAuthorizationSuccess) {
         NSLog(@"Error: %d", status);
         return;
