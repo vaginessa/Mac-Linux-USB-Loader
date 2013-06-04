@@ -229,8 +229,6 @@ NSString *urlArray[] = {
         [alert setInformativeText:@"You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button the panel."];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        
-        [sender setEnabled:NO];
         return;
     }
     // Create authorization reference.
@@ -306,8 +304,6 @@ NSString *urlArray[] = {
         [alert setInformativeText:@"You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button the panel."];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        
-        [sender setEnabled:NO];
         return;
     }
     // Create authorization reference.
