@@ -1506,7 +1506,7 @@
 							<string key="NSFrame">{{14, 13}, {75, 32}}</string>
 							<reference key="NSSuperview" ref="546596124"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="182457755"/>
+							<reference key="NSNextKeyView" ref="10050779"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="893204638">
@@ -1531,7 +1531,7 @@
 							<string key="NSFrame">{{18, 46}, {397, 26}}</string>
 							<reference key="NSSuperview" ref="546596124"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="10050779"/>
+							<reference key="NSNextKeyView" ref="263494199"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSPopUpButtonCell" key="NSCell" id="316783722">
@@ -1576,16 +1576,16 @@
 						<object class="NSButton" id="980024818">
 							<reference key="NSNextResponder" ref="546596124"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{343, 13}, {148, 32}}</string>
+							<string key="NSFrame">{{401, 13}, {90, 32}}</string>
 							<reference key="NSSuperview" ref="546596124"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="263494199"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="967658181">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Bless and Reboot</string>
+								<string key="NSContents">Unbless</string>
 								<reference key="NSSupport" ref="541237779"/>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="980024818"/>
@@ -1604,7 +1604,7 @@
 							<string key="NSFrame">{{420, 48}, {65, 23}}</string>
 							<reference key="NSSuperview" ref="546596124"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
+							<reference key="NSNextKeyView" ref="833915553"/>
 							<string key="NSReuseIdentifierKey">_NS:22</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="1047759948">
@@ -1626,7 +1626,7 @@
 						<object class="NSButton" id="10050779">
 							<reference key="NSNextResponder" ref="546596124"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{271, 13}, {72, 32}}</string>
+							<string key="NSFrame">{{329, 13}, {72, 32}}</string>
 							<reference key="NSSuperview" ref="546596124"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="980024818"/>
@@ -1654,7 +1654,7 @@
 							<string key="NSFrame">{{17, 78}, {471, 56}}</string>
 							<reference key="NSSuperview" ref="546596124"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="833915553"/>
+							<reference key="NSNextKeyView" ref="182457755"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
 							<bool key="NSEnabled">YES</bool>
@@ -2119,11 +2119,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">blessAndReboot:</string>
+						<string key="label">unbless:</string>
 						<reference key="source" ref="631414546"/>
 						<reference key="destination" ref="980024818"/>
 					</object>
-					<int key="connectionID">1584</int>
+					<int key="connectionID">1631</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -4896,7 +4896,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1630</int>
+			<int key="maxID">1631</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4930,7 +4930,6 @@
 					<string key="className">RHAppDelegate</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="blessAndReboot:">id</string>
 						<string key="blessUSB:">id</string>
 						<string key="closeDownloadDistroSheet:">id</string>
 						<string key="closeEraseDistroSheet:">id</string>
@@ -4947,13 +4946,10 @@
 						<string key="showEraseDistroSheet:">id</string>
 						<string key="showModifyBootSettingsSheet:">id</string>
 						<string key="showPreferences:">id</string>
+						<string key="unbless:">id</string>
 						<string key="updateRecents:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="blessAndReboot:">
-							<string key="name">blessAndReboot:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="blessUSB:">
 							<string key="name">blessUSB:</string>
 							<string key="candidateClassName">id</string>
@@ -5016,6 +5012,10 @@
 						</object>
 						<object class="IBActionInfo" key="showPreferences:">
 							<string key="name">showPreferences:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="unbless:">
+							<string key="name">unbless:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="updateRecents:">

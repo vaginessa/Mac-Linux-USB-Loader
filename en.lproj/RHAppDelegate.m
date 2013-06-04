@@ -286,18 +286,85 @@ NSString *urlArray[] = {
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Okay"];
     [alert setMessageText:@"Bless complete."];
-    [alert setInformativeText:@"Power off - not restart - your computer. Leave the USB in the slot and when you turn the computer back on, it will boot directly into the Linux distribution on your USB."];
+    [alert setInformativeText:@"Leave the USB drive in its slot and restart the computer. Your Mac will boot directly into the Linux distribution installed on your USB drives."];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
-- (IBAction)blessAndReboot:(id)sender {
-    [self blessUSB:sender];
+- (IBAction)unbless:(id)sender {
+    // Check if the user has actually selected a USB drive.
+    if ([bootUSBSelector numberOfItems] == 0 || [[bootUSBSelector titleOfSelectedItem] isEqualToString:@""]) {
+#ifdef DEBUG
+        NSLog(@"The user doesn't have any USB drives plugged in.");
+#endif
+        [NSApp endSheet:bootSettingsSheet];
+        [bootSettingsSheet orderOut:sender];
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Okay"];
+        [alert setMessageText:@"No USB drives are plugged in."];
+        [alert setInformativeText:@"You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button the panel."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        
+        [sender setEnabled:NO];
+        return;
+    }
+    // Create authorization reference.
+    OSStatus status;
+    AuthorizationRef authorizationRef;
     
-    NSDictionary *error;
-    NSAppleScript *restartScript = [[NSAppleScript alloc] initWithSource:@"tell application \"System Events\" to restart"];
+    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
+    if (status != errAuthorizationSuccess) {
+        NSLog(@"Error Creating Initial Authorization: %d", status);
+        return;
+    }
     
-    [restartScript executeAndReturnError:&error];
+    // kAuthorizationRightExecute == "system.privilege.admin"
+    AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+    AuthorizationRights rights = {1, &right};
+    AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed |
+    kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
+    
+    // Call AuthorizationCopyRights to determine or extend the allowable rights.
+    status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+    if (status != errAuthorizationSuccess) {
+#ifdef DEBUG
+        NSLog(@"Copy Rights Unsuccessful: %d", status);
+#endif
+        return;
+    }
+    
+    /* Set up the command line arguments. */
+    char *tool = "/usr/sbin/bless";
+    char *args[] = {"--unbless", (char *)[[bootUSBSelector titleOfSelectedItem] UTF8String], NULL};
+    FILE *pipe = NULL;
+    
+    /*
+     * I know that AuthorizationExecuteWithPrivileges is deprecated since Lion, however, using a helper tool to simply
+     * call bless seems to be overkill at this stage, and since bless is a relatively innocuous tool it should be safe
+     * to do this for the time being.
+     */
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    status = AuthorizationExecuteWithPrivileges(authorizationRef, tool, kAuthorizationFlagDefaults, args, &pipe);
+#pragma clang diagnostic warning "-Wdeprecated-declarations"
+    
+    if (status != errAuthorizationSuccess) {
+        NSLog(@"Error: %d", status);
+        return;
+    }
+    
+    status = AuthorizationFree(authorizationRef, kAuthorizationFlagDestroyRights);
+    [self detectUSBs:sender];
+    
+    [self closeModifyBootSettingsSheet:sender];
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Okay"];
+    [alert setMessageText:@"Unbless complete."];
+    [alert setInformativeText:@"Your USB drive has been unblessed. Your Mac will not longer boot directly into it. Instead, to boot from it, hold down the Option/Alt key after the startup chimes and select your drive when it appears."];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
 #pragma mark - Distribution Downloader

@@ -46,7 +46,7 @@
 - (IBAction)showModifyBootSettingsSheet:(id)sender;
 - (IBAction)closeModifyBootSettingsSheet:(id)sender;
 - (IBAction)blessUSB:(id)sender;
-- (IBAction)blessAndReboot:(id)sender;
+- (IBAction)unbless:(id)sender;
 
 - (IBAction)openDownloadedDistro:(id)sender;
 - (IBAction)showEraseDistroSheet:(id)sender;
