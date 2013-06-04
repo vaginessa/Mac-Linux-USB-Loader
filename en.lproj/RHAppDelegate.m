@@ -279,6 +279,16 @@ NSString *urlArray[] = {
     }
     
     status = AuthorizationFree(authorizationRef, kAuthorizationFlagDestroyRights);
+    [self detectUSBs:sender];
+    
+    [self closeModifyBootSettingsSheet:sender];
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Okay"];
+    [alert setMessageText:@"Bless complete."];
+    [alert setInformativeText:@"Power off - not restart - your computer. Leave the USB in the slot and when you turn the computer back on, it will boot directly into the Linux distribution on your USB."];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
 - (IBAction)blessAndReboot:(id)sender {
