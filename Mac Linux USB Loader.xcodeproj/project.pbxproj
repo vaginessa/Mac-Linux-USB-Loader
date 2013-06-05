@@ -85,7 +85,6 @@
 		244C050716DD8E460083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		246ABBE116A4BD560054A649 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/DistributionDownloader.m; sourceTree = "<group>"; };
-		246F593D172F2BAC00442178 /* Icon2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon2.icns; path = Resources/Icon2.icns; sourceTree = "<group>"; };
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
 		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
 		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
@@ -128,7 +127,7 @@
 		24CA6C061656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		24CA6C13165701A900061D2F /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
+		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,15 +193,16 @@
 				24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */,
 			);
 			name = "Preferences View Controllers";
+			path = ..;
 			sourceTree = "<group>";
 			usesTabs = 0;
 		};
 		24728A6616BD9C1B00920062 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				249F19A6175FDC760074F88A /* Icon2.icns */,
 				240C7B5B175AE63F00AEAFC9 /* Boot.icns */,
 				24CA6C13165701A900061D2F /* Icon.icns */,
-				246F593D172F2BAC00442178 /* Icon2.icns */,
 				24F62E7116795AD50016B65A /* bootup.icns */,
 				24CA6C15165701BD00061D2F /* Icon.png */,
 				248317CD16BF146C00313D33 /* Eraser.icns */,
@@ -219,18 +219,17 @@
 				247686001682777A00A8C4AD /* bootIA32.efi */,
 				247686011682777A00A8C4AD /* bootX64.efi */,
 			);
-			path = "EFI Loader";
+			name = "EFI Loader";
+			path = "../EFI Loader";
 			sourceTree = "<group>";
 		};
 		24CA6BDE1656F7A700061D2F = {
 			isa = PBXGroup;
 			children = (
-				249F19A6175FDC760074F88A /* Icon2.icns */,
+				24DB8AB81659AB0700F7C947 /* README */,
 				24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */,
 				2419A0C117209608008E0137 /* Compatibility Tester */,
 				24728A6616BD9C1B00920062 /* Icons */,
-				247685FF1682777A00A8C4AD /* EFI Loader */,
-				24434A201677D50800DAC959 /* Preferences View Controllers */,
 				24CA6BEC1656F7A700061D2F /* Frameworks */,
 				24CA6BEA1656F7A700061D2F /* Products */,
 			);
@@ -273,7 +272,6 @@
 		24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */ = {
 			isa = PBXGroup;
 			children = (
-				24DB8AB81659AB0700F7C947 /* README */,
 				24CA6BFF1656F7A700061D2F /* Document.h */,
 				249E04FD1693916900562F64 /* Document.m */,
 				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
@@ -286,6 +284,8 @@
 				2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */,
 				24CA6C051656F7A700061D2F /* MainMenu.xib */,
 				2479538F16ED01030085057B /* Document.xib */,
+				247685FF1682777A00A8C4AD /* EFI Loader */,
+				24434A201677D50800DAC959 /* Preferences View Controllers */,
 				24CA6BF41656F7A700061D2F /* Supporting Files */,
 			);
 			path = "Mac Linux USB Loader";
