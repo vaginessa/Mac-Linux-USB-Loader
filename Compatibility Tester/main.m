@@ -2,7 +2,7 @@
 //  main.m
 //  Compatibility Tester
 //
-//  Created by Ryan Bowring on 6/5/13.
+//  Created by SevenBits on 6/5/13.
 //
 //
 
