@@ -99,7 +99,7 @@ NSString *urlArray[] = {
 #pragma mark - IBActions
 - (IBAction)showPreferences:(id)sender {
     // If we have not created the window controller yet, create it now.
-    if (!_preferencesWindowController){
+    if (!_preferencesWindowController) {
         RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
         RHAboutViewController *about = [[RHAboutViewController alloc] init];
         RHNotificationViewController *notifications = [[RHNotificationViewController alloc] init];
