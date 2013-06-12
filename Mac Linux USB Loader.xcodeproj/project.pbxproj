@@ -10,6 +10,7 @@
 		240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */ = {isa = PBXBuildFile; fileRef = 240C7B5B175AE63F00AEAFC9 /* Boot.icns */; };
 		240C7B5E175AEDBA00AEAFC9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240C7B5D175AEDBA00AEAFC9 /* Security.framework */; };
 		2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */; };
+		242B1EE31769074C00B83171 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 242B1EE21769074C00B83171 /* README */; };
 		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		24434A391677D52800DAC959 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A211677D52800DAC959 /* AboutPreferences.png */; };
 		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
@@ -76,6 +77,7 @@
 		2419A0D917209608008E0137 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2419A0ED17209636008E0137 /* Compatibility Tester.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compatibility Tester.entitlements"; sourceTree = "<group>"; };
 		242262D616ED046200804B9D /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/Document.xib; sourceTree = "<group>"; };
+		242B1EE21769074C00B83171 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		24434A191677CE2100DAC959 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		24434A211677D52800DAC959 /* AboutPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutPreferences.png; sourceTree = "<group>"; };
 		24434A221677D52800DAC959 /* AccountsPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccountsPreferences.png; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		247685FF1682777A00A8C4AD /* EFI Loader */ = {
 			isa = PBXGroup;
 			children = (
+				242B1EE21769074C00B83171 /* README */,
 				247686001682777A00A8C4AD /* bootIA32.efi */,
 				247686011682777A00A8C4AD /* bootX64.efi */,
 			);
@@ -403,6 +406,7 @@
 				2479538D16ED01030085057B /* Document.xib in Resources */,
 				240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */,
 				24EBEE37176676F5002A5452 /* Icon.icns in Resources */,
+				242B1EE31769074C00B83171 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
