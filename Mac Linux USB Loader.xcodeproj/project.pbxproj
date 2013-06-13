@@ -16,7 +16,6 @@
 		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
 		244C050416DD840E0083A0C9 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 244C050316DD840E0083A0C9 /* dsa_pub.pem */; };
 		244C050816DD8E460083A0C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
-		244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244E560816755CA300F80E78 /* RHPreferences.framework */; };
 		246ABBE016A4BD560054A649 /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 246ABBE216A4BD560054A649 /* DistributionDownloader.m */; };
 		24728A6816BDA62C00920062 /* Notifications.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24728A6716BDA62B00920062 /* Notifications.icns */; };
 		247686021682777A00A8C4AD /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686001682777A00A8C4AD /* bootIA32.efi */; };
@@ -24,6 +23,7 @@
 		2479538D16ED01030085057B /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2479538F16ED01030085057B /* Document.xib */; };
 		248317CE16BF146C00313D33 /* Eraser.icns in Resources */ = {isa = PBXBuildFile; fileRef = 248317CD16BF146C00313D33 /* Eraser.icns */; };
 		248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */; };
+		2493D1BD176A864F00687E0A /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		249E04F71693916400562F64 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04F91693916400562F64 /* USBDevice.m */; };
 		249E04FB1693916900562F64 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04FD1693916900562F64 /* Document.m */; };
 		249F1990175FDC280074F88A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; };
@@ -85,7 +85,6 @@
 		24434A2E1677D52800DAC959 /* RHAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHAccountsViewController.h; sourceTree = "<group>"; };
 		244C050316DD840E0083A0C9 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		244C050716DD8E460083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		244E560816755CA300F80E78 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		246ABBE116A4BD560054A649 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/DistributionDownloader.m; sourceTree = "<group>"; };
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
 		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
@@ -149,7 +148,7 @@
 			files = (
 				240C7B5E175AEDBA00AEAFC9 /* Security.framework in Frameworks */,
 				24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */,
-				244E560916755CA300F80E78 /* RHPreferences.framework in Frameworks */,
+				2493D1BD176A864F00687E0A /* RHPreferences.framework in Frameworks */,
 				244C050816DD8E460083A0C9 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +253,6 @@
 				24BDE430172D920B00E964A0 /* IOKit.framework */,
 				244C050716DD8E460083A0C9 /* Sparkle.framework */,
 				24434A191677CE2100DAC959 /* RHPreferences.framework */,
-				244E560816755CA300F80E78 /* RHPreferences.framework */,
 				24CA6BED1656F7A700061D2F /* Cocoa.framework */,
 				2419A0D917209608008E0137 /* SenTestingKit.framework */,
 				24CA6BEF1656F7A700061D2F /* Other Frameworks */,
