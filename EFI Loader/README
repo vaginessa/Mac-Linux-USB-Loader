@@ -2,4 +2,6 @@ These images are compiled from the normal, GRUB 2 source tree. They are essentia
 
 http://www.apfeltalk.de/forum/ubuntu-iso-image-t350144.html
 
-The images, as far as I can tell, do not use a modified copy of the GRUB 2 codebase and only contain an embedded configuration file that sets up the loopback and boots the kernel. However, the author never released the source code, in violation of the GPL. Attempts to contact the author for the code have failed. Because of this, I cannot distribute the source code. Because of this license violation, I am transitioning to my own EFI loader to replace these images. You can find all necessary information on my blog at http://sevenbits-tech-blog.blogspot.com and on the webpage for my EFI bootloader Enterprise at http://sevenbits.github.io/Enterprise/ .
+The images, as far as I can tell, do not use a modified copy of the GRUB 2 codebase and only contain an embedded configuration file that sets up the loopback and boots the kernel. The author never distributed the source code. I did, however, manage to extract the GRUB configuration file used to boot the ISO files from the provided images. I have put the contents onto PasteBin at this address: http://pastebin.com/qQxqF7dS .
+
+Because of this license violation, I am transitioning to my own EFI loader to replace these images. You can find all necessary information on my blog at http://sevenbits-tech-blog.blogspot.com and on the webpage for my EFI bootloader Enterprise at http://sevenbits.github.io/Enterprise/ .
