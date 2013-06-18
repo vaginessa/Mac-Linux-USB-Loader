@@ -56,6 +56,11 @@ NSString *urlArray[] = {
     [recentFileBrowser setDoubleAction:@selector(respondToRecentFileDoubleClick)];
 }
 
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
+    [_window makeKeyAndOrderFront:nil];
+    return YES;
+}
+
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     // Once we get any operation going, do this to not let the user quit the app until it finishes.
     if (canQuit) {

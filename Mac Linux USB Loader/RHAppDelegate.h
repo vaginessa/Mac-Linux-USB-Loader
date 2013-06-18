@@ -12,14 +12,13 @@
 #import "RecentDocumentsTableViewDataSource.h"
 
 @interface RHAppDelegate : NSObject <NSApplicationDelegate> {
-    __unsafe_unretained NSWindow *_window;
     RHPreferencesWindowController *_preferencesWindowController;
     IBOutlet NSPanel *sheet;
     IBOutlet NSPanel *eraseSheet;
     IBOutlet NSPanel *bootSettingsSheet;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (retain) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSButton *closeDistroDownloadSheetButton;
 @property (assign) IBOutlet NSButton *closeEraseDownloadSheetButton;
 @property (assign) IBOutlet NSButton *distroDownloadButton;
