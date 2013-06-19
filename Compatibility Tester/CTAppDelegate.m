@@ -43,7 +43,7 @@
     {
         char *model = malloc(len*sizeof(char));
         sysctlbyname("hw.model", model, &len, NULL, 0);
-        NSString *model_ns = [NSString stringWithUTF8String:model];
+        NSString *model_ns = @(model);
         free(model);
         
         NSAttributedString *string = [[NSAttributedString alloc]

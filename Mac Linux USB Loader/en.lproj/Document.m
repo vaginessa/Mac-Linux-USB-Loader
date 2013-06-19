@@ -186,7 +186,7 @@ BOOL isCopying = NO;
         NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:[[self fileURL] path] traverseLink:YES];
         NSNumber *sourceFileSize;
         
-        if ((sourceFileSize = [sourceAttributes objectForKey:NSFileSize])) {
+        if ((sourceFileSize = sourceAttributes[NSFileSize])) {
             // Set the max value to our source file size.
             [spinner setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
         } else {

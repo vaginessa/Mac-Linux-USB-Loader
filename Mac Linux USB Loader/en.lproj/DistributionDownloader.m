@@ -36,7 +36,7 @@ long long bytesReceived = 0;
     // Inform us that the download failed.
     NSLog(@"Download failed! Error - %@ %@",
           [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+          [error userInfo][NSURLErrorFailingURLStringErrorKey]);
     
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Okay"];

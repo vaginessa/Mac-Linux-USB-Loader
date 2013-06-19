@@ -95,7 +95,7 @@ NSString *urlArray[] = {
     
     if (clickedRow != -1) { // We're in the row.
         NSDocumentController *docControl = [NSDocumentController sharedDocumentController];
-        NSURL *selectedDocument = (NSURL *)[[docControl recentDocumentURLs] objectAtIndex:clickedRow];
+        NSURL *selectedDocument = (NSURL *)[docControl recentDocumentURLs][clickedRow];
         NSLog(@"Selected row %ld.", (long)clickedRow);
         [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:selectedDocument display:YES completionHandler:nil];
     }
@@ -109,10 +109,9 @@ NSString *urlArray[] = {
         RHAboutViewController *about = [[RHAboutViewController alloc] init];
         RHNotificationViewController *notifications = [[RHNotificationViewController alloc] init];
         
-        NSArray *controllers = [NSArray arrayWithObjects:accounts, notifications,
+        NSArray *controllers = @[accounts, notifications,
                                 [RHPreferencesWindowController flexibleSpacePlaceholderController], 
-                                about,
-                                nil];
+                                about];
         
         _preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", @"Preferences Window Title")];
     }
@@ -152,7 +151,7 @@ NSString *urlArray[] = {
                     // We have a valid mounted media - not necessarily a USB though.
                     NSString * title = [NSString stringWithFormat:@"%@", volumePath];
                 
-                    [eraseUSBSelector addItemWithTitle:title]; // Add to the dropdown list.
+                    [eraseUSBSelector addItemWithTitle:title]; // Add to the dropdown lists.
                     [bootUSBSelector addItemWithTitle:title];
                 }
             }
@@ -210,7 +209,7 @@ NSString *urlArray[] = {
 
 #pragma mark - Modify Boot Settings
 - (IBAction)showModifyBootSettingsSheet:(id)sender {
-    [NSApp beginSheet:bootSettingsSheet modalForWindow:(NSWindow *)_window modalDelegate:self
+    [NSApp beginSheet:bootSettingsSheet modalForWindow:_window modalDelegate:self
        didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
@@ -370,7 +369,7 @@ NSString *urlArray[] = {
 
 #pragma mark - Distribution Downloader
 - (IBAction)showDownloadDistroSheet:(id)sender {
-    [NSApp beginSheet:sheet modalForWindow:(NSWindow *)_window modalDelegate:self
+    [NSApp beginSheet:sheet modalForWindow:_window modalDelegate:self
        didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 

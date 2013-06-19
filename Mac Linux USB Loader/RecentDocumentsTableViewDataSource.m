@@ -16,7 +16,7 @@
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     [tableColumn setEditable:NO];
-    return [[_array objectAtIndex:row] lastPathComponent];
+    return [_array[row] lastPathComponent];
 }
 
 @end

@@ -36,7 +36,7 @@
 - (IBAction)showNotificationCenter:(NSButton*)sender {
     NSProcessInfo *pinfo = [NSProcessInfo processInfo];
     NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
-    NSString *version = [myarr objectAtIndex:1];
+    NSString *version = myarr[1];
     
     // Ensure that we are running 10.8 before we display the preferences as we still support Lion, which does not have
     // notifications.
