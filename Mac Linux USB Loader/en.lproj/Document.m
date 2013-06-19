@@ -59,7 +59,7 @@ BOOL isCopying = NO;
     [super windowControllerDidLoadNib:controller];
     usbs = [[NSMutableDictionary alloc] initWithCapacity:10]; //A maximum capacity of 10 is fine, nobody has that many ports anyway.
     device = [USBDevice new];
-    [device setWindow:window];
+    device.window = window;
     
     isoFilePath = [[self fileURL] absoluteString];
     

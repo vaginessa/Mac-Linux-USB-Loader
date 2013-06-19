@@ -18,7 +18,7 @@
 @synthesize displayNotificationsCheckbox;
 @synthesize panelView;
 
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:@"RHNotificationViewController" bundle:nibBundleOrNil];
     if (self){
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -60,17 +60,17 @@
 
 #pragma mark - RHPreferencesViewControllerProtocol
 
--(NSString*)identifier{
+- (NSString*)identifier{
     return NSStringFromClass(self.class);
 }
--(NSImage*)toolbarItemImage{
+- (NSImage*)toolbarItemImage{
     return [NSImage imageNamed:@"Notifications"];
 }
--(NSString*)toolbarItemLabel{
+- (NSString*)toolbarItemLabel{
     return NSLocalizedString(@"Notifications", @"AboutToolbarItemLabel");
 }
 
--(NSView*)initialKeyView{
+- (NSView*)initialKeyView{
     return nil;
 }
 
