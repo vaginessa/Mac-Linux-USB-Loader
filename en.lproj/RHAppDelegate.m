@@ -245,6 +245,10 @@ NSString *urlArray[] = {
         return;
     }
     
+    /*
+     * Set the rights we want for our authorization request. The rights we request primarily determine the message
+     * shown on the authentication window, in our case, "Mac Linux USB Loader wants to make changes".
+     */
     // kAuthorizationRightExecute == "system.privilege.admin"
     AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
     AuthorizationRights rights = {1, &right};
