@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D31177660F50065BADF /* SBFirmwareViewController.m */; };
+		24068D3A177662110065BADF /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D36177662110065BADF /* RHAboutViewController.m */; };
+		24068D3B177662110065BADF /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D37177662110065BADF /* RHAccountsViewController.m */; };
+		24068D3C177662110065BADF /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D38177662110065BADF /* RHAppDelegate.m */; };
+		24068D3D177662110065BADF /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D39177662110065BADF /* RHNotificationViewController.m */; };
+		24068E37177662650065BADF /* SBFirmwareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24068E39177662650065BADF /* SBFirmwareViewController.xib */; };
 		240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */ = {isa = PBXBuildFile; fileRef = 240C7B5B175AE63F00AEAFC9 /* Boot.icns */; };
 		240C7B5E175AEDBA00AEAFC9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240C7B5D175AEDBA00AEAFC9 /* Security.framework */; };
 		2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */; };
@@ -23,7 +29,6 @@
 		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
 		2479538D16ED01030085057B /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2479538F16ED01030085057B /* Document.xib */; };
 		248317CE16BF146C00313D33 /* Eraser.icns in Resources */ = {isa = PBXBuildFile; fileRef = 248317CD16BF146C00313D33 /* Eraser.icns */; };
-		248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */; };
 		2493D1BD176A864F00687E0A /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		249E04F71693916400562F64 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04F91693916400562F64 /* USBDevice.m */; };
 		249E04FB1693916900562F64 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 249E04FD1693916900562F64 /* Document.m */; };
@@ -35,9 +40,6 @@
 		249F19B4175FDE220074F88A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B6175FDE220074F88A /* InfoPlist.strings */; };
 		249F19B7175FDE270074F88A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B9175FDE270074F88A /* Credits.rtf */; };
 		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
-		24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167016A0E85D0046C51A /* RHNotificationViewController.m */; };
-		24AD167116A0E8610046C51A /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167316A0E8610046C51A /* RHAboutViewController.m */; };
-		24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD167616A0E8650046C51A /* RHAccountsViewController.m */; };
 		24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */; };
 		24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */; };
 		24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */; };
@@ -65,6 +67,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24068D31177660F50065BADF /* SBFirmwareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFirmwareViewController.m; sourceTree = "<group>"; };
+		24068D351776614F0065BADF /* SBFirmwareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFirmwareViewController.h; sourceTree = "<group>"; };
+		24068D36177662110065BADF /* RHAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAboutViewController.m; sourceTree = SOURCE_ROOT; };
+		24068D37177662110065BADF /* RHAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAccountsViewController.m; sourceTree = SOURCE_ROOT; };
+		24068D38177662110065BADF /* RHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		24068D39177662110065BADF /* RHNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHNotificationViewController.m; sourceTree = SOURCE_ROOT; };
+		24068E38177662650065BADF /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
+		24068E3A177662FC0065BADF /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
 		240C7B5B175AE63F00AEAFC9 /* Boot.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Boot.icns; path = Resources/Boot.icns; sourceTree = "<group>"; };
 		240C7B5D175AEDBA00AEAFC9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentDocumentsTableViewDataSource.h; sourceTree = "<group>"; };
@@ -96,7 +106,6 @@
 		2479538816ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2479538E16ED01030085057B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
 		248317CD16BF146C00313D33 /* Eraser.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Eraser.icns; path = Resources/Eraser.icns; sourceTree = "<group>"; };
-		248ECB8C16AB3168004B8A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAppDelegate.m; sourceTree = "<group>"; };
 		249E04F81693916400562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/USBDevice.m; sourceTree = "<group>"; };
 		249E04FC1693916900562F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/Document.m; sourceTree = "<group>"; };
 		249EDD7017011D47006E7DAE /* RHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RHAppDelegate.h; sourceTree = "<group>"; };
@@ -107,9 +116,6 @@
 		249F19B5175FDE220074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		249F19B8175FDE270074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		24AD166216A0E1D90046C51A /* RHNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHNotificationViewController.h; sourceTree = "<group>"; };
-		24AD166F16A0E85D0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHNotificationViewController.m; sourceTree = "<group>"; };
-		24AD167216A0E8610046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAboutViewController.m; sourceTree = "<group>"; };
-		24AD167516A0E8650046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/RHAccountsViewController.m; sourceTree = "<group>"; };
 		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
 		24AD167B16A0F2CE0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
 		24AD167E16A0F2D20046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
@@ -183,14 +189,17 @@
 		24434A201677D50800DAC959 /* Preferences View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				24068D351776614F0065BADF /* SBFirmwareViewController.h */,
+				24068D31177660F50065BADF /* SBFirmwareViewController.m */,
+				24068E39177662650065BADF /* SBFirmwareViewController.xib */,
 				24AD166216A0E1D90046C51A /* RHNotificationViewController.h */,
-				24AD167016A0E85D0046C51A /* RHNotificationViewController.m */,
+				24068D39177662110065BADF /* RHNotificationViewController.m */,
 				24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */,
 				24434A2B1677D52800DAC959 /* RHAboutViewController.h */,
-				24AD167316A0E8610046C51A /* RHAboutViewController.m */,
+				24068D36177662110065BADF /* RHAboutViewController.m */,
 				24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */,
 				24434A2E1677D52800DAC959 /* RHAccountsViewController.h */,
-				24AD167616A0E8650046C51A /* RHAccountsViewController.m */,
+				24068D37177662110065BADF /* RHAccountsViewController.m */,
 				24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */,
 			);
 			name = "Preferences View Controllers";
@@ -278,7 +287,7 @@
 				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
 				249E04F91693916400562F64 /* USBDevice.m */,
 				249EDD7017011D47006E7DAE /* RHAppDelegate.h */,
-				248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */,
+				24068D38177662110065BADF /* RHAppDelegate.m */,
 				249EDD7217011F2E006E7DAE /* DistributionDownloader.h */,
 				246ABBE216A4BD560054A649 /* DistributionDownloader.m */,
 				2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */,
@@ -405,6 +414,7 @@
 				240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */,
 				24EBEE37176676F5002A5452 /* Icon.icns in Resources */,
 				242B1EE31769074C00B83171 /* README in Resources */,
+				24068E37177662650065BADF /* SBFirmwareViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,18 +437,28 @@
 				24CA6BFA1656F7A700061D2F /* main.m in Sources */,
 				249E04FB1693916900562F64 /* Document.m in Sources */,
 				249E04F71693916400562F64 /* USBDevice.m in Sources */,
-				24AD167116A0E8610046C51A /* RHAboutViewController.m in Sources */,
-				24AD167416A0E8650046C51A /* RHAccountsViewController.m in Sources */,
-				248ECB8B16AB3168004B8A7E /* RHAppDelegate.m in Sources */,
-				24AD166E16A0E85D0046C51A /* RHNotificationViewController.m in Sources */,
 				246ABBE016A4BD560054A649 /* DistributionDownloader.m in Sources */,
+				24068D3C177662110065BADF /* RHAppDelegate.m in Sources */,
 				2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */,
+				24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */,
+				24068D3A177662110065BADF /* RHAboutViewController.m in Sources */,
+				24068D3B177662110065BADF /* RHAccountsViewController.m in Sources */,
+				24068D3D177662110065BADF /* RHNotificationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		24068E39177662650065BADF /* SBFirmwareViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24068E38177662650065BADF /* en */,
+				24068E3A177662FC0065BADF /* es */,
+			);
+			name = SBFirmwareViewController.xib;
+			sourceTree = "<group>";
+		};
 		246ABBE216A4BD560054A649 /* DistributionDownloader.m */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -454,15 +474,6 @@
 				242262D616ED046200804B9D /* es */,
 			);
 			name = Document.xib;
-			sourceTree = "<group>";
-		};
-		248ECB8D16AB3168004B8A7E /* RHAppDelegate.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				248ECB8C16AB3168004B8A7E /* en */,
-			);
-			name = RHAppDelegate.m;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		249E04F91693916400562F64 /* USBDevice.m */ = {
@@ -503,30 +514,6 @@
 				249F19B8175FDE270074F88A /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		24AD167016A0E85D0046C51A /* RHNotificationViewController.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24AD166F16A0E85D0046C51A /* en */,
-			);
-			name = RHNotificationViewController.m;
-			sourceTree = "<group>";
-		};
-		24AD167316A0E8610046C51A /* RHAboutViewController.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24AD167216A0E8610046C51A /* en */,
-			);
-			name = RHAboutViewController.m;
-			sourceTree = "<group>";
-		};
-		24AD167616A0E8650046C51A /* RHAccountsViewController.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24AD167516A0E8650046C51A /* en */,
-			);
-			name = RHAccountsViewController.m;
 			sourceTree = "<group>";
 		};
 		24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */ = {

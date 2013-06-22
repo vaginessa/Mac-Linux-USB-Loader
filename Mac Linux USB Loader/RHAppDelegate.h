@@ -9,6 +9,12 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 
+#import "RHAboutViewController.h"
+#import "RHAccountsViewController.h"
+#import "RHNotificationViewController.h"
+#import "SBFirmwareViewController.h"
+
+#import "DistributionDownloader.h"
 #import "RecentDocumentsTableViewDataSource.h"
 
 @interface RHAppDelegate : NSObject <NSApplicationDelegate> {

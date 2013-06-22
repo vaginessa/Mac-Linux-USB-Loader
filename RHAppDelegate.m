@@ -7,11 +7,6 @@
 //
 
 #import "RHAppDelegate.h"
-#import "RHAboutViewController.h"
-#import "RHAccountsViewController.h"
-#import "RHNotificationViewController.h"
-
-#import "DistributionDownloader.h"
 
 @implementation RHAppDelegate
 
@@ -108,8 +103,9 @@ NSString *urlArray[] = {
         RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
         RHAboutViewController *about = [[RHAboutViewController alloc] init];
         RHNotificationViewController *notifications = [[RHNotificationViewController alloc] init];
+        SBFirmwareViewController *firmwareController = [[SBFirmwareViewController alloc] init];
         
-        NSArray *controllers = @[accounts, notifications,
+        NSArray *controllers = @[accounts, notifications, firmwareController,
                                 [RHPreferencesWindowController flexibleSpacePlaceholderController], 
                                 about];
         
