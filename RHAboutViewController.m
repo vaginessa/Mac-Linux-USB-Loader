@@ -17,7 +17,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:@"RHAboutViewController" bundle:nibBundleOrNil];
-    if (self){
+    if (self) {
         // Initialization code here.
     }
     return self;
@@ -25,13 +25,13 @@
 
 #pragma mark - RHPreferencesViewControllerProtocol
 
-- (NSString*)identifier{
+- (NSString*)identifier {
     return NSStringFromClass(self.class);
 }
-- (NSImage*)toolbarItemImage{
+- (NSImage*)toolbarItemImage {
     return [NSImage imageNamed:@"AboutPreferences"];
 }
-- (NSString*)toolbarItemLabel{
+- (NSString*)toolbarItemLabel {
     return NSLocalizedString(@"Acknowledgements", @"AboutToolbarItemLabel");
 }
 

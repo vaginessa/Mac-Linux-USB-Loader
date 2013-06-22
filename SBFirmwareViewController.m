@@ -12,7 +12,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"SBFirmwareViewController" bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
     }
@@ -22,13 +22,13 @@
 
 #pragma mark - RHPreferencesViewControllerProtocol
 
-- (NSString*)identifier{
+- (NSString*)identifier {
     return NSStringFromClass(self.class);
 }
-- (NSImage*)toolbarItemImage{
+- (NSImage*)toolbarItemImage {
     return [NSImage imageNamed:@"Boot"];
 }
-- (NSString*)toolbarItemLabel{
+- (NSString*)toolbarItemLabel {
     return NSLocalizedString(@"Firmware", @"AboutToolbarItemLabel");
 }
 

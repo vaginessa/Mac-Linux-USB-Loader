@@ -20,7 +20,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:@"RHNotificationViewController" bundle:nibBundleOrNil];
-    if (self){
+    if (self) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults synchronize];
         
@@ -60,13 +60,13 @@
 
 #pragma mark - RHPreferencesViewControllerProtocol
 
-- (NSString*)identifier{
+- (NSString*)identifier {
     return NSStringFromClass(self.class);
 }
-- (NSImage*)toolbarItemImage{
+- (NSImage*)toolbarItemImage {
     return [NSImage imageNamed:@"Notifications"];
 }
-- (NSString*)toolbarItemLabel{
+- (NSString*)toolbarItemLabel {
     return NSLocalizedString(@"Notifications", @"AboutToolbarItemLabel");
 }
 
