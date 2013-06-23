@@ -13,8 +13,8 @@
 - (BOOL)prepareUSB:(NSString *)path {
     // Construct our strings that we need.
     NSString *bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64" ofType:@"efi" inDirectory:@""];
-    NSString *finalPath = [NSString stringWithFormat:@"%@/efi/boot/bootX64.efi", path];
-    NSString *tempPath = [NSString stringWithFormat:@"%@/efi/boot", path];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"/efi/boot/bootX64.efi"];
+    NSString *tempPath = [path stringByAppendingPathComponent:@"/efi/boot"];
     
     // Check if the EFI bootloader already exists.
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:finalPath];

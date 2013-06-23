@@ -329,7 +329,7 @@ BOOL isCopying = NO;
             // Construct the path of the efi folder that we're going to nuke.
             NSString *directoryName = [usbDriveDropdown titleOfSelectedItem];
             NSString *usbRoot = [usbs valueForKey:directoryName];
-            NSString *tempPath = [NSString stringWithFormat:@"%@/efi", usbRoot];
+            NSString *tempPath = [usbRoot stringByAppendingPathComponent:@"/efi"];
             
             // Need these to recursively delete the folder, because UNIX can't erase a folder without erasing its
             // contents first, apparently.

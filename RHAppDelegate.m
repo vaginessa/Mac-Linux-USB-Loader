@@ -127,7 +127,7 @@ NSString *urlArray[] = {
     }
     
     /* Set up the command line arguments. */
-    char *efiFile = (char *)[[NSString stringWithFormat:@"%@/efi/boot/bootx64.efi", path] UTF8String]; // Create the path to the EFI file.
+    char *efiFile = (char *)[[path stringByAppendingPathComponent:@"/efi/boot/bootx64.efi"] UTF8String]; // Create the path to the EFI file.
     char *tool = "/usr/sbin/bless";
     char *args[] = {"--mount", (char *)[[bootUSBSelector titleOfSelectedItem] UTF8String], "--file", efiFile, "--setBoot", NULL};
     FILE *pipe = NULL;
@@ -196,12 +196,10 @@ NSString *urlArray[] = {
         // Get filesystem info about each of the mounted volumes.
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
-                if([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/efi/boot/.MLUL-Live-USB", volumePath]]) {
+                if([[NSFileManager defaultManager] fileExistsAtPath:[volumePath stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"]]) {
                     // We have a valid mounted media - not necessarily a USB though.
-                    NSString * title = [NSString stringWithFormat:@"%@", volumePath];
-                
-                    [eraseUSBSelector addItemWithTitle:title]; // Add to the dropdown lists.
-                    [bootUSBSelector addItemWithTitle:title];
+                    [eraseUSBSelector addItemWithTitle:volumePath]; // Add to the dropdown lists.
+                    [bootUSBSelector addItemWithTitle:volumePath];
                 }
             }
         }
@@ -216,7 +214,7 @@ NSString *urlArray[] = {
 
         // Construct the path of the efi folder that we're going to nuke.
         NSString *usbRoot = [eraseUSBSelector titleOfSelectedItem];
-        NSString *tempPath = [NSString stringWithFormat:@"%@/efi", usbRoot];
+        NSString *tempPath = [usbRoot stringByAppendingPathComponent:@"/efi"];
         
         // Need these to recursively delete the folder, because UNIX can't erase a folder without erasing its
         // contents first, apparently.
