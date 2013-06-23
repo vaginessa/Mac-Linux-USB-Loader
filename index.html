@@ -31,13 +31,14 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2>Mac Linux USB Loader</h2>
+        <h2>
+<a name="mac-linux-usb-loader" class="anchor" href="#mac-linux-usb-loader"><span class="octicon octicon-link"></span></a>Mac Linux USB Loader</h2>
 
-<p>This is a tool allowing you to put a Linux distro on a USB drive and make it bootable on Intel Macs using EFI. Right now, it's very basic and rudimentary but is being very actively developed.</p>
+<p>This is a tool allowing you to put a Linux distro on a USB drive and make it bootable on Intel Macs using EFI. Right now, it's very basic and rudimentary but is being very actively developed. Some advanced features are being developed for Mac Linux USB Loader that are not available in other live USB creators for Mac, such as the ability to make the Live USB drives created by this tool automatically boot on your Mac, a Compatibility Tester application, and more!</p>
 
-<p>The application is available in English and is partially translated into Spanish.</p>
+<p>The application is available in English and is partially translated into Spanish. Most user interface elements are translated, but dialog boxes and recent additions (particularly in development branches) remain in English.</p>
 
-<p>To build it, perform the following steps from the command line:</p>
+<p>I recommend that you download the latest version (link below), but if you want to build from source code, use the following steps (*Note:* more thorough steps on building from source are <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki/Building">here</a>).</p>
 
 <pre><code>mkdir whatever
 cd whatever
@@ -46,8 +47,8 @@ xcodebuild
 </code></pre>
 
 <blockquote>
-<p>Please note: if you get an error about the certificate "Mac Developer" being present, this means that
-you are not enrolled in the Mac Developer Program. Code signing is enabled as a benefit to Mac
+<p>Please note: if you get an error about the certificate "Mac Developer" not being present, this means 
+that you are not enrolled in the Mac Developer Program. Code signing is enabled as a benefit to Mac
 developers. If you are not enrolled as a paid member of the <strong>Mac</strong> Developer Program, use
 <code>xcodebuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO</code> instead of <code>xcodebuild</code> as shown
 above.</p>
@@ -55,9 +56,9 @@ above.</p>
 
 <p>You can also go into the Xcode project and build from there, but that makes a debug build that is not useful unless you intend you help develop the application.</p>
 
-<p><a href="http://sevenbits.github.com/downloads/Mac-Linux-USB-Loader.zip">Click here</a> for the most semi-stable recent build (I'll try to keep that up to date ;) ). You can also older download pre-build binaries <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/downloads">here</a>, though using the recent version is recommended in all cases. Building the program yourself is <em>the best way</em> to see the new features.</p>
+<p><a href="http://sevenbits.github.com/downloads/Mac-Linux-USB-Loader.zip">Click here</a> to download the latest version of Mac Linux USB Loader (I'll try to keep that up to date ;) ). Seriously old builds (like my initial betas) can be found <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/downloads">here</a>, though you <strong>really</strong> shouldn't download those unless you have a good reason. Building the program yourself is <em>the best way</em> to see the new features.</p>
 
-<p>And when I say this is beta-quality software, I mean it. It may eat your hamster.</p>
+<p>Beta releases, FYI, are not guaranteed by me <em>in any way</em>. They may eat your hamster. </p>
       </section>
     </div>
 
