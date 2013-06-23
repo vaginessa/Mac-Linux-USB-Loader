@@ -96,6 +96,59 @@ NSString *urlArray[] = {
     }
 }
 
+- (void)blessDrive:(NSString *)path sender:(id)sender {
+    // Create authorization reference.
+    OSStatus status;
+    AuthorizationRef authorizationRef;
+    
+    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
+    if (status != errAuthorizationSuccess) {
+        NSLog(@"Error Creating Initial Authorization: %d", status);
+        return;
+    }
+    
+    /*
+     * Set the rights we want for our authorization request. The rights we request primarily determine the message
+     * shown on the authentication window, in our case, "Mac Linux USB Loader wants to make changes".
+     */
+    // kAuthorizationRightExecute == "system.privilege.admin"
+    AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+    AuthorizationRights rights = {1, &right};
+    AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed |
+    kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
+    
+    // Call AuthorizationCopyRights to determine or extend the allowable rights.
+    status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+    if (status != errAuthorizationSuccess) {
+#ifdef DEBUG
+        NSLog(@"Copy Rights Unsuccessful: %d", status);
+#endif
+        return;
+    }
+    
+    /* Set up the command line arguments. */
+    char *efiFile = (char *)[[NSString stringWithFormat:@"%@/efi/boot/bootx64.efi", path] UTF8String]; // Create the path to the EFI file.
+    char *tool = "/usr/sbin/bless";
+    char *args[] = {"--mount", (char *)[[bootUSBSelector titleOfSelectedItem] UTF8String], "--file", efiFile, "--setBoot", NULL};
+    FILE *pipe = NULL;
+    
+    /*
+     * I know that AuthorizationExecuteWithPrivileges is deprecated since Lion, however, using a helper tool to simply
+     * call bless seems to be overkill at this stage, and since bless is a relatively innocuous tool it should be safe
+     * to do this for the time being.
+     */
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    status = AuthorizationExecuteWithPrivileges(authorizationRef, tool, kAuthorizationFlagDefaults, args, &pipe);
+#pragma clang diagnostic warning "-Wdeprecated-declarations"
+    
+    if (status != errAuthorizationSuccess) {
+        NSLog(@"Error: %d", status);
+        return;
+    }
+    
+    status = AuthorizationFree(authorizationRef, kAuthorizationFlagDestroyRights);
+}
+
 #pragma mark - IBActions
 - (IBAction)showPreferences:(id)sender {
     // If we have not created the window controller yet, create it now.
@@ -231,58 +284,10 @@ NSString *urlArray[] = {
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return;
     }
-    // Create authorization reference.
-    OSStatus status;
-    AuthorizationRef authorizationRef;
     
-    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
-    if (status != errAuthorizationSuccess) {
-        NSLog(@"Error Creating Initial Authorization: %d", status);
-        return;
-    }
+    [self blessDrive:[bootUSBSelector titleOfSelectedItem] sender:sender];
     
-    /*
-     * Set the rights we want for our authorization request. The rights we request primarily determine the message
-     * shown on the authentication window, in our case, "Mac Linux USB Loader wants to make changes".
-     */
-    // kAuthorizationRightExecute == "system.privilege.admin"
-    AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
-    AuthorizationRights rights = {1, &right};
-    AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed |
-    kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
-    
-    // Call AuthorizationCopyRights to determine or extend the allowable rights.
-    status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
-    if (status != errAuthorizationSuccess) {
-#ifdef DEBUG
-        NSLog(@"Copy Rights Unsuccessful: %d", status);
-#endif
-        return;
-    }
-    
-    /* Set up the command line arguments. */
-    char *efiFile = (char *)[[NSString stringWithFormat:@"%@/efi/boot/bootx64.efi", [bootUSBSelector titleOfSelectedItem]] UTF8String]; // Create the path to the EFI file.
-    char *tool = "/usr/sbin/bless";
-    char *args[] = {"--mount", (char *)[[bootUSBSelector titleOfSelectedItem] UTF8String], "--file", efiFile, "--setBoot", NULL};
-    FILE *pipe = NULL;
-    
-    /*
-     * I know that AuthorizationExecuteWithPrivileges is deprecated since Lion, however, using a helper tool to simply
-     * call bless seems to be overkill at this stage, and since bless is a relatively innocuous tool it should be safe
-     * to do this for the time being.
-     */
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    status = AuthorizationExecuteWithPrivileges(authorizationRef, tool, kAuthorizationFlagDefaults, args, &pipe);
-#pragma clang diagnostic warning "-Wdeprecated-declarations"
-    
-    if (status != errAuthorizationSuccess) {
-        NSLog(@"Error: %d", status);
-        return;
-    }
-    
-    status = AuthorizationFree(authorizationRef, kAuthorizationFlagDestroyRights);
     [self detectUSBs:sender];
-    
     [self closeModifyBootSettingsSheet:sender];
     
     NSAlert *alert = [[NSAlert alloc] init];

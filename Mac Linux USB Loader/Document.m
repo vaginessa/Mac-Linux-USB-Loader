@@ -126,6 +126,8 @@ BOOL isCopying = NO;
     isCopying = YES;
     
     __block BOOL failure = false;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     isoFilePath = [[self fileURL] path];
     
     // If no USBs available, or if no ISO open, display an error and return.
@@ -148,7 +150,7 @@ BOOL isCopying = NO;
     
     NSString* directoryName = [usbDriveDropdown titleOfSelectedItem];
     NSString* usbRoot = [usbs valueForKey:directoryName];
-    NSString* finalPath = [NSString stringWithFormat:@"%@/efi/boot/", usbRoot];
+    NSString* finalPath = [usbRoot stringByAppendingPathComponent:@"/efi/boot/"];
     
     [spinner setUsesThreadedAnimation:YES];
     [spinner setIndeterminate:YES];
@@ -156,7 +158,7 @@ BOOL isCopying = NO;
     [spinner startAnimation:self];
     
     // Check if the Linux distro ISO already exists.
-    NSString *temp = [NSString stringWithFormat:@"%@/efi/boot/boot.iso", usbRoot];
+    NSString *temp = [usbRoot stringByAppendingPathComponent:@"/efi/boot/boot.iso"];
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:temp];
     
     if (fileExists == YES) {
@@ -265,6 +267,11 @@ BOOL isCopying = NO;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     } else {
+        // Bless the live USB drive if the user requests it.
+        if ([defaults boolForKey:@"automaticallyBless"] == YES) {
+            NSLog(@"We're going to bless the user's USB drive...");
+            [[NSApp delegate] blessDrive:directoryName sender:nil];
+        }
     }
 }
 

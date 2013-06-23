@@ -40,6 +40,7 @@
 
 - (BOOL)canQuit;
 - (BOOL)setCanQuit:(BOOL)ableToQuit;
+- (void)blessDrive:(NSString *)path sender:(id)sender;
 - (void)respondToRecentFileDoubleClick;
 
 #pragma mark - IBActions
