@@ -14,10 +14,6 @@
 
 @implementation RHNotificationViewController
 
-@synthesize notificationCenterButton;
-@synthesize displayNotificationsCheckbox;
-@synthesize panelView;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:@"RHNotificationViewController" bundle:nibBundleOrNil];
     if (self) {
@@ -25,9 +21,9 @@
         [defaults synchronize];
         
         if ([defaults boolForKey:@"ShowNotifications"] == YES) {
-            [displayNotificationsCheckbox setState:NSOnState];
+            [_displayNotificationsCheckbox setState:NSOnState];
         } else {
-            [displayNotificationsCheckbox setState:NSOffState];
+            [_displayNotificationsCheckbox setState:NSOffState];
         }
     }
     return self;

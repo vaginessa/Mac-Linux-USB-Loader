@@ -10,17 +10,6 @@
 
 @implementation RHAppDelegate
 
-@synthesize preferencesWindowController=_preferencesWindowController;
-@synthesize distroPopUpSelector;
-@synthesize closeDistroDownloadSheetButton;
-@synthesize distroDownloadButton;
-@synthesize distroDownloadProgressIndicator;
-@synthesize distroSelectorComboBox;
-@synthesize eraseUSBSelector;
-@synthesize bootUSBSelector;
-@synthesize recentFileBrowser;
-@synthesize dataSource;
-
 NSWindow *downloadLinuxDistroSheet;
 BOOL canQuit = YES; // Can the user quit the application?
 
@@ -42,13 +31,13 @@ NSString *urlArray[] = {
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    [eraseUSBSelector removeAllItems];
+    [_eraseUSBSelector removeAllItems];
     [self detectUSBs:nil];
     
     NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
-    [dataSource setArray:myArray];
-    [recentFileBrowser setDataSource:dataSource];
-    [recentFileBrowser setDoubleAction:@selector(respondToRecentFileDoubleClick)];
+    [_dataSource setArray:myArray];
+    [_recentFileBrowser setDataSource:_dataSource];
+    [_recentFileBrowser setDoubleAction:@selector(respondToRecentFileDoubleClick)];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     bootLoaderName = [defaults stringForKey:@"selectedFirmwareType"];
@@ -90,7 +79,7 @@ NSString *urlArray[] = {
 }
 
 - (void)respondToRecentFileDoubleClick {
-    NSInteger clickedRow = [recentFileBrowser clickedRow];
+    NSInteger clickedRow = [_recentFileBrowser clickedRow];
     
     if (clickedRow != -1) { // We're in the row.
         NSDocumentController *docControl = [NSDocumentController sharedDocumentController];
@@ -133,7 +122,7 @@ NSString *urlArray[] = {
     /* Set up the command line arguments. */
     char *efiFile = (char *)[[path stringByAppendingPathComponent:@"/efi/boot/bootx64.efi"] UTF8String]; // Create the path to the EFI file.
     char *tool = "/usr/sbin/bless";
-    char *args[] = {"--mount", (char *)[[bootUSBSelector titleOfSelectedItem] UTF8String], "--file", efiFile, "--setBoot", NULL};
+    char *args[] = {"--mount", (char *)[[_bootUSBSelector titleOfSelectedItem] UTF8String], "--file", efiFile, "--setBoot", NULL};
     FILE *pipe = NULL;
     
     /*
@@ -192,8 +181,8 @@ NSString *urlArray[] = {
     BOOL isRemovable, isWritable, isUnmountable;
     NSString *description, *volumeType;
     
-    [eraseUSBSelector removeAllItems]; // Clear the dropdown list.
-    [bootUSBSelector removeAllItems];
+    [_eraseUSBSelector removeAllItems]; // Clear the dropdown list.
+    [_bootUSBSelector removeAllItems];
     
     // Iterate through the array using fast enumeration.
     for (NSString *volumePath in volumes) {
@@ -202,8 +191,8 @@ NSString *urlArray[] = {
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 if([[NSFileManager defaultManager] fileExistsAtPath:[volumePath stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"]]) {
                     // We have a valid mounted media - not necessarily a USB though.
-                    [eraseUSBSelector addItemWithTitle:volumePath]; // Add to the dropdown lists.
-                    [bootUSBSelector addItemWithTitle:volumePath];
+                    [_eraseUSBSelector addItemWithTitle:volumePath]; // Add to the dropdown lists.
+                    [_bootUSBSelector addItemWithTitle:volumePath];
                 }
             }
         }
@@ -213,11 +202,11 @@ NSString *urlArray[] = {
 - (IBAction)eraseSelectedDrive:(id)sender {
     [[NSApp delegate] setCanQuit:NO];
     
-    if ([eraseUSBSelector numberOfItems] != 0) {
-        [eraseUSBSelector setEnabled:NO];
+    if ([_eraseUSBSelector numberOfItems] != 0) {
+        [_eraseUSBSelector setEnabled:NO];
 
         // Construct the path of the efi folder that we're going to nuke.
-        NSString *usbRoot = [eraseUSBSelector titleOfSelectedItem];
+        NSString *usbRoot = [_eraseUSBSelector titleOfSelectedItem];
         NSString *tempPath = [usbRoot stringByAppendingPathComponent:@"/efi"];
         
         // Need these to recursively delete the folder, because UNIX can't erase a folder without erasing its
@@ -251,7 +240,7 @@ NSString *urlArray[] = {
             }
         }
         
-        [eraseUSBSelector setEnabled:YES];
+        [_eraseUSBSelector setEnabled:YES];
     }
     
     [self detectUSBs:nil]; // Reload the list of USB drives for all main menu functions (eraser, blesser, etc)
@@ -271,7 +260,7 @@ NSString *urlArray[] = {
 
 - (IBAction)blessUSB:(id)sender {
     // Check if the user has actually selected a USB drive.
-    if ([bootUSBSelector numberOfItems] == 0 || [[bootUSBSelector titleOfSelectedItem] isEqualToString:@""]) {
+    if ([_bootUSBSelector numberOfItems] == 0 || [[_bootUSBSelector titleOfSelectedItem] isEqualToString:@""]) {
 #ifdef DEBUG
         NSLog(@"The user doesn't have any USB drives plugged in.");
 #endif
@@ -287,7 +276,7 @@ NSString *urlArray[] = {
         return;
     }
     
-    [self blessDrive:[bootUSBSelector titleOfSelectedItem] sender:sender];
+    [self blessDrive:[_bootUSBSelector titleOfSelectedItem] sender:sender];
     
     [self detectUSBs:sender];
     [self closeModifyBootSettingsSheet:sender];
@@ -302,7 +291,7 @@ NSString *urlArray[] = {
 
 - (IBAction)unbless:(id)sender {
     // Check if the user has actually selected a USB drive.
-    if ([bootUSBSelector numberOfItems] == 0 || [[bootUSBSelector titleOfSelectedItem] isEqualToString:@""]) {
+    if ([_bootUSBSelector numberOfItems] == 0 || [[_bootUSBSelector titleOfSelectedItem] isEqualToString:@""]) {
 #ifdef DEBUG
         NSLog(@"The user doesn't have any USB drives plugged in.");
 #endif
@@ -344,7 +333,7 @@ NSString *urlArray[] = {
     
     /* Set up the command line arguments. */
     char *tool = "/usr/sbin/bless";
-    char *args[] = {"--unbless", (char *)[[bootUSBSelector titleOfSelectedItem] UTF8String], NULL};
+    char *args[] = {"--unbless", (char *)[[_bootUSBSelector titleOfSelectedItem] UTF8String], NULL};
     FILE *pipe = NULL;
     
     /*
@@ -387,7 +376,7 @@ NSString *urlArray[] = {
 
 - (IBAction)openDownloadedDistro:(id)sender {
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"];
-    NSString *isoName = [[[NSURL URLWithString:urlArray[distroSelectorComboBox.indexOfSelectedItem]] path] lastPathComponent];
+    NSString *isoName = [[[NSURL URLWithString:urlArray[_distroSelectorComboBox.indexOfSelectedItem]] path] lastPathComponent];
     path = [NSString stringWithFormat:@"%@/%@", path, isoName];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
@@ -406,20 +395,20 @@ NSString *urlArray[] = {
 }
 
 - (IBAction)downloadDistribution:(id)sender {
-    if (distroSelectorComboBox != nil && distroSelectorComboBox.indexOfSelectedItem != -1) {
+    if (_distroSelectorComboBox != nil && _distroSelectorComboBox.indexOfSelectedItem != -1) {
         [self setCanQuit:NO]; // Prevent the user from quiting the application until the download has finished.
         
-        [distroDownloadButton setEnabled:NO];
-        [distroDownloadProgressIndicator startAnimation:self];
-        [distroDownloadProgressIndicator setDoubleValue:0.0];
+        [_distroDownloadButton setEnabled:NO];
+        [_distroDownloadProgressIndicator startAnimation:self];
+        [_distroDownloadProgressIndicator setDoubleValue:0.0];
         
 #ifdef DEBUG
-        NSLog(@"URL: %@", [NSURL URLWithString:urlArray[distroSelectorComboBox.indexOfSelectedItem]]);
+        NSLog(@"URL: %@", [NSURL URLWithString:urlArray[_distroSelectorComboBox.indexOfSelectedItem]]);
 #endif
-        NSURL *downloadLocation = [NSURL URLWithString:urlArray[distroSelectorComboBox.indexOfSelectedItem]];
+        NSURL *downloadLocation = [NSURL URLWithString:urlArray[_distroSelectorComboBox.indexOfSelectedItem]];
         
         [[DistributionDownloader new] downloadLinuxDistribution:downloadLocation:
-         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:distroDownloadProgressIndicator];
+         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:_distroDownloadProgressIndicator];
         
         // The program calls the setCanQuit method in the download delegates. We don't call it here, as this function returns
         // immediately.
@@ -455,9 +444,9 @@ NSString *urlArray[] = {
 - (IBAction)updateRecents:(id)sender {
     NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
     
-    dataSource = [[RecentDocumentsTableViewDataSource new] init];
-    [dataSource setArray:myArray];
-    [recentFileBrowser setDataSource:dataSource];
+    _dataSource = [[RecentDocumentsTableViewDataSource new] init];
+    [_dataSource setArray:myArray];
+    [_recentFileBrowser setDataSource:_dataSource];
 }
 
 - (IBAction)openCompatibilityTester:(id)sender {

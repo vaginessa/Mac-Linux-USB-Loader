@@ -19,13 +19,7 @@
 
 @implementation Document
 
-@synthesize usbDriveDropdown;
 @synthesize window;
-@synthesize makeUSBButton;
-@synthesize eraseUSBButton;
-@synthesize spinner;
-@synthesize prefsWindow;
-@synthesize preferencesWindowController=_preferencesWindowController;
 
 NSMutableDictionary *usbs;
 NSString *isoFilePath;
@@ -64,8 +58,8 @@ BOOL isCopying = NO;
     isoFilePath = [[self fileURL] absoluteString];
     
     if (isoFilePath == nil) {
-        [makeUSBButton setEnabled:NO];
-        [eraseUSBButton setEnabled:NO];
+        [_makeUSBButton setEnabled:NO];
+        [_eraseUSBButton setEnabled:NO];
     }
     
     [self getUSBDeviceList];
@@ -79,7 +73,7 @@ BOOL isCopying = NO;
     BOOL isRemovable, isWritable, isUnmountable;
     NSString *description, *volumeType;
     
-    [usbDriveDropdown removeAllItems]; // Clear the dropdown list.
+    [_usbDriveDropdown removeAllItems]; // Clear the dropdown list.
     [usbs removeAllObjects];           // Clear the dictionary of the list of USB drives.
     
     // Iterate through the array using fast enumeration.
@@ -96,7 +90,7 @@ BOOL isCopying = NO;
 #elif
                 [usbs setObject:volumePath forKey:title];
 #endif
-                [usbDriveDropdown addItemWithTitle:title]; // Add to the dropdown list.
+                [_usbDriveDropdown addItemWithTitle:title]; // Add to the dropdown list.
             }
         }
     }
@@ -106,12 +100,12 @@ BOOL isCopying = NO;
      precaution), or if there are no mounted volumes we can use. If we have a mounted volume, though, and we have an ISO,
      then they can make the live USB.
      */
-    if (isoFilePath != nil && [usbDriveDropdown numberOfItems] != 1) {
-        [makeUSBButton setEnabled:YES];
-        [eraseUSBButton setEnabled:YES];
-    } else if ([usbDriveDropdown numberOfItems] == 0) { // There are no detected USB ports, at least those formatted as FAT.
-        [makeUSBButton setEnabled:NO];
-        [eraseUSBButton setEnabled:NO];
+    if (isoFilePath != nil && [_usbDriveDropdown numberOfItems] != 1) {
+        [_makeUSBButton setEnabled:YES];
+        [_eraseUSBButton setEnabled:YES];
+    } else if ([_usbDriveDropdown numberOfItems] == 0) { // There are no detected USB ports, at least those formatted as FAT.
+        [_makeUSBButton setEnabled:NO];
+        [_eraseUSBButton setEnabled:NO];
     }
     // Exit.
 }
@@ -131,7 +125,7 @@ BOOL isCopying = NO;
     isoFilePath = [[self fileURL] path];
     
     // If no USBs available, or if no ISO open, display an error and return.
-    if ([usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
+    if ([_usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Okay"];
         [alert setMessageText:@"No USB devices detected."];
@@ -139,8 +133,8 @@ BOOL isCopying = NO;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
-        [makeUSBButton setEnabled:NO];
-        [eraseUSBButton setEnabled:NO];
+        [_makeUSBButton setEnabled:NO];
+        [_eraseUSBButton setEnabled:NO];
         
         [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
         isCopying = NO;
@@ -148,14 +142,14 @@ BOOL isCopying = NO;
         return;
     }
     
-    NSString* directoryName = [usbDriveDropdown titleOfSelectedItem];
+    NSString* directoryName = [_usbDriveDropdown titleOfSelectedItem];
     NSString* usbRoot = [usbs valueForKey:directoryName];
     NSString* finalPath = [usbRoot stringByAppendingPathComponent:@"/efi/boot/"];
     
-    [spinner setUsesThreadedAnimation:YES];
-    [spinner setIndeterminate:YES];
-    [spinner setDoubleValue:0.0];
-    [spinner startAnimation:self];
+    [_spinner setUsesThreadedAnimation:YES];
+    [_spinner setIndeterminate:YES];
+    [_spinner setDoubleValue:0.0];
+    [_spinner startAnimation:self];
     
     // Check if the Linux distro ISO already exists.
     NSString *temp = [usbRoot stringByAppendingPathComponent:@"/efi/boot/boot.iso"];
@@ -169,7 +163,7 @@ BOOL isCopying = NO;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
-        [spinner stopAnimation:self];
+        [_spinner stopAnimation:self];
         [[NSApp delegate] setCanQuit:YES];
         isCopying = NO;
         
@@ -179,8 +173,8 @@ BOOL isCopying = NO;
     // Now progress with the copy.
     [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
     if ([device prepareUSB:usbRoot] == YES) {
-        [spinner setIndeterminate:NO];
-        [spinner setUsesThreadedAnimation:YES];
+        [_spinner setIndeterminate:NO];
+        [_spinner setUsesThreadedAnimation:YES];
             
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         // Use the NSFileManager to obtain the size of our source file in bytes.
@@ -190,13 +184,13 @@ BOOL isCopying = NO;
         
         if ((sourceFileSize = sourceAttributes[NSFileSize])) {
             // Set the max value to our source file size.
-            [spinner setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
+            [_spinner setMaxValue:(double)[sourceFileSize unsignedLongLongValue]];
         } else {
             // Couldn't get the file size so we need to bail.
             NSLog(@"Unable to obtain size of file being copied.");
             return;
         }
-        [spinner setDoubleValue:0.0];
+        [_spinner setDoubleValue:0.0];
             
         // Get the current run loop and schedule our callback
         CFRunLoopRef runLoop = CFRunLoopGetCurrent();
@@ -219,8 +213,8 @@ BOOL isCopying = NO;
         FSPathMakeRef((const UInt8 *)[finalPath fileSystemRepresentation], &destination, &isDir);
         
         // Start the async copy.
-        if (spinner != nil) {
-            clientContext.info = (__bridge void *)spinner;
+        if (_spinner != nil) {
+            clientContext.info = (__bridge void *)_spinner;
         }
         
         status = FSCopyObjectAsync(fileOp,
@@ -253,11 +247,11 @@ BOOL isCopying = NO;
     }
     
     if (failure) {
-        [spinner setIndeterminate:NO];
-        [spinner setDoubleValue:0.0];
-        [spinner stopAnimation:self];
+        [_spinner setIndeterminate:NO];
+        [_spinner setDoubleValue:0.0];
+        [_spinner stopAnimation:self];
         
-        [spinner stopAnimation:self];
+        [_spinner stopAnimation:self];
         
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"No"];
@@ -304,7 +298,7 @@ BOOL isCopying = NO;
 }
 
 - (IBAction)eraseLiveBoot:(id)sender {
-    if ([usbDriveDropdown numberOfItems] != 0) {
+    if ([_usbDriveDropdown numberOfItems] != 0) {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Yes"];
         [alert addButtonWithTitle:@"No"];
@@ -325,9 +319,9 @@ BOOL isCopying = NO;
     if (returnCode == NSAlertFirstButtonReturn) {
         [[NSApp delegate] setCanQuit:NO];
 
-        if ([usbDriveDropdown numberOfItems] != 0) {
+        if ([_usbDriveDropdown numberOfItems] != 0) {
             // Construct the path of the efi folder that we're going to nuke.
-            NSString *directoryName = [usbDriveDropdown titleOfSelectedItem];
+            NSString *directoryName = [_usbDriveDropdown titleOfSelectedItem];
             NSString *usbRoot = [usbs valueForKey:directoryName];
             NSString *tempPath = [usbRoot stringByAppendingPathComponent:@"/efi"];
             
@@ -417,7 +411,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
                 [alert setMessageText:@"Finished Making Live USB"];
                 [alert setInformativeText:@"The live USB has been made successfully."];
                 [alert setAlertStyle:NSWarningAlertStyle];
-                /*[alert beginSheetModalForWindow:[[[NSDocumentController sharedDocumentController] currentDocument] window]
+                /*[alert beginSheetModalForwindow:[[[NSDocumentController sharedDocumentController] currentDocument] window]
                         modalDelegate:[[NSDocumentController sharedDocumentController] currentDocument] // < ^ = issues, see above
                         didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];*/
                 [alert runModal];
