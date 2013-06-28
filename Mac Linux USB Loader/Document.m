@@ -429,6 +429,10 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
 #endif
             [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
             isCopying = NO;
+            
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"automaticallyBless"]) {
+                [[NSApp delegate] blessDrive:@"" sender:nil]; // Automatically bless the user's drive.
+            }
         }
     }
 }

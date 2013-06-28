@@ -93,7 +93,6 @@
 										<string key="NSFrame">{{15, 76}, {414, 34}}</string>
 										<reference key="NSSuperview" ref="211226795"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<string key="NSAntiCompressionPriority">{250, 750}</string>
 										<bool key="NSEnabled">YES</bool>

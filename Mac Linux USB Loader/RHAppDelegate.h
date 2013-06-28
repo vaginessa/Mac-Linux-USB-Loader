@@ -22,6 +22,9 @@
     IBOutlet NSPanel *sheet;
     IBOutlet NSPanel *eraseSheet;
     IBOutlet NSPanel *bootSettingsSheet;
+    
+    NSString *bootLoaderName;
+    BOOL automaticallyBless;
 }
 
 @property (assign) IBOutlet NSWindow *window;

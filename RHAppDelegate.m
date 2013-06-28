@@ -49,6 +49,10 @@ NSString *urlArray[] = {
     [dataSource setArray:myArray];
     [recentFileBrowser setDataSource:dataSource];
     [recentFileBrowser setDoubleAction:@selector(respondToRecentFileDoubleClick)];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    bootLoaderName = [defaults stringForKey:@"selectedFirmwareType"];
+    automaticallyBless = [defaults boolForKey:@"automaticallyBless"];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
@@ -330,7 +334,7 @@ NSString *urlArray[] = {
     kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
     
     // Call AuthorizationCopyRights to determine or extend the allowable rights.
-    status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+    status = AuthorizationCopyRights(authorizationRef, &rights, kAuthorizationEmptyEnvironment, flags, NULL);
     if (status != errAuthorizationSuccess) {
 #ifdef DEBUG
         NSLog(@"Copy Rights Unsuccessful: %d", status);
