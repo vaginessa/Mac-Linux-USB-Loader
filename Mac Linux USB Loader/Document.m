@@ -17,6 +17,26 @@
 #import "RHAccountsViewController.h"
 #import "RHNotificationViewController.h"
 
+#pragma mark - SBCopyDelegateInfoRelay class
+
+/*
+ * A simple class used to store information that we'll pass to the progress bar.
+ */
+@interface SBCopyDelegateInfoRelay : NSObject
+
+@property NSProgressIndicator *progress;
+@property NSString *usbRoot;
+@property NSWindow *window;
+@property Document *document;
+
+@end
+
+@implementation SBCopyDelegateInfoRelay
+
+@end
+
+#pragma mark - Document class
+
 @implementation Document
 
 @synthesize window;
@@ -25,6 +45,7 @@ NSMutableDictionary *usbs;
 NSString *isoFilePath;
 USBDevice *device;
 FSFileOperationClientContext clientContext;
+SBCopyDelegateInfoRelay *infoClientContext;
 
 BOOL isCopying = NO;
 
@@ -120,7 +141,6 @@ BOOL isCopying = NO;
     isCopying = YES;
     
     __block BOOL failure = false;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     isoFilePath = [[self fileURL] path];
     
@@ -212,11 +232,20 @@ BOOL isCopying = NO;
         Boolean isDir = true;
         FSPathMakeRef((const UInt8 *)[finalPath fileSystemRepresentation], &destination, &isDir);
         
+        // Construct the storage class.
+        NSLog(@"Constructing the info client context...");
+        infoClientContext = [SBCopyDelegateInfoRelay new];
+        infoClientContext.progress = _spinner;
+        infoClientContext.usbRoot = usbRoot;
+        infoClientContext.window = window;
+        infoClientContext.document = self;
+        
         // Start the async copy.
         if (_spinner != nil) {
-            clientContext.info = (__bridge void *)_spinner;
+            clientContext.info = (__bridge void *)infoClientContext;
         }
         
+        NSLog(@"Performing the copy...");
         status = FSCopyObjectAsync(fileOp,
                                    &source,
                                    &destination, // Full path to destination dir.
@@ -224,7 +253,7 @@ BOOL isCopying = NO;
                                    kFSFileOperationDefaultOptions,
                                    copyStatusCallback, // Our callback function.
                                    0.5, // How often to fire our callback.
-                                   &clientContext); // The progress bar that we want to use to update.
+                                   &clientContext); // The class with the objects that we want to use to update.
         
         CFRelease(fileOp);
         
@@ -261,11 +290,6 @@ BOOL isCopying = NO;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     } else {
-        // Bless the live USB drive if the user requests it.
-        if ([defaults boolForKey:@"automaticallyBless"] == YES) {
-            NSLog(@"We're going to bless the user's USB drive...");
-            [[NSApp delegate] blessDrive:directoryName sender:nil];
-        }
     }
 }
 
@@ -358,10 +382,22 @@ BOOL isCopying = NO;
 // Static function for our callback.
 static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentItem, FSFileOperationStage stage, OSStatus error,
                             CFDictionaryRef statusDictionary, void *info) {
-    /* If the status dictionary is valid, we can grab the current values to display status changes, or in our case to
-     * update the progress indicator.
+    /* Grab our instance of the class that we passed in as the void pointer and retrieve all of the needed fields from
+     * it.
      */
-    NSProgressIndicator *progressIndicator = (__bridge NSProgressIndicator *)(info);
+    SBCopyDelegateInfoRelay *context = (__bridge SBCopyDelegateInfoRelay *)(info);
+    NSProgressIndicator *progressIndicator;
+    NSWindow *window;
+    NSString *usbRoot;
+    Document *document;
+    if (context.progress != nil && context.window != nil && context.usbRoot != nil && context.document != nil) {
+        progressIndicator = context.progress; // The progress bar to update.
+        window = context.window; // The document window.
+        usbRoot = context.usbRoot; // The path to the USB drive.
+        document = context.document; // The document class.
+    } else {
+        NSLog(@"Some components are nil!");
+    }
     
     if (progressIndicator == nil) {
         NSLog(@"Progress bar is nil!");
@@ -411,10 +447,12 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
                 [alert setMessageText:@"Finished Making Live USB"];
                 [alert setInformativeText:@"The live USB has been made successfully."];
                 [alert setAlertStyle:NSWarningAlertStyle];
-                /*[alert beginSheetModalForwindow:[[[NSDocumentController sharedDocumentController] currentDocument] window]
-                        modalDelegate:[[NSDocumentController sharedDocumentController] currentDocument] // < ^ = issues, see above
-                        didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];*/
-                [alert runModal];
+                
+                if (document != nil || window != nil) {
+                    [alert beginSheetModalForWindow:window modalDelegate:document didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+                } else {
+                    [alert runModal];
+                }
             } else {
                 [NSApp requestUserAttention:NSCriticalRequest];
             }
@@ -424,8 +462,8 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
             [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
             isCopying = NO;
             
-            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"automaticallyBless"]) {
-                [[NSApp delegate] blessDrive:@"" sender:nil]; // Automatically bless the user's drive.
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"automaticallyBless"] == YES) {
+                [[NSApp delegate] blessDrive:usbRoot sender:nil]; // Automatically bless the user's drive.
             }
         }
     }
