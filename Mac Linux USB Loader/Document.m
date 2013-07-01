@@ -403,8 +403,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
         NSLog(@"Progress bar is nil!");
     }
     
-    if (statusDictionary)
-    {
+    if (statusDictionary) {
         CFNumberRef bytesCompleted;
         
         bytesCompleted = (CFNumberRef) CFDictionaryGetValue(statusDictionary, kFSOperationBytesCompleteKey);

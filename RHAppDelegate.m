@@ -119,7 +119,7 @@ NSString *urlArray[] = {
         return;
     }
     
-    /* Set up the command line arguments. */
+    // Set up the command line arguments.
     char *efiFile = (char *)[[path stringByAppendingPathComponent:@"/efi/boot/bootx64.efi"] UTF8String]; // Create the path to the EFI file.
     char *tool = "/usr/sbin/bless";
     char *args[] = {"--mount", (char *)[[_bootUSBSelector titleOfSelectedItem] UTF8String], "--file", efiFile, "--setBoot", NULL};
