@@ -11,7 +11,7 @@
 @implementation RHAppDelegate
 
 NSWindow *downloadLinuxDistroSheet;
-BOOL canQuit = YES; // Can the user quit the application?
+BOOL canQuit = YES; 
 
 /*
  * This array of NSStrings will be full of URLs to ISOs that the user can download.
@@ -63,19 +63,6 @@ NSString *urlArray[] = {
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(quitSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return NO;
     }
-}
-
-- (BOOL)canQuit {
-    return canQuit;
-}
-
-- (BOOL)setCanQuit:(BOOL)ableToQuit {
-#ifdef DEBUG
-    NSLog(@"Can quit: %i. Setting to: %i", canQuit, ableToQuit);
-#endif
-    
-    canQuit = ableToQuit;
-    return canQuit;
 }
 
 - (void)respondToRecentFileDoubleClick {

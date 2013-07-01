@@ -41,8 +41,8 @@
 @property (retain) IBOutlet NSTableView *recentFileBrowser;
 @property (retain) IBOutlet RecentDocumentsTableViewDataSource *dataSource;
 
-- (BOOL)canQuit;
-- (BOOL)setCanQuit:(BOOL)ableToQuit;
+@property BOOL canQuit; // Can the user quit the application?
+
 - (void)blessDrive:(NSString *)path sender:(id)sender;
 - (void)respondToRecentFileDoubleClick;
 
