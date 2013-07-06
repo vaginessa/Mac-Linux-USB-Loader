@@ -49,6 +49,11 @@ NSString *urlArray[] = {
     return YES;
 }
 
+- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
+    [_window makeKeyAndOrderFront:nil];
+    return YES;
+}
+
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     // Once we get any operation going, do this to not let the user quit the app until it finishes.
     if (canQuit) {

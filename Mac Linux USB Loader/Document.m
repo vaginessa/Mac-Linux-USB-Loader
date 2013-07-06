@@ -83,6 +83,10 @@ BOOL isCopying = NO;
         [_eraseUSBButton setEnabled:NO];
     }
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    bootLoaderName = [defaults stringForKey:@"selectedFirmwareType"];
+    automaticallyBless = [defaults boolForKey:@"automaticallyBless"];
+    
     [self getUSBDeviceList];
 }
 
@@ -144,6 +148,27 @@ BOOL isCopying = NO;
     
     isoFilePath = [[self fileURL] path];
     
+    // Re-read the user's firmware selection in case they've changed it since opening the ISO.
+    bootLoaderName = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedFirmwareType"];
+    if (![bootLoaderName isEqualToString:@"Legacy Loader"]) {
+        // Enterprise is not currently finished and not bundled with Mac Linux USB Loader, so bail if the user selected
+        // it as their firmware to be installed.
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Okay"];
+        [alert setMessageText:@"Selected firmware not present."];
+        [alert setInformativeText:@"The firmware that you have selected to install is not ready to ship in this pre-release version of Mac Linux USB Loader and therefore cannot be installed. Please choose another firmware selection in the Preferences panel."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        
+        [_makeUSBButton setEnabled:NO];
+        [_eraseUSBButton setEnabled:NO];
+        
+        [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+        isCopying = NO;
+        
+        return;
+    }
+    
     // If no USBs available, or if no ISO open, display an error and return.
     if ([_usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -162,9 +187,11 @@ BOOL isCopying = NO;
         return;
     }
     
-    NSString* directoryName = [_usbDriveDropdown titleOfSelectedItem];
-    NSString* usbRoot = [usbs valueForKey:directoryName];
+    NSString* directoryKey = [_usbDriveDropdown titleOfSelectedItem];
+    NSString* usbRoot = [usbs valueForKey:directoryKey];
     NSString* finalPath = [usbRoot stringByAppendingPathComponent:@"/efi/boot/"];
+    
+    directoryKey = nil; // Tell the garbage collector to release this object.
     
     [_spinner setUsesThreadedAnimation:YES];
     [_spinner setIndeterminate:YES];
