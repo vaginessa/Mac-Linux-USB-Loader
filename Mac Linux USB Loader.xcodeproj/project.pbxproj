@@ -38,7 +38,6 @@
 		249F19B0175FDDDC0074F88A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2419A0C717209608008E0137 /* main.m */; };
 		249F19B1175FDE170074F88A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B3175FDE170074F88A /* MainMenu.xib */; };
 		249F19B4175FDE220074F88A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B6175FDE220074F88A /* InfoPlist.strings */; };
-		249F19B7175FDE270074F88A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B9175FDE270074F88A /* Credits.rtf */; };
 		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
 		24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */; };
 		24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */; };
@@ -114,7 +113,6 @@
 		249F19A6175FDC760074F88A /* Icon2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon2.icns; sourceTree = "<group>"; };
 		249F19B2175FDE170074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		249F19B5175FDE220074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		249F19B8175FDE270074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		24AD166216A0E1D90046C51A /* RHNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHNotificationViewController.h; sourceTree = "<group>"; };
 		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
 		24AD167B16A0F2CE0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 		2419A0C217209608008E0137 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				249F19B9175FDE270074F88A /* Credits.rtf */,
 				249F19B6175FDE220074F88A /* InfoPlist.strings */,
 				2419A0C317209608008E0137 /* Compatibility Tester-Info.plist */,
 				2419A0C717209608008E0137 /* main.m */,
@@ -388,7 +385,6 @@
 				249F19A7175FDC760074F88A /* Icon2.icns in Resources */,
 				249F19B1175FDE170074F88A /* MainMenu.xib in Resources */,
 				249F19B4175FDE220074F88A /* InfoPlist.strings in Resources */,
-				249F19B7175FDE270074F88A /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,14 +478,6 @@
 				249F19B5175FDE220074F88A /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		249F19B9175FDE270074F88A /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				249F19B8175FDE270074F88A /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */ = {
