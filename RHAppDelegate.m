@@ -23,13 +23,11 @@ NSString *urlArray[] = {
     @"http://distro.ibiblio.org/zorin/6/zorin-os-6.3-core-64.iso" // Zorin OS 6.3 US
     };
 
-- (void)dealloc
-{
+- (void)dealloc {
     _preferencesWindowController = nil;
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     [_eraseUSBSelector removeAllItems];
     [self detectUSBs:nil];

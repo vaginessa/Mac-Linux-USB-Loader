@@ -16,8 +16,7 @@
     return YES;
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     [_spinner startAnimation:self];
     [self performSelector:@selector(performSystemCheck)];
@@ -36,8 +35,7 @@
     size_t len = 0;
     sysctlbyname("hw.model", NULL, &len, NULL, 0);
     
-    if (len)
-    {
+    if (len) {
         char *model = malloc(len*sizeof(char));
         sysctlbyname("hw.model", model, &len, NULL, 0);
         NSString *model_ns = @(model);
