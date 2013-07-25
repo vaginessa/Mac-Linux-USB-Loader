@@ -11,7 +11,9 @@
 @implementation RHAppDelegate
 
 NSWindow *downloadLinuxDistroSheet;
-BOOL canQuit = YES; 
+BOOL canQuit = YES;
+
+DistributionDownloader *distributionDownloader;
 
 /*
  * This array of NSStrings will be full of URLs to ISOs that the user can download.
@@ -397,7 +399,8 @@ NSString *urlArray[] = {
 #endif
         NSURL *downloadLocation = [NSURL URLWithString:urlArray[_distroSelectorComboBox.indexOfSelectedItem]];
         
-        [[DistributionDownloader new] downloadLinuxDistribution:downloadLocation:
+        distributionDownloader = [DistributionDownloader new];
+        [distributionDownloader downloadLinuxDistribution:downloadLocation:
          [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:_distroDownloadProgressIndicator];
         
         // The program calls the setCanQuit method in the download delegates. We don't call it here, as this function returns
