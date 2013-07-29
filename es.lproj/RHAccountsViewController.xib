@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">12E55</string>
+		<string key="IBDocument.SystemVersion">12F26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
@@ -107,32 +107,32 @@
 							<string key="NSKeyEquivalent"/>
 							<int key="NSPeriodicDelay">400</int>
 							<int key="NSPeriodicInterval">75</int>
-							<object class="NSMenuItem" key="NSMenuItem" id="430547305">
-								<reference key="NSMenu" ref="65313998"/>
-								<string key="NSTitle">Hourly</string>
-								<string key="NSKeyEquiv"/>
-								<int key="NSMnemonicLoc">2147483647</int>
-								<int key="NSState">1</int>
-								<object class="NSCustomResource" key="NSOnImage" id="183455228">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSMenuCheckmark</string>
-								</object>
-								<object class="NSCustomResource" key="NSMixedImage" id="316424323">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSMenuMixedState</string>
-								</object>
-								<string key="NSAction">_popUpItemAction:</string>
-								<int key="NSTag">3600</int>
-								<reference key="NSTarget" ref="667719600"/>
-							</object>
+							<nil key="NSMenuItem"/>
 							<bool key="NSMenuItemRespectAlignment">YES</bool>
 							<object class="NSMenu" key="NSMenu" id="65313998">
 								<string key="NSTitle">OtherViews</string>
 								<array class="NSMutableArray" key="NSMenuItems">
-									<reference ref="430547305"/>
+									<object class="NSMenuItem" id="430547305">
+										<reference key="NSMenu" ref="65313998"/>
+										<string key="NSTitle">Cada Hora</string>
+										<string key="NSKeyEquiv"/>
+										<int key="NSMnemonicLoc">2147483647</int>
+										<int key="NSState">1</int>
+										<object class="NSCustomResource" key="NSOnImage" id="183455228">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">NSMenuCheckmark</string>
+										</object>
+										<object class="NSCustomResource" key="NSMixedImage" id="316424323">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">NSMenuMixedState</string>
+										</object>
+										<string key="NSAction">_popUpItemAction:</string>
+										<int key="NSTag">3600</int>
+										<reference key="NSTarget" ref="667719600"/>
+									</object>
 									<object class="NSMenuItem" id="418179373">
 										<reference key="NSMenu" ref="65313998"/>
-										<string key="NSTitle">Weekly</string>
+										<string key="NSTitle">Semanal</string>
 										<string key="NSKeyEquiv"/>
 										<int key="NSKeyEquivModMask">1048576</int>
 										<int key="NSMnemonicLoc">2147483647</int>
@@ -144,7 +144,7 @@
 									</object>
 									<object class="NSMenuItem" id="1013646775">
 										<reference key="NSMenu" ref="65313998"/>
-										<string key="NSTitle">Monthly</string>
+										<string key="NSTitle">Mensual</string>
 										<string key="NSKeyEquiv"/>
 										<int key="NSKeyEquivModMask">1048576</int>
 										<int key="NSMnemonicLoc">2147483647</int>
@@ -156,7 +156,7 @@
 									</object>
 									<object class="NSMenuItem" id="871205337">
 										<reference key="NSMenu" ref="65313998"/>
-										<string key="NSTitle">Yearly</string>
+										<string key="NSTitle">Cada Año</string>
 										<string key="NSKeyEquiv"/>
 										<int key="NSMnemonicLoc">2147483647</int>
 										<reference key="NSOnImage" ref="183455228"/>
@@ -168,6 +168,7 @@
 								</array>
 								<reference key="NSMenuFont" ref="199728202"/>
 							</object>
+							<int key="NSSelectedIndex">-1</int>
 							<int key="NSPreferredEdge">1</int>
 							<bool key="NSUsesItemFromMenu">YES</bool>
 							<bool key="NSAltersState">YES</bool>
@@ -235,7 +236,7 @@
 					<object class="NSTextField" id="188489957">
 						<reference key="NSNextResponder" ref="129529071"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{9, 137}, {489, 24}}</string>
+						<string key="NSFrame">{{13, 145}, {489, 24}}</string>
 						<reference key="NSSuperview" ref="129529071"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="126503286"/>
@@ -414,9 +415,9 @@
 							<reference ref="878874918"/>
 							<reference ref="904735994"/>
 							<reference ref="126503286"/>
-							<reference ref="188489957"/>
 							<reference ref="278372292"/>
 							<reference ref="660390420"/>
+							<reference ref="188489957"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
