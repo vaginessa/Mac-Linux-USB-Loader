@@ -30,7 +30,10 @@ NSString *urlArray[] = {
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    // Insert code here to initialize your application.
+    // Load default defaults.
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]]];
+    
     [_eraseUSBSelector removeAllItems];
     [self detectUSBs:nil];
     

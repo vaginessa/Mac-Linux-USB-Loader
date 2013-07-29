@@ -19,6 +19,7 @@
 		240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */ = {isa = PBXBuildFile; fileRef = 240C7B5B175AE63F00AEAFC9 /* Boot.icns */; };
 		240C7B5E175AEDBA00AEAFC9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240C7B5D175AEDBA00AEAFC9 /* Security.framework */; };
 		2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */; };
+		241EC8A417A5F4880084ED83 /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 241EC8A317A5F4880084ED83 /* defaults.plist */; };
 		242B1EE31769074C00B83171 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 242B1EE21769074C00B83171 /* README */; };
 		2434C19B176F9AF6009C737D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BDE430172D920B00E964A0 /* IOKit.framework */; };
 		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
@@ -88,6 +89,7 @@
 		2419A0CE17209608008E0137 /* CTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
 		2419A0D917209608008E0137 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2419A0ED17209636008E0137 /* Compatibility Tester.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compatibility Tester.entitlements"; sourceTree = "<group>"; };
+		241EC8A317A5F4880084ED83 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = defaults.plist; path = ../Resources/defaults.plist; sourceTree = "<group>"; };
 		242262D616ED046200804B9D /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/Document.xib; sourceTree = "<group>"; };
 		242B1EE21769074C00B83171 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		24434A191677CE2100DAC959 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 		24CA6BF41656F7A700061D2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				241EC8A317A5F4880084ED83 /* defaults.plist */,
 				244C050316DD840E0083A0C9 /* dsa_pub.pem */,
 				24CA6BF51656F7A700061D2F /* Mac Linux USB Loader-Info.plist */,
 				24CA6BF61656F7A700061D2F /* InfoPlist.strings */,
@@ -411,6 +414,7 @@
 				240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */,
 				24EBEE37176676F5002A5452 /* Icon.icns in Resources */,
 				242B1EE31769074C00B83171 /* README in Resources */,
+				241EC8A417A5F4880084ED83 /* defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,7 +544,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Compatibility Tester/Compatibility Tester-Prefix.pch";
 				INFOPLIST_FILE = "Compatibility Tester/Compatibility Tester-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -558,7 +562,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Compatibility Tester/Compatibility Tester-Prefix.pch";
 				INFOPLIST_FILE = "Compatibility Tester/Compatibility Tester-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
