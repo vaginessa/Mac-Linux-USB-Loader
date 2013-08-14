@@ -170,7 +170,7 @@ NSString *urlArray[] = {
 
 - (IBAction)detectUSBs:(id)sender {
     // Fetch the NSArray of strings of mounted media from the shared workspace.
-    NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedRemovableMedia];
+    NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedLocalVolumePaths];
     
     // Setup target variables for the data to be put into.
     BOOL isRemovable, isWritable, isUnmountable;
