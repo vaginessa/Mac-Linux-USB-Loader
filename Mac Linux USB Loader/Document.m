@@ -160,9 +160,6 @@ BOOL isCopying = NO;
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
-        [_makeUSBButton setEnabled:NO];
-        [_eraseUSBButton setEnabled:NO];
-        
         [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
         isCopying = NO;
         
