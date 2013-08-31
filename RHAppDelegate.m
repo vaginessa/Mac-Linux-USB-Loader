@@ -63,10 +63,10 @@ NSString *urlArray[] = {
         return YES;
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Yes"];
-        [alert addButtonWithTitle:@"No"];
-        [alert setMessageText:@"Operation in progress."];
-        [alert setInformativeText:@"Mac Linux USB Loader is currently in the middle of an operation. Quitting the application at this time could result in corrupted data. Do you want to quit anyway?"];
+        [alert addButtonWithTitle:NSLocalizedString(@"YES", nil)];
+        [alert addButtonWithTitle:NSLocalizedString(@"NO", nil)];
+        [alert setMessageText:NSLocalizedString(@"OPERATION-IN-PROGRESS", nil)];
+        [alert setInformativeText:NSLocalizedString(@"QUIT-DURING-OPERATION", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(quitSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return NO;
@@ -220,16 +220,16 @@ NSString *urlArray[] = {
             
             if (!eraseDidSucceed && err) { // If there was an error...
                 NSString *text = [NSString stringWithFormat:@"Error: %@", err];
-                [alert addButtonWithTitle:@"Okay"];
-                [alert setMessageText:@"Failed to erase live USB."];
+                [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+                [alert setMessageText:NSLocalizedString(@"FAILED-TO-ERASE-USB", nil)];
                 [alert setInformativeText:text];
                 [alert setAlertStyle:NSWarningAlertStyle];
                 [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
                 NSLog(@"Could not delete: %@", err);
             } else {
-                [alert addButtonWithTitle:@"Okay"];
-                [alert setMessageText:@"Erase successful."];
-                [alert setInformativeText:@"The live USB has been erased."];
+                [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+                [alert setMessageText:NSLocalizedString(@"USB-ERASE-SUCCESSFUL", nil)];
+                [alert setInformativeText:NSLocalizedString(@"USB-HAS-BEEN-ERASED", nil)];
                 [alert setAlertStyle:NSWarningAlertStyle];
                 [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
             }
@@ -263,9 +263,9 @@ NSString *urlArray[] = {
         [bootSettingsSheet orderOut:sender];
         
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Okay"];
-        [alert setMessageText:@"No USB drives are plugged in."];
-        [alert setInformativeText:@"You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button the panel."];
+        [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+        [alert setMessageText:NSLocalizedString(@"NO-USBS-PLUGGED-IN", nil)];
+        [alert setInformativeText:NSLocalizedString(@"NO-USBS-PLUGGED-IN-LONG", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return;
@@ -277,9 +277,9 @@ NSString *urlArray[] = {
     [self closeModifyBootSettingsSheet:sender];
     
     NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:@"Okay"];
-    [alert setMessageText:@"Bless complete."];
-    [alert setInformativeText:@"Leave the USB drive in its slot and restart the computer. Your Mac will boot directly into the Linux distribution installed on your USB drives."];
+    [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+    [alert setMessageText:NSLocalizedString(@"BLESS-COMPLETE", nil)];
+    [alert setInformativeText:NSLocalizedString(@"BLESS-COMPLETE-LONG", nil)];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
@@ -294,9 +294,9 @@ NSString *urlArray[] = {
         [bootSettingsSheet orderOut:sender];
         
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Okay"];
-        [alert setMessageText:@"No USB drives are plugged in."];
-        [alert setInformativeText:@"You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button the panel."];
+        [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+        [alert setMessageText:NSLocalizedString(@"NO-USBS-PLUGGED-IN", nil)];
+        [alert setInformativeText:NSLocalizedString(@"NO-USBS-PLUGGED-IN-LONG", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return;
@@ -351,9 +351,9 @@ NSString *urlArray[] = {
     [self closeModifyBootSettingsSheet:sender];
     
     NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:@"Okay"];
-    [alert setMessageText:@"Unbless complete."];
-    [alert setInformativeText:@"Your USB drive has been unblessed. Your Mac will not longer boot directly into it. Instead, to boot from it, hold down the Option/Alt key after the startup chimes and select your drive when it appears."];
+    [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+    [alert setMessageText:NSLocalizedString(@"UNBLESS-COMPLETE", nil)];
+    [alert setInformativeText:NSLocalizedString(@"UNBLESS-COMPLETE-LONG", nil)];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
@@ -381,9 +381,9 @@ NSString *urlArray[] = {
         [self closeDownloadDistroSheet:sender];
         
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Okay"];
-        [alert setMessageText:@"File not found."];
-        [alert setInformativeText:@"That distribution's ISO file was not found in your Downloads folder."];
+        [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+        [alert setMessageText:NSLocalizedString(@"FILE-NOT-FOUND", nil)];
+        [alert setInformativeText:NSLocalizedString(@"ISO-NOT-FOUND", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
     }
@@ -412,9 +412,9 @@ NSString *urlArray[] = {
         [self closeDownloadDistroSheet:sender];
         
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Okay"];
-        [alert setMessageText:@"No distribution selected."];
-        [alert setInformativeText:@"Please select a distribution first before clicking the download button."];
+        [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+        [alert setMessageText:NSLocalizedString(@"NO-DISTRO-SELECTED", nil)];
+        [alert setInformativeText:NSLocalizedString(@"PLEASE-SELECT-DISTRO", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
     }
