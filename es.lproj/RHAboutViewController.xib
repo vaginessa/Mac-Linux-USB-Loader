@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">12F26</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
@@ -97,9 +97,9 @@ ZG8sIGFwb3lhbiBhIGxhIGNyZWFjacOzbiBkZSBoZXJyYW1pZW50YXMgeSBzaXN0ZW1hcyBsaWJyZXMg
 cGFyYSB0b2RvcywgIGp1bnRvIGEgbGEgY29tdW5pZGFkIGRlIHNvZnR3YXJlIGxpYnJlLgpBIEJpbGwg
 cXVlIG1lIGRpbyBtaSBwcmltZXIgTWFjQm9vay4KUmljaGFyZCBIZWFyZCwgcG9yIHN1IGV4Y2VsZW50
 ZSB0cmFiYWpvIGNvbiBSSFByZWZlcmVuY2VzIGZyYW1ld29yay4KRmFiaW8gR29tZXogKG1vbmZyZW4x
-MCkgcG9yIGxhIHRyYWR1Y2Npw7NuIGEgZXNwYcOxb2wuClkgYSB0b2RvcyBhcXVlbGxvcyBxdWUgY29s
-YWJvcmFyb24gZW4gbGEgY3JlYWNpw7NuIGRlIGVzdGEgYXBsaWNhY2nDs24uClVuIG1pbGzDs24gZGUg
-Z3JhY2lhcw</string>
+MCkgcG9yIGxhIHByaW1lciB0cmFkdWNjacOzbiBhIGVzcGHDsW9sLgpZIGEgdG9kb3MgYXF1ZWxsb3Mg
+cXVlIGNvbGFib3Jhcm9uIGVuIGxhIGNyZWFjacOzbiBkZSBlc3RhIGFwbGljYWNpw7NuLgpVbiBtaWxs
+w7NuIGRlIGdyYWNpYXM</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>

@@ -32,7 +32,7 @@
     return [NSImage imageNamed:@"Icon"];
 }
 - (NSString*)toolbarItemLabel {
-    return NSLocalizedString(@"Application", @"AccountsToolbarItemLabel");
+    return NSLocalizedString(@"APPLICATION", @"AccountsToolbarItemLabel");
 }
 
 - (NSView*)initialKeyView{

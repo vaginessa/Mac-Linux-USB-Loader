@@ -63,7 +63,7 @@
     return [NSImage imageNamed:@"Notifications"];
 }
 - (NSString*)toolbarItemLabel {
-    return NSLocalizedString(@"Notifications", @"AboutToolbarItemLabel");
+    return NSLocalizedString(@"NOTIFICATIONS", @"AboutToolbarItemLabel");
 }
 
 - (NSView*)initialKeyView{

@@ -26,7 +26,7 @@ USB-HAS-BEEN-ERASED = "The live USB has been erased.";
 // USB Drive Blesser
 
 NO-USBS-PLUGGED-IN = "No USB drives are plugged in.";
-NO-USBS-PLUGGED-IN-LONG = "You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button the panel.";
+NO-USBS-PLUGGED-IN-LONG = "You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button in the panel.";
 BLESS-COMPLETE = "Bless complete.";
 BLESS-COMPLETE-LONG = "Leave the USB drive in its slot and restart the computer. Your Mac will boot directly into the Linux distribution installed on your USB drives.";
 UNBLESS-COMPLETE = "Unbless complete.";
@@ -38,3 +38,10 @@ FILE-NOT-FOUND = "File not found.";
 ISO-NOT-FOUND = "That distribution's ISO file was not found in your Downloads folder.";
 NO-DISTRO-SELECTED = "No distribution selected.";
 PLEASE-SELECT-DISTRO = "Please select a distribution first before clicking the download button.";
+
+// Preferences View Controller Titles
+
+APPLICATION = "Application";
+NOTIFICATIONS = "Notifications";
+FIRMWARE = "Firmware";
+ACKNOWLEDGEMENTS = "Acknowledgments";

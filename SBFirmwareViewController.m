@@ -29,7 +29,7 @@
     return [NSImage imageNamed:@"Boot"];
 }
 - (NSString*)toolbarItemLabel {
-    return NSLocalizedString(@"Firmware", @"AboutToolbarItemLabel");
+    return NSLocalizedString(@"FIRMWARE", @"AboutToolbarItemLabel");
 }
 
 - (NSView*)initialKeyView{

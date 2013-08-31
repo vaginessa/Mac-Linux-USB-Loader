@@ -32,7 +32,7 @@
     return [NSImage imageNamed:@"AboutPreferences"];
 }
 - (NSString*)toolbarItemLabel {
-    return NSLocalizedString(@"Acknowledgements", @"AboutToolbarItemLabel");
+    return NSLocalizedString(@"ACKNOWLEDGEMENTS", @"AboutToolbarItemLabel");
 }
 
 - (NSView*)initialKeyView{

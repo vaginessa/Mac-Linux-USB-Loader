@@ -14,27 +14,34 @@ NO = "No";
  * Localizations for RHAppDelegate.m
  */
 
-OPERATION-IN-PROGRESS = "Operation in progress.";
-QUIT-DURING-OPERATION = "Mac Linux USB Loader is currently in the middle of an operation. Quitting the application at this time could result in corrupted data. Do you want to quit anyway?";
+OPERATION-IN-PROGRESS = "Una operación está en curso.";
+QUIT-DURING-OPERATION = "Mac Linux USB Loader se encuentra actualmente en medio de una operación. Salir de la aplicación en este momento podría resultar en datos corruptos. ¿Quieres dejar de todos modos?";
 
 // Live USB Eraser
 
-FAILED-TO-ERASE-USB = "Failed to erase live USB.";
-USB-ERASE-SUCCESSFUL = "Erase successful.";
-USB-HAS-BEEN-ERASED = "The live USB has been erased.";
+FAILED-TO-ERASE-USB = "La operación de borrar ha fracasado.";
+USB-ERASE-SUCCESSFUL = "La operación de borrar ha completado.";
+USB-HAS-BEEN-ERASED = "La distribución portable de Linux en su memoria USB ha sido borrado.";
 
 // USB Drive Blesser
 
-NO-USBS-PLUGGED-IN = "No USB drives are plugged in.";
-NO-USBS-PLUGGED-IN-LONG = "You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button the panel.";
-BLESS-COMPLETE = "Bless complete.";
-BLESS-COMPLETE-LONG = "Leave the USB drive in its slot and restart the computer. Your Mac will boot directly into the Linux distribution installed on your USB drives.";
-UNBLESS-COMPLETE = "Unbless complete.";
-UNBLESS-COMPLETE-LONG = "Your USB drive has been unblessed. Your Mac will not longer boot directly into it. Instead, to boot from it, hold down the Option/Alt key after the startup chimes and select your drive when it appears.";
+NO-USBS-PLUGGED-IN = "No hay memoria USB están conectados.";
+NO-USBS-PLUGGED-IN-LONG = "Usted no tiene cualquier memoria USB insertado que tiene una distribución portable de Linux creado por Mac Linux USB Loader. Por favor, inserte memoria USB que tiene una distribución creado por Mac Linux USB Loader y reanuda Mac Linux USB Loader o pulsa la botón de Actualizar en la panél.";
+BLESS-COMPLETE = "La operación de bendecir ha completado.";
+BLESS-COMPLETE-LONG = "Deje el memoria USB en su espacio y reanuda la computadora. Su Mac se iniciará directamente desde la distribución de Linux en la memoria USB portable. No es necesario para pulsar la botón de Optión en el teclado.";
+UNBLESS-COMPLETE = "La operación para retirer la bendición ha compleado.";
+UNBLESS-COMPLETE-LONG = "La memoria USB ha sido retirado de su bendición. Tu Mac ya no arranca directamente desde ella. En cambio, para arrancar desde ella, mantenga pulsada la tecla Opción / Alt después campanadas del inicio y seleccione la unidad cuando aparezca.";
 
 // Distribution Downloader
 
-FILE-NOT-FOUND = "File not found.";
-ISO-NOT-FOUND = "That distribution's ISO file was not found in your Downloads folder.";
-NO-DISTRO-SELECTED = "No distribution selected.";
-PLEASE-SELECT-DISTRO = "Please select a distribution first before clicking the download button.";
+FILE-NOT-FOUND = "Archivo no encontrado.";
+ISO-NOT-FOUND = "Archivo ISO de la distribución que no se encuentra en la carpeta de Downloads.";
+NO-DISTRO-SELECTED = "No se seleccionó distribución.";
+PLEASE-SELECT-DISTRO = "Por favor seleccione una distribución antes de hacer clic en el botón de descarga.";
+
+// Preferences View Controller Titles
+
+APPLICATION = "Applicación";
+NOTIFICATIONS = "Notificaciónes";
+FIRMWARE = "Firmware";
+ACKNOWLEDGEMENTS = "Agradecimientos";
