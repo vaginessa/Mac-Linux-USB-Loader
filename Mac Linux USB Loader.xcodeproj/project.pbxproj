@@ -50,7 +50,6 @@
 		24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C051656F7A700061D2F /* MainMenu.xib */; };
 		24DB8AB91659AB0700F7C947 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 24DB8AB81659AB0700F7C947 /* README */; };
 		24EBEE37176676F5002A5452 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24EBEE36176676F5002A5452 /* Icon.icns */; };
-		24F62E7216795AD50016B65A /* bootup.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24F62E7116795AD50016B65A /* bootup.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -138,7 +137,6 @@
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		24EBEE36176676F5002A5452 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
-		24F62E7116795AD50016B65A /* bootup.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = bootup.icns; path = "Mac Linux USB Loader/bootup.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +213,6 @@
 				24EBEE36176676F5002A5452 /* Icon.icns */,
 				249F19A6175FDC760074F88A /* Icon2.icns */,
 				240C7B5B175AE63F00AEAFC9 /* Boot.icns */,
-				24F62E7116795AD50016B65A /* bootup.icns */,
 				24CA6C15165701BD00061D2F /* Icon.png */,
 				248317CD16BF146C00313D33 /* Eraser.icns */,
 				24434A211677D52800DAC959 /* AboutPreferences.png */,
@@ -405,7 +402,6 @@
 				24DB8AB91659AB0700F7C947 /* README in Resources */,
 				24434A391677D52800DAC959 /* AboutPreferences.png in Resources */,
 				24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */,
-				24F62E7216795AD50016B65A /* bootup.icns in Resources */,
 				247686021682777A00A8C4AD /* bootIA32.efi in Resources */,
 				247686031682777A00A8C4AD /* bootX64.efi in Resources */,
 				24068E41177666820065BADF /* SBFirmwareViewController.xib in Resources */,
