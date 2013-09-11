@@ -143,7 +143,7 @@ NSString *urlArray[] = {
     if (!_preferencesWindowController) {
         RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
         RHAboutViewController *about = [[RHAboutViewController alloc] init];
-        RHNotificationViewController *notifications = [[RHNotificationViewController alloc] init];
+        SBNotificationViewController *notifications = [[SBNotificationViewController alloc] init];
         SBFirmwareViewController *firmwareController = [[SBFirmwareViewController alloc] init];
         
         NSArray *controllers = @[accounts, notifications, firmwareController,

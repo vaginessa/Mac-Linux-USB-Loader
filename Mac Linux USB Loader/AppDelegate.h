@@ -11,7 +11,7 @@
 
 #import "RHAboutViewController.h"
 #import "RHAccountsViewController.h"
-#import "RHNotificationViewController.h"
+#import "SBNotificationViewController.h"
 #import "SBFirmwareViewController.h"
 
 #import "DistributionDownloader.h"

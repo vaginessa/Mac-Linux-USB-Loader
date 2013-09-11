@@ -11,7 +11,7 @@
 		24068D3A177662110065BADF /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D36177662110065BADF /* RHAboutViewController.m */; };
 		24068D3B177662110065BADF /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D37177662110065BADF /* RHAccountsViewController.m */; };
 		24068D3C177662110065BADF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D38177662110065BADF /* AppDelegate.m */; };
-		24068D3D177662110065BADF /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D39177662110065BADF /* RHNotificationViewController.m */; };
+		24068D3D177662110065BADF /* SBNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D39177662110065BADF /* SBNotificationViewController.m */; };
 		24068E3E177663B40065BADF /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3B177663B30065BADF /* DistributionDownloader.m */; };
 		24068E3F177663B40065BADF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3C177663B30065BADF /* Document.m */; };
 		24068E40177663B40065BADF /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3D177663B40065BADF /* USBDevice.m */; };
@@ -41,7 +41,7 @@
 		249F19B1175FDE170074F88A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B3175FDE170074F88A /* MainMenu.xib */; };
 		249F19B4175FDE220074F88A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B6175FDE220074F88A /* InfoPlist.strings */; };
 		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
-		24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */; };
+		24AD167716A0F2C80046C51A /* SBNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* SBNotificationViewController.xib */; };
 		24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */; };
 		24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */; };
 		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -73,7 +73,7 @@
 		24068D36177662110065BADF /* RHAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAboutViewController.m; sourceTree = SOURCE_ROOT; };
 		24068D37177662110065BADF /* RHAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAccountsViewController.m; sourceTree = SOURCE_ROOT; };
 		24068D38177662110065BADF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		24068D39177662110065BADF /* RHNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHNotificationViewController.m; sourceTree = SOURCE_ROOT; };
+		24068D39177662110065BADF /* SBNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBNotificationViewController.m; sourceTree = SOURCE_ROOT; };
 		24068E38177662650065BADF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
 		24068E3A177662FC0065BADF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
 		24068E3B177663B30065BADF /* DistributionDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionDownloader.m; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
 		2477560A17D25B1C0076A461 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2477560C17D25B1D0076A461 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2479537C16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
+		2479537C16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/SBNotificationViewController.xib; sourceTree = "<group>"; };
 		2479537E16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
 		2479538016ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
 		2479538716ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 		249F19A6175FDC760074F88A /* Icon2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon2.icns; sourceTree = "<group>"; };
 		249F19B2175FDE170074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		249F19B5175FDE220074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24AD166216A0E1D90046C51A /* RHNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHNotificationViewController.h; sourceTree = "<group>"; };
-		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
+		24AD166216A0E1D90046C51A /* SBNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBNotificationViewController.h; sourceTree = "<group>"; };
+		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBNotificationViewController.xib; sourceTree = "<group>"; };
 		24AD167B16A0F2CE0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
 		24AD167E16A0F2D20046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
 		24BDE430172D920B00E964A0 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -194,9 +194,9 @@
 				24068D351776614F0065BADF /* SBFirmwareViewController.h */,
 				24068D31177660F50065BADF /* SBFirmwareViewController.m */,
 				24068E39177662650065BADF /* SBFirmwareViewController.xib */,
-				24AD166216A0E1D90046C51A /* RHNotificationViewController.h */,
-				24068D39177662110065BADF /* RHNotificationViewController.m */,
-				24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */,
+				24AD166216A0E1D90046C51A /* SBNotificationViewController.h */,
+				24068D39177662110065BADF /* SBNotificationViewController.m */,
+				24AD167916A0F2C80046C51A /* SBNotificationViewController.xib */,
 				24434A2B1677D52800DAC959 /* RHAboutViewController.h */,
 				24068D36177662110065BADF /* RHAboutViewController.m */,
 				24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */,
@@ -409,7 +409,7 @@
 				247686021682777A00A8C4AD /* bootIA32.efi in Resources */,
 				247686031682777A00A8C4AD /* bootX64.efi in Resources */,
 				24068E41177666820065BADF /* SBFirmwareViewController.xib in Resources */,
-				24AD167716A0F2C80046C51A /* RHNotificationViewController.xib in Resources */,
+				24AD167716A0F2C80046C51A /* SBNotificationViewController.xib in Resources */,
 				24AD167A16A0F2CE0046C51A /* RHAboutViewController.xib in Resources */,
 				24728A6816BDA62C00920062 /* Notifications.icns in Resources */,
 				248317CE16BF146C00313D33 /* Eraser.icns in Resources */,
@@ -445,7 +445,7 @@
 				24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */,
 				24068D3A177662110065BADF /* RHAboutViewController.m in Sources */,
 				24068D3B177662110065BADF /* RHAccountsViewController.m in Sources */,
-				24068D3D177662110065BADF /* RHNotificationViewController.m in Sources */,
+				24068D3D177662110065BADF /* SBNotificationViewController.m in Sources */,
 				24068E3E177663B40065BADF /* DistributionDownloader.m in Sources */,
 				24068E3F177663B40065BADF /* Document.m in Sources */,
 				24068E40177663B40065BADF /* USBDevice.m in Sources */,
@@ -498,13 +498,13 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		24AD167916A0F2C80046C51A /* RHNotificationViewController.xib */ = {
+		24AD167916A0F2C80046C51A /* SBNotificationViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				24AD167816A0F2C80046C51A /* en */,
 				2479537C16ECFD4B0085057B /* es */,
 			);
-			name = RHNotificationViewController.xib;
+			name = SBNotificationViewController.xib;
 			sourceTree = "<group>";
 		};
 		24AD167C16A0F2CE0046C51A /* RHAboutViewController.xib */ = {

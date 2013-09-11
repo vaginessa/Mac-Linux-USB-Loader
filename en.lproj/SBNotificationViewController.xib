@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">12F26</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
@@ -37,24 +37,23 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSCustomObject" id="1005382549">
-				<string key="NSClassName">RHNotificationViewController</string>
+				<string key="NSClassName">SBNotificationViewController</string>
 			</object>
 			<object class="NSCustomView" id="1005">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">8460</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSButton" id="242430835">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{14, 11}, {231, 32}}</string>
+						<string key="NSFrame">{{14, 11}, {204, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="43639011">
 							<int key="NSCellFlags">67108864</int>
 							<int key="NSCellFlags2">134217728</int>
-							<string key="NSContents">Abrir Centro de Notificaciones</string>
+							<string key="NSContents">Open Notifications Center</string>
 							<object class="NSFont" key="NSSupport" id="134105999">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
@@ -74,16 +73,15 @@
 					<object class="NSTextField" id="860153167">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{50, 47}, {472, 17}}</string>
+						<string key="NSFrame">{{50, 47}, {390, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="242430835"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1033023926">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Ver panel de notificaciones requiere OS X Mountain Lion. Opción no disponible en Lion.</string>
+							<string key="NSContents">Notifications require OS X Mountain Lion. They will not appear on Lion.</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">11</double>
@@ -115,16 +113,15 @@
 					<object class="NSButton" id="117758539">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{18, 70}, {164, 18}}</string>
+						<string key="NSFrame">{{18, 70}, {152, 18}}</string>
 						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="860153167"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="90131385">
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">268435456</int>
-							<string key="NSContents">Mostrar Notificaciones</string>
+							<string key="NSContents">Display Notifications</string>
 							<reference key="NSSupport" ref="134105999"/>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="117758539"/>
@@ -149,14 +146,13 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{68, 108}, {481, 24}}</string>
 						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="117758539"/>
 						<string key="NSReuseIdentifierKey">_NS:1505</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="826958771">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">138413056</int>
-							<string key="NSContents">Notificaciones</string>
+							<string key="NSContents">Notifications</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">20</double>
@@ -171,8 +167,6 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{616, 132}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="223797769"/>
 				<string key="NSClassName">NSView</string>
 			</object>
@@ -189,6 +183,22 @@
 						<reference key="destination" ref="1005"/>
 					</object>
 					<int key="connectionID">2</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.ShowNotifications</string>
+						<reference key="source" ref="117758539"/>
+						<reference key="destination" ref="162967008"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="117758539"/>
+							<reference key="NSDestination" ref="162967008"/>
+							<string key="NSLabel">value: values.ShowNotifications</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.ShowNotifications</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">63</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -344,7 +354,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">61</int>
+			<int key="maxID">63</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -365,47 +375,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/RHAboutViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">RHNotificationViewController</string>
-					<string key="superclassName">NSViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="setShowNotifications:">id</string>
-						<string key="showNotificationCenter:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="setShowNotifications:">
-							<string key="name">setShowNotifications:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showNotificationCenter:">
-							<string key="name">showNotificationCenter:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="displayNotificationsCheckbox">NSButton</string>
-						<string key="notificationCenterButton">NSButton</string>
-						<string key="panelView">NSView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="displayNotificationsCheckbox">
-							<string key="name">displayNotificationsCheckbox</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="notificationCenterButton">
-							<string key="name">notificationCenterButton</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="panelView">
-							<string key="name">panelView</string>
-							<string key="candidateClassName">NSView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/RHNotificationViewController.h</string>
 					</object>
 				</object>
 			</array>

@@ -6,16 +6,16 @@
 //  Copyright (c) 2012-2013 SevenBits. All rights reserved.
 //
 
-#import "RHNotificationViewController.h"
+#import "SBNotificationViewController.h"
 
-@interface RHNotificationViewController ()
+@interface SBNotificationViewController ()
 
 @end
 
-@implementation RHNotificationViewController
+@implementation SBNotificationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    self = [super initWithNibName:@"RHNotificationViewController" bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"SBNotificationViewController" bundle:nibBundleOrNil];
     if (self) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults synchronize];

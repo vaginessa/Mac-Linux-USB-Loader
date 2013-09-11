@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 
-@interface RHNotificationViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
+@interface SBNotificationViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
     //NSButton *notificationCenterButton;
 }
 @property (unsafe_unretained) IBOutlet NSView *panelView;
