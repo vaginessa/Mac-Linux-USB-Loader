@@ -17,7 +17,7 @@
 #import "DistributionDownloader.h"
 #import "RecentDocumentsTableViewDataSource.h"
 
-@interface RHAppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
     RHPreferencesWindowController *_preferencesWindowController;
     IBOutlet NSPanel *sheet;
     IBOutlet NSPanel *eraseSheet;

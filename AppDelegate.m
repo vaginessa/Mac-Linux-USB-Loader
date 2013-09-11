@@ -6,9 +6,9 @@
 //  Copyright (c) 2012-2013 SevenBits. All rights reserved.
 //
 
-#import "RHAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation RHAppDelegate
+@implementation AppDelegate
 
 NSWindow *downloadLinuxDistroSheet;
 BOOL canQuit = YES;

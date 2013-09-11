@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12F33</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
@@ -52,7 +52,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{525, 247}</string>
 				<object class="NSView" key="NSWindowView" id="568628114">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSImageView" id="226954976">
@@ -69,7 +69,6 @@
 							</set>
 							<string key="NSFrame">{{0, 77}, {170, 170}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
-							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="365278556">
@@ -93,7 +92,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{175, 206}, {299, 41}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="336928385"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
@@ -135,7 +133,6 @@
 							<array class="NSMutableArray" key="NSSubviews"/>
 							<string key="NSFrame">{{381, 67}, {130, 32}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
-							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="160355437">
@@ -164,7 +161,6 @@
 							<array class="NSMutableArray" key="NSSubviews"/>
 							<string key="NSFrame">{{199, 67}, {182, 32}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
-							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="15053030">
@@ -188,7 +184,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{18, 38}, {417, 26}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="802248408"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSHuggingPriority">{242, 750}</string>
@@ -244,7 +239,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{20, 12}, {485, 20}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="605216515"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSHuggingPriority">{250, 250}</string>
@@ -257,7 +251,6 @@
 							<array class="NSMutableArray" key="NSSubviews"/>
 							<string key="NSFrame">{{434, 34}, {77, 32}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
-							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="737782747">
@@ -278,8 +271,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{525, 247}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="226954976"/>
 					<bool key="NSViewIsLayerTreeHost">YES</bool>
 				</object>
@@ -292,7 +283,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSCustomObject" id="812085660">
-				<string key="NSClassName">RHAppDelegate</string>
+				<string key="NSClassName">AppDelegate</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -1133,195 +1124,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">RHAppDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="blessUSB:">id</string>
-						<string key="closeDownloadDistroSheet:">id</string>
-						<string key="closeEraseDistroSheet:">id</string>
-						<string key="closeModifyBootSettingsSheet:">id</string>
-						<string key="detectUSBs:">id</string>
-						<string key="downloadDistribution:">id</string>
-						<string key="eraseSelectedDrive:">id</string>
-						<string key="openCompatibilityTester:">id</string>
-						<string key="openDiskUtility:">id</string>
-						<string key="openDownloadedDistro:">id</string>
-						<string key="openGithubPage:">id</string>
-						<string key="reportBug:">id</string>
-						<string key="showDownloadDistroSheet:">id</string>
-						<string key="showEraseDistroSheet:">id</string>
-						<string key="showModifyBootSettingsSheet:">id</string>
-						<string key="showPreferences:">id</string>
-						<string key="unbless:">id</string>
-						<string key="updateRecents:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="blessUSB:">
-							<string key="name">blessUSB:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="closeDownloadDistroSheet:">
-							<string key="name">closeDownloadDistroSheet:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="closeEraseDistroSheet:">
-							<string key="name">closeEraseDistroSheet:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="closeModifyBootSettingsSheet:">
-							<string key="name">closeModifyBootSettingsSheet:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="detectUSBs:">
-							<string key="name">detectUSBs:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="downloadDistribution:">
-							<string key="name">downloadDistribution:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="eraseSelectedDrive:">
-							<string key="name">eraseSelectedDrive:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openCompatibilityTester:">
-							<string key="name">openCompatibilityTester:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openDiskUtility:">
-							<string key="name">openDiskUtility:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openDownloadedDistro:">
-							<string key="name">openDownloadedDistro:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openGithubPage:">
-							<string key="name">openGithubPage:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="reportBug:">
-							<string key="name">reportBug:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showDownloadDistroSheet:">
-							<string key="name">showDownloadDistroSheet:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showEraseDistroSheet:">
-							<string key="name">showEraseDistroSheet:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showModifyBootSettingsSheet:">
-							<string key="name">showModifyBootSettingsSheet:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showPreferences:">
-							<string key="name">showPreferences:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="unbless:">
-							<string key="name">unbless:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="updateRecents:">
-							<string key="name">updateRecents:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="bootSettingsSheet">NSPanel</string>
-						<string key="bootUSBSelector">NSPopUpButton</string>
-						<string key="closeDistroDownloadSheetButton">NSButton</string>
-						<string key="closeEraseDownloadSheetButton">NSButton</string>
-						<string key="dataSource">RecentDocumentsTableViewDataSource</string>
-						<string key="distroDownloadButton">NSButton</string>
-						<string key="distroDownloadProgressIndicator">NSProgressIndicator</string>
-						<string key="distroPopUpSelector">NSPopUpButton</string>
-						<string key="distroSelectorComboBox">NSComboBox</string>
-						<string key="eraseSheet">NSPanel</string>
-						<string key="eraseUSBSelector">NSPopUpButton</string>
-						<string key="openDownloadedDistroButton">NSButton</string>
-						<string key="recentFileBrowser">NSTableView</string>
-						<string key="sheet">NSPanel</string>
-						<string key="window">NSWindow</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="bootSettingsSheet">
-							<string key="name">bootSettingsSheet</string>
-							<string key="candidateClassName">NSPanel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="bootUSBSelector">
-							<string key="name">bootUSBSelector</string>
-							<string key="candidateClassName">NSPopUpButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="closeDistroDownloadSheetButton">
-							<string key="name">closeDistroDownloadSheetButton</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="closeEraseDownloadSheetButton">
-							<string key="name">closeEraseDownloadSheetButton</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="dataSource">
-							<string key="name">dataSource</string>
-							<string key="candidateClassName">RecentDocumentsTableViewDataSource</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="distroDownloadButton">
-							<string key="name">distroDownloadButton</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="distroDownloadProgressIndicator">
-							<string key="name">distroDownloadProgressIndicator</string>
-							<string key="candidateClassName">NSProgressIndicator</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="distroPopUpSelector">
-							<string key="name">distroPopUpSelector</string>
-							<string key="candidateClassName">NSPopUpButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="distroSelectorComboBox">
-							<string key="name">distroSelectorComboBox</string>
-							<string key="candidateClassName">NSComboBox</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="eraseSheet">
-							<string key="name">eraseSheet</string>
-							<string key="candidateClassName">NSPanel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="eraseUSBSelector">
-							<string key="name">eraseUSBSelector</string>
-							<string key="candidateClassName">NSPopUpButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="openDownloadedDistroButton">
-							<string key="name">openDownloadedDistroButton</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="recentFileBrowser">
-							<string key="name">recentFileBrowser</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="sheet">
-							<string key="name">sheet</string>
-							<string key="candidateClassName">NSPanel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="window">
-							<string key="name">window</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/RHAppDelegate.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">RecentDocumentsTableViewDataSource</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/RecentDocumentsTableViewDataSource.h</string>
 					</object>
 				</object>
 			</array>

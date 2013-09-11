@@ -10,7 +10,7 @@
 		24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D31177660F50065BADF /* SBFirmwareViewController.m */; };
 		24068D3A177662110065BADF /* RHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D36177662110065BADF /* RHAboutViewController.m */; };
 		24068D3B177662110065BADF /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D37177662110065BADF /* RHAccountsViewController.m */; };
-		24068D3C177662110065BADF /* RHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D38177662110065BADF /* RHAppDelegate.m */; };
+		24068D3C177662110065BADF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D38177662110065BADF /* AppDelegate.m */; };
 		24068D3D177662110065BADF /* RHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D39177662110065BADF /* RHNotificationViewController.m */; };
 		24068E3E177663B40065BADF /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3B177663B30065BADF /* DistributionDownloader.m */; };
 		24068E3F177663B40065BADF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3C177663B30065BADF /* Document.m */; };
@@ -72,7 +72,7 @@
 		24068D351776614F0065BADF /* SBFirmwareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFirmwareViewController.h; sourceTree = "<group>"; };
 		24068D36177662110065BADF /* RHAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAboutViewController.m; sourceTree = SOURCE_ROOT; };
 		24068D37177662110065BADF /* RHAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAccountsViewController.m; sourceTree = SOURCE_ROOT; };
-		24068D38177662110065BADF /* RHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		24068D38177662110065BADF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		24068D39177662110065BADF /* RHNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHNotificationViewController.m; sourceTree = SOURCE_ROOT; };
 		24068E38177662650065BADF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
 		24068E3A177662FC0065BADF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
 		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
 		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
-		2477560A17D25B1C0076A461 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2477560C17D25B1D0076A461 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2477560A17D25B1C0076A461 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2477560C17D25B1D0076A461 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2479537C16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHNotificationViewController.xib; sourceTree = "<group>"; };
 		2479537E16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAboutViewController.xib; sourceTree = "<group>"; };
 		2479538016ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		2479538816ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2479538E16ED01030085057B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
 		248317CD16BF146C00313D33 /* Eraser.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Eraser.icns; path = Resources/Eraser.icns; sourceTree = "<group>"; };
-		249EDD7017011D47006E7DAE /* RHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RHAppDelegate.h; sourceTree = "<group>"; };
+		249EDD7017011D47006E7DAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		249EDD7217011F2E006E7DAE /* DistributionDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistributionDownloader.h; sourceTree = "<group>"; };
 		249F198F175FDC280074F88A /* Compatibility Tester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compatibility Tester.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		249F19A6175FDC760074F88A /* Icon2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon2.icns; sourceTree = "<group>"; };
@@ -289,8 +289,8 @@
 				24068E3C177663B30065BADF /* Document.m */,
 				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
 				24068E3D177663B40065BADF /* USBDevice.m */,
-				249EDD7017011D47006E7DAE /* RHAppDelegate.h */,
-				24068D38177662110065BADF /* RHAppDelegate.m */,
+				249EDD7017011D47006E7DAE /* AppDelegate.h */,
+				24068D38177662110065BADF /* AppDelegate.m */,
 				249EDD7217011F2E006E7DAE /* DistributionDownloader.h */,
 				24068E3B177663B30065BADF /* DistributionDownloader.m */,
 				2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */,
@@ -440,7 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24CA6BFA1656F7A700061D2F /* main.m in Sources */,
-				24068D3C177662110065BADF /* RHAppDelegate.m in Sources */,
+				24068D3C177662110065BADF /* AppDelegate.m in Sources */,
 				2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */,
 				24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */,
 				24068D3A177662110065BADF /* RHAboutViewController.m in Sources */,
@@ -638,6 +638,7 @@
 		24CA6C0B1656F7A700061D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -655,6 +656,7 @@
 		24CA6C0C1656F7A700061D2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

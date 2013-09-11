@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RHAppDelegate.h"
+#import "AppDelegate.h"
 
 @interface USBDevice : NSObject
 
