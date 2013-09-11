@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 
-@interface RHAccountsViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
+@interface SBUpdateControlViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
     //NSTextField *usernameTextField;
 }
 

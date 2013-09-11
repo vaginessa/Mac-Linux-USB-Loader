@@ -6,17 +6,17 @@
 //  Copyright (c) 2012-2013 SevenBits. All rights reserved.
 //
 
-#import "RHAccountsViewController.h"
+#import "SBUpdateControlViewController.h"
 
-@interface RHAccountsViewController ()
+@interface SBUpdateControlViewController ()
 
 @end
 
-@implementation RHAccountsViewController
+@implementation SBUpdateControlViewController
 @synthesize usernameTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    self = [super initWithNibName:@"RHAccountsViewController" bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"SBUpdateControlViewController" bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
     }

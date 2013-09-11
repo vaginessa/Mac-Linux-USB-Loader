@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D31177660F50065BADF /* SBFirmwareViewController.m */; };
 		24068D3A177662110065BADF /* SBAcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D36177662110065BADF /* SBAcknowledgementsViewController.m */; };
-		24068D3B177662110065BADF /* RHAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D37177662110065BADF /* RHAccountsViewController.m */; };
+		24068D3B177662110065BADF /* SBUpdateControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D37177662110065BADF /* SBUpdateControlViewController.m */; };
 		24068D3C177662110065BADF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D38177662110065BADF /* AppDelegate.m */; };
 		24068D3D177662110065BADF /* SBNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D39177662110065BADF /* SBNotificationViewController.m */; };
 		24068E3E177663B40065BADF /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3B177663B30065BADF /* DistributionDownloader.m */; };
@@ -43,7 +43,7 @@
 		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
 		24AD167716A0F2C80046C51A /* SBNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* SBNotificationViewController.xib */; };
 		24AD167A16A0F2CE0046C51A /* SBAcknowledgementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* SBAcknowledgementsViewController.xib */; };
-		24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */; };
+		24AD167D16A0F2D20046C51A /* SBUpdateControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* SBUpdateControlViewController.xib */; };
 		24CA6BEE1656F7A700061D2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6BF61656F7A700061D2F /* InfoPlist.strings */; };
 		24CA6BFA1656F7A700061D2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6BF91656F7A700061D2F /* main.m */; };
@@ -71,7 +71,7 @@
 		24068D31177660F50065BADF /* SBFirmwareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFirmwareViewController.m; sourceTree = "<group>"; };
 		24068D351776614F0065BADF /* SBFirmwareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFirmwareViewController.h; sourceTree = "<group>"; };
 		24068D36177662110065BADF /* SBAcknowledgementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAcknowledgementsViewController.m; sourceTree = SOURCE_ROOT; };
-		24068D37177662110065BADF /* RHAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHAccountsViewController.m; sourceTree = SOURCE_ROOT; };
+		24068D37177662110065BADF /* SBUpdateControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUpdateControlViewController.m; sourceTree = SOURCE_ROOT; };
 		24068D38177662110065BADF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		24068D39177662110065BADF /* SBNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBNotificationViewController.m; sourceTree = SOURCE_ROOT; };
 		24068E38177662650065BADF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		24434A211677D52800DAC959 /* AboutPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutPreferences.png; sourceTree = "<group>"; };
 		24434A221677D52800DAC959 /* AccountsPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccountsPreferences.png; sourceTree = "<group>"; };
 		24434A2B1677D52800DAC959 /* SBAcknowledgementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAcknowledgementsViewController.h; sourceTree = "<group>"; };
-		24434A2E1677D52800DAC959 /* RHAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHAccountsViewController.h; sourceTree = "<group>"; };
+		24434A2E1677D52800DAC959 /* SBUpdateControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUpdateControlViewController.h; sourceTree = "<group>"; };
 		244C050316DD840E0083A0C9 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		244C050716DD8E460083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		2477560C17D25B1D0076A461 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2479537C16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/SBNotificationViewController.xib; sourceTree = "<group>"; };
 		2479537E16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/SBAcknowledgementsViewController.xib; sourceTree = "<group>"; };
-		2479538016ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
+		2479538016ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/SBUpdateControlViewController.xib; sourceTree = "<group>"; };
 		2479538716ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2479538816ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2479538E16ED01030085057B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		24AD166216A0E1D90046C51A /* SBNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBNotificationViewController.h; sourceTree = "<group>"; };
 		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBNotificationViewController.xib; sourceTree = "<group>"; };
 		24AD167B16A0F2CE0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBAcknowledgementsViewController.xib; sourceTree = "<group>"; };
-		24AD167E16A0F2D20046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RHAccountsViewController.xib; sourceTree = "<group>"; };
+		24AD167E16A0F2D20046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBUpdateControlViewController.xib; sourceTree = "<group>"; };
 		24BDE430172D920B00E964A0 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		24C9FCCC1664204B0080E6E4 /* USBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USBDevice.h; sourceTree = "<group>"; };
 		24CA6BE91656F7A700061D2F /* Mac Linux USB Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Linux USB Loader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,9 +200,9 @@
 				24434A2B1677D52800DAC959 /* SBAcknowledgementsViewController.h */,
 				24068D36177662110065BADF /* SBAcknowledgementsViewController.m */,
 				24AD167C16A0F2CE0046C51A /* SBAcknowledgementsViewController.xib */,
-				24434A2E1677D52800DAC959 /* RHAccountsViewController.h */,
-				24068D37177662110065BADF /* RHAccountsViewController.m */,
-				24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */,
+				24434A2E1677D52800DAC959 /* SBUpdateControlViewController.h */,
+				24068D37177662110065BADF /* SBUpdateControlViewController.m */,
+				24AD167F16A0F2D20046C51A /* SBUpdateControlViewController.xib */,
 			);
 			name = "Preferences View Controllers";
 			path = ..;
@@ -414,7 +414,7 @@
 				24728A6816BDA62C00920062 /* Notifications.icns in Resources */,
 				248317CE16BF146C00313D33 /* Eraser.icns in Resources */,
 				244C050416DD840E0083A0C9 /* dsa_pub.pem in Resources */,
-				24AD167D16A0F2D20046C51A /* RHAccountsViewController.xib in Resources */,
+				24AD167D16A0F2D20046C51A /* SBUpdateControlViewController.xib in Resources */,
 				240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */,
 				24EBEE37176676F5002A5452 /* Icon.icns in Resources */,
 				242B1EE31769074C00B83171 /* README in Resources */,
@@ -444,7 +444,7 @@
 				2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */,
 				24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */,
 				24068D3A177662110065BADF /* SBAcknowledgementsViewController.m in Sources */,
-				24068D3B177662110065BADF /* RHAccountsViewController.m in Sources */,
+				24068D3B177662110065BADF /* SBUpdateControlViewController.m in Sources */,
 				24068D3D177662110065BADF /* SBNotificationViewController.m in Sources */,
 				24068E3E177663B40065BADF /* DistributionDownloader.m in Sources */,
 				24068E3F177663B40065BADF /* Document.m in Sources */,
@@ -516,13 +516,13 @@
 			name = SBAcknowledgementsViewController.xib;
 			sourceTree = "<group>";
 		};
-		24AD167F16A0F2D20046C51A /* RHAccountsViewController.xib */ = {
+		24AD167F16A0F2D20046C51A /* SBUpdateControlViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				24AD167E16A0F2D20046C51A /* en */,
 				2479538016ECFD4B0085057B /* es */,
 			);
-			name = RHAccountsViewController.xib;
+			name = SBUpdateControlViewController.xib;
 			sourceTree = "<group>";
 		};
 		24CA6BF61656F7A700061D2F /* InfoPlist.strings */ = {

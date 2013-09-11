@@ -10,7 +10,7 @@
 #import <RHPreferences/RHPreferences.h>
 
 #import "SBAcknowledgementsViewController.h"
-#import "RHAccountsViewController.h"
+#import "SBUpdateControlViewController.h"
 #import "SBNotificationViewController.h"
 #import "SBFirmwareViewController.h"
 

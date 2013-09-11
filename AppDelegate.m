@@ -141,7 +141,7 @@ NSString *urlArray[] = {
 - (IBAction)showPreferences:(id)sender {
     // If we have not created the window controller yet, create it now.
     if (!_preferencesWindowController) {
-        RHAccountsViewController *accounts = [[RHAccountsViewController alloc] init];
+        SBUpdateControlViewController *accounts = [[SBUpdateControlViewController alloc] init];
         SBAcknowledgementsViewController *about = [[SBAcknowledgementsViewController alloc] init];
         SBNotificationViewController *notifications = [[SBNotificationViewController alloc] init];
         SBFirmwareViewController *firmwareController = [[SBFirmwareViewController alloc] init];

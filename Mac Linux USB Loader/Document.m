@@ -14,7 +14,7 @@
 
 #import "AppDelegate.h"
 #import "SBAcknowledgementsViewController.h"
-#import "RHAccountsViewController.h"
+#import "SBUpdateControlViewController.h"
 #import "SBNotificationViewController.h"
 
 #pragma mark - SBCopyDelegateInfoRelay class
