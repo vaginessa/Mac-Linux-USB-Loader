@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 
-#import "RHAboutViewController.h"
+#import "SBAcknowledgementsViewController.h"
 #import "RHAccountsViewController.h"
 #import "SBNotificationViewController.h"
 #import "SBFirmwareViewController.h"

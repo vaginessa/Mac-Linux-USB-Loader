@@ -6,17 +6,17 @@
 //  Copyright (c) 2012-2013 SevenBits. All rights reserved.
 //
 
-#import "RHAboutViewController.h"
+#import "SBAcknowledgementsViewController.h"
 
-@interface RHAboutViewController ()
+@interface SBAcknowledgementsViewController ()
 
 @end
 
-@implementation RHAboutViewController
+@implementation SBAcknowledgementsViewController
 @synthesize emailTextField = emailTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    self = [super initWithNibName:@"RHAboutViewController" bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"SBAcknowledgementsViewController" bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
     }

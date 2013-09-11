@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 
-@interface RHAboutViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
+@interface SBAcknowledgementsViewController : NSViewController  <RHPreferencesViewControllerProtocol> {
     NSTextField *_emailTextField;
 }
 

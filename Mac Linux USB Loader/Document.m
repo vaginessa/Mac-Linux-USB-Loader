@@ -13,7 +13,7 @@
 #import "RHPreferences/RHPreferencesWindowController.h"
 
 #import "AppDelegate.h"
-#import "RHAboutViewController.h"
+#import "SBAcknowledgementsViewController.h"
 #import "RHAccountsViewController.h"
 #import "SBNotificationViewController.h"
 
