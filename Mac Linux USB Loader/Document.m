@@ -24,10 +24,10 @@
  */
 @interface SBCopyDelegateInfoRelay : NSObject
 
-@property NSProgressIndicator *progress;
-@property NSString *usbRoot;
-@property NSWindow *window;
-@property Document *document;
+@property (assign) NSProgressIndicator *progress;
+@property (assign) NSString *usbRoot;
+@property (assign) NSWindow *window;
+@property (assign) Document *document;
 
 @end
 
@@ -142,6 +142,8 @@ BOOL isCopying = NO;
 // This is too long... this needs to be split up, perhaps with some components in USBDevice like before.
 - (IBAction)makeLiveUSB:(id)sender {
     [[NSApp delegate] setCanQuit:NO];
+    [_makeUSBButton setEnabled:NO];
+    [_eraseUSBButton setEnabled:NO];
     isCopying = YES;
     
     __block BOOL failure = false;
@@ -414,6 +416,9 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
     NSWindow *window;
     NSString *usbRoot;
     Document *document;
+    NSButton *eraseUSBButton;
+    NSButton *makeUSBButton;
+    
     if (context.progress != nil && context.window != nil && context.usbRoot != nil && context.document != nil) {
         progressIndicator = context.progress; // The progress bar to update.
         window = context.window; // The document window.
@@ -483,6 +488,8 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
             [NSApp requestUserAttention:NSCriticalRequest];
 #endif
             [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+            [document.makeUSBButton setEnabled:YES]; // Enable the buttons.
+            [document.eraseUSBButton setEnabled:YES];
             isCopying = NO;
             
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"automaticallyBless"] == YES) {
