@@ -78,15 +78,21 @@ BOOL isCopying = NO;
     
     isoFilePath = [[self fileURL] absoluteString];
     
+    // Set the title of this window to contain the name of the ISO we're installing.
+    [window setTitle:[@"Installing: " stringByAppendingString:[[isoFilePath lastPathComponent] stringByDeletingPathExtension]]];
+    
+    // Disable the install button if for some reason we opened this window without an open file.
     if (isoFilePath == nil) {
         [_makeUSBButton setEnabled:NO];
         [_eraseUSBButton setEnabled:NO];
     }
     
+    // Read the settings regarding which firmware to install.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     bootLoaderName = [defaults stringForKey:@"selectedFirmwareType"];
     automaticallyBless = [defaults boolForKey:@"automaticallyBless"];
     
+    // Update the list of USB devices.
     [self getUSBDeviceList];
 }
 
@@ -416,8 +422,6 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
     NSWindow *window;
     NSString *usbRoot;
     Document *document;
-    NSButton *eraseUSBButton;
-    NSButton *makeUSBButton;
     
     if (context.progress != nil && context.window != nil && context.usbRoot != nil && context.document != nil) {
         progressIndicator = context.progress; // The progress bar to update.
