@@ -26,6 +26,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
 @property (strong) IBOutlet NSPopUpButton *usbDriveDropdown;
 
 - (IBAction)eraseLiveBoot:(id)sender;
+- (NSString *)determineSystemArchitecture;
 - (void)getUSBDeviceList;
 - (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (IBAction)updateDeviceList:(id)sender;

@@ -94,6 +94,30 @@ BOOL isCopying = NO;
     
     // Update the list of USB devices.
     [self getUSBDeviceList];
+    
+    // Determine our system architecture.
+    NSString *arch = [self determineSystemArchitecture];
+    if ([arch isEqualToString:@"x86_64"]) {
+        // Do something.
+    } else {
+        // Do something else.
+    }
+}
+
+- (NSString *)determineSystemArchitecture {
+    // Use uname to get the system processor architecture.
+    NSTask *task = [[NSTask alloc] init];
+    [task setArguments:@[@"-m"]];
+    [task setLaunchPath:@"/usr/bin/uname"];
+    
+    NSPipe *pipe = [[NSPipe alloc] init];
+    [task setStandardOutput:pipe];
+    [task launch];
+    
+    // Read the data from the pipe to determine what uname printed.
+    NSFileHandle *handle = [pipe fileHandleForReading];
+    NSString *returnString = [[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    return returnString;
 }
 
 - (void)getUSBDeviceList {
