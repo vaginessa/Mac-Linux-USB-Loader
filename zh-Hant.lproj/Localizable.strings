@@ -37,7 +37,7 @@ UNBLESS-COMPLETE-LONG = "您的USB已經解除bless 模式，您的 Mac 將不�
 FILE-NOT-FOUND = "找不到檔案。";
 ISO-NOT-FOUND = "找不到位於您下載檔案夾中指定之發行套件的 ISO 檔案。";
 NO-DISTRO-SELECTED = "未選擇發行套件。";
-PLEASE-SELECT-DISTRO = "Please select a distribution first before clicking the download button.請在點選下載按鈕前先選擇發行套件";
+PLEASE-SELECT-DISTRO = "請在點選下載按鈕前先選擇發行套件";
 
 // Preferences View Controller Titles
 
