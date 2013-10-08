@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  Mac Linux USB Loader
+
+  Created by SevenBits on 8/31/13.
+
+*/
+
+OKAY = "同意";
+YES = "是";
+NO = "否";
+
+/*
+ * Localizations for RHAppDelegate.m
+ */
+
+OPERATION-IN-PROGRESS = "運算中。";
+QUIT-DURING-OPERATION = "Mac Linux USB Loader 現在正在運算中。現在關閉此程式將可能導致資料損毀。您還是要關閉此程式嗎？";
+
+// Live USB Eraser
+
+FAILED-TO-ERASE-USB = "live USB 清除失敗。";
+USB-ERASE-SUCCESSFUL = "清除成功";
+USB-HAS-BEEN-ERASED = "指定的 live USB 已經被清除.";
+
+// USB Drive Blesser
+
+NO-USBS-PLUGGED-IN = "USB 裝置未連結.";
+NO-USBS-PLUGGED-IN-LONG = "您尚未連結任何使用 Mac Linux USB Loader 製作之可攜式 Linux 發行套件的USB。請連結USB，並選擇重新啓動 Mac Linux USB Loader，或點選界面上的重新整理按鍵。";
+BLESS-COMPLETE = "Bless 模式完成";
+BLESS-COMPLETE-LONG = "保持USB於插槽並重新啓動電腦，您的 Mac 將於開機時直接載入位於您 USB 上的Linux發行套件。";
+UNBLESS-COMPLETE = "bless 模式解除完成.";
+UNBLESS-COMPLETE-LONG = "您的USB已經解除bless 模式，您的 Mac 將不再於開機時直接載入位於您 USB 上的Linux發行套件。如果仍需要從USB開機，請於聽到開機聲響時，按住Option/Alt，選擇出現於螢幕上的裝置。";
+
+// Distribution Downloader
+
+FILE-NOT-FOUND = "找不到檔案。";
+ISO-NOT-FOUND = "找不到位於您下載檔案夾中指定之發行套件的 ISO 檔案。";
+NO-DISTRO-SELECTED = "未選擇發行套件。";
+PLEASE-SELECT-DISTRO = "Please select a distribution first before clicking the download button.請在點選下載按鈕前先選擇發行套件";
+
+// Preferences View Controller Titles
+
+APPLICATION = "應用程式";
+NOTIFICATIONS = "訊息通知";
+FIRMWARE = "韌體";
+ACKNOWLEDGEMENTS = "致函";

@@ -20,7 +20,6 @@
 		240C7B5E175AEDBA00AEAFC9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240C7B5D175AEDBA00AEAFC9 /* Security.framework */; };
 		2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412DE0C171613C3002EA90F /* RecentDocumentsTableViewDataSource.m */; };
 		241EC8A417A5F4880084ED83 /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 241EC8A317A5F4880084ED83 /* defaults.plist */; };
-		242B1EE31769074C00B83171 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 242B1EE21769074C00B83171 /* README */; };
 		2434C19B176F9AF6009C737D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BDE430172D920B00E964A0 /* IOKit.framework */; };
 		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
 		24434A391677D52800DAC959 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A211677D52800DAC959 /* AboutPreferences.png */; };
@@ -51,7 +50,6 @@
 		24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6BF61656F7A700061D2F /* InfoPlist.strings */; };
 		24CA6BFA1656F7A700061D2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6BF91656F7A700061D2F /* main.m */; };
 		24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C051656F7A700061D2F /* MainMenu.xib */; };
-		24DB8AB91659AB0700F7C947 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 24DB8AB81659AB0700F7C947 /* README */; };
 		24EBEE37176676F5002A5452 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24EBEE36176676F5002A5452 /* Icon.icns */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +128,16 @@
 		249F19A6175FDC760074F88A /* Icon2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon2.icns; sourceTree = "<group>"; };
 		249F19B2175FDE170074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		249F19B5175FDE220074F88A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24A5B11517FB76C300F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		24A5B11617FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		24A5B11717FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/Document.xib"; sourceTree = "<group>"; };
+		24A5B11817FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/SBFirmwareViewController.xib"; sourceTree = "<group>"; };
+		24A5B11917FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/SBNotificationViewController.xib"; sourceTree = "<group>"; };
+		24A5B11A17FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/SBAcknowledgementsViewController.xib"; sourceTree = "<group>"; };
+		24A5B11B17FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/SBUpdateControlViewController.xib"; sourceTree = "<group>"; };
+		24A5B11C17FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		24A5B11D17FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		24A5B11E17FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		24AD166216A0E1D90046C51A /* SBNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBNotificationViewController.h; sourceTree = "<group>"; };
 		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBNotificationViewController.xib; sourceTree = "<group>"; };
 		24AD167B16A0F2CE0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBAcknowledgementsViewController.xib; sourceTree = "<group>"; };
@@ -424,6 +432,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					24CA6BE81656F7A700061D2F = {
+						DevelopmentTeam = T47PR9EQY5;
+					};
+				};
 			};
 			buildConfigurationList = 24CA6BE31656F7A700061D2F /* Build configuration list for PBXProject "Mac Linux USB Loader" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -433,6 +446,7 @@
 				en,
 				Base,
 				es,
+				"zh-Hant",
 			);
 			mainGroup = 24CA6BDE1656F7A700061D2F;
 			productRefGroup = 24CA6BEA1656F7A700061D2F /* Products */;
@@ -464,7 +478,6 @@
 				24CA6BF81656F7A700061D2F /* InfoPlist.strings in Resources */,
 				24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */,
 				2479538D16ED01030085057B /* Document.xib in Resources */,
-				24DB8AB91659AB0700F7C947 /* README in Resources */,
 				24434A391677D52800DAC959 /* AboutPreferences.png in Resources */,
 				24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */,
 				247686021682777A00A8C4AD /* bootIA32.efi in Resources */,
@@ -478,7 +491,6 @@
 				24AD167D16A0F2D20046C51A /* SBUpdateControlViewController.xib in Resources */,
 				240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */,
 				24EBEE37176676F5002A5452 /* Icon.icns in Resources */,
-				242B1EE31769074C00B83171 /* README in Resources */,
 				241EC8A417A5F4880084ED83 /* defaults.plist in Resources */,
 				2477560917D25B1C0076A461 /* Localizable.strings in Resources */,
 			);
@@ -529,6 +541,7 @@
 			children = (
 				24068E38177662650065BADF /* en */,
 				24068E3A177662FC0065BADF /* es */,
+				24A5B11817FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = SBFirmwareViewController.xib;
 			sourceTree = "<group>";
@@ -538,6 +551,7 @@
 			children = (
 				2477560A17D25B1C0076A461 /* en */,
 				2477560C17D25B1D0076A461 /* es */,
+				24A5B11517FB76C300F8A9C0 /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -547,6 +561,7 @@
 			children = (
 				2479538E16ED01030085057B /* en */,
 				242262D616ED046200804B9D /* es */,
+				24A5B11717FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = Document.xib;
 			sourceTree = "<group>";
@@ -555,6 +570,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				249F19B2175FDE170074F88A /* en */,
+				24A5B11D17FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -563,6 +579,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				249F19B5175FDE220074F88A /* en */,
+				24A5B11E17FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -572,6 +589,7 @@
 			children = (
 				24AD167816A0F2C80046C51A /* en */,
 				2479537C16ECFD4B0085057B /* es */,
+				24A5B11917FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = SBNotificationViewController.xib;
 			sourceTree = "<group>";
@@ -581,6 +599,7 @@
 			children = (
 				24AD167B16A0F2CE0046C51A /* en */,
 				2479537E16ECFD4B0085057B /* es */,
+				24A5B11A17FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = SBAcknowledgementsViewController.xib;
 			sourceTree = "<group>";
@@ -590,6 +609,7 @@
 			children = (
 				24AD167E16A0F2D20046C51A /* en */,
 				2479538016ECFD4B0085057B /* es */,
+				24A5B11B17FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = SBUpdateControlViewController.xib;
 			sourceTree = "<group>";
@@ -599,6 +619,7 @@
 			children = (
 				24CA6BF71656F7A700061D2F /* en */,
 				2479538816ECFD4B0085057B /* es */,
+				24A5B11C17FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -608,6 +629,7 @@
 			children = (
 				24CA6C061656F7A700061D2F /* en */,
 				2479538716ECFD4B0085057B /* es */,
+				24A5B11617FB76C400F8A9C0 /* zh-Hant */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
