@@ -165,22 +165,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1302">
-                        <rect key="frame" x="392" y="13" width="168" height="32"/>
+                        <rect key="frame" x="429" y="13" width="131" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Visit Project Website" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1303">
+                        <buttonCell key="cell" type="push" title="前往此計劃網站" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1303">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="openGithubPage:" target="755" id="1498"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1307">
-                        <rect key="frame" x="282" y="13" width="110" height="32"/>
+                        <rect key="frame" x="337" y="13" width="92" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Report Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1308">
+                        <buttonCell key="cell" type="push" title="除錯回報" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1308">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="reportBug:" target="755" id="1497"/>
@@ -209,10 +209,10 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1347">
-                        <rect key="frame" x="20" y="189" width="137" height="17"/>
+                        <rect key="frame" x="20" y="189" width="69" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Recent Distributions:" id="1348">
-                            <font key="font" metaFont="system"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="最近的版本" id="1348">
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -287,32 +287,32 @@
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="1071"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="1074"/>
-                    <toolbarItem implicitItemIdentifier="12A6BE16-DA18-4D67-BC0E-1F37C3049E52" label="Create Live USB" paletteLabel="Create Live USB" tag="-1" image="Icon" id="1076">
+                    <toolbarItem implicitItemIdentifier="12A6BE16-DA18-4D67-BC0E-1F37C3049E52" label="Create Live USB" paletteLabel="製作 Live USB" tag="-1" image="Icon" id="1076">
                         <connections>
                             <action selector="openDocument:" target="-1" id="1080"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="D46BFC31-2E91-4868-851A-E05A416E52DA" label="About" paletteLabel="About" tag="-1" image="NSInfo" id="1077">
+                    <toolbarItem implicitItemIdentifier="D46BFC31-2E91-4868-851A-E05A416E52DA" label="About" paletteLabel="關於" tag="-1" image="NSInfo" id="1077">
                         <connections>
                             <action selector="makeKeyAndOrderFront:" target="534" id="1082"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="29B982E6-E12B-4E84-9A51-43F5BC5DFD0B" label="Preferences" paletteLabel="Preferences" tag="-1" image="NSPreferencesGeneral" id="1078">
+                    <toolbarItem implicitItemIdentifier="29B982E6-E12B-4E84-9A51-43F5BC5DFD0B" label="Preferences" paletteLabel="偏好設定" tag="-1" image="NSPreferencesGeneral" id="1078">
                         <connections>
                             <action selector="showPreferences:" target="755" id="1085"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="55CB9913-CEAC-4E55-A66F-E5163A98BC51" label="Erase Live USB" paletteLabel="Erase Live USB" tag="-1" image="Eraser" id="1079">
+                    <toolbarItem implicitItemIdentifier="55CB9913-CEAC-4E55-A66F-E5163A98BC51" label="Erase Live USB" paletteLabel="清除 Live USB" tag="-1" image="Eraser" id="1079">
                         <connections>
                             <action selector="showEraseDistroSheet:" target="755" id="1456"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="E7055DBC-C209-4E34-8A12-C38461C8F2FB" label="Download Distribution" paletteLabel="Download Distribution" tag="-1" image="NSNetwork" id="1300">
+                    <toolbarItem implicitItemIdentifier="E7055DBC-C209-4E34-8A12-C38461C8F2FB" label="Download Distribution" paletteLabel="下載發行套件" tag="-1" image="NSNetwork" id="1300">
                         <connections>
                             <action selector="showDownloadDistroSheet:" target="755" id="1352"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="A9283113-A5EB-4006-B27F-D981E0AF3F75" label="Modify Boot Settings" paletteLabel="Modify Boot Settings" tag="-1" image="Boot" id="1542">
+                    <toolbarItem implicitItemIdentifier="A9283113-A5EB-4006-B27F-D981E0AF3F75" label="Modify Boot Settings" paletteLabel="更改開機設定" tag="-1" image="Boot" id="1542">
                         <connections>
                             <action selector="showModifyBootSettingsSheet:" target="755" id="1543"/>
                         </connections>
@@ -327,7 +327,7 @@
                 </defaultToolbarItems>
             </toolbar>
         </window>
-        <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="534" customClass="NSPanel">
+        <window title="關於" allowsToolTipsWhenApplicationIsInactive="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="534" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <rect key="contentRect" x="139" y="157" width="509" height="234"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
@@ -358,33 +358,33 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="556">
-                        <rect key="frame" x="351" y="49" width="152" height="32"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="556">
+                        <rect key="frame" x="278" y="49" width="217" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="140" id="562"/>
                         </constraints>
-                        <buttonCell key="cell" type="push" title="Fork on GitHub" bezelStyle="rounded" image="NSComputer" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="557">
+                        <buttonCell key="cell" type="push" title="分享共同語碼於 GitHub" bezelStyle="rounded" image="NSComputer" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="557">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="openGithubPage:" target="755" id="1504"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="762">
-                        <rect key="frame" x="230" y="49" width="121" height="32"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="762">
+                        <rect key="frame" x="403" y="82" width="92" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Report a Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="763">
+                        <buttonCell key="cell" type="push" title="除錯回報" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="763">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="reportBug:" target="755" id="1503"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1049">
-                        <rect key="frame" x="189" y="0.0" width="311" height="48"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1049">
+                        <rect key="frame" x="181" y="0.0" width="311" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="305" id="1056"/>
@@ -429,19 +429,19 @@
         </window>
         <menu title="Dock Menu" id="726">
             <items>
-                <menuItem title="Select ISO File" id="728">
+                <menuItem title="選擇 ISO 檔案" id="728">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openDocument:" target="-1" id="735"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Show GitHub Repository" id="759">
+                <menuItem title="瀏覽 GitHub " id="759">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openGithubPage:" target="755" id="1494"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Open Disk Utility" id="729">
+                <menuItem title="開啓 Disk Utility" id="729">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openDiskUtility:" target="755" id="1495"/>
@@ -467,7 +467,7 @@
                 <outlet property="window" destination="1068" id="1632"/>
             </connections>
         </customObject>
-        <window title="Distribution Downloader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1000" customClass="NSPanel">
+        <window title="下載發行套件" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1000" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <rect key="contentRect" x="139" y="154" width="430" height="127"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
@@ -477,22 +477,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1002">
-                        <rect key="frame" x="14" y="41" width="75" height="32"/>
+                        <rect key="frame" x="14" y="41" width="66" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1003">
+                        <buttonCell key="cell" type="push" title="關閉" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1003">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="closeDownloadDistroSheet:" target="755" id="1006"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1008">
-                        <rect key="frame" x="313" y="43" width="103" height="32"/>
+                        <rect key="frame" x="350" y="43" width="66" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1009">
+                        <buttonCell key="cell" type="push" title="下載" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1009">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="downloadDistribution:" target="755" id="1013"/>
@@ -505,7 +505,7 @@
                     <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1354">
                         <rect key="frame" x="20" y="95" width="393" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a Distribution" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="1355">
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="選擇發行套件" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="1355">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -523,18 +523,18 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="413" id="1649"/>
                         </constraints>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The ISO file that is downloaded will be placed in your Downloads folder." id="1379">
-                            <font key="font" metaFont="smallSystem"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="您所下載的ISO檔案將位於您的下載檔案夾。" id="1379">
+                            <font key="font" size="11" name="STHeitiTC-Light"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1385">
-                        <rect key="frame" x="179" y="43" width="134" height="32"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1385">
+                        <rect key="frame" x="194" y="43" width="124" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Open in Finder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1386">
+                        <buttonCell key="cell" type="push" title="於 Finder 開啓" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1386">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="openDownloadedDistro:" target="755" id="1499"/>
@@ -560,7 +560,7 @@
             </view>
         </window>
         <customObject id="1451" customClass="SUUpdater"/>
-        <window title="Erase USB Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1454" customClass="NSPanel">
+        <window title="清除 USB 表單" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1454" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="154" width="505" height="93"/>
@@ -572,46 +572,46 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1458">
-                        <rect key="frame" x="14" y="13" width="75" height="32"/>
+                        <rect key="frame" x="14" y="13" width="66" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1459">
+                        <buttonCell key="cell" type="push" title="關閉" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1459">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="closeEraseDistroSheet:" target="755" id="1462"/>
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1464">
-                        <rect key="frame" x="18" y="49" width="400" height="26"/>
+                        <rect key="frame" x="18" y="49" width="408" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="null" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1469" id="1465">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="1465">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="1466">
                                 <items>
-                                    <menuItem title="null" state="on" id="1469"/>
+                                    <menuItem title="null" id="1469"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1474">
-                        <rect key="frame" x="417" y="13" width="74" height="32"/>
+                        <rect key="frame" x="425" y="13" width="66" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Erase" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1475">
+                        <buttonCell key="cell" type="push" title="清除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1475">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="eraseSelectedDrive:" target="755" id="1493"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1484">
-                        <rect key="frame" x="423" y="51" width="62" height="23"/>
+                        <rect key="frame" x="431" y="51" width="54" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Refresh" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1485">
+                        <buttonCell key="cell" type="smallSquare" title="重整" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1485">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="detectUSBs:" target="755" id="1491"/>
@@ -635,7 +635,7 @@
         <customObject id="1528" customClass="RecentDocumentsTableViewDataSource"/>
         <menu id="1535" userLabel="Recent Documents Context Menu">
             <items>
-                <menuItem title="Refresh" id="1536">
+                <menuItem title="重新整理" id="1536">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="updateRecents:" target="755" id="1540"/>
@@ -643,22 +643,22 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Modify Boot Settings Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1544" customClass="NSPanel">
+        <window title="更改開機設定表單" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1544" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="139" y="154" width="505" height="154"/>
+            <rect key="contentRect" x="139" y="154" width="505" height="140"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="505" height="151"/>
             <view key="contentView" id="1545">
-                <rect key="frame" x="0.0" y="0.0" width="505" height="154"/>
+                <rect key="frame" x="0.0" y="0.0" width="505" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1548">
-                        <rect key="frame" x="14" y="13" width="75" height="32"/>
+                        <rect key="frame" x="14" y="13" width="66" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1563">
+                        <buttonCell key="cell" type="push" title="關閉" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1563">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="closeModifyBootSettingsSheet:" target="755" id="1579"/>
@@ -677,15 +677,15 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1547">
-                        <rect key="frame" x="401" y="13" width="90" height="32"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1547">
+                        <rect key="frame" x="389" y="13" width="102" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="1670"/>
                         </constraints>
-                        <buttonCell key="cell" type="push" title="Unbless" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1564">
+                        <buttonCell key="cell" type="push" title="解除 Bless" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1564">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="unbless:" target="755" id="1631"/>
@@ -698,16 +698,16 @@
                             <constraint firstAttribute="width" constant="65" id="1577"/>
                             <constraint firstAttribute="height" constant="21" id="1669"/>
                         </constraints>
-                        <buttonCell key="cell" type="smallSquare" title="Refresh" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1565">
+                        <buttonCell key="cell" type="smallSquare" title="重整" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1565">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiTC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="detectUSBs:" target="755" id="1581"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1568">
-                        <rect key="frame" x="329" y="13" width="72" height="32"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1568">
+                        <rect key="frame" x="317" y="13" width="72" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Bless" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1569">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -717,12 +717,11 @@
                             <action selector="blessUSB:" target="755" id="1583"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1590">
-                        <rect key="frame" x="17" y="78" width="471" height="56"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1590">
+                        <rect key="frame" x="17" y="78" width="464" height="42"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1591">
-                            <font key="font" metaFont="smallSystem"/>
-                            <string key="title">To help boot Linux, this will "bless" the boot file on your USB drive with an internal operating system tool that will tell your Mac to boot it. Performing this action is not strictly required but may be useful if your Mac won't boot your USB. Your administrator password will be required as this will make changes to the system firmware.</string>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="為了協助Linux開機，這項&quot;bless&quot;設定將告訴您的Mac從您USB裝置中的開機檔案以內部操作系統工具開機。這個選項並非必需，但如果您的Mac無法從USB開機，這個選項可能有所幫助。由於這個選項將更動您的系統韌體，您將需要輸入您的管理者密碼。" id="1591">
+                            <font key="font" size="11" name="AquaKana"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -748,6 +747,7 @@
                 </constraints>
             </view>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="Sc7-a8-uaA"/>
     </objects>
     <resources>
         <image name="Boot" width="48" height="48"/>

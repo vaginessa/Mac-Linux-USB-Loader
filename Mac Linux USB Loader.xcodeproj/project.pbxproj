@@ -51,6 +51,7 @@
 		24CA6BFA1656F7A700061D2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CA6BF91656F7A700061D2F /* main.m */; };
 		24CA6C071656F7A700061D2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CA6C051656F7A700061D2F /* MainMenu.xib */; };
 		24EBEE37176676F5002A5452 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24EBEE36176676F5002A5452 /* Icon.icns */; };
+		24FDAFA418071D5B0013D0DA /* TRANSLATIONS in Resources */ = {isa = PBXBuildFile; fileRef = 24FDAFA318071D5B0013D0DA /* TRANSLATIONS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -163,6 +164,7 @@
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		24EBEE36176676F5002A5452 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		24FDAFA318071D5B0013D0DA /* TRANSLATIONS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TRANSLATIONS; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 			children = (
 				2477560B17D25B1C0076A461 /* Localizable.strings */,
 				24DB8AB81659AB0700F7C947 /* README */,
+				24FDAFA318071D5B0013D0DA /* TRANSLATIONS */,
 				24CA6BF31656F7A700061D2F /* Mac Linux USB Loader */,
 				2419A0C117209608008E0137 /* Compatibility Tester */,
 				24728A6616BD9C1B00920062 /* Icons */,
@@ -492,6 +495,7 @@
 				240C7B5C175AE63F00AEAFC9 /* Boot.icns in Resources */,
 				24EBEE37176676F5002A5452 /* Icon.icns in Resources */,
 				241EC8A417A5F4880084ED83 /* defaults.plist in Resources */,
+				24FDAFA418071D5B0013D0DA /* TRANSLATIONS in Resources */,
 				2477560917D25B1C0076A461 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

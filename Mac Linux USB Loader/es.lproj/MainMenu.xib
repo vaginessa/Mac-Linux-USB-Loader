@@ -332,7 +332,7 @@
             <value key="minSize" type="size" width="509" height="234"/>
             <view key="contentView" id="535">
                 <rect key="frame" x="0.0" y="0.0" width="509" height="234"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <imageView translatesAutoresizingMaskIntoConstraints="NO" id="541">
                         <rect key="frame" x="17" y="-5" width="222" height="222"/>
