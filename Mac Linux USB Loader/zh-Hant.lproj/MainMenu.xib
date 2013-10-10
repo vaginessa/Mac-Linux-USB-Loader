@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="all" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
@@ -358,11 +358,11 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="556">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="556">
                         <rect key="frame" x="278" y="49" width="217" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="140" id="562"/>
+                            <constraint firstAttribute="width" constant="205" id="562"/>
                         </constraints>
                         <buttonCell key="cell" type="push" title="分享共同語碼於 GitHub" bezelStyle="rounded" image="NSComputer" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="557">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -372,7 +372,7 @@
                             <action selector="openGithubPage:" target="755" id="1504"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="762">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="762">
                         <rect key="frame" x="403" y="82" width="92" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="除錯回報" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="763">
@@ -383,7 +383,7 @@
                             <action selector="reportBug:" target="755" id="1503"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1049">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1049">
                         <rect key="frame" x="181" y="0.0" width="311" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
@@ -416,12 +416,12 @@
                     <constraint firstItem="541" firstAttribute="leading" secondItem="535" secondAttribute="leading" constant="17" id="538"/>
                     <constraint firstItem="536" firstAttribute="top" secondItem="535" secondAttribute="top" constant="20" symbolic="YES" id="539"/>
                     <constraint firstAttribute="trailing" secondItem="536" secondAttribute="trailing" constant="20" symbolic="YES" id="540"/>
-                    <constraint firstItem="556" firstAttribute="baseline" secondItem="762" secondAttribute="baseline" id="1046"/>
-                    <constraint firstItem="556" firstAttribute="leading" secondItem="762" secondAttribute="trailing" constant="12" symbolic="YES" id="1047"/>
+                    <constraint firstItem="556" firstAttribute="baseline" secondItem="762" secondAttribute="baseline" constant="33" id="1046"/>
+                    <constraint firstItem="556" firstAttribute="leading" secondItem="762" secondAttribute="trailing" constant="-205" id="1047"/>
                     <constraint firstItem="1049" firstAttribute="bottom" secondItem="535" secondAttribute="bottom" id="1051"/>
                     <constraint firstItem="556" firstAttribute="trailing" secondItem="1049" secondAttribute="trailing" id="1055"/>
-                    <constraint firstItem="1049" firstAttribute="top" secondItem="762" secondAttribute="bottom" constant="8" symbolic="YES" id="1059"/>
-                    <constraint firstItem="762" firstAttribute="leading" secondItem="536" secondAttribute="leading" id="1299"/>
+                    <constraint firstItem="1049" firstAttribute="top" secondItem="762" secondAttribute="bottom" constant="41" id="1059"/>
+                    <constraint firstItem="762" firstAttribute="leading" secondItem="536" secondAttribute="leading" constant="173" id="1299"/>
                     <constraint firstItem="1662" firstAttribute="top" secondItem="536" secondAttribute="bottom" constant="8" symbolic="YES" id="1664"/>
                     <constraint firstItem="1662" firstAttribute="centerX" secondItem="535" secondAttribute="centerX" id="1668"/>
                 </constraints>
@@ -529,8 +529,8 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1385">
-                        <rect key="frame" x="194" y="43" width="124" height="32"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1385">
+                        <rect key="frame" x="226" y="43" width="124" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="於 Finder 開啓" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1386">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -677,8 +677,8 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1547">
-                        <rect key="frame" x="389" y="13" width="102" height="32"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1547">
+                        <rect key="frame" x="393" y="13" width="98" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="1670"/>
@@ -706,8 +706,8 @@
                             <action selector="detectUSBs:" target="755" id="1581"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1568">
-                        <rect key="frame" x="317" y="13" width="72" height="32"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1568">
+                        <rect key="frame" x="321" y="13" width="72" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Bless" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1569">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -717,8 +717,8 @@
                             <action selector="blessUSB:" target="755" id="1583"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1590">
-                        <rect key="frame" x="17" y="78" width="464" height="42"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1590">
+                        <rect key="frame" x="17" y="78" width="469" height="42"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="為了協助Linux開機，這項&quot;bless&quot;設定將告訴您的Mac從您USB裝置中的開機檔案以內部操作系統工具開機。這個選項並非必需，但如果您的Mac無法從USB開機，這個選項可能有所幫助。由於這個選項將更動您的系統韌體，您將需要輸入您的管理者密碼。" id="1591">
                             <font key="font" size="11" name="AquaKana"/>
