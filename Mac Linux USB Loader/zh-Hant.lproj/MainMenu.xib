@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="all" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
@@ -287,11 +287,6 @@
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="1071"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="1074"/>
-                    <toolbarItem implicitItemIdentifier="12A6BE16-DA18-4D67-BC0E-1F37C3049E52" label="Create Live USB" paletteLabel="製作 Live USB" tag="-1" image="Icon" id="1076">
-                        <connections>
-                            <action selector="openDocument:" target="-1" id="1080"/>
-                        </connections>
-                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="D46BFC31-2E91-4868-851A-E05A416E52DA" label="About" paletteLabel="關於" tag="-1" image="NSInfo" id="1077">
                         <connections>
                             <action selector="makeKeyAndOrderFront:" target="534" id="1082"/>
@@ -302,19 +297,24 @@
                             <action selector="showPreferences:" target="755" id="1085"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="55CB9913-CEAC-4E55-A66F-E5163A98BC51" label="Erase Live USB" paletteLabel="清除 Live USB" tag="-1" image="Eraser" id="1079">
+                    <toolbarItem implicitItemIdentifier="55CB9913-CEAC-4E55-A66F-E5163A98BC51" label="清除 Live USB" paletteLabel="清除 Live USB" tag="-1" image="Eraser" id="1079">
                         <connections>
                             <action selector="showEraseDistroSheet:" target="755" id="1456"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="E7055DBC-C209-4E34-8A12-C38461C8F2FB" label="Download Distribution" paletteLabel="下載發行套件" tag="-1" image="NSNetwork" id="1300">
+                    <toolbarItem implicitItemIdentifier="E7055DBC-C209-4E34-8A12-C38461C8F2FB" label="下載發行套件" paletteLabel="下載發行套件" tag="-1" image="NSNetwork" id="1300">
                         <connections>
                             <action selector="showDownloadDistroSheet:" target="755" id="1352"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="A9283113-A5EB-4006-B27F-D981E0AF3F75" label="Modify Boot Settings" paletteLabel="更改開機設定" tag="-1" image="Boot" id="1542">
+                    <toolbarItem implicitItemIdentifier="A9283113-A5EB-4006-B27F-D981E0AF3F75" label="更改開機設定" paletteLabel="更改開機設定" tag="-1" image="Boot" id="1542">
                         <connections>
                             <action selector="showModifyBootSettingsSheet:" target="755" id="1543"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="12A6BE16-DA18-4D67-BC0E-1F37C3049E52" label="製作 Live USB" paletteLabel="製作 Live USB" tag="-1" image="Icon" id="1076">
+                        <connections>
+                            <action selector="openDocument:" target="-1" id="1080"/>
                         </connections>
                     </toolbarItem>
                 </allowedToolbarItems>
