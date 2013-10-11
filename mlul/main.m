@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <sys/ioctl.h>
 #define VERSION "0.1"
-#define error(message) fprintf(stderr, message)
+#define error(message) printf(message)
 
 /* Our global variables. */
 char devicePath[100];
@@ -26,7 +27,7 @@ void usage() {
     printf("\t--info\t\tDisplay information on included components then exit.\n");
     
     printf("INPUTS:\n");
-    printf("\t--drive path\t(required) The path to the mounted volume to install to.\n");
+    printf("\t--drive path\t(required) The path to the mounted volume to install to (must end with '/' character).\n");
     printf("\t--host path\t(optional) Specifies the directory where Mac Linux USB Loader installation files can be found.\n");
     
     printf("\n");
@@ -37,6 +38,38 @@ void version() {
     printf("version %s\n", VERSION);
     
     printf("\n");
+}
+
+void install() {
+#ifdef DEBUG
+    printf("Preparing to install.\n");
+#endif
+    /* Prepare to install. */
+    // 1. Get size of source file.
+    long long fileSize;
+    FILE *fp = fopen(inputFile, "rb");
+    fseek(fp, 0L, SEEK_END);
+    fileSize = ftell(fp);
+    fclose(fp);
+    
+    // 2. Get our terminal size.
+    struct winsize w;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+    //int terminalRows = w.ws_row;
+    //int terminalColoums = w.ws_col;
+    
+    // 4. Construct the path of the installation file.
+    char finalPath[250];
+    strcat(finalPath, devicePath);
+    strcat(finalPath, "efi/boot/bootX64.efi");
+    
+    /* Copy the file. */
+    /*FILE *iPointer = fopen(inputFile, "rb");
+    FILE *tPointer = fopen(finalPath, "wb");
+    char ch;
+    while ((ch = fgetc(iPointer)) != EOF) {
+        fputc(ch, tPointer);
+    }*/
 }
 
 int main(int argc, const char * argv[]) {
@@ -90,7 +123,7 @@ int main(int argc, const char * argv[]) {
                         printf("Input file is %s.\n", inputFile);
 #endif
                     } else {
-                        printf("Warning: argument %s is extraneous.\n", argv[i]);
+                        printf("Warning: argument %s is extraneous and won't be processed.\n", argv[i]);
                     }
                 }
             }
@@ -106,6 +139,9 @@ int main(int argc, const char * argv[]) {
             error("Error: no mounted drive to install to entered (specify with --drive)!\n");
             return 1;
         }
+        
+        // Install the specified file to the USB drive.
+        install();
     }
     return 0;
 }
