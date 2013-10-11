@@ -96,7 +96,8 @@ BOOL isCopying = NO;
     [self getUSBDeviceList];
     
     // Determine our system architecture.
-    NSString *arch = [self determineSystemArchitecture];
+    NSString *arch = [[self determineSystemArchitecture]
+                      stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([arch isEqualToString:@"x86_64"]) {
         // Do something.
     } else {
@@ -137,7 +138,7 @@ BOOL isCopying = NO;
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 // We have a valid mounted media - not necessarily a USB though.
-                NSString * title = [NSString stringWithFormat:@"Install to: Drive at %@ of type %@", volumePath, volumeType];
+                NSString *title = [NSString stringWithFormat:@"Install to: Drive at %@ of type %@", volumePath, volumeType];
                 
 #if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
                 usbs[title] = volumePath; // Add the path of the usb to a dictionary so later we can tell what USB
@@ -188,7 +189,7 @@ BOOL isCopying = NO;
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Okay"];
         [alert setMessageText:@"Selected firmware not present."];
-        [alert setInformativeText:@"The firmware that you have selected to install is not ready to ship in this pre-release version of Mac Linux USB Loader and therefore cannot be installed. Please choose another firmware selection in the Preferences panel."];
+        [alert setInformativeText:@"The firmware that you have selected to install is not ready to ship in this version of Mac Linux USB Loader and therefore cannot be installed. Please choose another firmware selection in the Preferences panel."];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
@@ -201,9 +202,9 @@ BOOL isCopying = NO;
     // If no USBs available, or if no ISO open, display an error and return.
     if ([_usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Okay"];
-        [alert setMessageText:@"No USB devices detected."];
-        [alert setInformativeText:@"There are no detected USB devices."];
+        [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+        [alert setMessageText:NSLocalizedString(@"NO-USBS-PLUGGED-IN", nil)];
+        [alert setInformativeText:NSLocalizedString(@"NO-USBS-PLUGGED-IN-LONG", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
@@ -321,7 +322,7 @@ BOOL isCopying = NO;
 #pragma clang diagnostic warning "-Wdeprecated-declarations"
         
         if (!failure) {
-            [self markUsbAsLive:usbRoot]; // Place a file on the USB to identify it as being created by Mac Linux USB Loader.
+            [device markUsbAsLive:usbRoot]; // Place a file on the USB to identify it as being created by Mac Linux USB Loader.
         }
     } else {
         // Some form of setup failed. Alert the user.
@@ -347,17 +348,6 @@ BOOL isCopying = NO;
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     } else {
     }
-}
-
-- (void)markUsbAsLive:(NSString*)path {
-    NSLog(@"Marking this USB as a live USB...");
-    
-    NSError* error;
-
-    NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
-    NSString *str = [NSString stringWithFormat:@"%@\n%@", isoFilePath, path];
-    
-    [str writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
 }
 
 + (BOOL)autosavesInPlace

@@ -16,6 +16,7 @@
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (BOOL)prepareUSB:(NSString *)path;
+- (void)markUsbAsLive:(NSString*)path;
 //- (BOOL)copyISO:(NSString *)path:(NSString *)isoFile:(NSProgressIndicator *)progressBar:(Document *)document;
 
 @end

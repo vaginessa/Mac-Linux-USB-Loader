@@ -50,6 +50,17 @@
     }
 }
 
+- (void)markUsbAsLive:(NSString*)path {
+    NSLog(@"Marking this USB as a live USB...");
+    
+    NSError* error;
+    
+    NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
+    NSString *str = [NSString stringWithFormat:@"%@\n%@", @"", path];
+    
+    [str writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+}
+
 /*
  * THIS FUNCTION IS NO LONGER IN USE
  *
