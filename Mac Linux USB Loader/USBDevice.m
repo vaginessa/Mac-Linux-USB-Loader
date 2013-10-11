@@ -52,13 +52,18 @@
 
 - (void)markUsbAsLive:(NSString*)path {
     NSLog(@"Marking this USB as a live USB...");
+    NSMutableDictionary *infoDictionary = [NSMutableDictionary new];
     
-    NSError* error;
+    // Add various items to the dictionary, like the chosen Linux distribution, etc.
+    [infoDictionary setObject:NSUserName() forKey:@"Creator User Name"];
+    [infoDictionary setObject:@"Ubuntu or Derivatives" forKey:@"Distribution Name"];
+    [infoDictionary setObject:@"Unknown" forKey:@"Distribution Version"];
+    [infoDictionary setObject:@"" forKey:@"Necessary Boot Options"];
     
+    // Write the dictionary to the file as an XML file.
+    // Enterprise will use this file to set up boot options.
     NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
-    NSString *str = [NSString stringWithFormat:@"%@\n%@", @"", path];
-    
-    [str writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    [infoDictionary writeToFile:filePath atomically:NO];
 }
 
 /*
