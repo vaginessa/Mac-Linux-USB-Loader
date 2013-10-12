@@ -403,8 +403,9 @@ NSString *urlArray[] = {
         NSURL *downloadLocation = [NSURL URLWithString:urlArray[_distroSelectorComboBox.indexOfSelectedItem]];
         
         distributionDownloader = [DistributionDownloader new];
-        [distributionDownloader downloadLinuxDistribution:downloadLocation:
-         [NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]:_distroDownloadProgressIndicator];
+        [distributionDownloader downloadLinuxDistribution:downloadLocation
+                                              destination:[NSHomeDirectory() stringByAppendingPathComponent:@"/Downloads/"]
+                                              progressBar:_distroDownloadProgressIndicator];
         
         // The program calls the setCanQuit method in the download delegates. We don't call it here, as this function returns
         // immediately.

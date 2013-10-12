@@ -17,7 +17,7 @@ NSProgressIndicator *progress;
 
 long long bytesReceived = 0;
 
-- (void)downloadLinuxDistribution:(NSURL*)url:(NSString*)destination:(NSProgressIndicator*)progressBar {
+- (void)downloadLinuxDistribution:(NSURL*)url destination:(NSString*)destination progressBar:(NSProgressIndicator*)progressBar {
     destinationPath = destination;
     progress = progressBar;
     NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];

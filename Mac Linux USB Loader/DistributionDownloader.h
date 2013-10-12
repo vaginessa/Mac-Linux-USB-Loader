@@ -11,7 +11,7 @@
 
 @interface DistributionDownloader : NSObject <NSURLDownloadDelegate>
 
-- (void)downloadLinuxDistribution:(NSURL*)url:(NSString*)destination:(NSProgressIndicator*)progressBar;
+- (void)downloadLinuxDistribution:(NSURL*)url destination:(NSString*)destination progressBar:(NSProgressIndicator*)progressBar;
 - (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 
 @end
