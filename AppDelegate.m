@@ -22,7 +22,8 @@ NSString *urlArray[] = {
     @"http://releases.ubuntu.com/13.04/ubuntu-13.04-desktop-amd64+mac.iso", // Ubuntu 13.04 for Mac
     @"http://linuxfreedom.com/linuxmint/stable/14/linuxmint-14.1-cinnamon-dvd-64bit.iso", // Mint 14.1 US
     @"http://linuxfreedom.com/linuxmint/stable/15/linuxmint-15-cinnamon-dvd-64bit.iso", // Mint 15 US
-    @"http://distro.ibiblio.org/zorin/6/zorin-os-6.3-core-64.iso" // Zorin OS 6.3 US
+    @"http://distro.ibiblio.org/zorin/6/zorin-os-6.3-core-64.iso", // Zorin OS 6.3 US
+    @"http://downloads.sourceforge.net/project/elementaryos/stable/elementaryos-stable-amd64.20130810.iso?r=http%3A%2F%2Felementaryos.org%2F&ts=1381599543&use_mirror=hivelocity" // Elementary OS Luna
     };
 
 - (void)dealloc {

@@ -504,6 +504,7 @@
                                 <string>Linux Mint 14.1 (en el EEUU)</string>
                                 <string>Linux Mint 15 (en el EEUU)</string>
                                 <string>Zorin OS 6.1</string>
+                                <string>Elementary OS Luna</string>
                             </objectValues>
                         </comboBoxCell>
                     </comboBox>

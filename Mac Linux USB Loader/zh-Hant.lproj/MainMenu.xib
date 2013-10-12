@@ -514,6 +514,7 @@
                                 <string>Linux Mint 14.1 Cinnamon (US mirror)</string>
                                 <string>Linux Mint 15 Cinnamon (US mirror)</string>
                                 <string>Zorin OS 6.1</string>
+                                <string>Elementary OS Luna</string>
                             </objectValues>
                         </comboBoxCell>
                     </comboBox>
