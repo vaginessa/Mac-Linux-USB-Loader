@@ -9,7 +9,6 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>zip</string>
 				<string>iso</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
