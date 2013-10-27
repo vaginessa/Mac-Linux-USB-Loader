@@ -19,7 +19,7 @@ DistributionDownloader *distributionDownloader;
  * This array of NSStrings will be full of URLs to ISOs that the user can download.
  */
 NSString *urlArray[] = {
-    @"http://releases.ubuntu.com/13.04/ubuntu-13.04-desktop-amd64+mac.iso", // Ubuntu 13.04 for Mac
+    @"http://releases.ubuntu.com/saucy/ubuntu-13.10-desktop-amd64+mac.iso", // Ubuntu 13.10 for Mac
     @"http://linuxfreedom.com/linuxmint/stable/14/linuxmint-14.1-cinnamon-dvd-64bit.iso", // Mint 14.1 US
     @"http://linuxfreedom.com/linuxmint/stable/15/linuxmint-15-cinnamon-dvd-64bit.iso", // Mint 15 US
     @"http://distro.ibiblio.org/zorin/6/zorin-os-6.3-core-64.iso", // Zorin OS 6.3 US
