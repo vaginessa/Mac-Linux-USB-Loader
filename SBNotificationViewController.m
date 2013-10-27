@@ -30,13 +30,9 @@
 }
 
 - (IBAction)showNotificationCenter:(NSButton*)sender {
-    NSProcessInfo *pinfo = [NSProcessInfo processInfo];
-    NSArray *myarr = [[pinfo operatingSystemVersionString] componentsSeparatedByString:@" "];
-    NSString *version = myarr[1];
-    
     // Ensure that we are running 10.8 before we display the preferences as we still support Lion, which does not have
     // notifications.
-    if ([version rangeOfString:@"10.8"].location == NSNotFound) {
+    if (NSAppKitVersionNumber < NSAppKitVersionNumber10_8) {
         [sender setEnabled:NO];
     } else {
         [[NSWorkspace sharedWorkspace] openFile:@"/System/Library/PreferencePanes/Notifications.prefPane"];
