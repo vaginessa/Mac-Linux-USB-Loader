@@ -100,7 +100,6 @@
 		2419A0CD17209608008E0137 /* CTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTAppDelegate.h; sourceTree = "<group>"; };
 		2419A0CE17209608008E0137 /* CTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
 		2419A0D917209608008E0137 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		2419A0ED17209636008E0137 /* Compatibility Tester.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compatibility Tester.entitlements"; sourceTree = "<group>"; };
 		241EC8A317A5F4880084ED83 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = defaults.plist; path = ../Resources/defaults.plist; sourceTree = "<group>"; };
 		242262D616ED046200804B9D /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/Document.xib; sourceTree = "<group>"; };
 		242B1EE21769074C00B83171 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
@@ -203,7 +202,6 @@
 		2419A0C117209608008E0137 /* Compatibility Tester */ = {
 			isa = PBXGroup;
 			children = (
-				2419A0ED17209636008E0137 /* Compatibility Tester.entitlements */,
 				2419A0CD17209608008E0137 /* CTAppDelegate.h */,
 				2419A0CE17209608008E0137 /* CTAppDelegate.m */,
 				249F19B3175FDE170074F88A /* MainMenu.xib */,
@@ -652,7 +650,7 @@
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = "Compatibility Tester/Compatibility Tester.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Compatibility Tester/Compatibility Tester-Prefix.pch";
@@ -669,7 +667,7 @@
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = "Compatibility Tester/Compatibility Tester.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Compatibility Tester/Compatibility Tester-Prefix.pch";
