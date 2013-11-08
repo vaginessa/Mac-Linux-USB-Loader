@@ -469,7 +469,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
             
             [progressIndicator setDoubleValue:0];
             
-#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_8)
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
             // Show a notification for Mountain Lion users.
             Class test = NSClassFromString(@"NSUserNotificationCenter");
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
