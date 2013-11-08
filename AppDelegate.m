@@ -118,7 +118,7 @@ NSString *urlArray[] = {
     // Set up the command line arguments.
     char *efiFile = (char *)[[path stringByAppendingPathComponent:@"/efi/boot/bootx64.efi"] UTF8String]; // Create the path to the EFI file.
     char *tool = "/usr/sbin/bless";
-    char *args[] = {"--mount", (char *)[[_bootUSBSelector titleOfSelectedItem] UTF8String], "--file", efiFile, "--setBoot", NULL};
+    char *args[] = {"--mount", (char *)[path UTF8String], "--file", efiFile, "--setBoot", NULL};
     FILE *pipe = NULL;
     
     /*
@@ -184,7 +184,7 @@ NSString *urlArray[] = {
     for (NSString *volumePath in volumes) {
         // Get filesystem info about each of the mounted volumes.
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
-            if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
+            if (([volumeType isEqualToString:@"msdos"] || [volumeType isEqualToString:@"exfat"]) && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 if([[NSFileManager defaultManager] fileExistsAtPath:[volumePath stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"]]) {
                     // We have a valid mounted media - not necessarily a USB though.
                     [_eraseUSBSelector addItemWithTitle:volumePath]; // Add to the dropdown lists.
