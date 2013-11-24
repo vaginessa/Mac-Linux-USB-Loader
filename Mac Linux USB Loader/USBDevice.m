@@ -56,8 +56,7 @@
             [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        }
-        else {
+        } else {
             enterpriseInstallSuccess = YES;
         }
     
@@ -68,8 +67,7 @@
             [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        }
-        else {
+        } else {
             grubInstallSuccess = YES;
         }
         
@@ -84,8 +82,7 @@
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
             returnValue = NO;
-        }
-        else {
+        } else {
             returnValue = YES;
         }
     }
