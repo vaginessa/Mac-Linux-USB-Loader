@@ -16,6 +16,8 @@ NO = "No";
 
 OPERATION-IN-PROGRESS = "Una operación está en curso.";
 QUIT-DURING-OPERATION = "Mac Linux USB Loader se encuentra actualmente en medio de una operación. Salir de la aplicación en este momento podría resultar en datos corruptos. ¿Quieres dejar de todos modos?";
+UPGRADE-FIRMWARE = "¿Mejora a Enterprise?";
+UPGRADE-FIRMWARE-LONG = "¿Enterprise, la nueva solución de arranque utilizado por Mac Linux USB Loader, ha sido puesto en libertad. ¿Quieres configurarlo como su gestor preferido para todas las nuevas instalaciones?";
 
 // Live USB Eraser
 

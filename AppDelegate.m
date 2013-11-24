@@ -46,6 +46,16 @@ NSString *urlArray[] = {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     bootLoaderName = [defaults stringForKey:@"selectedFirmwareType"];
     automaticallyBless = [defaults boolForKey:@"automaticallyBless"];
+    
+    if ([defaults boolForKey:@"userToldAboutNewFirmware"] == NO && ![bootLoaderName isEqualToString:@"Enterprise EFI Linux Loader"]) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"YES", nil)];
+        [alert addButtonWithTitle:NSLocalizedString(@"NO", nil)];
+        [alert setMessageText:NSLocalizedString(@"UPGRADE-FIRMWARE", nil)];
+        [alert setInformativeText:NSLocalizedString(@"UPGRADE-FIRMWARE-LONG", nil)];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(firmwareSelectionSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    }
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
@@ -432,6 +442,14 @@ NSString *urlArray[] = {
     if (returnCode == NSAlertFirstButtonReturn) {
         [[NSApp delegate] setCanQuit:YES];
         [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+    }
+}
+
+- (void)firmwareSelectionSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"userToldAboutNewFirmware"];
+    if (returnCode == NSAlertFirstButtonReturn) {
+        [defaults setObject:@"Enterprise EFI Linux Loader" forKey:@"selectedFirmwareType"];
     }
 }
 

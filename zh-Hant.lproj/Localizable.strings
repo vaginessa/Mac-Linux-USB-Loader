@@ -16,6 +16,8 @@ NO = "否";
 
 OPERATION-IN-PROGRESS = "運算中。";
 QUIT-DURING-OPERATION = "Mac Linux USB Loader 現在正在運算中。現在關閉此程式將可能導致資料損毀。您還是要關閉此程式嗎？";
+UPGRADE-FIRMWARE = "Upgrade to Enterprise?";
+UPGRADE-FIRMWARE-LONG = "Enterprise, the new booting solution used by Mac Linux USB Loader, has been released. Do you want to set it as your preferred loader for all new installations?";
 
 // Live USB Eraser
 

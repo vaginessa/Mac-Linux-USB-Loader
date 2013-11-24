@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B35" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Document">
@@ -34,11 +34,10 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Icon" id="100033"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="100056">
-                        <rect key="frame" x="175" y="206" width="299" height="41"/>
+                        <rect key="frame" x="176" y="206" width="297" height="41"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="293" id="100060"/>
-                            <constraint firstAttribute="height" constant="41" id="100368"/>
+                            <constraint firstAttribute="height" constant="41" id="bh2-VJ-EK0"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Linux USB Loader" id="100057">
                             <font key="font" size="22" name="Nadeem"/>
@@ -58,7 +57,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="100252">
-                        <rect key="frame" x="199" y="67" width="182" height="32"/>
+                        <rect key="frame" x="200" y="67" width="181" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Erase Existing EFI Boot" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="100253">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -71,12 +70,12 @@
                     <popUpButton horizontalHuggingPriority="242" verticalHuggingPriority="750" horizontalCompressionResistancePriority="745" verticalCompressionResistancePriority="739" translatesAutoresizingMaskIntoConstraints="NO" id="100067">
                         <rect key="frame" x="18" y="38" width="417" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="null" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="100068">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="100068">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="100069">
                                 <items>
-                                    <menuItem title="null" state="on" keyEquivalent="n" id="100072">
+                                    <menuItem title="null" keyEquivalent="n" id="100072">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>
@@ -103,7 +102,6 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="100056" firstAttribute="top" secondItem="6" secondAttribute="top" id="100391"/>
                     <constraint firstItem="100067" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" symbolic="YES" id="100409"/>
                     <constraint firstItem="100301" firstAttribute="leading" secondItem="100067" secondAttribute="trailing" constant="8" symbolic="YES" id="100411"/>
                     <constraint firstAttribute="trailing" secondItem="100301" secondAttribute="trailing" constant="20" symbolic="YES" id="100414"/>
@@ -115,10 +113,12 @@
                     <constraint firstAttribute="trailing" secondItem="100241" secondAttribute="trailing" constant="20" symbolic="YES" id="100552"/>
                     <constraint firstAttribute="trailing" secondItem="100091" secondAttribute="trailing" constant="20" symbolic="YES" id="100553"/>
                     <constraint firstItem="100241" firstAttribute="leading" secondItem="100252" secondAttribute="trailing" constant="12" symbolic="YES" id="100567"/>
-                    <constraint firstItem="100056" firstAttribute="leading" secondItem="100032" secondAttribute="trailing" constant="8" symbolic="YES" id="100570"/>
                     <constraint firstAttribute="bottom" secondItem="100067" secondAttribute="bottom" constant="41" id="100612"/>
                     <constraint firstItem="100301" firstAttribute="top" secondItem="100241" secondAttribute="bottom" constant="12" symbolic="YES" id="100614"/>
                     <constraint firstItem="100252" firstAttribute="baseline" secondItem="100241" secondAttribute="baseline" id="100615"/>
+                    <constraint firstItem="100056" firstAttribute="leading" secondItem="100032" secondAttribute="trailing" constant="8" symbolic="YES" id="8lM-e5-HKu"/>
+                    <constraint firstItem="100056" firstAttribute="top" secondItem="100032" secondAttribute="top" id="V06-YC-Nec"/>
+                    <constraint firstAttribute="trailing" secondItem="100056" secondAttribute="trailing" constant="54" id="mBs-fJ-jOp"/>
                 </constraints>
             </view>
             <connections>

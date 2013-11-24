@@ -26,9 +26,10 @@
 		24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 24434A221677D52800DAC959 /* AccountsPreferences.png */; };
 		244C050416DD840E0083A0C9 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 244C050316DD840E0083A0C9 /* dsa_pub.pem */; };
 		244C050816DD8E460083A0C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
+		2466DCB4184295F700E750F1 /* bootX64-legacy.efi in Resources */ = {isa = PBXBuildFile; fileRef = 2466DCB3184295F700E750F1 /* bootX64-legacy.efi */; };
+		2466DCB71842998500E750F1 /* boot.efi in Resources */ = {isa = PBXBuildFile; fileRef = 2466DCB51842998500E750F1 /* boot.efi */; };
+		2466DCB81842998500E750F1 /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 2466DCB61842998500E750F1 /* bootX64.efi */; };
 		24728A6816BDA62C00920062 /* Notifications.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24728A6716BDA62B00920062 /* Notifications.icns */; };
-		247686021682777A00A8C4AD /* bootIA32.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686001682777A00A8C4AD /* bootIA32.efi */; };
-		247686031682777A00A8C4AD /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 247686011682777A00A8C4AD /* bootX64.efi */; };
 		2477560917D25B1C0076A461 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2477560B17D25B1C0076A461 /* Localizable.strings */; };
 		2479538D16ED01030085057B /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2479538F16ED01030085057B /* Document.xib */; };
 		248317CE16BF146C00313D33 /* Eraser.icns in Resources */ = {isa = PBXBuildFile; fileRef = 248317CD16BF146C00313D33 /* Eraser.icns */; };
@@ -110,9 +111,10 @@
 		24434A2E1677D52800DAC959 /* SBUpdateControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUpdateControlViewController.h; sourceTree = "<group>"; };
 		244C050316DD840E0083A0C9 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		244C050716DD8E460083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		2466DCB3184295F700E750F1 /* bootX64-legacy.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bootX64-legacy.efi"; sourceTree = "<group>"; };
+		2466DCB51842998500E750F1 /* boot.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = boot.efi; sourceTree = "<group>"; };
+		2466DCB61842998500E750F1 /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
 		24728A6716BDA62B00920062 /* Notifications.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notifications.icns; path = Resources/Notifications.icns; sourceTree = "<group>"; };
-		247686001682777A00A8C4AD /* bootIA32.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootIA32.efi; sourceTree = "<group>"; };
-		247686011682777A00A8C4AD /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootX64.efi; sourceTree = "<group>"; };
 		2477560A17D25B1C0076A461 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2477560C17D25B1D0076A461 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2479537C16ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/SBNotificationViewController.xib; sourceTree = "<group>"; };
@@ -261,8 +263,9 @@
 			isa = PBXGroup;
 			children = (
 				242B1EE21769074C00B83171 /* README */,
-				247686001682777A00A8C4AD /* bootIA32.efi */,
-				247686011682777A00A8C4AD /* bootX64.efi */,
+				2466DCB51842998500E750F1 /* boot.efi */,
+				2466DCB61842998500E750F1 /* bootX64.efi */,
+				2466DCB3184295F700E750F1 /* bootX64-legacy.efi */,
 			);
 			name = "EFI Loader";
 			path = "../EFI Loader";
@@ -486,8 +489,6 @@
 				2479538D16ED01030085057B /* Document.xib in Resources */,
 				24434A391677D52800DAC959 /* AboutPreferences.png in Resources */,
 				24434A3A1677D52800DAC959 /* AccountsPreferences.png in Resources */,
-				247686021682777A00A8C4AD /* bootIA32.efi in Resources */,
-				247686031682777A00A8C4AD /* bootX64.efi in Resources */,
 				24068E41177666820065BADF /* SBFirmwareViewController.xib in Resources */,
 				24AD167716A0F2C80046C51A /* SBNotificationViewController.xib in Resources */,
 				24AD167A16A0F2CE0046C51A /* SBAcknowledgementsViewController.xib in Resources */,
@@ -500,6 +501,9 @@
 				241EC8A417A5F4880084ED83 /* defaults.plist in Resources */,
 				24FDAFA418071D5B0013D0DA /* TRANSLATIONS in Resources */,
 				2477560917D25B1C0076A461 /* Localizable.strings in Resources */,
+				2466DCB81842998500E750F1 /* bootX64.efi in Resources */,
+				2466DCB71842998500E750F1 /* boot.efi in Resources */,
+				2466DCB4184295F700E750F1 /* bootX64-legacy.efi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

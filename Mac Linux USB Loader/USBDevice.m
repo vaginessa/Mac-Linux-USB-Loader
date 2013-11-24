@@ -12,12 +12,22 @@
 
 - (BOOL)prepareUSB:(NSString *)path {
     // Construct our strings that we need.
-    NSString *bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64" ofType:@"efi" inDirectory:@""];
+    NSString *bootLoaderName = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedFirmwareType"];
+    NSString *bootLoaderPath, *grubLoaderPath;
+    if (![bootLoaderName isEqualToString:@"Legacy Loader"]) {
+        bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64-legacy" ofType:@"efi" inDirectory:@""];
+        grubLoaderPath = @"";
+    } else {
+        bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64" ofType:@"efi" inDirectory:@""];
+        grubLoaderPath = [[NSBundle mainBundle] pathForResource:@"boot" ofType:@"efi" inDirectory:@""];
+    }
+    
     NSString *finalPath = [path stringByAppendingPathComponent:@"/efi/boot/bootX64.efi"];
+    NSString *finalLoaderPath = [path stringByAppendingPathComponent:@"/efi/boot/boot.efi"];
     NSString *tempPath = [path stringByAppendingPathComponent:@"/efi/boot"];
     
-    // Check if the EFI bootloader already exists.
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:finalPath];
+    // Check if either if the required booting images is present..
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:finalPath] & [[NSFileManager defaultManager] fileExistsAtPath:finalLoaderPath];
     
     // Should be relatively self-explanatory. If there's already an EFI executable, show an error message.
     if (fileExists == YES) {
@@ -35,35 +45,65 @@
     // Make the folder to hold the EFI executable and ISO to boot.
     [[NSFileManager new] createDirectoryAtPath:tempPath withIntermediateDirectories:YES attributes:nil error:nil];
     
-    // Copy the EFI bootloader.
-    if ([[NSFileManager new] copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Abort"];
-        [alert setMessageText:@"Failed to create bootable USB."];
-        [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        return NO;
+    // Copy the EFI bootloader. Do different things depending on which firmware is to be installed.
+    BOOL returnValue = NO;
+    if ([bootLoaderName isEqualToString:@"Enterprise EFI Linux Loader"]) {
+        BOOL enterpriseInstallSuccess = NO, grubInstallSuccess = NO;
+        if ([[NSFileManager new] copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert addButtonWithTitle:@"Abort"];
+            [alert setMessageText:@"Failed to create bootable USB."];
+            [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        }
+        else {
+            enterpriseInstallSuccess = YES;
+        }
+    
+        if ([[NSFileManager new] copyItemAtPath:grubLoaderPath toPath:finalLoaderPath error:nil] == NO) {
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert addButtonWithTitle:@"Abort"];
+            [alert setMessageText:@"Failed to create bootable USB."];
+            [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        }
+        else {
+            grubInstallSuccess = YES;
+        }
+        
+        // Only return true if both operations are successful.
+        returnValue = enterpriseInstallSuccess & grubInstallSuccess;
+    } else {
+        if ([[NSFileManager new] copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert addButtonWithTitle:@"Abort"];
+            [alert setMessageText:@"Failed to create bootable USB."];
+            [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+            returnValue = NO;
+        }
+        else {
+            returnValue = YES;
+        }
     }
-    else {
-        return YES;
-    }
+    
+    return returnValue;
 }
 
 - (void)markUsbAsLive:(NSString*)path {
     NSLog(@"Marking this USB as a live USB...");
-    NSMutableDictionary *infoDictionary = [NSMutableDictionary new];
     
-    // Add various items to the dictionary, like the chosen Linux distribution, etc.
-    [infoDictionary setObject:NSUserName() forKey:@"Creator User Name"];
-    [infoDictionary setObject:@"Ubuntu or Derivatives" forKey:@"Distribution Name"];
-    [infoDictionary setObject:@"Unknown" forKey:@"Distribution Version"];
-    [infoDictionary setObject:@"" forKey:@"Necessary Boot Options"];
+    NSString *filePath = [path stringByAppendingPathComponent:@".MLUL_Live_USB"];
+    NSString *stringToWrite = @"";
+    stringToWrite = [stringToWrite
+                     stringByAppendingString:@"# This file is machine generated and required by Mac Linux USB Loader and Enterprise."];
+    stringToWrite = [stringToWrite stringByAppendingString:@"# Do not modify it unless you know what you're doing."];
+    stringToWrite = [stringToWrite stringByAppendingString:@"family Ubuntu"]; // Hard code for now.
     
-    // Write the dictionary to the file as an XML file.
-    // Enterprise will use this file to set up boot options.
-    NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
-    [infoDictionary writeToFile:filePath atomically:NO];
+    [stringToWrite writeToFile:filePath atomically:NO encoding:NSASCIIStringEncoding error:nil];
 }
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {

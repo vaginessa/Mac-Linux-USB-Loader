@@ -181,24 +181,6 @@ BOOL isCopying = NO;
     
     isoFilePath = [[self fileURL] path];
     
-    // Re-read the user's firmware selection in case they've changed it since opening the ISO.
-    bootLoaderName = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedFirmwareType"];
-    if (![bootLoaderName isEqualToString:@"Legacy Loader"]) {
-        // Enterprise is not currently finished and not bundled with Mac Linux USB Loader, so bail if the user selected
-        // it as their firmware to be installed.
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Okay"];
-        [alert setMessageText:@"Selected firmware not present."];
-        [alert setInformativeText:@"The firmware that you have selected to install is not ready to ship in this version of Mac Linux USB Loader and therefore cannot be installed. Please choose another firmware selection in the Preferences panel."];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        
-        [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
-        isCopying = NO;
-        
-        return;
-    }
-    
     // If no USBs available, or if no ISO open, display an error and return.
     if ([_usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
         NSAlert *alert = [[NSAlert alloc] init];
