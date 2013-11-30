@@ -24,6 +24,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
 @property (strong) IBOutlet NSProgressIndicator *spinner;
 @property (strong) RHPreferencesWindowController *preferencesWindowController;
 @property (strong) IBOutlet NSPopUpButton *usbDriveDropdown;
+@property (weak) IBOutlet NSComboBox *distributionFamilySelector;
 
 - (IBAction)eraseLiveBoot:(id)sender;
 - (NSString *)determineSystemArchitecture;

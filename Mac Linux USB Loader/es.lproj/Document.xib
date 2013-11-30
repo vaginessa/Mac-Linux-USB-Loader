@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B35" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Document">
@@ -35,7 +35,7 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Icon" id="100347"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="100323">
-                        <rect key="frame" x="175" y="206" width="299" height="41"/>
+                        <rect key="frame" x="176" y="206" width="297" height="41"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="293" id="100348"/>
@@ -75,12 +75,12 @@
                     <popUpButton horizontalHuggingPriority="242" verticalHuggingPriority="750" horizontalCompressionResistancePriority="745" verticalCompressionResistancePriority="739" translatesAutoresizingMaskIntoConstraints="NO" id="100319">
                         <rect key="frame" x="18" y="38" width="397" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="nulo" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="100354">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="100354">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="100355">
                                 <items>
-                                    <menuItem title="nulo" state="on" id="100356">
+                                    <menuItem title="nulo" id="100356">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>
@@ -105,6 +105,28 @@
                             <action selector="updateDeviceList:" target="-2" id="100365"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCS-yM-m2w">
+                        <rect key="frame" x="198" y="109" width="153" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Familia de Distribución:" id="G1S-Va-Pf4">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-aJ-bxa">
+                        <rect key="frame" x="360" y="105" width="148" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Ubuntu" placeholderString="" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="hKE-g9-jdN">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>Ubuntu</string>
+                                <string>Debian</string>
+                            </objectValues>
+                        </comboBoxCell>
+                    </comboBox>
                 </subviews>
                 <constraints>
                     <constraint firstItem="100324" firstAttribute="top" secondItem="100315" secondAttribute="top" id="100325"/>
@@ -126,7 +148,11 @@
                 </constraints>
             </view>
         </window>
-        <customObject id="100314" customClass="AppDelegate"/>
+        <customObject id="100314" customClass="AppDelegate">
+            <connections>
+                <outlet property="distroSelectorComboBox" destination="V8R-aJ-bxa" id="jB1-Se-3tn"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="Icon" width="512" height="512"/>

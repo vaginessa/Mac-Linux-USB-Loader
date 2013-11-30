@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Document">
             <connections>
+                <outlet property="distributionFamilySelector" destination="UVY-it-6rb" id="lOg-CA-I0C"/>
                 <outlet property="eraseUSBButton" destination="100252" id="100268"/>
                 <outlet property="makeUSBButton" destination="100241" id="100249"/>
                 <outlet property="spinner" destination="100091" id="100251"/>
@@ -100,6 +101,28 @@
                             <action selector="updateDeviceList:" target="-2" id="100307"/>
                         </connections>
                     </button>
+                    <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UVY-it-6rb">
+                        <rect key="frame" x="337" y="109" width="169" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Ubuntu" placeholderString="" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="Yeh-2G-vtc">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>Ubuntu</string>
+                                <string>Debian</string>
+                            </objectValues>
+                        </comboBoxCell>
+                    </comboBox>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjF-T1-qAZ">
+                        <rect key="frame" x="204" y="113" width="127" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Distribution Family:" id="gWb-Z3-5QL">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="100067" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" symbolic="YES" id="100409"/>

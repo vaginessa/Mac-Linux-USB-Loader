@@ -43,6 +43,7 @@
 
 NSMutableDictionary *usbs;
 NSString *isoFilePath;
+NSString *isoFileName;
 USBDevice *device;
 FSFileOperationClientContext clientContext;
 SBCopyDelegateInfoRelay *infoClientContext;
@@ -77,6 +78,15 @@ BOOL isCopying = NO;
     device.window = window;
     
     isoFilePath = [[self fileURL] absoluteString];
+    isoFileName = [[self fileURL] lastPathComponent];
+    if ([isoFileName rangeOfString:@"ubuntu"].location != NSNotFound ||
+        [isoFileName rangeOfString:@"zorin"].location != NSNotFound ||
+        [isoFileName rangeOfString:@"elementaryos"].location != NSNotFound ||
+        [isoFileName rangeOfString:@"linuxmint"].location != NSNotFound) {
+        [_distributionFamilySelector setStringValue:@"Ubuntu"];
+    } else {
+        [_distributionFamilySelector setStringValue:@"Debian"];
+    }
     
     // Set the title of this window to contain the name of the ISO we're installing.
     [window setTitle:[@"Installing: " stringByAppendingString:[[isoFilePath lastPathComponent] stringByDeletingPathExtension]]];
