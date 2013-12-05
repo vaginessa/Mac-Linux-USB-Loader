@@ -11,6 +11,9 @@
 @implementation USBDevice
 
 - (BOOL)prepareUSB:(NSString *)path {
+    // Create an NSFileManager.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
     // Construct our strings that we need.
     NSString *bootLoaderName = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedFirmwareType"];
     NSString *bootLoaderPath, *grubLoaderPath;
@@ -27,7 +30,7 @@
     NSString *tempPath = [path stringByAppendingPathComponent:@"/efi/boot"];
     
     // Check if either if the required booting images is present..
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:finalPath] & [[NSFileManager defaultManager] fileExistsAtPath:finalLoaderPath];
+    BOOL fileExists = [fileManager fileExistsAtPath:finalPath] & [fileManager fileExistsAtPath:finalLoaderPath];
     
     // Should be relatively self-explanatory. If there's already an EFI executable, show an error message.
     if (fileExists == YES) {
@@ -43,13 +46,13 @@
     }
     
     // Make the folder to hold the EFI executable and ISO to boot.
-    [[NSFileManager new] createDirectoryAtPath:tempPath withIntermediateDirectories:YES attributes:nil error:nil];
+    [fileManager createDirectoryAtPath:tempPath withIntermediateDirectories:YES attributes:nil error:nil];
     
     // Copy the EFI bootloader. Do different things depending on which firmware is to be installed.
     BOOL returnValue = NO;
     if ([bootLoaderName isEqualToString:@"Enterprise EFI Linux Loader"]) {
         BOOL enterpriseInstallSuccess = NO, grubInstallSuccess = NO;
-        if ([[NSFileManager new] copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
+        if ([fileManager copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:@"Abort"];
             [alert setMessageText:@"Failed to create bootable USB."];
@@ -60,7 +63,7 @@
             enterpriseInstallSuccess = YES;
         }
     
-        if ([[NSFileManager new] copyItemAtPath:grubLoaderPath toPath:finalLoaderPath error:nil] == NO) {
+        if ([fileManager copyItemAtPath:grubLoaderPath toPath:finalLoaderPath error:nil] == NO) {
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:@"Abort"];
             [alert setMessageText:@"Failed to create bootable USB."];
@@ -74,7 +77,7 @@
         // Only return true if both operations are successful.
         returnValue = enterpriseInstallSuccess & grubInstallSuccess;
     } else {
-        if ([[NSFileManager new] copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
+        if ([fileManager copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:@"Abort"];
             [alert setMessageText:@"Failed to create bootable USB."];
