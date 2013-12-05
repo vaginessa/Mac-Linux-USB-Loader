@@ -194,7 +194,7 @@ NSString *urlArray[] = {
     for (NSString *volumePath in volumes) {
         // Get filesystem info about each of the mounted volumes.
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
-            if (([volumeType isEqualToString:@"msdos"] || [volumeType isEqualToString:@"exfat"]) && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
+            if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 if([[NSFileManager defaultManager] fileExistsAtPath:[volumePath stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"]]) {
                     // We have a valid mounted media - not necessarily a USB though.
                     [_eraseUSBSelector addItemWithTitle:volumePath]; // Add to the dropdown lists.
