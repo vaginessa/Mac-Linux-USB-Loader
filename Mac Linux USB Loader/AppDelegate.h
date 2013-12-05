@@ -43,7 +43,7 @@
 
 @property BOOL canQuit; // Can the user quit the application?
 
-- (void)blessDrive:(NSString *)path sender:(id)sender;
+- (BOOL)blessDrive:(NSString *)path sender:(id)sender;
 - (void)respondToRecentFileDoubleClick;
 
 #pragma mark - IBActions

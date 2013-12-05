@@ -11,7 +11,7 @@
 @implementation USBDevice
 
 - (BOOL)prepareUSB:(NSString *)path {
-    // Create an NSFileManager.
+    // Get an NSFileManager.
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     // Construct our strings that we need.
@@ -106,11 +106,11 @@
 - (void)markUsbAsLive:(NSString*)path distributionFamily:(NSString *)family {
     NSLog(@"Marking this USB as a live USB...");
     
-    NSString *filePath = [path stringByAppendingPathComponent:@".MLUL_Live_USB"];
+    NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL_Live_USB"];
     NSString *stringToWrite = @"";
     stringToWrite = [stringToWrite
-                     stringByAppendingString:@"# This file is machine generated and required by Mac Linux USB Loader and Enterprise."];
-    stringToWrite = [stringToWrite stringByAppendingString:@"# Do not modify it unless you know what you're doing."];
+                     stringByAppendingString:@"# This file is machine generated and required by Mac Linux USB Loader and Enterprise.\n"];
+    stringToWrite = [stringToWrite stringByAppendingString:@"# Do not modify it unless you know what you're doing.\n"];
     stringToWrite = [stringToWrite stringByAppendingString:
                      [NSString stringWithFormat:@"family %@", family]]; // Hard code for now.
     

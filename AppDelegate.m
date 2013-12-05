@@ -95,7 +95,7 @@ NSString *urlArray[] = {
     }
 }
 
-- (void)blessDrive:(NSString *)path sender:(id)sender {
+- (BOOL)blessDrive:(NSString *)path sender:(id)sender {
     // Create authorization reference.
     OSStatus status;
     AuthorizationRef authorizationRef;
@@ -103,7 +103,7 @@ NSString *urlArray[] = {
     status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
     if (status != errAuthorizationSuccess) {
         NSLog(@"Error Creating Initial Authorization: %d", status);
-        return;
+        return NO;
     }
     
     /*
@@ -122,7 +122,7 @@ NSString *urlArray[] = {
 #ifdef DEBUG
         NSLog(@"Copy Rights Unsuccessful: %d", status);
 #endif
-        return;
+        return NO;
     }
     
     // Set up the command line arguments.
@@ -142,10 +142,11 @@ NSString *urlArray[] = {
     
     if (status != errAuthorizationSuccess) {
         NSLog(@"Error: %d", status);
-        return;
+        return NO;
     }
     
     status = AuthorizationFree(authorizationRef, kAuthorizationFlagDestroyRights);
+    return YES;
 }
 
 #pragma mark - IBActions
@@ -195,7 +196,7 @@ NSString *urlArray[] = {
         // Get filesystem info about each of the mounted volumes.
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
-                if([[NSFileManager defaultManager] fileExistsAtPath:[volumePath stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"]]) {
+                if (![[NSFileManager defaultManager] fileExistsAtPath:[volumePath stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"]]) {
                     // We have a valid mounted media - not necessarily a USB though.
                     [_eraseUSBSelector addItemWithTitle:volumePath]; // Add to the dropdown lists.
                     [_bootUSBSelector addItemWithTitle:volumePath];
@@ -282,17 +283,19 @@ NSString *urlArray[] = {
         return;
     }
     
-    [self blessDrive:[_bootUSBSelector titleOfSelectedItem] sender:sender];
+    BOOL result = [self blessDrive:[_bootUSBSelector titleOfSelectedItem] sender:sender];
     
     [self detectUSBs:sender];
     [self closeModifyBootSettingsSheet:sender];
     
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
-    [alert setMessageText:NSLocalizedString(@"BLESS-COMPLETE", nil)];
-    [alert setInformativeText:NSLocalizedString(@"BLESS-COMPLETE-LONG", nil)];
-    [alert setAlertStyle:NSWarningAlertStyle];
-    [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    if (result) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+        [alert setMessageText:NSLocalizedString(@"BLESS-COMPLETE", nil)];
+        [alert setInformativeText:NSLocalizedString(@"BLESS-COMPLETE-LONG", nil)];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    }
 }
 
 - (IBAction)unbless:(id)sender {
