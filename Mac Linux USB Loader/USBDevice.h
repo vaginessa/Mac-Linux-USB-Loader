@@ -16,6 +16,6 @@
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (BOOL)prepareUSB:(NSString *)path;
-- (void)markUsbAsLive:(NSString*)path;
+- (void)markUsbAsLive:(NSString*)path distributionFamily:(NSString *)family;
 
 @end

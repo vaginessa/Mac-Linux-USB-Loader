@@ -314,7 +314,8 @@ BOOL isCopying = NO;
 #pragma clang diagnostic warning "-Wdeprecated-declarations"
         
         if (!failure) {
-            [device markUsbAsLive:usbRoot]; // Place a file on the USB to identify it as being created by Mac Linux USB Loader.
+            // Create the Enterprise configuration file.
+            [device markUsbAsLive:usbRoot distributionFamily:[_distributionFamilySelector stringValue]];
         }
     } else {
         // Some form of setup failed. Alert the user.

@@ -53,7 +53,7 @@
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:@"Abort"];
             [alert setMessageText:@"Failed to create bootable USB."];
-            [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
+            [alert setInformativeText:@"Could not copy the Enterprise to the USB device."];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         } else {
@@ -90,7 +90,7 @@
     return returnValue;
 }
 
-- (void)markUsbAsLive:(NSString*)path {
+- (void)markUsbAsLive:(NSString*)path distributionFamily:(NSString *)family {
     NSLog(@"Marking this USB as a live USB...");
     
     NSString *filePath = [path stringByAppendingPathComponent:@".MLUL_Live_USB"];
@@ -98,7 +98,8 @@
     stringToWrite = [stringToWrite
                      stringByAppendingString:@"# This file is machine generated and required by Mac Linux USB Loader and Enterprise."];
     stringToWrite = [stringToWrite stringByAppendingString:@"# Do not modify it unless you know what you're doing."];
-    stringToWrite = [stringToWrite stringByAppendingString:@"family Ubuntu"]; // Hard code for now.
+    stringToWrite = [stringToWrite stringByAppendingString:
+                     [NSString stringWithFormat:@"family %@", family]]; // Hard code for now.
     
     [stringToWrite writeToFile:filePath atomically:NO encoding:NSASCIIStringEncoding error:nil];
 }
