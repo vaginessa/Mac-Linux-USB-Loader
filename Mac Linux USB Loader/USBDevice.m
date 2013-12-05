@@ -20,9 +20,19 @@
     if (![bootLoaderName isEqualToString:@"Legacy Loader"]) {
         bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64-legacy" ofType:@"efi" inDirectory:@""];
         grubLoaderPath = @"";
-    } else {
+    } else if (![bootLoaderName isEqualToString:@"Enterprise EFI Linux Loader"]) {
         bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64" ofType:@"efi" inDirectory:@""];
         grubLoaderPath = [[NSBundle mainBundle] pathForResource:@"boot" ofType:@"efi" inDirectory:@""];
+    } else {
+        NSString *errorMessage = [NSString stringWithFormat:@"Unsupported firmware type: %@", bootLoaderName];
+        NSLog(@"Error: %@", errorMessage);
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Abort"];
+        [alert setMessageText:@"Failed to create bootable USB."];
+        [alert setInformativeText:errorMessage];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     }
     
     NSString *finalPath = [path stringByAppendingPathComponent:@"/efi/boot/bootX64.efi"];
@@ -32,7 +42,7 @@
     // Check if either if the required booting images is present..
     BOOL fileExists = [fileManager fileExistsAtPath:finalPath] & [fileManager fileExistsAtPath:finalLoaderPath];
     
-    // Should be relatively self-explanatory. If there's already an EFI executable, show an error message.
+    // Should be relatively self-explanatory. If there's already EFI executables, show an error message.
     if (fileExists == YES) {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Abort"];
