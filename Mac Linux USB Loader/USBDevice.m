@@ -66,7 +66,7 @@
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:@"Abort"];
             [alert setMessageText:@"Failed to create bootable USB."];
-            [alert setInformativeText:@"Could not copy the Enterprise to the USB device."];
+            [alert setInformativeText:@"Could not copy Enterprise to the USB device."];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         } else {
@@ -106,7 +106,7 @@
 - (void)markUsbAsLive:(NSString*)path distributionFamily:(NSString *)family {
     NSLog(@"Marking this USB as a live USB...");
     
-    NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL_Live_USB"];
+    NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
     NSString *stringToWrite = @"";
     stringToWrite = [stringToWrite
                      stringByAppendingString:@"# This file is machine generated and required by Mac Linux USB Loader and Enterprise.\n"];

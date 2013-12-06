@@ -185,6 +185,7 @@ BOOL isCopying = NO;
     [[NSApp delegate] setCanQuit:NO];
     [_makeUSBButton setEnabled:NO];
     [_eraseUSBButton setEnabled:NO];
+    [_distributionFamilySelector setEnabled:NO];
     isCopying = YES;
     
     __block BOOL failure = false;
