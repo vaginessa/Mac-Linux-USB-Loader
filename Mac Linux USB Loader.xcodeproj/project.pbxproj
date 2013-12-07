@@ -164,6 +164,16 @@
 		24CA6C061656F7A700061D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		24CA6C15165701BD00061D2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		24DB8AB81659AB0700F7C947 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		24E1AA751853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		24E1AA761853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		24E1AA771853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/Document.xib; sourceTree = "<group>"; };
+		24E1AA781853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
+		24E1AA791853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/SBNotificationViewController.xib; sourceTree = "<group>"; };
+		24E1AA7A1853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/SBAcknowledgementsViewController.xib; sourceTree = "<group>"; };
+		24E1AA7B1853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/SBUpdateControlViewController.xib; sourceTree = "<group>"; };
+		24E1AA7C1853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24E1AA7D1853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		24E1AA7E1853CEBE006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24EBEE36176676F5002A5452 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		24FDAFA318071D5B0013D0DA /* TRANSLATIONS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TRANSLATIONS; sourceTree = "<group>"; };
 		24FDAFA5180731000013D0DA /* libncurses_g.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libncurses_g.a; path = ../../../../../usr/local/Cellar/ncurses/5.9/lib/libncurses_g.a; sourceTree = "<group>"; };
@@ -456,6 +466,7 @@
 				Base,
 				es,
 				"zh-Hant",
+				it,
 			);
 			mainGroup = 24CA6BDE1656F7A700061D2F;
 			productRefGroup = 24CA6BEA1656F7A700061D2F /* Products */;
@@ -553,6 +564,7 @@
 				24068E38177662650065BADF /* en */,
 				24068E3A177662FC0065BADF /* es */,
 				24A5B11817FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA781853CEBD006CCB5A /* it */,
 			);
 			name = SBFirmwareViewController.xib;
 			sourceTree = "<group>";
@@ -563,6 +575,7 @@
 				2477560A17D25B1C0076A461 /* en */,
 				2477560C17D25B1D0076A461 /* es */,
 				24A5B11517FB76C300F8A9C0 /* zh-Hant */,
+				24E1AA751853CEBD006CCB5A /* it */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -573,6 +586,7 @@
 				2479538E16ED01030085057B /* en */,
 				242262D616ED046200804B9D /* es */,
 				24A5B11717FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA771853CEBD006CCB5A /* it */,
 			);
 			name = Document.xib;
 			sourceTree = "<group>";
@@ -582,6 +596,7 @@
 			children = (
 				249F19B2175FDE170074F88A /* en */,
 				24A5B11D17FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA7D1853CEBD006CCB5A /* it */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -591,6 +606,7 @@
 			children = (
 				249F19B5175FDE220074F88A /* en */,
 				24A5B11E17FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA7E1853CEBE006CCB5A /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -601,6 +617,7 @@
 				24AD167816A0F2C80046C51A /* en */,
 				2479537C16ECFD4B0085057B /* es */,
 				24A5B11917FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA791853CEBD006CCB5A /* it */,
 			);
 			name = SBNotificationViewController.xib;
 			sourceTree = "<group>";
@@ -611,6 +628,7 @@
 				24AD167B16A0F2CE0046C51A /* en */,
 				2479537E16ECFD4B0085057B /* es */,
 				24A5B11A17FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA7A1853CEBD006CCB5A /* it */,
 			);
 			name = SBAcknowledgementsViewController.xib;
 			sourceTree = "<group>";
@@ -621,6 +639,7 @@
 				24AD167E16A0F2D20046C51A /* en */,
 				2479538016ECFD4B0085057B /* es */,
 				24A5B11B17FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA7B1853CEBD006CCB5A /* it */,
 			);
 			name = SBUpdateControlViewController.xib;
 			sourceTree = "<group>";
@@ -631,6 +650,7 @@
 				24CA6BF71656F7A700061D2F /* en */,
 				2479538816ECFD4B0085057B /* es */,
 				24A5B11C17FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA7C1853CEBD006CCB5A /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -641,6 +661,7 @@
 				24CA6C061656F7A700061D2F /* en */,
 				2479538716ECFD4B0085057B /* es */,
 				24A5B11617FB76C400F8A9C0 /* zh-Hant */,
+				24E1AA761853CEBD006CCB5A /* it */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
