@@ -454,6 +454,7 @@ NSString *urlArray[] = {
     if (returnCode == NSAlertFirstButtonReturn) {
         [defaults setObject:@"Enterprise EFI Linux Loader" forKey:@"selectedFirmwareType"];
     }
+    [defaults synchronize];
 }
 
 - (IBAction)openDiskUtility:(id)sender {

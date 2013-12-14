@@ -9,6 +9,6 @@
 	<key>automaticallyBless</key>
 	<false/>
 	<key>selectedFirmwareType</key>
-	<string>Legacy Loader</string>
+	<string>Enterprise EFI Linux Loader</string>
 </dict>
 </plist>
