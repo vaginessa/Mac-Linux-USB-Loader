@@ -9,9 +9,10 @@
 OKAY = "同意";
 YES = "是";
 NO = "否";
+ABORT = "退出";
 
 /*
- * Localizations for RHAppDelegate.m
+ * Localizations for AppDelegate.m
  */
 
 OPERATION-IN-PROGRESS = "運算中。";
@@ -47,3 +48,18 @@ APPLICATION = "應用程式";
 NOTIFICATIONS = "訊息通知";
 FIRMWARE = "韌體";
 ACKNOWLEDGEMENTS = "致函";
+
+/*
+ * Localizations for Document.m
+ */
+
+FAILED-CREATE-BOOTABLE-USB = "Failed to create a bootable USB.";
+FAILED-CREATE-BOOTABLE-USB-LONG = "There is already a Linux distro ISO on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool.";
+FAILED-CREATE-BOOTABLE-USB-LONG2 = "Do you want to erase the incomplete installation?";
+FAILED-ERASE-BOOTABLE-USB = "Failed to erase live USB.";
+
+CONFIRM-ERASE-USB = "Are you sure that you want to erase the live boot?";
+CONFIRM-ERASE-USB-LONG = "This will recover space by erasing everything in the EFI folder on the USB drive, but is unrecoverable.";
+
+FINISHED-MAKING-LIVE-USB = "Finished Making Live USB.";
+FINISHED-MAKING-LIVE-USB-LONG = "The live USB has been made successfully.";

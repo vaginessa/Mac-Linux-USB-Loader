@@ -9,9 +9,10 @@
 OKAY = "Salir";
 YES = "Sí";
 NO = "No";
+ABORT = "Abortar";
 
 /*
- * Localizations for RHAppDelegate.m
+ * Localizations for AppDelegate.m
  */
 
 OPERATION-IN-PROGRESS = "Una operación está en curso.";
@@ -47,3 +48,18 @@ APPLICATION = "Applicación";
 NOTIFICATIONS = "Notificaciónes";
 FIRMWARE = "Firmware";
 ACKNOWLEDGEMENTS = "Agradecimientos";
+
+/*
+ * Localizations for Document.m
+ */
+
+FAILED-CREATE-BOOTABLE-USB = "No se pudo crear un USB de arranque.";
+FAILED-CREATE-BOOTABLE-USB-LONG = "Ya hay una distro Linux ISO en este dispositivo. Si se trata de una ejecución previa de Mac Linux USB Loader, debe eliminar la carpeta EFI en la unidad USB y luego ejecutar esta herramienta.";
+FAILED-CREATE-BOOTABLE-USB-LONG2 = "¿Quieres borrar la instalación incompleta?";
+FAILED-ERASE-BOOTABLE-USB = "No se pudo borrar USB de arranque.";
+
+CONFIRM-ERASE-USB = "¿Está seguro de que desea borrar el arranque en vivo?";
+CONFIRM-ERASE-USB-LONG = "Esto se recuperará espacio borrando todo en la carpeta EFI en la unidad USB, pero no se puede recuperar.";
+
+FINISHED-MAKING-LIVE-USB = "Terminado de hacer el USB de arranque.";
+FINISHED-MAKING-LIVE-USB-LONG = "El USB de arranque se ha realizado con éxito.";

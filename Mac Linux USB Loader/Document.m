@@ -227,9 +227,9 @@ BOOL isCopying = NO;
     
     if (fileExists == YES) {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Abort"];
-        [alert setMessageText:@"Failed to create bootable USB."];
-        [alert setInformativeText:@"There is already a Linux distro ISO on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool."];
+        [alert addButtonWithTitle:NSLocalizedString(@"ABORT", nil)];
+        [alert setMessageText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
+        [alert setInformativeText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB-LONG", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
@@ -334,10 +334,10 @@ BOOL isCopying = NO;
         [_spinner stopAnimation:self];
         
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"No"];
-        [alert addButtonWithTitle:@"Yes"];
-        [alert setMessageText:@"Failed to create bootable USB."];
-        [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
+        [alert addButtonWithTitle:NSLocalizedString(@"NO", nil)];
+        [alert addButtonWithTitle:NSLocalizedString(@"YES", nil)];
+        [alert setMessageText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
+        [alert setInformativeText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB-LONG2", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     } else {
@@ -364,10 +364,10 @@ BOOL isCopying = NO;
 - (IBAction)eraseLiveBoot:(id)sender {
     if ([_usbDriveDropdown numberOfItems] != 0) {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Yes"];
-        [alert addButtonWithTitle:@"No"];
-        [alert setMessageText:@"Are you sure that you want to erase the live boot?"];
-        [alert setInformativeText:@"This will recover space by erasing everything in the EFI folder on the USB drive, but is unrecoverable."];
+        [alert addButtonWithTitle:NSLocalizedString(@"YES", nil)];
+        [alert addButtonWithTitle:NSLocalizedString(@"NO", nil)];
+        [alert setMessageText:NSLocalizedString(@"CONFIRM-ERASE-USB", nil)];
+        [alert setInformativeText:NSLocalizedString(@"CONFIRM-ERASE-USB-LONG", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     } else {
@@ -403,8 +403,8 @@ BOOL isCopying = NO;
                 if (!eraseDidSucceed && err) { // If there was an error...
                     NSString *text = [NSString stringWithFormat:@"Error: %@", err];
                     NSAlert *alert = [[NSAlert alloc] init];
-                    [alert addButtonWithTitle:@"Okay"];
-                    [alert setMessageText:@"Failed to erase live USB."];
+                    [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+                    [alert setMessageText:NSLocalizedString(@"FAILED-ERASE-BOOTABLE-USB", nil)];
                     [alert setInformativeText:text];
                     [alert setAlertStyle:NSWarningAlertStyle];
                     [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
@@ -475,17 +475,17 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
                 
                 if ([defaults valueForKey:@"ShowNotifications"]) {
                     NSUserNotification *notification = [[NSUserNotification alloc] init];
-                    notification.title = @"Finished Making Live USB";
-                    notification.informativeText = @"The live USB has been made successfully.";
+                    notification.title = NSLocalizedString(@"FINISHED-MAKING-LIVE-USB", nil);
+                    notification.informativeText = NSLocalizedString(@"FINISHED-MAKING-LIVE-USB-LONG", nil);
                     notification.soundName = NSUserNotificationDefaultSoundName;
                     
                     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
                 }
                 
                 NSAlert *alert = [[NSAlert alloc] init];
-                [alert addButtonWithTitle:@"Okay"];
-                [alert setMessageText:@"Finished Making Live USB"];
-                [alert setInformativeText:@"The live USB has been made successfully."];
+                [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+                [alert setMessageText:NSLocalizedString(@"FINISHED-MAKING-LIVE-USB", nil)];
+                [alert setInformativeText:NSLocalizedString(@"FINISHED-MAKING-LIVE-USB-LONG", nil)];
                 [alert setAlertStyle:NSWarningAlertStyle];
                 
                 if (document != nil || window != nil) {
