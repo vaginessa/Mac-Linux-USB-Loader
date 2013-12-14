@@ -17,6 +17,8 @@
     // Construct our strings that we need.
     NSString *bootLoaderName = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedFirmwareType"];
     NSString *bootLoaderPath, *grubLoaderPath;
+    NSLog(@"Selected firmware type: %@", bootLoaderName);
+    
     if (![bootLoaderName isEqualToString:@"Legacy Loader"]) {
         bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64-legacy" ofType:@"efi" inDirectory:@""];
         grubLoaderPath = @"";
