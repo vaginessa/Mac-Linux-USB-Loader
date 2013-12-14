@@ -464,9 +464,8 @@ NSString *urlArray[] = {
 - (IBAction)updateRecents:(id)sender {
     NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
     
-    _dataSource = [[RecentDocumentsTableViewDataSource new] init];
     [_dataSource setArray:myArray];
-    [_recentFileBrowser setDataSource:_dataSource];
+    [_recentFileBrowser reloadData];
 }
 
 - (IBAction)openCompatibilityTester:(id)sender {
