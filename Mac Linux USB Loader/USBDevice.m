@@ -19,10 +19,10 @@
     NSString *bootLoaderPath, *grubLoaderPath;
     NSLog(@"Selected firmware type: %@", bootLoaderName);
     
-    if (![bootLoaderName isEqualToString:@"Legacy Loader"]) {
+    if ([bootLoaderName isEqualToString:@"Legacy Loader"]) {
         bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64-legacy" ofType:@"efi" inDirectory:@""];
         grubLoaderPath = @"";
-    } else if (![bootLoaderName isEqualToString:@"Enterprise EFI Linux Loader"]) {
+    } else if ([bootLoaderName isEqualToString:@"Enterprise EFI Linux Loader"]) {
         bootLoaderPath = [[NSBundle mainBundle] pathForResource:@"bootX64" ofType:@"efi" inDirectory:@""];
         grubLoaderPath = [[NSBundle mainBundle] pathForResource:@"boot" ofType:@"efi" inDirectory:@""];
     } else {
@@ -114,7 +114,7 @@
                      stringByAppendingString:@"# This file is machine generated and required by Mac Linux USB Loader and Enterprise.\n"];
     stringToWrite = [stringToWrite stringByAppendingString:@"# Do not modify it unless you know what you're doing.\n"];
     stringToWrite = [stringToWrite stringByAppendingString:
-                     [NSString stringWithFormat:@"family %@", family]]; // Hard code for now.
+                     [NSString stringWithFormat:@"family %@\n", family]]; // Hard code for now.
     
     [stringToWrite writeToFile:filePath atomically:NO encoding:NSASCIIStringEncoding error:nil];
 }
