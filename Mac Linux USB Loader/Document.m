@@ -186,6 +186,7 @@ BOOL isCopying = NO;
     [_makeUSBButton setEnabled:NO];
     [_eraseUSBButton setEnabled:NO];
     [_distributionFamilySelector setEnabled:NO];
+    [_usbDriveDropdown setEnabled:NO];
     isCopying = YES;
     
     __block BOOL failure = false;
@@ -234,6 +235,8 @@ BOOL isCopying = NO;
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
         [_spinner stopAnimation:self];
+        [_spinner setIndeterminate:NO];
+        [_spinner setDoubleValue:0.0];
         [[NSApp delegate] setCanQuit:YES];
         isCopying = NO;
         
