@@ -88,10 +88,15 @@ NSString *urlArray[] = {
     NSInteger clickedRow = [_recentFileBrowser clickedRow];
     
     if (clickedRow != -1) { // We're in the row.
-        NSDocumentController *docControl = [NSDocumentController sharedDocumentController];
-        NSURL *selectedDocument = (NSURL *)[docControl recentDocumentURLs][clickedRow];
-        NSLog(@"Selected row %ld.", (long)clickedRow);
-        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:selectedDocument display:YES completionHandler:nil];
+        @try {
+            NSDocumentController *docControl = [NSDocumentController sharedDocumentController];
+            NSURL *selectedDocument = (NSURL *)[docControl recentDocumentURLs][clickedRow];
+            NSLog(@"Selected row %ld.", (long)clickedRow);
+            [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:selectedDocument display:YES completionHandler:nil];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Exception: %@", exception);
+        }
     }
 }
 
