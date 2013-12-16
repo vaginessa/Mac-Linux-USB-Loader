@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D31177660F50065BADF /* SBFirmwareViewController.m */; };
-		24068D3A177662110065BADF /* SBAcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D36177662110065BADF /* SBAcknowledgementsViewController.m */; };
-		24068D3B177662110065BADF /* SBUpdateControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D37177662110065BADF /* SBUpdateControlViewController.m */; };
-		24068D3C177662110065BADF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D38177662110065BADF /* AppDelegate.m */; };
-		24068D3D177662110065BADF /* SBNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068D39177662110065BADF /* SBNotificationViewController.m */; };
 		24068E3E177663B40065BADF /* DistributionDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3B177663B30065BADF /* DistributionDownloader.m */; };
 		24068E3F177663B40065BADF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3C177663B30065BADF /* Document.m */; };
 		24068E40177663B40065BADF /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24068E3D177663B40065BADF /* USBDevice.m */; };
@@ -34,6 +29,11 @@
 		2479538D16ED01030085057B /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2479538F16ED01030085057B /* Document.xib */; };
 		248317CE16BF146C00313D33 /* Eraser.icns in Resources */ = {isa = PBXBuildFile; fileRef = 248317CD16BF146C00313D33 /* Eraser.icns */; };
 		2493D1BD176A864F00687E0A /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
+		249D1A79185F5AD500F65231 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D1A78185F5AD500F65231 /* AppDelegate.m */; };
+		249D1A82185F5AF500F65231 /* SBAcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D1A7B185F5AF500F65231 /* SBAcknowledgementsViewController.m */; };
+		249D1A83185F5AF500F65231 /* SBFirmwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D1A7D185F5AF500F65231 /* SBFirmwareViewController.m */; };
+		249D1A84185F5AF500F65231 /* SBNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D1A7F185F5AF500F65231 /* SBNotificationViewController.m */; };
+		249D1A85185F5AF500F65231 /* SBUpdateControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D1A81185F5AF500F65231 /* SBUpdateControlViewController.m */; };
 		249F1990175FDC280074F88A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6BED1656F7A700061D2F /* Cocoa.framework */; };
 		249F19A7175FDC760074F88A /* Icon2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 249F19A6175FDC760074F88A /* Icon2.icns */; };
 		249F19A8175FDCEF0074F88A /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2419A0CE17209608008E0137 /* CTAppDelegate.m */; };
@@ -80,12 +80,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		24068D31177660F50065BADF /* SBFirmwareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFirmwareViewController.m; sourceTree = "<group>"; };
-		24068D351776614F0065BADF /* SBFirmwareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFirmwareViewController.h; sourceTree = "<group>"; };
-		24068D36177662110065BADF /* SBAcknowledgementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAcknowledgementsViewController.m; sourceTree = SOURCE_ROOT; };
-		24068D37177662110065BADF /* SBUpdateControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUpdateControlViewController.m; sourceTree = SOURCE_ROOT; };
-		24068D38177662110065BADF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		24068D39177662110065BADF /* SBNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBNotificationViewController.m; sourceTree = SOURCE_ROOT; };
 		24068E38177662650065BADF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
 		24068E3A177662FC0065BADF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/SBFirmwareViewController.xib; sourceTree = "<group>"; };
 		24068E3B177663B30065BADF /* DistributionDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionDownloader.m; sourceTree = "<group>"; };
@@ -107,8 +101,6 @@
 		24434A191677CE2100DAC959 /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		24434A211677D52800DAC959 /* AboutPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutPreferences.png; sourceTree = "<group>"; };
 		24434A221677D52800DAC959 /* AccountsPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccountsPreferences.png; sourceTree = "<group>"; };
-		24434A2B1677D52800DAC959 /* SBAcknowledgementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAcknowledgementsViewController.h; sourceTree = "<group>"; };
-		24434A2E1677D52800DAC959 /* SBUpdateControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUpdateControlViewController.h; sourceTree = "<group>"; };
 		244C050316DD840E0083A0C9 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		244C050716DD8E460083A0C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		2466DCB3184295F700E750F1 /* bootX64-legacy.efi */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bootX64-legacy.efi"; sourceTree = "<group>"; };
@@ -124,6 +116,15 @@
 		2479538816ECFD4B0085057B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2479538E16ED01030085057B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
 		248317CD16BF146C00313D33 /* Eraser.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Eraser.icns; path = Resources/Eraser.icns; sourceTree = "<group>"; };
+		249D1A78185F5AD500F65231 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		249D1A7A185F5AF500F65231 /* SBAcknowledgementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAcknowledgementsViewController.h; path = "Mac Linux USB Loader/Preferences View Controllers/SBAcknowledgementsViewController.h"; sourceTree = "<group>"; };
+		249D1A7B185F5AF500F65231 /* SBAcknowledgementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAcknowledgementsViewController.m; path = "Mac Linux USB Loader/Preferences View Controllers/SBAcknowledgementsViewController.m"; sourceTree = "<group>"; };
+		249D1A7C185F5AF500F65231 /* SBFirmwareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBFirmwareViewController.h; path = "Mac Linux USB Loader/Preferences View Controllers/SBFirmwareViewController.h"; sourceTree = "<group>"; };
+		249D1A7D185F5AF500F65231 /* SBFirmwareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBFirmwareViewController.m; path = "Mac Linux USB Loader/Preferences View Controllers/SBFirmwareViewController.m"; sourceTree = "<group>"; };
+		249D1A7E185F5AF500F65231 /* SBNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBNotificationViewController.h; path = "Mac Linux USB Loader/Preferences View Controllers/SBNotificationViewController.h"; sourceTree = "<group>"; };
+		249D1A7F185F5AF500F65231 /* SBNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBNotificationViewController.m; path = "Mac Linux USB Loader/Preferences View Controllers/SBNotificationViewController.m"; sourceTree = "<group>"; };
+		249D1A80185F5AF500F65231 /* SBUpdateControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBUpdateControlViewController.h; path = "Mac Linux USB Loader/Preferences View Controllers/SBUpdateControlViewController.h"; sourceTree = "<group>"; };
+		249D1A81185F5AF500F65231 /* SBUpdateControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBUpdateControlViewController.m; path = "Mac Linux USB Loader/Preferences View Controllers/SBUpdateControlViewController.m"; sourceTree = "<group>"; };
 		249EDD7017011D47006E7DAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		249EDD7217011F2E006E7DAE /* DistributionDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistributionDownloader.h; sourceTree = "<group>"; };
 		249F198F175FDC280074F88A /* Compatibility Tester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compatibility Tester.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,7 +141,6 @@
 		24A5B11C17FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		24A5B11D17FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainMenu.xib"; sourceTree = "<group>"; };
 		24A5B11E17FB76C400F8A9C0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		24AD166216A0E1D90046C51A /* SBNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBNotificationViewController.h; sourceTree = "<group>"; };
 		24AD167816A0F2C80046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBNotificationViewController.xib; sourceTree = "<group>"; };
 		24AD167B16A0F2CE0046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBAcknowledgementsViewController.xib; sourceTree = "<group>"; };
 		24AD167E16A0F2D20046C51A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBUpdateControlViewController.xib; sourceTree = "<group>"; };
@@ -236,17 +236,17 @@
 		24434A201677D50800DAC959 /* Preferences View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				24068D351776614F0065BADF /* SBFirmwareViewController.h */,
-				24068D31177660F50065BADF /* SBFirmwareViewController.m */,
-				24068E39177662650065BADF /* SBFirmwareViewController.xib */,
-				24AD166216A0E1D90046C51A /* SBNotificationViewController.h */,
-				24068D39177662110065BADF /* SBNotificationViewController.m */,
-				24AD167916A0F2C80046C51A /* SBNotificationViewController.xib */,
-				24434A2B1677D52800DAC959 /* SBAcknowledgementsViewController.h */,
-				24068D36177662110065BADF /* SBAcknowledgementsViewController.m */,
+				249D1A7A185F5AF500F65231 /* SBAcknowledgementsViewController.h */,
+				249D1A7B185F5AF500F65231 /* SBAcknowledgementsViewController.m */,
 				24AD167C16A0F2CE0046C51A /* SBAcknowledgementsViewController.xib */,
-				24434A2E1677D52800DAC959 /* SBUpdateControlViewController.h */,
-				24068D37177662110065BADF /* SBUpdateControlViewController.m */,
+				249D1A7C185F5AF500F65231 /* SBFirmwareViewController.h */,
+				249D1A7D185F5AF500F65231 /* SBFirmwareViewController.m */,
+				24068E39177662650065BADF /* SBFirmwareViewController.xib */,
+				249D1A7E185F5AF500F65231 /* SBNotificationViewController.h */,
+				249D1A7F185F5AF500F65231 /* SBNotificationViewController.m */,
+				24AD167916A0F2C80046C51A /* SBNotificationViewController.xib */,
+				249D1A80185F5AF500F65231 /* SBUpdateControlViewController.h */,
+				249D1A81185F5AF500F65231 /* SBUpdateControlViewController.m */,
 				24AD167F16A0F2D20046C51A /* SBUpdateControlViewController.xib */,
 			);
 			name = "Preferences View Controllers";
@@ -358,7 +358,7 @@
 				24C9FCCC1664204B0080E6E4 /* USBDevice.h */,
 				24068E3D177663B40065BADF /* USBDevice.m */,
 				249EDD7017011D47006E7DAE /* AppDelegate.h */,
-				24068D38177662110065BADF /* AppDelegate.m */,
+				249D1A78185F5AD500F65231 /* AppDelegate.m */,
 				249EDD7217011F2E006E7DAE /* DistributionDownloader.h */,
 				24068E3B177663B30065BADF /* DistributionDownloader.m */,
 				2412DE0B171613C3002EA90F /* RecentDocumentsTableViewDataSource.h */,
@@ -543,14 +543,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				24CA6BFA1656F7A700061D2F /* main.m in Sources */,
-				24068D3C177662110065BADF /* AppDelegate.m in Sources */,
 				2412DE0D171613C3002EA90F /* RecentDocumentsTableViewDataSource.m in Sources */,
-				24068D33177660F50065BADF /* SBFirmwareViewController.m in Sources */,
-				24068D3A177662110065BADF /* SBAcknowledgementsViewController.m in Sources */,
-				24068D3B177662110065BADF /* SBUpdateControlViewController.m in Sources */,
-				24068D3D177662110065BADF /* SBNotificationViewController.m in Sources */,
+				249D1A82185F5AF500F65231 /* SBAcknowledgementsViewController.m in Sources */,
+				249D1A79185F5AD500F65231 /* AppDelegate.m in Sources */,
+				249D1A83185F5AF500F65231 /* SBFirmwareViewController.m in Sources */,
 				24068E3E177663B40065BADF /* DistributionDownloader.m in Sources */,
+				249D1A84185F5AF500F65231 /* SBNotificationViewController.m in Sources */,
 				24068E3F177663B40065BADF /* Document.m in Sources */,
+				249D1A85185F5AF500F65231 /* SBUpdateControlViewController.m in Sources */,
 				24068E40177663B40065BADF /* USBDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,6 +792,7 @@
 		24CA6C0B1656F7A700061D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -809,6 +810,7 @@
 		24CA6C0C1656F7A700061D2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
