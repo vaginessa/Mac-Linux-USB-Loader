@@ -200,7 +200,7 @@
                             <constraint firstAttribute="height" constant="17" id="1332"/>
                             <constraint firstAttribute="width" constant="300" id="1333"/>
                         </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(c) 2012-2013 SevenBits. Algunos derechos reservados." id="1327">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(c) 2012-2014 SevenBits. Algunos derechos reservados." id="1327">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -386,7 +386,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1050">
                             <font key="font" metaFont="smallSystem"/>
-                            <string key="title">(c) 2012-2013 SevenBits. Algunos derechos reservados. Linux es una marca registrada de Linus Torvalds. Todas las demás marcas son propiedad de sus respectivos propietarios.</string>
+                            <string key="title">(c) 2012-2014 SevenBits. Algunos derechos reservados. Linux es una marca registrada de Linus Torvalds. Todas las demás marcas son propiedad de sus respectivos propietarios.</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
