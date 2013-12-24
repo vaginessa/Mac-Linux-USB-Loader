@@ -1,0 +1,65 @@
+/* 
+  Localizable.strings
+  Mac Linux USB Loader
+
+  Created by SevenBits on 8/31/13.
+
+*/
+
+OKAY = "Salir";
+YES = "Sí";
+NO = "No";
+ABORT = "Abortar";
+
+/*
+ * Localizations for AppDelegate.m
+ */
+
+OPERATION-IN-PROGRESS = "Una operación está en curso.";
+QUIT-DURING-OPERATION = "Mac Linux USB Loader se encuentra actualmente en medio de una operación. Salir de la aplicación en este momento podría resultar en datos corruptos. ¿Quieres dejar de todos modos?";
+UPGRADE-FIRMWARE = "¿Mejora a Enterprise?";
+UPGRADE-FIRMWARE-LONG = "¿Enterprise, la nueva solución de arranque utilizado por Mac Linux USB Loader, ha sido puesto en libertad. ¿Quieres configurarlo como su gestor preferido para todas las nuevas instalaciones?";
+
+// Live USB Eraser
+
+FAILED-TO-ERASE-USB = "La operación de borrar ha fracasado.";
+USB-ERASE-SUCCESSFUL = "La operación de borrar ha completado.";
+USB-HAS-BEEN-ERASED = "La distribución portable de Linux en su memoria USB ha sido borrado.";
+
+// USB Drive Blesser
+
+NO-USBS-PLUGGED-IN = "No hay memoria USB están conectados.";
+NO-USBS-PLUGGED-IN-LONG = "Usted no tiene cualquier memoria USB insertado que tiene una distribución portable de Linux creado por Mac Linux USB Loader. Por favor, inserte memoria USB que tiene una distribución creado por Mac Linux USB Loader y reanuda Mac Linux USB Loader o pulsa la botón de Actualizar en la panél.";
+BLESS-COMPLETE = "La operación de bendecir ha completado.";
+BLESS-COMPLETE-LONG = "Deje el memoria USB en su espacio y reanuda la computadora. Su Mac se iniciará directamente desde la distribución de Linux en la memoria USB portable. No es necesario para pulsar la botón de Optión en el teclado.";
+UNBLESS-COMPLETE = "La operación para retirer la bendición ha compleado.";
+UNBLESS-COMPLETE-LONG = "La memoria USB ha sido retirado de su bendición. Tu Mac ya no arranca directamente desde ella. En cambio, para arrancar desde ella, mantenga pulsada la tecla Opción / Alt después campanadas del inicio y seleccione la unidad cuando aparezca.";
+
+// Distribution Downloader
+
+FILE-NOT-FOUND = "Archivo no encontrado.";
+ISO-NOT-FOUND = "Archivo ISO de la distribución que no se encuentra en la carpeta de Downloads.";
+NO-DISTRO-SELECTED = "No se seleccionó distribución.";
+PLEASE-SELECT-DISTRO = "Por favor seleccione una distribución antes de hacer clic en el botón de descarga.";
+
+// Preferences View Controller Titles
+
+APPLICATION = "Applicación";
+NOTIFICATIONS = "Notificaciónes";
+FIRMWARE = "Firmware";
+ACKNOWLEDGEMENTS = "Agradecimientos";
+
+/*
+ * Localizations for Document.m
+ */
+
+FAILED-CREATE-BOOTABLE-USB = "No se pudo crear un USB de arranque.";
+FAILED-CREATE-BOOTABLE-USB-LONG = "Ya hay una distro Linux ISO en este dispositivo. Si se trata de una ejecución previa de Mac Linux USB Loader, debe eliminar la carpeta EFI en la unidad USB y luego ejecutar esta herramienta.";
+FAILED-CREATE-BOOTABLE-USB-LONG2 = "¿Quieres borrar la instalación incompleta?";
+FAILED-ERASE-BOOTABLE-USB = "No se pudo borrar USB de arranque.";
+
+CONFIRM-ERASE-USB = "¿Está seguro de que desea borrar el arranque en vivo?";
+CONFIRM-ERASE-USB-LONG = "Esto se recuperará espacio borrando todo en la carpeta EFI en la unidad USB, pero no se puede recuperar.";
+
+FINISHED-MAKING-LIVE-USB = "Terminado de hacer el USB de arranque.";
+FINISHED-MAKING-LIVE-USB-LONG = "El USB de arranque se ha realizado con éxito.";

@@ -1,0 +1,65 @@
+/* 
+  Localizable.strings
+  Mac Linux USB Loader
+
+  Created by SevenBits on 8/31/13.
+
+*/
+
+OKAY = "同意";
+YES = "是";
+NO = "否";
+ABORT = "退出";
+
+/*
+ * Localizations for AppDelegate.m
+ */
+
+OPERATION-IN-PROGRESS = "運算中。";
+QUIT-DURING-OPERATION = "Mac Linux USB Loader 現在正在運算中。現在關閉此程式將可能導致資料損毀。您還是要關閉此程式嗎？";
+UPGRADE-FIRMWARE = "Upgrade to Enterprise?";
+UPGRADE-FIRMWARE-LONG = "Enterprise, the new booting solution used by Mac Linux USB Loader, has been released. Do you want to set it as your preferred loader for all new installations?";
+
+// Live USB Eraser
+
+FAILED-TO-ERASE-USB = "live USB 清除失敗。";
+USB-ERASE-SUCCESSFUL = "清除成功";
+USB-HAS-BEEN-ERASED = "指定的 live USB 已經被清除.";
+
+// USB Drive Blesser
+
+NO-USBS-PLUGGED-IN = "USB 裝置未連結.";
+NO-USBS-PLUGGED-IN-LONG = "您尚未連結任何使用 Mac Linux USB Loader 製作之可攜式 Linux 發行套件的USB。請連結USB，並選擇重新啓動 Mac Linux USB Loader，或點選界面上的重新整理按鍵。";
+BLESS-COMPLETE = "Bless 模式完成";
+BLESS-COMPLETE-LONG = "保持USB於插槽並重新啓動電腦，您的 Mac 將於開機時直接載入位於您 USB 上的Linux發行套件。";
+UNBLESS-COMPLETE = "bless 模式解除完成.";
+UNBLESS-COMPLETE-LONG = "您的USB已經解除bless 模式，您的 Mac 將不再於開機時直接載入位於您 USB 上的Linux發行套件。如果仍需要從USB開機，請於聽到開機聲響時，按住Option/Alt，選擇出現於螢幕上的裝置。";
+
+// Distribution Downloader
+
+FILE-NOT-FOUND = "找不到檔案。";
+ISO-NOT-FOUND = "找不到位於您下載檔案夾中指定之發行套件的 ISO 檔案。";
+NO-DISTRO-SELECTED = "未選擇發行套件。";
+PLEASE-SELECT-DISTRO = "請在點選下載按鈕前先選擇發行套件";
+
+// Preferences View Controller Titles
+
+APPLICATION = "應用程式";
+NOTIFICATIONS = "訊息通知";
+FIRMWARE = "韌體";
+ACKNOWLEDGEMENTS = "致函";
+
+/*
+ * Localizations for Document.m
+ */
+
+FAILED-CREATE-BOOTABLE-USB = "Failed to create a bootable USB.";
+FAILED-CREATE-BOOTABLE-USB-LONG = "There is already a Linux distro ISO on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool.";
+FAILED-CREATE-BOOTABLE-USB-LONG2 = "Do you want to erase the incomplete installation?";
+FAILED-ERASE-BOOTABLE-USB = "Failed to erase live USB.";
+
+CONFIRM-ERASE-USB = "Are you sure that you want to erase the live boot?";
+CONFIRM-ERASE-USB-LONG = "This will recover space by erasing everything in the EFI folder on the USB drive, but is unrecoverable.";
+
+FINISHED-MAKING-LIVE-USB = "Finished Making Live USB.";
+FINISHED-MAKING-LIVE-USB-LONG = "The live USB has been made successfully.";

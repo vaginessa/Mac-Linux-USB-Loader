@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RHAppDelegate.h"
+#import "AppDelegate.h"
 
 @interface USBDevice : NSObject
 
@@ -16,6 +16,6 @@
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (BOOL)prepareUSB:(NSString *)path;
-//- (BOOL)copyISO:(NSString *)path:(NSString *)isoFile:(NSProgressIndicator *)progressBar:(Document *)document;
+- (void)markUsbAsLive:(NSString*)path distributionFamily:(NSString *)family;
 
 @end

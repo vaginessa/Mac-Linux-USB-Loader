@@ -17,7 +17,7 @@ NSProgressIndicator *progress;
 
 long long bytesReceived = 0;
 
-- (void)downloadLinuxDistribution:(NSURL*)url:(NSString*)destination:(NSProgressIndicator*)progressBar {
+- (void)downloadLinuxDistribution:(NSURL*)url destination:(NSString*)destination progressBar:(NSProgressIndicator*)progressBar {
     destinationPath = destination;
     progress = progressBar;
     NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -45,7 +45,7 @@ long long bytesReceived = 0;
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     
-#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_8)
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
     // Show a notification for Mountain Lion users.
     Class test = NSClassFromString(@"NSUserNotificationCenter");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -86,7 +86,7 @@ long long bytesReceived = 0;
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     
-#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_8)
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
     // Show a notification for Mountain Lion users.
     Class test = NSClassFromString(@"NSUserNotificationCenter");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

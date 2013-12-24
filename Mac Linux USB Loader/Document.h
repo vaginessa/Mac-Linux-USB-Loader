@@ -24,11 +24,12 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
 @property (strong) IBOutlet NSProgressIndicator *spinner;
 @property (strong) RHPreferencesWindowController *preferencesWindowController;
 @property (strong) IBOutlet NSPopUpButton *usbDriveDropdown;
+@property (weak) IBOutlet NSComboBox *distributionFamilySelector;
 
 - (IBAction)eraseLiveBoot:(id)sender;
+- (NSString *)determineSystemArchitecture;
 - (void)getUSBDeviceList;
 - (void)regularAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (IBAction)updateDeviceList:(id)sender;
 - (IBAction)makeLiveUSB:(id)sender;
-- (void)markUsbAsLive:(NSString*)path;
 @end

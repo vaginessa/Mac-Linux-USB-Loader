@@ -12,10 +12,10 @@
 #import "RHPreferences/RHPreferences.h"
 #import "RHPreferences/RHPreferencesWindowController.h"
 
-#import "RHAppDelegate.h"
-#import "RHAboutViewController.h"
-#import "RHAccountsViewController.h"
-#import "RHNotificationViewController.h"
+#import "AppDelegate.h"
+#import "SBAcknowledgementsViewController.h"
+#import "SBUpdateControlViewController.h"
+#import "SBNotificationViewController.h"
 
 #pragma mark - SBCopyDelegateInfoRelay class
 
@@ -24,10 +24,10 @@
  */
 @interface SBCopyDelegateInfoRelay : NSObject
 
-@property NSProgressIndicator *progress;
-@property NSString *usbRoot;
-@property NSWindow *window;
-@property Document *document;
+@property (assign) NSProgressIndicator *progress;
+@property (assign) NSString *usbRoot;
+@property (assign) NSWindow *window;
+@property (assign) Document *document;
 
 @end
 
@@ -43,6 +43,7 @@
 
 NSMutableDictionary *usbs;
 NSString *isoFilePath;
+NSString *isoFileName;
 USBDevice *device;
 FSFileOperationClientContext clientContext;
 SBCopyDelegateInfoRelay *infoClientContext;
@@ -77,22 +78,62 @@ BOOL isCopying = NO;
     device.window = window;
     
     isoFilePath = [[self fileURL] absoluteString];
+    isoFileName = [[self fileURL] lastPathComponent];
+    if ([isoFileName rangeOfString:@"ubuntu"].location != NSNotFound ||
+        [isoFileName rangeOfString:@"zorin"].location != NSNotFound ||
+        [isoFileName rangeOfString:@"elementaryos"].location != NSNotFound ||
+        [isoFileName rangeOfString:@"linuxmint"].location != NSNotFound) {
+        [_distributionFamilySelector setStringValue:@"Ubuntu"];
+    } else {
+        [_distributionFamilySelector setStringValue:@"Debian"];
+    }
     
+    // Set the title of this window to contain the name of the ISO we're installing.
+    [window setTitle:[@"Installing: " stringByAppendingString:[[isoFilePath lastPathComponent] stringByDeletingPathExtension]]];
+    
+    // Disable the install button if for some reason we opened this window without an open file.
     if (isoFilePath == nil) {
         [_makeUSBButton setEnabled:NO];
         [_eraseUSBButton setEnabled:NO];
     }
     
+    // Read the settings regarding which firmware to install.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     bootLoaderName = [defaults stringForKey:@"selectedFirmwareType"];
     automaticallyBless = [defaults boolForKey:@"automaticallyBless"];
     
+    // Update the list of USB devices.
     [self getUSBDeviceList];
+    
+    // Determine our system architecture.
+    NSString *arch = [[self determineSystemArchitecture]
+                      stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([arch isEqualToString:@"x86_64"]) {
+        // Do something.
+    } else {
+        // Do something else.
+    }
+}
+
+- (NSString *)determineSystemArchitecture {
+    // Use uname to get the system processor architecture.
+    NSTask *task = [[NSTask alloc] init];
+    [task setArguments:@[@"-m"]];
+    [task setLaunchPath:@"/usr/bin/uname"];
+    
+    NSPipe *pipe = [[NSPipe alloc] init];
+    [task setStandardOutput:pipe];
+    [task launch];
+    
+    // Read the data from the pipe to determine what uname printed.
+    NSFileHandle *handle = [pipe fileHandleForReading];
+    NSString *returnString = [[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    return returnString;
 }
 
 - (void)getUSBDeviceList {
     // Fetch the NSArray of strings of mounted media from the shared workspace.
-    NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedRemovableMedia];
+    NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedLocalVolumePaths];
     
     // Setup target variables for the data to be put into.
     BOOL isRemovable, isWritable, isUnmountable;
@@ -107,7 +148,7 @@ BOOL isCopying = NO;
         if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:volumePath isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
             if ([volumeType isEqualToString:@"msdos"] && isWritable && [volumePath rangeOfString:@"/Volumes/"].location != NSNotFound) {
                 // We have a valid mounted media - not necessarily a USB though.
-                NSString * title = [NSString stringWithFormat:@"Install to: Drive at %@ of type %@", volumePath, volumeType];
+                NSString *title = [NSString stringWithFormat:@"Install to: Drive at %@ of type %@", volumePath, volumeType];
                 
 #if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
                 usbs[title] = volumePath; // Add the path of the usb to a dictionary so later we can tell what USB
@@ -142,39 +183,22 @@ BOOL isCopying = NO;
 // This is too long... this needs to be split up, perhaps with some components in USBDevice like before.
 - (IBAction)makeLiveUSB:(id)sender {
     [[NSApp delegate] setCanQuit:NO];
+    [_makeUSBButton setEnabled:NO];
+    [_eraseUSBButton setEnabled:NO];
+    [_distributionFamilySelector setEnabled:NO];
+    [_usbDriveDropdown setEnabled:NO];
     isCopying = YES;
     
     __block BOOL failure = false;
     
     isoFilePath = [[self fileURL] path];
     
-    // Re-read the user's firmware selection in case they've changed it since opening the ISO.
-    bootLoaderName = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedFirmwareType"];
-    if (![bootLoaderName isEqualToString:@"Legacy Loader"]) {
-        // Enterprise is not currently finished and not bundled with Mac Linux USB Loader, so bail if the user selected
-        // it as their firmware to be installed.
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Okay"];
-        [alert setMessageText:@"Selected firmware not present."];
-        [alert setInformativeText:@"The firmware that you have selected to install is not ready to ship in this pre-release version of Mac Linux USB Loader and therefore cannot be installed. Please choose another firmware selection in the Preferences panel."];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        
-        [_makeUSBButton setEnabled:NO];
-        [_eraseUSBButton setEnabled:NO];
-        
-        [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
-        isCopying = NO;
-        
-        return;
-    }
-    
     // If no USBs available, or if no ISO open, display an error and return.
     if ([_usbDriveDropdown numberOfItems] == 0 || isoFilePath == nil) {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Okay"];
-        [alert setMessageText:@"No USB devices detected."];
-        [alert setInformativeText:@"There are no detected USB devices."];
+        [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+        [alert setMessageText:NSLocalizedString(@"NO-USBS-PLUGGED-IN", nil)];
+        [alert setInformativeText:NSLocalizedString(@"NO-USBS-PLUGGED-IN-LONG", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
@@ -204,13 +228,15 @@ BOOL isCopying = NO;
     
     if (fileExists == YES) {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Abort"];
-        [alert setMessageText:@"Failed to create bootable USB."];
-        [alert setInformativeText:@"There is already a Linux distro ISO on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool."];
+        [alert addButtonWithTitle:NSLocalizedString(@"ABORT", nil)];
+        [alert setMessageText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
+        [alert setInformativeText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB-LONG", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         
         [_spinner stopAnimation:self];
+        [_spinner setIndeterminate:NO];
+        [_spinner setDoubleValue:0.0];
         [[NSApp delegate] setCanQuit:YES];
         isCopying = NO;
         
@@ -292,7 +318,8 @@ BOOL isCopying = NO;
 #pragma clang diagnostic warning "-Wdeprecated-declarations"
         
         if (!failure) {
-            [self markUsbAsLive:usbRoot]; // Place a file on the USB to identify it as being created by Mac Linux USB Loader.
+            // Create the Enterprise configuration file.
+            [device markUsbAsLive:usbRoot distributionFamily:[_distributionFamilySelector stringValue]];
         }
     } else {
         // Some form of setup failed. Alert the user.
@@ -310,25 +337,14 @@ BOOL isCopying = NO;
         [_spinner stopAnimation:self];
         
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"No"];
-        [alert addButtonWithTitle:@"Yes"];
-        [alert setMessageText:@"Failed to create bootable USB."];
-        [alert setInformativeText:@"Do you erase the incomplete EFI boot?"];
+        [alert addButtonWithTitle:NSLocalizedString(@"NO", nil)];
+        [alert addButtonWithTitle:NSLocalizedString(@"YES", nil)];
+        [alert setMessageText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
+        [alert setInformativeText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB-LONG2", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil]; // Offer to erase the EFI boot since we never completed.
     } else {
     }
-}
-
-- (void)markUsbAsLive:(NSString*)path {
-    NSLog(@"Marking this USB as a live USB...");
-    
-    NSError* error;
-
-    NSString *filePath = [path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
-    NSString *str = [NSString stringWithFormat:@"%@\n%@", isoFilePath, path];
-    
-    [str writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
 }
 
 + (BOOL)autosavesInPlace
@@ -351,10 +367,10 @@ BOOL isCopying = NO;
 - (IBAction)eraseLiveBoot:(id)sender {
     if ([_usbDriveDropdown numberOfItems] != 0) {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Yes"];
-        [alert addButtonWithTitle:@"No"];
-        [alert setMessageText:@"Are you sure that you want to erase the live boot?"];
-        [alert setInformativeText:@"This will recover space by erasing everything in the EFI folder on the USB drive, but is unrecoverable."];
+        [alert addButtonWithTitle:NSLocalizedString(@"YES", nil)];
+        [alert addButtonWithTitle:NSLocalizedString(@"NO", nil)];
+        [alert setMessageText:NSLocalizedString(@"CONFIRM-ERASE-USB", nil)];
+        [alert setInformativeText:NSLocalizedString(@"CONFIRM-ERASE-USB-LONG", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(eraseAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
     } else {
@@ -390,8 +406,8 @@ BOOL isCopying = NO;
                 if (!eraseDidSucceed && err) { // If there was an error...
                     NSString *text = [NSString stringWithFormat:@"Error: %@", err];
                     NSAlert *alert = [[NSAlert alloc] init];
-                    [alert addButtonWithTitle:@"Okay"];
-                    [alert setMessageText:@"Failed to erase live USB."];
+                    [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+                    [alert setMessageText:NSLocalizedString(@"FAILED-ERASE-BOOTABLE-USB", nil)];
                     [alert setInformativeText:text];
                     [alert setAlertStyle:NSWarningAlertStyle];
                     [alert beginSheetModalForWindow:window modalDelegate:self didEndSelector:@selector(regularAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
@@ -417,6 +433,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
     NSWindow *window;
     NSString *usbRoot;
     Document *document;
+    
     if (context.progress != nil && context.window != nil && context.usbRoot != nil && context.document != nil) {
         progressIndicator = context.progress; // The progress bar to update.
         window = context.window; // The document window.
@@ -449,7 +466,7 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
             
             [progressIndicator setDoubleValue:0];
             
-#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_8)
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_8)
             // Show a notification for Mountain Lion users.
             Class test = NSClassFromString(@"NSUserNotificationCenter");
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -461,17 +478,17 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
                 
                 if ([defaults valueForKey:@"ShowNotifications"]) {
                     NSUserNotification *notification = [[NSUserNotification alloc] init];
-                    notification.title = @"Finished Making Live USB";
-                    notification.informativeText = @"The live USB has been made successfully.";
+                    notification.title = NSLocalizedString(@"FINISHED-MAKING-LIVE-USB", nil);
+                    notification.informativeText = NSLocalizedString(@"FINISHED-MAKING-LIVE-USB-LONG", nil);
                     notification.soundName = NSUserNotificationDefaultSoundName;
                     
                     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
                 }
                 
                 NSAlert *alert = [[NSAlert alloc] init];
-                [alert addButtonWithTitle:@"Okay"];
-                [alert setMessageText:@"Finished Making Live USB"];
-                [alert setInformativeText:@"The live USB has been made successfully."];
+                [alert addButtonWithTitle:NSLocalizedString(@"OKAY", nil)];
+                [alert setMessageText:NSLocalizedString(@"FINISHED-MAKING-LIVE-USB", nil)];
+                [alert setInformativeText:NSLocalizedString(@"FINISHED-MAKING-LIVE-USB-LONG", nil)];
                 [alert setAlertStyle:NSWarningAlertStyle];
                 
                 if (document != nil || window != nil) {
@@ -486,6 +503,8 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
             [NSApp requestUserAttention:NSCriticalRequest];
 #endif
             [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+            [document.makeUSBButton setEnabled:YES]; // Enable the buttons.
+            [document.eraseUSBButton setEnabled:YES];
             isCopying = NO;
             
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"automaticallyBless"] == YES) {

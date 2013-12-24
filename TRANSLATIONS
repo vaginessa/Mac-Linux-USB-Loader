@@ -1,0 +1,14 @@
+Thanks to the following people who were kind enough to translate Mac Linux USB Loader into their native languages. Official translations are either carried out by SevenBits (this program's author) or by a third party; however, all official translations are in languages that I can speak or in languages that I am learning to speak. Un-official translations are carried out by third parties on a volunteer basis. Other than a brief run through an online translation service like Google Translate, they are not verified in any way and I cannot vouch for the quality.
+
+If you would like to help as a translator, you may either a) file a bug through GitHub, tag it as a Feature Request, or b) email me at gmail.com. My username is sevenbitstech (I assume that you can put 2 and 2 together on that; I'm trying to avoid spammers). In both cases, simply include who you are, what languages you speak, and how proficient you think you are in them and I'll get back to you. :) Please note that you'll need a Mac and Xcode 5 to do translations.
+
+OFFICIAL TRANSLATIONS:
+
+English - development language; not really a translation
+Spanish - semi-official. initial translation was by Fabio Gomez (monfren10); subsequent translations* are by SevenBits
+
+UN-OFFICIAL (third party) TRANSLATIONS and TRANSLATORS:
+
+Traditional Chinese - I-YEH, WU
+
+* - May be totally terrible.
