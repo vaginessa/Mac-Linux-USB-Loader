@@ -391,10 +391,10 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1603">
-                        <rect key="frame" x="237" y="164" width="28" height="14"/>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CXP-RC-Kpz">
+                        <rect key="frame" x="234" y="161" width="111" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="v2.0" id="1604">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="8fj-mw-NWh">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -412,8 +412,6 @@
                     <constraint firstItem="556" firstAttribute="trailing" secondItem="1049" secondAttribute="trailing" id="1055"/>
                     <constraint firstItem="762" firstAttribute="leading" secondItem="536" secondAttribute="leading" id="1299"/>
                     <constraint firstAttribute="bottom" secondItem="762" secondAttribute="bottom" constant="64" id="1455"/>
-                    <constraint firstItem="1603" firstAttribute="top" secondItem="536" secondAttribute="bottom" constant="8" symbolic="YES" id="1605"/>
-                    <constraint firstItem="1603" firstAttribute="leading" secondItem="535" secondAttribute="leading" constant="239" id="1606"/>
                 </constraints>
             </view>
         </window>
@@ -441,6 +439,7 @@
         </menu>
         <customObject id="755" customClass="AppDelegate">
             <connections>
+                <outlet property="applicationVersionLabel" destination="CXP-RC-Kpz" id="obk-qG-lSx"/>
                 <outlet property="bootSettingsSheet" destination="1545" id="1582"/>
                 <outlet property="bootUSBSelector" destination="1549" id="1577"/>
                 <outlet property="closeDistroDownloadSheetButton" destination="1002" id="1365"/>

@@ -398,13 +398,13 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1662">
-                        <rect key="frame" x="236" y="161" width="36" height="17"/>
+                        <rect key="frame" x="236" y="161" width="111" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="32" id="1666"/>
+                            <constraint firstAttribute="width" constant="107" id="1666"/>
                             <constraint firstAttribute="height" constant="17" id="1667"/>
                         </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="v2.0" id="1663">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="1663">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -423,7 +423,7 @@
                     <constraint firstItem="1049" firstAttribute="top" secondItem="762" secondAttribute="bottom" constant="41" id="1059"/>
                     <constraint firstItem="762" firstAttribute="leading" secondItem="536" secondAttribute="leading" constant="173" id="1299"/>
                     <constraint firstItem="1662" firstAttribute="top" secondItem="536" secondAttribute="bottom" constant="8" symbolic="YES" id="1664"/>
-                    <constraint firstItem="1662" firstAttribute="centerX" secondItem="535" secondAttribute="centerX" id="1668"/>
+                    <constraint firstItem="1662" firstAttribute="centerX" secondItem="535" secondAttribute="centerX" constant="37" id="1668"/>
                 </constraints>
             </view>
         </window>
@@ -451,6 +451,7 @@
         </menu>
         <customObject id="755" customClass="AppDelegate">
             <connections>
+                <outlet property="applicationVersionLabel" destination="1662" id="JKu-aC-aF4"/>
                 <outlet property="bootSettingsSheet" destination="1544" id="1567"/>
                 <outlet property="bootUSBSelector" destination="1549" id="1580"/>
                 <outlet property="closeDistroDownloadSheetButton" destination="1002" id="1365"/>

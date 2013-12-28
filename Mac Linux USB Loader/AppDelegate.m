@@ -36,12 +36,14 @@ NSString *urlArray[] = {
     
     [_eraseUSBSelector removeAllItems];
     [self detectUSBs:nil];
-    
+
+    // Load recent documents.
     NSArray *myArray = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
     [_dataSource setArray:myArray];
     [_recentFileBrowser setDataSource:_dataSource];
     [_recentFileBrowser setDoubleAction:@selector(respondToRecentFileDoubleClick)];
-    
+
+    // Load user preferences.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     bootLoaderName = [defaults stringForKey:@"selectedFirmwareType"];
     automaticallyBless = [defaults boolForKey:@"automaticallyBless"];
@@ -55,6 +57,9 @@ NSString *urlArray[] = {
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(firmwareSelectionSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
     }
+
+    // Update the About window's program version number so we don't need to do it manually.
+    [_applicationVersionLabel setStringValue:[NSString stringWithFormat:@"Version %@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
@@ -487,4 +492,6 @@ NSString *urlArray[] = {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://sevenbits.github.io/tools/bugs/report-mlul.html"]];
 }
 
+- (IBAction)applicationVersionLabel:(id)sender {
+}
 @end

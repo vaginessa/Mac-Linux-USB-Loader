@@ -28,6 +28,7 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSTextField *applicationVersionLabel;
 @property (assign) IBOutlet NSButton *closeDistroDownloadSheetButton;
 @property (assign) IBOutlet NSButton *closeEraseDownloadSheetButton;
 @property (assign) IBOutlet NSButton *distroDownloadButton;
