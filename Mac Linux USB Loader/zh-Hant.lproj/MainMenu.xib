@@ -745,6 +745,7 @@
                     <constraint firstItem="1568" firstAttribute="top" secondItem="1549" secondAttribute="bottom" constant="8" id="1671"/>
                     <constraint firstItem="1547" firstAttribute="top" secondItem="1546" secondAttribute="bottom" constant="8" id="1672"/>
                     <constraint firstItem="1548" firstAttribute="top" secondItem="1549" secondAttribute="bottom" constant="8" id="1673"/>
+                    <constraint firstAttribute="trailing" secondItem="1590" secondAttribute="trailing" constant="20" id="e59-c2-gcW"/>
                 </constraints>
             </view>
         </window>

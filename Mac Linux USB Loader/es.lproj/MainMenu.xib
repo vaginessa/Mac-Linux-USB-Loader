@@ -712,7 +712,7 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1547">
-                        <rect key="frame" x="18" y="78" width="471" height="70"/>
+                        <rect key="frame" x="18" y="78" width="469" height="70"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1574">
                             <font key="font" metaFont="smallSystem"/>
@@ -739,6 +739,7 @@
                     <constraint firstItem="1552" firstAttribute="top" secondItem="1549" secondAttribute="bottom" constant="8" id="1609"/>
                     <constraint firstItem="1550" firstAttribute="top" secondItem="1548" secondAttribute="bottom" constant="8" id="1612"/>
                     <constraint firstItem="1551" firstAttribute="top" secondItem="1549" secondAttribute="bottom" constant="8" id="1613"/>
+                    <constraint firstAttribute="trailing" secondItem="1547" secondAttribute="trailing" constant="20" id="SoJ-Ir-p2X"/>
                 </constraints>
             </view>
         </window>
