@@ -1,6 +1,6 @@
 //
-//  RHAppDelegate.h
-//  RHPreferencesTester
+//  AppDelegate.h
+//  Mac Linux USB Loader
 //
 //  Originally created by Richard Heard on 23/05/12. Subsequently modified by SevenBits.
 //  Copyright (c) 2012-2013 SevenBits. All rights reserved.

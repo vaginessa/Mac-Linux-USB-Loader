@@ -30,8 +30,8 @@
         NSLog(@"Error: %@", errorMessage);
         
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Abort"];
-        [alert setMessageText:@"Failed to create bootable USB."];
+        [alert setMessageText:NSLocalizedString(@"ABORT", nil)];
+        [alert setInformativeText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
         [alert setInformativeText:errorMessage];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
@@ -47,8 +47,8 @@
     // Should be relatively self-explanatory. If there's already EFI executables, show an error message.
     if (fileExists == YES) {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Abort"];
-        [alert setMessageText:@"Failed to create bootable USB."];
+        [alert setMessageText:NSLocalizedString(@"ABORT", nil)];
+        [alert setMessageText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
         [alert setInformativeText:@"There is already EFI firmware on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool."];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
@@ -66,8 +66,8 @@
         BOOL enterpriseInstallSuccess = NO, grubInstallSuccess = NO;
         if ([fileManager copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
             NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"Abort"];
-            [alert setMessageText:@"Failed to create bootable USB."];
+            [alert setMessageText:NSLocalizedString(@"ABORT", nil)];
+            [alert setMessageText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
             [alert setInformativeText:@"Could not copy Enterprise to the USB device."];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
@@ -77,8 +77,8 @@
     
         if ([fileManager copyItemAtPath:grubLoaderPath toPath:finalLoaderPath error:nil] == NO) {
             NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"Abort"];
-            [alert setMessageText:@"Failed to create bootable USB."];
+            [alert setMessageText:NSLocalizedString(@"ABORT", nil)];
+            [alert setMessageText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
             [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
@@ -91,8 +91,8 @@
     } else {
         if ([fileManager copyItemAtPath:bootLoaderPath toPath:finalPath error:nil] == NO) {
             NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"Abort"];
-            [alert setMessageText:@"Failed to create bootable USB."];
+            [alert setMessageText:NSLocalizedString(@"ABORT", nil)];
+            [alert setMessageText:NSLocalizedString(@"FAILED-CREATE-BOOTABLE-USB", nil)];
             [alert setInformativeText:@"Could not copy the EFI bootloader to the USB device."];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
