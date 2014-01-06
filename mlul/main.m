@@ -2,7 +2,7 @@
 //  main.m
 //  mlul
 //
-//  Created by Ryan Bowring on 9/14/13.
+//  Created by SevenBits on 9/14/13.
 //
 //
 
@@ -13,7 +13,7 @@
 
 /* Our global variables. */
 char devicePath[100];
-char hostPath[100] = "/Applications/Mac Linux USB Loader/Contents/Resources/";
+char hostPath[100] = "/Applications/Mac Linux USB Loader.app/Contents/Resources/";
 char inputFile[100];
 
 int haveInputFile = NO;
