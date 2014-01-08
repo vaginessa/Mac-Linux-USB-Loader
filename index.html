@@ -1,74 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Mac Linux USB Loader : Tool allowing you to put a Linux distribution on a USB drive and make it bootable on Intel Macs using EFI." />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mac Linux USB Loader by SevenBits</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Mac Linux USB Loader</title>
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/SevenBits/Mac-Linux-USB-Loader">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">Mac Linux USB Loader</h1>
-          <h2 id="project_tagline">Tool allowing you to put a Linux distribution on a USB drive and make it bootable on Intel Macs using EFI.</h2>
+      <section>
+        <div id="title">
+          <h1>Mac Linux USB Loader</h1>
+          <p>Tool allowing you to put a Linux distribution on a USB drive and make it bootable on Intel Macs using EFI.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/SevenBits">SevenBits</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/SevenBits/Mac-Linux-USB-Loader/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/SevenBits/Mac-Linux-USB-Loader/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
         <h2>
 <a name="mac-linux-usb-loader" class="anchor" href="#mac-linux-usb-loader"><span class="octicon octicon-link"></span></a>Mac Linux USB Loader</h2>
 
-<p>This is a tool allowing you to put a Linux distro on a USB drive and make it bootable on Intel Macs using EFI. Right now, it's very basic and rudimentary but is being very actively developed. Some advanced features are being developed for Mac Linux USB Loader that are not available in other live USB creators for Mac, such as the ability to make the Live USB drives created by this tool automatically boot on your Mac, a Compatibility Tester application, and more!</p>
+<h3>
+<a name="what-is-mac-linux-usb-loader" class="anchor" href="#what-is-mac-linux-usb-loader"><span class="octicon octicon-link"></span></a>What is Mac Linux USB Loader?</h3>
 
-<p>The application is available in English and is translated into Spanish and Traditional Chinese. Most user interface elements are translated, but dialog boxes and recent additions (particularly in development branches) remain in English. For information on available translations, please see <a href="https://raw.github.com/SevenBits/Mac-Linux-USB-Loader/working/TRANSLATIONS">this file</a>.</p>
+<p>Mac Linux USB Loader is an application that allows you to create bootable USB drives containing a Linux distribution that can boot natively on Apple's Macintosh computers using its EFI system, regardless of whether or not the selected distribution has UEFI support. It is available in English and is translated into Spanish and Traditional Chinese. For information on available translations, please see <a href="https://raw.github.com/SevenBits/Mac-Linux-USB-Loader/working/TRANSLATIONS">here</a>. It has a number of features:</p>
 
-<p>I recommend that you download the latest version (link below), but if you want to build from source code, use the following steps (<em>Note:</em> more thorough steps on building from source are <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki/Building">here on the wiki</a>).</p>
+<ul>
+<li>Non-destructive install (does not format your USB drive as long as it has a FAT32 filesystem).</li>
+<li>Supports mainstream Linux distributions, such as Ubuntu, Linux Mint, Zorin, and more.</li>
+<li>Includes persistence support (Ubuntu only).</li>
+<li>Automatically detects all removable devices.</li>
+</ul><p><strong><a href="http://sevenbits.github.com/downloads/Mac-Linux-USB-Loader.zip">Click here</a> to download the latest stable version of Mac Linux USB Loader.</strong> You can see all releases, including betas, along with download links <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/releases">here</a> (if, for instance, you want to use an older version), and ancient, seriously old versions (like my initial, pre-1.0 betas) can be found <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/downloads">here</a>, though you <strong>really</strong> shouldn't download those unless you have a good reason.</p>
 
-<pre><code>git clone git://github.com/SevenBits/Mac-Linux-USB-Loader.git
-cd Mac-Linux-USB-Loader
-xcodebuild
-</code></pre>
+<p>If you're a developer, hacker, or just computer-savvy, you can build the program from source code too. You can download the source code from the links above. You can also <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki/Building">clone the source from git and build from the command line</a>. Note that if you have to ask, "what's git?" then this is <em>not</em> the best way to obtain Mac Linux USB Loader.</p>
 
-<blockquote>
-<p>Please note: if you get an error about the certificate "Mac Developer" not being present, this means 
-that you are not enrolled in the Mac Developer Program. Code signing is enabled as a benefit to Mac
-developers. If you are not enrolled as a paid member of the <strong>Mac</strong> Developer Program, use
-<code>xcodebuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO</code> instead of <code>xcodebuild</code> as shown
-above.</p>
-</blockquote>
-
-<p>You can also go into the Xcode project and build from there, but that makes a debug build that is not useful unless you intend you help develop the application.</p>
-
-<p><a href="http://sevenbits.github.com/downloads/Mac-Linux-USB-Loader.zip">Click here</a> to download the latest stable version of Mac Linux USB Loader. You can see all releases, including betas, along with download links <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/releases">here</a> (if, for instance, you want to use an older version), and ancient, seriously old versions (like my initial, pre-1.0 betas) can be found <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/downloads">here</a>, though you <strong>really</strong> shouldn't download those unless you have a good reason.</p>
-
-<p>Building the program yourself is <em>the best way</em> to see the new features. But please note that beta releases are not guaranteed by me <em>in any way</em>. They may eat your hamster. </p>
+<p><strong><em>Want to see everything cool that I work on? See <a href="http://sevenbits.github.io/">my homepage</a>!</em></strong></p>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Mac Linux USB Loader maintained by <a href="https://github.com/SevenBits">SevenBits</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -79,7 +70,6 @@ above.</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
