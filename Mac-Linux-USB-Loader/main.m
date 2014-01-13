@@ -2,7 +2,7 @@
 //  main.m
 //  Mac-Linux-USB-Loader
 //
-//  Created by Ryan Bowring on 1/13/14.
+//  Created by SevenBits on 1/13/14.
 //  Copyright (c) 2014 SevenBits. All rights reserved.
 //
 

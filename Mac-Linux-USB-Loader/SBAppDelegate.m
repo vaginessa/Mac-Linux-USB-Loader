@@ -12,10 +12,11 @@
 @synthesize window;
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
-	// Set window properties.
+	/* Set window properties. */
 	[self.window setBackgroundColor:[NSColor whiteColor]];
 	[self.window setMovableByWindowBackground:YES];
 
+	// Set window resize behavior.
 	[[self.window standardWindowButton:NSWindowZoomButton] setHidden:YES];
 	[[self.window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
 	[self.window setShowsResizeIndicator:NO];
