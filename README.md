@@ -3,18 +3,18 @@ Mac-Linux-USB-Loader
 
 Tool allowing you to put a Linux distro on a USB drive and make it bootable on Intel Macs using EFI.
 
-      #####
-     #######
-     ##O#O##
-     #VVVVV#
-    ## VVV  ##
-   #          ##
-  #            ##
-  #            ###
- QQ#           ##QQQQQ
-QQQQQQ#       #QQQQQQQ
-QQQQQQQ#     #QQQQQQQ
-  QQQQQ#######QQQQQ
+>      #####
+>     #######
+>     ##O#O##
+>     #VVVVV#
+>    ## VVV  ##
+>   #          ##
+>  #            ##
+>  #            ###
+> QQ#           ##QQQQQ
+>QQQQQQ#       #QQQQQQQ
+>QQQQQQQ#     #QQQQQQQ
+>  QQQQQ#######QQQQQ
 
 This is the Mac Linux USB Loader, a tool allowing you to take an ISO of a Linux distribution and make it boot using EFI. It requires a single USB drive formatted as FAT with at least 2 GB free recommended. The application is available in English and a number of other languages. For all supported languages, see the TRANSLATIONS file. This project also contains the Compatibility Tester, a related but separate tool to test your Mac's Linux compatibility.
 

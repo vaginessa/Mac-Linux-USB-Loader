@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Mac-Linux-USB-Loader.xcodeproj">
+      location = "self:Mac Linux USB Loader.xcodeproj">
    </FileRef>
 </Workspace>
