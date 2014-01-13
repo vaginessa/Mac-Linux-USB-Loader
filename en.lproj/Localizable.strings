@@ -1,0 +1,66 @@
+/* 
+  Localizable.strings
+  Mac Linux USB Loader
+
+  Created by SevenBits on 8/31/13.
+
+*/
+
+OKAY = "Okay";
+YES = "Yes";
+NO = "No";
+ABORT = "Abort";
+
+/*
+ * Localizations for AppDelegate.m
+ */
+
+OPERATION-IN-PROGRESS = "Operation in progress.";
+QUIT-DURING-OPERATION = "Mac Linux USB Loader is currently in the middle of an operation. Quitting the application at this time could result in corrupted data. Do you want to quit anyway?";
+UPGRADE-FIRMWARE = "Upgrade to Enterprise?";
+UPGRADE-FIRMWARE-LONG = "Enterprise, the new booting solution used by Mac Linux USB Loader, has been released. Do you want to set it as your preferred loader for all new installations?";
+
+
+// Live USB Eraser
+
+FAILED-TO-ERASE-USB = "Failed to erase live USB.";
+USB-ERASE-SUCCESSFUL = "Erase successful.";
+USB-HAS-BEEN-ERASED = "The live USB has been erased.";
+
+// USB Drive Blesser
+
+NO-USBS-PLUGGED-IN = "No USB drives are plugged in.";
+NO-USBS-PLUGGED-IN-LONG = "You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button in the panel.";
+BLESS-COMPLETE = "Bless complete.";
+BLESS-COMPLETE-LONG = "Leave the USB drive in its slot and restart the computer. Your Mac will boot directly into the Linux distribution installed on your USB drives.";
+UNBLESS-COMPLETE = "Unbless complete.";
+UNBLESS-COMPLETE-LONG = "Your USB drive has been unblessed. Your Mac will not longer boot directly into it. Instead, to boot from it, hold down the Option/Alt key after the startup chimes and select your drive when it appears.";
+
+// Distribution Downloader
+
+FILE-NOT-FOUND = "File not found.";
+ISO-NOT-FOUND = "That distribution's ISO file was not found in your Downloads folder.";
+NO-DISTRO-SELECTED = "No distribution selected.";
+PLEASE-SELECT-DISTRO = "Please select a distribution first before clicking the download button.";
+
+// Preferences View Controller Titles
+
+APPLICATION = "Application";
+NOTIFICATIONS = "Notifications";
+FIRMWARE = "Firmware";
+ACKNOWLEDGEMENTS = "Acknowledgments";
+
+/*
+ * Localizations for Document.m
+ */
+
+FAILED-CREATE-BOOTABLE-USB = "Failed to create a bootable USB.";
+FAILED-CREATE-BOOTABLE-USB-LONG = "There is already a Linux distro ISO on this device. If it is from a previous run of Mac Linux USB Loader, you must delete the EFI folder on the USB drive and then run this tool.";
+FAILED-CREATE-BOOTABLE-USB-LONG2 = "Do you want to erase the incomplete installation?";
+FAILED-ERASE-BOOTABLE-USB = "Failed to erase live USB.";
+
+CONFIRM-ERASE-USB = "Are you sure that you want to erase the live boot?";
+CONFIRM-ERASE-USB-LONG = "This will recover space by erasing everything in the EFI folder on the USB drive, but is unrecoverable.";
+
+FINISHED-MAKING-LIVE-USB = "Finished Making Live USB.";
+FINISHED-MAKING-LIVE-USB-LONG = "The live USB has been made successfully.";

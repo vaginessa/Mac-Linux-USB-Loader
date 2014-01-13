@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1070" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application">
+            <connections>
+                <outlet property="delegate" destination="755" id="1367"/>
+                <outlet property="dockMenu" destination="726" id="730"/>
+            </connections>
+        </customObject>
+        <menu title="MainMenu" systemMenu="main" id="29">
+            <items>
+                <menuItem title="Mac Linux USB Loader" id="56">
+                    <menu key="submenu" title="Mac Linux USB Loader" systemMenu="apple" id="57">
+                        <items>
+                            <menuItem title="About Mac Linux USB Loader" id="58">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="534" id="548"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="236">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                                <connections>
+                                    <action selector="showPreferences:" target="755" id="757"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Check for Updates" id="1452">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="1451" id="1453"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="143">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Services" id="131">
+                                <menu key="submenu" title="Services" systemMenu="services" id="130"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="144">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Hide Mac Linux USB Loader" keyEquivalent="h" id="134">
+                                <connections>
+                                    <action selector="hide:" target="-1" id="367"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-1" id="368"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="150">
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-1" id="370"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="149">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Quit Mac Linux USB Loader" keyEquivalent="q" id="136">
+                                <connections>
+                                    <action selector="terminate:" target="-3" id="448"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="File" id="83">
+                    <menu key="submenu" title="File" id="81">
+                        <items>
+                            <menuItem title="Open…" keyEquivalent="o" id="72">
+                                <connections>
+                                    <action selector="openDocument:" target="-1" id="372"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Open Recent" id="124">
+                                <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="125">
+                                    <items>
+                                        <menuItem title="Clear Menu" id="126">
+                                            <connections>
+                                                <action selector="clearRecentDocuments:" target="-1" id="127"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="79">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Close" keyEquivalent="w" id="73">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="193"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="19">
+                    <menu key="submenu" title="Window" systemMenu="window" id="24">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="23">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="37"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom" id="239">
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="240"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="810"/>
+                            <menuItem title="Bring All to Front" id="5">
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="491">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="492">
+                        <items>
+                            <menuItem title="Mac Linux USB Loader Help" keyEquivalent="?" id="493">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="1502"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="View GitHub Page" id="617">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openGithubPage:" target="755" id="1500"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="767"/>
+                            <menuItem title="File Bug Report" id="768">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="reportBug:" target="755" id="1501"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <customObject id="419" customClass="NSFontManager"/>
+        <window title="Mac Linux USB Loader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="1068" userLabel="Main Window">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
+            <rect key="contentRect" x="131" y="159" width="574" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <value key="minSize" type="size" width="574" height="270"/>
+            <view key="contentView" id="1069">
+                <rect key="frame" x="0.0" y="0.0" width="574" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1302">
+                        <rect key="frame" x="393" y="13" width="167" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Visit Project Website" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1303">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openGithubPage:" target="755" id="1498"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1307">
+                        <rect key="frame" x="283" y="13" width="110" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Report Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1308">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reportBug:" target="755" id="1497"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1312">
+                        <rect key="frame" x="155" y="222" width="264" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Linux USB Loader" id="1313">
+                            <font key="font" size="23" name="LucidaGrande-Bold"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1326">
+                        <rect key="frame" x="155" y="206" width="304" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="1332"/>
+                            <constraint firstAttribute="width" constant="300" id="1333"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(c) 2012-2014 SevenBits. Some rights reserved." id="1327">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1347">
+                        <rect key="frame" x="21" y="189" width="135" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Recent Distributions:" id="1348">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" translatesAutoresizingMaskIntoConstraints="NO" id="1507">
+                        <rect key="frame" x="23" y="46" width="531" height="135"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <clipView key="contentView" id="zKv-vN-Njc">
+                            <rect key="frame" x="1" y="17" width="529" height="117"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="1510" id="1508">
+                                    <rect key="frame" x="0.0" y="0.0" width="529" height="117"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                    <tableColumns>
+                                        <tableColumn width="526" minWidth="40" maxWidth="1000" id="1512">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="1515">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        </tableColumn>
+                                    </tableColumns>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1509">
+                            <rect key="frame" x="1" y="119" width="223" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1511">
+                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <tableHeaderView key="headerView" id="1510">
+                            <rect key="frame" x="0.0" y="0.0" width="529" height="17"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </tableHeaderView>
+                        <connections>
+                            <outlet property="menu" destination="1535" id="1539"/>
+                        </connections>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="1302" secondAttribute="trailing" constant="20" symbolic="YES" id="1304"/>
+                    <constraint firstAttribute="bottom" secondItem="1302" secondAttribute="bottom" constant="20" symbolic="YES" id="1305"/>
+                    <constraint firstItem="1302" firstAttribute="leading" secondItem="1307" secondAttribute="trailing" constant="12" symbolic="YES" id="1309"/>
+                    <constraint firstAttribute="bottom" secondItem="1307" secondAttribute="bottom" constant="20" symbolic="YES" id="1310"/>
+                    <constraint firstItem="1312" firstAttribute="top" secondItem="1069" secondAttribute="top" constant="20" symbolic="YES" id="1314"/>
+                    <constraint firstItem="1326" firstAttribute="leading" secondItem="1312" secondAttribute="leading" id="1330"/>
+                    <constraint firstItem="1326" firstAttribute="top" secondItem="1069" secondAttribute="top" constant="47" id="1344"/>
+                    <constraint firstItem="1347" firstAttribute="leading" secondItem="1069" secondAttribute="leading" constant="23" id="1349"/>
+                    <constraint firstItem="1347" firstAttribute="top" secondItem="1069" secondAttribute="top" constant="64" id="1351"/>
+                    <constraint firstItem="1312" firstAttribute="centerX" secondItem="1069" secondAttribute="centerX" id="1506"/>
+                    <constraint firstAttribute="bottom" secondItem="1507" secondAttribute="bottom" constant="46" id="1516"/>
+                    <constraint firstItem="1507" firstAttribute="leading" secondItem="1347" secondAttribute="leading" id="1518"/>
+                    <constraint firstItem="1507" firstAttribute="top" secondItem="1347" secondAttribute="bottom" constant="8" symbolic="YES" id="1519"/>
+                    <constraint firstAttribute="trailing" secondItem="1507" secondAttribute="trailing" constant="20" symbolic="YES" id="1520"/>
+                </constraints>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="3A56F0E5-43DA-4158-821A-EB256166EBAE" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="1070">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="1071"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="1074"/>
+                    <toolbarItem implicitItemIdentifier="12A6BE16-DA18-4D67-BC0E-1F37C3049E52" label="Create Live USB" paletteLabel="Create Live USB" tag="-1" image="Icon" id="1076">
+                        <connections>
+                            <action selector="openDocument:" target="-1" id="1080"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="D46BFC31-2E91-4868-851A-E05A416E52DA" label="About" paletteLabel="About" tag="-1" image="NSInfo" id="1077">
+                        <connections>
+                            <action selector="makeKeyAndOrderFront:" target="534" id="1082"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="29B982E6-E12B-4E84-9A51-43F5BC5DFD0B" label="Preferences" paletteLabel="Preferences" tag="-1" image="NSPreferencesGeneral" id="1078">
+                        <connections>
+                            <action selector="showPreferences:" target="755" id="1085"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="55CB9913-CEAC-4E55-A66F-E5163A98BC51" label="Erase Live USB" paletteLabel="Erase Live USB" tag="-1" image="Eraser" id="1079">
+                        <connections>
+                            <action selector="showEraseDistroSheet:" target="755" id="1456"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="E7055DBC-C209-4E34-8A12-C38461C8F2FB" label="Download Distribution" paletteLabel="Download Distribution" tag="-1" image="NSNetwork" id="1300">
+                        <connections>
+                            <action selector="showDownloadDistroSheet:" target="755" id="1352"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="A9283113-A5EB-4006-B27F-D981E0AF3F75" label="Modify Boot Settings" paletteLabel="Modify Boot Settings" tag="-1" image="Boot" id="1542">
+                        <connections>
+                            <action selector="showModifyBootSettingsSheet:" target="755" id="1543"/>
+                        </connections>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="1076"/>
+                    <toolbarItem reference="1079"/>
+                    <toolbarItem reference="1300"/>
+                    <toolbarItem reference="1542"/>
+                    <toolbarItem reference="1074"/>
+                </defaultToolbarItems>
+            </toolbar>
+        </window>
+        <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="534" userLabel="About Panel" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <rect key="contentRect" x="139" y="157" width="509" height="234"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <value key="minSize" type="size" width="509" height="234"/>
+            <view key="contentView" id="535">
+                <rect key="frame" x="0.0" y="0.0" width="509" height="234"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <imageView translatesAutoresizingMaskIntoConstraints="NO" id="541">
+                        <rect key="frame" x="17" y="-5" width="222" height="222"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="222" id="542"/>
+                            <constraint firstAttribute="width" constant="222" id="543"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Icon" id="544"/>
+                    </imageView>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="536">
+                        <rect key="frame" x="234" y="186" width="257" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="253" id="545"/>
+                            <constraint firstAttribute="height" constant="28" id="546"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Linux USB Loader" id="547">
+                            <font key="font" size="17" name="LucidaGrande"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="556">
+                        <rect key="frame" x="351" y="49" width="152" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="562"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Fork on GitHub" bezelStyle="rounded" image="NSComputer" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="557">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openGithubPage:" target="755" id="1504"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="762">
+                        <rect key="frame" x="230" y="49" width="121" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Report a Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="763">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reportBug:" target="755" id="1503"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1049">
+                        <rect key="frame" x="190" y="0.0" width="309" height="48"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="305" id="1056"/>
+                            <constraint firstAttribute="height" constant="48" id="1060"/>
+                        </constraints>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1050">
+                            <font key="font" metaFont="smallSystem"/>
+                            <string key="title">(c) 2012-2014 SevenBits. Some rights reserved. Linux is a trademark of Linus Torvalds. All other trademarks are property of their respective owners.</string>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1662">
+                        <rect key="frame" x="236" y="161" width="111" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="107" id="1666"/>
+                            <constraint firstAttribute="height" constant="17" id="1667"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="1663">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="541" firstAttribute="top" secondItem="535" secondAttribute="top" constant="17" id="537"/>
+                    <constraint firstItem="541" firstAttribute="leading" secondItem="535" secondAttribute="leading" constant="17" id="538"/>
+                    <constraint firstItem="536" firstAttribute="top" secondItem="535" secondAttribute="top" constant="20" symbolic="YES" id="539"/>
+                    <constraint firstAttribute="trailing" secondItem="536" secondAttribute="trailing" constant="20" symbolic="YES" id="540"/>
+                    <constraint firstItem="556" firstAttribute="baseline" secondItem="762" secondAttribute="baseline" id="1046"/>
+                    <constraint firstItem="556" firstAttribute="leading" secondItem="762" secondAttribute="trailing" constant="12" symbolic="YES" id="1047"/>
+                    <constraint firstItem="1049" firstAttribute="bottom" secondItem="535" secondAttribute="bottom" id="1051"/>
+                    <constraint firstItem="556" firstAttribute="trailing" secondItem="1049" secondAttribute="trailing" id="1055"/>
+                    <constraint firstItem="1049" firstAttribute="top" secondItem="762" secondAttribute="bottom" constant="8" symbolic="YES" id="1059"/>
+                    <constraint firstItem="762" firstAttribute="leading" secondItem="536" secondAttribute="leading" id="1299"/>
+                    <constraint firstItem="1662" firstAttribute="top" secondItem="536" secondAttribute="bottom" constant="8" symbolic="YES" id="1664"/>
+                    <constraint firstItem="1662" firstAttribute="centerX" secondItem="535" secondAttribute="centerX" constant="37" id="1668"/>
+                </constraints>
+            </view>
+        </window>
+        <menu title="Dock Menu" id="726">
+            <items>
+                <menuItem title="Select ISO File" id="728">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openDocument:" target="-1" id="735"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Show GitHub Repository" id="759">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openGithubPage:" target="755" id="1494"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Open Disk Utility" id="729">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openDiskUtility:" target="755" id="1495"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+        <customObject id="755" customClass="AppDelegate">
+            <connections>
+                <outlet property="applicationVersionLabel" destination="1662" id="fVe-Vl-WAE"/>
+                <outlet property="bootSettingsSheet" destination="1544" id="1567"/>
+                <outlet property="bootUSBSelector" destination="1549" id="1580"/>
+                <outlet property="closeDistroDownloadSheetButton" destination="1002" id="1365"/>
+                <outlet property="closeEraseDownloadSheetButton" destination="1458" id="1463"/>
+                <outlet property="dataSource" destination="1528" id="1529"/>
+                <outlet property="distroDownloadButton" destination="1008" id="1366"/>
+                <outlet property="distroDownloadProgressIndicator" destination="1014" id="1353"/>
+                <outlet property="distroSelectorComboBox" destination="1354" id="1438"/>
+                <outlet property="eraseSheet" destination="1454" id="1582"/>
+                <outlet property="eraseUSBSelector" destination="1464" id="1492"/>
+                <outlet property="openDownloadedDistroButton" destination="1385" id="1532"/>
+                <outlet property="recentFileBrowser" destination="1508" id="1531"/>
+                <outlet property="sheet" destination="1000" id="1012"/>
+                <outlet property="window" destination="1068" id="1632"/>
+            </connections>
+        </customObject>
+        <window title="Distribution Downloader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1000" userLabel="Download Distribution Panel" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <rect key="contentRect" x="139" y="154" width="430" height="127"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <value key="minSize" type="size" width="430" height="127"/>
+            <view key="contentView" id="1001">
+                <rect key="frame" x="0.0" y="0.0" width="430" height="127"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1002">
+                        <rect key="frame" x="14" y="41" width="74" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1003">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeDownloadDistroSheet:" target="755" id="1006"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1008">
+                        <rect key="frame" x="313" y="43" width="103" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1009">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="downloadDistribution:" target="755" id="1013"/>
+                        </connections>
+                    </button>
+                    <progressIndicator maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="1014">
+                        <rect key="frame" x="20" y="19" width="390" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
+                    <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1354">
+                        <rect key="frame" x="20" y="95" width="393" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a Distribution" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="1355">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>Ubuntu 13.10 for Mac</string>
+                                <string>Linux Mint 15 Cinnamon (US mirror)</string>
+                                <string>Zorin OS 6.1</string>
+                                <string>Elementary OS Luna</string>
+                            </objectValues>
+                        </comboBoxCell>
+                    </comboBox>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1378">
+                        <rect key="frame" x="18" y="77" width="417" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="413" id="1649"/>
+                        </constraints>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The ISO file that is downloaded will be placed in your Downloads folder." id="1379">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1385">
+                        <rect key="frame" x="179" y="43" width="134" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Open in Finder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1386">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openDownloadedDistro:" target="755" id="1499"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1354" firstAttribute="top" secondItem="1001" secondAttribute="top" constant="8" id="1390"/>
+                    <constraint firstItem="1378" firstAttribute="top" secondItem="1354" secondAttribute="bottom" constant="8" symbolic="YES" id="1418"/>
+                    <constraint firstItem="1008" firstAttribute="baseline" secondItem="1385" secondAttribute="baseline" id="1429"/>
+                    <constraint firstAttribute="trailing" secondItem="1008" secondAttribute="trailing" constant="20" symbolic="YES" id="1641"/>
+                    <constraint firstItem="1008" firstAttribute="leading" secondItem="1385" secondAttribute="trailing" constant="12" symbolic="YES" id="1643"/>
+                    <constraint firstItem="1002" firstAttribute="leading" secondItem="1001" secondAttribute="leading" constant="20" symbolic="YES" id="1644"/>
+                    <constraint firstItem="1378" firstAttribute="leading" secondItem="1001" secondAttribute="leading" constant="20" symbolic="YES" id="1648"/>
+                    <constraint firstItem="1354" firstAttribute="leading" secondItem="1001" secondAttribute="leading" constant="20" symbolic="YES" id="1650"/>
+                    <constraint firstAttribute="trailing" secondItem="1354" secondAttribute="trailing" constant="20" symbolic="YES" id="1654"/>
+                    <constraint firstAttribute="trailing" secondItem="1014" secondAttribute="trailing" constant="20" symbolic="YES" id="1655"/>
+                    <constraint firstItem="1014" firstAttribute="leading" secondItem="1001" secondAttribute="leading" constant="20" symbolic="YES" id="1657"/>
+                    <constraint firstAttribute="bottom" secondItem="1014" secondAttribute="bottom" constant="20" symbolic="YES" id="1659"/>
+                    <constraint firstItem="1385" firstAttribute="top" secondItem="1001" secondAttribute="top" constant="56" id="1660"/>
+                    <constraint firstItem="1002" firstAttribute="top" secondItem="1378" secondAttribute="bottom" constant="8" symbolic="YES" id="1661"/>
+                </constraints>
+            </view>
+        </window>
+        <customObject id="1451" customClass="SUUpdater"/>
+        <window title="Erase USB Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1454" userLabel="Erase Distribution Panel" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="154" width="505" height="93"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <value key="minSize" type="size" width="505" height="93"/>
+            <value key="maxSize" type="size" width="505" height="113"/>
+            <view key="contentView" id="1455">
+                <rect key="frame" x="0.0" y="0.0" width="505" height="93"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1458">
+                        <rect key="frame" x="14" y="13" width="74" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1459">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeEraseDistroSheet:" target="755" id="1462"/>
+                        </connections>
+                    </button>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1464">
+                        <rect key="frame" x="18" y="49" width="401" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="null" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1469" id="1465">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" title="OtherViews" id="1466">
+                                <items>
+                                    <menuItem title="null" state="on" id="1469"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1474">
+                        <rect key="frame" x="418" y="13" width="73" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Erase" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1475">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="eraseSelectedDrive:" target="755" id="1493"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1484">
+                        <rect key="frame" x="424" y="51" width="61" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" title="Refresh" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1485">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="detectUSBs:" target="755" id="1491"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1458" firstAttribute="leading" secondItem="1455" secondAttribute="leading" constant="20" symbolic="YES" id="1460"/>
+                    <constraint firstItem="1464" firstAttribute="leading" secondItem="1455" secondAttribute="leading" constant="20" symbolic="YES" id="1470"/>
+                    <constraint firstItem="1464" firstAttribute="top" secondItem="1455" secondAttribute="top" constant="20" symbolic="YES" id="1471"/>
+                    <constraint firstAttribute="trailing" secondItem="1474" secondAttribute="trailing" constant="20" symbolic="YES" id="1477"/>
+                    <constraint firstAttribute="trailing" secondItem="1484" secondAttribute="trailing" constant="20" symbolic="YES" id="1486"/>
+                    <constraint firstItem="1484" firstAttribute="top" secondItem="1455" secondAttribute="top" constant="20" symbolic="YES" id="1487"/>
+                    <constraint firstItem="1484" firstAttribute="leading" secondItem="1464" secondAttribute="trailing" constant="8" symbolic="YES" id="1489"/>
+                    <constraint firstItem="1474" firstAttribute="leading" secondItem="1484" secondAttribute="leading" id="1490"/>
+                    <constraint firstAttribute="bottom" secondItem="1474" secondAttribute="bottom" constant="20" symbolic="YES" id="1638"/>
+                    <constraint firstAttribute="bottom" secondItem="1458" secondAttribute="bottom" constant="20" symbolic="YES" id="1639"/>
+                </constraints>
+            </view>
+        </window>
+        <customObject id="1528" customClass="RecentDocumentsTableViewDataSource"/>
+        <menu id="1535" userLabel="Recent Documents Context Menu">
+            <items>
+                <menuItem title="Refresh" id="1536">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="updateRecents:" target="755" id="1540"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+        <window title="Modify Boot Settings Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1544" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="154" width="505" height="154"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <value key="minSize" type="size" width="505" height="151"/>
+            <view key="contentView" id="1545">
+                <rect key="frame" x="0.0" y="0.0" width="505" height="154"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1548">
+                        <rect key="frame" x="14" y="13" width="74" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1563">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeModifyBootSettingsSheet:" target="755" id="1579"/>
+                        </connections>
+                    </button>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1549">
+                        <rect key="frame" x="18" y="46" width="397" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="null" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1562" id="1560">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" title="OtherViews" id="1561">
+                                <items>
+                                    <menuItem title="null" state="on" id="1562"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1547">
+                        <rect key="frame" x="402" y="13" width="89" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="1670"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Unbless" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1564">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="unbless:" target="755" id="1631"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1546">
+                        <rect key="frame" x="420" y="48" width="65" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="1577"/>
+                            <constraint firstAttribute="height" constant="21" id="1669"/>
+                        </constraints>
+                        <buttonCell key="cell" type="smallSquare" title="Refresh" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1565">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="detectUSBs:" target="755" id="1581"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1568">
+                        <rect key="frame" x="331" y="13" width="71" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Bless" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1569">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="blessUSB:" target="755" id="1583"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1590">
+                        <rect key="frame" x="18" y="78" width="469" height="56"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1591">
+                            <font key="font" metaFont="smallSystem"/>
+                            <string key="title">To help boot Linux, this will "bless" the boot file on your USB drive with an internal operating system tool that will tell your Mac to boot it. Performing this action is not strictly required but may be useful if your Mac won't boot your USB. Your administrator password will be required as this will make changes to the system firmware.</string>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1549" firstAttribute="leading" secondItem="1545" secondAttribute="leading" constant="20" symbolic="YES" id="1550"/>
+                    <constraint firstItem="1548" firstAttribute="leading" secondItem="1545" secondAttribute="leading" constant="20" symbolic="YES" id="1552"/>
+                    <constraint firstAttribute="trailing" secondItem="1547" secondAttribute="trailing" constant="20" symbolic="YES" id="1554"/>
+                    <constraint firstAttribute="trailing" secondItem="1546" secondAttribute="trailing" constant="20" symbolic="YES" id="1557"/>
+                    <constraint firstItem="1547" firstAttribute="leading" secondItem="1568" secondAttribute="trailing" constant="12" symbolic="YES" id="1571"/>
+                    <constraint firstItem="1546" firstAttribute="leading" secondItem="1549" secondAttribute="trailing" constant="8" symbolic="YES" id="1578"/>
+                    <constraint firstItem="1590" firstAttribute="leading" secondItem="1545" secondAttribute="leading" constant="20" symbolic="YES" id="1592"/>
+                    <constraint firstAttribute="bottom" secondItem="1548" secondAttribute="bottom" constant="20" symbolic="YES" id="1615"/>
+                    <constraint firstAttribute="bottom" secondItem="1568" secondAttribute="bottom" constant="20" symbolic="YES" id="1617"/>
+                    <constraint firstAttribute="bottom" secondItem="1547" secondAttribute="bottom" constant="20" symbolic="YES" id="1619"/>
+                    <constraint firstItem="1590" firstAttribute="top" secondItem="1545" secondAttribute="top" constant="20" symbolic="YES" id="1624"/>
+                    <constraint firstItem="1549" firstAttribute="top" secondItem="1590" secondAttribute="bottom" constant="8" symbolic="YES" id="1629"/>
+                    <constraint firstItem="1546" firstAttribute="top" secondItem="1590" secondAttribute="bottom" constant="8" symbolic="YES" id="1630"/>
+                    <constraint firstItem="1568" firstAttribute="top" secondItem="1549" secondAttribute="bottom" constant="8" id="1671"/>
+                    <constraint firstItem="1547" firstAttribute="top" secondItem="1546" secondAttribute="bottom" constant="8" id="1672"/>
+                    <constraint firstItem="1548" firstAttribute="top" secondItem="1549" secondAttribute="bottom" constant="8" id="1673"/>
+                    <constraint firstAttribute="trailing" secondItem="1590" secondAttribute="trailing" constant="20" id="HZ2-EJ-tId"/>
+                </constraints>
+            </view>
+        </window>
+    </objects>
+    <resources>
+        <image name="Boot" width="48" height="48"/>
+        <image name="Eraser" width="128" height="128"/>
+        <image name="Icon" width="512" height="512"/>
+        <image name="NSComputer" width="32" height="32"/>
+        <image name="NSInfo" width="32" height="32"/>
+        <image name="NSNetwork" width="32" height="32"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
+    </resources>
+</document>
