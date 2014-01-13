@@ -395,6 +395,7 @@
 		24A4ECA81884966A00CE6CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -408,6 +409,7 @@
 		24A4ECA91884966A00CE6CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -477,6 +479,7 @@
 				24A4ECA91884966A00CE6CF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24A4ECAA1884966A00CE6CF0 /* Build configuration list for PBXNativeTarget "Mac-Linux-USB-LoaderTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +488,7 @@
 				24A4ECAC1884966A00CE6CF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
