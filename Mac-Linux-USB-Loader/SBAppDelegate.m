@@ -25,4 +25,9 @@
 	[self.window setTitle:@""]; // Remove the title.
 }
 
+- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
+    [self.window makeKeyAndOrderFront:nil];
+    return YES;
+}
+
 @end
