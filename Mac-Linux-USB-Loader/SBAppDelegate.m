@@ -75,7 +75,6 @@
 			break;
 
 		case 3:
-			NSLog(@"Are we printed twice??");
 			result.imageView.image = [[NSImage imageNamed:@"AppIcon"] copy];
 			result.textField.stringValue = NSLocalizedString(@"Distribution Downloader", nil);
 			break;
