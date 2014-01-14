@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RHPreferences/RHPreferences.h>
 
 @interface SBAppDelegate : NSObject {
 	__unsafe_unretained NSWindow *window;
