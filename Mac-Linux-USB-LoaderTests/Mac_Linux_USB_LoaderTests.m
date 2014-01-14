@@ -2,7 +2,7 @@
 //  Mac_Linux_USB_LoaderTests.m
 //  Mac-Linux-USB-LoaderTests
 //
-//  Created by Ryan Bowring on 1/13/14.
+//  Created by SevenBits on 1/13/14.
 //  Copyright (c) 2014 SevenBits. All rights reserved.
 //
 

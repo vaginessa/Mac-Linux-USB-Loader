@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		2420474C18849A4300ECAAFE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		2420474E18849C8B00ECAAFE /* SBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
 		2420474F18849C8B00ECAAFE /* SBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		24A4EC6A1884966900CE6CF0 = {
 			isa = PBXGroup;
 			children = (
+				24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */,
 				24A4EC7C1884966900CE6CF0 /* Mac-Linux-USB-Loader */,
 				24A4EC9D1884966A00CE6CF0 /* Mac-Linux-USB-LoaderTests */,
 				24A4EC751884966900CE6CF0 /* Frameworks */,
@@ -213,6 +215,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = SevenBits;
 				TargetAttributes = {
+					24A4EC721884966900CE6CF0 = {
+						DevelopmentTeam = T47PR9EQY5;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					24A4EC961884966A00CE6CF0 = {
 						TestTargetID = 24A4EC721884966900CE6CF0;
 					};
@@ -407,6 +417,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Prefix.pch";
@@ -421,6 +433,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Prefix.pch";
