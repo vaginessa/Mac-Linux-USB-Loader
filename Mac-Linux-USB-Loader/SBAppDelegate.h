@@ -10,8 +10,12 @@
 
 @interface SBAppDelegate : NSObject {
 	__unsafe_unretained NSWindow *window;
+	__weak NSTableView *operationsTableView;
+	__weak NSTextField *applicationVersionString;
 }
 
 @property (unsafe_unretained) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSTableView *operationsTableView;
+@property (weak) IBOutlet NSTextField *applicationVersionString;
 
 @end
