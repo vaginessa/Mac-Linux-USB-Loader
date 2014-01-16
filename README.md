@@ -37,9 +37,5 @@ Building from Source
 Acknowledgements
 ----------------
 
-- Used the eraser icon by Oliver Scholtz.
-    [link](http://www.iconfinder.com/icondetails/24217/128/clean_delete_eraser_icon)
-- Used the boot icon from Aha-Soft.
-    [link](http://www.iconfinder.com/icondetails/128585/96/boot_icon)
 - Used some icons from KDE's Oxygen.
     [link](http://www.oxygen-icons.org/)

@@ -65,12 +65,12 @@
 			break;
 
 		case 1:
-			result.imageView.image = [[NSImage imageNamed:@"AppIcon"] copy];
+			result.imageView.image = [[NSImage imageNamed:@"USB"] copy];
 			result.textField.stringValue = NSLocalizedString(@"Setup USB Device", nil);
 			break;
 
 		case 2:
-			result.imageView.image = [[NSImage imageNamed:@"AppIcon"] copy];
+			result.imageView.image = [[NSImage imageNamed:@"Persistence"] copy];
 			result.textField.stringValue = NSLocalizedString(@"Persistence Manager", nil);
 			break;
 
