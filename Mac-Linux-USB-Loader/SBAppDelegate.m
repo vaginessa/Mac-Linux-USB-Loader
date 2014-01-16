@@ -75,7 +75,7 @@
 			break;
 
 		case 3:
-			result.imageView.image = [[NSImage imageNamed:@"AppIcon"] copy];
+			result.imageView.image = [[NSImage imageNamed:@"DistributionDownloader"] copy];
 			result.textField.stringValue = NSLocalizedString(@"Distribution Downloader", nil);
 			break;
 
