@@ -10,6 +10,9 @@
 project.xcworkspace/
 xcuserdata/
 
+# Cocoapods
+Pods/
+
 # Generated files
 *.o
 *.pyc
