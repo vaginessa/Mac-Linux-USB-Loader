@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <RHPreferences/RHPreferences.h>
+#import "SBUSBSetupWindowController.h"
 
 @interface SBAppDelegate : NSObject {
 	__unsafe_unretained NSWindow *window;
@@ -18,5 +19,7 @@
 @property (unsafe_unretained) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTableView *operationsTableView;
 @property (weak) IBOutlet NSTextField *applicationVersionString;
+
+@property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 
 @end

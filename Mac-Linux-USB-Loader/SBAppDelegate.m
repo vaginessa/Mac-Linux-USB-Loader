@@ -96,8 +96,17 @@
 				[[NSDocumentController sharedDocumentController] openDocument:nil];
 				break;
 
+			case 1:
+				if (!self.usbSetupWindowController) {
+					self.usbSetupWindowController = [[SBUSBSetupWindowController alloc]
+													 initWithWindowNibName:@"SBUSBSetupWindowController"];
+				}
+
+				[self.usbSetupWindowController showWindow:nil];
+				break;
+
 			default:
-				[self.window makeKeyAndOrderFront:nil];
+				NSLog(@"Selected table index %ld is not valid.", (long)clickedRow);
 				break;
 		}
 	}
