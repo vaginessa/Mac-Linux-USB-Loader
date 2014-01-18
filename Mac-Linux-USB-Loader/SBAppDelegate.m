@@ -106,6 +106,8 @@
 				break;
 
 			default:
+				[self.window makeKeyAndOrderFront:nil];
+
 				NSLog(@"Selected table index %ld is not valid.", (long)clickedRow);
 				break;
 		}

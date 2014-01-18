@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <RHPreferences/RHPreferences.h>
 #import "SBUSBSetupWindowController.h"
+#import "SBUSBDevice.h"
 
 @interface SBAppDelegate : NSObject {
 	__unsafe_unretained NSWindow *window;

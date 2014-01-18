@@ -23,6 +23,7 @@
 		24A4ECA41884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */; };
 		24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F8E188AE75E00FF5ADC /* SBUSBSetupWindowController.m */; };
 		24D75F92188AE77100FF5ADC /* SBUSBSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D75F94188AE77100FF5ADC /* SBUSBSetupWindowController.xib */; };
+		24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F98188AEC2300FF5ADC /* SBUSBDevice.m */; };
 		B4383D6F79C144C58D8B337A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F38667D994A74956919B4A54 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		24D75F8D188AE75E00FF5ADC /* SBUSBSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBSetupWindowController.h; sourceTree = "<group>"; };
 		24D75F8E188AE75E00FF5ADC /* SBUSBSetupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBSetupWindowController.m; sourceTree = "<group>"; };
 		24D75F93188AE77100FF5ADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBUSBSetupWindowController.xib; sourceTree = "<group>"; };
+		24D75F97188AEC2300FF5ADC /* SBUSBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBDevice.h; sourceTree = "<group>"; };
+		24D75F98188AEC2300FF5ADC /* SBUSBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBDevice.m; sourceTree = "<group>"; };
 		97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F38667D994A74956919B4A54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -136,13 +139,8 @@
 		24A4EC7C1884966900CE6CF0 /* Mac-Linux-USB-Loader */ = {
 			isa = PBXGroup;
 			children = (
-				24A4EC881884966A00CE6CF0 /* SBDocument.h */,
-				24A4EC891884966A00CE6CF0 /* SBDocument.m */,
-				24A4EC8B1884966A00CE6CF0 /* SBDocument.xib */,
-				2420474E18849C8B00ECAAFE /* SBAppDelegate.h */,
-				2420474F18849C8B00ECAAFE /* SBAppDelegate.m */,
-				24A4EC8E1884966A00CE6CF0 /* MainMenu.xib */,
 				24A4EC911884966A00CE6CF0 /* Images.xcassets */,
+				24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */,
 				24D75F95188AE7B200FF5ADC /* Module Window Controllers */,
 				24A4EC7D1884966A00CE6CF0 /* Supporting Files */,
 			);
@@ -187,6 +185,21 @@
 				24D75F94188AE77100FF5ADC /* SBUSBSetupWindowController.xib */,
 			);
 			name = "Module Window Controllers";
+			sourceTree = "<group>";
+		};
+		24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				2420474E18849C8B00ECAAFE /* SBAppDelegate.h */,
+				2420474F18849C8B00ECAAFE /* SBAppDelegate.m */,
+				24A4EC8E1884966A00CE6CF0 /* MainMenu.xib */,
+				24A4EC881884966A00CE6CF0 /* SBDocument.h */,
+				24A4EC891884966A00CE6CF0 /* SBDocument.m */,
+				24A4EC8B1884966A00CE6CF0 /* SBDocument.xib */,
+				24D75F97188AEC2300FF5ADC /* SBUSBDevice.h */,
+				24D75F98188AEC2300FF5ADC /* SBUSBDevice.m */,
+			);
+			name = "Core Classes and XIBs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */,
+				24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */,
 				24A4EC831884966A00CE6CF0 /* main.m in Sources */,
 				24A4EC8A1884966A00CE6CF0 /* SBDocument.m in Sources */,
 				24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */,
