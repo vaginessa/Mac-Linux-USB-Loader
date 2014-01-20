@@ -43,6 +43,42 @@
 	/* Set the application version label string. */
 	[self.applicationVersionString setStringValue:
 	 [NSString stringWithFormat:@"Version %@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+
+	/* Setup the rest of the application. */
+	[self applicationSetup];
+}
+
+- (void)applicationSetup {
+	[self detectAndSetupUSBs];
+}
+
+- (void)detectAndSetupUSBs {
+	if (!self.usbDictionary) {
+		self.usbDictionary = [[NSMutableDictionary alloc] initWithCapacity:10];
+	}
+
+	NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedLocalVolumePaths];
+    BOOL isRemovable, isWritable, isUnmountable;
+    NSString *description, *volumeType;
+
+	for (NSString *usbDeviceMountPoint in volumes) {
+		if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
+			NSLog(@"Detected volume at %@. Type: %@, Description: %@", usbDeviceMountPoint, volumeType, description);
+
+			if (isRemovable && isWritable && isUnmountable) {
+				if ([usbDeviceMountPoint isEqualToString:@"/"]) {
+					// Don't include the root partition in the list of USBs.
+					continue;
+				} else {
+					if ([volumeType isEqualToString:@"msdos"] ||
+						[volumeType isEqualToString:@"hfs"]) {
+						SBUSBDevice *usbDevice = [[SBUSBDevice alloc] init];
+						self.usbDictionary[[usbDeviceMountPoint lastPathComponent]] = usbDevice;
+					}
+				}
+			}
+		}
+	}
 }
 
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
@@ -106,8 +142,6 @@
 				break;
 
 			default:
-				[self.window makeKeyAndOrderFront:nil];
-
 				NSLog(@"Selected table index %ld is not valid.", (long)clickedRow);
 				break;
 		}

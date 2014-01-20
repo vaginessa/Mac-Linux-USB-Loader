@@ -21,6 +21,8 @@
 @property (weak) IBOutlet NSTableView *operationsTableView;
 @property (weak) IBOutlet NSTextField *applicationVersionString;
 
+@property (nonatomic, strong) NSMutableDictionary *usbDictionary;
+
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 
 @end
