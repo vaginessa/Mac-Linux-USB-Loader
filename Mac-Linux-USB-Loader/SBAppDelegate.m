@@ -63,9 +63,9 @@
 
 	for (NSString *usbDeviceMountPoint in volumes) {
 		if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
-			NSLog(@"Detected volume at %@. Type: %@, Description: %@", usbDeviceMountPoint, volumeType, description);
-
 			if (isRemovable && isWritable && isUnmountable) {
+				NSLog(@"Detected eligible volume at %@. Type: %@", usbDeviceMountPoint, volumeType);
+
 				if ([usbDeviceMountPoint isEqualToString:@"/"]) {
 					// Don't include the root partition in the list of USBs.
 					continue;
