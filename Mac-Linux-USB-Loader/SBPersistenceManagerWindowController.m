@@ -66,11 +66,30 @@
 }
 
 - (IBAction)createPersistenceButtonPressed:(id)sender {
+	// Disable all buttons.
+	[sender setEnabled:NO];
+	[self.persistenceVolumeSizeSlider setEnabled:NO];
+	[self.persistenceVolumeSizeTextField setEnabled:NO];
+	[self.usbSelectorPopup setEnabled:NO];
+
+	// Create an NSTask object.
 	NSTask *task = [[NSTask alloc] init];
 
 	NSString *selectedUSB = [self.usbSelectorPopup objectValueOfSelectedItem];
-	NSString *persistenceFilePath = [dict[selectedUSB] path];
-	NSLog(@"%@", persistenceFilePath);
+	NSString *persistenceFilePath = [NSString stringWithFormat:@"'%@'",
+									 [[dict[selectedUSB] path] stringByAppendingString:@"/casper-rw"]];
+
+	NSInteger persistenceSizeInBytes = [self.persistenceVolumeSizeSlider integerValue] / 1048576;
+
+	// Initalize the NSTask.
+	task.launchPath = @"/bin/dd";
+	task.arguments = @[@"if=/dev/zero", [@"of=" stringByAppendingString:persistenceFilePath], @"bs=1m",
+					   [NSString stringWithFormat:@"count=%ld", (long)persistenceSizeInBytes]];
+	NSLog(@"%@", task.arguments);
+
+	// Launch the NSTask.
+	[task launch];
+	[task waitUntilExit];
 }
 
 @end
