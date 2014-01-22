@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; };
+		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
+		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
 		2420474D18849A4300ECAAFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2420474C18849A4300ECAAFE /* README.md */; };
 		2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420474F18849C8B00ECAAFE /* SBAppDelegate.m */; };
 		24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A4EC761884966900CE6CF0 /* Cocoa.framework */; };
@@ -37,8 +40,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		24155CC418903AD200FAB98C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Tools;
+			dstSubfolderSpec = 7;
+			files = (
+				24155CC518903AE400FAB98C /* mke2fs in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
+		24155CC218903AAB00FAB98C /* mke2fs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mke2fs; sourceTree = "<group>"; };
+		24155CC618903B3800FAB98C /* SBPersistenceManagerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPersistenceManagerWindowController.h; sourceTree = "<group>"; };
+		24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPersistenceManagerWindowController.m; sourceTree = "<group>"; };
+		24155CCC18903B4500FAB98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/SBPersistenceManagerWindowController.xib; sourceTree = "<group>"; };
 		2420474C18849A4300ECAAFE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		2420474E18849C8B00ECAAFE /* SBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
 		2420474F18849C8B00ECAAFE /* SBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
@@ -93,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24155CC118903A6E00FAB98C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				24155CC218903AAB00FAB98C /* mke2fs */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		24A4EC6A1884966900CE6CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				24A4EC911884966A00CE6CF0 /* Images.xcassets */,
+				24155CC118903A6E00FAB98C /* Tools */,
 				24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */,
 				24D75F95188AE7B200FF5ADC /* Module Window Controllers */,
 				24A4EC7D1884966A00CE6CF0 /* Supporting Files */,
@@ -183,6 +212,9 @@
 				24D75F8D188AE75E00FF5ADC /* SBUSBSetupWindowController.h */,
 				24D75F8E188AE75E00FF5ADC /* SBUSBSetupWindowController.m */,
 				24D75F94188AE77100FF5ADC /* SBUSBSetupWindowController.xib */,
+				24155CC618903B3800FAB98C /* SBPersistenceManagerWindowController.h */,
+				24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */,
+				24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */,
 			);
 			name = "Module Window Controllers";
 			sourceTree = "<group>";
@@ -213,6 +245,7 @@
 				24A4EC6F1884966900CE6CF0 /* Sources */,
 				24A4EC701884966900CE6CF0 /* Frameworks */,
 				24A4EC711884966900CE6CF0 /* Resources */,
+				24155CC418903AD200FAB98C /* CopyFiles */,
 				DBBD09A81F884E8E9EF1B54C /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -291,6 +324,7 @@
 			files = (
 				2420474D18849A4300ECAAFE /* README.md in Resources */,
 				24A4EC8D1884966A00CE6CF0 /* SBDocument.xib in Resources */,
+				24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */,
 				24A4EC921884966A00CE6CF0 /* Images.xcassets in Resources */,
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
 				24A4EC871884966A00CE6CF0 /* Credits.rtf in Resources */,
@@ -349,6 +383,7 @@
 			files = (
 				2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */,
 				24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */,
+				24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */,
 				24A4EC831884966A00CE6CF0 /* main.m in Sources */,
 				24A4EC8A1884966A00CE6CF0 /* SBDocument.m in Sources */,
 				24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */,
@@ -374,6 +409,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24155CCC18903B4500FAB98C /* Base */,
+			);
+			name = SBPersistenceManagerWindowController.xib;
+			sourceTree = "<group>";
+		};
 		24A4EC7F1884966A00CE6CF0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
