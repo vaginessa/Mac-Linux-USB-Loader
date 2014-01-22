@@ -10,4 +10,7 @@
 
 @interface SBUSBDevice : NSObject
 
+@property (nonatomic, strong) NSString *path;
+@property (nonatomic, strong) NSString *name;
+
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <RHPreferences/RHPreferences.h>
 #import "SBUSBSetupWindowController.h"
+#import "SBPersistenceManagerWindowController.h"
 #import "SBUSBDevice.h"
 
 @interface SBAppDelegate : NSObject {
@@ -24,5 +25,6 @@
 @property (nonatomic, strong) NSMutableDictionary *usbDictionary;
 
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
+@property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
 
 @end

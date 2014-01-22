@@ -58,7 +58,7 @@
 		24155CC218903AAB00FAB98C /* mke2fs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mke2fs; sourceTree = "<group>"; };
 		24155CC618903B3800FAB98C /* SBPersistenceManagerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPersistenceManagerWindowController.h; sourceTree = "<group>"; };
 		24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPersistenceManagerWindowController.m; sourceTree = "<group>"; };
-		24155CCC18903B4500FAB98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/SBPersistenceManagerWindowController.xib; sourceTree = "<group>"; };
+		24155CCC18903B4500FAB98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBPersistenceManagerWindowController.xib; sourceTree = "<group>"; };
 		2420474C18849A4300ECAAFE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		2420474E18849C8B00ECAAFE /* SBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
 		2420474F18849C8B00ECAAFE /* SBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };

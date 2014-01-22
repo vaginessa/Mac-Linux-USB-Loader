@@ -6,23 +6,164 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBPersistenceManagerWindowController">
             <connections>
+                <outlet property="persistenceOptionsSetupBox" destination="7Eq-Js-Ppp" id="aQY-fS-CM8"/>
+                <outlet property="persistenceVolumeSizeSlider" destination="gHg-qe-gRa" id="QNj-hM-1Tl"/>
+                <outlet property="persistenceVolumeSizeTextField" destination="8hH-NQ-7sz" id="neA-Yz-9C4"/>
+                <outlet property="usbSelectorPopup" destination="lc0-Og-xhN" id="xao-2c-JUC"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
+        <window title="Persistence Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+            <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="399" width="622" height="299"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="622" height="299"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tabView initialItem="4A2-3M-S2a" translatesAutoresizingMaskIntoConstraints="NO" id="oXz-Ke-RJv">
+                        <rect key="frame" x="13" y="10" width="596" height="283"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="Setup Persistence" identifier="1" id="4A2-3M-S2a">
+                                <view key="view" id="Kf2-L3-K4Q">
+                                    <rect key="frame" x="10" y="33" width="576" height="237"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Naq-Ne-MDC">
+                                            <rect key="frame" x="15" y="214" width="81" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="77" id="vnF-jF-hzJ"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Target USB:" id="gfk-uK-rzo">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lc0-Og-xhN">
+                                            <rect key="frame" x="102" y="210" width="460" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="kEq-zB-YTC">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </comboBoxCell>
+                                        </comboBox>
+                                        <box autoresizesSubviews="NO" title="Persistence Options" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-Js-Ppp">
+                                            <rect key="frame" x="14" y="5" width="548" height="201"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <view key="contentView">
+                                                <rect key="frame" x="1" y="1" width="546" height="185"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8hH-NQ-7sz">
+                                                        <rect key="frame" x="432" y="153" width="96" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="96" id="jFL-Tl-yE3"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="g1C-89-chO">
+                                                            <byteCountFormatter key="formatter" id="P1w-E1-XDd"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="-2" name="value" keyPath="persistenceVolumeSizeSlider.integerValue" id="zfG-DV-5qS">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSConditionallySetsEditable" value="NO"/>
+                                                                    <bool key="NSValidatesImmediately" value="YES"/>
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
+                                                        </connections>
+                                                    </textField>
+                                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHg-qe-gRa">
+                                                        <rect key="frame" x="130" y="153" width="296" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <sliderCell key="cell" state="on" alignment="left" maxValue="4294967296" doubleValue="134217728" tickMarkPosition="above" sliderType="linear" id="j0c-eU-prh"/>
+                                                    </slider>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UmG-Ak-vVB">
+                                                        <rect key="frame" x="18" y="155" width="108" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Persistence Size:" id="gwQ-4R-lk0">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0U7-88-khC">
+                                                        <rect key="frame" x="379" y="7" width="155" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="push" title="Create Persistence" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GhG-8s-UHS">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="createPersistenceButtonPressed:" target="-2" id="7Gx-J0-PO6"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" symbolic="YES" id="45J-rv-1u9"/>
+                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="25" id="53Q-rS-ahQ"/>
+                                                <constraint firstItem="gHg-qe-gRa" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="trailing" constant="8" id="Bk0-ZF-UrR"/>
+                                                <constraint firstAttribute="bottom" secondItem="0U7-88-khC" secondAttribute="bottom" constant="11" id="BlL-u7-Fle"/>
+                                                <constraint firstAttribute="trailing" secondItem="8hH-NQ-7sz" secondAttribute="trailing" constant="16" id="CMz-St-3FJ"/>
+                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="baseline" secondItem="UmG-Ak-vVB" secondAttribute="baseline" id="GDG-YO-gxS"/>
+                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" id="LcJ-87-5jJ"/>
+                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" id="MYV-hN-34F"/>
+                                                <constraint firstItem="UmG-Ak-vVB" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="28" id="Pyl-ba-USH"/>
+                                                <constraint firstItem="gHg-qe-gRa" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="28" id="X3W-kI-bpZ"/>
+                                                <constraint firstItem="gHg-qe-gRa" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="trailing" constant="8" id="etV-rM-bnE"/>
+                                                <constraint firstItem="UmG-Ak-vVB" firstAttribute="leading" secondItem="7Eq-Js-Ppp" secondAttribute="leading" constant="18" id="f2m-Pp-Mmf"/>
+                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="baseline" secondItem="gHg-qe-gRa" secondAttribute="baseline" id="fCF-RF-bgy"/>
+                                                <constraint firstAttribute="trailing" secondItem="0U7-88-khC" secondAttribute="trailing" constant="16" id="zxo-p5-OCU"/>
+                                            </constraints>
+                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </box>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="7Eq-Js-Ppp" secondAttribute="trailing" constant="17" id="9fO-NP-TDs"/>
+                                        <constraint firstItem="7Eq-Js-Ppp" firstAttribute="top" secondItem="lc0-Og-xhN" secondAttribute="bottom" constant="8" id="BTl-Ni-G3F"/>
+                                        <constraint firstAttribute="bottom" secondItem="7Eq-Js-Ppp" secondAttribute="bottom" constant="9" id="KWE-fb-fyZ"/>
+                                        <constraint firstItem="lc0-Og-xhN" firstAttribute="baseline" secondItem="Naq-Ne-MDC" secondAttribute="baseline" id="P4o-IA-BPf"/>
+                                        <constraint firstAttribute="trailing" secondItem="lc0-Og-xhN" secondAttribute="trailing" constant="17" id="Q5w-2n-B2z"/>
+                                        <constraint firstItem="Naq-Ne-MDC" firstAttribute="leading" secondItem="Kf2-L3-K4Q" secondAttribute="leading" constant="17" id="VFS-2p-B1t"/>
+                                        <constraint firstItem="lc0-Og-xhN" firstAttribute="leading" secondItem="Naq-Ne-MDC" secondAttribute="trailing" constant="8" symbolic="YES" id="btk-9I-vmC"/>
+                                        <constraint firstItem="7Eq-Js-Ppp" firstAttribute="leading" secondItem="Kf2-L3-K4Q" secondAttribute="leading" constant="17" id="mcs-9C-ShU"/>
+                                        <constraint firstItem="Naq-Ne-MDC" firstAttribute="top" secondItem="Kf2-L3-K4Q" secondAttribute="top" constant="6" id="qHf-jl-54C"/>
+                                    </constraints>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Delete Persistence" identifier="2" id="mUQ-Yw-fjL">
+                                <view key="view" id="rJ0-BK-bQg">
+                                    <rect key="frame" x="10" y="33" width="555" height="245"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oXz-Ke-RJv" firstAttribute="top" secondItem="2" secondAttribute="top" constant="12" id="0FO-iY-fR5"/>
+                    <constraint firstAttribute="bottom" secondItem="oXz-Ke-RJv" secondAttribute="bottom" constant="20" id="0ni-TO-CbE"/>
+                    <constraint firstItem="oXz-Ke-RJv" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="6Xv-3u-OXy"/>
+                    <constraint firstAttribute="trailing" secondItem="oXz-Ke-RJv" secondAttribute="trailing" constant="20" id="Poi-Ce-ikL"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="9q0-ST-OZz"/>
     </objects>
 </document>

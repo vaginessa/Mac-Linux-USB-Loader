@@ -73,6 +73,9 @@
 					if ([volumeType isEqualToString:@"msdos"] ||
 						[volumeType isEqualToString:@"hfs"]) {
 						SBUSBDevice *usbDevice = [[SBUSBDevice alloc] init];
+						usbDevice.path = usbDeviceMountPoint;
+						usbDevice.name = [usbDeviceMountPoint lastPathComponent];
+						
 						self.usbDictionary[[usbDeviceMountPoint lastPathComponent]] = usbDevice;
 					}
 				}
@@ -139,6 +142,15 @@
 				}
 
 				[self.usbSetupWindowController showWindow:nil];
+				break;
+
+			case 2:
+				if (!self.persistenceSetupWindowController) {
+					self.persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
+															 initWithWindowNibName:@"SBPersistenceManagerWindowController"];
+				}
+
+				[self.persistenceSetupWindowController showWindow:nil];
 				break;
 
 			default:
