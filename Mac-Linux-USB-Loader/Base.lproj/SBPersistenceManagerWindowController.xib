@@ -109,6 +109,18 @@
                                                             <action selector="createPersistenceButtonPressed:" target="-2" id="7Gx-J0-PO6"/>
                                                         </connections>
                                                     </button>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="40V-gP-LmV">
+                                                        <rect key="frame" x="18" y="43" width="512" height="104"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="104" id="2f3-dG-KS9"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Warning: due to annoying system limitations, the persistence feature doesn't work for USB drives with a space in their name. " id="lK1-ei-AHy">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
                                                 </subviews>
                                             </view>
                                             <constraints>
@@ -118,13 +130,16 @@
                                                 <constraint firstAttribute="bottom" secondItem="0U7-88-khC" secondAttribute="bottom" constant="11" id="BlL-u7-Fle"/>
                                                 <constraint firstAttribute="trailing" secondItem="8hH-NQ-7sz" secondAttribute="trailing" constant="16" id="CMz-St-3FJ"/>
                                                 <constraint firstItem="8hH-NQ-7sz" firstAttribute="baseline" secondItem="UmG-Ak-vVB" secondAttribute="baseline" id="GDG-YO-gxS"/>
+                                                <constraint firstItem="40V-gP-LmV" firstAttribute="top" secondItem="UmG-Ak-vVB" secondAttribute="bottom" constant="8" symbolic="YES" id="IPz-j6-QsR"/>
                                                 <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" id="LcJ-87-5jJ"/>
                                                 <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" id="MYV-hN-34F"/>
                                                 <constraint firstItem="UmG-Ak-vVB" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="28" id="Pyl-ba-USH"/>
                                                 <constraint firstItem="gHg-qe-gRa" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="28" id="X3W-kI-bpZ"/>
+                                                <constraint firstItem="40V-gP-LmV" firstAttribute="trailing" secondItem="8hH-NQ-7sz" secondAttribute="trailing" id="cq0-tp-JLE"/>
                                                 <constraint firstItem="gHg-qe-gRa" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="trailing" constant="8" id="etV-rM-bnE"/>
                                                 <constraint firstItem="UmG-Ak-vVB" firstAttribute="leading" secondItem="7Eq-Js-Ppp" secondAttribute="leading" constant="18" id="f2m-Pp-Mmf"/>
                                                 <constraint firstItem="8hH-NQ-7sz" firstAttribute="baseline" secondItem="gHg-qe-gRa" secondAttribute="baseline" id="fCF-RF-bgy"/>
+                                                <constraint firstItem="40V-gP-LmV" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="leading" id="y9S-qj-eGR"/>
                                                 <constraint firstAttribute="trailing" secondItem="0U7-88-khC" secondAttribute="trailing" constant="16" id="zxo-p5-OCU"/>
                                             </constraints>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

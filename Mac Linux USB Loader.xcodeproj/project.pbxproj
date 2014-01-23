@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240F1FAB1891A88F00AE9F82 /* IOKit.framework */; };
 		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
+		240F1FAB1891A88F00AE9F82 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		24155CC218903AAB00FAB98C /* mke2fs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mke2fs; sourceTree = "<group>"; };
 		24155CC618903B3800FAB98C /* SBPersistenceManagerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPersistenceManagerWindowController.h; sourceTree = "<group>"; };
 		24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPersistenceManagerWindowController.m; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */,
 				24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */,
 				B4383D6F79C144C58D8B337A /* libPods.a in Frameworks */,
 			);
@@ -146,6 +149,7 @@
 		24A4EC751884966900CE6CF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				240F1FAB1891A88F00AE9F82 /* IOKit.framework */,
 				24A4EC761884966900CE6CF0 /* Cocoa.framework */,
 				24A4EC981884966A00CE6CF0 /* XCTest.framework */,
 				24A4EC781884966900CE6CF0 /* Other Frameworks */,
