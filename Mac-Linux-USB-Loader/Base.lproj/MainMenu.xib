@@ -645,8 +645,7 @@
         <customObject id="419" customClass="NSFontManager"/>
         <window title="Mac Linux USB Loader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="eVZ-OT-8Zw">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES" texturedBackground="YES"/>
-            <windowPositionMask key="initialPositionMask" topStrut="YES"/>
-            <rect key="contentRect" x="90" y="273" width="698" height="341"/>
+            <rect key="contentRect" x="90" y="307" width="698" height="341"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="698" height="341"/>
             <view key="contentView" id="tKZ-SI-zXF">

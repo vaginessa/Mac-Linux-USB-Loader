@@ -10,6 +10,7 @@
 
 @implementation SBUSBDevice
 
+#pragma mark - Class methods
 + (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSInteger)size withWindow:(NSWindow *)window {
 	/* STEP 1: create the blank file. */
 	NSTask *task = [[NSTask alloc] init];
@@ -18,7 +19,7 @@
 	task.launchPath = @"/bin/dd";
 	task.arguments = @[@"if=/dev/zero", [@"of=" stringByAppendingString:file], @"bs=1m",
 					   [NSString stringWithFormat:@"count=%ld", (long)size]];
-	NSLog(@"%@", [task.arguments componentsJoinedByString:@" "]);
+	NSLog(@"command: %@ %@", task.launchPath, [task.arguments componentsJoinedByString:@" "]);
 
 	// Launch the NSTask.
 	[task launch];
@@ -26,7 +27,7 @@
 
 	/* STEP 2: create the loopback file. */
 	[SBUSBDevice createLoopbackPersistence:file];
-	NSLog(@"Done!");
+	NSLog(@"Done USB persistence creation!");
 }
 
 + (void)createLoopbackPersistence:(NSString *)file {
@@ -46,11 +47,14 @@
 	NSFileHandle *handle = [inputPipe fileHandleForWriting];
 	[task launch];
 
+	// Answer "yes" to the message where the program complains that the file is not a block
+	// special device and asks if we want to continue anyway.
 	[handle writeData:[NSData dataWithBytes:"y" length:strlen("y")]];
 	[handle closeFile];
 	[task waitUntilExit];
 }
 
+#pragma mark - Instance methods
 - (id)init {
     self = [super init];
     if (self) {

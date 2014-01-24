@@ -16,6 +16,7 @@
 
 @implementation SBPersistenceManagerWindowController {
 	NSMutableDictionary *dict;
+	NSSavePanel *spanel;
 }
 
 - (id)initWithWindow:(NSWindow *)window {
@@ -75,7 +76,7 @@
 	NSInteger persistenceSizeInBytes = [self.persistenceVolumeSizeSlider integerValue] / 1048576;
 
 	NSString *selectedUSB = [self.usbSelectorPopup objectValueOfSelectedItem];
-	NSSavePanel *spanel = [NSSavePanel savePanel];
+	spanel = [NSSavePanel savePanel];
 	[spanel setMessage:NSLocalizedString(@"You must authorize file creation on this USB. Click Save below.", nil)];
 	[spanel setDirectoryURL:[NSURL URLWithString:[dict[selectedUSB] path]]];
 	[spanel setNameFieldStringValue:@"casper-rw"];
@@ -83,10 +84,31 @@
     [spanel setCanSelectHiddenExtension:YES];
     [spanel setTreatsFilePackagesAsDirectories:YES];
     [spanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			[SBUSBDevice createPersistenceFileAtUSB:[[spanel URL] path] withSize:persistenceSizeInBytes withWindow:self.window];
-		});
+		if (result == NSFileHandlingPanelOKButton) {
+			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+				[SBUSBDevice createPersistenceFileAtUSB:[[spanel URL] path] withSize:persistenceSizeInBytes withWindow:self.window];
+
+				// Enable everything that was disabled.
+				dispatch_async(dispatch_get_main_queue(), ^{
+					[sender setEnabled:YES];
+					[self.persistenceVolumeSizeSlider setEnabled:YES];
+					[self.persistenceVolumeSizeTextField setEnabled:YES];
+					[self.usbSelectorPopup setEnabled:YES];
+
+					NSAlert *alert = [[NSAlert alloc] init];
+					[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+					[alert setMessageText:NSLocalizedString(@"Done creating persistence.", nil)];
+					[alert setInformativeText:NSLocalizedString(@"The persistence file has been created. You should be able to boot your selected Linux distribution with persistence on this USB drive now.", nil)];
+					[alert setAlertStyle:NSWarningAlertStyle];
+					[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+				});
+			});
+		}
 	}];
+}
+
+- (void)regularSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    // Empty
 }
 
 @end

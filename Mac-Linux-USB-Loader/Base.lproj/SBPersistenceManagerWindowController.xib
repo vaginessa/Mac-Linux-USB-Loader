@@ -17,7 +17,6 @@
         <customObject id="-3" userLabel="Application"/>
         <window title="Persistence Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="399" width="622" height="299"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="2">
@@ -124,6 +123,7 @@
                                                 </subviews>
                                             </view>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="40V-gP-LmV" secondAttribute="trailing" constant="16" id="1XV-hr-v79"/>
                                                 <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" symbolic="YES" id="45J-rv-1u9"/>
                                                 <constraint firstItem="8hH-NQ-7sz" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="25" id="53Q-rS-ahQ"/>
                                                 <constraint firstItem="gHg-qe-gRa" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="trailing" constant="8" id="Bk0-ZF-UrR"/>
