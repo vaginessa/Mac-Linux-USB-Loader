@@ -13,4 +13,6 @@
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *name;
 
++ (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSInteger)size withWindow:(NSWindow *)window;
+
 @end

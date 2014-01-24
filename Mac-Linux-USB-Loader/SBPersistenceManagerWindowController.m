@@ -72,15 +72,9 @@
 	[self.persistenceVolumeSizeTextField setEnabled:NO];
 	[self.usbSelectorPopup setEnabled:NO];
 
-	// Create an NSTask object.
-	NSTask *task = [[NSTask alloc] init];
-
-	NSString *selectedUSB = [self.usbSelectorPopup objectValueOfSelectedItem];
-	NSString *persistenceFilePath = [NSString stringWithFormat:@"%@",
-									 [[dict[selectedUSB] path] stringByAppendingString:@"/casper-rw"]];
-
 	NSInteger persistenceSizeInBytes = [self.persistenceVolumeSizeSlider integerValue] / 1048576;
 
+	NSString *selectedUSB = [self.usbSelectorPopup objectValueOfSelectedItem];
 	NSSavePanel *spanel = [NSSavePanel savePanel];
 	[spanel setMessage:NSLocalizedString(@"You must authorize file creation on this USB. Click Save below.", nil)];
 	[spanel setDirectoryURL:[NSURL URLWithString:[dict[selectedUSB] path]]];
@@ -89,40 +83,10 @@
     [spanel setCanSelectHiddenExtension:YES];
     [spanel setTreatsFilePackagesAsDirectories:YES];
     [spanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-         if (result == NSFileHandlingPanelOKButton) {
-             NSURL *saveURL = [spanel URL];
-             NSLog(@"%@", saveURL);
-
-			 // Initalize the NSTask.
-			 task.launchPath = @"/bin/dd";
-			 task.arguments = @[@"if=/dev/zero", [@"of=" stringByAppendingString:persistenceFilePath], @"bs=1m",
-								[NSString stringWithFormat:@"count=%ld", (long)persistenceSizeInBytes]];
-			 NSLog(@"%@", [task.arguments componentsJoinedByString:@" "]);
-
-			 // Launch the NSTask.
-			 [task launch];
-
-			 // Wait for the operation to complete on another thread.
-			 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-				 [task waitUntilExit];
-				 dispatch_async(dispatch_get_main_queue(), ^{
-					 NSLog(@"Done!");
-
-					 // Enable the disabled elements.
-					 [sender setEnabled:YES];
-					 [self.persistenceVolumeSizeSlider setEnabled:YES];
-					 [self.persistenceVolumeSizeTextField setEnabled:YES];
-					 [self.usbSelectorPopup setEnabled:YES];
-				 });
-			 });
-         } else {
-			 // Enable the disabled elements.
-			 [sender setEnabled:YES];
-			 [self.persistenceVolumeSizeSlider setEnabled:YES];
-			 [self.persistenceVolumeSizeTextField setEnabled:YES];
-			 [self.usbSelectorPopup setEnabled:YES];
-		 }
-     }];
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			[SBUSBDevice createPersistenceFileAtUSB:[[spanel URL] path] withSize:persistenceSizeInBytes withWindow:self.window];
+		});
+	}];
 }
 
 @end
