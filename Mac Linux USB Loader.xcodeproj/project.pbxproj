@@ -13,6 +13,7 @@
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
 		2420474D18849A4300ECAAFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2420474C18849A4300ECAAFE /* README.md */; };
 		2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420474F18849C8B00ECAAFE /* SBAppDelegate.m */; };
+		248933F11894A71400D7C0DD /* RSTLCopyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 248933F01894A71400D7C0DD /* RSTLCopyOperation.m */; };
 		24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A4EC761884966900CE6CF0 /* Cocoa.framework */; };
 		24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24A4EC7F1884966A00CE6CF0 /* InfoPlist.strings */; };
 		24A4EC831884966A00CE6CF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4EC821884966A00CE6CF0 /* main.m */; };
@@ -64,6 +65,8 @@
 		2420474C18849A4300ECAAFE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		2420474E18849C8B00ECAAFE /* SBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
 		2420474F18849C8B00ECAAFE /* SBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
+		248933EF1894A71400D7C0DD /* RSTLCopyOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTLCopyOperation.h; sourceTree = "<group>"; };
+		248933F01894A71400D7C0DD /* RSTLCopyOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTLCopyOperation.m; sourceTree = "<group>"; };
 		24A4EC731884966900CE6CF0 /* Mac Linux USB Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Linux USB Loader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A4EC761884966900CE6CF0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		24A4EC791884966900CE6CF0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -226,6 +229,8 @@
 		24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				248933EF1894A71400D7C0DD /* RSTLCopyOperation.h */,
+				248933F01894A71400D7C0DD /* RSTLCopyOperation.m */,
 				2420474E18849C8B00ECAAFE /* SBAppDelegate.h */,
 				2420474F18849C8B00ECAAFE /* SBAppDelegate.m */,
 				24A4EC8E1884966A00CE6CF0 /* MainMenu.xib */,
@@ -390,6 +395,7 @@
 				24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */,
 				24A4EC831884966A00CE6CF0 /* main.m in Sources */,
 				24A4EC8A1884966A00CE6CF0 /* SBDocument.m in Sources */,
+				248933F11894A71400D7C0DD /* RSTLCopyOperation.m in Sources */,
 				24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
