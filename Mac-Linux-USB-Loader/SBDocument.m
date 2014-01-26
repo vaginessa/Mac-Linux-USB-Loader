@@ -7,6 +7,7 @@
 //
 
 #import "SBDocument.h"
+#import "SBAppDelegate.h"
 
 @implementation SBDocument
 
@@ -19,13 +20,15 @@
 }
 
 - (NSString *)windowNibName {
-	// Override returning the nib file name of the document
-	// If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
 	return @"SBDocument";
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
 	[super windowControllerDidLoadNib:aController];
+
+	// If the user opens the document by dragging the file from the Dock, the main screen will still be open.
+	// We hide it here for a better user experience.
+	[[[NSApp delegate] window] orderOut:nil];
 }
 
 + (BOOL)autosavesInPlace {
