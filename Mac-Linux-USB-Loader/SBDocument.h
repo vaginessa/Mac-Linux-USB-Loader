@@ -10,4 +10,6 @@
 
 @interface SBDocument : NSDocument
 
+@property (weak) IBOutlet NSImageView *imageIcon;
+
 @end

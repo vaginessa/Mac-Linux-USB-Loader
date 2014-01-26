@@ -2,7 +2,7 @@
 //  SBUSBDevice.m
 //  Mac Linux USB Loader
 //
-//  Created by Ryan Bowring on 1/18/14.
+//  Created by SevenBits on 1/18/14.
 //  Copyright (c) 2014 SevenBits. All rights reserved.
 //
 
@@ -12,10 +12,8 @@
 
 #pragma mark - Class methods
 + (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSInteger)size withWindow:(NSWindow *)window {
-	/* STEP 1: create the blank file. */
-	NSTask *task = [[NSTask alloc] init];
-
 	// Initalize the NSTask.
+	NSTask *task = [[NSTask alloc] init];
 	task.launchPath = @"/bin/dd";
 	task.arguments = @[@"if=/dev/zero", [@"of=" stringByAppendingString:file], @"bs=1m",
 					   [NSString stringWithFormat:@"count=%ld", (long)size]];
@@ -25,7 +23,7 @@
 	[task launch];
 	[task waitUntilExit];
 
-	/* STEP 2: create the loopback file. */
+	// Create the loopback file.
 	[SBUSBDevice createLoopbackPersistence:file];
 	NSLog(@"Done USB persistence creation!");
 }

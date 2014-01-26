@@ -81,8 +81,8 @@
 	[spanel setDirectoryURL:[NSURL URLWithString:[dict[selectedUSB] path]]];
 	[spanel setNameFieldStringValue:@"casper-rw"];
     [spanel setCanCreateDirectories:NO];
-    [spanel setCanSelectHiddenExtension:YES];
-    [spanel setTreatsFilePackagesAsDirectories:YES];
+    [spanel setCanSelectHiddenExtension:NO];
+    [spanel setTreatsFilePackagesAsDirectories:NO];
     [spanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		if (result == NSFileHandlingPanelOKButton) {
 			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -103,6 +103,11 @@
 					[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 				});
 			});
+		} else {
+			[sender setEnabled:YES];
+			[self.persistenceVolumeSizeSlider setEnabled:YES];
+			[self.persistenceVolumeSizeTextField setEnabled:YES];
+			[self.usbSelectorPopup setEnabled:YES];
 		}
 	}];
 }
