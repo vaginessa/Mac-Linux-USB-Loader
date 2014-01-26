@@ -53,6 +53,7 @@ typedef NS_ENUM(int8_t, RSTLCopyState) {
 @property (copy, nonatomic, readonly) NSString *toPath;
 
 @property (readonly) RSTLCopyState state;
+@property (readonly) uint32_t bytesComplete;
 // Not valid until operation has finished
 @property (readonly) int resultCode;
 

@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "RSTLCopyOperation.h"
 
-@interface SBDocument : NSDocument
+@interface SBDocument : NSDocument <RSTLCopyOperationDelegate>
 
 @property (weak) IBOutlet NSImageView *imageIcon;
 
