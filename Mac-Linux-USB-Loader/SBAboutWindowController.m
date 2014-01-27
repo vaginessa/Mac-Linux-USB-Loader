@@ -12,7 +12,7 @@
 static CGFloat kAboutWindowCreditsAnimationSpeed = 2.0;
 
 /// The height of the fade effect in points.
-static CGFloat kAboutWindowCreditsFadeHeight = 25.0;
+static CGFloat kAboutWindowCreditsFadeHeight = 15.0;
 
 /// The colors of the fade effect gradient.
 static CGColorRef kAboutWindowCreditsFadeColor1 = NULL;

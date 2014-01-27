@@ -155,6 +155,7 @@
 
 - (void)userSelectedOperationFromTable {
     NSInteger clickedRow = [self.operationsTableView clickedRow];
+	[self hideMoreOptionsPopover:nil];
 
 	if (clickedRow != -1) { // We've selected a valid table entry.
 		[self.window orderOut:nil];
