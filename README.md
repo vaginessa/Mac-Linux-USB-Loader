@@ -8,7 +8,7 @@ Tool allowing you to put a Linux distro on a USB drive and make it bootable on I
 General Information
 -------------------
 
-This is the Mac Linux USB Loader, a tool allowing you to take an ISO of a Linux distribution and make it boot using EFI. It requires a single USB drive formatted as FAT with at least 2 GB free recommended. The application is available in English and a number of other languages. For all supported languages, see the TRANSLATIONS file. This project also contains the Compatibility Tester, a related but separate tool to test your Mac's Linux compatibility.
+This is the Mac Linux USB Loader, a tool allowing you to take an ISO of a Linux distribution and make it boot using EFI. It requires a single USB drive formatted as FAT with at least 2 GB free recommended. The application is available in English and a number of other languages. For all supported languages, see the TRANSLATIONS file. Mac Linux USB Loader is available under the 3-clause BSD license.
 
 The tool is necessary to make certain Linux distributions boot that do not have EFI booting support. Many distributions are adding this with the release of Windows 8, but it has not been finalized and is still nonstandard by most distros. Many common distributions are supported, like Ubuntu and Linux Mint.
 

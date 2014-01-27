@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SBAboutWindowController">
+            <connections>
+                <outlet property="aboutView" destination="ZBk-nm-wkf" id="5Iw-6w-P20"/>
+                <outlet property="applicationVersionLabel" destination="z77-Va-dfi" id="820-v4-SLe"/>
+                <outlet property="creditsView" destination="NTg-AA-Rc8" id="Ob4-fq-3Ej"/>
+                <outlet property="window" destination="b30-GT-VXY" id="WOu-YP-sCC"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="b30-GT-VXY" userLabel="About Window">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
+            <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="484" y="363" width="575" height="316"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="sII-i5-Vk4">
+                <rect key="frame" x="0.0" y="0.0" width="575" height="316"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZBk-nm-wkf" customClass="BackgroundColorView">
+                        <rect key="frame" x="0.0" y="47" width="575" height="269"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dml-ec-4j0">
+                                <rect key="frame" x="20" y="26" width="227" height="223"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="227" id="cxg-dG-t9x"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="QeR-mP-NgP"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zI1-Wi-chd">
+                                <rect key="frame" x="255" y="219" width="302" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Linux USB Loader" id="Coh-3R-IsA">
+                                    <font key="font" metaFont="system" size="25"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z77-Va-dfi">
+                                <rect key="frame" x="255" y="194" width="302" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version x.x.x" id="QWK-Vq-0wS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="NTg-AA-Rc8">
+                                <rect key="frame" x="255" y="20" width="300" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="dml-ec-4j0" firstAttribute="leading" secondItem="ZBk-nm-wkf" secondAttribute="leading" constant="20" symbolic="YES" id="1Qc-ug-HwS"/>
+                            <constraint firstItem="zI1-Wi-chd" firstAttribute="top" secondItem="dml-ec-4j0" secondAttribute="top" id="1yD-Z7-lKf"/>
+                            <constraint firstItem="NTg-AA-Rc8" firstAttribute="trailing" secondItem="z77-Va-dfi" secondAttribute="trailing" id="7ge-OF-1ap"/>
+                            <constraint firstAttribute="trailing" secondItem="zI1-Wi-chd" secondAttribute="trailing" constant="20" symbolic="YES" id="COW-yf-iJ0"/>
+                            <constraint firstItem="z77-Va-dfi" firstAttribute="top" secondItem="zI1-Wi-chd" secondAttribute="bottom" constant="8" symbolic="YES" id="Edw-hy-tPf"/>
+                            <constraint firstItem="NTg-AA-Rc8" firstAttribute="leading" secondItem="dml-ec-4j0" secondAttribute="trailing" constant="8" symbolic="YES" id="UYH-6C-L1e"/>
+                            <constraint firstAttribute="bottom" secondItem="NTg-AA-Rc8" secondAttribute="bottom" constant="20" symbolic="YES" id="XPD-vr-Je0"/>
+                            <constraint firstAttribute="bottom" secondItem="dml-ec-4j0" secondAttribute="bottom" constant="26" id="fuv-Hi-ONj"/>
+                            <constraint firstItem="zI1-Wi-chd" firstAttribute="leading" secondItem="dml-ec-4j0" secondAttribute="trailing" constant="10" id="fzL-Yk-3iX"/>
+                            <constraint firstItem="dml-ec-4j0" firstAttribute="top" secondItem="ZBk-nm-wkf" secondAttribute="top" constant="20" symbolic="YES" id="o3e-3d-zEi"/>
+                            <constraint firstItem="NTg-AA-Rc8" firstAttribute="top" secondItem="z77-Va-dfi" secondAttribute="bottom" constant="8" symbolic="YES" id="shT-3y-agI"/>
+                            <constraint firstItem="zI1-Wi-chd" firstAttribute="leading" secondItem="z77-Va-dfi" secondAttribute="leading" id="weE-ZB-meD"/>
+                            <constraint firstItem="zI1-Wi-chd" firstAttribute="trailing" secondItem="z77-Va-dfi" secondAttribute="trailing" id="za5-on-Nzs"/>
+                        </constraints>
+                    </customView>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gRU-f0-5Ia">
+                        <rect key="frame" x="402" y="8" width="158" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="148" id="8Bc-PG-de9"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="License Agreement" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oaM-od-Jrd">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="smallSystem"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="15d-zL-lKl">
+                        <rect key="frame" x="239" y="8" width="161" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="151" id="Vcc-7Q-L3B"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Acknowledgements" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a2W-Op-Qva">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="smallSystem"/>
+                        </buttonCell>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="15d-zL-lKl" firstAttribute="top" secondItem="ZBk-nm-wkf" secondAttribute="bottom" constant="15" id="4ob-yd-f4H"/>
+                    <constraint firstAttribute="trailing" secondItem="gRU-f0-5Ia" secondAttribute="trailing" constant="20" symbolic="YES" id="7xz-C8-XrS"/>
+                    <constraint firstAttribute="trailing" secondItem="ZBk-nm-wkf" secondAttribute="trailing" id="FvJ-bM-DCA"/>
+                    <constraint firstItem="15d-zL-lKl" firstAttribute="baseline" secondItem="gRU-f0-5Ia" secondAttribute="baseline" id="GQG-Xe-5Ao"/>
+                    <constraint firstItem="ZBk-nm-wkf" firstAttribute="leading" secondItem="sII-i5-Vk4" secondAttribute="leading" id="awa-qD-FHI"/>
+                    <constraint firstAttribute="bottom" secondItem="15d-zL-lKl" secondAttribute="bottom" constant="14" id="b0Z-1P-3n4"/>
+                    <constraint firstItem="gRU-f0-5Ia" firstAttribute="leading" secondItem="15d-zL-lKl" secondAttribute="trailing" constant="12" id="qDv-ez-4ry"/>
+                    <constraint firstItem="ZBk-nm-wkf" firstAttribute="top" secondItem="sII-i5-Vk4" secondAttribute="top" id="x1m-Du-eZf"/>
+                </constraints>
+            </view>
+            <contentBorderThickness minY="0.0" maxY="0.0"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+    </resources>
+</document>

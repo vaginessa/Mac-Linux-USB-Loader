@@ -11,6 +11,7 @@
 #import "SBUSBSetupWindowController.h"
 #import "SBPersistenceManagerWindowController.h"
 #import "SBUSBDevice.h"
+#import "SBAboutWindowController.h"
 
 @interface SBAppDelegate : NSObject {
 	__unsafe_unretained NSWindow *window;
@@ -27,7 +28,9 @@
 
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 @property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
+@property (nonatomic, strong) SBAboutWindowController *aboutWindowController;
 
+- (IBAction)showAboutWindow:(id)sender;
 - (IBAction)showMoreOptionsPopover:(id)sender;
 - (IBAction)hideMoreOptionsPopover:(id)sender;
 - (IBAction)showProjectWebsite:(id)sender;

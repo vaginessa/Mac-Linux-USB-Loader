@@ -31,7 +31,7 @@
                             <menuItem title="About Mac Linux USB Loader" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
+                                    <action selector="showAboutWindow:" target="MUZ-eu-C3f" id="J81-9S-9eL"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="236">
@@ -660,7 +660,7 @@
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9oD-tj-dWc">
                         <rect key="frame" x="20" y="20" width="286" height="301"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="small" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="AppIcon" id="ery-Rt-c36"/>
+                        <imageCell key="cell" controlSize="small" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="NSApplicationIcon" id="ery-Rt-c36"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pda-w3-ql6">
                         <rect key="frame" x="312" y="291" width="368" height="30"/>
@@ -877,7 +877,7 @@
         </menu>
     </objects>
     <resources>
-        <image name="AppIcon" width="128" height="128"/>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSApplicationIcon" width="128" height="128"/>
     </resources>
 </document>

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240F1FAB1891A88F00AE9F82 /* IOKit.framework */; };
+		24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101B861896D4A300EDE32C /* SBAboutWindowController.m */; };
+		24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */; };
+		24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24101B8D1896D4DF00EDE32C /* QuartzCore.framework */; };
 		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
@@ -58,6 +61,10 @@
 /* Begin PBXFileReference section */
 		24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		240F1FAB1891A88F00AE9F82 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		24101B851896D4A300EDE32C /* SBAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAboutWindowController.h; sourceTree = "<group>"; };
+		24101B861896D4A300EDE32C /* SBAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAboutWindowController.m; sourceTree = "<group>"; };
+		24101B8B1896D4AF00EDE32C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBAboutWindowController.xib; sourceTree = "<group>"; };
+		24101B8D1896D4DF00EDE32C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		24155CC218903AAB00FAB98C /* mke2fs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mke2fs; sourceTree = "<group>"; };
 		24155CC618903B3800FAB98C /* SBPersistenceManagerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPersistenceManagerWindowController.h; sourceTree = "<group>"; };
 		24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPersistenceManagerWindowController.m; sourceTree = "<group>"; };
@@ -101,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */,
 				240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */,
 				24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */,
 				B4383D6F79C144C58D8B337A /* libPods.a in Frameworks */,
@@ -152,6 +160,7 @@
 		24A4EC751884966900CE6CF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24101B8D1896D4DF00EDE32C /* QuartzCore.framework */,
 				240F1FAB1891A88F00AE9F82 /* IOKit.framework */,
 				24A4EC761884966900CE6CF0 /* Cocoa.framework */,
 				24A4EC981884966A00CE6CF0 /* XCTest.framework */,
@@ -231,6 +240,9 @@
 			children = (
 				248933EF1894A71400D7C0DD /* RSTLCopyOperation.h */,
 				248933F01894A71400D7C0DD /* RSTLCopyOperation.m */,
+				24101B851896D4A300EDE32C /* SBAboutWindowController.h */,
+				24101B861896D4A300EDE32C /* SBAboutWindowController.m */,
+				24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */,
 				2420474E18849C8B00ECAAFE /* SBAppDelegate.h */,
 				2420474F18849C8B00ECAAFE /* SBAppDelegate.m */,
 				24A4EC8E1884966A00CE6CF0 /* MainMenu.xib */,
@@ -331,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */,
 				2420474D18849A4300ECAAFE /* README.md in Resources */,
 				24A4EC8D1884966A00CE6CF0 /* SBDocument.xib in Resources */,
 				24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */,
@@ -390,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */,
 				2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */,
 				24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */,
 				24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */,
@@ -419,6 +433,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24101B8B1896D4AF00EDE32C /* Base */,
+			);
+			name = SBAboutWindowController.xib;
+			sourceTree = "<group>";
+		};
 		24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

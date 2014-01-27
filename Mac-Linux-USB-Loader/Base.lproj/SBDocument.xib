@@ -26,7 +26,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="153" id="xOx-9V-rDl"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="AppIcon" id="oAf-dy-7z0"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="AppIcon" id="oAf-dy-7z0"/>
                     </imageView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SW7-lG-leG">
                         <rect key="frame" x="487" y="13" width="78" height="32"/>
