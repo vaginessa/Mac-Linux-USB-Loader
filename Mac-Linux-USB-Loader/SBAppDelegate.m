@@ -94,11 +94,7 @@
 #pragma mark - IBActions
 
 - (IBAction)showAboutWindow:(id)sender {
-	if (!self.aboutWindowController) {
-		self.aboutWindowController = [[SBAboutWindowController alloc]
-										 initWithWindowNibName:@"SBAboutWindowController"];
-	}
-
+	self.aboutWindowController = [[SBAboutWindowController alloc] initWithWindowNibName:@"SBAboutWindowController"];
 	[self.aboutWindowController showWindow:nil];
 }
 
