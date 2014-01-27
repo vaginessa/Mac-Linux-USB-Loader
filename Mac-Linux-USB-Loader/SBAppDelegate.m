@@ -27,6 +27,7 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
 	/* Set window properties. */
+	// Make the window background white.
 	[self.window setBackgroundColor:[NSColor whiteColor]];
 
 	// Set window resize behavior.
@@ -35,7 +36,8 @@
 	[self.window setShowsResizeIndicator:NO];
 	[self.window setResizeIncrements:NSMakeSize(MAXFLOAT, MAXFLOAT)];
 
-	[self.window setTitle:@""]; // Remove the title.
+	// Remove the title.
+	[self.window setTitle:@""];
 
 	/* Make the table respond to our double click operations. */
 	[self.operationsTableView setDoubleAction:@selector(userSelectedOperationFromTable)];
