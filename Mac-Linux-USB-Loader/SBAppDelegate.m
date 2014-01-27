@@ -91,6 +91,28 @@
     return YES;
 }
 
+#pragma mark - IBActions
+
+- (IBAction)showMoreOptionsPopover:(id)sender {
+	[self.moreOptionsPopover showRelativeToRect:[sender bounds]
+										 ofView:sender
+								  preferredEdge:NSMaxYEdge];
+}
+
+- (IBAction)hideMoreOptionsPopover:(id)sender {
+	[self.moreOptionsPopover close];
+}
+
+- (IBAction)showProjectWebsite:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://sevenbits.github.io/projects/mlul.html"]];
+	[self hideMoreOptionsPopover:nil];
+}
+
+- (IBAction)reportBug:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://sevenbits.github.io/tools/bugs/report-mlul.html"]];
+	[self hideMoreOptionsPopover:nil];
+}
+
 #pragma mark - Table View Delegates
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -161,5 +183,4 @@
 		}
 	}
 }
-
 @end
