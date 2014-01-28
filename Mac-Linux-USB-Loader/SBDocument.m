@@ -67,10 +67,16 @@
 
 #pragma mark - Installation Code
 - (IBAction)performInstallation:(id)sender {
-	/* STEP 1: Get user permission to install files. We'll only need to do this once. */
+	/* STEP 1: Disable UI components. */
+	[sender setEnabled:NO];
+	[self.installationDriveSelector setEnabled:NO];
+	[self.installationProgressBar setDoubleValue:0.0];
+	[self.automaticSetupCheckBox setEnabled:NO];
+
+	/* STEP 2: Get user permission to install files. We'll only need to do this once. */
 	//NSURL *fileURL = [self fileURL];
-	NSString *enterpriseInstallFileName = [[self.installationDriveSelector objectValueOfSelectedItem]
-										   stringByAppendingString:@"/efi/boot/bootX64.efi"];
+	NSString *targetUSBName = [self.installationDriveSelector objectValueOfSelectedItem];
+	NSString *enterpriseInstallFileName = [targetUSBName stringByAppendingString:@"/efi/boot/bootX64.efi"];
 	SBLogObject(enterpriseInstallFileName);
 
 	spanel = [NSOpenPanel openPanel];
@@ -82,7 +88,14 @@
     [spanel setCanSelectHiddenExtension:NO];
     [spanel setTreatsFilePackagesAsDirectories:NO];
     [spanel beginSheetModalForWindow:[self windowForSheet] completionHandler:^(NSInteger result) {
-
+		// Create a security scoped bookmark here so we don't ask the user again.
+		NSURL *url = [spanel URL];
+        NSData *data = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:nil];
+        if (data) {
+            NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
+            [prefs setObject:data forKey:[targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"]];
+            [prefs synchronize];
+        }
 	}];
 }
 
