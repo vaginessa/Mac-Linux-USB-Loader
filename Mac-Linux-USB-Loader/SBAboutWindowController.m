@@ -9,7 +9,7 @@
 #import "SBAboutWindowController.h"
 
 /// The speed at which the scrolling text moves in points per second.
-static CGFloat kAboutWindowCreditsAnimationSpeed = 2.0;
+static CGFloat kAboutWindowCreditsAnimationSpeed = 1.5;
 
 /// The height of the fade effect in points.
 static CGFloat kAboutWindowCreditsFadeHeight = 15.0;
