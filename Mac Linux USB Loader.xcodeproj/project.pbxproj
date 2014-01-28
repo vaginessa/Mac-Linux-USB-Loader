@@ -29,6 +29,7 @@
 		24A4EC9A1884966A00CE6CF0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A4EC761884966900CE6CF0 /* Cocoa.framework */; };
 		24A4ECA21884966A00CE6CF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24A4ECA01884966A00CE6CF0 /* InfoPlist.strings */; };
 		24A4ECA41884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */; };
+		24B9F037189870D6002A3697 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */; };
 		24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F8E188AE75E00FF5ADC /* SBUSBSetupWindowController.m */; };
 		24D75F92188AE77100FF5ADC /* SBUSBSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D75F94188AE77100FF5ADC /* SBUSBSetupWindowController.xib */; };
 		24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F98188AEC2300FF5ADC /* SBUSBDevice.m */; };
@@ -94,6 +95,9 @@
 		24A4EC9F1884966A00CE6CF0 /* Mac Linux USB LoaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mac Linux USB LoaderTests-Info.plist"; sourceTree = "<group>"; };
 		24A4ECA11884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mac_Linux_USB_LoaderTests.m; sourceTree = "<group>"; };
+		24B9F03418986EE4002A3697 /* SBGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGlobals.h; sourceTree = "<group>"; };
+		24B9F035189870D6002A3697 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
+		24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
 		24D75F8D188AE75E00FF5ADC /* SBUSBSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBSetupWindowController.h; sourceTree = "<group>"; };
 		24D75F8E188AE75E00FF5ADC /* SBUSBSetupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBSetupWindowController.m; sourceTree = "<group>"; };
 		24D75F93188AE77100FF5ADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBUSBSetupWindowController.xib; sourceTree = "<group>"; };
@@ -238,6 +242,9 @@
 		24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				24B9F035189870D6002A3697 /* NSFileManager+DirectoryLocations.h */,
+				24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */,
+				24B9F03418986EE4002A3697 /* SBGlobals.h */,
 				248933EF1894A71400D7C0DD /* RSTLCopyOperation.h */,
 				248933F01894A71400D7C0DD /* RSTLCopyOperation.m */,
 				24101B851896D4A300EDE32C /* SBAboutWindowController.h */,
@@ -405,6 +412,7 @@
 			files = (
 				24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */,
 				2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */,
+				24B9F037189870D6002A3697 /* NSFileManager+DirectoryLocations.m in Sources */,
 				24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */,
 				24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */,
 				24A4EC831884966A00CE6CF0 /* main.m in Sources */,

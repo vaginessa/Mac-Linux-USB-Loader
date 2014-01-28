@@ -11,6 +11,13 @@
 
 @interface SBDocument : NSDocument <RSTLCopyOperationDelegate>
 
+@property (assign) IBOutlet NSArrayController *popupValues;
+
 @property (weak) IBOutlet NSImageView *imageIcon;
+@property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
+@property (weak) IBOutlet NSComboBox *installationDriveSelector;
+@property (weak) IBOutlet NSButton *automaticSetupCheckBox;
+
+- (IBAction)performInstallation:(id)sender;
 
 @end
