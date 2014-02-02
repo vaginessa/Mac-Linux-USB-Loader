@@ -8,11 +8,11 @@
 
 #import "SBDocument.h"
 #import "SBAppDelegate.h"
+#import "NSFileManager+Extensions.h"
 #import "SBGlobals.h"
 
 @implementation SBDocument {
 	NSMutableDictionary *dict;
-	NSOpenPanel *spanel;
 }
 
 #pragma mark - Document class crap
@@ -67,36 +67,63 @@
 
 #pragma mark - Installation Code
 - (IBAction)performInstallation:(id)sender {
-	/* STEP 1: Disable UI components. */
+	/* STEP 1: Setup UI components. */
+	// Get an NSFileManager object.
+	NSFileManager *manager = [NSFileManager defaultManager];
+
+	// Get the names of files.
+	NSString *targetUSBName = [self.installationDriveSelector objectValueOfSelectedItem];
+	NSString *installDirectory = [targetUSBName stringByAppendingString:@"/efi/boot/"];
+
+	NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
+	SBLogObject(enterpriseInstallFileName);
+
+	// Set the size of the file to be the max value of the progress bar.
+	[self.installationProgressBar setMaxValue:[[manager sizeOfFileAtPath:self.fileURL.path] doubleValue]];
+
+	// Disable UI components.
 	[sender setEnabled:NO];
 	[self.installationDriveSelector setEnabled:NO];
+	[self.installationProgressBar setIndeterminate:NO];
 	[self.installationProgressBar setDoubleValue:0.0];
+	SBLogObject(self.installationProgressBar);
 	[self.automaticSetupCheckBox setEnabled:NO];
 
 	/* STEP 2: Get user permission to install files. We'll only need to do this once. */
-	//NSURL *fileURL = [self fileURL];
-	NSString *targetUSBName = [self.installationDriveSelector objectValueOfSelectedItem];
-	NSString *enterpriseInstallFileName = [targetUSBName stringByAppendingString:@"/efi/boot/bootX64.efi"];
-	SBLogObject(enterpriseInstallFileName);
+	NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:@"" withWindowForSheet:[self windowForSheet]];
 
-	spanel = [NSOpenPanel openPanel];
-	[spanel setMessage:NSLocalizedString(@"Click Open below to authorize the creation of the boot folder.", nil)];
-	[spanel setDirectoryURL:[NSURL URLWithString:
-							 [@"/Volumes/" stringByAppendingString:[self.installationDriveSelector objectValueOfSelectedItem]]]];
-	[spanel setNameFieldStringValue:@""];
-    [spanel setCanChooseDirectories:YES];
-    [spanel setCanSelectHiddenExtension:NO];
-    [spanel setTreatsFilePackagesAsDirectories:NO];
-    [spanel beginSheetModalForWindow:[self windowForSheet] completionHandler:^(NSInteger result) {
-		// Create a security scoped bookmark here so we don't ask the user again.
-		NSURL *url = [spanel URL];
-        NSData *data = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:nil];
-        if (data) {
-            NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
-            [prefs setObject:data forKey:[targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"]];
-            [prefs synchronize];
-        }
-	}];
+	if (!outURL) {
+		NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+        [alert setMessageText:NSLocalizedString(@"Couldn't get security scoped bookmarks.", nil)];
+        [alert setInformativeText:NSLocalizedString(@"Couldn't access the USB device because the system denied access to the resource.", nil)];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
+	}
+
+	/* STEP 3: Start copying files. */
+	[outURL startAccessingSecurityScopedResource];
+
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		SBUSBDevice *usbDevice = [[NSApp delegate] usbDictionary][targetUSBName];
+		[usbDevice copyInstallationFiles:self];
+
+		dispatch_async(dispatch_get_main_queue(), ^{
+			/* STEP 4: Restore access to the disabled buttons. */
+			[sender setEnabled:YES];
+			[self.installationDriveSelector setEnabled:YES];
+			[self.installationProgressBar setDoubleValue:0.0];
+			[self.automaticSetupCheckBox setEnabled:YES];
+
+			[outURL stopAccessingSecurityScopedResource];
+		});
+	});
+}
+
+#pragma mark - Delegates
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    // Empty
 }
 
 @end

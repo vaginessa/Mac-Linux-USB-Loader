@@ -7,9 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "RSTLCopyOperation.h"
 
-@interface SBDocument : NSDocument <RSTLCopyOperationDelegate>
+@interface SBDocument : NSDocument
 
 @property (assign) IBOutlet NSArrayController *popupValues;
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SBDocument.h"
 
 @interface SBUSBDevice : NSObject
 
@@ -21,7 +22,7 @@
  * a loopback ext4 filesystem.
  *
  * @param file The path to the file (which doesn't need to exist) that should be used.
- * @param size An integer size, in bytes, of the file.
+ * @param size An integer size, in megabytes, of the file.
  * @param window The window from which to display popup alerts. Currently unused.
  */
 + (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSInteger)size withWindow:(NSWindow *)window;
@@ -34,5 +35,12 @@
  * @param file The path to the file that should be used.
  */
 + (void)createLoopbackPersistence:(NSString *)file;
+
+/**
+ * Copies the Enterprise boot loader files to the USB device represented by this object.
+ *
+ * @param document The instance of the document class that this object belongs to.
+ */
+- (bool)copyInstallationFiles:(NSDocument *)document;
 
 @end

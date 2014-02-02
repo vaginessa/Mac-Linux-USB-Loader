@@ -15,6 +15,9 @@
 @property (weak) IBOutlet NSView *aboutView;
 @property (weak) IBOutlet NSView *creditsView;
 
+- (IBAction)showAcknowledgementsButtonPressed:(id)sender;
+- (IBAction)showLicenseAgreementButtonPressed:(id)sender;
+
 @end
 
 @interface BackgroundColorView : NSView

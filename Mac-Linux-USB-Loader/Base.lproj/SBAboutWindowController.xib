@@ -84,6 +84,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="showLicenseAgreementButtonPressed:" target="-2" id="7Y5-sD-JE3"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="15d-zL-lKl">
                         <rect key="frame" x="239" y="8" width="161" height="28"/>
@@ -95,6 +98,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="showAcknowledgementsButtonPressed:" target="-2" id="OAK-Ra-XSC"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
