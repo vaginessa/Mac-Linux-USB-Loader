@@ -69,6 +69,8 @@
     BOOL isRemovable, isWritable, isUnmountable;
     NSString *description, *volumeType;
 
+	BOOL acceptHFSDrives = [[NSUserDefaults standardUserDefaults] boolForKey:@"AcceptHFSDrives"];
+
 	for (NSString *usbDeviceMountPoint in volumes) {
 		if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
 			if (isRemovable && isWritable && isUnmountable) {
@@ -79,7 +81,7 @@
 					continue;
 				} else {
 					if ([volumeType isEqualToString:@"msdos"] ||
-						[volumeType isEqualToString:@"hfs"]) {
+						([volumeType isEqualToString:@"hfs"] && acceptHFSDrives)) {
 						SBUSBDevice *usbDevice = [[SBUSBDevice alloc] init];
 						usbDevice.path = usbDeviceMountPoint;
 						usbDevice.name = [usbDeviceMountPoint lastPathComponent];
@@ -106,7 +108,7 @@
 		NSArray *controllers = [NSArray arrayWithObjects:generalPreferences,
                                 [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                 nil];
-		self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", @"Preferences Window Title")];
+		self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", nil)];
 	}
 
 	[self.preferencesWindowController showWindow:self];
