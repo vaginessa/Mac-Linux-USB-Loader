@@ -17,6 +17,8 @@
 	__unsafe_unretained NSWindow *window;
 	__weak NSTableView *operationsTableView;
 	__weak NSTextField *applicationVersionString;
+
+	RHPreferencesWindowController *_preferencesWindowController;
 }
 
 @property (unsafe_unretained) IBOutlet NSWindow *window;
@@ -29,7 +31,9 @@
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 @property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
 @property (nonatomic, strong) SBAboutWindowController *aboutWindowController;
+@property (nonatomic, strong) RHPreferencesWindowController *preferencesWindowController;
 
+- (IBAction)showPreferencesWindow:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;
 - (IBAction)showMoreOptionsPopover:(id)sender;
 - (IBAction)hideMoreOptionsPopover:(id)sender;

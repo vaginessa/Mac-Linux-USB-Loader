@@ -29,6 +29,9 @@
 		24A4EC9A1884966A00CE6CF0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A4EC761884966900CE6CF0 /* Cocoa.framework */; };
 		24A4ECA21884966A00CE6CF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24A4ECA01884966A00CE6CF0 /* InfoPlist.strings */; };
 		24A4ECA41884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */; };
+		24B322FA18A00E4900A5E25E /* SBGeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B322F818A00E4900A5E25E /* SBGeneralPreferencesViewController.m */; };
+		24B322FB18A00E4900A5E25E /* SBGeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B322F918A00E4900A5E25E /* SBGeneralPreferencesViewController.xib */; };
+		24B322FD18A0123F00A5E25E /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24B322FC18A0123F00A5E25E /* defaults.plist */; };
 		24B9F037189870D6002A3697 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */; };
 		24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F8E188AE75E00FF5ADC /* SBUSBSetupWindowController.m */; };
 		24D75F92188AE77100FF5ADC /* SBUSBSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D75F94188AE77100FF5ADC /* SBUSBSetupWindowController.xib */; };
@@ -95,6 +98,10 @@
 		24A4EC9F1884966A00CE6CF0 /* Mac Linux USB LoaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mac Linux USB LoaderTests-Info.plist"; sourceTree = "<group>"; };
 		24A4ECA11884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mac_Linux_USB_LoaderTests.m; sourceTree = "<group>"; };
+		24B322F718A00E4900A5E25E /* SBGeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGeneralPreferencesViewController.h; sourceTree = "<group>"; };
+		24B322F818A00E4900A5E25E /* SBGeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		24B322F918A00E4900A5E25E /* SBGeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		24B322FC18A0123F00A5E25E /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaults.plist; sourceTree = "<group>"; };
 		24B9F03418986EE4002A3697 /* SBGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGlobals.h; sourceTree = "<group>"; };
 		24B9F035189870D6002A3697 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
@@ -191,6 +198,7 @@
 				24155CC118903A6E00FAB98C /* Tools */,
 				24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */,
 				24D75F95188AE7B200FF5ADC /* Module Window Controllers */,
+				24B322F618A00DCB00A5E25E /* Preferences View Controllers */,
 				24A4EC7D1884966A00CE6CF0 /* Supporting Files */,
 			);
 			path = "Mac-Linux-USB-Loader";
@@ -199,6 +207,7 @@
 		24A4EC7D1884966A00CE6CF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				24B322FC18A0123F00A5E25E /* defaults.plist */,
 				24A4EC7E1884966A00CE6CF0 /* Mac Linux USB Loader-Info.plist */,
 				24A4EC7F1884966A00CE6CF0 /* InfoPlist.strings */,
 				24A4EC821884966A00CE6CF0 /* main.m */,
@@ -224,6 +233,16 @@
 				24A4ECA01884966A00CE6CF0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24B322F618A00DCB00A5E25E /* Preferences View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24B322F718A00E4900A5E25E /* SBGeneralPreferencesViewController.h */,
+				24B322F818A00E4900A5E25E /* SBGeneralPreferencesViewController.m */,
+				24B322F918A00E4900A5E25E /* SBGeneralPreferencesViewController.xib */,
+			);
+			name = "Preferences View Controllers";
 			sourceTree = "<group>";
 		};
 		24D75F95188AE7B200FF5ADC /* Module Window Controllers */ = {
@@ -356,7 +375,9 @@
 				24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */,
 				24A4EC921884966A00CE6CF0 /* Images.xcassets in Resources */,
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
+				24B322FD18A0123F00A5E25E /* defaults.plist in Resources */,
 				24A4EC871884966A00CE6CF0 /* Credits.rtf in Resources */,
+				24B322FB18A00E4900A5E25E /* SBGeneralPreferencesViewController.xib in Resources */,
 				24A4EC901884966A00CE6CF0 /* MainMenu.xib in Resources */,
 				24D75F92188AE77100FF5ADC /* SBUSBSetupWindowController.xib in Resources */,
 			);
@@ -413,6 +434,7 @@
 				24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */,
 				2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */,
 				24B9F037189870D6002A3697 /* NSFileManager+DirectoryLocations.m in Sources */,
+				24B322FA18A00E4900A5E25E /* SBGeneralPreferencesViewController.m in Sources */,
 				24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */,
 				24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */,
 				24A4EC831884966A00CE6CF0 /* main.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "SBAppDelegate.h"
+#import "SBGeneralPreferencesViewController.h"
 
 @implementation SBAppDelegate
 @synthesize window;
@@ -51,6 +52,11 @@
 }
 
 - (void)applicationSetup {
+	// Register default defaults.
+	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
+	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+
+	// Detect all available USB drives.
 	[self detectAndSetupUSBs];
 }
 
@@ -92,6 +98,19 @@
 }
 
 #pragma mark - IBActions
+
+- (IBAction)showPreferencesWindow:(id)sender {
+	if (!self.preferencesWindowController) {
+		SBGeneralPreferencesViewController *generalPreferences = [[SBGeneralPreferencesViewController alloc] initWithNibName:@"SBGeneralPreferencesViewController" bundle:nil];
+
+		NSArray *controllers = [NSArray arrayWithObjects:generalPreferences,
+                                [RHPreferencesWindowController flexibleSpacePlaceholderController],
+                                nil];
+		self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", @"Preferences Window Title")];
+	}
+
+	[self.preferencesWindowController showWindow:self];
+}
 
 - (IBAction)showAboutWindow:(id)sender {
 	self.aboutWindowController = [[SBAboutWindowController alloc] initWithWindowNibName:@"SBAboutWindowController"];
