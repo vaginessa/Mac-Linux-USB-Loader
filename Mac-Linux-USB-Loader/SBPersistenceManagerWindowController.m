@@ -48,10 +48,13 @@
 	[self.usbSelectorPopup addItemsWithObjectValues:array];
 	[self.usbSelectorPopup setDelegate:self];
 
+	// Set up the USB persistence file size selector.
+	NSDictionary *bindingOptions = @{NSContinuouslyUpdatesValueBindingOption : @YES,
+									 NSConditionallySetsEditableBindingOption : @YES};
 	[self.persistenceVolumeSizeTextField setDelegate:self];
 	[self.persistenceVolumeSizeSlider bind:@"value"
 								  toObject:self.persistenceVolumeSizeTextField
-							   withKeyPath:@"integerValue" options:nil];
+							   withKeyPath:@"integerValue" options:bindingOptions];
 }
 
 - (void)controlTextDidChange:(NSNotification *)note {
