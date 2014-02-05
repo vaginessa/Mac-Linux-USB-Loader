@@ -49,7 +49,8 @@
 	[self.installationDriveSelector addItemWithObjectValue:@"---"];
 	[self.installationDriveSelector setStringValue:@"---"];
 	[self.installationDriveSelector addItemsWithObjectValues:array];
-	//[self.installationDriveSelector setDelegate:self];
+	[self.installationDriveSelector setDelegate:self];
+	[self.performInstallationButton setEnabled:NO];
 }
 
 #pragma mark - Document Plumbing
@@ -66,6 +67,14 @@
 }
 
 #pragma mark - Installation Code
+- (void)comboBoxSelectionDidChange:(NSNotification *)notification {
+	if ([self.installationDriveSelector indexOfSelectedItem] == 0) {
+		[self.performInstallationButton setEnabled:NO];
+	} else {
+		[self.performInstallationButton setEnabled:YES];
+	}
+}
+
 - (IBAction)performInstallation:(id)sender {
 	/* STEP 1: Setup UI components. */
 	// Get an NSFileManager object.

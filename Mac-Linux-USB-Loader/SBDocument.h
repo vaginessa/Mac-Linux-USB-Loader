@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SBDocument : NSDocument
+@interface SBDocument : NSDocument <NSComboBoxDelegate, NSControlTextEditingDelegate>
 
 @property (assign) IBOutlet NSArrayController *popupValues;
 
@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
 @property (weak) IBOutlet NSComboBox *installationDriveSelector;
 @property (weak) IBOutlet NSButton *automaticSetupCheckBox;
+@property (weak) IBOutlet NSButton *performInstallationButton;
 
 - (IBAction)performInstallation:(id)sender;
 

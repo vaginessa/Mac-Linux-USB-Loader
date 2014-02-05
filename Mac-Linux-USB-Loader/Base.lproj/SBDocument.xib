@@ -10,6 +10,7 @@
                 <outlet property="imageIcon" destination="Nra-o8-iRR" id="xR8-iA-bYK"/>
                 <outlet property="installationDriveSelector" destination="zAE-ZW-xQw" id="dsK-CE-mrH"/>
                 <outlet property="installationProgressBar" destination="ugc-LK-aoQ" id="MVe-3Q-dm8"/>
+                <outlet property="performInstallationButton" destination="SW7-lG-leG" id="jgs-gI-MFA"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
         </customObject>
