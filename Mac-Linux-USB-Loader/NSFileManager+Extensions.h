@@ -24,7 +24,7 @@
  *
  * @param path The path to the USB drive to use.
  * @param withWindowForSheet In case of an error, the window to display the alert sheet from.
- * @return An NSURL object representing the security scoped bookmarl.
+ * @return An NSURL object representing the security scoped bookmarl, or nil if access was denied.
  */
 - (NSURL *)setupSecurityScopedBookmarkForUSBAtPath:(NSString *)path withWindowForSheet:(NSWindow *)window;
 

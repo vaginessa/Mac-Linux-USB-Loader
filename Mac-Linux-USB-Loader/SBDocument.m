@@ -82,6 +82,7 @@
 
 	// Get the names of files.
 	NSString *targetUSBName = [self.installationDriveSelector objectValueOfSelectedItem];
+	NSString *targetUSBMountPoint = [@"/Volumes/" stringByAppendingString:targetUSBName];
 	NSString *installDirectory = [targetUSBName stringByAppendingString:@"/efi/boot/"];
 
 	NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
@@ -95,11 +96,10 @@
 	[self.installationDriveSelector setEnabled:NO];
 	[self.installationProgressBar setIndeterminate:NO];
 	[self.installationProgressBar setDoubleValue:0.0];
-	SBLogObject(self.installationProgressBar);
 	[self.automaticSetupCheckBox setEnabled:NO];
 
 	/* STEP 2: Get user permission to install files. We'll only need to do this once. */
-	NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:@"" withWindowForSheet:[self windowForSheet]];
+	NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:targetUSBMountPoint withWindowForSheet:[self windowForSheet]];
 
 	if (!outURL) {
 		NSAlert *alert = [[NSAlert alloc] init];
@@ -108,6 +108,14 @@
         [alert setInformativeText:NSLocalizedString(@"Couldn't access the USB device because the system denied access to the resource.", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+		// Restore access to the disabled buttons.
+		[sender setEnabled:YES];
+		[self.installationDriveSelector setEnabled:YES];
+		[self.installationProgressBar setDoubleValue:0.0];
+		[self.automaticSetupCheckBox setEnabled:YES];
+
+		// Bail.
 		return;
 	}
 
