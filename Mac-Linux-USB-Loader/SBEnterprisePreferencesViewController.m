@@ -27,7 +27,7 @@
 }
 
 - (NSImage*)toolbarItemImage{
-    return [NSImage imageNamed:@"NSApplicationIcon"];
+    return [NSImage imageNamed:@"UEFILogo"];
 }
 
 - (NSString*)toolbarItemLabel{
