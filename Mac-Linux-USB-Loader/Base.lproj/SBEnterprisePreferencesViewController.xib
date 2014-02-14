@@ -131,7 +131,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="4JQ-lJ-RBO">
                         <font key="font" metaFont="system"/>
-                        <string key="title">From here you can select which Enterprise installation you wish to use. You may the version shipping with this version of Mac Linux USB Loader or a custom version.</string>
+                        <string key="title">From here you can select which Enterprise installation you wish to use. You may use the version shipping with this version of Mac Linux USB Loader or a custom version.</string>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

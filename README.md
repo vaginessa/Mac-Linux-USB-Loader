@@ -3,7 +3,7 @@ Mac-Linux-USB-Loader
 
 Tool allowing you to put a Linux distro on a USB drive and make it bootable on Intel Macs using EFI.
 
-![Mac Linux USB Loader logo](Mac-Linux-USB-Loader/Images.xcassets/AppIcon.appiconset/Icon.png)
+![Mac Linux USB Loader logo](Mac-Linux-USB-Loader/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png)
 
 General Information
 -------------------
