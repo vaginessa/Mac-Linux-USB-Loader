@@ -8,6 +8,7 @@
 
 #import "SBAppDelegate.h"
 #import "SBGeneralPreferencesViewController.h"
+#import "SBEnterprisePreferencesViewController.h"
 
 @implementation SBAppDelegate
 @synthesize window;
@@ -104,10 +105,10 @@
 - (IBAction)showPreferencesWindow:(id)sender {
 	if (!self.preferencesWindowController) {
 		SBGeneralPreferencesViewController *generalPreferences = [[SBGeneralPreferencesViewController alloc] initWithNibName:@"SBGeneralPreferencesViewController" bundle:nil];
+		SBEnterprisePreferencesViewController *enterprisePreferences = [[SBEnterprisePreferencesViewController alloc] initWithNibName:@"SBEnterprisePreferencesViewController" bundle:nil];
 
-		NSArray *controllers = [NSArray arrayWithObjects:generalPreferences,
-                                [RHPreferencesWindowController flexibleSpacePlaceholderController],
-                                nil];
+		NSArray *controllers = @[generalPreferences, enterprisePreferences,
+								 [RHPreferencesWindowController flexibleSpacePlaceholderController]];
 		self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", nil)];
 	}
 
