@@ -2,7 +2,7 @@
 //  NSFileManager+Extensions.h
 //  Mac Linux USB Loader
 //
-//  Created by Ryan Bowring on 2/1/14.
+//  Created by SevenBits on 2/1/14.
 //  Copyright (c) 2014 SevenBits. All rights reserved.
 //
 
@@ -24,7 +24,7 @@
  *
  * @param path The path to the USB drive to use.
  * @param withWindowForSheet In case of an error, the window to display the alert sheet from.
- * @return An NSURL object representing the security scoped bookmarl, or nil if access was denied.
+ * @return An NSURL object representing the security scoped bookmark, or nil if access was denied.
  */
 - (NSURL *)setupSecurityScopedBookmarkForUSBAtPath:(NSString *)path withWindowForSheet:(NSWindow *)window;
 
