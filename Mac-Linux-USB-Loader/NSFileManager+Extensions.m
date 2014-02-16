@@ -2,7 +2,7 @@
 //  NSFileManager+Extensions.m
 //  Mac Linux USB Loader
 //
-//  Created by Ryan Bowring on 2/1/14.
+//  Created by SevenBits on 2/1/14.
 //  Copyright (c) 2014 SevenBits. All rights reserved.
 //
 
@@ -53,11 +53,11 @@ NSOpenPanel *spanel;
 
 	// Return an NSURL object corresponding to the bookmark.
 	outURL = [NSURL URLByResolvingBookmarkData:[[NSUserDefaults standardUserDefaults]
-												objectForKey:[targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"]]
-									   options:NSURLBookmarkResolutionWithSecurityScope
-								 relativeToURL:nil
-						   bookmarkDataIsStale:nil
-										 error:nil];
+				objectForKey:[targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"]]
+				options:NSURLBookmarkResolutionWithSecurityScope
+				relativeToURL:nil
+				bookmarkDataIsStale:nil
+				error:nil];
 
 	return outURL;
 }
