@@ -30,24 +30,6 @@ NSString *const DirectoryLocationDomain = @"DirectoryLocationDomain";
 
 @implementation NSFileManager (DirectoryLocations)
 
-//
-// findOrCreateDirectory:inDomain:appendPathComponent:error:
-//
-// Method to tie together the steps of:
-//	1) Locate a standard directory by search path and domain mask
-//  2) Select the first path in the results
-//	3) Append a subdirectory to that path
-//	4) Create the directory and intermediate directories if needed
-//	5) Handle errors by emitting a proper NSError object
-//
-// Parameters:
-//    searchPathDirectory - the search path passed to NSSearchPathForDirectoriesInDomains
-//    domainMask - the domain mask passed to NSSearchPathForDirectoriesInDomains
-//    appendComponent - the subdirectory appended
-//    errorOut - any error from file operations
-//
-// returns the path to the directory (if path found and exists), nil otherwise
-//
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory
 	inDomain:(NSSearchPathDomainMask)domainMask
 	appendPathComponent:(NSString *)appendComponent
@@ -120,12 +102,6 @@ NSString *const DirectoryLocationDomain = @"DirectoryLocationDomain";
 	return resolvedPath;
 }
 
-//
-// applicationSupportDirectory
-//
-// Returns the path to the applicationSupportDirectory (creating it if it doesn't
-// exist).
-//
 - (NSString *)applicationSupportDirectory {
 	NSString *executableName =
 		[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];

@@ -27,10 +27,31 @@
 //
 @interface NSFileManager (DirectoryLocations)
 
+/**
+ * Method to tie together the steps of:
+ *	1) Locate a standard directory by search path and domain mask
+ *  2) Select the first path in the results
+ *	3) Append a subdirectory to that path
+ *	4) Create the directory and intermediate directories if needed
+ *	5) Handle errors by emitting a proper NSError object
+ *
+ * @param searchPathDirectory The search path passed to NSSearchPathForDirectoriesInDomains
+ * @param domainMask The domain mask passed to NSSearchPathForDirectoriesInDomains
+ * @param appendComponent The subdirectory appended
+ * @param errorOut Any error from file operations
+ *
+ * @return The path to the directory (if path found and exists), nil otherwise
+ */
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory
 	inDomain:(NSSearchPathDomainMask)domainMask
 	appendPathComponent:(NSString *)appendComponent
 	error:(NSError **)errorOut;
+/**
+ * Returns the path to the Application Support directory (creating it if it doesn't
+ * exist)
+ *
+ * @return The path to the Application Support directory
+ */
 - (NSString *)applicationSupportDirectory;
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240F1FAB1891A88F00AE9F82 /* IOKit.framework */; };
+		240F98A118B060AD001EAE87 /* SBEnterpriseSourceLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */; };
 		24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101B861896D4A300EDE32C /* SBAboutWindowController.m */; };
 		24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */; };
 		24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24101B8D1896D4DF00EDE32C /* QuartzCore.framework */; };
@@ -67,6 +68,9 @@
 /* Begin PBXFileReference section */
 		24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		240F1FAB1891A88F00AE9F82 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		240F989E18B05919001EAE87 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
+		240F989F18B060AD001EAE87 /* SBEnterpriseSourceLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterpriseSourceLocation.h; sourceTree = "<group>"; };
+		240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterpriseSourceLocation.m; sourceTree = "<group>"; };
 		24101B851896D4A300EDE32C /* SBAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAboutWindowController.h; sourceTree = "<group>"; };
 		24101B861896D4A300EDE32C /* SBAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAboutWindowController.m; sourceTree = "<group>"; };
 		24101B8B1896D4AF00EDE32C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBAboutWindowController.xib; sourceTree = "<group>"; };
@@ -80,8 +84,7 @@
 		2420474F18849C8B00ECAAFE /* SBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
 		24680E4C18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterprisePreferencesViewController.h; sourceTree = "<group>"; };
 		24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterprisePreferencesViewController.m; sourceTree = "<group>"; };
-		24680E5518AE7FE500B6E13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/SBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
-		24680E5A18AE8C3700B6E13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
+		24680E5518AE7FE500B6E13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		249DF3F0189D7A3F00FECE0A /* NSFileManager+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Extensions.h"; sourceTree = "<group>"; };
 		249DF3F1189D7A3F00FECE0A /* NSFileManager+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Extensions.m"; sourceTree = "<group>"; };
 		24A4EC731884966900CE6CF0 /* Mac Linux USB Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Linux USB Loader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +283,8 @@
 				2420474E18849C8B00ECAAFE /* SBAppDelegate.h */,
 				2420474F18849C8B00ECAAFE /* SBAppDelegate.m */,
 				24A4EC8E1884966A00CE6CF0 /* MainMenu.xib */,
+				240F989F18B060AD001EAE87 /* SBEnterpriseSourceLocation.h */,
+				240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */,
 				24A4EC881884966A00CE6CF0 /* SBDocument.h */,
 				24A4EC891884966A00CE6CF0 /* SBDocument.m */,
 				24A4EC8B1884966A00CE6CF0 /* SBDocument.xib */,
@@ -451,6 +456,7 @@
 				24A4EC8A1884966A00CE6CF0 /* SBDocument.m in Sources */,
 				24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */,
 				249DF3F2189D7A3F00FECE0A /* NSFileManager+Extensions.m in Sources */,
+				240F98A118B060AD001EAE87 /* SBEnterpriseSourceLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,7 +498,7 @@
 		24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				24680E5A18AE8C3700B6E13F /* Base */,
+				240F989E18B05919001EAE87 /* en */,
 			);
 			name = SBEnterprisePreferencesViewController.xib;
 			sourceTree = "<group>";

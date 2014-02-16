@@ -9,6 +9,11 @@
 #import "SBAppDelegate.h"
 #import "SBGeneralPreferencesViewController.h"
 #import "SBEnterprisePreferencesViewController.h"
+#import "SBEnterpriseSourceLocation.h"
+
+#import "NSFileManager+Extensions.h"
+#import "NSFileManager+DirectoryLocations.h"
+#import "SBGlobals.h"
 
 @implementation SBAppDelegate
 @synthesize window;
@@ -58,7 +63,30 @@
 	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 
 	// Detect all available USB drives.
+	[self setupEnterpriseInstallationLocations];
 	[self detectAndSetupUSBs];
+}
+
+- (void)setupEnterpriseInstallationLocations {
+	NSFileManager *manager = [NSFileManager defaultManager];
+	NSString *applicationSupportPath = [manager applicationSupportDirectory];
+	NSString *filePath = [applicationSupportPath stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
+	BOOL exists = [manager fileExistsAtPath:filePath];
+
+	if (!exists) {
+		self.enterpriseInstallLocations = [[NSMutableDictionary alloc] initWithCapacity:5]; // A rather arbitary number.
+
+		// Add the Enterprise installation located in Mac Linux USB Loader's bundle to the list of available
+		// Enterprise installations.
+		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:@"Included With Application"
+																				   andPath:@""
+																		  shouldBeVolatile:NO];
+		self.enterpriseInstallLocations[@"Included With Application"] = loc;
+		BOOL success = [NSKeyedArchiver archiveRootObject:self.enterpriseInstallLocations toFile:filePath];
+		SBLogBool(success);
+	} else {
+		self.enterpriseInstallLocations = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
+	}
 }
 
 - (void)detectAndSetupUSBs {

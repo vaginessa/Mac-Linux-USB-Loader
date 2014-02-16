@@ -27,6 +27,7 @@
 @property (weak) IBOutlet NSPopover *moreOptionsPopover;
 
 @property (nonatomic, strong) NSMutableDictionary *usbDictionary;
+@property (nonatomic, strong) NSMutableDictionary *enterpriseInstallLocations;
 
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 @property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;

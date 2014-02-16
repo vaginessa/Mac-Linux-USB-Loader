@@ -1,4 +1,4 @@
-Mac-Linux-USB-Loader
+Mac Linux USB Loader
 ====================
 
 Tool allowing you to put a Linux distro on a USB drive and make it bootable on Intel Macs using EFI.
@@ -23,7 +23,6 @@ I created this tool, if you care, for several reasons:
 That being said, it does have a few shortcomings:
 
 - Linux fails to have graphics on some Macs (i.e Macbook Pros with nVidia graphics), which in some cases prevents boot, but this is not necessarily an issue with Mac Linux USB Loader as much as it is an issue with the video drivers that ship with most distros. Luckily, with Enterprise, which has been included with Mac Linux USB Loader since 2.0, you can use persistence to install the necessary video drivers on distributions like Ubuntu, helping to alleviate the issue.
-- It only detects up to 10 USB ports. I chose 10 because it is unlikely someone will have more ports than that. If they do, then maybe I'll do something about it, but the only computer I've even seen that had more than a few ports was a desktop PC with six, but given that PCs do not run OS X that would not really limit us anyway.
 
 Building from Source
 --------------------
