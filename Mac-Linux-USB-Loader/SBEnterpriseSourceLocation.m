@@ -7,6 +7,7 @@
 //
 
 #import "SBEnterpriseSourceLocation.h"
+#import "SBGlobals.h"
 
 @implementation SBEnterpriseSourceLocation
 
@@ -39,6 +40,10 @@
 	[encoder encodeObject:self.path forKey:@"path"];
 	[encoder encodeObject:self.securityScopedBookmark forKey:@"bookmark"];
 	[encoder encodeBool:self.deletable forKey:@"deletable"];
+}
+
+- (NSString *)description {
+	return [NSString stringWithFormat: @"Name:'%@' Path:'%@' Bookmark:%@ Deletable:%@", self.name, self.path, self.securityScopedBookmark, SBBool2NSString(self.deletable)];
 }
 
 @end

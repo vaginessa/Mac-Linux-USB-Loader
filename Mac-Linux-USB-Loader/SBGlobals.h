@@ -11,6 +11,7 @@
 
 #define SBLogObject(x) NSLog(@"%@", x)
 #define SBLogBool(x) NSLog(x ? @"YES" : @"NO")
+#define SBBool2NSString(x) (x ? @"YES" : @"NO")
 #define SBCStr2NSString(x) [NSString initWithCString:x encoding:NSUTF8StringEncoding]
 
 #endif

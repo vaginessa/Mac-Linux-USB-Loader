@@ -74,6 +74,7 @@
 	BOOL exists = [manager fileExistsAtPath:filePath];
 
 	if (!exists) {
+		NSLog(@"Couldn't find dictionary of Enterprise source file locations. Is this the first run? Creating one now...");
 		self.enterpriseInstallLocations = [[NSMutableDictionary alloc] initWithCapacity:5]; // A rather arbitary number.
 
 		// Add the Enterprise installation located in Mac Linux USB Loader's bundle to the list of available
@@ -82,10 +83,13 @@
 																				   andPath:@""
 																		  shouldBeVolatile:NO];
 		self.enterpriseInstallLocations[@"Included With Application"] = loc;
+
+		// Write the file to disc.
 		BOOL success = [NSKeyedArchiver archiveRootObject:self.enterpriseInstallLocations toFile:filePath];
 		SBLogBool(success);
 	} else {
-		self.enterpriseInstallLocations = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
+		NSLog(@"Found dictionary of Enterprise source file locations.");
+		self.enterpriseInstallLocations = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
 	}
 }
 
