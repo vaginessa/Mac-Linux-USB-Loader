@@ -14,4 +14,6 @@
 #define SBBool2NSString(x) (x ? @"YES" : @"NO")
 #define SBCStr2NSString(x) [NSString initWithCString:x encoding:NSUTF8StringEncoding]
 
+#define SBBundledEnterpriseVersionNumber @"0.1.2"
+
 #endif

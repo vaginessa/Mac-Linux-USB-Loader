@@ -10,9 +10,15 @@
 
 @interface SBEnterpriseSourceLocation : NSObject <NSCoding>
 
-@property (assign) NSString *name;
-@property (assign) NSString *path;
-@property (assign) NSURL *securityScopedBookmark;
+/// The name of the Enterprise source location.
+@property (strong) NSString *name;
+/// The path to the Enterprise source location.
+@property (strong) NSString *path;
+/// The version of the Enterprise executable at this location.
+@property (strong) NSString *version;
+/// A security scoped bookmark to access the Enterprise installation directory.
+@property (strong) NSURL *securityScopedBookmark;
+/// A boolean indicating whether this location should be removable.
 @property (assign) BOOL deletable;
 
 /**
@@ -24,5 +30,17 @@
  * @param deletable Whether can user should be able to delete this source.
  */
 - (id)initWithName:(NSString *)name andPath:(NSString *)path shouldBeVolatile:(BOOL)deletable;
+
+/**
+ * Initializes a new SBEnterpriseSourceLocation object immediately after memory for it has been allocated.
+ * It is configured with the passed name and path variables.
+ *
+ * @param name The name (for user reference) of the source location.
+ * @param path The path of the source location.
+ * @param version An NSString object containing a version number for the program.
+ * @param bookmark A security scoped bookmark to access the directory containing this source.
+ * @param deletable Whether can user should be able to delete this source.
+ */
+- (id)initWithName:(NSString *)name withPath:(NSString *)path withVersionNumber:(NSString *)version withSecurityScopedBookmark:(NSURL *)bookmark shouldBeVolatile:(BOOL)deletable;
 
 @end
