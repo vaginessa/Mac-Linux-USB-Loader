@@ -17,7 +17,9 @@
 
 @end
 
-@implementation SBEnterprisePreferencesViewController
+@implementation SBEnterprisePreferencesViewController {
+	NSOpenPanel *enterpriseSourceLocationOpenPanel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -72,4 +74,53 @@
 	return @"N/A";
 }
 
+#pragma mark - IBActions
+
+- (IBAction)addSourceLocationButtonPressed:(id)sender {
+	[NSApp beginSheet:self.addNewEnterpriseSourcePanel modalForWindow:[self.view window] modalDelegate:self didEndSelector:NULL contextInfo:nil];
+}
+
+- (IBAction)hideSourceLocationButtonPressed:(id)sender {
+	[self.addNewEnterpriseSourcePanel orderOut:nil];
+    [NSApp endSheet:self.addNewEnterpriseSourcePanel];
+}
+
+- (IBAction)showSourcePathSelectorDialog:(id)sender {
+	enterpriseSourceLocationOpenPanel = [NSOpenPanel openPanel];
+	[enterpriseSourceLocationOpenPanel setMessage:NSLocalizedString(@"Please select the directory containing Enterprise files.", nil)];
+    [enterpriseSourceLocationOpenPanel setCanChooseDirectories:YES];
+    [enterpriseSourceLocationOpenPanel setCanChooseFiles:NO];
+    [enterpriseSourceLocationOpenPanel beginSheetModalForWindow:self.addNewEnterpriseSourcePanel completionHandler:^(NSInteger result) {
+		[self.sourceLocationPathTextField setStringValue:[[enterpriseSourceLocationOpenPanel URL] path]];
+    }];
+}
+
+- (IBAction)confirmSourceLocationInformation:(id)sender {
+	NSString *name = [self.sourceNameTextField stringValue];
+	NSString *version = [self.sourceVersionTextField stringValue];
+	NSLog(@"%@, %@", name, version);
+
+	NSURL *bookmark = [[NSFileManager defaultManager] createSecurityScopedBookmarkForPath:enterpriseSourceLocationOpenPanel.URL];
+	if (bookmark) {
+		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:name withPath:enterpriseSourceLocationOpenPanel.URL.path withVersionNumber:version withSecurityScopedBookmark:bookmark shouldBeVolatile:YES];
+
+		// Add the newly-created object to our list of Enterprise source locations.
+		[[NSApp delegate] enterpriseInstallLocations][name] = loc;
+		self.enterpriseSourceLocationsDictionary[name] = loc;
+		[self.listOfArrayKeys removeAllObjects];
+		for (NSString *title in self.enterpriseSourceLocationsDictionary) {
+			[self.listOfArrayKeys addObject:title];
+		}
+
+		// Write source locations to disk.
+		NSString *filePath = [[[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
+		[[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+
+		// Reload the table with our new data.
+		[self.tableView reloadData];
+		[self hideSourceLocationButtonPressed:nil];
+	} else {
+		NSLog(@"No permissions!");
+	}
+}
 @end

@@ -62,4 +62,18 @@ NSOpenPanel *spanel;
 	return outURL;
 }
 
+- (NSURL *)createSecurityScopedBookmarkForPath:(NSURL *)url {
+	NSData *data = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:nil];
+	if (data) {
+		NSURL *returnURL = [NSURL URLByResolvingBookmarkData:data
+															  options:NSURLBookmarkResolutionWithSecurityScope
+														relativeToURL:nil
+												  bookmarkDataIsStale:nil
+																error:nil];
+		return returnURL;
+	} else {
+		return nil;
+	}
+}
+
 @end

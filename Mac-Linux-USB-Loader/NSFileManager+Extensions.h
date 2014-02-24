@@ -28,4 +28,13 @@
  */
 - (NSURL *)setupSecurityScopedBookmarkForUSBAtPath:(NSString *)path withWindowForSheet:(NSWindow *)window;
 
+/**
+ * A custom extension to NSFileManager that provides an easy way to setup a security scoped bookmark to a
+ * file.
+ *
+ * @param url The URL of the file to create the bookmark of.
+ * @return An NSURL object representing the security scoped bookmark, or nil if access was denied.
+ */
+- (NSURL *)createSecurityScopedBookmarkForPath:(NSURL *)url;
+
 @end

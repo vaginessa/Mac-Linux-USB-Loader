@@ -62,16 +62,23 @@
 	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 
+	// Setup file management properties.
+	self.fileManager = [NSFileManager defaultManager];
+	self.pathToApplicationSupportDirectory = [self.fileManager applicationSupportDirectory];
+
 	// Detect all available USB drives.
 	[self setupEnterpriseInstallationLocations];
 	[self detectAndSetupUSBs];
 }
 
+- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
+    [self.window makeKeyAndOrderFront:nil];
+    return YES;
+}
+
 - (void)setupEnterpriseInstallationLocations {
-	NSFileManager *manager = [NSFileManager defaultManager];
-	NSString *applicationSupportPath = [manager applicationSupportDirectory];
-	NSString *filePath = [applicationSupportPath stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
-	BOOL exists = [manager fileExistsAtPath:filePath];
+	NSString *filePath = [self.pathToApplicationSupportDirectory stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
+	BOOL exists = [self.fileManager fileExistsAtPath:filePath];
 
 	if (!exists) {
 		NSLog(@"Couldn't find dictionary of Enterprise source file locations. Is this the first run? Creating one now...");
@@ -84,13 +91,24 @@
 																		  shouldBeVolatile:NO];
 		self.enterpriseInstallLocations[@"Included With Application"] = loc;
 
-		// Write the file to disc.
-		BOOL success = [NSKeyedArchiver archiveRootObject:self.enterpriseInstallLocations toFile:filePath];
-		SBLogBool(success);
+		BOOL success = [self writeEnterpriseSourceLocationsToDisk:filePath];
+		if (!success) {
+			NSLog(@"Failed to create a file containing the Enterprise source locations. Check the logs for more information.");
+		}
 	} else {
 		NSLog(@"Found dictionary of Enterprise source file locations.");
-		self.enterpriseInstallLocations = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+		[self readEnterpriseSourceLocationsFromDisk:filePath];
 	}
+}
+
+- (BOOL)writeEnterpriseSourceLocationsToDisk:(NSString *)path {
+	// Write the file to disc.
+	BOOL success = [NSKeyedArchiver archiveRootObject:self.enterpriseInstallLocations toFile:path];
+	return success;
+}
+
+- (void)readEnterpriseSourceLocationsFromDisk:(NSString *)path {
+	self.enterpriseInstallLocations = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 }
 
 - (void)detectAndSetupUSBs {
@@ -125,11 +143,6 @@
 			}
 		}
 	}
-}
-
-- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
-    [self.window makeKeyAndOrderFront:nil];
-    return YES;
 }
 
 #pragma mark - IBActions

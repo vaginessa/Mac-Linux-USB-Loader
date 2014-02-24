@@ -6,4 +6,7 @@
 
 #ifdef __OBJC__
 	#import <Cocoa/Cocoa.h>
+
+	#import "NSFileManager+DirectoryLocations.h"
+	#import "NSFileManager+Extensions.h"
 #endif

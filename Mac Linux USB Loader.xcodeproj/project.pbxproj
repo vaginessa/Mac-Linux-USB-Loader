@@ -68,7 +68,6 @@
 /* Begin PBXFileReference section */
 		24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		240F1FAB1891A88F00AE9F82 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		240F989E18B05919001EAE87 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
 		240F989F18B060AD001EAE87 /* SBEnterpriseSourceLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterpriseSourceLocation.h; sourceTree = "<group>"; };
 		240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterpriseSourceLocation.m; sourceTree = "<group>"; };
 		24101B851896D4A300EDE32C /* SBAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAboutWindowController.h; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		24D75F93188AE77100FF5ADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBUSBSetupWindowController.xib; sourceTree = "<group>"; };
 		24D75F97188AEC2300FF5ADC /* SBUSBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBDevice.h; sourceTree = "<group>"; };
 		24D75F98188AEC2300FF5ADC /* SBUSBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBDevice.m; sourceTree = "<group>"; };
+		24F727C418BAC13B00B16013 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
 		97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F38667D994A74956919B4A54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -498,7 +498,7 @@
 		24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				240F989E18B05919001EAE87 /* en */,
+				24F727C418BAC13B00B16013 /* Base */,
 			);
 			name = SBEnterprisePreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -642,6 +642,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Prefix.pch";
 				INFOPLIST_FILE = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "Mac Linux USB Loader";
 				WRAPPER_EXTENSION = app;
 			};
@@ -659,6 +660,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Prefix.pch";
 				INFOPLIST_FILE = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "Mac Linux USB Loader";
 				WRAPPER_EXTENSION = app;
 			};

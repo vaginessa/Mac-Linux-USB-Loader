@@ -29,10 +29,18 @@
 @property (nonatomic, strong) NSMutableDictionary *usbDictionary;
 @property (nonatomic, strong) NSMutableDictionary *enterpriseInstallLocations;
 
+/// The path to the application's application support directory.
+@property (nonatomic, strong) NSString *pathToApplicationSupportDirectory;
+/// An instance of NSFileManager to be used by this instance.
+@property (nonatomic, strong) NSFileManager *fileManager;
+
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 @property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
 @property (nonatomic, strong) SBAboutWindowController *aboutWindowController;
 @property (nonatomic, strong) RHPreferencesWindowController *preferencesWindowController;
+
+- (BOOL)writeEnterpriseSourceLocationsToDisk:(NSString *)path;
+- (void)readEnterpriseSourceLocationsFromDisk:(NSString *)path;
 
 - (IBAction)showPreferencesWindow:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;

@@ -33,7 +33,8 @@
 
 /**
  * Initializes a new SBEnterpriseSourceLocation object immediately after memory for it has been allocated.
- * It is configured with the passed name and path variables.
+ * It is configured with the passed name, version, volatility, and path variables. If you don't want to use
+ * this version, you can use the shorter version initWithName:andPath:shouldBeVolatile.
  *
  * @param name The name (for user reference) of the source location.
  * @param path The path of the source location.
