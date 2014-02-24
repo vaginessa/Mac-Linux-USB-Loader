@@ -9,7 +9,6 @@
 #import "SBDocument.h"
 #import "SBAppDelegate.h"
 #import "NSFileManager+Extensions.h"
-#import "SBGlobals.h"
 
 @implementation SBDocument {
 	NSMutableDictionary *dict;

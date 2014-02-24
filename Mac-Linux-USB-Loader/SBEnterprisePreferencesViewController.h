@@ -25,6 +25,7 @@
 
 - (IBAction)addSourceLocationButtonPressed:(id)sender;
 - (IBAction)hideSourceLocationButtonPressed:(id)sender;
+- (IBAction)removeSourceLocationButtonPressed:(id)sender;
 - (IBAction)showSourcePathSelectorDialog:(id)sender;
 - (IBAction)confirmSourceLocationInformation:(id)sender;
 

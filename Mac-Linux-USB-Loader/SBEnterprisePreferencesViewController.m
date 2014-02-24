@@ -9,7 +9,6 @@
 #import "SBEnterprisePreferencesViewController.h"
 #import "SBEnterpriseSourceLocation.h"
 #import "SBAppDelegate.h"
-#import "SBGlobals.h"
 
 @interface SBEnterprisePreferencesViewController ()
 
@@ -74,6 +73,18 @@
 	return @"N/A";
 }
 
+- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
+	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
+	NSTextFieldCell *cell = [tableColumn dataCell];
+	if(!loc.deletable && [self.tableView selectedRow] != rowIndex) {
+		[cell setTextColor:[NSColor darkGrayColor]];
+	} else {
+		[cell setTextColor:[NSColor blackColor]];
+	}
+
+	return cell;
+}
+
 #pragma mark - IBActions
 
 - (IBAction)addSourceLocationButtonPressed:(id)sender {
@@ -83,6 +94,34 @@
 - (IBAction)hideSourceLocationButtonPressed:(id)sender {
 	[self.addNewEnterpriseSourcePanel orderOut:nil];
     [NSApp endSheet:self.addNewEnterpriseSourcePanel];
+}
+
+- (IBAction)removeSourceLocationButtonPressed:(id)sender {
+	NSInteger selectedRow = [self.tableView selectedRow];
+	SBEnterpriseSourceLocation *deviceHere = [[NSApp delegate] enterpriseInstallLocations][self.listOfArrayKeys[selectedRow]];
+	if (!deviceHere.deletable) {
+		NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+        [alert setMessageText:NSLocalizedString(@"This source can't be deleted.", nil)];
+        [alert setInformativeText:NSLocalizedString(@"This source can't be deleted because it is included with Mac Linux USB Loader.", nil)];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:[self.view window] modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
+	}
+
+	[[[NSApp delegate] enterpriseInstallLocations] removeObjectForKey:self.listOfArrayKeys[selectedRow]];
+	[self.listOfArrayKeys removeAllObjects];
+	for (NSString *title in self.enterpriseSourceLocationsDictionary) {
+		[self.listOfArrayKeys addObject:title];
+	}
+
+	// Write source locations to disk.
+	NSString *filePath = [[[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
+	[[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+
+	// Reload the table with our new data.
+	[self.tableView reloadData];
+	[self hideSourceLocationButtonPressed:nil];
 }
 
 - (IBAction)showSourcePathSelectorDialog:(id)sender {
@@ -122,5 +161,10 @@
 	} else {
 		NSLog(@"No permissions!");
 	}
+}
+
+#pragma mark - Delegates
+- (void)regularSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    // Empty
 }
 @end

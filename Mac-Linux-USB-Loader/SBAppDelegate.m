@@ -13,7 +13,6 @@
 
 #import "NSFileManager+Extensions.h"
 #import "NSFileManager+DirectoryLocations.h"
-#import "SBGlobals.h"
 
 @implementation SBAppDelegate
 @synthesize window;

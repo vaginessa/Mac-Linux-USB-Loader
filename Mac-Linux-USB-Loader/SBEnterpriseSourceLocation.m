@@ -7,7 +7,6 @@
 //
 
 #import "SBEnterpriseSourceLocation.h"
-#import "SBGlobals.h"
 
 @implementation SBEnterpriseSourceLocation
 
