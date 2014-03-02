@@ -130,14 +130,42 @@
     [enterpriseSourceLocationOpenPanel setCanChooseDirectories:YES];
     [enterpriseSourceLocationOpenPanel setCanChooseFiles:NO];
     [enterpriseSourceLocationOpenPanel beginSheetModalForWindow:self.addNewEnterpriseSourcePanel completionHandler:^(NSInteger result) {
-		[self.sourceLocationPathTextField setStringValue:[[enterpriseSourceLocationOpenPanel URL] path]];
+		if (result == NSFileHandlingPanelOKButton) {
+			[self.sourceLocationPathTextField setStringValue:[[enterpriseSourceLocationOpenPanel URL] path]];
+		}
     }];
 }
 
 - (IBAction)confirmSourceLocationInformation:(id)sender {
 	NSString *name = [self.sourceNameTextField stringValue];
 	NSString *version = [self.sourceVersionTextField stringValue];
-	NSLog(@"%@, %@", name, version);
+	NSString* location = [[[self.sourceLocationPathTextField stringValue] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] componentsJoinedByString:@""];
+
+	if ([location isEqualToString:@""]) {
+		NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+        [alert setMessageText:NSLocalizedString(@"No source location path entered.", nil)];
+        [alert setInformativeText:NSLocalizedString(@"You need to enter a path to a folder containing a valid set of Enterprise binaries.", nil)];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
+	} else if ([name isEqualToString:@""]) {
+		NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+        [alert setMessageText:NSLocalizedString(@"No source location name entered.", nil)];
+        [alert setInformativeText:NSLocalizedString(@"You need to enter a name for this Enterprise installation source.", nil)];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
+	} else if ([version isEqualToString:@""]) {
+		NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+        [alert setMessageText:NSLocalizedString(@"No source location version entered.", nil)];
+        [alert setInformativeText:NSLocalizedString(@"You need to enter the version of this Enterprise installation source.", nil)];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
+	}
 
 	NSURL *bookmark = [[NSFileManager defaultManager] createSecurityScopedBookmarkForPath:enterpriseSourceLocationOpenPanel.URL];
 	if (bookmark) {

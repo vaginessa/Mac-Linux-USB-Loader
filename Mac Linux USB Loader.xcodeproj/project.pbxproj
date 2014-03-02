@@ -63,6 +63,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24743B6C18BBE6E1008B5458 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Enterprise;
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -306,6 +315,7 @@
 				24A4EC701884966900CE6CF0 /* Frameworks */,
 				24A4EC711884966900CE6CF0 /* Resources */,
 				24155CC418903AD200FAB98C /* CopyFiles */,
+				24743B6C18BBE6E1008B5458 /* CopyFiles */,
 				DBBD09A81F884E8E9EF1B54C /* Copy Pods Resources */,
 			);
 			buildRules = (
