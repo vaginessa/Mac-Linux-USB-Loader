@@ -32,6 +32,7 @@
 
 	// Hide the setup view until we need it.
 	[self.persistenceOptionsSetupBox setHidden:YES];
+	[self.operationProgressLabel setStringValue:@""];
     
     // Setup the USB selector.
 	dict = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] usbDictionary]];
@@ -89,7 +90,11 @@
     [spanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		if (result == NSFileHandlingPanelOKButton) {
 			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+				[self.spinner startAnimation:nil];
+				[self.operationProgressLabel setStringValue:NSLocalizedString(@"Creating persistence file...", nil)];
 				[SBUSBDevice createPersistenceFileAtUSB:[[spanel URL] path] withSize:persistenceSizeInBytes withWindow:self.window];
+				[self.operationProgressLabel setStringValue:NSLocalizedString(@"Creating virtual loopback filesystem...", nil)];
+				[SBUSBDevice createLoopbackPersistence:[[spanel URL] path]];
 
 				// Enable everything that was disabled.
 				dispatch_async(dispatch_get_main_queue(), ^{
@@ -104,6 +109,9 @@
 					[alert setInformativeText:NSLocalizedString(@"The persistence file has been created. You should be able to boot your selected Linux distribution with persistence on this USB drive now.", nil)];
 					[alert setAlertStyle:NSWarningAlertStyle];
 					[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+					[self.spinner stopAnimation:nil];
+					[self.operationProgressLabel setStringValue:@""];
 				});
 			});
 		} else {

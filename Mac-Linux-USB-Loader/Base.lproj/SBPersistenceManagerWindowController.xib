@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBPersistenceManagerWindowController">
             <connections>
+                <outlet property="operationProgressLabel" destination="htd-Oc-Vqe" id="uaU-wL-M1W"/>
                 <outlet property="persistenceOptionsSetupBox" destination="7Eq-Js-Ppp" id="aQY-fS-CM8"/>
                 <outlet property="persistenceVolumeSizeSlider" destination="gHg-qe-gRa" id="QNj-hM-1Tl"/>
                 <outlet property="persistenceVolumeSizeTextField" destination="8hH-NQ-7sz" id="neA-Yz-9C4"/>
+                <outlet property="spinner" destination="fEs-wl-bLJ" id="y3D-gF-4Kn"/>
                 <outlet property="usbSelectorPopup" destination="lc0-Og-xhN" id="xao-2c-JUC"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
@@ -24,17 +27,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tabView initialItem="4A2-3M-S2a" translatesAutoresizingMaskIntoConstraints="NO" id="oXz-Ke-RJv">
-                        <rect key="frame" x="13" y="10" width="596" height="283"/>
+                        <rect key="frame" x="13" y="32" width="596" height="261"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Setup Persistence" identifier="1" id="4A2-3M-S2a">
                                 <view key="view" id="Kf2-L3-K4Q">
-                                    <rect key="frame" x="10" y="33" width="576" height="237"/>
+                                    <rect key="frame" x="10" y="33" width="576" height="215"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Naq-Ne-MDC">
-                                            <rect key="frame" x="15" y="214" width="81" height="17"/>
+                                            <rect key="frame" x="15" y="192" width="81" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="77" id="vnF-jF-hzJ"/>
@@ -46,7 +49,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lc0-Og-xhN">
-                                            <rect key="frame" x="102" y="210" width="460" height="26"/>
+                                            <rect key="frame" x="102" y="188" width="460" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="kEq-zB-YTC">
                                                 <font key="font" metaFont="system"/>
@@ -55,14 +58,14 @@
                                             </comboBoxCell>
                                         </comboBox>
                                         <box autoresizesSubviews="NO" title="Persistence Options" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-Js-Ppp">
-                                            <rect key="frame" x="14" y="5" width="548" height="201"/>
+                                            <rect key="frame" x="14" y="5" width="548" height="179"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
-                                                <rect key="frame" x="1" y="1" width="546" height="185"/>
+                                                <rect key="frame" x="1" y="1" width="546" height="163"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8hH-NQ-7sz">
-                                                        <rect key="frame" x="432" y="153" width="96" height="22"/>
+                                                        <rect key="frame" x="432" y="131" width="96" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="96" id="jFL-Tl-yE3"/>
@@ -84,12 +87,12 @@
                                                         </connections>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHg-qe-gRa">
-                                                        <rect key="frame" x="130" y="153" width="296" height="21"/>
+                                                        <rect key="frame" x="130" y="131" width="296" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="j0c-eU-prh"/>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UmG-Ak-vVB">
-                                                        <rect key="frame" x="18" y="155" width="108" height="17"/>
+                                                        <rect key="frame" x="18" y="133" width="108" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Persistence Size:" id="gwQ-4R-lk0">
                                                             <font key="font" metaFont="system"/>
@@ -109,7 +112,7 @@
                                                         </connections>
                                                     </button>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="40V-gP-LmV">
-                                                        <rect key="frame" x="18" y="43" width="512" height="104"/>
+                                                        <rect key="frame" x="18" y="21" width="512" height="104"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="104" id="2f3-dG-KS9"/>
@@ -167,12 +170,33 @@
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="fEs-wl-bLJ">
+                        <rect key="frame" x="20" y="16" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="htd-Oc-Vqe">
+                        <rect key="frame" x="42" y="18" width="562" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="NrD-gi-cN6">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="oXz-Ke-RJv" firstAttribute="top" secondItem="2" secondAttribute="top" constant="12" id="0FO-iY-fR5"/>
-                    <constraint firstAttribute="bottom" secondItem="oXz-Ke-RJv" secondAttribute="bottom" constant="20" id="0ni-TO-CbE"/>
+                    <constraint firstAttribute="bottom" secondItem="oXz-Ke-RJv" secondAttribute="bottom" constant="42" id="0ni-TO-CbE"/>
+                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="top" secondItem="oXz-Ke-RJv" secondAttribute="bottom" constant="10" id="3Qz-oN-fVS"/>
                     <constraint firstItem="oXz-Ke-RJv" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="6Xv-3u-OXy"/>
+                    <constraint firstAttribute="bottom" secondItem="fEs-wl-bLJ" secondAttribute="bottom" constant="16" id="CGV-9L-RVl"/>
+                    <constraint firstItem="fEs-wl-bLJ" firstAttribute="top" secondItem="oXz-Ke-RJv" secondAttribute="bottom" constant="10" id="Er9-CA-Xqu"/>
                     <constraint firstAttribute="trailing" secondItem="oXz-Ke-RJv" secondAttribute="trailing" constant="20" id="Poi-Ce-ikL"/>
+                    <constraint firstAttribute="bottom" secondItem="htd-Oc-Vqe" secondAttribute="bottom" constant="18" id="Zuq-Ot-cnP"/>
+                    <constraint firstAttribute="trailing" secondItem="htd-Oc-Vqe" secondAttribute="trailing" constant="20" id="dg9-RX-d97"/>
+                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="leading" secondItem="fEs-wl-bLJ" secondAttribute="trailing" constant="8" id="jDC-h4-1yP"/>
+                    <constraint firstItem="fEs-wl-bLJ" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="snE-XU-7HP"/>
+                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="leading" secondItem="fEs-wl-bLJ" secondAttribute="trailing" constant="8" id="xFc-SQ-icS"/>
                 </constraints>
             </view>
             <connections>

@@ -38,7 +38,6 @@ typedef enum {
 	[task waitUntilExit];
 
 	// Create the loopback file.
-	[SBUSBDevice createLoopbackPersistence:file];
 	NSLog(@"Done USB persistence creation!");
 }
 
