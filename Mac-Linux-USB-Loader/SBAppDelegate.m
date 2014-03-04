@@ -35,6 +35,7 @@
 	/* Set window properties. */
 	// Make the window background white.
 	[self.window setBackgroundColor:[NSColor whiteColor]];
+	[self.window setMovableByWindowBackground:NO];
 
 	// Set window resize behavior.
 	[[self.window standardWindowButton:NSWindowZoomButton] setHidden:YES];
