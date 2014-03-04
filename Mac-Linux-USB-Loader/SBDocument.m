@@ -11,7 +11,8 @@
 #import "NSFileManager+Extensions.h"
 
 @implementation SBDocument {
-	NSMutableDictionary *dict;
+	NSMutableDictionary *usbDictionary;
+	NSMutableDictionary *enterpriseSourcesDictionary;
 }
 
 #pragma mark - Document class crap
@@ -36,19 +37,32 @@
 
 	// Grab the list of USB devices from the App Delegate.
 	// Setup the USB selector.
-	dict = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] usbDictionary]];
-	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[dict count]];
+	usbDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] usbDictionary]];
+	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[usbDictionary count]];
 
-	for (NSString *usb in dict) {
-		[array insertObject:[dict[usb] name] atIndex:0];
+	for (NSString *usb in usbDictionary) {
+		[array insertObject:[usbDictionary[usb] name] atIndex:0];
 	}
 
-    [self.popupValues addObjects:array];
-
+    [self.usbDictionaryDropdownPopupValues addObjects:array];
 	[self.installationDriveSelector addItemWithObjectValue:@"---"];
 	[self.installationDriveSelector setStringValue:@"---"];
 	[self.installationDriveSelector addItemsWithObjectValues:array];
+
+	// Grab the Enterprise sources from the App Delegate.
+	[array removeAllObjects];
+	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] enterpriseInstallLocations]];
+	for (NSString *usb in enterpriseSourcesDictionary) {
+		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
+	}
+
+	[self.enterpriseSourcesDictionaryDropdownPopupValues addObjects:array];
+	[self.enterpriseSourceSelector selectItemWithObjectValue:enterpriseSourcesDictionary[array[0]]];
+	[self.enterpriseSourceSelector addItemsWithObjectValues:array];
+
+	[self.enterpriseSourceSelector setDelegate:self];
 	[self.installationDriveSelector setDelegate:self];
+
 	[self.performInstallationButton setEnabled:NO];
 }
 
@@ -76,6 +90,18 @@
 
 - (IBAction)performInstallation:(id)sender {
 	/* STEP 1: Setup UI components. */
+	// Check to make sure that the user has selected an Enterprise source.
+	if ([[self.enterpriseSourceSelector objectValueOfSelectedItem] isEqualToString:@""] ||
+		[self.enterpriseSourceSelector objectValueOfSelectedItem] == nil) {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"No Enterprise source file selected.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"You need to select the source of the Enterprise binaries that will be copied to this USB drive.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
+	}
+
 	// Get an NSFileManager object.
 	NSFileManager *manager = [NSFileManager defaultManager];
 
@@ -104,7 +130,7 @@
 		NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
         [alert setMessageText:NSLocalizedString(@"Couldn't get security scoped bookmarks.", nil)];
-        [alert setInformativeText:NSLocalizedString(@"Couldn't access the USB device because the system denied access to the resource.", nil)];
+        [alert setInformativeText:NSLocalizedString(@"The USB device that you have selected cannot be accessed because the system denied access to the resource.", nil)];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 

@@ -10,11 +10,13 @@
 
 @interface SBDocument : NSDocument <NSComboBoxDelegate, NSControlTextEditingDelegate>
 
-@property (assign) IBOutlet NSArrayController *popupValues;
+@property (assign) IBOutlet NSArrayController *usbDictionaryDropdownPopupValues;
+@property (assign) IBOutlet NSArrayController *enterpriseSourcesDictionaryDropdownPopupValues;
 
 @property (weak) IBOutlet NSImageView *imageIcon;
 @property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
 @property (weak) IBOutlet NSComboBox *installationDriveSelector;
+@property (weak) IBOutlet NSComboBox *enterpriseSourceSelector;
 @property (weak) IBOutlet NSButton *automaticSetupCheckBox;
 @property (weak) IBOutlet NSButton *performInstallationButton;
 

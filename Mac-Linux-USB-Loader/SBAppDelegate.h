@@ -26,7 +26,10 @@
 @property (weak) IBOutlet NSTextField *applicationVersionString;
 @property (weak) IBOutlet NSPopover *moreOptionsPopover;
 
+/// A dictionary containing the keys of plugged in USB devices with the values of those keys being instances of SBUSBDevice.
 @property (nonatomic, strong) NSMutableDictionary *usbDictionary;
+/// A dictionary containing the keys of registered Enterprise source locations with the values of those keys being instances
+/// of SBEnterpriseSourceLocation. This dictionary's contents are stored on-disk.
 @property (nonatomic, strong) NSMutableDictionary *enterpriseInstallLocations;
 
 /// The path to the application's application support directory.
