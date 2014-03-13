@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 SevenBits. All rights reserved.
 //
 
-#import "SBUSBDevice.h"
 #import <copyfile.h>
+#import "SBUSBDevice.h"
+#import "NSString+Extensions.h"
 
 typedef enum {
     NotStarted = 0,
@@ -63,6 +64,19 @@ typedef enum {
 	[handle writeData:[NSData dataWithBytes:"y" length:strlen("y")]];
 	[handle closeFile];
 	[task waitUntilExit];
+}
+
++ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)fileName {
+	fileName = [fileName lowercaseString];
+	if ([fileName containsSubstring:@"ubuntu"] ||
+		[fileName containsSubstring:@"linuxmint"] ||
+		[fileName containsSubstring:@"elementaryos"]) {
+		return SBDistributionUbuntu;
+	} else if ([fileName containsSubstring:@"tails"]) {
+		return SBDistributionTails;
+	}
+
+	return SBDistributionUnknown;
 }
 
 #pragma mark - Instance methods

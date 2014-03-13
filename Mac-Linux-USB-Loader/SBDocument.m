@@ -9,6 +9,7 @@
 #import "SBDocument.h"
 #import "SBAppDelegate.h"
 #import "NSFileManager+Extensions.h"
+#import "NSString+Extensions.h"
 
 @implementation SBDocument {
 	NSMutableDictionary *usbDictionary;
@@ -81,10 +82,12 @@
 
 #pragma mark - Installation Code
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
-	if ([self.installationDriveSelector indexOfSelectedItem] == 0) {
-		[self.performInstallationButton setEnabled:NO];
-	} else {
-		[self.performInstallationButton setEnabled:YES];
+	if (notification.object == self.installationDriveSelector) {
+		if ([self.installationDriveSelector indexOfSelectedItem] == 0) {
+			[self.performInstallationButton setEnabled:NO];
+		} else {
+			[self.performInstallationButton setEnabled:YES];
+		}
 	}
 }
 

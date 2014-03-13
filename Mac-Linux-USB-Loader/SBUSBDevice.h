@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SBGlobals.h"
 #import "SBDocument.h"
 
 @interface SBUSBDevice : NSObject
@@ -35,6 +36,14 @@
  * @param file The path to the file that should be used.
  */
 + (void)createLoopbackPersistence:(NSString *)file;
+
+/**
+ * Given a file name corresponding to a Linux distribution ISO, returns an indicator of which distribution
+ * was selected. This method assumes that the input does not include the file's path.
+ *
+ * @param file The path to the file that should be used.
+ */
++ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)fileName;
 
 /**
  * Copies the Enterprise boot loader files to the USB device represented by this object.

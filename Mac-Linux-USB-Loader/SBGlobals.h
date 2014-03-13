@@ -17,4 +17,16 @@
 
 #define SBBundledEnterpriseVersionNumber @"0.1.2"
 
+/// An enumeration containing various supported Linux distributions.
+typedef NS_ENUM(NSInteger, SBLinuxDistribution) {
+	/// An enum type representing the Ubuntu Linux distribution.
+	SBDistributionUbuntu,
+	/// An enum type representing the Debian Linux distribution.
+	SBDistributionDebian,
+	/// An enum type representing the Tails Linux distribution.
+	SBDistributionTails,
+	/// An enum type representing an unsupported Linux distribution.
+	SBDistributionUnknown
+};
+
 #endif
