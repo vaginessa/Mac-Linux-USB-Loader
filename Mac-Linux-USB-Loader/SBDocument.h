@@ -20,6 +20,8 @@
 @property (weak) IBOutlet NSButton *automaticSetupCheckBox;
 @property (weak) IBOutlet NSButton *performInstallationButton;
 
+@property (nonatomic, assign) BOOL automaticSetupCheckBoxChecked;
+
 - (IBAction)performInstallation:(id)sender;
 
 @end
