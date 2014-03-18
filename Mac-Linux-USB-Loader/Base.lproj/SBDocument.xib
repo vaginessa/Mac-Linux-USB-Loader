@@ -15,7 +15,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="133" y="235" width="631" height="347"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <value key="minSize" type="size" width="94" height="86"/>
+            <value key="minSize" type="size" width="631" height="347"/>
             <view key="contentView" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="631" height="347"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -36,10 +36,19 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jHL-A0-Zow">
+                                <rect key="frame" x="20" y="20" width="168" height="282"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="NSApplicationIcon" id="PQx-ef-JTj"/>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="jHL-A0-Zow" firstAttribute="leading" secondItem="Uph-Ba-Mfu" secondAttribute="leading" id="4On-Vo-EMH"/>
+                            <constraint firstItem="jHL-A0-Zow" firstAttribute="top" secondItem="Uph-Ba-Mfu" secondAttribute="bottom" constant="8" symbolic="YES" id="O9N-Cu-FxE"/>
+                            <constraint firstItem="jHL-A0-Zow" firstAttribute="trailing" secondItem="Uph-Ba-Mfu" secondAttribute="trailing" id="TJ5-8c-DSH"/>
                             <constraint firstItem="Uph-Ba-Mfu" firstAttribute="top" secondItem="4Dx-4e-R74" secondAttribute="top" constant="20" symbolic="YES" id="Ydd-jG-ggG"/>
                             <constraint firstItem="Uph-Ba-Mfu" firstAttribute="leading" secondItem="4Dx-4e-R74" secondAttribute="leading" constant="20" symbolic="YES" id="ZhB-aO-xhr"/>
+                            <constraint firstAttribute="bottom" secondItem="jHL-A0-Zow" secondAttribute="bottom" constant="20" symbolic="YES" id="fJe-Gg-uDm"/>
                             <constraint firstAttribute="trailing" secondItem="Uph-Ba-Mfu" secondAttribute="trailing" constant="20" symbolic="YES" id="q06-pB-BVN"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -225,4 +234,7 @@
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
         <collectionViewItem id="DxE-ia-ULM"/>
     </objects>
+    <resources>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+    </resources>
 </document>
