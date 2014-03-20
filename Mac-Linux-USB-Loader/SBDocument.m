@@ -23,7 +23,7 @@
     self = [super init];
     if (self) {
 		// Add your subclass-specific initialization here.
-		self.usbDictionaryDropdownPopupValues = [[NSMutableArray alloc] init];
+		self.usbArrayForContentView = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -54,7 +54,7 @@
 
 	[arrayController addObjects:array];
 	SBLogObject(arrayController);
-	SBLogObject(self.usbDictionaryDropdownPopupValues);
+	SBLogObject(self.usbArrayForContentView);
 
 	// Grab the Enterprise sources from the App Delegate.
 	[array removeAllObjects];

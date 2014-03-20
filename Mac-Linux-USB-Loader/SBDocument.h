@@ -12,7 +12,7 @@
 	IBOutlet NSArrayController *arrayController;
 }
 
-@property (strong) NSMutableArray *usbDictionaryDropdownPopupValues;
+@property (strong) NSMutableArray *usbArrayForContentView;
 
 @property (weak) IBOutlet NSImageView *imageIcon;
 @property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
