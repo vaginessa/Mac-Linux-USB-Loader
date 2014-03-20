@@ -8,14 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SBDocument : NSDocument <NSComboBoxDelegate, NSControlTextEditingDelegate>
+@interface SBDocument : NSDocument <NSComboBoxDelegate, NSControlTextEditingDelegate> {
+	IBOutlet NSArrayController *arrayController;
+}
 
-@property (assign) IBOutlet NSArrayController *usbDictionaryDropdownPopupValues;
-@property (assign) IBOutlet NSArrayController *enterpriseSourcesDictionaryDropdownPopupValues;
+@property (strong) NSMutableArray *usbDictionaryDropdownPopupValues;
 
 @property (weak) IBOutlet NSImageView *imageIcon;
 @property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
-@property (weak) IBOutlet NSComboBox *installationDriveSelector;
+@property (weak) IBOutlet NSCollectionView *usbDriveSelector;
 @property (weak) IBOutlet NSComboBox *enterpriseSourceSelector;
 @property (weak) IBOutlet NSButton *automaticSetupCheckBox;
 @property (weak) IBOutlet NSButton *performInstallationButton;

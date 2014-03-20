@@ -8,6 +8,8 @@
 
 #import "SBDocument.h"
 #import "SBAppDelegate.h"
+#import "SBUSBDevice.h"
+#import "SBUSBDeviceCollectionViewRepresentation.h"
 #import "NSFileManager+Extensions.h"
 #import "NSString+Extensions.h"
 
@@ -21,6 +23,7 @@
     self = [super init];
     if (self) {
 		// Add your subclass-specific initialization here.
+		self.usbDictionaryDropdownPopupValues = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -42,13 +45,16 @@
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[usbDictionary count]];
 
 	for (NSString *usb in usbDictionary) {
-		[array insertObject:[usbDictionary[usb] name] atIndex:0];
+		SBUSBDeviceCollectionViewRepresentation *rep = [[SBUSBDeviceCollectionViewRepresentation alloc] init];
+		SBUSBDevice *deviceRep = usbDictionary[usb];
+		rep.name = deviceRep.name;
+
+		[array addObject:deviceRep];
 	}
 
-    [self.usbDictionaryDropdownPopupValues addObjects:array];
-	[self.installationDriveSelector addItemWithObjectValue:@"---"];
-	[self.installationDriveSelector setStringValue:@"---"];
-	[self.installationDriveSelector addItemsWithObjectValues:array];
+	[arrayController addObjects:array];
+	SBLogObject(arrayController);
+	SBLogObject(self.usbDictionaryDropdownPopupValues);
 
 	// Grab the Enterprise sources from the App Delegate.
 	[array removeAllObjects];
@@ -57,12 +63,10 @@
 		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
 	}
 
-	[self.enterpriseSourcesDictionaryDropdownPopupValues addObjects:array];
 	[self.enterpriseSourceSelector selectItemWithObjectValue:enterpriseSourcesDictionary[array[0]]];
 	[self.enterpriseSourceSelector addItemsWithObjectValues:array];
 
 	[self.enterpriseSourceSelector setDelegate:self];
-	[self.installationDriveSelector setDelegate:self];
 
 	[self.performInstallationButton setEnabled:NO];
 }
@@ -82,13 +86,13 @@
 
 #pragma mark - Installation Code
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
-	if (notification.object == self.installationDriveSelector) {
+	/*if (notification.object == self.installationDriveSelector) {
 		if ([self.installationDriveSelector indexOfSelectedItem] == 0) {
 			[self.performInstallationButton setEnabled:NO];
 		} else {
 			[self.performInstallationButton setEnabled:YES];
 		}
-	}
+	}*/
 }
 
 - (IBAction)performInstallation:(id)sender {
@@ -109,7 +113,7 @@
 	NSFileManager *manager = [NSFileManager defaultManager];
 
 	// Get the names of files.
-	NSString *targetUSBName = [self.installationDriveSelector objectValueOfSelectedItem];
+	NSString *targetUSBName = @"";
 	NSString *targetUSBMountPoint = [@"/Volumes/" stringByAppendingString:targetUSBName];
 	NSString *installDirectory = [targetUSBName stringByAppendingString:@"/efi/boot/"];
 
@@ -121,7 +125,6 @@
 
 	// Disable UI components.
 	[sender setEnabled:NO];
-	[self.installationDriveSelector setEnabled:NO];
 	[self.installationProgressBar setIndeterminate:NO];
 	[self.installationProgressBar setDoubleValue:0.0];
 	[self.automaticSetupCheckBox setEnabled:NO];
@@ -139,7 +142,6 @@
 
 		// Restore access to the disabled buttons.
 		[sender setEnabled:YES];
-		[self.installationDriveSelector setEnabled:YES];
 		[self.installationProgressBar setDoubleValue:0.0];
 		[self.automaticSetupCheckBox setEnabled:YES];
 
@@ -157,7 +159,6 @@
 		dispatch_async(dispatch_get_main_queue(), ^{
 			/* STEP 4: Restore access to the disabled buttons. */
 			[sender setEnabled:YES];
-			[self.installationDriveSelector setEnabled:YES];
 			[self.installationProgressBar setDoubleValue:0.0];
 			[self.automaticSetupCheckBox setEnabled:YES];
 

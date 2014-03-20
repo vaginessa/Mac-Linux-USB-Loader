@@ -93,7 +93,7 @@ typedef enum {
 	attachedDocument = document;
 	USBIsInUse = YES;
 	NSString *finalISOCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/boot.iso",
-								  [attachedDocument.installationDriveSelector objectValueOfSelectedItem]];
+								  @""];
 
 	dispatch_async(dispatch_get_main_queue(), ^{
 		progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
