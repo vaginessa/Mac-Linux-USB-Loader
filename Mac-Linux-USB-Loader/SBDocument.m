@@ -53,8 +53,6 @@
 	}
 
 	[arrayController addObjects:array];
-	SBLogObject(arrayController);
-	SBLogObject(self.usbArrayForContentView);
 
 	// Grab the Enterprise sources from the App Delegate.
 	[array removeAllObjects];

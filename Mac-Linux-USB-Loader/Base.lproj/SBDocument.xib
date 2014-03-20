@@ -161,7 +161,7 @@
                                                         <rect key="frame" x="1" y="1" width="333" height="80"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <collectionView id="9br-dw-B95">
+                                                            <collectionView selectable="YES" id="9br-dw-B95">
                                                                 <rect key="frame" x="0.0" y="0.0" width="333" height="80"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -235,12 +235,12 @@
         </window>
         <customObject id="-3" userLabel="Application"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
-        <collectionViewItem id="FVc-oN-hvP">
+        <collectionViewItem id="FVc-oN-hvP" customClass="SBSelectableCollectionViewItem">
             <connections>
                 <outlet property="view" destination="G0D-Ii-LLi" id="6My-GU-Zy1"/>
             </connections>
         </collectionViewItem>
-        <view id="G0D-Ii-LLi">
+        <view id="G0D-Ii-LLi" customClass="SBSelectableCollectionView">
             <rect key="frame" x="0.0" y="0.0" width="114" height="81"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>

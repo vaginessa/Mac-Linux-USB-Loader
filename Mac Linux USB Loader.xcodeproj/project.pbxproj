@@ -15,6 +15,8 @@
 		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
+		24194C7A18DBA29800CFF588 /* SBSelectableCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 24194C7918DBA29800CFF588 /* SBSelectableCollectionViewItem.m */; };
+		24194C7D18DBA41900CFF588 /* SBSelectableCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24194C7C18DBA41900CFF588 /* SBSelectableCollectionView.m */; };
 		2420474D18849A4300ECAAFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2420474C18849A4300ECAAFE /* README.md */; };
 		2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420474F18849C8B00ECAAFE /* SBAppDelegate.m */; };
 		24245F3218D222250085C43F /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24245F3118D222250085C43F /* NSString+Extensions.m */; };
@@ -89,6 +91,10 @@
 		24155CC618903B3800FAB98C /* SBPersistenceManagerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPersistenceManagerWindowController.h; sourceTree = "<group>"; };
 		24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPersistenceManagerWindowController.m; sourceTree = "<group>"; };
 		24155CCC18903B4500FAB98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBPersistenceManagerWindowController.xib; sourceTree = "<group>"; };
+		24194C7818DBA29800CFF588 /* SBSelectableCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSelectableCollectionViewItem.h; sourceTree = "<group>"; };
+		24194C7918DBA29800CFF588 /* SBSelectableCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSelectableCollectionViewItem.m; sourceTree = "<group>"; };
+		24194C7B18DBA41900CFF588 /* SBSelectableCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSelectableCollectionView.h; sourceTree = "<group>"; };
+		24194C7C18DBA41900CFF588 /* SBSelectableCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSelectableCollectionView.m; sourceTree = "<group>"; };
 		2420474C18849A4300ECAAFE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		2420474E18849C8B00ECAAFE /* SBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
 		2420474F18849C8B00ECAAFE /* SBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
@@ -169,6 +175,23 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		24194C7718DBA25400CFF588 /* Apple Class Extensions and Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				24B9F035189870D6002A3697 /* NSFileManager+DirectoryLocations.h */,
+				24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */,
+				249DF3F0189D7A3F00FECE0A /* NSFileManager+Extensions.h */,
+				249DF3F1189D7A3F00FECE0A /* NSFileManager+Extensions.m */,
+				24245F3018D222250085C43F /* NSString+Extensions.h */,
+				24245F3118D222250085C43F /* NSString+Extensions.m */,
+				24194C7818DBA29800CFF588 /* SBSelectableCollectionViewItem.h */,
+				24194C7918DBA29800CFF588 /* SBSelectableCollectionViewItem.m */,
+				24194C7B18DBA41900CFF588 /* SBSelectableCollectionView.h */,
+				24194C7C18DBA41900CFF588 /* SBSelectableCollectionView.m */,
+			);
+			name = "Apple Class Extensions and Subclasses";
+			sourceTree = "<group>";
+		};
 		24A4EC6A1884966900CE6CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +240,7 @@
 		24A4EC7C1884966900CE6CF0 /* Mac-Linux-USB-Loader */ = {
 			isa = PBXGroup;
 			children = (
+				24194C7718DBA25400CFF588 /* Apple Class Extensions and Subclasses */,
 				24A4EC911884966A00CE6CF0 /* Images.xcassets */,
 				24155CC118903A6E00FAB98C /* Tools */,
 				24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */,
@@ -291,12 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				24B9F03418986EE4002A3697 /* SBGlobals.h */,
-				24B9F035189870D6002A3697 /* NSFileManager+DirectoryLocations.h */,
-				24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */,
-				249DF3F0189D7A3F00FECE0A /* NSFileManager+Extensions.h */,
-				249DF3F1189D7A3F00FECE0A /* NSFileManager+Extensions.m */,
-				24245F3018D222250085C43F /* NSString+Extensions.h */,
-				24245F3118D222250085C43F /* NSString+Extensions.m */,
 				2420474E18849C8B00ECAAFE /* SBAppDelegate.h */,
 				2420474F18849C8B00ECAAFE /* SBAppDelegate.m */,
 				24A4EC8E1884966A00CE6CF0 /* MainMenu.xib */,
@@ -465,12 +483,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24194C7A18DBA29800CFF588 /* SBSelectableCollectionViewItem.m in Sources */,
 				24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */,
 				2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */,
 				24245F3218D222250085C43F /* NSString+Extensions.m in Sources */,
 				24B9F037189870D6002A3697 /* NSFileManager+DirectoryLocations.m in Sources */,
 				24B322FA18A00E4900A5E25E /* SBGeneralPreferencesViewController.m in Sources */,
 				24680E4F18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m in Sources */,
+				24194C7D18DBA41900CFF588 /* SBSelectableCollectionView.m in Sources */,
 				24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */,
 				24D39C0618DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.m in Sources */,
 				24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */,
