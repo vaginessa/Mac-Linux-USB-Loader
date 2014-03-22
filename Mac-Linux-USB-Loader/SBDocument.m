@@ -8,6 +8,7 @@
 
 #import "SBDocument.h"
 #import "SBAppDelegate.h"
+#import "SBEnterpriseSourceLocation.h"
 #import "SBUSBDevice.h"
 #import "SBUSBDeviceCollectionViewRepresentation.h"
 #import "NSFileManager+Extensions.h"
@@ -39,8 +40,7 @@
 	// We hide it here for a better user experience.
 	[[[NSApp delegate] window] orderOut:nil];
 
-	// Grab the list of USB devices from the App Delegate.
-	// Setup the USB selector.
+	// Grab the list of USB devices from the App Delegate and setup the USB selector.
 	usbDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] usbDictionary]];
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[usbDictionary count]];
 
@@ -61,10 +61,7 @@
 		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
 	}
 
-	[self.enterpriseSourceSelector selectItemWithObjectValue:enterpriseSourcesDictionary[array[0]]];
-	[self.enterpriseSourceSelector addItemsWithObjectValues:array];
-
-	[self.enterpriseSourceSelector setDelegate:self];
+	[self.enterpriseSourceSelector addItemsWithTitles:array];
 
 	[self.performInstallationButton setEnabled:NO];
 }
@@ -95,9 +92,24 @@
 
 - (IBAction)performInstallation:(id)sender {
 	/* STEP 1: Setup UI components. */
+	NSIndexSet *indexSet = [self.usbDriveSelector selectionIndexes];
+	SBUSBDevice *selectedUSBDrive;
+
+	if (indexSet && [indexSet firstIndex] != NSNotFound) {
+		selectedUSBDrive = self.usbArrayForContentView[[indexSet firstIndex]];
+	} else {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"No USB drive selected.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"You need to select the USB drive to install to.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
+	}
+
 	// Check to make sure that the user has selected an Enterprise source.
-	if ([[self.enterpriseSourceSelector objectValueOfSelectedItem] isEqualToString:@""] ||
-		[self.enterpriseSourceSelector objectValueOfSelectedItem] == nil) {
+	SBUSBDevice *selectedEnterpriseSource = self.usbArrayForContentView[[self.enterpriseSourceSelector indexOfSelectedItem]];
+	if ([selectedEnterpriseSource.name isEqualToString:@""]) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"No Enterprise source file selected.", nil)];
@@ -111,9 +123,9 @@
 	NSFileManager *manager = [NSFileManager defaultManager];
 
 	// Get the names of files.
-	NSString *targetUSBName = @"";
+	NSString *targetUSBName = selectedUSBDrive.name;
 	NSString *targetUSBMountPoint = [@"/Volumes/" stringByAppendingString:targetUSBName];
-	NSString *installDirectory = [targetUSBName stringByAppendingString:@"/efi/boot/"];
+	NSString *installDirectory = [targetUSBMountPoint stringByAppendingString:@"/efi/boot/"];
 
 	NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
 	SBLogObject(enterpriseInstallFileName);
@@ -145,14 +157,15 @@
 
 		// Bail.
 		return;
+	} else {
+		NSLog(@"Obtained security scoped bookmark for USB %@.", targetUSBName);
 	}
 
 	/* STEP 3: Start copying files. */
 	[outURL startAccessingSecurityScopedResource];
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		SBUSBDevice *usbDevice = [[NSApp delegate] usbDictionary][targetUSBName];
-		[usbDevice copyInstallationFiles:self];
+		[selectedUSBDrive copyInstallationFiles:self toUSBDrive:selectedUSBDrive];
 
 		dispatch_async(dispatch_get_main_queue(), ^{
 			/* STEP 4: Restore access to the disabled buttons. */

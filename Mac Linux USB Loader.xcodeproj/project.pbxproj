@@ -240,8 +240,8 @@
 		24A4EC7C1884966900CE6CF0 /* Mac-Linux-USB-Loader */ = {
 			isa = PBXGroup;
 			children = (
-				24194C7718DBA25400CFF588 /* Apple Class Extensions and Subclasses */,
 				24A4EC911884966A00CE6CF0 /* Images.xcassets */,
+				24194C7718DBA25400CFF588 /* Apple Class Extensions and Subclasses */,
 				24155CC118903A6E00FAB98C /* Tools */,
 				24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */,
 				24D75F95188AE7B200FF5ADC /* Module Window Controllers */,

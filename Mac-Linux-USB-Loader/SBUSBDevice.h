@@ -49,7 +49,8 @@
  * Copies the Enterprise boot loader files to the USB device represented by this object.
  *
  * @param document The instance of the document class that this object belongs to.
+ * @param usb An instanse of the SBUSBDevice class that represents the USB drive to install to.
  */
-- (bool)copyInstallationFiles:(NSDocument *)document;
+- (bool)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb;
 
 @end

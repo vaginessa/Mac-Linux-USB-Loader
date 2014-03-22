@@ -88,12 +88,12 @@ typedef enum {
     return self;
 }
 
-- (bool)copyInstallationFiles:(SBDocument *)document {
+- (bool)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb {
 	// Create an operation for the operation queue to copy over the necessary files.
 	attachedDocument = document;
 	USBIsInUse = YES;
 	NSString *finalISOCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/boot.iso",
-								  @""];
+								  usb.name];
 
 	dispatch_async(dispatch_get_main_queue(), ^{
 		progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];

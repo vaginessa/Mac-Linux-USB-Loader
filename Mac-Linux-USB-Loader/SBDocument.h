@@ -17,7 +17,7 @@
 @property (weak) IBOutlet NSImageView *imageIcon;
 @property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
 @property (weak) IBOutlet NSCollectionView *usbDriveSelector;
-@property (weak) IBOutlet NSComboBox *enterpriseSourceSelector;
+@property (weak) IBOutlet NSPopUpButton *enterpriseSourceSelector;
 @property (weak) IBOutlet NSButton *automaticSetupCheckBox;
 @property (weak) IBOutlet NSButton *performInstallationButton;
 
