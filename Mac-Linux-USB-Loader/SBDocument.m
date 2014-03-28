@@ -112,15 +112,19 @@
 	}
 
 	// Check to make sure that the user has selected an Enterprise source.
-	SBUSBDevice *selectedEnterpriseSource = self.usbArrayForContentView[[self.enterpriseSourceSelector indexOfSelectedItem]];
-	if ([selectedEnterpriseSource.name isEqualToString:@""]) {
-		NSAlert *alert = [[NSAlert alloc] init];
-		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-		[alert setMessageText:NSLocalizedString(@"No Enterprise source file selected.", nil)];
-		[alert setInformativeText:NSLocalizedString(@"You need to select the source of the Enterprise binaries that will be copied to this USB drive.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
-		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-		return;
+	NSInteger selectedEnterpriseSourceIndex = [self.enterpriseSourceSelector indexOfSelectedItem];
+	SBUSBDevice *selectedEnterpriseSource = self.usbArrayForContentView[selectedEnterpriseSourceIndex];
+
+	if (selectedEnterpriseSourceIndex == -1 || selectedEnterpriseSource == nil) {
+		if ([selectedEnterpriseSource.name isEqualToString:@""]) {
+			NSAlert *alert = [[NSAlert alloc] init];
+			[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+			[alert setMessageText:NSLocalizedString(@"No Enterprise source file selected.", nil)];
+			[alert setInformativeText:NSLocalizedString(@"You need to select the source of the Enterprise binaries that will be copied to this USB drive.", nil)];
+			[alert setAlertStyle:NSWarningAlertStyle];
+			[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+			return;
+		}
 	}
 
 	// Get an NSFileManager object.
@@ -131,8 +135,7 @@
 	NSString *targetUSBMountPoint = [@"/Volumes/" stringByAppendingString:targetUSBName];
 	NSString *installDirectory = [targetUSBMountPoint stringByAppendingString:@"/efi/boot/"];
 
-	NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
-	SBLogObject(enterpriseInstallFileName);
+	//NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
 
 	// Set the size of the file to be the max value of the progress bar.
 	[self.installationProgressBar setMaxValue:[[manager sizeOfFileAtPath:self.fileURL.path] doubleValue]];
@@ -168,6 +171,34 @@
 	/* STEP 3: Start copying files. */
 	[outURL startAccessingSecurityScopedResource];
 
+	// Disable GUI elements.
+	[self.usbDriveSelector setHidden:YES];
+	[self.enterpriseSourceSelector setEnabled:NO];
+
+	// Create the required directories on the USB drive.
+	NSError *error;
+	BOOL result = [manager createDirectoryAtPath:installDirectory withIntermediateDirectories:YES attributes:nil error:&error];
+	if (!result || error) {
+		NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+        [alert setMessageText:[error localizedDescription]];
+        [alert setInformativeText:[error localizedFailureReason]];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+		// Restore access to the disabled buttons.
+		[sender setEnabled:YES];
+		[self.installationProgressBar setDoubleValue:0.0];
+		[self.automaticSetupCheckBox setEnabled:YES];
+
+		// Enable GUI elements.
+		[self.usbDriveSelector setHidden:NO];
+		[self.enterpriseSourceSelector setEnabled:YES];
+
+		// Bail.
+		return;
+	}
+
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		[selectedUSBDrive copyInstallationFiles:self toUSBDrive:selectedUSBDrive];
 
@@ -175,7 +206,12 @@
 			/* STEP 4: Restore access to the disabled buttons. */
 			[sender setEnabled:YES];
 			[self.installationProgressBar setDoubleValue:0.0];
+			[self.installationProgressBar setHidden:YES];
 			[self.automaticSetupCheckBox setEnabled:YES];
+
+			// Disable GUI elements.
+			[self.usbDriveSelector setHidden:NO];
+			[self.enterpriseSourceSelector setEnabled:YES];
 
 			[outURL stopAccessingSecurityScopedResource];
 		});
@@ -183,6 +219,8 @@
 }
 
 - (IBAction)refreshUSBListing:(id)sender {
+	[self.usbArrayForContentView removeAllObjects];
+
 	[[NSApp delegate] detectAndSetupUSBs];
 	[self setupUSBDriveSelector];
 }

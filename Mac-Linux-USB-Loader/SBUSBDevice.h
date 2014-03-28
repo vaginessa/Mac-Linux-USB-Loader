@@ -50,7 +50,8 @@
  *
  * @param document The instance of the document class that this object belongs to.
  * @param usb An instanse of the SBUSBDevice class that represents the USB drive to install to.
+ * @return YES if the operation succeeded, NO if it did not.
  */
-- (bool)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb;
+- (BOOL)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb;
 
 @end

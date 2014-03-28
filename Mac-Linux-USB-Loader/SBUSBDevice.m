@@ -88,7 +88,7 @@ typedef enum {
     return self;
 }
 
-- (bool)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb {
+- (BOOL)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb {
 	// Create an operation for the operation queue to copy over the necessary files.
 	attachedDocument = document;
 	USBIsInUse = YES;
