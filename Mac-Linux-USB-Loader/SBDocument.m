@@ -40,6 +40,12 @@
 	// We hide it here for a better user experience.
 	[[[NSApp delegate] window] orderOut:nil];
 
+	[self setupUSBDriveSelector];
+
+	[self.performInstallationButton setEnabled:NO];
+}
+
+- (void)setupUSBDriveSelector {
 	// Grab the list of USB devices from the App Delegate and setup the USB selector.
 	usbDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] usbDictionary]];
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[usbDictionary count]];
@@ -62,8 +68,6 @@
 	}
 
 	[self.enterpriseSourceSelector addItemsWithTitles:array];
-
-	[self.performInstallationButton setEnabled:NO];
 }
 
 #pragma mark - Document Plumbing
@@ -176,6 +180,11 @@
 			[outURL stopAccessingSecurityScopedResource];
 		});
 	});
+}
+
+- (IBAction)refreshUSBListing:(id)sender {
+	[[NSApp delegate] detectAndSetupUSBs];
+	[self setupUSBDriveSelector];
 }
 
 #pragma mark - Delegates

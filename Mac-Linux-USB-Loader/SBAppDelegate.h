@@ -45,6 +45,8 @@
 - (BOOL)writeEnterpriseSourceLocationsToDisk:(NSString *)path;
 - (void)readEnterpriseSourceLocationsFromDisk:(NSString *)path;
 
+- (void)detectAndSetupUSBs;
+
 - (IBAction)showPreferencesWindow:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;
 - (IBAction)showMoreOptionsPopover:(id)sender;

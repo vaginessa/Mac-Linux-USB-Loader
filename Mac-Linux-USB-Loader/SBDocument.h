@@ -24,5 +24,6 @@
 @property (nonatomic, assign) BOOL automaticSetupCheckBoxChecked;
 
 - (IBAction)performInstallation:(id)sender;
+- (IBAction)refreshUSBListing:(id)sender;
 
 @end
