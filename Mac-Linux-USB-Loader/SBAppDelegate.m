@@ -161,6 +161,7 @@
 }
 
 - (IBAction)showAboutWindow:(id)sender {
+	[self.aboutWindowController.window performClose:nil];
 	self.aboutWindowController = [[SBAboutWindowController alloc] initWithWindowNibName:@"SBAboutWindowController"];
 	[self.aboutWindowController showWindow:nil];
 }
