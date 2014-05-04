@@ -15,23 +15,23 @@
 @implementation SBGeneralPreferencesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		// Initialization code here.
+	}
+	return self;
 }
 
-- (NSString*)identifier{
-    return NSStringFromClass(self.class);
+- (NSString *)identifier {
+	return NSStringFromClass(self.class);
 }
 
-- (NSImage*)toolbarItemImage{
-    return [NSImage imageNamed:@"NSApplicationIcon"];
+- (NSImage *)toolbarItemImage {
+	return [NSImage imageNamed:@"NSApplicationIcon"];
 }
 
-- (NSString*)toolbarItemLabel{
-    return NSLocalizedString(@"General", nil);
+- (NSString *)toolbarItemLabel {
+	return NSLocalizedString(@"General", nil);
 }
 
 @end

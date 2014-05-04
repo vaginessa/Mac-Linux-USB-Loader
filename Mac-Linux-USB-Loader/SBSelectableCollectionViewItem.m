@@ -16,17 +16,17 @@
 @implementation SBSelectableCollectionViewItem
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		// Initialization code here.
+	}
+	return self;
 }
 
 - (void)setSelected:(BOOL)flag {
-    [super setSelected:flag];
-    [(SBSelectableCollectionView *)[self view] setSelected:flag];
-    [(SBSelectableCollectionView *)[self view] setNeedsDisplay:YES];
+	[super setSelected:flag];
+	[(SBSelectableCollectionView *)[self view] setSelected : flag];
+	[(SBSelectableCollectionView *)[self view] setNeedsDisplay : YES];
 }
 
 @end

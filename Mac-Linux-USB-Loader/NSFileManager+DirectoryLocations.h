@@ -43,9 +43,9 @@
  * @return The path to the directory (if path found and exists), nil otherwise
  */
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory
-	inDomain:(NSSearchPathDomainMask)domainMask
-	appendPathComponent:(NSString *)appendComponent
-	error:(NSError **)errorOut;
+                           inDomain:(NSSearchPathDomainMask)domainMask
+                appendPathComponent:(NSString *)appendComponent
+                              error:(NSError **)errorOut;
 /**
  * Returns the path to the Application Support directory (creating it if it doesn't
  * exist)

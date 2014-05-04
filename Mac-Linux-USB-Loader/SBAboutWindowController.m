@@ -42,16 +42,16 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 }
 
 - (id)initWithWindow:(NSWindow *)window {
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+	self = [super initWithWindow:window];
+	if (self) {
+		// Initialization code here.
+	}
+	return self;
 }
 
 #pragma mark - Window
 - (void)windowDidLoad {
-    [super windowDidLoad];
+	[super windowDidLoad];
 
 	NSString *versionFormat = NSLocalizedString(@"Version %@ (%@)", nil);
 	NSString *versionString = [NSString stringWithFormat:versionFormat, self.applicationVersionString, self.applicationBuildNumberString];
@@ -106,9 +106,9 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 	[CATransaction begin];
 	[CATransaction setAnimationDuration:(viewHeight / kAboutWindowCreditsAnimationSpeed)];
 	[CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-	[CATransaction setCompletionBlock:^{
-		if (!self.isCreditsAnimationActive) return;
-		[self startCreditsScrollAnimation];
+	[CATransaction setCompletionBlock: ^{
+	    if (!self.isCreditsAnimationActive) return;
+	    [self startCreditsScrollAnimation];
 	}];
 	creditsLayer.position = CGPointMake(0.0, viewHeight + fadeCompensation);
 	[CATransaction commit];
@@ -198,20 +198,21 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 }
 
 - (CGSize)sizeForAttributedString:(NSAttributedString *)string inWidth:(CGFloat)width {
-    CTTypesetterRef typesetter = CTTypesetterCreateWithAttributedString((__bridge CFAttributedStringRef)string);
-    CFIndex offset = 0, length;
-    CGFloat height = 0;
-    do {
-        length = CTTypesetterSuggestLineBreak(typesetter, offset, width);
-        CTLineRef line = CTTypesetterCreateLine(typesetter, CFRangeMake(offset, length));
-        CGFloat ascent, descent, leading;
-        CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
-        CFRelease(line);
-        offset += length;
-        height += ascent + descent + leading;
-    } while (offset < [string length]);
-    CFRelease(typesetter);
-    return CGSizeMake(width, ceil(height));
+	CTTypesetterRef typesetter = CTTypesetterCreateWithAttributedString((__bridge CFAttributedStringRef)string);
+	CFIndex offset = 0, length;
+	CGFloat height = 0;
+	do {
+		length = CTTypesetterSuggestLineBreak(typesetter, offset, width);
+		CTLineRef line = CTTypesetterCreateLine(typesetter, CFRangeMake(offset, length));
+		CGFloat ascent, descent, leading;
+		CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
+		CFRelease(line);
+		offset += length;
+		height += ascent + descent + leading;
+	}
+	while (offset < [string length]);
+	CFRelease(typesetter);
+	return CGSizeMake(width, ceil(height));
 }
 
 - (BOOL)layer:(CALayer *)layer shouldInheritContentsScale:(CGFloat)newScale fromWindow:(NSWindow *)window {

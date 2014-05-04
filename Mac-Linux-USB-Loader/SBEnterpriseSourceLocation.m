@@ -12,41 +12,41 @@
 
 - (id)initWithName:(NSString *)name withPath:(NSString *)path withVersionNumber:(NSString *)version withSecurityScopedBookmark:(NSURL *)bookmark shouldBeVolatile:(BOOL)deletable {
 	self = [super init];
-    if (self) {
+	if (self) {
 		// Add your subclass-specific initialization here.
 		self.name = name;
 		self.path = path;
 		self.version = version;
 		self.securityScopedBookmark = bookmark;
 		self.deletable = deletable;
-    }
-    return self;
+	}
+	return self;
 }
 
 - (id)initWithName:(NSString *)name andPath:(NSString *)path shouldBeVolatile:(BOOL)deletable {
 	self = [self initWithName:name withPath:path withVersionNumber:SBBundledEnterpriseVersionNumber withSecurityScopedBookmark:nil shouldBeVolatile:deletable];
-    if (self) {
+	if (self) {
 		// Add your subclass-specific initialization here.
-    }
-    return self;
+	}
+	return self;
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
+	self = [super init];
+	if (!self) {
+		return nil;
+	}
 
-    self.name = [decoder decodeObjectForKey:@"name"];
+	self.name = [decoder decodeObjectForKey:@"name"];
 	self.path = [decoder decodeObjectForKey:@"path"];
 	self.version = [decoder decodeObjectForKey:@"version"];
 	self.securityScopedBookmark = [decoder decodeObjectForKey:@"bookmark"];
 	self.deletable = [decoder decodeBoolForKey:@"deletable"];
-    return self;
+	return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:self.name forKey:@"name"];
+	[encoder encodeObject:self.name forKey:@"name"];
 	[encoder encodeObject:self.path forKey:@"path"];
 	[encoder encodeObject:self.version forKey:@"version"];
 	[encoder encodeObject:self.securityScopedBookmark forKey:@"bookmark"];
@@ -54,7 +54,7 @@
 }
 
 - (NSString *)description {
-	return [NSString stringWithFormat: @"Name:'%@' Path:'%@' Version:'%@' Bookmark:%@ Deletable:%@", self.name, self.path, self.version, self.securityScopedBookmark, SBBool2NSString(self.deletable)];
+	return [NSString stringWithFormat:@"Name:'%@' Path:'%@' Version:'%@' Bookmark:%@ Deletable:%@", self.name, self.path, self.version, self.securityScopedBookmark, SBBool2NSString(self.deletable)];
 }
 
 @end

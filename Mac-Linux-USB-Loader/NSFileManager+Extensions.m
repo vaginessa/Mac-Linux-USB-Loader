@@ -10,7 +10,7 @@
 
 @implementation NSFileManager (Extensions)
 
-NSOpenPanel *spanel;
+NSOpenPanel * spanel;
 
 - (NSNumber *)sizeOfFileAtPath:(NSString *)path {
 	NSNumber *mySize = [NSNumber numberWithUnsignedLongLong:[[self attributesOfItemAtPath:path error:nil] fileSize]];
@@ -31,7 +31,7 @@ NSOpenPanel *spanel;
 		[spanel setMessage:NSLocalizedString(@"To authorize Mac Linux USB Loader to access your USB drive, please click Grant Access below.", nil)];
 		[spanel setPrompt:NSLocalizedString(@"Grant Access", nil)];
 		[spanel setDirectoryURL:[NSURL URLWithString:
-								 [@"/Volumes/" stringByAppendingString:targetUSBName]]];
+		                         [@"/Volumes/" stringByAppendingString : targetUSBName]]];
 		[spanel setNameFieldStringValue:@""];
 		[spanel setCanChooseDirectories:YES];
 		[spanel setCanSelectHiddenExtension:NO];
@@ -46,18 +46,19 @@ NSOpenPanel *spanel;
 				[prefs setObject:data forKey:[targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"]];
 				[prefs synchronize];
 			}
-		} else {
+		}
+		else {
 			return nil;
 		}
 	}
 
 	// Return an NSURL object corresponding to the bookmark.
 	outURL = [NSURL URLByResolvingBookmarkData:[[NSUserDefaults standardUserDefaults]
-				objectForKey:[targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"]]
-				options:NSURLBookmarkResolutionWithSecurityScope
-				relativeToURL:nil
-				bookmarkDataIsStale:nil
-				error:nil];
+	                                            objectForKey:[targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"]]
+	                                   options:NSURLBookmarkResolutionWithSecurityScope
+	                             relativeToURL:nil
+	                       bookmarkDataIsStale:nil
+	                                     error:nil];
 
 	return outURL;
 }
@@ -66,12 +67,13 @@ NSOpenPanel *spanel;
 	NSData *data = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:nil];
 	if (data) {
 		NSURL *returnURL = [NSURL URLByResolvingBookmarkData:data
-															  options:NSURLBookmarkResolutionWithSecurityScope
-														relativeToURL:nil
-												  bookmarkDataIsStale:nil
-																error:nil];
+		                                             options:NSURLBookmarkResolutionWithSecurityScope
+		                                       relativeToURL:nil
+		                                 bookmarkDataIsStale:nil
+		                                               error:nil];
 		return returnURL;
-	} else {
+	}
+	else {
 		return nil;
 	}
 }

@@ -21,12 +21,12 @@
 
 #pragma mark - Document class crap
 - (id)init {
-    self = [super init];
-    if (self) {
+	self = [super init];
+	if (self) {
 		// Add your subclass-specific initialization here.
 		self.usbArrayForContentView = [[NSMutableArray alloc] init];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (NSString *)windowNibName {
@@ -72,7 +72,7 @@
 
 #pragma mark - Document Plumbing
 + (BOOL)autosavesInPlace {
-    return YES;
+	return YES;
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
@@ -86,12 +86,12 @@
 #pragma mark - Installation Code
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
 	/*if (notification.object == self.installationDriveSelector) {
-		if ([self.installationDriveSelector indexOfSelectedItem] == 0) {
-			[self.performInstallationButton setEnabled:NO];
-		} else {
-			[self.performInstallationButton setEnabled:YES];
-		}
-	}*/
+	    if ([self.installationDriveSelector indexOfSelectedItem] == 0) {
+	        [self.performInstallationButton setEnabled:NO];
+	    } else {
+	        [self.performInstallationButton setEnabled:YES];
+	    }
+	   }*/
 }
 
 - (IBAction)performInstallation:(id)sender {
@@ -101,7 +101,8 @@
 
 	if (indexSet && [indexSet firstIndex] != NSNotFound) {
 		selectedUSBDrive = self.usbArrayForContentView[[indexSet firstIndex]];
-	} else {
+	}
+	else {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"No USB drive selected.", nil)];
@@ -132,7 +133,7 @@
 
 	// Get the names of files.
 	NSString *targetUSBName = selectedUSBDrive.name;
-	NSString *targetUSBMountPoint = [@"/Volumes/" stringByAppendingString:targetUSBName];
+	NSString *targetUSBMountPoint = [@"/Volumes/" stringByAppendingString : targetUSBName];
 	NSString *installDirectory = [targetUSBMountPoint stringByAppendingString:@"/efi/boot/"];
 
 	//NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
@@ -151,11 +152,11 @@
 
 	if (!outURL) {
 		NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-        [alert setMessageText:NSLocalizedString(@"Couldn't get security scoped bookmarks.", nil)];
-        [alert setInformativeText:NSLocalizedString(@"The USB device that you have selected cannot be accessed because the system denied access to the resource.", nil)];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"Couldn't get security scoped bookmarks.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"The USB device that you have selected cannot be accessed because the system denied access to the resource.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 		// Restore access to the disabled buttons.
 		[sender setEnabled:YES];
@@ -164,7 +165,8 @@
 
 		// Bail.
 		return;
-	} else {
+	}
+	else {
 		NSLog(@"Obtained security scoped bookmark for USB %@.", targetUSBName);
 	}
 
@@ -180,11 +182,11 @@
 	BOOL result = [manager createDirectoryAtPath:installDirectory withIntermediateDirectories:YES attributes:nil error:&error];
 	if (!result || error) {
 		NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-        [alert setMessageText:[error localizedDescription]];
-        [alert setInformativeText:[error localizedFailureReason]];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:[error localizedDescription]];
+		[alert setInformativeText:[error localizedFailureReason]];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 		// Restore access to the disabled buttons.
 		[sender setEnabled:YES];
@@ -200,20 +202,20 @@
 	}
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		[selectedUSBDrive copyInstallationFiles:self toUSBDrive:selectedUSBDrive];
+	    [selectedUSBDrive copyInstallationFiles:self toUSBDrive:selectedUSBDrive];
 
-		dispatch_async(dispatch_get_main_queue(), ^{
-			/* STEP 4: Restore access to the disabled buttons. */
-			[sender setEnabled:YES];
-			[self.installationProgressBar setDoubleValue:0.0];
-			[self.installationProgressBar setHidden:YES];
-			[self.automaticSetupCheckBox setEnabled:YES];
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        /* STEP 4: Restore access to the disabled buttons. */
+	        [sender setEnabled:YES];
+	        [self.installationProgressBar setDoubleValue:0.0];
+	        [self.installationProgressBar setHidden:YES];
+	        [self.automaticSetupCheckBox setEnabled:YES];
 
-			// Disable GUI elements.
-			[self.usbDriveSelector setHidden:NO];
-			[self.enterpriseSourceSelector setEnabled:YES];
+	        // Disable GUI elements.
+	        [self.usbDriveSelector setHidden:NO];
+	        [self.enterpriseSourceSelector setEnabled:YES];
 
-			[outURL stopAccessingSecurityScopedResource];
+	        [outURL stopAccessingSecurityScopedResource];
 		});
 	});
 }
@@ -227,7 +229,7 @@
 
 #pragma mark - Delegates
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
-    // Empty
+	// Empty
 }
 
 @end

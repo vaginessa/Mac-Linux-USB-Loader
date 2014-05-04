@@ -11,12 +11,12 @@
 @implementation SBUSBDeviceCollectionViewRepresentation
 
 - (id)init {
-    self = [super init];
-    if (self) {
+	self = [super init];
+	if (self) {
 		// Add your subclass-specific initialization here.
 		self.name = @"Nil Billy";
-    }
-    return self;
+	}
+	return self;
 }
 
 @end

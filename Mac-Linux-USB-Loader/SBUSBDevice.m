@@ -11,14 +11,14 @@
 #import "NSString+Extensions.h"
 
 typedef enum {
-    NotStarted = 0,
-    InProgress,
-    Finished,
+	NotStarted = 0,
+	InProgress,
+	Finished,
 } State;
 
 @implementation SBUSBDevice {
 	copyfile_state_t copyfileState;
-    State state;
+	State state;
 	NSTimer *progressTimer;
 
 	SBDocument *attachedDocument;
@@ -31,7 +31,7 @@ typedef enum {
 	NSTask *task = [[NSTask alloc] init];
 	task.launchPath = @"/bin/dd";
 	task.arguments = @[@"if=/dev/zero", [@"of=" stringByAppendingString:file], @"bs=1m",
-					   [NSString stringWithFormat:@"count=%ld", (long)size]];
+	                   [NSString stringWithFormat:@"count=%ld", (long)size]];
 	NSLog(@"command: %@ %@", task.launchPath, [task.arguments componentsJoinedByString:@" "]);
 
 	// Launch the NSTask.
@@ -45,7 +45,7 @@ typedef enum {
 + (void)createLoopbackPersistence:(NSString *)file {
 	NSBundle *mainBundle = [NSBundle mainBundle];
 	NSString *helperAppPath = [[mainBundle bundlePath]
-							   stringByAppendingString:@"/Contents/Resources/Tools/mke2fs"];
+	                           stringByAppendingString:@"/Contents/Resources/Tools/mke2fs"];
 
 	NSTask *task = [[NSTask alloc] init];
 	task.launchPath = helperAppPath;
@@ -69,10 +69,11 @@ typedef enum {
 + (SBLinuxDistribution)distributionTypeForISOName:(NSString *)fileName {
 	fileName = [fileName lowercaseString];
 	if ([fileName containsSubstring:@"ubuntu"] ||
-		[fileName containsSubstring:@"linuxmint"] ||
-		[fileName containsSubstring:@"elementaryos"]) {
+	    [fileName containsSubstring:@"linuxmint"] ||
+	    [fileName containsSubstring:@"elementaryos"]) {
 		return SBDistributionUbuntu;
-	} else if ([fileName containsSubstring:@"tails"]) {
+	}
+	else if ([fileName containsSubstring:@"tails"]) {
 		return SBDistributionTails;
 	}
 
@@ -81,11 +82,11 @@ typedef enum {
 
 #pragma mark - Instance methods
 - (id)init {
-    self = [super init];
-    if (self) {
+	self = [super init];
+	if (self) {
 		// Add your subclass-specific initialization here.
-    }
-    return self;
+	}
+	return self;
 }
 
 - (BOOL)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb {
@@ -93,10 +94,10 @@ typedef enum {
 	attachedDocument = document;
 	USBIsInUse = YES;
 	NSString *finalISOCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/boot.iso",
-								  usb.name];
+	                              usb.name];
 
 	dispatch_async(dispatch_get_main_queue(), ^{
-		progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
+	    progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
 	});
 
 	copyfile_state_t s;
@@ -109,46 +110,48 @@ typedef enum {
 
 	NSLog(@"Will start copying");
 
-    int returnCode;
-    copyfileState = copyfile_state_alloc();
-    {
-        state = InProgress;
+	int returnCode;
+	copyfileState = copyfile_state_alloc();
+	{
+		state = InProgress;
 
 		returnCode = copyfile(fromPath, toPath, copyfileState, COPYFILE_ALL);
 
 		state = Finished;
-        [progressTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
-        progressTimer = nil;
-    }
-    copyfile_state_free(copyfileState);
+		[progressTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
+		progressTimer = nil;
+	}
+	copyfile_state_free(copyfileState);
 
-    NSLog(@"Did finish copying with return code %d", returnCode);
+	NSLog(@"Did finish copying with return code %d", returnCode);
 
 	return YES;
 }
 
 - (void)outputProgress:(NSTimer *)timer {
-    switch (state) {
-        case NotStarted:
-            NSLog(@"Not started yet");
-            break;
-        case Finished:
-            NSLog(@"Finished");
-            break;
-        case InProgress: {
-            off_t copiedBytes;
-            const int returnCode = copyfile_state_get(copyfileState, COPYFILE_STATE_COPIED, &copiedBytes);
-            if (returnCode == 0) {
-                NSLog(@"Copied %@ so far", [NSByteCountFormatter stringFromByteCount:copiedBytes countStyle:NSByteCountFormatterCountStyleFile]);
+	switch (state) {
+		case NotStarted:
+			NSLog(@"Not started yet");
+			break;
+
+		case Finished:
+			NSLog(@"Finished");
+			break;
+
+		case InProgress: {
+			off_t copiedBytes;
+			const int returnCode = copyfile_state_get(copyfileState, COPYFILE_STATE_COPIED, &copiedBytes);
+			if (returnCode == 0) {
+				NSLog(@"Copied %@ so far", [NSByteCountFormatter stringFromByteCount:copiedBytes countStyle:NSByteCountFormatterCountStyleFile]);
 				[attachedDocument.installationProgressBar setDoubleValue:copiedBytes];
-            } else {
-                NSLog(@"Could not retrieve copyfile state");
+			}
+			else {
+				NSLog(@"Could not retrieve copyfile state");
 			}
 
-            break;
-        }
-    }
+			break;
+		}
+	}
 }
-
 
 @end

@@ -12,13 +12,13 @@
 #define SBLogObject(x) NSLog(@"%@", x)
 #define SBLogBool(x) NSLog(x ? @"YES" : @"NO")
 #define SBBool2NSString(x) (x ? @"YES" : @"NO")
-#define SBCStr2NSString(x) [NSString initWithCString:x encoding:NSUTF8StringEncoding]
+#define SBCStr2NSString(x) [NSString initWithCString : x encoding : NSUTF8StringEncoding]
 #define SBNSString2CStr(x) [x UTF8String]
 
 #define SBBundledEnterpriseVersionNumber @"0.1.2"
 
 /// An enumeration containing various supported Linux distributions.
-typedef NS_ENUM(NSInteger, SBLinuxDistribution) {
+typedef NS_ENUM (NSInteger, SBLinuxDistribution) {
 	/// An enum type representing the Ubuntu Linux distribution.
 	SBDistributionUbuntu,
 	/// An enum type representing the Debian Linux distribution.

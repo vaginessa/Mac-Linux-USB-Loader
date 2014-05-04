@@ -21,17 +21,17 @@
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		// Initialization code here.
 		self.enterpriseSourceLocationsDictionary = [[NSApp delegate] enterpriseInstallLocations];
 		self.listOfArrayKeys = [[NSMutableArray alloc] initWithCapacity:[self.enterpriseSourceLocationsDictionary count]];
 
 		for (NSString *title in self.enterpriseSourceLocationsDictionary) {
 			[self.listOfArrayKeys addObject:title];
 		}
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)awakeFromNib {
@@ -39,22 +39,22 @@
 	[self.tableView setDelegate:self];
 }
 
-- (NSString*)identifier{
-    return NSStringFromClass(self.class);
+- (NSString *)identifier {
+	return NSStringFromClass(self.class);
 }
 
-- (NSImage*)toolbarItemImage{
-    return [NSImage imageNamed:@"UEFILogo"];
+- (NSImage *)toolbarItemImage {
+	return [NSImage imageNamed:@"UEFILogo"];
 }
 
-- (NSString*)toolbarItemLabel{
-    return NSLocalizedString(@"Enterprise", nil);
+- (NSString *)toolbarItemLabel {
+	return NSLocalizedString(@"Enterprise", nil);
 }
 
 #pragma mark - Table View Delegates
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [self.enterpriseSourceLocationsDictionary count];
+	return [self.enterpriseSourceLocationsDictionary count];
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
@@ -63,10 +63,12 @@
 
 	if ([cellTitle isEqualToString:@"Installation Path"]) {
 		return loc.name;
-	} else if ([cellTitle isEqualToString:@"Version"]) {
+	}
+	else if ([cellTitle isEqualToString:@"Version"]) {
 		if ([loc.version isEqualToString:@""] || loc.version == nil) {
 			return @"N/A";
-		} else {
+		}
+		else {
 			return loc.version;
 		}
 	}
@@ -76,9 +78,10 @@
 - (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
 	NSTextFieldCell *cell = [tableColumn dataCell];
-	if(!loc.deletable && [self.tableView selectedRow] != rowIndex) {
+	if (!loc.deletable && [self.tableView selectedRow] != rowIndex) {
 		[cell setTextColor:[NSColor darkGrayColor]];
-	} else {
+	}
+	else {
 		[cell setTextColor:[NSColor blackColor]];
 	}
 
@@ -93,7 +96,7 @@
 
 - (IBAction)hideSourceLocationButtonPressed:(id)sender {
 	[self.addNewEnterpriseSourcePanel orderOut:nil];
-    [NSApp endSheet:self.addNewEnterpriseSourcePanel];
+	[NSApp endSheet:self.addNewEnterpriseSourcePanel];
 }
 
 - (IBAction)removeSourceLocationButtonPressed:(id)sender {
@@ -101,11 +104,11 @@
 	SBEnterpriseSourceLocation *deviceHere = [[NSApp delegate] enterpriseInstallLocations][self.listOfArrayKeys[selectedRow]];
 	if (!deviceHere.deletable) {
 		NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-        [alert setMessageText:NSLocalizedString(@"This source can't be deleted.", nil)];
-        [alert setInformativeText:NSLocalizedString(@"This source can't be deleted because it is included with Mac Linux USB Loader.", nil)];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:[self.view window] modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"This source can't be deleted.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"This source can't be deleted because it is included with Mac Linux USB Loader.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:[self.view window] modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
 	}
 
@@ -127,43 +130,45 @@
 - (IBAction)showSourcePathSelectorDialog:(id)sender {
 	enterpriseSourceLocationOpenPanel = [NSOpenPanel openPanel];
 	[enterpriseSourceLocationOpenPanel setMessage:NSLocalizedString(@"Please select the directory containing Enterprise files.", nil)];
-    [enterpriseSourceLocationOpenPanel setCanChooseDirectories:YES];
-    [enterpriseSourceLocationOpenPanel setCanChooseFiles:NO];
-    [enterpriseSourceLocationOpenPanel beginSheetModalForWindow:self.addNewEnterpriseSourcePanel completionHandler:^(NSInteger result) {
-		if (result == NSFileHandlingPanelOKButton) {
-			[self.sourceLocationPathTextField setStringValue:[[enterpriseSourceLocationOpenPanel URL] path]];
+	[enterpriseSourceLocationOpenPanel setCanChooseDirectories:YES];
+	[enterpriseSourceLocationOpenPanel setCanChooseFiles:NO];
+	[enterpriseSourceLocationOpenPanel beginSheetModalForWindow:self.addNewEnterpriseSourcePanel completionHandler: ^(NSInteger result) {
+	    if (result == NSFileHandlingPanelOKButton) {
+	        [self.sourceLocationPathTextField setStringValue:[[enterpriseSourceLocationOpenPanel URL] path]];
 		}
-    }];
+	}];
 }
 
 - (IBAction)confirmSourceLocationInformation:(id)sender {
 	NSString *name = [self.sourceNameTextField stringValue];
 	NSString *version = [self.sourceVersionTextField stringValue];
-	NSString* location = [[[self.sourceLocationPathTextField stringValue] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] componentsJoinedByString:@""];
+	NSString *location = [[[self.sourceLocationPathTextField stringValue] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] componentsJoinedByString:@""];
 
 	if ([location isEqualToString:@""]) {
 		NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-        [alert setMessageText:NSLocalizedString(@"No source location path entered.", nil)];
-        [alert setInformativeText:NSLocalizedString(@"You need to enter a path to a folder containing a valid set of Enterprise binaries.", nil)];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"No source location path entered.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"You need to enter a path to a folder containing a valid set of Enterprise binaries.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
-	} else if ([name isEqualToString:@""]) {
+	}
+	else if ([name isEqualToString:@""]) {
 		NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-        [alert setMessageText:NSLocalizedString(@"No source location name entered.", nil)];
-        [alert setInformativeText:NSLocalizedString(@"You need to enter a name for this Enterprise installation source.", nil)];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"No source location name entered.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"You need to enter a name for this Enterprise installation source.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
-	} else if ([version isEqualToString:@""]) {
+	}
+	else if ([version isEqualToString:@""]) {
 		NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-        [alert setMessageText:NSLocalizedString(@"No source location version entered.", nil)];
-        [alert setInformativeText:NSLocalizedString(@"You need to enter the version of this Enterprise installation source.", nil)];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"No source location version entered.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"You need to enter the version of this Enterprise installation source.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
 	}
 
@@ -186,13 +191,15 @@
 		// Reload the table with our new data.
 		[self.tableView reloadData];
 		[self hideSourceLocationButtonPressed:nil];
-	} else {
+	}
+	else {
 		NSLog(@"No permissions!");
 	}
 }
 
 #pragma mark - Delegates
 - (void)regularSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
-    // Empty
+	// Empty
 }
+
 @end

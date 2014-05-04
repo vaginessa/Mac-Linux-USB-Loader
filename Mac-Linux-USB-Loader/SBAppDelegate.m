@@ -22,16 +22,16 @@
 #pragma mark - Object Setup
 
 - (id)init {
-    self = [super init];
-    if (self) {
+	self = [super init];
+	if (self) {
 		// Setup code goes here.
-    }
-    return self;
+	}
+	return self;
 }
 
 #pragma mark - Application Setup
 
-- (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/* Set window properties. */
 	// Make the window background white.
 	[self.window setBackgroundColor:[NSColor whiteColor]];
@@ -51,7 +51,7 @@
 
 	/* Set the application version label string. */
 	[self.applicationVersionString setStringValue:
-	 [NSString stringWithFormat:@"Version %@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+	 [NSString stringWithFormat:@"Version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
 
 	/* Setup the rest of the application. */
 	[self applicationSetup];
@@ -72,8 +72,8 @@
 }
 
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
-    [self.window makeKeyAndOrderFront:nil];
-    return YES;
+	[self.window makeKeyAndOrderFront:nil];
+	return YES;
 }
 
 - (void)setupEnterpriseInstallationLocations {
@@ -87,15 +87,16 @@
 		// Add the Enterprise installation located in Mac Linux USB Loader's bundle to the list of available
 		// Enterprise installations.
 		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:@"Included With Application"
-																				   andPath:@""
-																		  shouldBeVolatile:NO];
+		                                                                           andPath:@""
+		                                                                  shouldBeVolatile:NO];
 		self.enterpriseInstallLocations[@"Included With Application"] = loc;
 
 		BOOL success = [self writeEnterpriseSourceLocationsToDisk:filePath];
 		if (!success) {
 			NSLog(@"Failed to create a file containing the Enterprise source locations. Check the logs for more information.");
 		}
-	} else {
+	}
+	else {
 		NSLog(@"Found dictionary of Enterprise source file locations.");
 		[self readEnterpriseSourceLocationsFromDisk:filePath];
 	}
@@ -117,8 +118,8 @@
 	}
 
 	NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedLocalVolumePaths];
-    BOOL isRemovable, isWritable, isUnmountable;
-    NSString *description, *volumeType;
+	BOOL isRemovable, isWritable, isUnmountable;
+	NSString *description, *volumeType;
 
 	BOOL acceptHFSDrives = [[NSUserDefaults standardUserDefaults] boolForKey:@"AcceptHFSDrives"];
 
@@ -130,13 +131,14 @@
 				if ([usbDeviceMountPoint isEqualToString:@"/"]) {
 					// Don't include the root partition in the list of USBs.
 					continue;
-				} else {
+				}
+				else {
 					if ([volumeType isEqualToString:@"msdos"] ||
-						([volumeType isEqualToString:@"hfs"] && acceptHFSDrives)) {
+					    ([volumeType isEqualToString:@"hfs"] && acceptHFSDrives)) {
 						SBUSBDevice *usbDevice = [[SBUSBDevice alloc] init];
 						usbDevice.path = usbDeviceMountPoint;
 						usbDevice.name = [usbDeviceMountPoint lastPathComponent];
-						
+
 						self.usbDictionary[[usbDeviceMountPoint lastPathComponent]] = usbDevice;
 					}
 				}
@@ -153,7 +155,7 @@
 		SBEnterprisePreferencesViewController *enterprisePreferences = [[SBEnterprisePreferencesViewController alloc] initWithNibName:@"SBEnterprisePreferencesViewController" bundle:nil];
 
 		NSArray *controllers = @[generalPreferences, enterprisePreferences,
-								 [RHPreferencesWindowController flexibleSpacePlaceholderController]];
+		                         [RHPreferencesWindowController flexibleSpacePlaceholderController]];
 		self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", nil)];
 	}
 
@@ -168,8 +170,8 @@
 
 - (IBAction)showMoreOptionsPopover:(id)sender {
 	[self.moreOptionsPopover showRelativeToRect:[sender bounds]
-										 ofView:sender
-								  preferredEdge:NSMaxYEdge];
+	                                     ofView:sender
+	                              preferredEdge:NSMaxYEdge];
 }
 
 - (IBAction)hideMoreOptionsPopover:(id)sender {
@@ -189,11 +191,11 @@
 #pragma mark - Table View Delegates
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return 4;
+	return 4;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    NSTableCellView *result = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+	NSTableCellView *result = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
 	switch (row) {
 		case 0:
 			result.imageView.image = [[NSImage imageNamed:@"AppIcon"] copy];
@@ -218,11 +220,11 @@
 		default:
 			break;
 	}
-    return result;
+	return result;
 }
 
 - (void)userSelectedOperationFromTable {
-    NSInteger clickedRow = [self.operationsTableView clickedRow];
+	NSInteger clickedRow = [self.operationsTableView clickedRow];
 	[self hideMoreOptionsPopover:nil];
 
 	if (clickedRow != -1) { // We've selected a valid table entry.
@@ -236,7 +238,7 @@
 			case 1:
 				if (!self.usbSetupWindowController) {
 					self.usbSetupWindowController = [[SBUSBSetupWindowController alloc]
-													 initWithWindowNibName:@"SBUSBSetupWindowController"];
+					                                 initWithWindowNibName:@"SBUSBSetupWindowController"];
 				}
 
 				[self.usbSetupWindowController showWindow:nil];
@@ -245,7 +247,7 @@
 			case 2:
 				if (!self.persistenceSetupWindowController) {
 					self.persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
-															 initWithWindowNibName:@"SBPersistenceManagerWindowController"];
+					                                         initWithWindowNibName:@"SBPersistenceManagerWindowController"];
 				}
 
 				[self.persistenceSetupWindowController showWindow:nil];
@@ -257,4 +259,5 @@
 		}
 	}
 }
+
 @end

@@ -11,20 +11,20 @@
 @implementation SBSelectableCollectionView
 
 - (id)initWithFrame:(NSRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+	self = [super initWithFrame:frame];
+	if (self) {
+		// Initialization code here.
+	}
+	return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
-    
-    if (_selected) {
+	[super drawRect:dirtyRect];
+
+	if (_selected) {
 		[[NSColor alternateSelectedControlColor] set];
 		NSRectFill([self bounds]);
-    }
+	}
 }
 
 @end
