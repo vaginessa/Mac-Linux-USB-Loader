@@ -32,7 +32,7 @@
 	NSRect c = [themeFrame frame];  // c for "container"
 	NSRect aV = [self.accessoryView frame]; // aV for "accessory view"
 	NSRect newFrame = NSMakeRect(c.size.width - aV.size.width - 25, // x position
-	                             c.size.height - aV.size.height, // y position
+	                             c.size.height - aV.size.height - 2, // y position
 	                             aV.size.width, // width
 	                             aV.size.height); // height
 	[self.accessoryView setFrame:newFrame];
