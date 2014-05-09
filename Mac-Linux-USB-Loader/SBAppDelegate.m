@@ -103,7 +103,7 @@
 }
 
 - (BOOL)writeEnterpriseSourceLocationsToDisk:(NSString *)path {
-	// Write the file to disc.
+	// Write the file to disk.
 	BOOL success = [NSKeyedArchiver archiveRootObject:self.enterpriseInstallLocations toFile:path];
 	return success;
 }
@@ -163,7 +163,8 @@
 }
 
 - (IBAction)showAboutWindow:(id)sender {
-	[self.aboutWindowController.window performClose:nil];
+	[self.aboutWindowController.window performClose:nil]; // This works because messages can be sent to nil.
+
 	self.aboutWindowController = [[SBAboutWindowController alloc] initWithWindowNibName:@"SBAboutWindowController"];
 	[self.aboutWindowController showWindow:nil];
 }
@@ -186,6 +187,10 @@
 - (IBAction)reportBug:(id)sender {
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://sevenbits.github.io/tools/bugs/report-mlul.html"]];
 	[self hideMoreOptionsPopover:nil];
+}
+
+- (IBAction)showHelp:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki"]];
 }
 
 #pragma mark - Table View Delegates
@@ -254,7 +259,12 @@
 				break;
 
 			default:
-				NSLog(@"Selected table index %ld is not valid.", (long)clickedRow);
+				if (!self.downloaderWindowController) {
+					self.downloaderWindowController = [[SBDistributionDownloaderWindowController alloc]
+					                                   initWithWindowNibName:@"SBDistributionDownloaderWindowController"];
+				}
+
+				[self.downloaderWindowController showWindow:nil];
 				break;
 		}
 	}

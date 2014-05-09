@@ -12,6 +12,7 @@
 #import "SBPersistenceManagerWindowController.h"
 #import "SBUSBDevice.h"
 #import "SBAboutWindowController.h"
+#import "SBDistributionDownloaderWindowController.h"
 
 @interface SBAppDelegate : NSObject {
 	__unsafe_unretained NSWindow *window;
@@ -40,6 +41,7 @@
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 @property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
 @property (nonatomic, strong) SBAboutWindowController *aboutWindowController;
+@property (nonatomic, strong) SBDistributionDownloaderWindowController *downloaderWindowController;
 @property (nonatomic, strong) RHPreferencesWindowController *preferencesWindowController;
 
 - (BOOL)writeEnterpriseSourceLocationsToDisk:(NSString *)path;
@@ -49,9 +51,10 @@
 
 - (IBAction)showPreferencesWindow:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;
+- (IBAction)showHelp:(id)sender;
+- (IBAction)showProjectWebsite:(id)sender;
 - (IBAction)showMoreOptionsPopover:(id)sender;
 - (IBAction)hideMoreOptionsPopover:(id)sender;
-- (IBAction)showProjectWebsite:(id)sender;
 - (IBAction)reportBug:(id)sender;
 
 @end

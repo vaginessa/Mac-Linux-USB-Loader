@@ -211,7 +211,7 @@
 	        [self.installationProgressBar setHidden:YES];
 	        [self.automaticSetupCheckBox setEnabled:YES];
 
-	        // Disable GUI elements.
+	        // Enable GUI elements.
 	        [self.usbDriveSelector setHidden:NO];
 	        [self.enterpriseSourceSelector setEnabled:YES];
 
