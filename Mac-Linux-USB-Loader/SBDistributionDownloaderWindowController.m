@@ -28,15 +28,30 @@
 	[super windowDidLoad];
 
 	// Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+	[self.window setDelegate:self];
+
+	// Setup the accessory view.
+	[self placeAccessoryView];
+
+	NSView *themeFrame = [[self.window contentView] superview];
+	[themeFrame addSubview:self.accessoryView];
+}
+
+- (void)placeAccessoryView {
 	NSView *themeFrame = [[self.window contentView] superview];
 	NSRect c = [themeFrame frame];  // c for "container"
 	NSRect aV = [self.accessoryView frame]; // aV for "accessory view"
 	NSRect newFrame = NSMakeRect(c.size.width - aV.size.width - 25, // x position
-	                             c.size.height - aV.size.height - 2, // y position
+	                             c.size.height - aV.size.height, // y position
 	                             aV.size.width, // width
 	                             aV.size.height); // height
 	[self.accessoryView setFrame:newFrame];
-	[themeFrame addSubview:self.accessoryView];
+	[self.accessoryView setNeedsDisplay:YES];
+}
+
+- (void)windowDidResize:(NSNotification *)notification {
+	// Keep the accessory view in the right place in the window.
+	[self placeAccessoryView];
 }
 
 @end

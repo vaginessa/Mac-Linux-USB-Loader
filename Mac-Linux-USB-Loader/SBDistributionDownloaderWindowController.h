@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SBDistributionDownloaderWindowController : NSWindowController
+@interface SBDistributionDownloaderWindowController : NSWindowController <NSWindowDelegate>
 
 @end

@@ -71,7 +71,7 @@
                             <rect key="frame" x="1" y="279" width="0.0" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="37" horizontal="NO" id="yo5-3d-K21">
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yo5-3d-K21">
                             <rect key="frame" x="-14" y="9" width="15" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -131,17 +131,17 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F2M-qt-irJ">
-                    <rect key="frame" x="-5" y="-2" width="178" height="28"/>
+                    <rect key="frame" x="4" y="1" width="164" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="View In-Progress Downloads" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Hwd-V5-1q3">
+                    <buttonCell key="cell" type="roundTextured" title="View In-Progress Downloads" bezelStyle="texturedRounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Hwd-V5-1q3">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="F2M-qt-irJ" secondAttribute="trailing" id="6kS-PC-nzK"/>
-                <constraint firstItem="F2M-qt-irJ" firstAttribute="top" secondItem="uXa-ZR-DbK" secondAttribute="top" id="goQ-PN-GlZ"/>
+                <constraint firstAttribute="trailing" secondItem="F2M-qt-irJ" secondAttribute="trailing" id="O5X-bL-075"/>
+                <constraint firstItem="F2M-qt-irJ" firstAttribute="centerY" secondItem="uXa-ZR-DbK" secondAttribute="centerY" id="h7U-IL-K0s"/>
             </constraints>
         </customView>
     </objects>
