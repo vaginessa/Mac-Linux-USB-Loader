@@ -258,13 +258,17 @@
 				[self.persistenceSetupWindowController showWindow:nil];
 				break;
 
-			default:
+			case 3:
 				if (!self.downloaderWindowController) {
 					self.downloaderWindowController = [[SBDistributionDownloaderWindowController alloc]
 					                                   initWithWindowNibName:@"SBDistributionDownloaderWindowController"];
 				}
 
 				[self.downloaderWindowController showWindow:nil];
+				break;
+
+			default:
+				NSLog(@"Selected table index %ld is not valid.", (long)clickedRow);
 				break;
 		}
 	}
