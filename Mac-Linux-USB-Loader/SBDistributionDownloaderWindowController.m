@@ -16,6 +16,7 @@
 
 @implementation SBDistributionDownloaderWindowController
 
+#pragma mark - Object Setup
 - (id)initWithWindow:(NSWindow *)window {
 	self = [super initWithWindow:window];
 	if (self) {
@@ -37,6 +38,13 @@
 	[themeFrame addSubview:self.accessoryView];
 }
 
+#pragma mark - Delegates
+- (void)windowDidResize:(NSNotification *)notification {
+	// Keep the accessory view in the right place in the window.
+	[self placeAccessoryView];
+}
+
+#pragma mark - UI
 - (void)placeAccessoryView {
 	NSView *themeFrame = [[self.window contentView] superview];
 	NSRect c = [themeFrame frame];  // c for "container"
@@ -47,11 +55,6 @@
 	                             aV.size.height); // height
 	[self.accessoryView setFrame:newFrame];
 	[self.accessoryView setNeedsDisplay:YES];
-}
-
-- (void)windowDidResize:(NSNotification *)notification {
-	// Keep the accessory view in the right place in the window.
-	[self placeAccessoryView];
 }
 
 @end

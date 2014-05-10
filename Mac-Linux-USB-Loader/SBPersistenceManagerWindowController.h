@@ -20,5 +20,6 @@
 @property (weak) IBOutlet NSTextField *operationProgressLabel;
 
 - (IBAction)createPersistenceButtonPressed:(id)sender;
+- (IBAction)resetSliderButtonPressed:(id)sender;
 
 @end

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBPersistenceManagerWindowController">
@@ -18,7 +18,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Persistence Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
+        <window title="Persistence Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="196" y="399" width="622" height="299"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
@@ -80,8 +80,8 @@
                                                             <binding destination="-2" name="value" keyPath="persistenceVolumeSizeSlider.integerValue" id="zfG-DV-5qS">
                                                                 <dictionary key="options">
                                                                     <bool key="NSConditionallySetsEditable" value="NO"/>
-                                                                    <bool key="NSValidatesImmediately" value="YES"/>
                                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                    <bool key="NSValidatesImmediately" value="YES"/>
                                                                 </dictionary>
                                                             </binding>
                                                         </connections>
@@ -123,6 +123,17 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VF2-ux-F0J">
+                                                        <rect key="frame" x="14" y="7" width="113" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="push" title="Reset Slider" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hp4-u2-EVb">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="resetSliderButtonPressed:" target="-2" id="eOy-uS-xR6"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </view>
                                             <constraints>
@@ -142,7 +153,9 @@
                                                 <constraint firstItem="gHg-qe-gRa" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="trailing" constant="8" id="etV-rM-bnE"/>
                                                 <constraint firstItem="UmG-Ak-vVB" firstAttribute="leading" secondItem="7Eq-Js-Ppp" secondAttribute="leading" constant="18" id="f2m-Pp-Mmf"/>
                                                 <constraint firstItem="8hH-NQ-7sz" firstAttribute="baseline" secondItem="gHg-qe-gRa" secondAttribute="baseline" id="fCF-RF-bgy"/>
+                                                <constraint firstItem="VF2-ux-F0J" firstAttribute="leading" secondItem="7Eq-Js-Ppp" secondAttribute="leading" constant="18" id="iFT-KO-bKC"/>
                                                 <constraint firstItem="40V-gP-LmV" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="leading" id="y9S-qj-eGR"/>
+                                                <constraint firstAttribute="bottom" secondItem="VF2-ux-F0J" secondAttribute="bottom" constant="11" id="zC8-1k-f1F"/>
                                                 <constraint firstAttribute="trailing" secondItem="0U7-88-khC" secondAttribute="trailing" constant="16" id="zxo-p5-OCU"/>
                                             </constraints>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

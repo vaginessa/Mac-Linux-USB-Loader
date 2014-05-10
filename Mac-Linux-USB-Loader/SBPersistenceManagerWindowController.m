@@ -125,6 +125,11 @@
 	}];
 }
 
+- (IBAction)resetSliderButtonPressed:(id)sender {
+	[self.persistenceVolumeSizeSlider setIntegerValue:(128 * 1048576)];
+	[self.persistenceVolumeSizeTextField setStringValue:@"128 MB"];
+}
+
 - (void)regularSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	// Empty
 }

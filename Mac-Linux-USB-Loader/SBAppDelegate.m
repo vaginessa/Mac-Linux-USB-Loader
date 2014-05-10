@@ -25,6 +25,8 @@
 	self = [super init];
 	if (self) {
 		// Setup code goes here.
+		self.fileManager = [NSFileManager defaultManager];
+		self.pathToApplicationSupportDirectory = [self.fileManager applicationSupportDirectory];
 	}
 	return self;
 }
@@ -61,10 +63,6 @@
 	// Register default defaults.
 	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
-
-	// Setup file management properties.
-	self.fileManager = [NSFileManager defaultManager];
-	self.pathToApplicationSupportDirectory = [self.fileManager applicationSupportDirectory];
 
 	// Detect all available USB drives.
 	[self setupEnterpriseInstallationLocations];
