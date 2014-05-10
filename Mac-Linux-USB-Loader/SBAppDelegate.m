@@ -27,6 +27,12 @@
 		// Setup code goes here.
 		self.fileManager = [NSFileManager defaultManager];
 		self.pathToApplicationSupportDirectory = [self.fileManager applicationSupportDirectory];
+
+		self.supportedDistributions = @[@"Ubuntu", @"Linux Mint", @"Elementary OS", @"Zorin OS", @"Kali Linux"];
+		self.supportedDistributionsAndVersions = @{ @"Ubuntu": @"14.04-LTS",
+			                                        @"Linux Mint": @"16",
+			                                        @"Elementary OS": @"Luna",
+			                                        @"Zorin OS": @"8" };
 	}
 	return self;
 }

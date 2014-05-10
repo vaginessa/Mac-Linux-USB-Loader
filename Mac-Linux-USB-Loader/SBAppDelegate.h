@@ -37,6 +37,10 @@
 @property (nonatomic, strong) NSString *pathToApplicationSupportDirectory;
 /// An instance of NSFileManager to be used by this instance.
 @property (nonatomic, strong) NSFileManager *fileManager;
+/// A dictionary containing a list of supported distributions and their minimum supported versions.
+@property (nonatomic, strong) NSDictionary *supportedDistributionsAndVersions;
+/// An array of supported distributions to be used as keys for the supportedDistributionsAndVersions property.
+@property (nonatomic, strong) NSArray *supportedDistributions;
 
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 @property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;

@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SBDistributionDownloaderWindowController">
             <connections>
                 <outlet property="accessoryView" destination="uXa-ZR-DbK" id="dNc-ZI-FcM"/>
+                <outlet property="tableView" destination="vwt-RC-84e" id="vfr-48-1b6"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
