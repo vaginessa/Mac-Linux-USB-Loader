@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -121,6 +121,7 @@
                     <constraint firstAttribute="trailing" secondItem="h8j-38-923" secondAttribute="trailing" constant="20" id="mTG-dC-Xz3"/>
                     <constraint firstItem="EO0-1k-d1r" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="268" id="mwx-YP-FI5"/>
                     <constraint firstItem="gIi-nC-45h" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="pcf-Qh-PH6"/>
+                    <constraint firstItem="nZk-zu-wac" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gIi-nC-45h" secondAttribute="trailing" constant="8" symbolic="YES" id="u76-jG-Fq8"/>
                 </constraints>
             </view>
             <connections>
