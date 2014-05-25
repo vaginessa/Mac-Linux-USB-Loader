@@ -142,7 +142,7 @@ typedef enum {
 			off_t copiedBytes;
 			const int returnCode = copyfile_state_get(copyfileState, COPYFILE_STATE_COPIED, &copiedBytes);
 			if (returnCode == 0) {
-				NSLog(@"Copied %@ so far", [NSByteCountFormatter stringFromByteCount:copiedBytes countStyle:NSByteCountFormatterCountStyleFile]);
+				//NSLog(@"Copied %@ so far", [NSByteCountFormatter stringFromByteCount:copiedBytes countStyle:NSByteCountFormatterCountStyleFile]);
 				[attachedDocument.installationProgressBar setDoubleValue:copiedBytes];
 			}
 			else {

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <RHPreferences/RHPreferences.h>
+#import <DiskArbitration/DiskArbitration.h>
 #import "SBUSBSetupWindowController.h"
 #import "SBPersistenceManagerWindowController.h"
 #import "SBUSBDevice.h"
@@ -60,5 +61,7 @@
 - (IBAction)showMoreOptionsPopover:(id)sender;
 - (IBAction)hideMoreOptionsPopover:(id)sender;
 - (IBAction)reportBug:(id)sender;
+
++ (NSUUID *)uuidForDeviceName:(NSString *)name;
 
 @end

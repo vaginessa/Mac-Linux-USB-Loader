@@ -142,8 +142,9 @@
 						SBUSBDevice *usbDevice = [[SBUSBDevice alloc] init];
 						usbDevice.path = usbDeviceMountPoint;
 						usbDevice.name = [usbDeviceMountPoint lastPathComponent];
+						[SBAppDelegate uuidForDeviceName:usbDeviceMountPoint];
 
-						self.usbDictionary[[usbDeviceMountPoint lastPathComponent]] = usbDevice;
+						self.usbDictionary[usbDevice.name] = usbDevice;
 					}
 				}
 			}
@@ -276,6 +277,43 @@
 				break;
 		}
 	}
+}
+
+#pragma mark - Utility Functions
+
++ (NSUUID *)uuidForDeviceName:(NSString *)name {
+	DADiskRef disk = NULL;
+	CFDictionaryRef descDict;
+	DASessionRef session = DASessionCreate(NULL);
+	if (session) {
+		const char *mountPoint = [name cStringUsingEncoding:NSASCIIStringEncoding];
+		CFURLRef url = CFURLCreateFromFileSystemRepresentation(NULL, (const UInt8 *)mountPoint, strlen(mountPoint), TRUE);
+		disk = DADiskCreateFromVolumePath(NULL, session, url);
+		if (disk) {
+			descDict = DADiskCopyDescription(disk);
+			if (descDict) {
+				CFTypeRef value = (CFTypeRef)CFDictionaryGetValue(descDict,
+				                                                  CFSTR("DAVolumeUUID"));
+				CFStringRef strValue = CFStringCreateWithFormat(NULL, NULL,
+				                                                CFSTR("%@"), value);
+				NSLog(@"%@", strValue);
+				CFRelease(descDict);
+
+				NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:CFBridgingRelease(strValue)];
+				SBLogObject([uuid UUIDString]);
+				return uuid;
+			} else {
+				NSLog(@"Sorry, no Disk Arbitration description.");
+			}
+			CFRelease(disk);
+		} else {
+			NSLog(@"Sorry, no Disk Arbitration disk.");
+		}
+	} else {
+		NSLog(@"Sorry, no Disk Arbitration session.");
+	}
+
+	return nil;
 }
 
 @end
