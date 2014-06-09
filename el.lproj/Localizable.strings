@@ -1,0 +1,66 @@
+/*
+ Localizable.strings
+ Mac Linux USB Loader
+
+ Created by SevenBits on 8/31/13.
+
+ */
+
+OKAY = "Εντάξει";
+YES = "Ναι";
+NO = "Όχι";
+ABORT = "Ματαίωση";
+
+/*
+ * Localizations for AppDelegate.m
+ */
+
+OPERATION-IN-PROGRESS = "Εργασία σε εξέλιξη.";
+QUIT-DURING-OPERATION = "Το Mac Linux USB Loader είναι στην μέση μιας εργασίας αυτή τη στιγμή. Τερματίζοντας την εφαρμογή αυτήν την ώρα θα μπορούσε να οδηγήσει σε αλλοίωση δεδομένων. Θέλετε να τερματίσετε παρ'όλα αυτά;";
+UPGRADE-FIRMWARE = "Θέλετε να αναβαθμίσετε στο Enterprise;";
+UPGRADE-FIRMWARE-LONG = " Το Enterprise, η νέα λύση για εκκινήσεις που χρησιμοποιείται από το Mac Linux USB Loader, έχει κυκλοφορήσει. Θέλετε να το ορίσετε ως τον προτιμώμενο loader σας για όλες τις εγκαταστάσεις;";
+
+
+// Live USB Eraser
+
+FAILED-TO-ERASE-USB = "Αποτυχία διαγραφής εκκινήσιμης συσκευής USB";
+USB-ERASE-SUCCESSFUL = "Η διαγραφή εκτελέστηκε με επιτυχία.";
+USB-HAS-BEEN-ERASED = "Η εκκινήσιμη συσκευή USB διαγράφηκε.";
+
+// USB Drive Blesser
+
+NO-USBS-PLUGGED-IN = "Καμμία συσκευή USB δεν έχει εισαχθεί.";
+NO-USBS-PLUGGED-IN-LONG = "Δεν έχετε εισάγει καμμία συσκευή USB που περιέχει μια φορητή έκδοση Linux που έχει δημιουργηθεί από το Mac Linux USB Loader. Εισάγετε μία και επανεκκινήστε το Mac Linux USB Loader ή πατήστε το κουμπί 'Ανανέωση'";
+BLESS-COMPLETE = "Η ευλογία ολοκληρώθηκε.";
+BLESS-COMPLETE-LONG = "Αφήστε την συσκευή USB στην θύρα της και επανεκκινήστε τον υπολογιστή. Το Mac σας θα εκκινήσει κατευθείαν από την έκδοση Linux που είναι εγκατεστημένη στην συσκευή USB σας.";
+UNBLESS-COMPLETE = "Η αφαίρεση της ευλογίας ολοκληρώθηκε.";
+UNBLESS-COMPLETE-LONG = "Η ευλογία αφαιρέθηκε από την συσκευή USB σας. To Mac σας δεν θα εκκινεί πια απευθείας από αυτή. Αντίθετα, για να εκκινήσετε από αυτή, κρατήστε πατημένο το κουμπί Option/Alt μετά τον χαρακτηριστικό ήχο της εκκίνησης και επιλέξτε τον δίσκο σας όταν αυτός εμφανιστεί.";
+
+// Distribution Downloader
+
+FILE-NOT-FOUND = "Το αρχείο δεν βρέθηκε.";
+ISO-NOT-FOUND = "Tο αρχείο ISO της έκδοσης δεν βρέθηκε στον φάκελο Downloads των λήψεων σας.";
+NO-DISTRO-SELECTED = "Δεν έχει επιλεχθεί καμμία έκδοση.";
+PLEASE-SELECT-DISTRO = "Παρακαλώ επιλέξτε μια έκδοση πριν πατήσετε το κουμπί 'Λήψη'.";
+
+// Preferences View Controller Titles
+
+APPLICATION = "Εφαρμογή";
+NOTIFICATIONS = "Ενημερώσεις";
+FIRMWARE = "Υλικολογισμικό";
+ACKNOWLEDGEMENTS = "Ευχαριστίες";
+
+/*
+ * Localizations for Document.m
+ */
+
+FAILED-CREATE-BOOTABLE-USB = "Η δημιουργία εκκινήσιμου USB απέτυχε.";
+FAILED-CREATE-BOOTABLE-USB-LONG = "Υπάρχει ήδη ένα αρχείο ISO μιας έκδοσης Linux σε αυτή την συσκευή. Εάν είχε δημιουργηθεί από μια προηγούμενη περίσταση του Mac Linux USB Loader, θα πρέπει να διαγράψετε τον φάκελο EFI στην συσκευή USB και μετά να χρησιμοποιήσετε αυτό το εργαλείο.";
+FAILED-CREATE-BOOTABLE-USB-LONG2 = "Θέλετε να διαγράψετε την ατελή εγκατάσταση;";
+FAILED-ERASE-BOOTABLE-USB = "Αποτυχία δημιουργίας εκκινήσιμου USB.";
+
+CONFIRM-ERASE-USB = "Είστε σίγουροι πώς θέλετε να διαγράψετε τα αρχεία εκκίνησης;";
+CONFIRM-ERASE-USB-LONG = "Αυτό θα αυξήσει τον χώρο σβήνοντας ότι υπάρχει στον φάκελο EFI της συσκευής USB, αλλά είναι μη αναστρέψιμο.";
+
+FINISHED-MAKING-LIVE-USB = "Η δημιουργία εκκινήσιμης συσκευής USB ολοκληρώθηκε.";
+FINISHED-MAKING-LIVE-USB-LONG = "Το εκκινήσιμου USB δημιουργήθηκε επιτυχώς.";
