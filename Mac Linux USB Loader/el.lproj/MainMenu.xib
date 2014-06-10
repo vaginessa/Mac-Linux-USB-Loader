@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.17"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
@@ -17,7 +17,7 @@
                 <menuItem title="Mac Linux USB Loader" id="56">
                     <menu key="submenu" title="Mac Linux USB Loader" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About Mac Linux USB Loader" id="58">
+                            <menuItem title="Σχετικά με το Mac Linux USB Loader" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="makeKeyAndOrderFront:" target="534" id="548"/>
@@ -26,12 +26,12 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                            <menuItem title="Προτιμήσεις..." keyEquivalent="," id="129">
                                 <connections>
                                     <action selector="showPreferences:" target="755" id="757"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Check for Updates" id="1452">
+                            <menuItem title="Έλεγχος για ενημερώσεις" id="1452">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="checkForUpdates:" target="1451" id="1453"/>
@@ -46,18 +46,18 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide Mac Linux USB Loader" keyEquivalent="h" id="134">
+                            <menuItem title="Απόκρυψη Mac Linux USB Loader" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-1" id="367"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
+                            <menuItem title="Απόκρυψη Άλλων" keyEquivalent="h" id="145">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="hideOtherApplications:" target="-1" id="368"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show All" id="150">
+                            <menuItem title="Εμφάνιση όλων" id="150">
                                 <connections>
                                     <action selector="unhideAllApplications:" target="-1" id="370"/>
                                 </connections>
@@ -158,16 +158,15 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="131" y="159" width="574" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="574" height="270"/>
             <view key="contentView" id="1069">
                 <rect key="frame" x="0.0" y="0.0" width="574" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1302">
-                        <rect key="frame" x="393" y="13" width="167" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Visit Project Website" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1303">
+                        <rect key="frame" x="301" y="13" width="259" height="32"/>
+                        <buttonCell key="cell" type="push" title="Επισκεφθείτε την ιστοσελίδα μας" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1303">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -176,9 +175,8 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1307">
-                        <rect key="frame" x="283" y="13" width="110" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Report Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1308">
+                        <rect key="frame" x="95" y="13" width="206" height="32"/>
+                        <buttonCell key="cell" type="push" title="Αναφέρετε ένα πρόβλημα" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1308">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -186,18 +184,16 @@
                             <action selector="reportBug:" target="755" id="1497"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1312">
+                    <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1312">
                         <rect key="frame" x="155" y="222" width="264" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Linux USB Loader" id="1313">
-                            <font key="font" size="23" name="LucidaGrande-Bold"/>
+                            <font key="font" metaFont="systemBold" size="23"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1326">
                         <rect key="frame" x="155" y="206" width="304" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="1332"/>
                             <constraint firstAttribute="width" constant="300" id="1333"/>
@@ -209,9 +205,8 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1347">
-                        <rect key="frame" x="21" y="189" width="135" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Recent Distributions:" id="1348">
+                        <rect key="frame" x="21" y="189" width="169" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Πρόσφατες ενημερώσεις:" id="1348">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -219,13 +214,12 @@
                     </textField>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" translatesAutoresizingMaskIntoConstraints="NO" id="1507">
                         <rect key="frame" x="23" y="46" width="531" height="135"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="zKv-vN-Njc">
                             <rect key="frame" x="1" y="17" width="529" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="1510" id="1508">
-                                    <rect key="frame" x="0.0" y="0.0" width="529" height="117"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="529" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,7 +324,7 @@
         <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="534" userLabel="About Panel" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <rect key="contentRect" x="139" y="157" width="509" height="234"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="509" height="234"/>
             <view key="contentView" id="535">
                 <rect key="frame" x="0.0" y="0.0" width="509" height="234"/>
@@ -338,7 +332,6 @@
                 <subviews>
                     <imageView translatesAutoresizingMaskIntoConstraints="NO" id="541">
                         <rect key="frame" x="17" y="-5" width="222" height="222"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="222" id="542"/>
                             <constraint firstAttribute="width" constant="222" id="543"/>
@@ -347,20 +340,18 @@
                     </imageView>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="536">
                         <rect key="frame" x="234" y="186" width="257" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="253" id="545"/>
                             <constraint firstAttribute="height" constant="28" id="546"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Linux USB Loader" id="547">
-                            <font key="font" size="17" name="LucidaGrande"/>
+                            <font key="font" metaFont="system" size="17"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="556">
                         <rect key="frame" x="351" y="49" width="152" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="140" id="562"/>
                         </constraints>
@@ -374,7 +365,6 @@
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="762">
                         <rect key="frame" x="230" y="49" width="121" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Report a Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="763">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -385,7 +375,6 @@
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1049">
                         <rect key="frame" x="190" y="0.0" width="309" height="48"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="305" id="1056"/>
                             <constraint firstAttribute="height" constant="48" id="1060"/>
@@ -399,7 +388,6 @@
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1662">
                         <rect key="frame" x="236" y="161" width="111" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="107" id="1666"/>
                             <constraint firstAttribute="height" constant="17" id="1667"/>
@@ -429,19 +417,19 @@
         </window>
         <menu title="Dock Menu" id="726">
             <items>
-                <menuItem title="Select ISO File" id="728">
+                <menuItem title="Επιλέξτε ένα αρχείο ISO" id="728">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openDocument:" target="-1" id="735"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Show GitHub Repository" id="759">
+                <menuItem title="Εμφάνιση στο GitHub" id="759">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openGithubPage:" target="755" id="1494"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Open Disk Utility" id="729">
+                <menuItem title="Άνοιγμα Disk Utility" id="729">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openDiskUtility:" target="755" id="1495"/>
@@ -471,16 +459,15 @@
         <window title="Distribution Downloader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1000" userLabel="Download Distribution Panel" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <rect key="contentRect" x="139" y="154" width="430" height="127"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="430" height="127"/>
             <view key="contentView" id="1001">
                 <rect key="frame" x="0.0" y="0.0" width="430" height="127"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1002">
-                        <rect key="frame" x="14" y="41" width="74" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1003">
+                        <rect key="frame" x="14" y="41" width="97" height="32"/>
+                        <buttonCell key="cell" type="push" title="Κλείσιμο" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1003">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -489,9 +476,8 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1008">
-                        <rect key="frame" x="313" y="43" width="103" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1009">
+                        <rect key="frame" x="341" y="43" width="75" height="32"/>
+                        <buttonCell key="cell" type="push" title="Λήψη" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1009">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -501,12 +487,10 @@
                     </button>
                     <progressIndicator maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="1014">
                         <rect key="frame" x="20" y="19" width="390" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
                     <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1354">
                         <rect key="frame" x="20" y="95" width="393" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a Distribution" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="1355">
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Επιλέξτε μια έκδοση" placeholderString="Select a Distribution" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="1355">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -518,22 +502,20 @@
                             </objectValues>
                         </comboBoxCell>
                     </comboBox>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1378">
-                        <rect key="frame" x="18" y="77" width="417" height="14"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1378">
+                        <rect key="frame" x="-2" y="79" width="417" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="413" id="1649"/>
                         </constraints>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The ISO file that is downloaded will be placed in your Downloads folder." id="1379">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Το αρχείο ISO που θα ληφθεί θα τοποθετηθεί στον φάκελο Downloads σας.  " id="1379">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1385">
-                        <rect key="frame" x="179" y="43" width="134" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Open in Finder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1386">
+                        <rect key="frame" x="176" y="43" width="165" height="32"/>
+                        <buttonCell key="cell" type="push" title="Άνοιγμα στο Finder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1386">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -565,7 +547,7 @@
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="154" width="505" height="93"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="505" height="93"/>
             <value key="maxSize" type="size" width="505" height="113"/>
             <view key="contentView" id="1455">
@@ -573,9 +555,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1458">
-                        <rect key="frame" x="14" y="13" width="74" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1459">
+                        <rect key="frame" x="14" y="13" width="97" height="32"/>
+                        <buttonCell key="cell" type="push" title="Κλείσιμο" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1459">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -584,22 +565,20 @@
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1464">
-                        <rect key="frame" x="18" y="49" width="401" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="null" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1469" id="1465">
+                        <rect key="frame" x="18" y="49" width="368" height="26"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="1465">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="1466">
                                 <items>
-                                    <menuItem title="null" state="on" id="1469"/>
+                                    <menuItem title="null" id="1469"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1474">
-                        <rect key="frame" x="418" y="13" width="73" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Erase" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1475">
+                        <rect key="frame" x="385" y="13" width="106" height="32"/>
+                        <buttonCell key="cell" type="push" title="Διαγραφή" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1475">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -608,9 +587,8 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1484">
-                        <rect key="frame" x="424" y="51" width="61" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Refresh" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1485">
+                        <rect key="frame" x="391" y="51" width="94" height="23"/>
+                        <buttonCell key="cell" type="smallSquare" title="Ανανέωση" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1485">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -636,7 +614,7 @@
         <customObject id="1528" customClass="RecentDocumentsTableViewDataSource"/>
         <menu id="1535" userLabel="Recent Documents Context Menu">
             <items>
-                <menuItem title="Refresh" id="1536">
+                <menuItem title="Ανανέωση" id="1536">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="updateRecents:" target="755" id="1540"/>
@@ -647,16 +625,15 @@
         <window title="Modify Boot Settings Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1544" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="139" y="154" width="505" height="154"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="contentRect" x="139" y="154" width="255" height="294"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="505" height="151"/>
             <view key="contentView" id="1545">
-                <rect key="frame" x="0.0" y="0.0" width="505" height="154"/>
+                <rect key="frame" x="0.0" y="0.0" width="255" height="294"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1548">
                         <rect key="frame" x="14" y="13" width="74" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1563">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -666,8 +643,7 @@
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1549">
-                        <rect key="frame" x="18" y="46" width="397" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="18" y="46" width="147" height="26"/>
                         <popUpButtonCell key="cell" type="push" title="null" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1562" id="1560">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -679,8 +655,7 @@
                         </popUpButtonCell>
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1547">
-                        <rect key="frame" x="402" y="13" width="89" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="152" y="13" width="89" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="1670"/>
                         </constraints>
@@ -693,8 +668,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1546">
-                        <rect key="frame" x="420" y="48" width="65" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="170" y="48" width="65" height="23"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="65" id="1577"/>
                             <constraint firstAttribute="height" constant="21" id="1669"/>
@@ -708,8 +682,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1568">
-                        <rect key="frame" x="331" y="13" width="71" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="81" y="13" width="71" height="32"/>
                         <buttonCell key="cell" type="push" title="Bless" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1569">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -718,12 +691,11 @@
                             <action selector="blessUSB:" target="755" id="1583"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1590">
-                        <rect key="frame" x="18" y="78" width="469" height="56"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1590">
+                        <rect key="frame" x="18" y="78" width="234" height="196"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1591">
                             <font key="font" metaFont="smallSystem"/>
-                            <string key="title">To help boot Linux, this will "bless" the boot file on your USB drive with an internal operating system tool that will tell your Mac to boot it. Performing this action is not strictly required but may be useful if your Mac won't boot your USB. Your administrator password will be required as this will make changes to the system firmware.</string>
+                            <string key="title">Για να βοηθηθεί η εκκίνηση των Linux, αυτό το εργαλείο θα 'ευλογήσει' το αρχείο εκκίνησης στην συσκευή USB σας με ένα εσωτερικό εργαλείο του λειτουργικού συστήματος το οποίο θα δώσει οδηγίες για να εκκινηθεί από τον υπολογιστή Mac σας. Δεν χρειάζεται να το κάνετε αυτό αλλά μπορεί να είναι χρήσιμο εάν ο υπολογιστής σας δεν θα εκκινήσει από την συσκευή USB σας. Απαιτείται ο κωδικός του διαχειριστή αφού αυτό θα πραγματοποιήσει αλλαγές στο υλικολογισμικό του συστήματος.</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

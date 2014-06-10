@@ -20,7 +20,7 @@
 		242FAAF21872494D00897E48 /* AboutPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FAAF01872494D00897E48 /* AboutPreferences.png */; };
 		242FAAF31872494D00897E48 /* AccountsPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FAAF11872494D00897E48 /* AccountsPreferences.png */; };
 		2434C19B176F9AF6009C737D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BDE430172D920B00E964A0 /* IOKit.framework */; };
-		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; };
+		24434A1A1677CE2100DAC959 /* RHPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24434A191677CE2100DAC959 /* RHPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		244C050416DD840E0083A0C9 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 244C050316DD840E0083A0C9 /* dsa_pub.pem */; };
 		244C050816DD8E460083A0C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
 		2466DCB4184295F700E750F1 /* bootX64-legacy.efi in Resources */ = {isa = PBXBuildFile; fileRef = 2466DCB3184295F700E750F1 /* bootX64-legacy.efi */; };
@@ -41,7 +41,7 @@
 		249F19B0175FDDDC0074F88A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2419A0C717209608008E0137 /* main.m */; };
 		249F19B1175FDE170074F88A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B3175FDE170074F88A /* MainMenu.xib */; };
 		249F19B4175FDE220074F88A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 249F19B6175FDE220074F88A /* InfoPlist.strings */; };
-		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; };
+		24A07E1C16E7FA4D002246D2 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244C050716DD8E460083A0C9 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		24AD167716A0F2C80046C51A /* SBNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167916A0F2C80046C51A /* SBNotificationViewController.xib */; };
 		24AD167A16A0F2CE0046C51A /* SBAcknowledgementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167C16A0F2CE0046C51A /* SBAcknowledgementsViewController.xib */; };
 		24AD167D16A0F2D20046C51A /* SBUpdateControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AD167F16A0F2D20046C51A /* SBUpdateControlViewController.xib */; };
@@ -456,7 +456,7 @@
 		24CA6BE01656F7A700061D2F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					249F198E175FDC280074F88A = {
@@ -813,7 +813,8 @@
 		24CA6C0B1656F7A700061D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -824,6 +825,7 @@
 				INFOPLIST_FILE = "Mac Linux USB Loader/Mac Linux USB Loader-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -831,7 +833,8 @@
 		24CA6C0C1656F7A700061D2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -842,6 +845,7 @@
 				INFOPLIST_FILE = "Mac Linux USB Loader/Mac Linux USB Loader-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
