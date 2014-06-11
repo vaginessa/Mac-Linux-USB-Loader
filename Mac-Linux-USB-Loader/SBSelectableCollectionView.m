@@ -21,7 +21,7 @@
 - (void)drawRect:(NSRect)dirtyRect {
 	[super drawRect:dirtyRect];
 
-	if (_selected) {
+	if (self.selected) {
 		[[NSColor alternateSelectedControlColor] set];
 		NSRectFill([self bounds]);
 	}
