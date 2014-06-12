@@ -75,6 +75,19 @@
 	return @"N/A";
 }
 
+- (BOOL)tableView:(NSTableView *)aTableView shouldEditTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
+	NSString *cellTitle = [aTableColumn.headerCell stringValue];
+
+	if (![loc deletable]) {
+		return NO;
+	} if ([cellTitle isEqualToString:@"Version"]) {
+		return NO;
+	}
+
+	return YES;
+}
+
 - (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
 	NSTextFieldCell *cell = [tableColumn dataCell];

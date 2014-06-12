@@ -296,11 +296,11 @@
 				                                                  CFSTR("DAVolumeUUID"));
 				CFStringRef strValue = CFStringCreateWithFormat(NULL, NULL,
 				                                                CFSTR("%@"), value);
-				NSLog(@"%@", strValue);
+				//NSLog(@"%@", strValue);
 				CFRelease(descDict);
 
 				NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:CFBridgingRelease(strValue)];
-				SBLogObject([uuid UUIDString]);
+				//SBLogObject([uuid UUIDString]);
 				return uuid;
 			} else {
 				NSLog(@"Sorry, no Disk Arbitration description.");

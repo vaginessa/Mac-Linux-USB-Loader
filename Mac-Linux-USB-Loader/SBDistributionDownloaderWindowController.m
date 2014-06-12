@@ -38,19 +38,7 @@
 
 - (void)setupJSON {
 	NSURL *url = [NSURL URLWithString:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/Linux-Mint.json"];
-#ifdef DEBUG
-	if ([url isFileURL]) {
-		NSLog(@"We have a local URL, parsing locally.");
 
-		NSError *err;
-		NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
-
-		if (strCon) {
-			[self processJSON:strCon];
-		}
-	}
-	else {
-#endif
 	NSError *err;
 	NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
 	if (!err) {
@@ -63,10 +51,6 @@
 		    [alert runModal];
 		});
 	}
-#ifdef DEBUG
-}
-
-#endif
 }
 
 - (void)processJSON:(NSString *)json {
