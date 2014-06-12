@@ -122,7 +122,8 @@
 
 
 	// If the user is running pre-Yosemite, nudge the button to the left to account for the fullscreen button.
-	if (NSAppKitVersionNumber > 1265) {
+	NSOperatingSystemVersion opVer = [[NSProcessInfo processInfo] operatingSystemVersion];
+	if (opVer.minorVersion <= 9) {
 		newFrame = NSMakeRect(c.size.width - aV.size.width - SBAccessoryViewEdgeOffset, // x position
 	                             c.size.height - aV.size.height, // y position
 	                             aV.size.width, // width

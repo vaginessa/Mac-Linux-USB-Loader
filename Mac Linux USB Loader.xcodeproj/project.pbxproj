@@ -12,7 +12,7 @@
 		24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101B861896D4A300EDE32C /* SBAboutWindowController.m */; };
 		24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */; };
 		24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24101B8D1896D4DF00EDE32C /* QuartzCore.framework */; };
-		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; };
+		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
 		24194C7A18DBA29800CFF588 /* SBSelectableCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 24194C7918DBA29800CFF588 /* SBSelectableCollectionViewItem.m */; };
@@ -20,6 +20,7 @@
 		2420474D18849A4300ECAAFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2420474C18849A4300ECAAFE /* README.md */; };
 		2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420474F18849C8B00ECAAFE /* SBAppDelegate.m */; };
 		24245F3218D222250085C43F /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24245F3118D222250085C43F /* NSString+Extensions.m */; };
+		2424764C194A180A0083033B /* NSProcessInfo+PECocoaBackports.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */; };
 		24680E4F18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */; };
 		24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5618AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib */; };
 		24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */; };
@@ -105,6 +106,8 @@
 		2420474F18849C8B00ECAAFE /* SBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
 		24245F3018D222250085C43F /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
 		24245F3118D222250085C43F /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
+		2424764A194A180A0083033B /* NSProcessInfo+PECocoaBackports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+PECocoaBackports.h"; sourceTree = "<group>"; };
+		2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProcessInfo+PECocoaBackports.m"; sourceTree = "<group>"; };
 		24680E4C18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterprisePreferencesViewController.h; sourceTree = "<group>"; };
 		24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterprisePreferencesViewController.m; sourceTree = "<group>"; };
 		24680E5518AE7FE500B6E13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				24194C7918DBA29800CFF588 /* SBSelectableCollectionViewItem.m */,
 				24194C7B18DBA41900CFF588 /* SBSelectableCollectionView.h */,
 				24194C7C18DBA41900CFF588 /* SBSelectableCollectionView.m */,
+				2424764A194A180A0083033B /* NSProcessInfo+PECocoaBackports.h */,
+				2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */,
 			);
 			name = "Apple Class Extensions and Subclasses";
 			sourceTree = "<group>";
@@ -410,7 +415,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SB;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = SevenBits;
 				TargetAttributes = {
 					24A4EC721884966900CE6CF0 = {
@@ -516,6 +521,7 @@
 			files = (
 				24E0A595191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m in Sources */,
 				24194C7A18DBA29800CFF588 /* SBSelectableCollectionViewItem.m in Sources */,
+				2424764C194A180A0083033B /* NSProcessInfo+PECocoaBackports.m in Sources */,
 				24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */,
 				2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */,
 				24245F3218D222250085C43F /* NSString+Extensions.m in Sources */,
