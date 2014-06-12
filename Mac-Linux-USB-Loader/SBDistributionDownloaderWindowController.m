@@ -11,6 +11,8 @@
 #import "SBDownloadMirrorModel.h"
 #import "SBDownloadableDistributionModel.h"
 
+#define SBAccessoryViewEdgeOffset 25
+
 @interface SBDistributionDownloaderWindowController ()
 
 @property (strong) IBOutlet NSView *accessoryView;
@@ -116,10 +118,22 @@
 	NSView *themeFrame = [[self.window contentView] superview];
 	NSRect c = [themeFrame frame];  // c for "container"
 	NSRect aV = [self.accessoryView frame]; // aV for "accessory view"
-	NSRect newFrame = NSMakeRect(c.size.width - aV.size.width - 25, // x position
+	NSRect newFrame;
+
+
+	// If the user is running pre-Yosemite, nudge the button to the left to account for the fullscreen button.
+	if (NSAppKitVersionNumber > 1265) {
+		newFrame = NSMakeRect(c.size.width - aV.size.width - SBAccessoryViewEdgeOffset, // x position
 	                             c.size.height - aV.size.height, // y position
 	                             aV.size.width, // width
 	                             aV.size.height); // height
+	} else {
+		newFrame = NSMakeRect(c.size.width - aV.size.width, // x position
+							  c.size.height - aV.size.height, // y position
+							  aV.size.width, // width
+							  aV.size.height); // height
+	}
+
 	[self.accessoryView setFrame:newFrame];
 	[self.accessoryView setNeedsDisplay:YES];
 }
