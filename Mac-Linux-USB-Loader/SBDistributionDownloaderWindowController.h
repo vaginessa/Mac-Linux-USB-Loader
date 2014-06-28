@@ -12,4 +12,8 @@
 
 @interface SBDistributionDownloaderWindowController : NSWindowController <NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate>
 
+- (IBAction)downloadDistroButtonPressed:(id)sender;
+- (IBAction)closeDownloadDistroSheetPressed:(id)sender;
+- (IBAction)commenceDownload:(id)sender;
+
 @end

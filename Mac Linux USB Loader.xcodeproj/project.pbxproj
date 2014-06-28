@@ -17,7 +17,6 @@
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
 		24194C7A18DBA29800CFF588 /* SBSelectableCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 24194C7918DBA29800CFF588 /* SBSelectableCollectionViewItem.m */; };
 		24194C7D18DBA41900CFF588 /* SBSelectableCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24194C7C18DBA41900CFF588 /* SBSelectableCollectionView.m */; };
-		2420474D18849A4300ECAAFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2420474C18849A4300ECAAFE /* README.md */; };
 		2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420474F18849C8B00ECAAFE /* SBAppDelegate.m */; };
 		24245F3218D222250085C43F /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24245F3118D222250085C43F /* NSString+Extensions.m */; };
 		2424764C194A180A0083033B /* NSProcessInfo+PECocoaBackports.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */; };
@@ -456,7 +455,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */,
-				2420474D18849A4300ECAAFE /* README.md in Resources */,
 				24A4EC8D1884966A00CE6CF0 /* SBDocument.xib in Resources */,
 				24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */,
 				24E0A596191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib in Resources */,

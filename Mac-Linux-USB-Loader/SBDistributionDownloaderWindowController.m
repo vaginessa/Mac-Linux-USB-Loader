@@ -17,6 +17,10 @@
 
 @property (strong) IBOutlet NSView *accessoryView;
 @property (weak) IBOutlet NSTableView *tableView;
+@property (strong) IBOutlet NSPanel *downloadSettingsPanel;
+@property (weak) IBOutlet NSPopUpButton *distroMirrorCountrySelector;
+@property (weak) IBOutlet NSImageView *distroImageView;
+@property (weak) IBOutlet NSTextField *distroNameLabel;
 
 @property (nonatomic, strong) id jsonRecieved;
 @property (nonatomic, strong) SBDownloadableDistributionModel *downloadDistroModel;
@@ -66,6 +70,7 @@
 	}
 	else {
 		//SBLogObject(self.downloadDistroModel);
+		self.distroImageView.image = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:self.downloadDistroModel.imageURL]];
 	}
 }
 
@@ -113,6 +118,14 @@
 	return NO;
 }
 
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
+	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:row];
+	[self.distroNameLabel setStringValue:[NSString stringWithFormat:@"%@ %@",
+										  [[[NSApp delegate] supportedDistributions] objectAtIndex:row],
+										  [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	return YES;
+}
+
 #pragma mark - UI
 - (void)placeAccessoryView {
 	NSView *themeFrame = [[self.window contentView] superview];
@@ -129,7 +142,7 @@
 	                             aV.size.width, // width
 	                             aV.size.height); // height
 	} else {
-		newFrame = NSMakeRect(c.size.width - aV.size.width, // x position
+		newFrame = NSMakeRect(c.size.width - aV.size.width - 5, // x position
 							  c.size.height - aV.size.height, // y position
 							  aV.size.width, // width
 							  aV.size.height); // height
@@ -138,5 +151,24 @@
 	[self.accessoryView setFrame:newFrame];
 	[self.accessoryView setNeedsDisplay:YES];
 }
+
+- (IBAction)downloadDistroButtonPressed:(id)sender {
+	// Ideally, we'd support the new sheet API, but we need to still support 10.8...
+	[NSApp beginSheet:self.downloadSettingsPanel modalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+	[self.distroMirrorCountrySelector removeAllItems];
+
+	for (SBDownloadMirrorModel *model in [self.downloadDistroModel mirrors]) {
+		[self.distroMirrorCountrySelector addItemWithTitle:model.countryLong];
+	}
+}
+
+- (IBAction)closeDownloadDistroSheetPressed:(id)sender {
+	[NSApp endSheet:self.downloadSettingsPanel];
+	[self.downloadSettingsPanel orderOut:nil];
+}
+
+- (IBAction)commenceDownload:(id)sender {
+}
+
 
 @end
