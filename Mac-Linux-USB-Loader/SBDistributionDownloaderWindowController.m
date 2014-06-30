@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 SevenBits. All rights reserved.
 //
 
+#import "DownloadOperation.h"
 #import "SBDistributionDownloaderWindowController.h"
 #import "SBAppDelegate.h"
 #import "SBDownloadMirrorModel.h"
@@ -24,6 +25,8 @@
 
 @property (nonatomic, strong) id jsonRecieved;
 @property (nonatomic, strong) SBDownloadableDistributionModel *downloadDistroModel;
+@property (nonatomic, strong) NSOperationQueue *downloadQueue;
+@property NSInteger numberOfActiveDownloadOperations;
 
 @end
 
@@ -38,6 +41,10 @@
 		    // Grab our JSON, but do it on a background thread so we don't slow down the GUI.
 		    [self setupJSON];
 		});
+
+		// Setup our operation queues.
+		self.downloadQueue = [[NSOperationQueue alloc] init];
+		self.downloadQueue.maxConcurrentOperationCount = 4; // Slightly arbitrary
 	}
 	return self;
 }
@@ -48,10 +55,9 @@
 	NSError *err;
 	NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
 	if (!err) {
-		NSLog(@"Recieved JSON data: %@", strCon);
+		//NSLog(@"Recieved JSON data: %@", strCon);
 		[self processJSON:strCon];
-	}
-	else {
+	} else {
 		dispatch_async(dispatch_get_main_queue(), ^{
 		    NSAlert *alert = [NSAlert alertWithError:err];
 		    [alert runModal];
@@ -121,8 +127,8 @@
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
 	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:row];
 	[self.distroNameLabel setStringValue:[NSString stringWithFormat:@"%@ %@",
-										  [[[NSApp delegate] supportedDistributions] objectAtIndex:row],
-										  [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                      [[[NSApp delegate] supportedDistributions] objectAtIndex:row],
+	                                      [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
 	return YES;
 }
 
@@ -138,14 +144,15 @@
 	NSOperatingSystemVersion opVer = [[NSProcessInfo processInfo] operatingSystemVersion];
 	if (opVer.minorVersion <= 9) {
 		newFrame = NSMakeRect(c.size.width - aV.size.width - SBAccessoryViewEdgeOffset, // x position
-	                             c.size.height - aV.size.height, // y position
-	                             aV.size.width, // width
-	                             aV.size.height); // height
-	} else {
+		                      c.size.height - aV.size.height,    // y position
+		                      aV.size.width,    // width
+		                      aV.size.height);    // height
+	}
+	else {
 		newFrame = NSMakeRect(c.size.width - aV.size.width - 5, // x position
-							  c.size.height - aV.size.height, // y position
-							  aV.size.width, // width
-							  aV.size.height); // height
+		                      c.size.height - aV.size.height, // y position
+		                      aV.size.width, // width
+		                      aV.size.height); // height
 	}
 
 	[self.accessoryView setFrame:newFrame];
@@ -168,7 +175,33 @@
 }
 
 - (IBAction)commenceDownload:(id)sender {
-}
+	NSInteger selectedItem = [self.distroMirrorCountrySelector indexOfSelectedItem];
+	NSAssert(selectedItem != -1, @"Selected item is %ld", (long)selectedItem);
 
+	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
+	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingString:@"/Downloads/"];
+	path = [path stringByAppendingString:[NSString stringWithFormat:@"%@-%@.iso",
+	                                                                 [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
+	                                                                 [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+
+	SBDownloadMirrorModel *model = self.downloadDistroModel.mirrors[selectedItem];
+	NSURL *url = [NSURL URLWithString:model.url];
+	DownloadOperation *downloadOperation = [[DownloadOperation alloc] initWithURL:url path:path];
+	downloadOperation.downloadCompletionBlock = ^(DownloadOperation *operation, BOOL success, NSError *error) {
+		if (error) {
+			NSLog(@"%s: downloadCompletionBlock error: %@", __FUNCTION__, error);
+		}
+
+		self.numberOfActiveDownloadOperations--;
+	};
+	downloadOperation.downloadProgressBlock = ^(DownloadOperation *operation, long long progressContentLength, long long expectedContentLength) {
+		CGFloat progress = (expectedContentLength > 0 ? (CGFloat)progressContentLength / (CGFloat)expectedContentLength : (progressContentLength % 1000000l) / 1000000.0f);
+		NSLog(@"%@: %f", operation, progress);
+	};
+
+	[self.downloadQueue addOperation:downloadOperation];
+	[self closeDownloadDistroSheetPressed:nil];
+	self.numberOfActiveDownloadOperations++;
+}
 
 @end

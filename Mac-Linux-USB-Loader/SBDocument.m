@@ -101,8 +101,7 @@
 
 	if (indexSet && [indexSet firstIndex] != NSNotFound) {
 		selectedUSBDrive = self.usbArrayForContentView[[indexSet firstIndex]];
-	}
-	else {
+	} else {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"No USB drive selected.", nil)];
@@ -165,8 +164,7 @@
 
 		// Bail.
 		return;
-	}
-	else {
+	} else {
 		NSLog(@"Obtained security scoped bookmark for USB %@.", targetUSBName);
 	}
 

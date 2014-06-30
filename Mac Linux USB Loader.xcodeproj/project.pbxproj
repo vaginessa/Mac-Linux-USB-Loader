@@ -12,6 +12,7 @@
 		24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101B861896D4A300EDE32C /* SBAboutWindowController.m */; };
 		24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */; };
 		24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24101B8D1896D4DF00EDE32C /* QuartzCore.framework */; };
+		2412CAEC1960E9E700501D7A /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412CAEB1960E9E700501D7A /* DownloadOperation.m */; };
 		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
@@ -92,6 +93,8 @@
 		24101B861896D4A300EDE32C /* SBAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAboutWindowController.m; sourceTree = "<group>"; };
 		24101B8B1896D4AF00EDE32C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBAboutWindowController.xib; sourceTree = "<group>"; };
 		24101B8D1896D4DF00EDE32C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2412CAEA1960E9E700501D7A /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
+		2412CAEB1960E9E700501D7A /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
 		24155CC218903AAB00FAB98C /* mke2fs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mke2fs; sourceTree = "<group>"; };
 		24155CC618903B3800FAB98C /* SBPersistenceManagerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPersistenceManagerWindowController.h; sourceTree = "<group>"; };
 		24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPersistenceManagerWindowController.m; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 		24D75F96188AEBCC00FF5ADC /* Core Classes and XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				2412CAEA1960E9E700501D7A /* DownloadOperation.h */,
+				2412CAEB1960E9E700501D7A /* DownloadOperation.m */,
 				24B9F03418986EE4002A3697 /* SBGlobals.h */,
 				2420474E18849C8B00ECAAFE /* SBAppDelegate.h */,
 				2420474F18849C8B00ECAAFE /* SBAppDelegate.m */,
@@ -524,6 +529,7 @@
 				2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */,
 				24245F3218D222250085C43F /* NSString+Extensions.m in Sources */,
 				24B29B5A193270970009C3D8 /* SBDownloadMirrorModel.m in Sources */,
+				2412CAEC1960E9E700501D7A /* DownloadOperation.m in Sources */,
 				24B9F037189870D6002A3697 /* NSFileManager+DirectoryLocations.m in Sources */,
 				24B322FA18A00E4900A5E25E /* SBGeneralPreferencesViewController.m in Sources */,
 				24680E4F18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m in Sources */,
