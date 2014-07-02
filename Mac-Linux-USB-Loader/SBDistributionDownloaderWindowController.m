@@ -25,6 +25,7 @@
 
 @property (nonatomic, strong) id jsonRecieved;
 @property (nonatomic, strong) SBDownloadableDistributionModel *downloadDistroModel;
+@property (nonatomic, strong) NSMutableDictionary *modelDictionary;
 @property (nonatomic, strong) NSOperationQueue *downloadQueue;
 @property NSInteger numberOfActiveDownloadOperations;
 
@@ -35,12 +36,10 @@
 #pragma mark - Object Setup
 - (id)initWithWindow:(NSWindow *)window {
 	self = [super initWithWindow:window];
+	self.modelDictionary = [[NSMutableDictionary alloc] initWithCapacity:5];
 	if (self) {
 		// First things first. Grab the JSON.
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		    // Grab our JSON, but do it on a background thread so we don't slow down the GUI.
-		    [self setupJSON];
-		});
+		[self setupJSON];
 
 		// Setup our operation queues.
 		self.downloadQueue = [[NSOperationQueue alloc] init];
@@ -50,22 +49,28 @@
 }
 
 - (void)setupJSON {
-	NSURL *url = [NSURL URLWithString:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/Linux-Mint.json"];
+	for (NSString *distroName in [[NSApp delegate] supportedDistributions]) {
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			NSError *err;
+		    // Grab our JSON, but do it on a background thread so we don't slow down the GUI.
+			NSString *temp = [NSString stringWithFormat:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/%@.json", [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
+			NSURL *url = [NSURL URLWithString:temp];
 
-	NSError *err;
-	NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
-	if (!err) {
-		//NSLog(@"Recieved JSON data: %@", strCon);
-		[self processJSON:strCon];
-	} else {
-		dispatch_async(dispatch_get_main_queue(), ^{
-		    NSAlert *alert = [NSAlert alertWithError:err];
-		    [alert runModal];
+			NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
+			if (!err) {
+				//NSLog(@"Recieved JSON data: %@", strCon);
+				[self processJSON:strCon forDistributionNamed:distroName];
+			} else {
+				dispatch_async(dispatch_get_main_queue(), ^{
+					NSAlert *alert = [NSAlert alertWithError:err];
+					[alert runModal];
+				});
+			}
 		});
 	}
 }
 
-- (void)processJSON:(NSString *)json {
+- (void)processJSON:(NSString *)json forDistributionNamed:(NSString *)distroName {
 	JSONModelError *error;
 	self.downloadDistroModel = [[SBDownloadableDistributionModel alloc] initWithString:json error:&error];
 	if (error) {
@@ -77,6 +82,9 @@
 	else {
 		//SBLogObject(self.downloadDistroModel);
 		self.distroImageView.image = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:self.downloadDistroModel.imageURL]];
+		NSString *temp = [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+
+		if (self.downloadDistroModel) self.modelDictionary[temp] = self.downloadDistroModel;
 	}
 }
 
@@ -132,6 +140,10 @@
 	return YES;
 }
 
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	// Empty
+}
+
 #pragma mark - UI
 - (void)placeAccessoryView {
 	NSView *themeFrame = [[self.window contentView] superview];
@@ -147,8 +159,7 @@
 		                      c.size.height - aV.size.height,    // y position
 		                      aV.size.width,    // width
 		                      aV.size.height);    // height
-	}
-	else {
+	} else {
 		newFrame = NSMakeRect(c.size.width - aV.size.width - 5, // x position
 		                      c.size.height - aV.size.height, // y position
 		                      aV.size.width, // width
@@ -160,7 +171,22 @@
 }
 
 - (IBAction)downloadDistroButtonPressed:(id)sender {
+	NSInteger selectedDistro = [self.tableView selectedRow];
+	NSString *temp = [[[NSApp delegate] supportedDistributions] objectAtIndex:selectedDistro];
+	temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+	
+	if (!self.modelDictionary[temp]) {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"Can't download this distribution.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+		return;
+	}
 	// Ideally, we'd support the new sheet API, but we need to still support 10.8...
+	self.downloadDistroModel = self.modelDictionary[temp];
 	[NSApp beginSheet:self.downloadSettingsPanel modalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
 	[self.distroMirrorCountrySelector removeAllItems];
 
