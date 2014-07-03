@@ -158,10 +158,11 @@
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
 	NSInteger row = [self.tableView selectedRow];
-	/*if (row == -1) {
+	if (row == -1) {
 		[self.distroNameLabel setStringValue:@""];
 		[self.distroImageView setImage:nil];
-	}*/
+		return;
+	}
 
 	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:row];
 	[self.distroNameLabel setStringValue:[NSString stringWithFormat:@"%@ %@",
