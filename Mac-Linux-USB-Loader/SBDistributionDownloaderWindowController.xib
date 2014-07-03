@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -11,6 +11,7 @@
                 <outlet property="distroImageView" destination="NYe-J1-MI2" id="q6K-xT-XR2"/>
                 <outlet property="distroMirrorCountrySelector" destination="m4J-OS-S9v" id="49x-t3-7kf"/>
                 <outlet property="distroNameLabel" destination="Ul9-Ie-l8T" id="sBZ-Mf-vlf"/>
+                <outlet property="downloadDistroButton" destination="h8j-38-923" id="izb-9x-iJq"/>
                 <outlet property="downloadSettingsPanel" destination="dxA-hL-HgN" id="MD0-73-cWi"/>
                 <outlet property="tableView" destination="vwt-RC-84e" id="vfr-48-1b6"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
@@ -216,7 +217,7 @@
                                     </constraints>
                                     <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="UMo-LO-E1T" id="DOr-Z9-okm">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
+                                        <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="MXN-UG-9v0">
                                             <items>
                                                 <menuItem title="Item 1" state="on" id="UMo-LO-E1T"/>
@@ -240,7 +241,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="push" title="64-bit" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="a8S-i1-3Ey" id="yqf-CI-lyD">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
+                                        <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="PGL-sf-a57">
                                             <items>
                                                 <menuItem title="64-bit" state="on" id="a8S-i1-3Ey"/>

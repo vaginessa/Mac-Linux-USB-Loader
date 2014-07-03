@@ -22,14 +22,18 @@
 @property (weak) IBOutlet NSPopUpButton *distroMirrorCountrySelector;
 @property (weak) IBOutlet NSImageView *distroImageView;
 @property (weak) IBOutlet NSTextField *distroNameLabel;
+@property (weak) IBOutlet NSButton *downloadDistroButton;
 
-@property (nonatomic, strong) id jsonRecieved;
-@property (nonatomic, strong) SBDownloadableDistributionModel *downloadDistroModel;
-@property (nonatomic, strong) NSMutableDictionary *modelDictionary;
+@property (atomic, strong) id jsonRecieved;
+@property NSInteger numberOfFinishedJsonRequests;
+@property (atomic, strong) SBDownloadableDistributionModel *downloadDistroModel;
+@property (atomic, strong) NSMutableDictionary *modelDictionary;
+@property (strong) NSLock *mdLock;
+@property (atomic, strong) NSMutableDictionary *imageDictionary;
+@property (strong) NSLock *idLock;
+
 @property (nonatomic, strong) NSOperationQueue *downloadQueue;
 @property NSInteger numberOfActiveDownloadOperations;
-
-@property NSInteger numberOfFinishedJsonRequests;
 
 @end
 
@@ -39,6 +43,9 @@
 - (id)initWithWindow:(NSWindow *)window {
 	self = [super initWithWindow:window];
 	self.modelDictionary = [[NSMutableDictionary alloc] initWithCapacity:5];
+	self.imageDictionary = [[NSMutableDictionary alloc] initWithCapacity:5];
+	self.mdLock = [[NSLock alloc] init];
+	self.idLock = [[NSLock alloc] init];
 	if (self) {
 		// First things first. Grab the JSON.
 		[self setupJSON];
@@ -50,6 +57,10 @@
 	return self;
 }
 
+- (void)awakeFromNib {
+	[self.downloadDistroButton setEnabled:NO];
+}
+
 - (void)setupJSON {
 	for (NSString *distroName in [[NSApp delegate] supportedDistributions]) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -59,7 +70,7 @@
 			NSURL *url = [NSURL URLWithString:temp];
 
 			NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
-			if (!err) {
+			if (!err || strCon) {
 				//NSLog(@"Recieved JSON data: %@", strCon);
 				[self processJSON:strCon forDistributionNamed:distroName];
 			} else {
@@ -73,21 +84,32 @@
 }
 
 - (void)processJSON:(NSString *)json forDistributionNamed:(NSString *)distroName {
+	[self.mdLock lock];
 	JSONModelError *error;
 	self.downloadDistroModel = [[SBDownloadableDistributionModel alloc] initWithString:json error:&error];
 	if (error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
+			NSLog(@"%@: %@", distroName, [error localizedDescription]);
 		    NSAlert *alert = [NSAlert alertWithError:error];
 		    [alert runModal];
 		});
 	} else {
 		//SBLogObject(self.downloadDistroModel);
-		self.distroImageView.image = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:self.downloadDistroModel.imageURL]];
-		NSString *temp = [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+		[self.idLock lock];
+		NSString *convertedName = [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+		NSImage *img = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:self.downloadDistroModel.imageURL]];
+		if (img) self.imageDictionary[convertedName] = img;
+		[self.idLock unlock];
 
-		if (self.downloadDistroModel) self.modelDictionary[temp] = self.downloadDistroModel;
-		self.numberOfFinishedJsonRequests++;
+		if (self.downloadDistroModel) self.modelDictionary[convertedName] = self.downloadDistroModel;
 	}
+
+	self.numberOfFinishedJsonRequests++;
+
+	if (self.numberOfFinishedJsonRequests == [[[NSApp delegate] supportedDistributions] count]) {
+		[self.downloadDistroButton setEnabled:YES];
+	}
+	[self.mdLock unlock];
 }
 
 - (void)windowDidLoad {
@@ -134,12 +156,22 @@
 	return NO;
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+	NSInteger row = [self.tableView selectedRow];
+	/*if (row == -1) {
+		[self.distroNameLabel setStringValue:@""];
+		[self.distroImageView setImage:nil];
+	}*/
+
 	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:row];
 	[self.distroNameLabel setStringValue:[NSString stringWithFormat:@"%@ %@",
 	                                      [[[NSApp delegate] supportedDistributions] objectAtIndex:row],
 	                                      [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
-	return YES;
+
+
+	NSString *convertedName = [distribution stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+	NSImage *img = self.imageDictionary[convertedName];
+	if (img) self.distroImageView.image = img;
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
@@ -187,6 +219,7 @@
 
 	NSString *temp = [[[NSApp delegate] supportedDistributions] objectAtIndex:selectedDistro];
 	temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+	SBLogObject(temp);
 	
 	if (!self.modelDictionary[temp]) {
 		NSAlert *alert = [[NSAlert alloc] init];
@@ -200,12 +233,13 @@
 	}
 	// Ideally, we'd support the new sheet API, but we need to still support 10.8...
 	self.downloadDistroModel = self.modelDictionary[temp];
-	[NSApp beginSheet:self.downloadSettingsPanel modalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
 	[self.distroMirrorCountrySelector removeAllItems];
 
 	for (SBDownloadMirrorModel *model in [self.downloadDistroModel mirrors]) {
 		[self.distroMirrorCountrySelector addItemWithTitle:model.countryLong];
 	}
+
+	[NSApp beginSheet:self.downloadSettingsPanel modalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }
 
 - (IBAction)closeDownloadDistroSheetPressed:(id)sender {
