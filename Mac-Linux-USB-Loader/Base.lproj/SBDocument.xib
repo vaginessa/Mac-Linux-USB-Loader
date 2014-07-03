@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -8,7 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SBDocument">
             <connections>
                 <outlet property="arrayController" destination="7gT-CA-Kky" id="CTx-js-ekS"/>
-                <outlet property="enterpriseSourceSelector" destination="20Z-On-Y09" id="Llc-SY-h5f"/>
+                <outlet property="enterpriseSourceSelector" destination="3qA-qj-K0g" id="SDh-QA-Ih3"/>
                 <outlet property="installationProgressBar" destination="bdV-ll-emw" id="Ct4-mC-KVI"/>
                 <outlet property="usbDriveSelector" destination="9br-dw-B95" id="Z1o-q1-ekS"/>
                 <outlet property="window" destination="5" id="18"/>
@@ -107,27 +107,25 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="333" height="94"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="20Z-On-Y09">
-                                                                        <rect key="frame" x="17" y="50" width="299" height="26"/>
+                                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3qA-qj-K0g">
+                                                                        <rect key="frame" x="18" y="50" width="298" height="26"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                        <popUpButtonCell key="cell" type="push" title="----" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" inset="2" pullsDown="YES" id="idh-L0-Crr">
-                                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                            <font key="font" metaFont="menu"/>
-                                                                            <menu key="menu" title="OtherViews" id="g6h-3d-jOf">
+                                                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="MSR-3v-sqh">
+                                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                            <font key="font" metaFont="system"/>
+                                                                            <menu key="menu" title="OtherViews" id="e20-PA-yfy">
                                                                                 <items>
-                                                                                    <menuItem title="----" hidden="YES" id="HRA-ON-IVa">
-                                                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                    </menuItem>
+                                                                                    <menuItem title="----" id="5fE-EX-u3R"/>
                                                                                 </items>
                                                                             </menu>
                                                                         </popUpButtonCell>
                                                                     </popUpButton>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="20Z-On-Y09" firstAttribute="leading" secondItem="Vgi-Dz-efq" secondAttribute="leading" constant="20" symbolic="YES" id="DsX-fr-Txs"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="20Z-On-Y09" secondAttribute="bottom" constant="53" id="etz-hH-vwU"/>
-                                                                    <constraint firstItem="20Z-On-Y09" firstAttribute="top" secondItem="Vgi-Dz-efq" secondAttribute="top" constant="20" symbolic="YES" id="m3i-1z-JFC"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="20Z-On-Y09" secondAttribute="trailing" constant="20" symbolic="YES" id="nyc-e2-dza"/>
+                                                                    <constraint firstItem="3qA-qj-K0g" firstAttribute="leading" secondItem="Vgi-Dz-efq" secondAttribute="leading" constant="20" symbolic="YES" id="2IG-51-UZG"/>
+                                                                    <constraint firstItem="3qA-qj-K0g" firstAttribute="top" secondItem="Vgi-Dz-efq" secondAttribute="top" constant="20" symbolic="YES" id="dk9-Ee-M8j"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="3qA-qj-K0g" secondAttribute="bottom" constant="53" id="sFM-Y1-sLP"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="3qA-qj-K0g" secondAttribute="trailing" constant="20" symbolic="YES" id="tPU-hu-sk5"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>

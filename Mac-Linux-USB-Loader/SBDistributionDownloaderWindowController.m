@@ -29,6 +29,8 @@
 @property (nonatomic, strong) NSOperationQueue *downloadQueue;
 @property NSInteger numberOfActiveDownloadOperations;
 
+@property NSInteger numberOfFinishedJsonRequests;
+
 @end
 
 @implementation SBDistributionDownloaderWindowController
@@ -78,13 +80,13 @@
 		    NSAlert *alert = [NSAlert alertWithError:error];
 		    [alert runModal];
 		});
-	}
-	else {
+	} else {
 		//SBLogObject(self.downloadDistroModel);
 		self.distroImageView.image = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:self.downloadDistroModel.imageURL]];
 		NSString *temp = [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 
 		if (self.downloadDistroModel) self.modelDictionary[temp] = self.downloadDistroModel;
+		self.numberOfFinishedJsonRequests++;
 	}
 }
 
@@ -172,6 +174,17 @@
 
 - (IBAction)downloadDistroButtonPressed:(id)sender {
 	NSInteger selectedDistro = [self.tableView selectedRow];
+	if (selectedDistro == -1) {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"No distribution selected.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"You must select the distribution that you wish to download.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+		return;
+	}
+
 	NSString *temp = [[[NSApp delegate] supportedDistributions] objectAtIndex:selectedDistro];
 	temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 	
