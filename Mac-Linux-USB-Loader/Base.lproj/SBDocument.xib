@@ -123,6 +123,9 @@
                                                                     <constraint firstAttribute="bottom" secondItem="3qA-qj-K0g" secondAttribute="bottom" constant="53" id="sFM-Y1-sLP"/>
                                                                     <constraint firstAttribute="trailing" secondItem="3qA-qj-K0g" secondAttribute="trailing" constant="20" symbolic="YES" id="tPU-hu-sk5"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <outlet property="menu" destination="djN-uI-KMi" id="ERC-Ag-JCO"/>
+                                                                </connections>
                                                             </view>
                                                         </subviews>
                                                         <constraints>

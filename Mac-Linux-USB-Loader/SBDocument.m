@@ -219,10 +219,21 @@
 }
 
 - (IBAction)refreshUSBListing:(id)sender {
+	// Refresh the list of USBs.
 	[self.usbArrayForContentView removeAllObjects];
 
 	[[NSApp delegate] detectAndSetupUSBs];
 	[self setupUSBDriveSelector];
+
+	// Refresh the list of Enterprise sources.
+	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:3];
+	[array removeAllObjects];
+	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] enterpriseInstallLocations]];
+	for (NSString *usb in enterpriseSourcesDictionary) {
+		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
+	}
+
+	[self.enterpriseSourceSelector addItemsWithTitles:array];
 }
 
 #pragma mark - Delegates
