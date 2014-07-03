@@ -113,11 +113,7 @@
                                                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="MSR-3v-sqh">
                                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                             <font key="font" metaFont="system"/>
-                                                                            <menu key="menu" title="OtherViews" id="e20-PA-yfy">
-                                                                                <items>
-                                                                                    <menuItem title="----" id="5fE-EX-u3R"/>
-                                                                                </items>
-                                                                            </menu>
+                                                                            <menu key="menu" title="OtherViews" id="e20-PA-yfy"/>
                                                                         </popUpButtonCell>
                                                                     </popUpButton>
                                                                 </subviews>
