@@ -227,12 +227,12 @@
 
 	// Refresh the list of Enterprise sources.
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:3];
-	[array removeAllObjects];
 	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] enterpriseInstallLocations]];
 	for (NSString *usb in enterpriseSourcesDictionary) {
 		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
 	}
 
+	[self.enterpriseSourceSelector removeAllItems];
 	[self.enterpriseSourceSelector addItemsWithTitles:array];
 }
 

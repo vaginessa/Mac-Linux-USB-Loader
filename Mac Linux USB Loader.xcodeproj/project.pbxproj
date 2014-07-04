@@ -16,6 +16,8 @@
 		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
+		2415E65C196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2415E65A196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m */; };
+		2415E65D196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2415E65B196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.xib */; };
 		24194C7A18DBA29800CFF588 /* SBSelectableCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 24194C7918DBA29800CFF588 /* SBSelectableCollectionViewItem.m */; };
 		24194C7D18DBA41900CFF588 /* SBSelectableCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24194C7C18DBA41900CFF588 /* SBSelectableCollectionView.m */; };
 		2420475018849C8B00ECAAFE /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420474F18849C8B00ECAAFE /* SBAppDelegate.m */; };
@@ -99,6 +101,9 @@
 		24155CC618903B3800FAB98C /* SBPersistenceManagerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPersistenceManagerWindowController.h; sourceTree = "<group>"; };
 		24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPersistenceManagerWindowController.m; sourceTree = "<group>"; };
 		24155CCC18903B4500FAB98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBPersistenceManagerWindowController.xib; sourceTree = "<group>"; };
+		2415E659196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDistributionDownloaderPreferencesViewController.h; sourceTree = "<group>"; };
+		2415E65A196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDistributionDownloaderPreferencesViewController.m; sourceTree = "<group>"; };
+		2415E65B196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDistributionDownloaderPreferencesViewController.xib; sourceTree = "<group>"; };
 		24194C7818DBA29800CFF588 /* SBSelectableCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSelectableCollectionViewItem.h; sourceTree = "<group>"; };
 		24194C7918DBA29800CFF588 /* SBSelectableCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSelectableCollectionViewItem.m; sourceTree = "<group>"; };
 		24194C7B18DBA41900CFF588 /* SBSelectableCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSelectableCollectionView.h; sourceTree = "<group>"; };
@@ -325,6 +330,9 @@
 				24680E4C18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.h */,
 				24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */,
 				24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */,
+				2415E659196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.h */,
+				2415E65A196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m */,
+				2415E65B196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.xib */,
 			);
 			name = "Preferences View Controllers";
 			sourceTree = "<group>";
@@ -464,6 +472,7 @@
 				24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */,
 				24E0A596191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib in Resources */,
 				24A4EC921884966A00CE6CF0 /* Images.xcassets in Resources */,
+				2415E65D196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.xib in Resources */,
 				24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */,
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
 				24B322FD18A0123F00A5E25E /* defaults.plist in Resources */,
@@ -541,6 +550,7 @@
 				24A4EC8A1884966A00CE6CF0 /* SBDocument.m in Sources */,
 				24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */,
 				249DF3F2189D7A3F00FECE0A /* NSFileManager+Extensions.m in Sources */,
+				2415E65C196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m in Sources */,
 				24B29B5719326F6C0009C3D8 /* SBDownloadableDistributionModel.m in Sources */,
 				240F98A118B060AD001EAE87 /* SBEnterpriseSourceLocation.m in Sources */,
 			);
@@ -722,7 +732,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -741,7 +751,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

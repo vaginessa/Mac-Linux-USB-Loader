@@ -264,6 +264,12 @@
 	downloadOperation.downloadCompletionBlock = ^(DownloadOperation *operation, BOOL success, NSError *error) {
 		if (error) {
 			NSLog(@"%s: downloadCompletionBlock error: %@", __FUNCTION__, error);
+		} else {
+			/* The download was completed successfully. TODO: Show a notification. */
+
+			// Open the downloaded ISO file.
+			NSURL *url = [NSURL fileURLWithPath:operation.path];
+			[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}];
 		}
 
 		self.numberOfActiveDownloadOperations--;

@@ -9,6 +9,7 @@
 #import "SBAppDelegate.h"
 #import "SBGeneralPreferencesViewController.h"
 #import "SBEnterprisePreferencesViewController.h"
+#import "SBDistributionDownloaderPreferencesViewController.h"
 #import "SBEnterpriseSourceLocation.h"
 
 #import "NSFileManager+Extensions.h"
@@ -158,8 +159,9 @@
 	if (!self.preferencesWindowController) {
 		SBGeneralPreferencesViewController *generalPreferences = [[SBGeneralPreferencesViewController alloc] initWithNibName:@"SBGeneralPreferencesViewController" bundle:nil];
 		SBEnterprisePreferencesViewController *enterprisePreferences = [[SBEnterprisePreferencesViewController alloc] initWithNibName:@"SBEnterprisePreferencesViewController" bundle:nil];
+		SBDistributionDownloaderPreferencesViewController *downloaderPreferences = [[SBDistributionDownloaderPreferencesViewController alloc] initWithNibName:@"SBDistributionDownloaderPreferencesViewController" bundle:nil];
 
-		NSArray *controllers = @[generalPreferences, enterprisePreferences,
+		NSArray *controllers = @[generalPreferences, enterprisePreferences, downloaderPreferences,
 		                         [RHPreferencesWindowController flexibleSpacePlaceholderController]];
 		self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", nil)];
 	}

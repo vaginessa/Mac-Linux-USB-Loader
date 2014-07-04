@@ -4,5 +4,9 @@
 <dict>
 	<key>AcceptHFSDrives</key>
 	<false/>
+	<key>SimultaneousDownloadOperationsNumber</key>
+	<integer>4</integer>
+	<key>DefaultOperationUponISODownloadCompletion</key>
+	<integer>2</integer>
 </dict>
 </plist>
