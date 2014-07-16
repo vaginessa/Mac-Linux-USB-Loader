@@ -26,7 +26,7 @@ typedef enum {
 }
 
 #pragma mark - Class methods
-+ (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSInteger)size withWindow:(NSWindow *)window {
++ (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSUInteger)size withWindow:(NSWindow *)window {
 	// Initalize the NSTask.
 	NSTask *task = [[NSTask alloc] init];
 	task.launchPath = @"/bin/dd";

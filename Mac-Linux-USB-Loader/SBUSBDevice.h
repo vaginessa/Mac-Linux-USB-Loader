@@ -26,7 +26,7 @@
  * @param size An integer size, in megabytes, of the file.
  * @param window The window from which to display popup alerts. Currently unused.
  */
-+ (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSInteger)size withWindow:(NSWindow *)window;
++ (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSUInteger)size withWindow:(NSWindow *)window;
 
 /**
  * Uses an internal Mac Linux USB Loader tool to create a loopback ext4 filesystem inside of the

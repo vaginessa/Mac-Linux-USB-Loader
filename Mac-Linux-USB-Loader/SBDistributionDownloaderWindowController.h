@@ -15,5 +15,6 @@
 - (IBAction)downloadDistroButtonPressed:(id)sender;
 - (IBAction)closeDownloadDistroSheetPressed:(id)sender;
 - (IBAction)commenceDownload:(id)sender;
+- (IBAction)viewInProgressDownloads:(id)sender;
 
 @end

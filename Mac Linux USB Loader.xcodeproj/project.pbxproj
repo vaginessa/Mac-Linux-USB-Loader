@@ -51,6 +51,7 @@
 		24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F98188AEC2300FF5ADC /* SBUSBDevice.m */; };
 		24E0A595191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E0A593191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m */; };
 		24E0A596191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E0A594191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib */; };
+		24E4F8D3196A0DF4002767C8 /* NSAlert+Popover.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E4F8D2196A0DF4002767C8 /* NSAlert+Popover.m */; };
 		B4383D6F79C144C58D8B337A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F38667D994A74956919B4A54 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +162,8 @@
 		24E0A592191D7CFF0043C24A /* SBDistributionDownloaderWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDistributionDownloaderWindowController.h; sourceTree = "<group>"; };
 		24E0A593191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDistributionDownloaderWindowController.m; sourceTree = "<group>"; };
 		24E0A594191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDistributionDownloaderWindowController.xib; sourceTree = "<group>"; };
+		24E4F8D1196A0DF4002767C8 /* NSAlert+Popover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+Popover.h"; sourceTree = "<group>"; };
+		24E4F8D2196A0DF4002767C8 /* NSAlert+Popover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+Popover.m"; sourceTree = "<group>"; };
 		24F727C418BAC13B00B16013 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
 		97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F38667D994A74956919B4A54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +217,8 @@
 				24194C7C18DBA41900CFF588 /* SBSelectableCollectionView.m */,
 				2424764A194A180A0083033B /* NSProcessInfo+PECocoaBackports.h */,
 				2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */,
+				24E4F8D1196A0DF4002767C8 /* NSAlert+Popover.h */,
+				24E4F8D2196A0DF4002767C8 /* NSAlert+Popover.m */,
 			);
 			name = "Apple Class Extensions and Subclasses";
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 				24194C7D18DBA41900CFF588 /* SBSelectableCollectionView.m in Sources */,
 				24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */,
 				24D39C0618DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.m in Sources */,
+				24E4F8D3196A0DF4002767C8 /* NSAlert+Popover.m in Sources */,
 				24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */,
 				24A4EC831884966A00CE6CF0 /* main.m in Sources */,
 				24A4EC8A1884966A00CE6CF0 /* SBDocument.m in Sources */,

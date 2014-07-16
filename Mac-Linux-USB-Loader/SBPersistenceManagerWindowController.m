@@ -82,7 +82,6 @@
 
 	NSString *selectedUSB = [self.usbSelectorPopup objectValueOfSelectedItem];
 	spanel = [NSSavePanel savePanel];
-	[spanel setMessage:NSLocalizedString(@"You must authorize file creation on this USB. Click Save below.", nil)];
 	[spanel setDirectoryURL:[NSURL URLWithString:[dict[selectedUSB] path]]];
 	[spanel setNameFieldStringValue:@"casper-rw"];
 	[spanel setCanCreateDirectories:NO];

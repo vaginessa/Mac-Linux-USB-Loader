@@ -114,7 +114,11 @@
 }
 
 - (void)readEnterpriseSourceLocationsFromDisk:(NSString *)path {
-	self.enterpriseInstallLocations = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+	@try {
+		self.enterpriseInstallLocations = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+	} @catch (NSException *exception) {
+		NSLog(@"Couldn't decode Enterprise source file locations.");
+	}
 }
 
 - (void)detectAndSetupUSBs {

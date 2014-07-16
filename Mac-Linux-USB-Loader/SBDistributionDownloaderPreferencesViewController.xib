@@ -29,7 +29,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="every time the panel is opened" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="e55-TU-yl1" id="VPG-ks-jwb">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" title="OtherViews" id="gyq-Up-jkl">
                                         <items>
                                             <menuItem title="every time the panel is opened" state="on" id="e55-TU-yl1"/>
@@ -104,7 +104,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HM1-hQ-USq">
-                    <rect key="frame" x="20" y="105" width="442" height="17"/>
+                    <rect key="frame" x="18" y="105" width="444" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="When a download has completed:" id="pf6-Co-bXh">
                         <font key="font" metaFont="system"/>
@@ -113,10 +113,10 @@
                     </textFieldCell>
                 </textField>
                 <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDY-Bg-bvP">
-                    <rect key="frame" x="34" y="39" width="426" height="58"/>
+                    <rect key="frame" x="32" y="39" width="428" height="58"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    <size key="cellSize" width="426" height="18"/>
+                    <size key="cellSize" width="428" height="18"/>
                     <size key="intercellSpacing" width="4" height="2"/>
                     <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="pwa-Ux-7V3">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -158,8 +158,8 @@
                 <constraint firstItem="shH-60-TdE" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="fYq-nL-cM1"/>
                 <constraint firstItem="FME-ii-R0b" firstAttribute="leading" secondItem="shH-60-TdE" secondAttribute="leading" id="gkl-ai-aly"/>
                 <constraint firstItem="Sps-jS-QR2" firstAttribute="leading" secondItem="1vt-Cf-z68" secondAttribute="trailing" constant="10" id="gy7-6O-Ure"/>
-                <constraint firstItem="nDY-Bg-bvP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="htU-4X-B0G"/>
-                <constraint firstItem="HM1-hQ-USq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="22" id="roX-Gk-ESF"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="htU-4X-B0G"/>
+                <constraint firstItem="HM1-hQ-USq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="roX-Gk-ESF"/>
                 <constraint firstAttribute="bottom" secondItem="nDY-Bg-bvP" secondAttribute="bottom" constant="39" id="v2U-Vt-Rld"/>
                 <constraint firstItem="Sps-jS-QR2" firstAttribute="top" secondItem="shH-60-TdE" secondAttribute="bottom" constant="8" id="zpN-cg-yao"/>
             </constraints>

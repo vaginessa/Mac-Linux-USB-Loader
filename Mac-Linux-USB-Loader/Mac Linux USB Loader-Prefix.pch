@@ -7,6 +7,7 @@
 #ifdef __OBJC__
 	#import <Cocoa/Cocoa.h>
 
+	#import "NSAlert+Popover.h"
 	#import "NSFileManager+DirectoryLocations.h"
 	#import "NSFileManager+Extensions.h"
 	#import "NSProcessInfo+PECocoaBackports.h"

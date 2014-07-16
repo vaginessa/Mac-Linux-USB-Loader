@@ -23,6 +23,7 @@
 @property (weak) IBOutlet NSImageView *distroImageView;
 @property (weak) IBOutlet NSTextField *distroNameLabel;
 @property (weak) IBOutlet NSButton *downloadDistroButton;
+@property (weak) IBOutlet NSButton *accessoryViewButton;
 
 @property (atomic, strong) id jsonRecieved;
 @property NSInteger numberOfFinishedJsonRequests;
@@ -282,6 +283,18 @@
 	[self.downloadQueue addOperation:downloadOperation];
 	[self closeDownloadDistroSheetPressed:nil];
 	self.numberOfActiveDownloadOperations++;
+}
+
+- (IBAction)viewInProgressDownloads:(id)sender {
+	NSAlert *alert = [NSAlert alertWithMessageText:@"Do you really want to delete this item?"
+                                     defaultButton:@"Delete"
+                                   alternateButton:@"Learn more"
+                                       otherButton:@"Cancel"
+                         informativeTextWithFormat:@"Deleting this item will erase all associated data in the database. Click learn more if you need additional information."];
+
+	[alert runAsPopoverForView:self.accessoryViewButton withCompletionBlock:^(NSInteger result) {
+		// handle result
+	}];
 }
 
 @end

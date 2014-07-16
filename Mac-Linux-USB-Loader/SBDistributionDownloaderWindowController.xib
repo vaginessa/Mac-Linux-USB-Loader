@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SBDistributionDownloaderWindowController">
             <connections>
                 <outlet property="accessoryView" destination="uXa-ZR-DbK" id="dNc-ZI-FcM"/>
+                <outlet property="accessoryViewButton" destination="F2M-qt-irJ" id="eel-Bh-jQq"/>
                 <outlet property="distroImageView" destination="NYe-J1-MI2" id="q6K-xT-XR2"/>
                 <outlet property="distroMirrorCountrySelector" destination="m4J-OS-S9v" id="49x-t3-7kf"/>
                 <outlet property="distroNameLabel" destination="Ul9-Ie-l8T" id="sBZ-Mf-vlf"/>
@@ -164,6 +165,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="viewInProgressDownloads:" target="-2" id="O4W-yk-dSs"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
