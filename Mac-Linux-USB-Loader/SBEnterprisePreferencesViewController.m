@@ -44,7 +44,7 @@
 }
 
 - (NSImage *)toolbarItemImage {
-	return [NSImage imageNamed:@"UEFILogo"];
+	return [NSImage imageNamed:@"EnterpriseLogo"];
 }
 
 - (NSString *)toolbarItemLabel {
