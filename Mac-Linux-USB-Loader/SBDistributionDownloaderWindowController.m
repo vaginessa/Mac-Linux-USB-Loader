@@ -31,6 +31,9 @@
 @property (strong) IBOutlet SBDistributionDownloaderDownloadsDataSource *downloadQueueDataSource;
 @property (weak) IBOutlet NSTableView *downloadQueueTableView;
 
+@property (strong) id activity;
+@property (strong) NSUserDefaults *defaults;
+
 @end
 
 @implementation SBDistributionDownloaderWindowController
@@ -47,8 +50,11 @@
 		[self setupJSON];
 
 		// Setup our operation queues.
+		self.defaults = [NSUserDefaults standardUserDefaults];
+		NSInteger concurrentOperationsCount = [self.defaults integerForKey:@"SimultaneousDownloadOperationsNumber"];
+
 		self.downloadQueue = [[NSOperationQueue alloc] init];
-		self.downloadQueue.maxConcurrentOperationCount = 4; // Slightly arbitrary
+		self.downloadQueue.maxConcurrentOperationCount = concurrentOperationsCount;
 	}
 	return self;
 }
@@ -57,6 +63,7 @@
 	[self.downloadDistroButton setEnabled:NO];
 	[self.downloadQueuePopover setBehavior:NSPopoverBehaviorTransient];
 	[self.downloadQueueDataSource setPrefsViewController:self];
+	[self.downloadQueueDataSource setTableView:self.downloadQueueTableView];
 }
 
 - (void)setupJSON {
@@ -256,6 +263,13 @@
 	                                                                 [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
 	                                                                 [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
 
+	// Inform the system that we are starting this operation.
+	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
+		if (!self.activity) {
+			self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityAutomaticTerminationDisabled reason:@"ISO Download"];
+		}
+	}
+
 	self.numberOfActiveDownloadOperations++;
 	SBDownloadMirrorModel *model = self.downloadDistroModel.mirrors[selectedItem];
 	NSURL *url = [NSURL URLWithString:model.url];
@@ -267,11 +281,20 @@
 			/* The download was completed successfully. TODO: Show a notification. */
 
 			// Open the downloaded ISO file.
-			NSURL *url = [NSURL fileURLWithPath:operation.path];
-			[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}];
+			SBLogInteger([self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"]);
+			if ([self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"] == 0) {
+				NSURL *url = [NSURL fileURLWithPath:operation.path];
+				[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}];
+			}
 		}
 
 		self.numberOfActiveDownloadOperations--;
+
+		if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
+			if (self.numberOfActiveDownloadOperations == 0) {
+				[[NSProcessInfo processInfo] endActivity:self.activity];
+			}
+		}
 	};
 	downloadOperation.downloadProgressBlock = ^(DownloadOperation *operation, long long progressContentLength, long long expectedContentLength) {
 		CGFloat progress = (expectedContentLength > 0 ? (CGFloat)progressContentLength / (CGFloat)expectedContentLength : (progressContentLength % 1000000l) / 1000000.0f);

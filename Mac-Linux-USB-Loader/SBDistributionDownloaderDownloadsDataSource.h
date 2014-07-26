@@ -12,5 +12,6 @@
 @interface SBDistributionDownloaderDownloadsDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (assign) SBDistributionDownloaderWindowController *prefsViewController;
+@property (assign) NSTableView *tableView;
 
 @end
