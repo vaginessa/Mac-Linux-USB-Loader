@@ -136,6 +136,10 @@ typedef void (^DownloadProgressBlock)(DownloadOperation *operation, long long pr
 
 @property (nonatomic, copy) DownloadProgressBlock downloadProgressBlock;
 
+/// Download table view row
+
+@property (nonatomic) NSInteger correspondingTableViewRow;
+
 /** Expected content length as reported by server
  *
  * Please note that this is not reliable (most HTTP servers report it, some don't, and in some rare cases, a server might not report an accurate number. This is used for estimation purposes only. Actual completion is determined by the operation's completion, not by reaching the prescribed number of bytes.

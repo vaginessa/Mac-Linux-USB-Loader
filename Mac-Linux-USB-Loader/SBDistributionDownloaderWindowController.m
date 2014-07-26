@@ -11,6 +11,8 @@
 #import "SBAppDelegate.h"
 #import "SBDownloadMirrorModel.h"
 #import "SBDownloadableDistributionModel.h"
+#import "SBDistributionDownloaderDownloadsDataSource.h"
+#import "SBDistributionDownloaderTableCellView.h"
 
 #define SBAccessoryViewEdgeOffset 25
 
@@ -25,16 +27,9 @@
 @property (weak) IBOutlet NSButton *downloadDistroButton;
 @property (weak) IBOutlet NSButton *accessoryViewButton;
 
-@property (atomic, strong) id jsonRecieved;
-@property NSInteger numberOfFinishedJsonRequests;
-@property (atomic, strong) SBDownloadableDistributionModel *downloadDistroModel;
-@property (atomic, strong) NSMutableDictionary *modelDictionary;
-@property (strong) NSLock *mdLock;
-@property (atomic, strong) NSMutableDictionary *imageDictionary;
-@property (strong) NSLock *idLock;
-
-@property (nonatomic, strong) NSOperationQueue *downloadQueue;
-@property NSInteger numberOfActiveDownloadOperations;
+@property (strong) IBOutlet NSPopover *downloadQueuePopover;
+@property (strong) IBOutlet SBDistributionDownloaderDownloadsDataSource *downloadQueueDataSource;
+@property (weak) IBOutlet NSTableView *downloadQueueTableView;
 
 @end
 
@@ -60,6 +55,8 @@
 
 - (void)awakeFromNib {
 	[self.downloadDistroButton setEnabled:NO];
+	[self.downloadQueuePopover setBehavior:NSPopoverBehaviorTransient];
+	[self.downloadQueueDataSource setPrefsViewController:self];
 }
 
 - (void)setupJSON {
@@ -259,6 +256,7 @@
 	                                                                 [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
 	                                                                 [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
 
+	self.numberOfActiveDownloadOperations++;
 	SBDownloadMirrorModel *model = self.downloadDistroModel.mirrors[selectedItem];
 	NSURL *url = [NSURL URLWithString:model.url];
 	DownloadOperation *downloadOperation = [[DownloadOperation alloc] initWithURL:url path:path];
@@ -277,16 +275,22 @@
 	};
 	downloadOperation.downloadProgressBlock = ^(DownloadOperation *operation, long long progressContentLength, long long expectedContentLength) {
 		CGFloat progress = (expectedContentLength > 0 ? (CGFloat)progressContentLength / (CGFloat)expectedContentLength : (progressContentLength % 1000000l) / 1000000.0f);
-		NSLog(@"%@: %f", operation, progress);
+		//NSLog(@"%@: %f", operation, progress);
+
+		NSInteger row = operation.correspondingTableViewRow;
+		SBDistributionDownloaderTableCellView *cellView = [self.downloadQueueTableView viewAtColumn:0 row:row makeIfNecessary:YES];
+		[cellView.progressBar setDoubleValue:progress * 100];
 	};
+	downloadOperation.correspondingTableViewRow = self.numberOfActiveDownloadOperations - 1;
 
 	[self.downloadQueue addOperation:downloadOperation];
 	[self closeDownloadDistroSheetPressed:nil];
-	self.numberOfActiveDownloadOperations++;
+	[self.downloadQueueTableView reloadData];
 }
 
 - (IBAction)viewInProgressDownloads:(id)sender {
-	NSAlert *alert = [NSAlert alertWithMessageText:@"Do you really want to delete this item?"
+	[self.downloadQueuePopover showRelativeToRect:[self.accessoryViewButton bounds] ofView:self.accessoryViewButton preferredEdge:NSMaxYEdge];
+	/*NSAlert *alert = [NSAlert alertWithMessageText:@"Do you really want to delete this item?"
                                      defaultButton:@"Delete"
                                    alternateButton:@"Learn more"
                                        otherButton:@"Cancel"
@@ -294,7 +298,7 @@
 
 	[alert runAsPopoverForView:self.accessoryViewButton withCompletionBlock:^(NSInteger result) {
 		// handle result
-	}];
+	}];*/
 }
 
 @end
