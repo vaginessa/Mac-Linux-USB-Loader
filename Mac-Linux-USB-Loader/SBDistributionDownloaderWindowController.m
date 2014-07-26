@@ -266,7 +266,7 @@
 	// Inform the system that we are starting this operation.
 	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
 		if (!self.activity) {
-			self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityAutomaticTerminationDisabled reason:@"ISO Download"];
+			self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityUserInitiated reason:@"ISO Download"];
 		}
 	}
 
@@ -281,7 +281,6 @@
 			/* The download was completed successfully. TODO: Show a notification. */
 
 			// Open the downloaded ISO file.
-			SBLogInteger([self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"]);
 			if ([self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"] == 0) {
 				NSURL *url = [NSURL fileURLWithPath:operation.path];
 				[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}];
