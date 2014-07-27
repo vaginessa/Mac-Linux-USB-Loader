@@ -138,7 +138,15 @@
 	//NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
 
 	// Set the size of the file to be the max value of the progress bar.
-	[self.installationProgressBar setMaxValue:[[manager sizeOfFileAtPath:self.fileURL.path] doubleValue]];
+	NSString *selectedEnterpriseSourceName = [self.enterpriseSourceSelector titleOfSelectedItem];
+	NSLog(@"Enterprise source: %@, index: %ld", selectedEnterpriseSourceName, selectedEnterpriseSourceIndex);
+	SBEnterpriseSourceLocation *sourceLocation = [[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
+
+	NSString *enterprisePath = [sourceLocation.path stringByAppendingPathComponent:@"bootx64.efi"];
+	NSString *grubPath = [sourceLocation.path stringByAppendingPathComponent:@"boot.efi"];
+
+	double fileSize = [[manager sizeOfFileAtPath:self.fileURL.path] doubleValue] + [[manager sizeOfFileAtPath:grubPath] doubleValue] + [[manager sizeOfFileAtPath:enterprisePath] doubleValue];
+	[self.installationProgressBar setMaxValue:fileSize];
 
 	// Disable UI components.
 	[sender setEnabled:NO];
@@ -200,6 +208,9 @@
 	}
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		SBEnterpriseSourceLocation *sourceLocation = [[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
+		SBLogObject(sourceLocation);
+		[selectedUSBDrive copyEnterpriseFiles:self withEnterpriseSource:sourceLocation toUSBDrive:selectedUSBDrive];
 	    [selectedUSBDrive copyInstallationFiles:self toUSBDrive:selectedUSBDrive];
 
 	    dispatch_async(dispatch_get_main_queue(), ^{

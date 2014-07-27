@@ -119,6 +119,11 @@
 - (void)readEnterpriseSourceLocationsFromDisk:(NSString *)path {
 	@try {
 		self.enterpriseInstallLocations = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+
+		NSString *defaultPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
+		SBEnterpriseSourceLocation *source = self.enterpriseInstallLocations[@"Included With Application"];
+		source.path = defaultPath;
+		//SBLogObject(source.path);
 	} @catch (NSException *exception) {
 		NSLog(@"Couldn't decode Enterprise source file locations.");
 	}

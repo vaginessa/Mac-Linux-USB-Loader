@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SBGlobals.h"
 #import "SBDocument.h"
+#import "SBEnterpriseSourceLocation.h"
 
 @interface SBUSBDevice : NSObject
 
@@ -39,19 +40,30 @@
 
 /**
  * Given a file name corresponding to a Linux distribution ISO, returns an indicator of which distribution
- * was selected. This method assumes that the input does not include the file's path.
+ * was selected. This method disregards the path of the file and operates on the file name only.
  *
  * @param file The path to the file that should be used.
  */
 + (SBLinuxDistribution)distributionTypeForISOName:(NSString *)fileName;
 
 /**
- * Copies the Enterprise boot loader files to the USB device represented by this object.
+ * Copies the ISO file to the USB device represented by this object.
  *
  * @param document The instance of the document class that this object belongs to.
  * @param usb An instanse of the SBUSBDevice class that represents the USB drive to install to.
  * @return YES if the operation succeeded, NO if it did not.
  */
 - (BOOL)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb;
+
+/**
+ * Copies the Enterprise boot loader to the USB device represented by this object. This method does not
+ * attempt to deal with any potential sandboxing issues, such as security scoped bookmarks, instead
+ * assuming that the user already has granted access to the target USB device.
+ *
+ * @param document The instance of the document class that this object belongs to.
+ * @param usb An instanse of the SBUSBDevice class that represents the USB drive to install to.
+ * @return YES if the operation succeeded, NO if it did not.
+ */
+- (BOOL)copyEnterpriseFiles:(SBDocument *)document withEnterpriseSource:(SBEnterpriseSourceLocation *)source toUSBDrive:(SBUSBDevice *)usb;
 
 @end

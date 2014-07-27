@@ -78,6 +78,8 @@
     self.connection = connection;
 }
 
+#pragma mark - NSOperation (required overrides)
+
 - (BOOL)isConcurrent
 {
     return YES;

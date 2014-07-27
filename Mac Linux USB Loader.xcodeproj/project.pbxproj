@@ -54,6 +54,10 @@
 		24E0A595191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E0A593191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m */; };
 		24E0A596191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E0A594191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib */; };
 		24E4F8D3196A0DF4002767C8 /* NSAlert+Popover.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E4F8D2196A0DF4002767C8 /* NSAlert+Popover.m */; };
+		24E6AB03198495E7002CA3C9 /* boot.efi in Resources */ = {isa = PBXBuildFile; fileRef = 24E6AB01198495E7002CA3C9 /* boot.efi */; };
+		24E6AB04198495E7002CA3C9 /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 24E6AB02198495E7002CA3C9 /* bootX64.efi */; };
+		24E6AB0519849611002CA3C9 /* boot.efi in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24E6AB01198495E7002CA3C9 /* boot.efi */; };
+		24E6AB0619849612002CA3C9 /* bootX64.efi in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24E6AB02198495E7002CA3C9 /* bootX64.efi */; };
 		B4383D6F79C144C58D8B337A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F38667D994A74956919B4A54 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +88,8 @@
 			dstPath = Enterprise;
 			dstSubfolderSpec = 7;
 			files = (
+				24E6AB0519849611002CA3C9 /* boot.efi in CopyFiles */,
+				24E6AB0619849612002CA3C9 /* bootX64.efi in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +176,8 @@
 		24E0A594191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDistributionDownloaderWindowController.xib; sourceTree = "<group>"; };
 		24E4F8D1196A0DF4002767C8 /* NSAlert+Popover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+Popover.h"; sourceTree = "<group>"; };
 		24E4F8D2196A0DF4002767C8 /* NSAlert+Popover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+Popover.m"; sourceTree = "<group>"; };
+		24E6AB01198495E7002CA3C9 /* boot.efi */ = {isa = PBXFileReference; lastKnownFileType = file; name = boot.efi; path = Tools/boot.efi; sourceTree = "<group>"; };
+		24E6AB02198495E7002CA3C9 /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; name = bootX64.efi; path = Tools/bootX64.efi; sourceTree = "<group>"; };
 		24F727C418BAC13B00B16013 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
 		97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F38667D994A74956919B4A54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				24A4EC911884966A00CE6CF0 /* Images.xcassets */,
+				24E6AB00198493E6002CA3C9 /* Enterprise */,
 				24B29B5419326F320009C3D8 /* JSON Data Models */,
 				24194C7718DBA25400CFF588 /* Apple Class Extensions and Subclasses */,
 				24155CC118903A6E00FAB98C /* Tools */,
@@ -393,6 +402,15 @@
 			name = "Core Classes and XIBs";
 			sourceTree = "<group>";
 		};
+		24E6AB00198493E6002CA3C9 /* Enterprise */ = {
+			isa = PBXGroup;
+			children = (
+				24E6AB01198495E7002CA3C9 /* boot.efi */,
+				24E6AB02198495E7002CA3C9 /* bootX64.efi */,
+			);
+			name = Enterprise;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,7 +509,9 @@
 				24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */,
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
 				24B322FD18A0123F00A5E25E /* defaults.plist in Resources */,
+				24E6AB04198495E7002CA3C9 /* bootX64.efi in Resources */,
 				24A4EC871884966A00CE6CF0 /* Credits.rtf in Resources */,
+				24E6AB03198495E7002CA3C9 /* boot.efi in Resources */,
 				24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */,
 				24A4EC901884966A00CE6CF0 /* MainMenu.xib in Resources */,
 				24D75F92188AE77100FF5ADC /* SBUSBSetupWindowController.xib in Resources */,

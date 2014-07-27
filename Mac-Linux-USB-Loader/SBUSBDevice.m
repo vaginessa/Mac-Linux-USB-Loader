@@ -67,7 +67,7 @@ typedef enum {
 }
 
 + (SBLinuxDistribution)distributionTypeForISOName:(NSString *)fileName {
-	fileName = [fileName lowercaseString];
+	fileName = [[fileName lowercaseString] lastPathComponent];
 	if ([fileName containsSubstring:@"ubuntu"] ||
 	    [fileName containsSubstring:@"linuxmint"] ||
 	    [fileName containsSubstring:@"elementaryos"]) {
@@ -111,6 +111,70 @@ typedef enum {
 	NSLog(@"Will start copying");
 
 	int returnCode;
+	copyfileState = copyfile_state_alloc();
+	{
+		state = InProgress;
+
+		returnCode = copyfile(fromPath, toPath, copyfileState, COPYFILE_ALL);
+
+		state = Finished;
+		[progressTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
+		progressTimer = nil;
+	}
+	copyfile_state_free(copyfileState);
+
+	NSLog(@"Did finish copying with return code %d", returnCode);
+
+	return YES;
+}
+
+- (BOOL)copyEnterpriseFiles:(SBDocument *)document withEnterpriseSource:(SBEnterpriseSourceLocation *)source toUSBDrive:(SBUSBDevice *)usb {
+	// Create an operation for the operation queue to copy over the necessary files.
+	attachedDocument = document;
+	USBIsInUse = YES;
+	NSString *finalEnterpriseCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/bootx64.efi",
+	                              usb.name];
+	NSString *finalGRUBCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/boot.efi",
+										 usb.name];
+
+	dispatch_async(dispatch_get_main_queue(), ^{
+	    progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
+	});
+
+	// First, copy Enterprise.
+	copyfile_state_t s;
+	s = copyfile_state_alloc();
+
+	const char *fromPath = [[source.path stringByAppendingPathComponent:@"bootx64.efi"] UTF8String];
+	const char *toPath = [finalEnterpriseCopyPath UTF8String];
+
+	NSLog(@"from: %s to: %s", fromPath, toPath);
+
+	NSLog(@"Will start copying");
+
+	int returnCode;
+	copyfileState = copyfile_state_alloc();
+	{
+		state = InProgress;
+
+		returnCode = copyfile(fromPath, toPath, copyfileState, COPYFILE_ALL);
+
+		state = Finished;
+		[progressTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
+		progressTimer = nil;
+	}
+	copyfile_state_free(copyfileState);
+
+	s = copyfile_state_alloc();
+
+	// Next, copy GRUB.
+	fromPath = [[source.path stringByAppendingPathComponent:@"boot.efi"] UTF8String];
+	toPath = [finalGRUBCopyPath UTF8String];
+
+	NSLog(@"from: %s to: %s", fromPath, toPath);
+
+	NSLog(@"Will start copying");
+
 	copyfileState = copyfile_state_alloc();
 	{
 		state = InProgress;
