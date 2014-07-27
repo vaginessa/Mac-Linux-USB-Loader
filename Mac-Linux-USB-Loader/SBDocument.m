@@ -224,7 +224,16 @@
 	        [self.usbDriveSelector setHidden:NO];
 	        [self.enterpriseSourceSelector setEnabled:YES];
 
+			// Stop accessing the security bookmark.
 	        [outURL stopAccessingSecurityScopedResource];
+
+			// Tell the user.
+			NSAlert *alert = [[NSAlert alloc] init];
+			[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+			[alert setMessageText:NSLocalizedString(@"Finished Making Live USB.", nil)];
+			[alert setInformativeText:NSLocalizedString(@"The operation completed successfully.", nil)];
+			[alert setAlertStyle:NSWarningAlertStyle];
+			[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		});
 	});
 }
