@@ -139,7 +139,6 @@
 
 	// Set the size of the file to be the max value of the progress bar.
 	NSString *selectedEnterpriseSourceName = [self.enterpriseSourceSelector titleOfSelectedItem];
-	NSLog(@"Enterprise source: %@, index: %ld", selectedEnterpriseSourceName, selectedEnterpriseSourceIndex);
 	SBEnterpriseSourceLocation *sourceLocation = [[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
 
 	NSString *enterprisePath = [sourceLocation.path stringByAppendingPathComponent:@"bootx64.efi"];

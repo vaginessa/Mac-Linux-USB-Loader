@@ -61,7 +61,7 @@
 	NSString *cellTitle = [aTableColumn.headerCell stringValue];
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
 
-	if ([cellTitle isEqualToString:@"Installation Path"]) {
+	if ([cellTitle isEqualToString:@"Installation Name"]) {
 		return loc.name;
 	}
 	else if ([cellTitle isEqualToString:@"Version"]) {
@@ -165,8 +165,7 @@
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
-	}
-	else if ([name isEqualToString:@""]) {
+	} else if ([name isEqualToString:@""]) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"No source location name entered.", nil)];
@@ -174,8 +173,7 @@
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
-	}
-	else if ([version isEqualToString:@""]) {
+	} else if ([version isEqualToString:@""]) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"No source location version entered.", nil)];
