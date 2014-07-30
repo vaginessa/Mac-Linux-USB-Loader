@@ -12,6 +12,16 @@
 
 @interface SBPersistenceManagerWindowController ()
 
+@property (assign) IBOutlet NSArrayController *popupValues;
+@property (weak) IBOutlet NSComboBox *usbSelectorPopup;
+
+@property (weak) IBOutlet NSBox *persistenceOptionsSetupBox;
+@property (weak) IBOutlet NSSlider *persistenceVolumeSizeSlider;
+@property (weak) IBOutlet NSTextField *persistenceVolumeSizeTextField;
+@property (weak) IBOutlet NSProgressIndicator *spinner;
+@property (weak) IBOutlet NSTextField *operationProgressLabel;
+@property (weak) IBOutlet NSButton *resetSliderButton;
+
 @property id activity;
 
 @end

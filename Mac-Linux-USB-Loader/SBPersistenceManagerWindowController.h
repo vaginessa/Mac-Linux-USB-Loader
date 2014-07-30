@@ -10,16 +10,6 @@
 
 @interface SBPersistenceManagerWindowController : NSWindowController <NSComboBoxDelegate, NSControlTextEditingDelegate>
 
-@property (assign) IBOutlet NSArrayController *popupValues;
-@property (weak) IBOutlet NSComboBox *usbSelectorPopup;
-
-@property (weak) IBOutlet NSBox *persistenceOptionsSetupBox;
-@property (weak) IBOutlet NSSlider *persistenceVolumeSizeSlider;
-@property (weak) IBOutlet NSTextField *persistenceVolumeSizeTextField;
-@property (weak) IBOutlet NSProgressIndicator *spinner;
-@property (weak) IBOutlet NSTextField *operationProgressLabel;
-@property (weak) IBOutlet NSButton *resetSliderButton;
-
 - (IBAction)createPersistenceButtonPressed:(id)sender;
 - (IBAction)resetSliderButtonPressed:(id)sender;
 
