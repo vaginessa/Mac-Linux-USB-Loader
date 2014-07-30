@@ -18,6 +18,7 @@
 @property (weak) IBOutlet NSTextField *persistenceVolumeSizeTextField;
 @property (weak) IBOutlet NSProgressIndicator *spinner;
 @property (weak) IBOutlet NSTextField *operationProgressLabel;
+@property (weak) IBOutlet NSButton *resetSliderButton;
 
 - (IBAction)createPersistenceButtonPressed:(id)sender;
 - (IBAction)resetSliderButtonPressed:(id)sender;

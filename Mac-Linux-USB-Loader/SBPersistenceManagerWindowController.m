@@ -76,6 +76,7 @@
 - (IBAction)createPersistenceButtonPressed:(id)sender {
 	// Disable all buttons.
 	[sender setEnabled:NO];
+	[self.resetSliderButton setEnabled:NO];
 	[self.persistenceVolumeSizeSlider setEnabled:NO];
 	[self.persistenceVolumeSizeTextField setEnabled:NO];
 	[self.usbSelectorPopup setEnabled:NO];
@@ -108,6 +109,7 @@
 	            // Enable everything that was disabled.
 	            dispatch_async(dispatch_get_main_queue(), ^{
 	                [sender setEnabled:YES];
+					[self.resetSliderButton setEnabled:YES];
 	                [self.persistenceVolumeSizeSlider setEnabled:YES];
 	                [self.persistenceVolumeSizeTextField setEnabled:YES];
 	                [self.usbSelectorPopup setEnabled:YES];

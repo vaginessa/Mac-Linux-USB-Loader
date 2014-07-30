@@ -11,6 +11,7 @@
                 <outlet property="persistenceOptionsSetupBox" destination="7Eq-Js-Ppp" id="aQY-fS-CM8"/>
                 <outlet property="persistenceVolumeSizeSlider" destination="gHg-qe-gRa" id="QNj-hM-1Tl"/>
                 <outlet property="persistenceVolumeSizeTextField" destination="8hH-NQ-7sz" id="neA-Yz-9C4"/>
+                <outlet property="resetSliderButton" destination="VF2-ux-F0J" id="hmf-r2-pvW"/>
                 <outlet property="spinner" destination="fEs-wl-bLJ" id="y3D-gF-4Kn"/>
                 <outlet property="usbSelectorPopup" destination="lc0-Og-xhN" id="xao-2c-JUC"/>
                 <outlet property="window" destination="1" id="3"/>
