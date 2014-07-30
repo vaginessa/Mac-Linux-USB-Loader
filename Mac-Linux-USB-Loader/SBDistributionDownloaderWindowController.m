@@ -258,8 +258,8 @@
 	NSAssert(selectedItem != -1, @"Selected item is %ld", (long)selectedItem);
 
 	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
-	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingString:@"/Downloads/"];
-	path = [path stringByAppendingString:[NSString stringWithFormat:@"%@-%@.iso",
+	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
+	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
 	                                                                 [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
 	                                                                 [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
 

@@ -12,6 +12,8 @@
 
 @interface SBPersistenceManagerWindowController ()
 
+@property id activity;
+
 @end
 
 @implementation SBPersistenceManagerWindowController {
@@ -27,7 +29,7 @@
 	return self;
 }
 
-- (void)windowDidLoad {
+- (void)awakeFromNib {
 	[super windowDidLoad];
 
 	// Hide the setup view until we need it.
@@ -90,6 +92,13 @@
 	[spanel beginSheetModalForWindow:self.window completionHandler: ^(NSInteger result) {
 	    if (result == NSFileHandlingPanelOKButton) {
 	        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+				// Tell the system that we are beginning an activity.
+				if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
+					if (!self.activity) {
+						self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityUserInitiated reason:@"ISO Download"];
+					}
+				}
+
 	            [self.spinner startAnimation:nil];
 	            [self.operationProgressLabel setStringValue:NSLocalizedString(@"Creating persistence file...", nil)];
 	            [SBUSBDevice createPersistenceFileAtUSB:[[spanel URL] path] withSize:persistenceSizeInBytes withWindow:self.window];
@@ -112,6 +121,11 @@
 
 	                [self.spinner stopAnimation:nil];
 	                [self.operationProgressLabel setStringValue:@""];
+
+					// Tell the system that we have finished the activity.
+					if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
+						[[NSProcessInfo processInfo] endActivity:self.activity];
+					}
 				});
 			});
 		}
