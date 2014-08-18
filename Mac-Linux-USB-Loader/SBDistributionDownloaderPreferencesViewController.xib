@@ -14,66 +14,14 @@
         <customObject id="-3" userLabel="Application"/>
         <userDefaultsController id="KQi-zk-Xra"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="232"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="188"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <box autoresizesSubviews="NO" title="Mirror Lists" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="shH-60-TdE">
-                    <rect key="frame" x="17" y="151" width="446" height="61"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <view key="contentView">
-                        <rect key="frame" x="1" y="1" width="444" height="45"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kmO-eF-2bI">
-                                <rect key="frame" x="146" y="11" width="283" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="once per application launch" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="e55-TU-yl1" id="VPG-ks-jwb">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" title="OtherViews" id="gyq-Up-jkl">
-                                        <items>
-                                            <menuItem title="once per application launch" state="on" id="e55-TU-yl1"/>
-                                            <menuItem title="daily" tag="86400" id="bgU-kA-WnD"/>
-                                            <menuItem title="weekly" tag="604800" id="XYk-id-Ddk"/>
-                                            <menuItem title="monthly" tag="2629800" id="5xt-v8-eWe">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="yearly" tag="31557600" id="S4X-Ij-78t">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <binding destination="2qH-uG-7N7" name="selectedTag" keyPath="values.UpdateMirrorListInterval" id="wRx-dc-UFs"/>
-                                </connections>
-                            </popUpButton>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iBa-Zy-NSj">
-                                <rect key="frame" x="16" y="17" width="126" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Update mirror lists:" id="BEF-Vy-Ns1">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                    </view>
-                    <constraints>
-                        <constraint firstItem="kmO-eF-2bI" firstAttribute="baseline" secondItem="iBa-Zy-NSj" secondAttribute="baseline" id="QgC-Ob-SkZ"/>
-                        <constraint firstItem="iBa-Zy-NSj" firstAttribute="top" secondItem="shH-60-TdE" secondAttribute="top" constant="26" id="csO-4h-CEV"/>
-                        <constraint firstItem="iBa-Zy-NSj" firstAttribute="leading" secondItem="shH-60-TdE" secondAttribute="leading" constant="16" id="dXx-MU-ASH"/>
-                        <constraint firstAttribute="trailing" secondItem="kmO-eF-2bI" secondAttribute="trailing" constant="16" id="hPG-03-lwf"/>
-                        <constraint firstItem="kmO-eF-2bI" firstAttribute="leading" secondItem="iBa-Zy-NSj" secondAttribute="trailing" constant="8" symbolic="YES" id="xqD-4Q-soK"/>
-                    </constraints>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </box>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vt-Cf-z68">
-                    <rect key="frame" x="100" y="128" width="46" height="22"/>
+                    <rect key="frame" x="96" y="111" width="46" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="46" id="L72-kB-Xu8"/>
+                        <constraint firstAttribute="width" constant="46" id="Eqg-kM-ShA"/>
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="o9D-CJ-RGH">
                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="XJQ-fz-pyN"/>
@@ -86,7 +34,7 @@
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FME-ii-R0b">
-                    <rect key="frame" x="18" y="130" width="76" height="17"/>
+                    <rect key="frame" x="18" y="114" width="76" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Allow up to" id="U0W-FU-ZGT">
                         <font key="font" metaFont="system"/>
@@ -95,11 +43,8 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sps-jS-QR2">
-                    <rect key="frame" x="154" y="130" width="308" height="17"/>
+                    <rect key="frame" x="148" y="114" width="308" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="304" id="Uwa-p4-JBK"/>
-                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="simultaneous download operations." id="aFy-72-3os">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -107,7 +52,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HM1-hQ-USq">
-                    <rect key="frame" x="18" y="105" width="444" height="17"/>
+                    <rect key="frame" x="18" y="86" width="444" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="When a download has completed:" id="pf6-Co-bXh">
                         <font key="font" metaFont="system"/>
@@ -116,7 +61,7 @@
                     </textFieldCell>
                 </textField>
                 <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDY-Bg-bvP">
-                    <rect key="frame" x="32" y="39" width="428" height="58"/>
+                    <rect key="frame" x="32" y="20" width="428" height="58"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     <size key="cellSize" width="210" height="18"/>
@@ -145,29 +90,71 @@
                         <binding destination="2qH-uG-7N7" name="selectedIndex" keyPath="values.DefaultOperationUponISODownloadCompletion" id="lLZ-XK-00S"/>
                     </connections>
                 </matrix>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="461-8h-HBz">
+                    <rect key="frame" x="18" y="151" width="126" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Update mirror lists:" id="DK4-Bn-Yrx">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="pL0-W8-rfZ">
+                    <rect key="frame" x="20" y="139" width="440" height="5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jAB-aK-jjZ">
+                    <rect key="frame" x="148" y="145" width="315" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" title="once per application launch" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="8vt-ts-25C" id="EC7-9a-hAe">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" id="9a4-XT-p28">
+                            <items>
+                                <menuItem title="once per application launch" state="on" id="8vt-ts-25C"/>
+                                <menuItem title="daily" tag="86400" id="vST-aP-7d3"/>
+                                <menuItem title="weekly" tag="604800" id="4Be-1e-K5t"/>
+                                <menuItem title="monthly" tag="2629800" id="cGw-9o-3M3">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="yearly" tag="31557600" id="AVN-H6-ilo">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="2qH-uG-7N7" name="selectedTag" keyPath="values.UpdateMirrorListInterval" id="C3N-Wl-3uc"/>
+                    </connections>
+                </popUpButton>
             </subviews>
             <constraints>
-                <constraint firstItem="1vt-Cf-z68" firstAttribute="leading" secondItem="FME-ii-R0b" secondAttribute="trailing" constant="8" symbolic="YES" id="0eG-eb-j9N"/>
-                <constraint firstAttribute="trailing" secondItem="shH-60-TdE" secondAttribute="trailing" constant="20" symbolic="YES" id="21e-Dq-hes"/>
-                <constraint firstItem="nDY-Bg-bvP" firstAttribute="trailing" secondItem="Sps-jS-QR2" secondAttribute="trailing" id="3Ji-fx-Db7"/>
-                <constraint firstAttribute="bottom" secondItem="shH-60-TdE" secondAttribute="bottom" constant="155" id="3Mn-7T-VoP"/>
-                <constraint firstItem="1vt-Cf-z68" firstAttribute="baseline" secondItem="FME-ii-R0b" secondAttribute="baseline" id="8d3-bq-q14"/>
-                <constraint firstItem="FME-ii-R0b" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="FzJ-PF-j3W"/>
-                <constraint firstItem="1vt-Cf-z68" firstAttribute="baseline" secondItem="Sps-jS-QR2" secondAttribute="baseline" id="R1h-RT-zdB"/>
-                <constraint firstItem="shH-60-TdE" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="YJ8-YT-L9g"/>
-                <constraint firstItem="FME-ii-R0b" firstAttribute="top" secondItem="shH-60-TdE" secondAttribute="bottom" constant="8" symbolic="YES" id="ZGC-Ie-Bpe"/>
-                <constraint firstItem="HM1-hQ-USq" firstAttribute="top" secondItem="FME-ii-R0b" secondAttribute="bottom" constant="8" symbolic="YES" id="bxA-VN-fI9"/>
-                <constraint firstItem="Sps-jS-QR2" firstAttribute="trailing" secondItem="shH-60-TdE" secondAttribute="trailing" id="cc1-P1-Ucf"/>
-                <constraint firstItem="HM1-hQ-USq" firstAttribute="trailing" secondItem="Sps-jS-QR2" secondAttribute="trailing" id="eKJ-MZ-5d3"/>
-                <constraint firstItem="shH-60-TdE" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="fYq-nL-cM1"/>
-                <constraint firstItem="FME-ii-R0b" firstAttribute="leading" secondItem="shH-60-TdE" secondAttribute="leading" id="gkl-ai-aly"/>
-                <constraint firstItem="Sps-jS-QR2" firstAttribute="leading" secondItem="1vt-Cf-z68" secondAttribute="trailing" constant="10" id="gy7-6O-Ure"/>
-                <constraint firstItem="nDY-Bg-bvP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="htU-4X-B0G"/>
-                <constraint firstItem="HM1-hQ-USq" firstAttribute="top" secondItem="FME-ii-R0b" secondAttribute="bottom" constant="8" id="mk7-wE-dQn"/>
-                <constraint firstItem="HM1-hQ-USq" firstAttribute="top" secondItem="Sps-jS-QR2" secondAttribute="bottom" constant="8" id="n3T-Al-TFF"/>
-                <constraint firstItem="HM1-hQ-USq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="roX-Gk-ESF"/>
-                <constraint firstAttribute="bottom" secondItem="nDY-Bg-bvP" secondAttribute="bottom" constant="39" id="v2U-Vt-Rld"/>
-                <constraint firstItem="Sps-jS-QR2" firstAttribute="top" secondItem="shH-60-TdE" secondAttribute="bottom" constant="8" id="zpN-cg-yao"/>
+                <constraint firstItem="jAB-aK-jjZ" firstAttribute="leading" secondItem="461-8h-HBz" secondAttribute="trailing" constant="8" symbolic="YES" id="3qg-vo-AI2"/>
+                <constraint firstItem="461-8h-HBz" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="9QG-qy-CQT"/>
+                <constraint firstItem="1vt-Cf-z68" firstAttribute="top" secondItem="pL0-W8-rfZ" secondAttribute="bottom" constant="8" symbolic="YES" id="AhY-jO-Zlo"/>
+                <constraint firstItem="Sps-jS-QR2" firstAttribute="baseline" secondItem="FME-ii-R0b" secondAttribute="baseline" id="JO8-eP-Irf"/>
+                <constraint firstItem="HM1-hQ-USq" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="JdK-BK-ZGX"/>
+                <constraint firstItem="pL0-W8-rfZ" firstAttribute="leading" secondItem="FME-ii-R0b" secondAttribute="leading" id="KM0-Ea-iHM"/>
+                <constraint firstItem="461-8h-HBz" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="Keo-9K-5db"/>
+                <constraint firstItem="Sps-jS-QR2" firstAttribute="leading" secondItem="1vt-Cf-z68" secondAttribute="trailing" constant="8" symbolic="YES" id="MQL-Lh-MaZ"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="top" secondItem="HM1-hQ-USq" secondAttribute="bottom" constant="8" symbolic="YES" id="Mj8-hp-7UM"/>
+                <constraint firstItem="FME-ii-R0b" firstAttribute="leading" secondItem="HM1-hQ-USq" secondAttribute="leading" id="RoJ-8w-alR"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="TO7-ty-Zch"/>
+                <constraint firstItem="FME-ii-R0b" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Wgr-ek-CJK"/>
+                <constraint firstItem="1vt-Cf-z68" firstAttribute="centerY" secondItem="FME-ii-R0b" secondAttribute="centerY" id="WvJ-18-Iw1"/>
+                <constraint firstItem="461-8h-HBz" firstAttribute="leading" secondItem="pL0-W8-rfZ" secondAttribute="leading" id="bNo-qL-QUA"/>
+                <constraint firstItem="HM1-hQ-USq" firstAttribute="top" secondItem="1vt-Cf-z68" secondAttribute="bottom" constant="8" symbolic="YES" id="bRK-RI-uJX"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="trailing" secondItem="HM1-hQ-USq" secondAttribute="trailing" id="bXT-3m-UwP"/>
+                <constraint firstItem="1vt-Cf-z68" firstAttribute="leading" secondItem="FME-ii-R0b" secondAttribute="trailing" constant="4" id="cib-NE-i2z"/>
+                <constraint firstItem="jAB-aK-jjZ" firstAttribute="trailing" secondItem="pL0-W8-rfZ" secondAttribute="trailing" id="heb-HN-dzY"/>
+                <constraint firstAttribute="trailing" secondItem="nDY-Bg-bvP" secondAttribute="trailing" constant="20" symbolic="YES" id="lI3-jS-hhC"/>
+                <constraint firstAttribute="trailing" secondItem="Sps-jS-QR2" secondAttribute="trailing" constant="26" id="nTZ-cc-nac"/>
+                <constraint firstItem="HM1-hQ-USq" firstAttribute="trailing" secondItem="pL0-W8-rfZ" secondAttribute="trailing" id="uI9-Hu-l55"/>
+                <constraint firstItem="jAB-aK-jjZ" firstAttribute="bottom" secondItem="461-8h-HBz" secondAttribute="bottom" constant="3" id="xuX-90-UqS"/>
+                <constraint firstItem="461-8h-HBz" firstAttribute="trailing" secondItem="1vt-Cf-z68" secondAttribute="trailing" id="zcL-VR-dNq"/>
             </constraints>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="2qH-uG-7N7"/>
