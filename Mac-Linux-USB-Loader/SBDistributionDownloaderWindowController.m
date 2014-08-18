@@ -82,7 +82,7 @@
 		[alert setMessageText:NSLocalizedString(@"No network connection.", nil)];
 		[alert setInformativeText:NSLocalizedString(@"Mac Linux USB Loader cannot download the mirror lists because you are not connected to the Internet.", nil)];
 		[alert setAlertStyle:NSWarningAlertStyle];
-		[alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		[alert runModal];
 
 		return;
 	}
