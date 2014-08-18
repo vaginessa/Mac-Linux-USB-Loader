@@ -63,8 +63,29 @@
 	[self.downloadQueueDataSource setPrefsViewController:self];
 	[self.downloadQueueDataSource setTableView:self.downloadQueueTableView];
 
-	// Grab the JSON.
-	[self setupJSON];
+	// Check if enough time has elapsed to where we need to download new JSON.
+	NSInteger JSONUpdateInterval = [[NSUserDefaults standardUserDefaults] integerForKey:@"UpdateMirrorListInterval"];
+	NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastMirrorUpdateCheckTime"];
+	if (lastCheckedDate) {
+		// We have a saved date.
+		NSInteger interval = (NSInteger)ABS([lastCheckedDate timeIntervalSinceNow]);
+		if (interval > JSONUpdateInterval) {
+			// Enough time has elapsed to where it is now time to update the JSON mirrors.
+			// We do this in the background without a lot of pomp so it is transparent to the user.
+			NSLog(@"%ld seconds have elapsed, updating JSON.", (long)interval);
+			[self setupJSON];
+
+			[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastMirrorUpdateCheckTime"];
+		} else {
+			[self.downloadDistroButton setEnabled:YES];
+		}
+	} else {
+		// We are missing the saved date, so re-save it and update the JSON mirrors.
+		// We do this in the background without a lot of pomp so it is transparent to the user.
+		[self setupJSON];
+
+		[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastMirrorUpdateCheckTime"];
+	}
 }
 
 - (void)setupJSON {
