@@ -73,22 +73,47 @@
 			// Enough time has elapsed to where it is now time to update the JSON mirrors.
 			// We do this in the background without a lot of pomp so it is transparent to the user.
 			NSLog(@"%ld seconds have elapsed, updating JSON.", (long)interval);
-			[self setupJSON];
+			[self downloadJSON];
 
 			[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastMirrorUpdateCheckTime"];
 		} else {
-			[self.downloadDistroButton setEnabled:YES];
+			[self loadCachedJSON];
 		}
 	} else {
 		// We are missing the saved date, so re-save it and update the JSON mirrors.
 		// We do this in the background without a lot of pomp so it is transparent to the user.
-		[self setupJSON];
+		[self downloadJSON];
 
 		[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastMirrorUpdateCheckTime"];
 	}
 }
 
-- (void)setupJSON {
+- (void)loadCachedJSON {
+	NSString *cacheDirectory = [[NSFileManager defaultManager] cacheDirectory];
+	__block NSString *tempFileName;
+
+	for (NSString *distroName in[[NSApp delegate] supportedDistributions]) {
+		// Grab our JSON, but do it on a background thread so we don't slow down the GUI.
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		    NSError *err;
+		    tempFileName = [NSString stringWithFormat:@"%@/%@.json", cacheDirectory, [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
+		    NSURL *url = [NSURL fileURLWithPath:tempFileName];
+
+		    NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
+		    if (strCon) {
+		        //NSLog(@"Recieved JSON data: %@", strCon);
+		        [self processJSON:strCon forDistributionNamed:distroName downloadContent:NO];
+			} else {
+		        dispatch_async(dispatch_get_main_queue(), ^{
+		            NSAlert *alert = [NSAlert alertWithError:err];
+		            [alert runModal];
+				});
+			}
+		});
+	}
+}
+
+- (void)downloadJSON {
 	// Check if we have an Internet connection.
 	SCNetworkReachabilityRef target;
 	SCNetworkConnectionFlags flags = 0;
@@ -109,53 +134,75 @@
 	}
 
 	// We have an Internet connection, so proceed by downloading the JSON.
-	for (NSString *distroName in [[NSApp delegate] supportedDistributions]) {
+	for (NSString *distroName in[[NSApp delegate] supportedDistributions]) {
+		// Grab our JSON, but do it on a background thread so we don't slow down the GUI.
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			NSError *err;
-		    // Grab our JSON, but do it on a background thread so we don't slow down the GUI.
-			NSString *temp = [NSString stringWithFormat:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/%@.json", [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
-			NSURL *url = [NSURL URLWithString:temp];
+		    NSError *err;
+		    NSString *temp = [NSString stringWithFormat:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/%@.json", [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
+		    NSURL *url = [NSURL URLWithString:temp];
 
-			NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
-			if (!err || strCon) {
-				//NSLog(@"Recieved JSON data: %@", strCon);
-				[self processJSON:strCon forDistributionNamed:distroName];
+		    NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
+		    if (strCon) {
+		        //NSLog(@"Recieved JSON data: %@", strCon);
+		        [self processJSON:strCon forDistributionNamed:distroName downloadContent:YES];
 			} else {
-				dispatch_async(dispatch_get_main_queue(), ^{
-					NSAlert *alert = [NSAlert alertWithError:err];
-					[alert runModal];
+		        dispatch_async(dispatch_get_main_queue(), ^{
+		            NSAlert *alert = [NSAlert alertWithError:err];
+		            [alert runModal];
 				});
 			}
 		});
 	}
 }
 
-- (void)processJSON:(NSString *)json forDistributionNamed:(NSString *)distroName {
+- (void)processJSON:(NSString *)json forDistributionNamed:(NSString *)distroName downloadContent:(BOOL)downloadImages {
 	[self.mdLock lock];
 	JSONModelError *error;
 	self.downloadDistroModel = [[SBDownloadableDistributionModel alloc] initWithString:json error:&error];
 	if (error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
-			NSLog(@"%@: %@", distroName, [error localizedDescription]);
+		    NSLog(@"%@: %@", distroName, [error localizedDescription]);
 		    NSAlert *alert = [NSAlert alertWithError:error];
 		    [alert runModal];
 		});
 	} else {
-		//SBLogObject(self.downloadDistroModel);
 		[self.idLock lock];
 		NSString *convertedName = [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
-		NSImage *img = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:self.downloadDistroModel.imageURL]];
-		if (img) self.imageDictionary[convertedName] = img;
+
+		NSImage *img;
+
+		// Fetch the image from the web if we are to download them; otherwise, grab it from the cache.
+		if (downloadImages) {
+			NSURL *imgSourceURL = [NSURL URLWithString:self.downloadDistroModel.imageURL];
+			img = [[NSImage alloc] initWithContentsOfURL:imgSourceURL];
+		} else {
+			// Grab the images from the cache.
+			NSString *cacheDirectory = [[NSFileManager defaultManager] cacheDirectory];
+			NSString *imgFilePath = [[cacheDirectory stringByAppendingPathComponent:convertedName] stringByAppendingString:@".png"];
+			img = [[NSImage alloc] initWithContentsOfFile:imgFilePath];
+		}
+
+		if (img) {
+			self.imageDictionary[convertedName] = img;
+
+			if (downloadImages) {
+				[img saveAsPNGWithName:[[[[NSFileManager defaultManager] cacheDirectory] stringByAppendingPathComponent:convertedName] stringByAppendingString:@".png"]]; // Cache the image to a file.
+			}
+		}
 		[self.idLock unlock];
+
+		if (downloadImages) {
+			[json writeToFile:[[[[NSFileManager defaultManager] cacheDirectory] stringByAppendingPathComponent:convertedName] stringByAppendingString:@".json"] atomically:YES encoding:NSUTF8StringEncoding error:nil]; // Cache the JSON to a file.
+		}
 
 		if (self.downloadDistroModel) self.modelDictionary[convertedName] = self.downloadDistroModel;
 	}
 
 	self.numberOfFinishedJsonRequests++;
 
-	if (self.numberOfFinishedJsonRequests == [[[NSApp delegate] supportedDistributions] count]) {
+	//if (self.numberOfFinishedJsonRequests == [[[NSApp delegate] supportedDistributions] count]) {
 		[self.downloadDistroButton setEnabled:YES];
-	}
+	//}
 	[self.mdLock unlock];
 }
 
@@ -189,12 +236,10 @@
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	if ([[[aTableColumn headerCell] stringValue] isEqualToString:NSLocalizedString(@"Distribution Name", nil)]) {
 		return [[[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
-	}
-	else if ([[[aTableColumn headerCell] stringValue] isEqualToString:NSLocalizedString(@"Current Version", nil)]) {
+	} else if ([[[aTableColumn headerCell] stringValue] isEqualToString:NSLocalizedString(@"Current Version", nil)]) {
 		NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
 		return [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution];
-	}
-	else {
+	} else {
 		return @"N/A";
 	}
 }
@@ -267,9 +312,9 @@
 
 	NSString *temp = [[[NSApp delegate] supportedDistributions] objectAtIndex:selectedDistro];
 	temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@"-"];
-	SBLogObject(temp);
-	
+
 	if (!self.modelDictionary[temp]) {
+		// Ideally, we'd support the new sheet API, but we need to still support 10.8...
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"Can't download this distribution.", nil)];
@@ -279,11 +324,11 @@
 
 		return;
 	}
-	// Ideally, we'd support the new sheet API, but we need to still support 10.8...
+
 	self.downloadDistroModel = self.modelDictionary[temp];
 	[self.distroMirrorCountrySelector removeAllItems];
 
-	for (SBDownloadMirrorModel *model in [self.downloadDistroModel mirrors]) {
+	for (SBDownloadMirrorModel *model in[self.downloadDistroModel mirrors]) {
 		[self.distroMirrorCountrySelector addItemWithTitle:model.countryLong];
 	}
 
@@ -302,8 +347,8 @@
 	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
 	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                                                 [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
-	                                                                 [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                             [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
+	                                             [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
 
 	// Inform the system that we are starting this operation.
 	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
@@ -325,7 +370,8 @@
 			// Open the downloaded ISO file.
 			if ([self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"] == 0) {
 				NSURL *url = [NSURL fileURLWithPath:operation.path];
-				[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}];
+				[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler: ^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}
+				];
 			}
 		}
 
@@ -355,14 +401,14 @@
 - (IBAction)viewInProgressDownloads:(id)sender {
 	[self.downloadQueuePopover showRelativeToRect:[self.accessoryViewButton bounds] ofView:self.accessoryViewButton preferredEdge:NSMaxYEdge];
 	/*NSAlert *alert = [NSAlert alertWithMessageText:@"Do you really want to delete this item?"
-                                     defaultButton:@"Delete"
-                                   alternateButton:@"Learn more"
-                                       otherButton:@"Cancel"
-                         informativeTextWithFormat:@"Deleting this item will erase all associated data in the database. Click learn more if you need additional information."];
+	                                 defaultButton:@"Delete"
+	                               alternateButton:@"Learn more"
+	                                   otherButton:@"Cancel"
+	                     informativeTextWithFormat:@"Deleting this item will erase all associated data in the database. Click learn more if you need additional information."];
 
-	[alert runAsPopoverForView:self.accessoryViewButton withCompletionBlock:^(NSInteger result) {
-		// handle result
-	}];*/
+	   [alert runAsPopoverForView:self.accessoryViewButton withCompletionBlock:^(NSInteger result) {
+	    // handle result
+	   }];*/
 }
 
 @end

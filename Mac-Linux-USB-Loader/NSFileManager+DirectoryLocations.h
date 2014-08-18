@@ -54,4 +54,12 @@
  */
 - (NSString *)applicationSupportDirectory;
 
+/**
+ * Returns the path to the Caches directory (creating it if it doesn't
+ * exist)
+ *
+ * @return The path to the Caches directory
+ */
+- (NSString *)cacheDirectory;
+
 @end

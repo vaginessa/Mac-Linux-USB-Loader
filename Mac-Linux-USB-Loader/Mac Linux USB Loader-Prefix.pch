@@ -10,6 +10,7 @@
 	#import "NSAlert+Popover.h"
 	#import "NSFileManager+DirectoryLocations.h"
 	#import "NSFileManager+Extensions.h"
+	#import "NSImage+SaveToFile.h"
 	#import "NSProcessInfo+PECocoaBackports.h"
 	#import "SBGlobals.h"
 #endif

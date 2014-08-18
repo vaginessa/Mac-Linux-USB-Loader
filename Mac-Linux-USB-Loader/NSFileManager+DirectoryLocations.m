@@ -118,4 +118,20 @@ NSString *const DirectoryLocationDomain = @"DirectoryLocationDomain";
 	return result;
 }
 
+- (NSString *)cacheDirectory {
+	NSString *executableName =
+	[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
+	NSError *error;
+	NSString *result =
+	[self
+	 findOrCreateDirectory:NSCachesDirectory
+	 inDomain:NSUserDomainMask
+	 appendPathComponent:executableName
+	 error:&error];
+	if (!result) {
+		NSLog(@"Unable to find or create application support directory:\n%@", error);
+	}
+	return result;
+}
+
 @end
