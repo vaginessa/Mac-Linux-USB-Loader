@@ -46,9 +46,6 @@
 	self.mdLock = [[NSLock alloc] init];
 	self.idLock = [[NSLock alloc] init];
 	if (self) {
-		// First things first. Grab the JSON.
-		[self setupJSON];
-
 		// Setup our operation queues.
 		self.defaults = [NSUserDefaults standardUserDefaults];
 		NSInteger concurrentOperationsCount = [self.defaults integerForKey:@"SimultaneousDownloadOperationsNumber"];
@@ -60,13 +57,37 @@
 }
 
 - (void)awakeFromNib {
+	// Setup the UI.
 	[self.downloadDistroButton setEnabled:NO];
 	[self.downloadQueuePopover setBehavior:NSPopoverBehaviorTransient];
 	[self.downloadQueueDataSource setPrefsViewController:self];
 	[self.downloadQueueDataSource setTableView:self.downloadQueueTableView];
+
+	// Grab the JSON.
+	[self setupJSON];
 }
 
 - (void)setupJSON {
+	// Check if we have an Internet connection.
+	SCNetworkReachabilityRef target;
+	SCNetworkConnectionFlags flags = 0;
+	Boolean canReachInternet;
+	target = SCNetworkReachabilityCreateWithName(NULL, "google.com");
+	canReachInternet = SCNetworkReachabilityGetFlags(target, &flags);
+	CFRelease(target);
+
+	if (!(canReachInternet && (flags & kSCNetworkFlagsReachable) && !(flags & kSCNetworkFlagsConnectionRequired))) {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"No network connection.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"Mac Linux USB Loader cannot download the mirror lists because you are not connected to the Internet.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:nil modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+		return;
+	}
+
+	// We have an Internet connection, so proceed by downloading the JSON.
 	for (NSString *distroName in [[NSApp delegate] supportedDistributions]) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 			NSError *err;

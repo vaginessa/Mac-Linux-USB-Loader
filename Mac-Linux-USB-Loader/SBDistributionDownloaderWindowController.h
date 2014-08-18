@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 #import <JSONModel/JSONModel.h>
 #import <JSONHTTPClient.h>
 #import "SBDownloadableDistributionModel.h"

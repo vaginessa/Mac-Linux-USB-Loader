@@ -77,8 +77,7 @@
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
 	if ([self.usbSelectorPopup indexOfSelectedItem] != 0) {
 		[self.persistenceOptionsSetupBox setHidden:NO];
-	}
-	else {
+	} else {
 		[self.persistenceOptionsSetupBox setHidden:YES];
 	}
 }
@@ -106,7 +105,7 @@
 				// Tell the system that we are beginning an activity.
 				if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
 					if (!self.activity) {
-						self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityUserInitiated reason:@"ISO Download"];
+						self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityUserInitiated reason:@"Setup Persistence"];
 					}
 				}
 
@@ -140,8 +139,7 @@
 					}
 				});
 			});
-		}
-	    else {
+		} else {
 	        [sender setEnabled:YES];
 	        [self.persistenceVolumeSizeSlider setEnabled:YES];
 	        [self.persistenceVolumeSizeTextField setEnabled:YES];
