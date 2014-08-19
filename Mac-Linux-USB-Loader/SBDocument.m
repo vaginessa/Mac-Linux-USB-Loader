@@ -38,7 +38,7 @@
 
 	// If the user opens the document by dragging the file from the Dock, the main screen will still be open.
 	// We hide it here for a better user experience.
-	[[[NSApp delegate] window] orderOut:nil];
+	[[(SBAppDelegate *)[NSApp delegate] window] orderOut:nil];
 
 	[self setupUSBDriveSelector];
 
@@ -47,7 +47,7 @@
 
 - (void)setupUSBDriveSelector {
 	// Grab the list of USB devices from the App Delegate and setup the USB selector.
-	usbDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] usbDictionary]];
+	usbDictionary = [NSMutableDictionary dictionaryWithDictionary:[(SBAppDelegate *)[NSApp delegate] usbDictionary]];
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[usbDictionary count]];
 
 	for (NSString *usb in usbDictionary) {
@@ -62,7 +62,7 @@
 
 	// Grab the Enterprise sources from the App Delegate.
 	[array removeAllObjects];
-	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] enterpriseInstallLocations]];
+	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations]];
 	for (NSString *usb in enterpriseSourcesDictionary) {
 		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
 	}
@@ -139,7 +139,7 @@
 
 	// Set the size of the file to be the max value of the progress bar.
 	NSString *selectedEnterpriseSourceName = [self.enterpriseSourceSelector titleOfSelectedItem];
-	SBEnterpriseSourceLocation *sourceLocation = [[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
+	SBEnterpriseSourceLocation *sourceLocation = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
 
 	NSString *enterprisePath = [sourceLocation.path stringByAppendingPathComponent:@"bootx64.efi"];
 	NSString *grubPath = [sourceLocation.path stringByAppendingPathComponent:@"boot.efi"];
@@ -207,7 +207,7 @@
 	}
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		SBEnterpriseSourceLocation *sourceLocation = [[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
+		SBEnterpriseSourceLocation *sourceLocation = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
 		SBLogObject(sourceLocation);
 		[selectedUSBDrive copyEnterpriseFiles:self withEnterpriseSource:sourceLocation toUSBDrive:selectedUSBDrive];
 	    [selectedUSBDrive copyInstallationFiles:self toUSBDrive:selectedUSBDrive];
@@ -241,12 +241,12 @@
 	// Refresh the list of USBs.
 	[self.usbArrayForContentView removeAllObjects];
 
-	[[NSApp delegate] detectAndSetupUSBs];
+	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
 	[self setupUSBDriveSelector];
 
 	// Refresh the list of Enterprise sources.
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:3];
-	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] enterpriseInstallLocations]];
+	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations]];
 	for (NSString *usb in enterpriseSourcesDictionary) {
 		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
 	}

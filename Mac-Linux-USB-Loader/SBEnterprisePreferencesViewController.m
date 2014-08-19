@@ -24,7 +24,7 @@
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	if (self) {
 		// Initialization code here.
-		self.enterpriseSourceLocationsDictionary = [[NSApp delegate] enterpriseInstallLocations];
+		self.enterpriseSourceLocationsDictionary = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations];
 		self.listOfArrayKeys = [[NSMutableArray alloc] initWithCapacity:[self.enterpriseSourceLocationsDictionary count]];
 
 		for (NSString *title in self.enterpriseSourceLocationsDictionary) {
@@ -114,7 +114,7 @@
 
 - (IBAction)removeSourceLocationButtonPressed:(id)sender {
 	NSInteger selectedRow = [self.tableView selectedRow];
-	SBEnterpriseSourceLocation *deviceHere = [[NSApp delegate] enterpriseInstallLocations][self.listOfArrayKeys[selectedRow]];
+	SBEnterpriseSourceLocation *deviceHere = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][self.listOfArrayKeys[selectedRow]];
 	if (!deviceHere.deletable) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
@@ -125,15 +125,15 @@
 		return;
 	}
 
-	[[[NSApp delegate] enterpriseInstallLocations] removeObjectForKey:self.listOfArrayKeys[selectedRow]];
+	[[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations] removeObjectForKey:self.listOfArrayKeys[selectedRow]];
 	[self.listOfArrayKeys removeAllObjects];
 	for (NSString *title in self.enterpriseSourceLocationsDictionary) {
 		[self.listOfArrayKeys addObject:title];
 	}
 
 	// Write source locations to disk.
-	NSString *filePath = [[[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
-	[[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+	NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
+	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
 
 	// Reload the table with our new data.
 	[self.tableView reloadData];
@@ -188,7 +188,7 @@
 		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:name withPath:enterpriseSourceLocationOpenPanel.URL.path withVersionNumber:version withSecurityScopedBookmark:bookmark shouldBeVolatile:YES];
 
 		// Add the newly-created object to our list of Enterprise source locations.
-		[[NSApp delegate] enterpriseInstallLocations][name] = loc;
+		[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][name] = loc;
 		self.enterpriseSourceLocationsDictionary[name] = loc;
 		[self.listOfArrayKeys removeAllObjects];
 		for (NSString *title in self.enterpriseSourceLocationsDictionary) {
@@ -196,8 +196,8 @@
 		}
 
 		// Write source locations to disk.
-		NSString *filePath = [[[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
-		[[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+		NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
+		[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
 
 		// Reload the table with our new data.
 		[self.tableView reloadData];

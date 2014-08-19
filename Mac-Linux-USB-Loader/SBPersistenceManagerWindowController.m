@@ -47,7 +47,7 @@
 	[self.operationProgressLabel setStringValue:@""];
 
 	// Setup the USB selector.
-	dict = [NSMutableDictionary dictionaryWithDictionary:[[NSApp delegate] usbDictionary]];
+	dict = [NSMutableDictionary dictionaryWithDictionary:[(SBAppDelegate *)[NSApp delegate] usbDictionary]];
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[dict count]];
 
 	for (NSString *usb in dict) {

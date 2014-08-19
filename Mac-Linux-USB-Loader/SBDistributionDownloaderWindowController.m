@@ -92,7 +92,7 @@
 	NSString *cacheDirectory = [[NSFileManager defaultManager] cacheDirectory];
 	__block NSString *tempFileName;
 
-	for (NSString *distroName in[[NSApp delegate] supportedDistributions]) {
+	for (NSString *distroName in [(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
 		// Grab our JSON, but do it on a background thread so we don't slow down the GUI.
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		    NSError *err;
@@ -134,7 +134,7 @@
 	}
 
 	// We have an Internet connection, so proceed by downloading the JSON.
-	for (NSString *distroName in[[NSApp delegate] supportedDistributions]) {
+	for (NSString *distroName in [(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
 		// Grab our JSON, but do it on a background thread so we don't slow down the GUI.
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		    NSError *err;
@@ -230,15 +230,15 @@
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [[[NSApp delegate] supportedDistributions] count];
+	return [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] count];
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	if ([[[aTableColumn headerCell] stringValue] isEqualToString:NSLocalizedString(@"Distribution Name", nil)]) {
-		return [[[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
+		return [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
 	} else if ([[[aTableColumn headerCell] stringValue] isEqualToString:NSLocalizedString(@"Current Version", nil)]) {
-		NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
-		return [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution];
+		NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
+		return [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution];
 	} else {
 		return @"N/A";
 	}
@@ -256,10 +256,10 @@
 		return;
 	}
 
-	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:row];
+	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:row];
 	[self.distroNameLabel setStringValue:[NSString stringWithFormat:@"%@ %@",
-	                                      [[[NSApp delegate] supportedDistributions] objectAtIndex:row],
-	                                      [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                      [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:row],
+	                                      [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
 
 
 	NSString *convertedName = [distribution stringByReplacingOccurrencesOfString:@" " withString:@"-"];
@@ -310,7 +310,7 @@
 		return;
 	}
 
-	NSString *temp = [[[NSApp delegate] supportedDistributions] objectAtIndex:selectedDistro];
+	NSString *temp = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:selectedDistro];
 	temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 
 	if (!self.modelDictionary[temp]) {
@@ -344,11 +344,11 @@
 	NSInteger selectedItem = [self.distroMirrorCountrySelector indexOfSelectedItem];
 	NSAssert(selectedItem != -1, @"Selected item is %ld", (long)selectedItem);
 
-	NSString *distribution = [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
+	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
 	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                             [[[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
-	                                             [[[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
+	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
 
 	// Inform the system that we are starting this operation.
 	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
