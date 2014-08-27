@@ -46,7 +46,7 @@
 	self.mdLock = [[NSLock alloc] init];
 	self.idLock = [[NSLock alloc] init];
 	if (self) {
-		// Setup our operation queues.
+		// Setup our operation queues and get default values.
 		self.defaults = [NSUserDefaults standardUserDefaults];
 		NSInteger concurrentOperationsCount = [self.defaults integerForKey:@"SimultaneousDownloadOperationsNumber"];
 
@@ -62,6 +62,7 @@
 	[self.downloadQueuePopover setBehavior:NSPopoverBehaviorTransient];
 	[self.downloadQueueDataSource setPrefsViewController:self];
 	[self.downloadQueueDataSource setTableView:self.downloadQueueTableView];
+	[self.tableView setDoubleAction:@selector(tableViewDoubleClickAction)];
 
 	// Check if enough time has elapsed to where we need to download new JSON.
 	NSInteger JSONUpdateInterval = [[NSUserDefaults standardUserDefaults] integerForKey:@"UpdateMirrorListInterval"];
@@ -246,6 +247,17 @@
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldEditTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	return NO;
+}
+
+- (void)tableViewDoubleClickAction {
+	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
+	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
+	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
+	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
+	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	NSURL *url = [NSURL fileURLWithPath:path];
+	[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler: ^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}
+	 ];
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
