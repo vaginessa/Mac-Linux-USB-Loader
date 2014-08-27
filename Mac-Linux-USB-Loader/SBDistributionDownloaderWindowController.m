@@ -250,6 +250,11 @@
 }
 
 - (void)tableViewDoubleClickAction {
+	NSInteger row = [self.tableView selectedRow];
+	if (row == -1) {
+		return;
+	}
+
 	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
 	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
@@ -262,6 +267,8 @@
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
 	NSInteger row = [self.tableView selectedRow];
+	[self.downloadDistroButton setEnabled:(row != -1)];
+
 	if (row == -1) {
 		[self.distroNameLabel setStringValue:@""];
 		[self.distroImageView setImage:nil];
@@ -311,16 +318,6 @@
 
 - (IBAction)downloadDistroButtonPressed:(id)sender {
 	NSInteger selectedDistro = [self.tableView selectedRow];
-	if (selectedDistro == -1) {
-		NSAlert *alert = [[NSAlert alloc] init];
-		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-		[alert setMessageText:NSLocalizedString(@"No distribution selected.", nil)];
-		[alert setInformativeText:NSLocalizedString(@"You must select the distribution that you wish to download.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
-		[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-
-		return;
-	}
 
 	NSString *temp = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:selectedDistro];
 	temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@"-"];

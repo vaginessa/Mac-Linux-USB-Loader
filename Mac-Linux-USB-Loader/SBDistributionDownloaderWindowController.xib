@@ -178,7 +178,7 @@
                 <constraint firstItem="F2M-qt-irJ" firstAttribute="centerY" secondItem="uXa-ZR-DbK" secondAttribute="centerY" id="h7U-IL-K0s"/>
             </constraints>
         </customView>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="dxA-hL-HgN" customClass="NSPanel">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="dxA-hL-HgN" userLabel="Download Settings Sheet" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="154" width="534" height="207"/>
@@ -423,6 +423,7 @@
             </constraints>
         </customView>
         <customObject id="vyI-Bo-zrb" userLabel="In-Progress Downloads Delegate" customClass="SBDistributionDownloaderDownloadsDataSource"/>
+        <userDefaultsController representsSharedInstance="YES" id="Ehm-iZ-Xew"/>
     </objects>
     <resources>
         <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
