@@ -69,7 +69,7 @@
 	NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastMirrorUpdateCheckTime"];
 	if (lastCheckedDate) {
 		// We have a saved date.
-		NSInteger interval = (NSInteger)ABS([lastCheckedDate timeIntervalSinceNow]);
+		NSInteger interval = (NSInteger)abs([lastCheckedDate timeIntervalSinceNow]);
 		if (interval > JSONUpdateInterval) {
 			// Enough time has elapsed to where it is now time to update the JSON mirrors.
 			// We do this in the background without a lot of pomp so it is transparent to the user.
@@ -250,16 +250,20 @@
 }
 
 - (void)tableViewDoubleClickAction {
+	// Get the table view selection and make sure that they selected something.
 	NSInteger row = [self.tableView selectedRow];
 	if (row == -1) {
 		return;
 	}
 
+	// Construct the name and path of the downloaded ISO.
 	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
 	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
 	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
 	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+
+	// Open the URL.
 	NSURL *url = [NSURL fileURLWithPath:path];
 	[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler: ^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}
 	 ];
