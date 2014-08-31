@@ -269,6 +269,9 @@
 	 ];
 }
 
+- (void)menuNeedsUpdate:(NSMenu *)menu {
+}
+
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
 	NSInteger row = [self.tableView selectedRow];
 	[self.downloadDistroButton setEnabled:(row != -1)];
@@ -318,6 +321,24 @@
 
 	[self.accessoryView setFrame:newFrame];
 	[self.accessoryView setNeedsDisplay:YES];
+}
+
+- (IBAction)viewInFinderButtonClicked:(id)sender {
+	// Get the table view selection and make sure that they selected something.
+	NSInteger row = [self.tableView clickedRow];
+	if (row == -1) {
+		return;
+	}
+
+	// Construct the name and path of the downloaded ISO.
+	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
+	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
+	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
+												 [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
+												 [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+
+	// Open the URL.
+	[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:path];
 }
 
 - (IBAction)downloadDistroButtonPressed:(id)sender {

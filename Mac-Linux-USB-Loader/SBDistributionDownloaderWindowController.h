@@ -12,7 +12,7 @@
 #import <JSONHTTPClient.h>
 #import "SBDownloadableDistributionModel.h"
 
-@interface SBDistributionDownloaderWindowController : NSWindowController <NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate>
+@interface SBDistributionDownloaderWindowController : NSWindowController <NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate, NSMenuDelegate>
 
 @property (atomic, strong) id jsonRecieved;
 @property NSInteger numberOfFinishedJsonRequests;
