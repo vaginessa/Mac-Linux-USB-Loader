@@ -402,10 +402,13 @@
 			/* The download was completed successfully. TODO: Show a notification. */
 
 			// Open the downloaded ISO file.
-			if ([self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"] == 0) {
+			NSInteger completionOperation = [self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"];
+			if (completionOperation == 0) {
 				NSURL *url = [NSURL fileURLWithPath:operation.path];
 				[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler: ^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}
 				];
+			} else if (completionOperation == 1) {
+				[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:path];
 			}
 		}
 
