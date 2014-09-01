@@ -55,8 +55,6 @@
 		24E0A595191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E0A593191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m */; };
 		24E0A596191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E0A594191D7CFF0043C24A /* SBDistributionDownloaderWindowController.xib */; };
 		24E4F8D3196A0DF4002767C8 /* NSAlert+Popover.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E4F8D2196A0DF4002767C8 /* NSAlert+Popover.m */; };
-		24E6AB03198495E7002CA3C9 /* boot.efi in Resources */ = {isa = PBXBuildFile; fileRef = 24E6AB01198495E7002CA3C9 /* boot.efi */; };
-		24E6AB04198495E7002CA3C9 /* bootX64.efi in Resources */ = {isa = PBXBuildFile; fileRef = 24E6AB02198495E7002CA3C9 /* bootX64.efi */; };
 		24E6AB0519849611002CA3C9 /* boot.efi in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24E6AB01198495E7002CA3C9 /* boot.efi */; };
 		24E6AB0619849612002CA3C9 /* bootX64.efi in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24E6AB02198495E7002CA3C9 /* bootX64.efi */; };
 		24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ED96C219A2444600723C4E /* SystemConfiguration.framework */; };
@@ -518,9 +516,7 @@
 				24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */,
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
 				24B322FD18A0123F00A5E25E /* defaults.plist in Resources */,
-				24E6AB04198495E7002CA3C9 /* bootX64.efi in Resources */,
 				24A4EC871884966A00CE6CF0 /* Credits.rtf in Resources */,
-				24E6AB03198495E7002CA3C9 /* boot.efi in Resources */,
 				24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */,
 				24A4EC901884966A00CE6CF0 /* MainMenu.xib in Resources */,
 				24D75F92188AE77100FF5ADC /* SBUSBSetupWindowController.xib in Resources */,
