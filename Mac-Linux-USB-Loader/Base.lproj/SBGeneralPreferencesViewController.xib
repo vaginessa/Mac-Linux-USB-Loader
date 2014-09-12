@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.9"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBGeneralPreferencesViewController">
@@ -11,21 +11,19 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="1">
-            <rect key="frame" x="0.0" y="0.0" width="461" height="422"/>
+            <rect key="frame" x="0.0" y="0.0" width="461" height="203"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <box autoresizesSubviews="NO" title="Experimental" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="nPg-bg-bVL">
                     <rect key="frame" x="17" y="16" width="427" height="98"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="425" height="82"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-OH-hmA">
                                 <rect key="frame" x="16" y="56" width="393" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Accept HFS+ Formatted Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9HT-f6-zfH">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -37,30 +35,63 @@
                         </subviews>
                     </view>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" constant="16" id="j7W-xv-QVb"/>
-                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="j9Y-r6-eI2"/>
-                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="top" secondItem="nPg-bg-bVL" secondAttribute="top" constant="25" id="rLy-SE-6SM"/>
+                        <constraint firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" constant="16" id="8Ai-Ad-cnt"/>
+                        <constraint firstAttribute="bottom" secondItem="rlJ-OH-hmA" secondAttribute="bottom" constant="55" id="AmK-7v-pe8"/>
+                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="top" secondItem="nPg-bg-bVL" secondAttribute="top" constant="25" id="efh-Lf-GvO"/>
+                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="qIC-Rp-7Gr"/>
                     </constraints>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Mqp-7t-iHQ">
                     <rect key="frame" x="12" y="120" width="429" height="5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="s4C-gM-3i6">
+                    <rect key="frame" x="18" y="167" width="425" height="18"/>
+                    <buttonCell key="cell" type="check" title="Periodically Clear Caches and Old ISO Downloads" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XrG-IX-Jnc">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="aRH-Yv-lWu" name="value" keyPath="values.PeriodicallyClearCaches" id="4s6-JV-cTL"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZY5-Xk-lAz">
+                    <rect key="frame" x="342" y="127" width="105" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="93" id="NQS-lB-MwA"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="Clear Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j9p-k1-kBV">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="aRH-Yv-lWu" name="enabled" keyPath="values.PeriodicallyClearCaches" id="65f-7v-4Bk">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="2VM-HE-wKm"/>
-                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="3Xb-2Q-TPz"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="8" symbolic="YES" id="UJD-NJ-wcR"/>
-                <constraint firstAttribute="bottom" secondItem="nPg-bg-bVL" secondAttribute="bottom" constant="20" symbolic="YES" id="UXI-ob-qrD"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="trailing" secondItem="Mqp-7t-iHQ" secondAttribute="trailing" id="XI2-GN-LeI"/>
-                <constraint firstAttribute="trailing" secondItem="Mqp-7t-iHQ" secondAttribute="trailing" constant="20" id="fCQ-11-Pfz"/>
-                <constraint firstAttribute="bottom" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="122" id="iD3-fP-Wnd"/>
+                <constraint firstItem="s4C-gM-3i6" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="9sY-pN-BjY"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="trailing" secondItem="s4C-gM-3i6" secondAttribute="trailing" id="A7G-nW-88Y"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="top" secondItem="ZY5-Xk-lAz" secondAttribute="bottom" constant="11" id="AD0-aN-W3A"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="top" secondItem="s4C-gM-3i6" secondAttribute="bottom" constant="46" id="J2V-bk-Pyg"/>
+                <constraint firstItem="nPg-bg-bVL" firstAttribute="trailing" secondItem="Mqp-7t-iHQ" secondAttribute="trailing" id="Oub-2g-bot"/>
+                <constraint firstItem="ZY5-Xk-lAz" firstAttribute="top" secondItem="s4C-gM-3i6" secondAttribute="bottom" constant="14" id="UpL-XE-qq9"/>
+                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="8" symbolic="YES" id="bFe-Jq-5tI"/>
+                <constraint firstAttribute="trailing" secondItem="s4C-gM-3i6" secondAttribute="trailing" constant="20" symbolic="YES" id="e79-nv-nKj"/>
+                <constraint firstItem="s4C-gM-3i6" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" id="hbN-wt-2Sw"/>
+                <constraint firstItem="s4C-gM-3i6" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="kDQ-Jg-6Wz"/>
+                <constraint firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" constant="20" id="nwy-fm-9oA"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="v52-e8-W5W"/>
             </constraints>
+            <point key="canvasLocation" x="433.5" y="177.5"/>
         </customView>
         <userDefaultsController id="xGH-KJ-pxb"/>
         <userDefaultsController representsSharedInstance="YES" id="aRH-Yv-lWu"/>
