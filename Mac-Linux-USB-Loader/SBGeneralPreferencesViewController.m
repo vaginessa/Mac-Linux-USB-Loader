@@ -7,6 +7,7 @@
 //
 
 #import "SBGeneralPreferencesViewController.h"
+#import "SBAppDelegate.h"
 
 @interface SBGeneralPreferencesViewController ()
 
@@ -20,6 +21,10 @@
 		// Initialization code here.
 	}
 	return self;
+}
+
+- (IBAction)clearCachesButtonPressed:(id)sender {
+	[(SBAppDelegate *)[NSApp delegate] purgeCachesAndOldFiles];
 }
 
 - (NSString *)identifier {

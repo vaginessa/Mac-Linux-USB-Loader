@@ -54,6 +54,8 @@
 
 - (void)detectAndSetupUSBs;
 
+- (void)purgeCachesAndOldFiles;
+
 - (IBAction)showPreferencesWindow:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;
 - (IBAction)showHelp:(id)sender;

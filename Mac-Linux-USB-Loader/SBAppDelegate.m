@@ -79,6 +79,25 @@
 	[self detectAndSetupUSBs];
 }
 
+- (void)purgeCachesAndOldFiles {
+	/* First, purge all caches and unneeded data that we can re-obtain. */
+	NSString *path = [[NSFileManager defaultManager] cacheDirectory];
+	NSFileManager *fm = [[NSFileManager alloc] init];
+	NSDirectoryEnumerator *en = [fm enumeratorAtPath:path];
+	NSError *err = nil;
+	BOOL res;
+
+	NSString *file;
+	while (file = [en nextObject]) {
+		if (![[path stringByAppendingPathComponent:file] hasSuffix:@".json"]) {
+			res = [fm removeItemAtPath:[path stringByAppendingPathComponent:file] error:&err];
+			if (!res && err) {
+				NSLog(@"Couldn't erase cached file at path: %@", err);
+			}
+		}
+	}
+}
+
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
 	[self.window makeKeyAndOrderFront:nil];
 	return YES;

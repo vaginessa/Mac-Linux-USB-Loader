@@ -69,6 +69,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
+                        <action selector="clearCachesButtonPressed:" target="-2" id="1uD-6B-src"/>
                         <binding destination="aRH-Yv-lWu" name="enabled" keyPath="values.PeriodicallyClearCaches" id="65f-7v-4Bk">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
