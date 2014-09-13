@@ -153,13 +153,14 @@
 		self.usbDictionary = [[NSMutableDictionary alloc] initWithCapacity:10];
 	}
 
-	NSArray *volumes = [[NSWorkspace sharedWorkspace] mountedLocalVolumePaths];
+	NSArray *volumes = [[NSFileManager defaultManager] mountedVolumeURLsIncludingResourceValuesForKeys:nil options:0];
 	BOOL isRemovable, isWritable, isUnmountable;
 	NSString *description, *volumeType;
 
 	BOOL acceptHFSDrives = [[NSUserDefaults standardUserDefaults] boolForKey:@"AcceptHFSDrives"];
 
-	for (NSString *usbDeviceMountPoint in volumes) {
+	for (NSURL *mountURL in volumes) {
+		NSString *usbDeviceMountPoint = [mountURL path];
 		if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
 			if (isRemovable && isWritable && isUnmountable) {
 				NSLog(@"Detected eligible volume at %@. Type: %@", usbDeviceMountPoint, volumeType);
