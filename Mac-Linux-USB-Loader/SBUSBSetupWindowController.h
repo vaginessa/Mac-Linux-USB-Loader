@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SBUSBSetupWindowController : NSWindowController
+@interface SBUSBSetupWindowController : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
 
 @end

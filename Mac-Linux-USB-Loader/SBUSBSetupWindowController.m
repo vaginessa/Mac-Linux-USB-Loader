@@ -7,8 +7,15 @@
 //
 
 #import "SBUSBSetupWindowController.h"
+#import "SBAppDelegate.h"
+#import "SBUSBDevice.h"
 
 @interface SBUSBSetupWindowController ()
+
+@property (weak) NSDictionary *usbDictionary;
+@property (weak) IBOutlet NSTableView *tableView;
+
+@property (strong) NSMutableArray *usbArray;
 
 @end
 
@@ -18,14 +25,35 @@
 	self = [super initWithWindow:window];
 	if (self) {
 		// Initialization code here.
+		self.usbDictionary = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
+		SBLogObject(self.usbDictionary);
+
+		self.usbArray = [[NSMutableArray alloc] initWithCapacity:[self.usbDictionary count]];
+		for (SBUSBDevice *device in self.usbDictionary) {
+			[self.usbArray addObject:device];
+		}
+
+		SBLogObject(self.usbArray);
 	}
 	return self;
 }
 
 - (void)windowDidLoad {
 	[super windowDidLoad];
+}
 
-	// Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+- (IBAction)chooseStartupDiskButtonPressed:(id)sender {
+	[[NSWorkspace sharedWorkspace] openFile:@"/System/Library/PreferencePanes/StartupDisk.prefPane"];
+}
+
+#pragma mark - Table View Delegates
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+	return [self.usbArray count];
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+	SBUSBDevice *device = self.usbArray[rowIndex];
+	return device;
 }
 
 @end
