@@ -57,6 +57,16 @@
 		NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:path withWindowForSheet:nil];
 
 		if (outURL) {
+			if (selectedDrive.fileSystem != SBUSBDriveFileSystemHFS) {
+				NSAlert *alert = [[NSAlert alloc] init];
+				[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+				[alert setMessageText:NSLocalizedString(@"Cannot use this USB as a startup disk.", nil)];
+				[alert setInformativeText:NSLocalizedString(@"This USB drive cannot be used as a startup disk because OS X only recognizes startup disks with an HFS+ file system.", nil)];
+				[alert setAlertStyle:NSWarningAlertStyle];
+				[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+				return;
+			}
+
 			[outURL startAccessingSecurityScopedResource];
 			[selectedDrive enableStartupDiskSupport];
 			[outURL stopAccessingSecurityScopedResource];
@@ -78,6 +88,11 @@
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	SBUSBDevice *device = self.usbArray[rowIndex];
 	return device.name;
+}
+
+#pragma mark - Misc. Delegates
+- (void)regularSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	// Empty
 }
 
 @end

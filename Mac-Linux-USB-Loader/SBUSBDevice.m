@@ -220,7 +220,6 @@ typedef enum {
 
 - (BOOL)enableStartupDiskSupport {
 	NSString *finalPath = [self.path stringByAppendingString:@"/System/Library/CoreServices/"];
-	SBLogObject(finalPath);
 
 	[[NSFileManager defaultManager] createDirectoryAtPath:finalPath withIntermediateDirectories:YES attributes:nil error:nil];
 

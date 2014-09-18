@@ -13,11 +13,23 @@
 
 @interface SBUSBDevice : NSObject
 
+/// An enumeration containing various supported Linux distributions.
+typedef NS_ENUM (NSInteger, SBUSBDriveFileSystem) {
+	/// An enum type representing the FAT32 file system.
+	SBUSBDriveFileSystemFAT32,
+	/// An enum type representing the HFS+ file system.
+	SBUSBDriveFileSystemHFS,
+	/// An enum type representing an unknown file system.
+	SBDistributionOther
+};
+
 /// The path (including the mount point) of the USB drive represented by this object.
 @property (nonatomic, strong) NSString *path;
 
 /// The "name" of the USB; really just its drive label.
 @property (nonatomic, strong) NSString *name;
+
+@property (nonatomic) SBUSBDriveFileSystem fileSystem;
 
 /**
  * Creates a persistence file on the USB stick of the specified size. The file is formatted to contain
