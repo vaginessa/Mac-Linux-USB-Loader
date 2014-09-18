@@ -209,8 +209,8 @@
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		SBEnterpriseSourceLocation *sourceLocation = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
 		SBLogObject(sourceLocation);
-		[selectedUSBDrive copyEnterpriseFiles:self withEnterpriseSource:sourceLocation toUSBDrive:selectedUSBDrive];
-	    [selectedUSBDrive copyInstallationFiles:self toUSBDrive:selectedUSBDrive];
+		[selectedUSBDrive copyEnterpriseFiles:self withEnterpriseSource:sourceLocation];
+	    [selectedUSBDrive copyInstallationFiles:self];
 
 	    dispatch_async(dispatch_get_main_queue(), ^{
 	        /* STEP 4: Restore access to the disabled buttons. */

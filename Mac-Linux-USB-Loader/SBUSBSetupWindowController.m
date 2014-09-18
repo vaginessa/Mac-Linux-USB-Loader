@@ -12,8 +12,9 @@
 
 @interface SBUSBSetupWindowController ()
 
-@property (weak) NSDictionary *usbDictionary;
+@property (strong) NSDictionary *usbDictionary;
 @property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSButton *enableStartupDiskButton;
 
 @property (strong) NSMutableArray *usbArray;
 
@@ -26,34 +27,57 @@
 	if (self) {
 		// Initialization code here.
 		self.usbDictionary = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
-		SBLogObject(self.usbDictionary);
 
 		self.usbArray = [[NSMutableArray alloc] initWithCapacity:[self.usbDictionary count]];
-		for (SBUSBDevice *device in self.usbDictionary) {
-			[self.usbArray addObject:device];
-		}
-
-		SBLogObject(self.usbArray);
+		[self.usbDictionary enumerateKeysAndObjectsUsingBlock:^(id key, SBUSBDevice *object, BOOL *stop) {
+			NSLog(@"%@ = %@", key, object);
+			[self.usbArray addObject:object];
+		}];
 	}
 	return self;
 }
 
 - (void)windowDidLoad {
 	[super windowDidLoad];
+
+	[self.enableStartupDiskButton setEnabled:NO];
 }
+
+#pragma mark - Button Delegates
 
 - (IBAction)chooseStartupDiskButtonPressed:(id)sender {
 	[[NSWorkspace sharedWorkspace] openFile:@"/System/Library/PreferencePanes/StartupDisk.prefPane"];
 }
 
+- (IBAction)enableStartupSupportButtonPressed:(id)sender {
+	if ([self.tableView selectedRow] != -1) {
+		SBUSBDevice *selectedDrive = self.usbArray[[self.tableView selectedRow]];
+		NSFileManager *manager = [NSFileManager defaultManager];
+		NSString *path = selectedDrive.path;
+		NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:path withWindowForSheet:nil];
+
+		if (outURL) {
+			[outURL startAccessingSecurityScopedResource];
+			[selectedDrive enableStartupDiskSupport];
+			[outURL stopAccessingSecurityScopedResource];
+		}
+	}
+}
+
 #pragma mark - Table View Delegates
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+	NSInteger row = [self.tableView selectedRow];
+
+	[self.enableStartupDiskButton setEnabled:(row != -1)];
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 	return [self.usbArray count];
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	SBUSBDevice *device = self.usbArray[rowIndex];
-	return device;
+	return device.name;
 }
 
 @end

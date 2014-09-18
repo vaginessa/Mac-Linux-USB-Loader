@@ -50,10 +50,9 @@
  * Copies the ISO file to the USB device represented by this object.
  *
  * @param document The instance of the document class that this object belongs to.
- * @param usb An instanse of the SBUSBDevice class that represents the USB drive to install to.
  * @return YES if the operation succeeded, NO if it did not.
  */
-- (BOOL)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb;
+- (BOOL)copyInstallationFiles:(SBDocument *)document;
 
 /**
  * Copies the Enterprise boot loader to the USB device represented by this object. This method does not
@@ -61,9 +60,16 @@
  * assuming that the user already has granted access to the target USB device.
  *
  * @param document The instance of the document class that this object belongs to.
- * @param usb An instanse of the SBUSBDevice class that represents the USB drive to install to.
  * @return YES if the operation succeeded, NO if it did not.
  */
-- (BOOL)copyEnterpriseFiles:(SBDocument *)document withEnterpriseSource:(SBEnterpriseSourceLocation *)source toUSBDrive:(SBUSBDevice *)usb;
+- (BOOL)copyEnterpriseFiles:(SBDocument *)document withEnterpriseSource:(SBEnterpriseSourceLocation *)source;
+
+/**
+ * Configures this USB drive with the files and options that are needed to add it to the Startup Disk selector
+ * in System Preferences.
+ *
+ * @return YES if the operation succeeded, NO if it did not.
+ */
+- (BOOL)enableStartupDiskSupport;
 
 @end

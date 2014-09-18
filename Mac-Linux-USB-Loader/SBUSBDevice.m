@@ -89,12 +89,12 @@ typedef enum {
 	return self;
 }
 
-- (BOOL)copyInstallationFiles:(SBDocument *)document toUSBDrive:(SBUSBDevice *)usb {
+- (BOOL)copyInstallationFiles:(SBDocument *)document {
 	// Create an operation for the operation queue to copy over the necessary files.
 	attachedDocument = document;
 	USBIsInUse = YES;
 	NSString *finalISOCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/boot.iso",
-	                              usb.name];
+	                              self.name];
 
 	dispatch_async(dispatch_get_main_queue(), ^{
 	    progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
@@ -128,14 +128,14 @@ typedef enum {
 	return YES;
 }
 
-- (BOOL)copyEnterpriseFiles:(SBDocument *)document withEnterpriseSource:(SBEnterpriseSourceLocation *)source toUSBDrive:(SBUSBDevice *)usb {
+- (BOOL)copyEnterpriseFiles:(SBDocument *)document withEnterpriseSource:(SBEnterpriseSourceLocation *)source {
 	// Create an operation for the operation queue to copy over the necessary files.
 	attachedDocument = document;
 	USBIsInUse = YES;
 	NSString *finalEnterpriseCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/bootx64.efi",
-	                              usb.name];
+	                              self.name];
 	NSString *finalGRUBCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/boot.efi",
-										 usb.name];
+										 self.name];
 
 	dispatch_async(dispatch_get_main_queue(), ^{
 	    progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
@@ -216,6 +216,15 @@ typedef enum {
 			break;
 		}
 	}
+}
+
+- (BOOL)enableStartupDiskSupport {
+	NSString *finalPath = [self.path stringByAppendingString:@"/System/Library/CoreServices/"];
+	SBLogObject(finalPath);
+
+	[[NSFileManager defaultManager] createDirectoryAtPath:finalPath withIntermediateDirectories:YES attributes:nil error:nil];
+
+	return YES;
 }
 
 @end
