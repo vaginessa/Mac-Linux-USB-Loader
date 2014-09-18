@@ -135,6 +135,9 @@
 	NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
 	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
 
+	// Update user preferences.
+	[[NSUserDefaults standardUserDefaults] setObject:@"Included With Application" forKey:@"DefaultEnterpriseSourceLocation"];
+
 	// Reload the table with our new data.
 	[self.tableView reloadData];
 	[self hideSourceLocationButtonPressed:nil];
@@ -206,6 +209,15 @@
 	else {
 		NSLog(@"No permissions!");
 	}
+}
+
+- (IBAction)updateSettingsButtonPressed:(id)sender {
+	NSInteger selectedRow = [self.tableView selectedRow];
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSDictionary *enterpriseLocations = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations];
+	NSString *selectedSourceTitle = [enterpriseLocations[self.listOfArrayKeys[selectedRow]] name];
+
+	[defaults setObject:selectedSourceTitle forKey:@"DefaultEnterpriseSourceLocation"];
 }
 
 #pragma mark - Delegates

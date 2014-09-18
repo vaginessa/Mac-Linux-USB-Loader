@@ -29,6 +29,7 @@ typedef NS_ENUM (NSInteger, SBUSBDriveFileSystem) {
 /// The "name" of the USB; really just its drive label.
 @property (nonatomic, strong) NSString *name;
 
+/// The file system of the USB drive.
 @property (nonatomic) SBUSBDriveFileSystem fileSystem;
 
 /**

@@ -90,6 +90,10 @@
 	return device.name;
 }
 
+- (BOOL)tableView:(NSTableView *)aTableView shouldEditTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+	return NO;
+}
+
 #pragma mark - Misc. Delegates
 - (void)regularSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	// Empty

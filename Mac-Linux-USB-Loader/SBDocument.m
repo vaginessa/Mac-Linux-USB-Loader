@@ -42,6 +42,8 @@
 
 	[self setupUSBDriveSelector];
 
+	[self.enterpriseSourceSelector selectItemWithTitle:[[NSUserDefaults standardUserDefaults] stringForKey:@"DefaultEnterpriseSourceLocation"]];
+
 	[self.performInstallationButton setEnabled:NO];
 }
 
