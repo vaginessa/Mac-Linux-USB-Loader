@@ -141,6 +141,7 @@
 			});
 		} else {
 	        [sender setEnabled:YES];
+			[self.resetSliderButton setEnabled:YES];
 	        [self.persistenceVolumeSizeSlider setEnabled:YES];
 	        [self.persistenceVolumeSizeTextField setEnabled:YES];
 	        [self.usbSelectorPopup setEnabled:YES];

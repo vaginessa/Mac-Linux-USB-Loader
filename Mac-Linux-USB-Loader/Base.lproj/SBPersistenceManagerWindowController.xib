@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6205"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBPersistenceManagerWindowController">
             <connections>
                 <outlet property="operationProgressLabel" destination="htd-Oc-Vqe" id="uaU-wL-M1W"/>
-                <outlet property="persistenceOptionsSetupBox" destination="7Eq-Js-Ppp" id="aQY-fS-CM8"/>
-                <outlet property="persistenceVolumeSizeSlider" destination="gHg-qe-gRa" id="QNj-hM-1Tl"/>
-                <outlet property="persistenceVolumeSizeTextField" destination="8hH-NQ-7sz" id="neA-Yz-9C4"/>
-                <outlet property="resetSliderButton" destination="VF2-ux-F0J" id="hmf-r2-pvW"/>
+                <outlet property="persistenceVolumeSizeSlider" destination="6JB-DA-RJT" id="yCX-Zx-sCF"/>
+                <outlet property="persistenceVolumeSizeTextField" destination="Eon-uz-T23" id="NRz-3u-YmD"/>
+                <outlet property="resetSliderButton" destination="cw7-Bo-nAF" id="bl9-kg-C3B"/>
                 <outlet property="spinner" destination="fEs-wl-bLJ" id="y3D-gF-4Kn"/>
-                <outlet property="usbSelectorPopup" destination="lc0-Og-xhN" id="xao-2c-JUC"/>
+                <outlet property="usbSelectorPopup" destination="WtK-de-1VS" id="cdE-mQ-asS"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
         </customObject>
@@ -27,184 +26,149 @@
                 <rect key="frame" x="0.0" y="0.0" width="622" height="299"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tabView initialItem="4A2-3M-S2a" translatesAutoresizingMaskIntoConstraints="NO" id="oXz-Ke-RJv">
-                        <rect key="frame" x="13" y="32" width="596" height="261"/>
-                        <font key="font" metaFont="system"/>
-                        <tabViewItems>
-                            <tabViewItem label="Setup Persistence" identifier="1" id="4A2-3M-S2a">
-                                <view key="view" id="Kf2-L3-K4Q">
-                                    <rect key="frame" x="10" y="33" width="576" height="215"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Naq-Ne-MDC">
-                                            <rect key="frame" x="15" y="192" width="81" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="77" id="vnF-jF-hzJ"/>
-                                            </constraints>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Target USB:" id="gfk-uK-rzo">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lc0-Og-xhN">
-                                            <rect key="frame" x="102" y="188" width="460" height="26"/>
-                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="kEq-zB-YTC">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </comboBoxCell>
-                                        </comboBox>
-                                        <box autoresizesSubviews="NO" title="Persistence Options" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-Js-Ppp">
-                                            <rect key="frame" x="14" y="5" width="548" height="179"/>
-                                            <view key="contentView">
-                                                <rect key="frame" x="1" y="1" width="546" height="163"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8hH-NQ-7sz">
-                                                        <rect key="frame" x="432" y="131" width="96" height="22"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="96" id="jFL-Tl-yE3"/>
-                                                        </constraints>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="g1C-89-chO">
-                                                            <byteCountFormatter key="formatter" id="P1w-E1-XDd"/>
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                        <connections>
-                                                            <binding destination="-2" name="value" keyPath="persistenceVolumeSizeSlider.integerValue" id="zfG-DV-5qS">
-                                                                <dictionary key="options">
-                                                                    <bool key="NSConditionallySetsEditable" value="NO"/>
-                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                                                    <bool key="NSValidatesImmediately" value="YES"/>
-                                                                </dictionary>
-                                                            </binding>
-                                                        </connections>
-                                                    </textField>
-                                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHg-qe-gRa">
-                                                        <rect key="frame" x="130" y="131" width="296" height="21"/>
-                                                        <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="j0c-eU-prh"/>
-                                                    </slider>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UmG-Ak-vVB">
-                                                        <rect key="frame" x="18" y="133" width="108" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Persistence Size:" id="gwQ-4R-lk0">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0U7-88-khC">
-                                                        <rect key="frame" x="379" y="7" width="155" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Create Persistence" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GhG-8s-UHS">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="createPersistenceButtonPressed:" target="-2" id="7Gx-J0-PO6"/>
-                                                        </connections>
-                                                    </button>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="40V-gP-LmV">
-                                                        <rect key="frame" x="18" y="49" width="512" height="76"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="76" id="2f3-dG-KS9"/>
-                                                        </constraints>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="lK1-ei-AHy">
-                                                            <font key="font" metaFont="smallSystem"/>
-                                                            <string key="title">Warning: due to annoying system limitations, Mac Linux USB Loader cannot use the persistence feature with USB drives with a space in their name. </string>
-                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VF2-ux-F0J">
-                                                        <rect key="frame" x="14" y="7" width="113" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Reset Slider" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hp4-u2-EVb">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="resetSliderButtonPressed:" target="-2" id="eOy-uS-xR6"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </view>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="40V-gP-LmV" secondAttribute="trailing" constant="16" id="1XV-hr-v79"/>
-                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" symbolic="YES" id="45J-rv-1u9"/>
-                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="25" id="53Q-rS-ahQ"/>
-                                                <constraint firstItem="gHg-qe-gRa" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="trailing" constant="8" id="Bk0-ZF-UrR"/>
-                                                <constraint firstAttribute="bottom" secondItem="0U7-88-khC" secondAttribute="bottom" constant="11" id="BlL-u7-Fle"/>
-                                                <constraint firstAttribute="trailing" secondItem="8hH-NQ-7sz" secondAttribute="trailing" constant="16" id="CMz-St-3FJ"/>
-                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="baseline" secondItem="UmG-Ak-vVB" secondAttribute="baseline" id="GDG-YO-gxS"/>
-                                                <constraint firstItem="40V-gP-LmV" firstAttribute="top" secondItem="UmG-Ak-vVB" secondAttribute="bottom" constant="8" symbolic="YES" id="IPz-j6-QsR"/>
-                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" id="LcJ-87-5jJ"/>
-                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="leading" secondItem="gHg-qe-gRa" secondAttribute="trailing" constant="8" id="MYV-hN-34F"/>
-                                                <constraint firstItem="UmG-Ak-vVB" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="28" id="Pyl-ba-USH"/>
-                                                <constraint firstItem="gHg-qe-gRa" firstAttribute="top" secondItem="7Eq-Js-Ppp" secondAttribute="top" constant="28" id="X3W-kI-bpZ"/>
-                                                <constraint firstItem="40V-gP-LmV" firstAttribute="trailing" secondItem="8hH-NQ-7sz" secondAttribute="trailing" id="cq0-tp-JLE"/>
-                                                <constraint firstItem="gHg-qe-gRa" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="trailing" constant="8" id="etV-rM-bnE"/>
-                                                <constraint firstItem="UmG-Ak-vVB" firstAttribute="leading" secondItem="7Eq-Js-Ppp" secondAttribute="leading" constant="18" id="f2m-Pp-Mmf"/>
-                                                <constraint firstItem="8hH-NQ-7sz" firstAttribute="baseline" secondItem="gHg-qe-gRa" secondAttribute="baseline" id="fCF-RF-bgy"/>
-                                                <constraint firstItem="VF2-ux-F0J" firstAttribute="leading" secondItem="7Eq-Js-Ppp" secondAttribute="leading" constant="18" id="iFT-KO-bKC"/>
-                                                <constraint firstItem="40V-gP-LmV" firstAttribute="leading" secondItem="UmG-Ak-vVB" secondAttribute="leading" id="y9S-qj-eGR"/>
-                                                <constraint firstAttribute="bottom" secondItem="VF2-ux-F0J" secondAttribute="bottom" constant="11" id="zC8-1k-f1F"/>
-                                                <constraint firstAttribute="trailing" secondItem="0U7-88-khC" secondAttribute="trailing" constant="16" id="zxo-p5-OCU"/>
-                                            </constraints>
-                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </box>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="7Eq-Js-Ppp" secondAttribute="trailing" constant="17" id="9fO-NP-TDs"/>
-                                        <constraint firstItem="7Eq-Js-Ppp" firstAttribute="top" secondItem="lc0-Og-xhN" secondAttribute="bottom" constant="8" id="BTl-Ni-G3F"/>
-                                        <constraint firstAttribute="bottom" secondItem="7Eq-Js-Ppp" secondAttribute="bottom" constant="9" id="KWE-fb-fyZ"/>
-                                        <constraint firstItem="lc0-Og-xhN" firstAttribute="baseline" secondItem="Naq-Ne-MDC" secondAttribute="baseline" id="P4o-IA-BPf"/>
-                                        <constraint firstAttribute="trailing" secondItem="lc0-Og-xhN" secondAttribute="trailing" constant="17" id="Q5w-2n-B2z"/>
-                                        <constraint firstItem="Naq-Ne-MDC" firstAttribute="leading" secondItem="Kf2-L3-K4Q" secondAttribute="leading" constant="17" id="VFS-2p-B1t"/>
-                                        <constraint firstItem="lc0-Og-xhN" firstAttribute="leading" secondItem="Naq-Ne-MDC" secondAttribute="trailing" constant="8" symbolic="YES" id="btk-9I-vmC"/>
-                                        <constraint firstItem="7Eq-Js-Ppp" firstAttribute="leading" secondItem="Kf2-L3-K4Q" secondAttribute="leading" constant="17" id="mcs-9C-ShU"/>
-                                        <constraint firstItem="Naq-Ne-MDC" firstAttribute="top" secondItem="Kf2-L3-K4Q" secondAttribute="top" constant="6" id="qHf-jl-54C"/>
-                                    </constraints>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="Delete Persistence" identifier="2" id="mUQ-Yw-fjL">
-                                <view key="view" id="rJ0-BK-bQg">
-                                    <rect key="frame" x="10" y="33" width="555" height="245"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                            </tabViewItem>
-                        </tabViewItems>
-                    </tabView>
-                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="fEs-wl-bLJ">
-                        <rect key="frame" x="20" y="16" width="16" height="16"/>
-                    </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="htd-Oc-Vqe">
-                        <rect key="frame" x="42" y="18" width="562" height="14"/>
+                        <rect key="frame" x="42" y="16" width="562" height="14"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="NrD-gi-cN6">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WtK-de-1VS">
+                        <rect key="frame" x="105" y="258" width="500" height="26"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="CSx-vn-lY9">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </comboBoxCell>
+                    </comboBox>
+                    <box autoresizesSubviews="NO" title="Persistence Options" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="be7-b0-Wt7">
+                        <rect key="frame" x="17" y="36" width="588" height="218"/>
+                        <view key="contentView">
+                            <rect key="frame" x="1" y="1" width="586" height="202"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eon-uz-T23">
+                                    <rect key="frame" x="472" y="170" width="96" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="96" id="XYc-Hg-C62"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ddJ-0k-WBw">
+                                        <byteCountFormatter key="formatter" id="MXU-gc-OCr"/>
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="-2" name="value" keyPath="persistenceVolumeSizeSlider.integerValue" id="Eei-ol-lUe">
+                                            <dictionary key="options">
+                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                <bool key="NSValidatesImmediately" value="YES"/>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textField>
+                                <slider verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
+                                    <rect key="frame" x="130" y="170" width="336" height="21"/>
+                                    <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
+                                </slider>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
+                                    <rect key="frame" x="18" y="172" width="108" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Persistence Size:" id="Dpm-6U-5pw">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kSC-Pl-16D">
+                                    <rect key="frame" x="419" y="7" width="155" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Create Persistence" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zZH-rW-NE2">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="createPersistenceButtonPressed:" target="-2" id="kwF-kf-hUN"/>
+                                    </connections>
+                                </button>
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="knr-It-BIb">
+                                    <rect key="frame" x="18" y="43" width="552" height="121"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="121" id="OeU-Ok-ZoP"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="pzS-Qh-S2z">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <string key="title">Warning: due to annoying system limitations, Mac Linux USB Loader cannot use the persistence feature with USB drives with a space in their name. </string>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-Bo-nAF">
+                                    <rect key="frame" x="14" y="7" width="113" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Reset Slider" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fCZ-FR-PGe">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="resetSliderButtonPressed:" target="-2" id="jRO-0T-3ZQ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                        <constraints>
+                            <constraint firstItem="Eon-uz-T23" firstAttribute="baseline" secondItem="6JB-DA-RJT" secondAttribute="baseline" id="3Hm-WZ-KzY"/>
+                            <constraint firstItem="6JB-DA-RJT" firstAttribute="baseline" secondItem="gHL-Gw-83z" secondAttribute="baseline" id="71D-Oh-dDn"/>
+                            <constraint firstItem="6JB-DA-RJT" firstAttribute="leading" secondItem="gHL-Gw-83z" secondAttribute="trailing" constant="8" symbolic="YES" id="8bL-2g-uql"/>
+                            <constraint firstItem="knr-It-BIb" firstAttribute="trailing" secondItem="Eon-uz-T23" secondAttribute="trailing" id="DHh-g7-qDo"/>
+                            <constraint firstItem="Eon-uz-T23" firstAttribute="leading" secondItem="6JB-DA-RJT" secondAttribute="trailing" constant="8" symbolic="YES" id="HAh-nF-PGH"/>
+                            <constraint firstItem="cw7-Bo-nAF" firstAttribute="top" secondItem="knr-It-BIb" secondAttribute="bottom" constant="8" symbolic="YES" id="LKR-4H-rjM"/>
+                            <constraint firstItem="kSC-Pl-16D" firstAttribute="baseline" secondItem="cw7-Bo-nAF" secondAttribute="baseline" id="Mjd-Ht-857"/>
+                            <constraint firstItem="kSC-Pl-16D" firstAttribute="trailing" secondItem="knr-It-BIb" secondAttribute="trailing" id="T1G-Yk-rYX"/>
+                            <constraint firstItem="knr-It-BIb" firstAttribute="top" secondItem="gHL-Gw-83z" secondAttribute="bottom" constant="8" symbolic="YES" id="Uub-aP-F2r"/>
+                            <constraint firstAttribute="trailing" secondItem="Eon-uz-T23" secondAttribute="trailing" constant="16" id="V3L-wW-dow"/>
+                            <constraint firstItem="Eon-uz-T23" firstAttribute="top" secondItem="be7-b0-Wt7" secondAttribute="top" constant="25" id="XEi-su-8Z2"/>
+                            <constraint firstItem="cw7-Bo-nAF" firstAttribute="leading" secondItem="be7-b0-Wt7" secondAttribute="leading" constant="18" id="YD9-xg-J2x"/>
+                            <constraint firstItem="knr-It-BIb" firstAttribute="leading" secondItem="be7-b0-Wt7" secondAttribute="leading" constant="18" id="YMr-Kd-Bd0"/>
+                            <constraint firstAttribute="bottom" secondItem="cw7-Bo-nAF" secondAttribute="bottom" constant="11" id="yQY-ei-h1q"/>
+                        </constraints>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oAg-6S-39i">
+                        <rect key="frame" x="18" y="262" width="81" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="77" id="w27-ep-rj5"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Target USB:" id="Apk-Mg-4gj">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="fEs-wl-bLJ">
+                        <rect key="frame" x="20" y="15" width="16" height="16"/>
+                    </progressIndicator>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="oXz-Ke-RJv" firstAttribute="top" secondItem="2" secondAttribute="top" constant="12" id="0FO-iY-fR5"/>
-                    <constraint firstAttribute="bottom" secondItem="oXz-Ke-RJv" secondAttribute="bottom" constant="42" id="0ni-TO-CbE"/>
-                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="top" secondItem="oXz-Ke-RJv" secondAttribute="bottom" constant="10" id="3Qz-oN-fVS"/>
-                    <constraint firstItem="oXz-Ke-RJv" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="6Xv-3u-OXy"/>
-                    <constraint firstAttribute="bottom" secondItem="fEs-wl-bLJ" secondAttribute="bottom" constant="16" id="CGV-9L-RVl"/>
-                    <constraint firstItem="fEs-wl-bLJ" firstAttribute="top" secondItem="oXz-Ke-RJv" secondAttribute="bottom" constant="10" id="Er9-CA-Xqu"/>
-                    <constraint firstAttribute="trailing" secondItem="oXz-Ke-RJv" secondAttribute="trailing" constant="20" id="Poi-Ce-ikL"/>
-                    <constraint firstAttribute="bottom" secondItem="htd-Oc-Vqe" secondAttribute="bottom" constant="18" id="Zuq-Ot-cnP"/>
-                    <constraint firstAttribute="trailing" secondItem="htd-Oc-Vqe" secondAttribute="trailing" constant="20" id="dg9-RX-d97"/>
-                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="leading" secondItem="fEs-wl-bLJ" secondAttribute="trailing" constant="8" id="jDC-h4-1yP"/>
-                    <constraint firstItem="fEs-wl-bLJ" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="snE-XU-7HP"/>
-                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="leading" secondItem="fEs-wl-bLJ" secondAttribute="trailing" constant="8" id="xFc-SQ-icS"/>
+                    <constraint firstItem="oAg-6S-39i" firstAttribute="leading" secondItem="be7-b0-Wt7" secondAttribute="leading" id="0ie-gj-RXL"/>
+                    <constraint firstAttribute="bottom" secondItem="htd-Oc-Vqe" secondAttribute="bottom" constant="16" id="3VH-W6-tAI"/>
+                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="trailing" secondItem="be7-b0-Wt7" secondAttribute="trailing" id="Dji-IJ-OHz"/>
+                    <constraint firstItem="WtK-de-1VS" firstAttribute="trailing" secondItem="be7-b0-Wt7" secondAttribute="trailing" id="HmY-eF-O6O"/>
+                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="leading" secondItem="fEs-wl-bLJ" secondAttribute="trailing" constant="8" symbolic="YES" id="IJ7-5N-SgN"/>
+                    <constraint firstAttribute="trailing" secondItem="WtK-de-1VS" secondAttribute="trailing" constant="20" symbolic="YES" id="N0x-m9-IpK"/>
+                    <constraint firstItem="be7-b0-Wt7" firstAttribute="top" secondItem="oAg-6S-39i" secondAttribute="bottom" constant="8" symbolic="YES" id="Q1F-M6-DNU"/>
+                    <constraint firstItem="htd-Oc-Vqe" firstAttribute="top" secondItem="fEs-wl-bLJ" secondAttribute="top" constant="1" id="XBe-d2-F3G"/>
+                    <constraint firstItem="oAg-6S-39i" firstAttribute="baseline" secondItem="WtK-de-1VS" secondAttribute="baseline" id="ZPD-Lr-2fH"/>
+                    <constraint firstItem="oAg-6S-39i" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="k2e-yg-e1P"/>
+                    <constraint firstItem="fEs-wl-bLJ" firstAttribute="top" secondItem="be7-b0-Wt7" secondAttribute="bottom" constant="9" id="ldb-hK-Vhe"/>
+                    <constraint firstItem="oAg-6S-39i" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="nVt-4c-xjH"/>
+                    <constraint firstItem="WtK-de-1VS" firstAttribute="leading" secondItem="oAg-6S-39i" secondAttribute="trailing" constant="8" symbolic="YES" id="nt5-8c-tNK"/>
+                    <constraint firstItem="be7-b0-Wt7" firstAttribute="leading" secondItem="fEs-wl-bLJ" secondAttribute="leading" id="qGG-j7-gpm"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
+            <point key="canvasLocation" x="316" y="125.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="9q0-ST-OZz"/>
     </objects>
