@@ -58,6 +58,7 @@
 		24E6AB0519849611002CA3C9 /* boot.efi in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24E6AB01198495E7002CA3C9 /* boot.efi */; };
 		24E6AB0619849612002CA3C9 /* bootX64.efi in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24E6AB02198495E7002CA3C9 /* bootX64.efi */; };
 		24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ED96C219A2444600723C4E /* SystemConfiguration.framework */; };
+		24F35F7E19D604AE0019CF54 /* Acknowledgements.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 24F35F7C19D604AE0019CF54 /* Acknowledgements.rtf */; };
 		B4383D6F79C144C58D8B337A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F38667D994A74956919B4A54 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -144,7 +145,6 @@
 		24A4EC801884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24A4EC821884966A00CE6CF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24A4EC841884966A00CE6CF0 /* Mac Linux USB Loader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mac Linux USB Loader-Prefix.pch"; sourceTree = "<group>"; };
-		24A4EC861884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		24A4EC881884966A00CE6CF0 /* SBDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBDocument.h; sourceTree = "<group>"; };
 		24A4EC891884966A00CE6CF0 /* SBDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBDocument.m; sourceTree = "<group>"; };
 		24A4EC8C1884966A00CE6CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDocument.xib; sourceTree = "<group>"; };
@@ -181,6 +181,8 @@
 		24E6AB01198495E7002CA3C9 /* boot.efi */ = {isa = PBXFileReference; lastKnownFileType = file; name = boot.efi; path = Tools/boot.efi; sourceTree = "<group>"; };
 		24E6AB02198495E7002CA3C9 /* bootX64.efi */ = {isa = PBXFileReference; lastKnownFileType = file; name = bootX64.efi; path = Tools/bootX64.efi; sourceTree = "<group>"; };
 		24ED96C219A2444600723C4E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		24F35F7F19D604B30019CF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Acknowledgements.rtf; sourceTree = "<group>"; };
+		24F35F8019D604BF0019CF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		24F727C418BAC13B00B16013 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
 		97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F38667D994A74956919B4A54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -317,6 +319,7 @@
 				24A4EC821884966A00CE6CF0 /* main.m */,
 				24A4EC841884966A00CE6CF0 /* Mac Linux USB Loader-Prefix.pch */,
 				24A4EC851884966A00CE6CF0 /* Credits.rtf */,
+				24F35F7C19D604AE0019CF54 /* Acknowledgements.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */,
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
 				24B322FD18A0123F00A5E25E /* defaults.plist in Resources */,
+				24F35F7E19D604AE0019CF54 /* Acknowledgements.rtf in Resources */,
 				24A4EC871884966A00CE6CF0 /* Credits.rtf in Resources */,
 				24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */,
 				24A4EC901884966A00CE6CF0 /* MainMenu.xib in Resources */,
@@ -662,7 +666,7 @@
 		24A4EC851884966A00CE6CF0 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				24A4EC861884966A00CE6CF0 /* en */,
+				24F35F8019D604BF0019CF54 /* Base */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -697,6 +701,14 @@
 				24D75F93188AE77100FF5ADC /* Base */,
 			);
 			name = SBUSBSetupWindowController.xib;
+			sourceTree = "<group>";
+		};
+		24F35F7C19D604AE0019CF54 /* Acknowledgements.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24F35F7F19D604B30019CF54 /* Base */,
+			);
+			name = Acknowledgements.rtf;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

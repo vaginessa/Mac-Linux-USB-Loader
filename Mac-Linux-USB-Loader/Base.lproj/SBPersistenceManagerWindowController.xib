@@ -68,11 +68,11 @@
                                         </binding>
                                     </connections>
                                 </textField>
-                                <slider verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
+                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
                                     <rect key="frame" x="130" y="170" width="336" height="21"/>
                                     <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
                                 </slider>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
                                     <rect key="frame" x="18" y="172" width="108" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Persistence Size:" id="Dpm-6U-5pw">
                                         <font key="font" metaFont="system"/>
@@ -116,18 +116,19 @@
                         </view>
                         <constraints>
                             <constraint firstItem="Eon-uz-T23" firstAttribute="baseline" secondItem="6JB-DA-RJT" secondAttribute="baseline" id="3Hm-WZ-KzY"/>
-                            <constraint firstItem="6JB-DA-RJT" firstAttribute="baseline" secondItem="gHL-Gw-83z" secondAttribute="baseline" id="71D-Oh-dDn"/>
-                            <constraint firstItem="6JB-DA-RJT" firstAttribute="leading" secondItem="gHL-Gw-83z" secondAttribute="trailing" constant="8" symbolic="YES" id="8bL-2g-uql"/>
                             <constraint firstItem="knr-It-BIb" firstAttribute="trailing" secondItem="Eon-uz-T23" secondAttribute="trailing" id="DHh-g7-qDo"/>
                             <constraint firstItem="Eon-uz-T23" firstAttribute="leading" secondItem="6JB-DA-RJT" secondAttribute="trailing" constant="8" symbolic="YES" id="HAh-nF-PGH"/>
                             <constraint firstItem="cw7-Bo-nAF" firstAttribute="top" secondItem="knr-It-BIb" secondAttribute="bottom" constant="8" symbolic="YES" id="LKR-4H-rjM"/>
                             <constraint firstItem="kSC-Pl-16D" firstAttribute="baseline" secondItem="cw7-Bo-nAF" secondAttribute="baseline" id="Mjd-Ht-857"/>
+                            <constraint firstItem="6JB-DA-RJT" firstAttribute="leading" secondItem="gHL-Gw-83z" secondAttribute="trailing" constant="8" symbolic="YES" id="SBe-CM-GrB"/>
                             <constraint firstItem="kSC-Pl-16D" firstAttribute="trailing" secondItem="knr-It-BIb" secondAttribute="trailing" id="T1G-Yk-rYX"/>
-                            <constraint firstItem="knr-It-BIb" firstAttribute="top" secondItem="gHL-Gw-83z" secondAttribute="bottom" constant="8" symbolic="YES" id="Uub-aP-F2r"/>
                             <constraint firstAttribute="trailing" secondItem="Eon-uz-T23" secondAttribute="trailing" constant="16" id="V3L-wW-dow"/>
                             <constraint firstItem="Eon-uz-T23" firstAttribute="top" secondItem="be7-b0-Wt7" secondAttribute="top" constant="25" id="XEi-su-8Z2"/>
+                            <constraint firstItem="knr-It-BIb" firstAttribute="top" secondItem="Eon-uz-T23" secondAttribute="bottom" constant="6" id="XWz-cb-tNk"/>
                             <constraint firstItem="cw7-Bo-nAF" firstAttribute="leading" secondItem="be7-b0-Wt7" secondAttribute="leading" constant="18" id="YD9-xg-J2x"/>
                             <constraint firstItem="knr-It-BIb" firstAttribute="leading" secondItem="be7-b0-Wt7" secondAttribute="leading" constant="18" id="YMr-Kd-Bd0"/>
+                            <constraint firstItem="gHL-Gw-83z" firstAttribute="leading" secondItem="knr-It-BIb" secondAttribute="leading" id="bZZ-d3-kW1"/>
+                            <constraint firstItem="gHL-Gw-83z" firstAttribute="baseline" secondItem="6JB-DA-RJT" secondAttribute="baseline" id="nwW-xA-Yhh"/>
                             <constraint firstAttribute="bottom" secondItem="cw7-Bo-nAF" secondAttribute="bottom" constant="11" id="yQY-ei-h1q"/>
                         </constraints>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -168,7 +169,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
-            <point key="canvasLocation" x="316" y="125.5"/>
+            <point key="canvasLocation" x="81" y="74.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="9q0-ST-OZz"/>
     </objects>
