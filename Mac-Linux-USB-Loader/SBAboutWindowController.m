@@ -73,7 +73,8 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 #pragma mark - IBActions
 
 - (IBAction)showAcknowledgementsButtonPressed:(id)sender {
-	// TODO
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
+	[[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextEdit"];
 }
 
 - (IBAction)showLicenseAgreementButtonPressed:(id)sender {
