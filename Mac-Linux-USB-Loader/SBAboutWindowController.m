@@ -73,13 +73,29 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 #pragma mark - IBActions
 
 - (IBAction)showAcknowledgementsButtonPressed:(id)sender {
+	NSError *err;
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
-	[[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextEdit"];
+	NSString *tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"Acknowledgements"];
+	if (![[NSWorkspace sharedWorkspace] openFile:tempPath withApplication:@"TextEdit"]) {
+		if ([[NSFileManager defaultManager] copyItemAtPath:path toPath:tempPath error:&err]) {
+			[[NSWorkspace sharedWorkspace] openFile:tempPath withApplication:@"TextEdit"];
+		} else {
+			SBLogObject([err localizedDescription]);
+		}
+	}
 }
 
 - (IBAction)showLicenseAgreementButtonPressed:(id)sender {
+	NSError *err;
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
-	[[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextEdit"];
+	NSString *tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"Credits"];
+	if (![[NSWorkspace sharedWorkspace] openFile:tempPath withApplication:@"TextEdit"]) {
+		if ([[NSFileManager defaultManager] copyItemAtPath:path toPath:tempPath error:&err]) {
+			[[NSWorkspace sharedWorkspace] openFile:tempPath withApplication:@"TextEdit"];
+		} else {
+			SBLogObject([err localizedDescription]);
+		}
+	}
 }
 
 #pragma mark - Properties
