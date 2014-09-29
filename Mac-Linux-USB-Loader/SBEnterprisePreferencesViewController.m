@@ -188,6 +188,14 @@
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
+	} else if ([(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][name]) {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"Invalid location name entered.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"The name that you have entered for this Enterprise source already exists. Please enter a different name.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
 	}
 
 	NSURL *bookmark = [[NSFileManager defaultManager] createSecurityScopedBookmarkForPath:enterpriseSourceLocationOpenPanel.URL];
