@@ -89,15 +89,19 @@
 }
 
 - (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
+	NSFileManager *manager = [NSFileManager defaultManager];
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
+	[loc.securityScopedBookmark startAccessingSecurityScopedResource];
 	NSTextFieldCell *cell = [tableColumn dataCell];
 	if (!loc.deletable && [self.tableView selectedRow] != rowIndex) {
 		[cell setTextColor:[NSColor darkGrayColor]];
-	}
-	else {
+	} else if (![manager fileExistsAtPath:loc.path] && loc.securityScopedBookmark) {
+		[cell setTextColor:[NSColor redColor]];
+	} else {
 		[cell setTextColor:[NSColor blackColor]];
 	}
 
+	[loc.securityScopedBookmark stopAccessingSecurityScopedResource];
 	return cell;
 }
 
@@ -190,6 +194,16 @@
 	if (bookmark) {
 		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:name withPath:enterpriseSourceLocationOpenPanel.URL.path withVersionNumber:version withSecurityScopedBookmark:bookmark shouldBeVolatile:YES];
 
+		if (![self verifyEnterpriseInstallationDirectory:loc.path]) {
+			NSAlert *alert = [[NSAlert alloc] init];
+			[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+			[alert setMessageText:NSLocalizedString(@"The source that you entered is not valid.", nil)];
+			[alert setInformativeText:NSLocalizedString(@"The source that you have selected is not valid because one or more of the Enterprise binaries are missing.", nil)];
+			[alert setAlertStyle:NSWarningAlertStyle];
+			[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+			return;
+		}
+
 		// Add the newly-created object to our list of Enterprise source locations.
 		[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][name] = loc;
 		self.enterpriseSourceLocationsDictionary[name] = loc;
@@ -209,6 +223,12 @@
 	else {
 		NSLog(@"No permissions!");
 	}
+}
+
+- (BOOL)verifyEnterpriseInstallationDirectory:(NSString *) path {
+	NSFileManager *manager = [NSFileManager defaultManager];
+	BOOL isValid = [manager fileExistsAtPath:[path stringByAppendingPathComponent:@"boot.efi"]] && [manager fileExistsAtPath:[path stringByAppendingPathComponent:@"bootx64.efi"]];
+	return isValid;
 }
 
 - (IBAction)updateSettingsButtonPressed:(id)sender {
