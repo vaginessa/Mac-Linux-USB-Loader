@@ -20,6 +20,8 @@
 @property (weak) IBOutlet NSPopUpButton *enterpriseSourceSelector;
 @property (weak) IBOutlet NSButton *automaticSetupCheckBox;
 @property (weak) IBOutlet NSButton *performInstallationButton;
+@property (weak) IBOutlet NSPopUpButton *distributionSelectorPopup;
+@property (weak) IBOutlet NSButton *isMacVersionCheckBox;
 
 @property (nonatomic, assign) BOOL automaticSetupCheckBoxChecked;
 

@@ -86,16 +86,6 @@
 }
 
 #pragma mark - Installation Code
-- (void)comboBoxSelectionDidChange:(NSNotification *)notification {
-	/*if (notification.object == self.installationDriveSelector) {
-	    if ([self.installationDriveSelector indexOfSelectedItem] == 0) {
-	        [self.performInstallationButton setEnabled:NO];
-	    } else {
-	        [self.performInstallationButton setEnabled:YES];
-	    }
-	   }*/
-}
-
 - (IBAction)performInstallation:(id)sender {
 	/* STEP 1: Setup UI components. */
 	NSIndexSet *indexSet = [self.usbDriveSelector selectionIndexes];
@@ -258,6 +248,13 @@
 }
 
 #pragma mark - Delegates
+- (IBAction)distributionTypePopupChanged:(id)sender {
+	NSString *selectedItem = [(NSPopUpButton *)sender titleOfSelectedItem];
+	BOOL isUbuntuSelected = [selectedItem isEqualToString:@"Ubuntu"];
+	[self.isMacVersionCheckBox setTransparent:(isUbuntuSelected ? NO : YES)];
+	[self.isMacVersionCheckBox setEnabled:isUbuntuSelected];
+}
+
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	// Empty
 }

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDocument">
             <connections>
                 <outlet property="arrayController" destination="7gT-CA-Kky" id="CTx-js-ekS"/>
+                <outlet property="distributionSelectorPopup" destination="FN5-Ti-WuH" id="DsR-ip-ZTA"/>
                 <outlet property="enterpriseSourceSelector" destination="3qA-qj-K0g" id="SDh-QA-Ih3"/>
                 <outlet property="installationProgressBar" destination="bdV-ll-emw" id="Ct4-mC-KVI"/>
+                <outlet property="isMacVersionCheckBox" destination="3yc-Pg-5C8" id="adc-FA-NYx"/>
                 <outlet property="usbDriveSelector" destination="9br-dw-B95" id="Z1o-q1-ekS"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
@@ -27,11 +29,9 @@
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="4Dx-4e-R74" customClass="BackgroundColorView">
                         <rect key="frame" x="0.0" y="0.0" width="208" height="347"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uph-Ba-Mfu">
                                 <rect key="frame" x="18" y="310" width="172" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="qQi-f3-gn4"/>
                                 </constraints>
@@ -55,11 +55,9 @@
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="dUL-cm-KaX">
                         <rect key="frame" x="216" y="0.0" width="415" height="347"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CDL-Pn-5VN">
                                 <rect key="frame" x="331" y="13" width="70" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lUE-9Y-ccg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -70,7 +68,6 @@
                             </button>
                             <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-2Y-5OI">
                                 <rect key="frame" x="20" y="61" width="375" height="266"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="First" identifier="1" id="iID-fj-8Oj" userLabel="Tab View Item - First">
@@ -80,36 +77,31 @@
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-8p-AmO">
                                                     <rect key="frame" x="18" y="229" width="339" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Destination:" id="JzD-IM-Mo0">
-                                                        <font key="font" size="13" name="LucidaGrande-Bold"/>
+                                                        <font key="font" metaFont="systemBold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VBp-6d-4FK">
                                                     <rect key="frame" x="18" y="114" width="339" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Enterprise Source:" id="4e7-Dc-wKh">
-                                                        <font key="font" size="13" name="LucidaGrande-Bold"/>
+                                                        <font key="font" metaFont="systemBold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
                                                 <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7j-E4-ODU">
                                                     <rect key="frame" x="20" y="10" width="335" height="96"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <clipView key="contentView" id="Jxb-Id-ecE">
                                                         <rect key="frame" x="1" y="1" width="333" height="94"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <view translatesAutoresizingMaskIntoConstraints="NO" id="Vgi-Dz-efq">
                                                                 <rect key="frame" x="0.0" y="0.0" width="333" height="94"/>
-                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3qA-qj-K0g">
                                                                         <rect key="frame" x="18" y="50" width="298" height="26"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="MSR-3v-sqh">
                                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                             <font key="font" metaFont="menu"/>
@@ -146,7 +138,6 @@
                                                 </scrollView>
                                                 <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m7-V1-evP">
                                                     <rect key="frame" x="20" y="139" width="335" height="82"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <clipView key="contentView" id="GeU-39-dSh">
                                                         <rect key="frame" x="1" y="1" width="333" height="80"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +188,6 @@
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DI5-qN-LvV">
                                                     <rect key="frame" x="213" y="13" width="148" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <buttonCell key="cell" type="push" title="Begin Installation" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tnc-ZF-mM8">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -208,12 +198,51 @@
                                                 </button>
                                                 <progressIndicator maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-ll-emw">
                                                     <rect key="frame" x="20" y="19" width="191" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 </progressIndicator>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-58-U8W">
+                                                    <rect key="frame" x="18" y="229" width="127" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Distribution Family:" id="aOF-7O-fM8">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-Ti-WuH">
+                                                    <rect key="frame" x="149" y="223" width="209" height="26"/>
+                                                    <popUpButtonCell key="cell" type="push" title="Ubuntu" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1Mg-wi-KZr" id="eRp-YN-kzd">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="menu"/>
+                                                        <menu key="menu" id="w3c-AQ-qre">
+                                                            <items>
+                                                                <menuItem title="Ubuntu" state="on" id="1Mg-wi-KZr"/>
+                                                                <menuItem title="Debian" id="ClT-6Q-5sn"/>
+                                                                <menuItem title="Other" id="7Id-gS-sW7"/>
+                                                            </items>
+                                                        </menu>
+                                                    </popUpButtonCell>
+                                                    <connections>
+                                                        <action selector="distributionTypePopupChanged:" target="-2" id="UUD-xT-2FS"/>
+                                                    </connections>
+                                                </popUpButton>
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="3yc-Pg-5C8">
+                                                    <rect key="frame" x="18" y="190" width="339" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="This ISO contains the Mac version of Ubuntu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2N3-rh-Hxh">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="bdV-ll-emw" secondAttribute="bottom" constant="20" id="4r6-Pw-AkU"/>
                                                 <constraint firstItem="DI5-qN-LvV" firstAttribute="leading" secondItem="bdV-ll-emw" secondAttribute="trailing" constant="8" id="5jU-ls-fyk"/>
+                                                <constraint firstItem="PJn-58-U8W" firstAttribute="top" secondItem="pVC-o9-IvQ" secondAttribute="top" constant="20" id="7xO-Kj-dGs"/>
+                                                <constraint firstItem="FN5-Ti-WuH" firstAttribute="top" secondItem="pVC-o9-IvQ" secondAttribute="top" constant="19" id="MDa-TQ-wpx"/>
+                                                <constraint firstAttribute="trailing" secondItem="3yc-Pg-5C8" secondAttribute="trailing" constant="20" id="OoI-Vq-6XI"/>
+                                                <constraint firstItem="3yc-Pg-5C8" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="Tz6-cC-oQl"/>
+                                                <constraint firstItem="PJn-58-U8W" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="c5h-aZ-TLc"/>
+                                                <constraint firstItem="FN5-Ti-WuH" firstAttribute="leading" secondItem="PJn-58-U8W" secondAttribute="trailing" constant="8" id="dfT-8G-bIC"/>
+                                                <constraint firstAttribute="trailing" secondItem="FN5-Ti-WuH" secondAttribute="trailing" constant="20" id="hjS-JY-Mwq"/>
+                                                <constraint firstItem="3yc-Pg-5C8" firstAttribute="top" secondItem="FN5-Ti-WuH" secondAttribute="bottom" constant="20" id="jaN-nh-BH5"/>
                                                 <constraint firstAttribute="bottom" secondItem="DI5-qN-LvV" secondAttribute="bottom" constant="20" id="pmf-sg-nyY"/>
                                                 <constraint firstAttribute="trailing" secondItem="DI5-qN-LvV" secondAttribute="trailing" constant="20" id="qJb-8A-8F9"/>
                                                 <constraint firstItem="bdV-ll-emw" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="woY-T5-csc"/>
@@ -224,7 +253,6 @@
                             </tabView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
                                 <rect key="frame" x="238" y="13" width="93" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6uC-rz-J2n">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -260,8 +288,9 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
+            <point key="canvasLocation" x="431.5" y="65.5"/>
         </window>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
         <collectionViewItem id="FVc-oN-hvP" customClass="SBSelectableCollectionViewItem">
             <connections>
@@ -274,7 +303,6 @@
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-bJ-zS3">
                     <rect key="frame" x="-2" y="0.0" width="118" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="USB Device Name" id="acy-rY-KEm">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -286,7 +314,6 @@
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fAe-gQ-VBI">
                     <rect key="frame" x="23" y="20" width="68" height="61"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="1QZ-vz-KjJ"/>
                         <constraint firstAttribute="width" constant="68" id="DZP-64-gga"/>
