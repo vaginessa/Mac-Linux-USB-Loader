@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SBPersistenceManagerWindowController">
             <connections>
                 <outlet property="operationProgressLabel" destination="htd-Oc-Vqe" id="uaU-wL-M1W"/>
+                <outlet property="persistenceOptionsSetupBox" destination="be7-b0-Wt7" id="Xq8-DA-znP"/>
                 <outlet property="persistenceVolumeSizeSlider" destination="6JB-DA-RJT" id="yCX-Zx-sCF"/>
                 <outlet property="persistenceVolumeSizeTextField" destination="Eon-uz-T23" id="NRz-3u-YmD"/>
                 <outlet property="resetSliderButton" destination="cw7-Bo-nAF" id="bl9-kg-C3B"/>

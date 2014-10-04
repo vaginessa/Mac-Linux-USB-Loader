@@ -14,7 +14,7 @@
  * Checks if the reciever contains the given substring.
  *
  * @return YES if the reciever contains the substring, NO if it does not.
- * @param file The path to the file that should be used.
+ * @param substring The string to search for
  */
 - (BOOL)containsSubstring:(NSString *)substring;
 
