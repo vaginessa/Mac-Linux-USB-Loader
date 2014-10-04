@@ -11,7 +11,7 @@
 @implementation NSString (Extensions)
 
 - (BOOL)containsSubstring:(NSString *)substring {
-	return [self rangeOfString:substring].location == NSNotFound;
+	return [self rangeOfString:substring].location != NSNotFound;
 }
 
 @end

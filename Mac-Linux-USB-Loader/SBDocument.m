@@ -41,10 +41,29 @@
 	[[(SBAppDelegate *)[NSApp delegate] window] orderOut:nil];
 
 	[self setupUSBDriveSelector];
+	[self detectDistributionFamily];
+	[self distributionTypePopupChanged:nil];
 
 	[self.enterpriseSourceSelector selectItemWithTitle:[[NSUserDefaults standardUserDefaults] stringForKey:@"DefaultEnterpriseSourceLocation"]];
 
 	[self.performInstallationButton setEnabled:NO];
+}
+
+- (void)detectDistributionFamily {
+	SBLinuxDistribution family = [SBUSBDevice distributionTypeForISOName:self.fileURL.absoluteString];
+	switch (family) {
+		case SBDistributionUbuntu:
+			[self.distributionSelectorPopup selectItemWithTitle:@"Ubuntu"];
+			break;
+		case SBDistributionDebian:
+		case SBDistributionTails:
+			[self.distributionSelectorPopup selectItemWithTitle:@"Debian"];
+			break;
+		case SBDistributionUnknown:
+		default:
+			[self.distributionSelectorPopup selectItemWithTitle:@"Other"];
+			break;
+	}
 }
 
 - (void)setupUSBDriveSelector {

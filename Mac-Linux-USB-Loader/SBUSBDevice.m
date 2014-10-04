@@ -66,15 +66,14 @@ typedef enum {
 	[task waitUntilExit];
 }
 
-+ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)fileName {
-	fileName = [[fileName lowercaseString] lastPathComponent];
-	if ([fileName containsSubstring:@"ubuntu"] ||
-	    [fileName containsSubstring:@"linuxmint"] ||
-	    [fileName containsSubstring:@"elementaryos"]) {
-		return SBDistributionUbuntu;
-	}
-	else if ([fileName containsSubstring:@"tails"]) {
++ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)path {
+	NSString *fileName = [[path lowercaseString] lastPathComponent];
+	if ([fileName containsSubstring:@"tails"]) {
 		return SBDistributionTails;
+	} else if ([fileName containsSubstring:@"ubuntu"] ||
+	    [fileName containsSubstring:@"mint"] ||
+	    [fileName containsSubstring:@"elementary"]) {
+		return SBDistributionUbuntu;
 	}
 
 	return SBDistributionUnknown;
