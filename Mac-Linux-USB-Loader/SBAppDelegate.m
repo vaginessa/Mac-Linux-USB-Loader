@@ -15,6 +15,8 @@
 #import "NSFileManager+Extensions.h"
 #import "NSFileManager+DirectoryLocations.h"
 
+const NSString *SBBundledEnterpriseVersionNumber;
+
 @implementation SBAppDelegate
 @synthesize window;
 @synthesize operationsTableView;
@@ -26,6 +28,8 @@
 	self = [super init];
 	if (self) {
 		// Setup code goes here.
+		SBBundledEnterpriseVersionNumber = @"0.1.2";
+
 		self.fileManager = [NSFileManager defaultManager];
 		self.pathToApplicationSupportDirectory = [self.fileManager applicationSupportDirectory];
 
@@ -168,8 +172,7 @@
 				if ([usbDeviceMountPoint isEqualToString:@"/"]) {
 					// Don't include the root partition in the list of USBs.
 					continue;
-				}
-				else {
+				} else {
 					if ([volumeType isEqualToString:@"msdos"] ||
 					    ([volumeType isEqualToString:@"hfs"] && acceptHFSDrives)) {
 						SBUSBDevice *usbDevice = [[SBUSBDevice alloc] init];

@@ -16,7 +16,9 @@
 #define SBCStr2NSString(x) [NSString initWithCString : x encoding : NSUTF8StringEncoding]
 #define SBNSString2CStr(x) [x UTF8String]
 
-#define SBBundledEnterpriseVersionNumber @"0.1.2"
+/// The version number of the Enterprise installation that ships with this copy of Mac
+/// Linux USB Loader.
+extern NSString *SBBundledEnterpriseVersionNumber;
 
 /// An enumeration containing various supported Linux distributions.
 typedef NS_ENUM (NSInteger, SBLinuxDistribution) {
