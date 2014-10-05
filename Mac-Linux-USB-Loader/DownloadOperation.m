@@ -8,7 +8,6 @@
 
 #import "DownloadOperation.h"
 
-
 @interface DownloadOperation () <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
 @property (nonatomic, readwrite, getter = isExecuting) BOOL executing;
@@ -28,317 +27,316 @@
 
 - (id)initWithURL:(NSURL *)url path:(NSString *)path
 {
-    self = [super init];
-    if (self) {
-        _url = url;
-        _path = [path copy];
+	self = [super init];
+	if (self) {
+		_url = url;
+		_path = [path copy];
 
-        _executing = NO;
-        _finished = NO;
+		_executing = NO;
+		_finished = NO;
 
-        _expectedContentLength = 0;
-        _progressContentLength = 0;
-    }
-    return self;
+		_expectedContentLength = 0;
+		_progressContentLength = 0;
+	}
+	return self;
 }
 
 - (id)initWithURL:(NSURL *)url
 {
-    return [self initWithURL:url path:nil];
+	return [self initWithURL:url path:nil];
 }
 
 #pragma mark - NSOperation methods
 
 - (void)start
 {
-    if ([self isCancelled]) {
-        self.finished = YES;
-        return;
-    }
+	if ([self isCancelled]) {
+		self.finished = YES;
+		return;
+	}
 
-    if (!self.path)
-    {
-        NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-        self.path = [docsPath stringByAppendingPathComponent:[self.url lastPathComponent]];
-    }
+	if (!self.path)
+	{
+		NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+		self.path = [docsPath stringByAppendingPathComponent:[self.url lastPathComponent]];
+	}
 
-    self.tempPath = [self pathForTemporaryFileWithPrefix:@"download"];
+	self.tempPath = [self pathForTemporaryFileWithPrefix:@"download"];
 
-    self.executing = YES;
+	self.executing = YES;
 
-    [self performSelector:@selector(startInNetworkThread) onThread:[[self class] networkRequestThread] withObject:nil waitUntilDone:NO];
+	[self performSelector:@selector(startInNetworkThread) onThread:[[self class] networkRequestThread] withObject:nil waitUntilDone:NO];
 }
 
 - (void)startInNetworkThread
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
-    [connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [connection start];
-    self.connection = connection;
+	NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
+	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+	[connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+	[connection start];
+	self.connection = connection;
 }
-
-#pragma mark - NSOperation (required overrides)
 
 - (BOOL)isConcurrent
 {
-    return YES;
+	return YES;
 }
 
 - (void)setExecuting:(BOOL)executing
 {
-    [self willChangeValueForKey:@"isExecuting"];
-    _executing = executing;
-    [self didChangeValueForKey:@"isExecuting"];
+	[self willChangeValueForKey:@"isExecuting"];
+	_executing = executing;
+	[self didChangeValueForKey:@"isExecuting"];
 }
 
 - (void)setFinished:(BOOL)finished
 {
-    [self willChangeValueForKey:@"isFinished"];
-    _finished = finished;
-    [self didChangeValueForKey:@"isFinished"];
+	[self willChangeValueForKey:@"isFinished"];
+	_finished = finished;
+	[self didChangeValueForKey:@"isFinished"];
 }
 
 #pragma mark - Download thread methods
 
 + (void)networkRequestThreadEntryPoint:(id __unused)object {
-    @autoreleasepool {
-        [[NSThread currentThread] setName:@"com.robertmryan.networkthread"];
+	@autoreleasepool {
+		[[NSThread currentThread] setName:@"com.robertmryan.networkthread"];
 
-        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-        [runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
-        [runLoop run];
-    }
+		NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+		[runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+		[runLoop run];
+	}
 }
 
 + (NSThread *)networkRequestThread {
-    static NSThread *_networkRequestThread = nil;
-    static dispatch_once_t oncePredicate;
-    dispatch_once(&oncePredicate, ^{
-        _networkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(networkRequestThreadEntryPoint:) object:nil];
-        [_networkRequestThread start];
-    });
+	static NSThread *_networkRequestThread = nil;
+	static dispatch_once_t oncePredicate;
+	dispatch_once(&oncePredicate, ^{
+		_networkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(networkRequestThreadEntryPoint:) object:nil];
+		[_networkRequestThread start];
+	});
 
-    return _networkRequestThread;
+	return _networkRequestThread;
 }
 
 #pragma mark - Private methods
 
 - (NSString *)pathForTemporaryFileWithPrefix:(NSString *)prefix
 {
-    NSString *  result;
-    CFUUIDRef   uuid;
-    CFStringRef uuidStr;
+	NSString *  result;
+	CFUUIDRef   uuid;
+	CFStringRef uuidStr;
 
-    uuid = CFUUIDCreate(NULL);
-    assert(uuid != NULL);
+	uuid = CFUUIDCreate(NULL);
+	assert(uuid != NULL);
 
-    uuidStr = CFUUIDCreateString(NULL, uuid);
-    assert(uuidStr != NULL);
+	uuidStr = CFUUIDCreateString(NULL, uuid);
+	assert(uuidStr != NULL);
 
-    result = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@", prefix, uuidStr]];
-    assert(result != nil);
+	result = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@", prefix, uuidStr]];
+	assert(result != nil);
 
-    CFRelease(uuidStr);
-    CFRelease(uuid);
+	CFRelease(uuidStr);
+	CFRelease(uuid);
 
-    return result;
+	return result;
 }
 
 - (BOOL)createFolderForPath:(NSString *)filePath
 {
-    NSError *error;
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *folder = [filePath stringByDeletingLastPathComponent];
-    BOOL isDirectory;
+	NSError *error;
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSString *folder = [filePath stringByDeletingLastPathComponent];
+	BOOL isDirectory;
 
-    if (![fileManager fileExistsAtPath:folder isDirectory:&isDirectory])
-    {
-        // if folder doesn't exist, try to create it
+	if (![fileManager fileExistsAtPath:folder isDirectory:&isDirectory])
+	{
+		// if folder doesn't exist, try to create it
 
-        [fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:&error];
+		[fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:&error];
 
-        // if fail, report error
+		// if fail, report error
 
-        if (error)
-        {
-            self.error = error;
+		if (error)
+		{
+			self.error = error;
 
-            return FALSE;
-        }
+			return FALSE;
+		}
 
-        // directory successfully created
+		// directory successfully created
 
-        return TRUE;
-    }
-    else if (!isDirectory)
-    {
-        self.error = [NSError errorWithDomain:[NSBundle mainBundle].bundleIdentifier
-                                         code:-1
-                                     userInfo:@{
+		return TRUE;
+	}
+	else if (!isDirectory)
+	{
+		self.error = [NSError errorWithDomain:[NSBundle mainBundle].bundleIdentifier
+										 code:-1
+									 userInfo:@{
 												@"message"  : @"Unable to create directory; file exists by that name",
 												@"function" : @(__FUNCTION__),
 												@"folder"   : folder
 												}];
 
-        return FALSE;
-    }
+		return FALSE;
+	}
 
-    // directory already existed
+	// directory already existed
 
-    return TRUE;
+	return TRUE;
 }
 
 - (BOOL)completeWithSuccess:(BOOL)success
 {
-    // clean up connection and download steam
+	// clean up connection and download steam
 
-    if (!success)
-        [self.connection cancel];
-    self.connection = nil;
+	if (!success)
+		[self.connection cancel];
+	self.connection = nil;
 
-    [self.outputStream close];
-    self.outputStream = nil;
+	[self.outputStream close];
+	self.outputStream = nil;
 
-    // if download successful, let's save the result, otherwise just get rid of temporary file
+	// if download successful, let's save the result, otherwise just get rid of temporary file
 
-    if (success)
-        success = [self saveDownloadedFile];
-    else
-        success = [self removeTemporaryFile];
+	if (success)
+		success = [self saveDownloadedFile];
+	else
+		success = [self removeTemporaryFile];
 
-    // if caller wanted to know about success or failure, then inform it
+	// if caller wanted to know about success or failure, then inform it
 
-    if (self.downloadCompletionBlock)
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.downloadCompletionBlock(self, success, self.error);
-        });
-    }
+	if (self.downloadCompletionBlock)
+	{
+		dispatch_async(dispatch_get_main_queue(), ^{
+			self.downloadCompletionBlock(self, success, self.error);
+		});
+	}
 
-    // finish this operation
+	// finish this operation
 
-    self.finished = YES;
+	self.executing = NO;
+	self.finished = YES;
 
-    return success;
+	return success;
 }
 
 - (BOOL)removeTemporaryFile
 {
-    NSError *error;
-    NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSError *error;
+	NSFileManager *fileManager = [NSFileManager defaultManager];
 
-    if (self.tempPath)
-    {
-        if ([fileManager fileExistsAtPath:self.tempPath])
-        {
-            [[NSFileManager defaultManager] removeItemAtPath:self.tempPath error:&error];
-            if (error)
-            {
-                self.error = error;
+	if (self.tempPath)
+	{
+		if ([fileManager fileExistsAtPath:self.tempPath])
+		{
+			[[NSFileManager defaultManager] removeItemAtPath:self.tempPath error:&error];
+			if (error)
+			{
+				self.error = error;
 
-                return NO;
-            }
-        }
-    }
+				return NO;
+			}
+		}
+	}
 
-    return YES;
+	return YES;
 }
 
 - (BOOL)saveDownloadedFile
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSError *error;
 
-    if (![self createFolderForPath:self.path])
-    {
-        return NO;
-    }
+	if (![self createFolderForPath:self.path])
+	{
+		return NO;
+	}
 
-    if ([fileManager fileExistsAtPath:self.path])
-    {
-        [fileManager removeItemAtPath:self.path error:&error];
-        if (error)
-        {
-            self.error = error;
+	if ([fileManager fileExistsAtPath:self.path])
+	{
+		[fileManager removeItemAtPath:self.path error:&error];
+		if (error)
+		{
+			self.error = error;
 
-            return NO;
-        }
-    }
+			return NO;
+		}
+	}
 
-    [fileManager moveItemAtPath:self.tempPath toPath:self.path error:&error];
-    if (error)
-    {
-        self.error = error;
+	[fileManager moveItemAtPath:self.tempPath toPath:self.path error:&error];
+	if (error)
+	{
+		self.error = error;
 
-        return NO;
-    }
+		return NO;
+	}
 
-    return YES;
+	return YES;
 }
 
 #pragma mark - NSURLConnectionDataDelegate methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    if ([self isCancelled])
-    {
-        [self completeWithSuccess:NO];
-        return;
-    }
+	if ([self isCancelled])
+	{
+		[self completeWithSuccess:NO];
+		return;
+	}
 
-    if ([response isKindOfClass:[NSHTTPURLResponse class]])
-    {
-        NSHTTPURLResponse *httpResponse = (id)response;
+	if ([response isKindOfClass:[NSHTTPURLResponse class]])
+	{
+		NSHTTPURLResponse *httpResponse = (id)response;
 
-        NSInteger statusCode = [httpResponse statusCode];
+		NSInteger statusCode = [httpResponse statusCode];
 
-        if (statusCode == 200)
-        {
-            self.expectedContentLength = [response expectedContentLength];
-        }
-        else if (statusCode >= 400)
-        {
-            self.error = [NSError errorWithDomain:[NSBundle mainBundle].bundleIdentifier
-                                             code:statusCode
-                                         userInfo:@{
+		if (statusCode == 200)
+		{
+			self.expectedContentLength = [response expectedContentLength];
+		}
+		else if (statusCode >= 400)
+		{
+			self.error = [NSError errorWithDomain:[NSBundle mainBundle].bundleIdentifier
+											 code:statusCode
+										 userInfo:@{
 													@"message" : @"bad HTTP response status code",
 													@"function": @(__FUNCTION__),
 													@"NSHTTPURLResponse" : response
 													}];
 
-            [self completeWithSuccess:NO];
+			[self completeWithSuccess:NO];
 
-            return;
-        }
-    }
-    else
-    {
-        self.expectedContentLength = -1;
-    }
+			return;
+		}
+	}
+	else
+	{
+		self.expectedContentLength = -1;
+	}
 
-    self.outputStream = [NSOutputStream outputStreamToFileAtPath:self.tempPath append:NO];
-    [self.outputStream open];
+	self.outputStream = [NSOutputStream outputStreamToFileAtPath:self.tempPath append:NO];
+	[self.outputStream open];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    const uint8_t *buffer = [data bytes];
-    NSUInteger bytesRemaining = [data length];
-    NSInteger bytesWritten;
+	const uint8_t *buffer = [data bytes];
+	NSUInteger bytesRemaining = [data length];
+	NSInteger bytesWritten;
 
-    if ([self isCancelled])
-    {
-        [self completeWithSuccess:NO];
-        return;
-    }
+	if ([self isCancelled])
+	{
+		[self completeWithSuccess:NO];
+		return;
+	}
 
-    while (bytesRemaining != 0)
-    {
-        bytesWritten = [self.outputStream write:buffer maxLength:bytesRemaining];
-        if (bytesWritten < 0) {
+	while (bytesRemaining != 0)
+	{
+		bytesWritten = [self.outputStream write:buffer maxLength:bytesRemaining];
+		if (bytesWritten < 0) {
 
-            self.error = [NSError errorWithDomain:[NSBundle mainBundle].bundleIdentifier
+			self.error = [NSError errorWithDomain:[NSBundle mainBundle].bundleIdentifier
 											 code:-1
 										 userInfo:@{
 													@"message"  : @"Unable to write bytes",
@@ -346,37 +344,37 @@
 													@"url"      : [self.url absoluteString]
 													}];
 
-            [self completeWithSuccess:NO];
+			[self completeWithSuccess:NO];
 
-            return;
-        }
+			return;
+		}
 
-        bytesRemaining -= bytesWritten;
-        buffer += bytesWritten;
-    }
+		bytesRemaining -= bytesWritten;
+		buffer += bytesWritten;
+	}
 
-    self.progressContentLength += [data length];
+	self.progressContentLength += [data length];
 
-    if (self.downloadProgressBlock)
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.downloadProgressBlock(self, self.progressContentLength, self.expectedContentLength);
-        });
-    }
+	if (self.downloadProgressBlock)
+	{
+		dispatch_async(dispatch_get_main_queue(), ^{
+			self.downloadProgressBlock(self, self.progressContentLength, self.expectedContentLength);
+		});
+	}
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    self.error = error;
+	self.error = error;
 
-    [self completeWithSuccess:NO];
+	[self completeWithSuccess:NO];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    self.error = nil;
+	self.error = nil;
 
-    [self completeWithSuccess:YES];
+	[self completeWithSuccess:YES];
 }
 
 @end

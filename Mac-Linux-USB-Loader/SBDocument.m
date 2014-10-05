@@ -42,7 +42,7 @@
 
 	[self setupUSBDriveSelector];
 	[self detectDistributionFamily];
-	[self distributionTypePopupChanged:nil];
+	[self distributionTypePopupChanged:self.distributionSelectorPopup];
 
 	[self.enterpriseSourceSelector selectItemWithTitle:[[NSUserDefaults standardUserDefaults] stringForKey:@"DefaultEnterpriseSourceLocation"]];
 
