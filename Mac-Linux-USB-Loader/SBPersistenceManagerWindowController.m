@@ -51,6 +51,7 @@
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[dict count]];
 
 	for (NSString *usb in dict) {
+		if ([usb containsSubstring:@" "]) continue;
 		[array insertObject:[dict[usb] name] atIndex:0];
 	}
 
