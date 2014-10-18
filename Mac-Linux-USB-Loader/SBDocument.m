@@ -154,6 +154,22 @@
 
 	NSString *enterprisePath = [sourceLocation.path stringByAppendingPathComponent:@"bootx64.efi"];
 	NSString *grubPath = [sourceLocation.path stringByAppendingPathComponent:@"boot.efi"];
+	if (![manager fileExistsAtPath:enterprisePath isDirectory:NULL] || ![manager fileExistsAtPath:grubPath isDirectory:NULL]) {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"Can't install to this USB device.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"The installation failed because the Enterprise source that you have selected is either incomplete or missing.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+		// Restore access to the disabled buttons.
+		[sender setEnabled:YES];
+		[self.installationProgressBar setDoubleValue:0.0];
+		[self.automaticSetupCheckBox setEnabled:YES];
+
+		// Bail.
+		return;
+	}
 
 	double fileSize = [[manager sizeOfFileAtPath:self.fileURL.path] doubleValue] + [[manager sizeOfFileAtPath:grubPath] doubleValue] + [[manager sizeOfFileAtPath:enterprisePath] doubleValue];
 	[self.installationProgressBar setMaxValue:fileSize];
