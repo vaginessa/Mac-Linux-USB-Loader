@@ -28,7 +28,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	self = [super init];
 	if (self) {
 		// Setup code goes here.
-		SBBundledEnterpriseVersionNumber = @"0.1.2";
+		SBBundledEnterpriseVersionNumber = @"0.2.1";
 
 		self.fileManager = [NSFileManager defaultManager];
 		self.pathToApplicationSupportDirectory = [self.fileManager applicationSupportDirectory];
