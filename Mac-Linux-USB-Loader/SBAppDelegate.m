@@ -371,8 +371,10 @@ const NSString *SBBundledEnterpriseVersionNumber;
 			return @"Ubuntu";
 			break;
 		case SBDistributionDebian:
+		case SBDistributionTails:
 			return @"Debian";
 			break;
+		case SBDistributionUnknown:
 		default:
 			return @"Other";
 			break;
