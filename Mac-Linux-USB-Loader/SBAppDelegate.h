@@ -65,5 +65,11 @@
 - (IBAction)reportBug:(id)sender;
 
 + (NSUUID *)uuidForDeviceName:(NSString *)name;
++ (NSString *)distributionStringForEquivalentEnum:(SBLinuxDistribution)dist;
+/**
+ * Given a string of a Linux distribution, returns the SBLinuxDistribution epresenting that distribution.
+ * @returns the SBLinuxDistribution epresenting that distribution
+ */
++ (SBLinuxDistribution)distributionEnumForEqualivalentName:(NSString *)name;
 
 @end

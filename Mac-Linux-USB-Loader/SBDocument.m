@@ -8,6 +8,7 @@
 
 #import "SBDocument.h"
 #import "SBAppDelegate.h"
+#import "SBEnterpriseConfigurationWriter.h"
 #import "SBEnterpriseSourceLocation.h"
 #import "SBUSBDevice.h"
 #import "SBUSBDeviceCollectionViewRepresentation.h"
@@ -208,6 +209,9 @@
 	// Disable GUI elements.
 	[self.usbDriveSelector setHidden:YES];
 	[self.enterpriseSourceSelector setEnabled:NO];
+
+	SBLinuxDistribution distribution = [SBAppDelegate distributionEnumForEqualivalentName:[self.distributionSelectorPopup stringValue]];
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:[self.isMacVersionCheckBox state] == NSOnState];
 
 	// Create the required directories on the USB drive.
 	NSError *error;

@@ -355,4 +355,28 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	return nil;
 }
 
++ (SBLinuxDistribution)distributionEnumForEqualivalentName:(NSString *)name {
+	if ([name isEqualToString:@"Ubuntu"]) {
+		return SBDistributionUbuntu;
+	} else if ([name isEqualToString:@"Debian"]) {
+		return SBDistributionDebian;
+	} else {
+		return SBDistributionOther;
+	}
+}
+
++ (NSString *)distributionStringForEquivalentEnum:(SBLinuxDistribution)dist {
+	switch (dist) {
+		case SBDistributionUbuntu:
+			return @"Ubuntu";
+			break;
+		case SBDistributionDebian:
+			return @"Debian";
+			break;
+		default:
+			return @"Other";
+			break;
+	}
+}
+
 @end

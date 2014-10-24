@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240F1FAB1891A88F00AE9F82 /* IOKit.framework */; };
 		240F98A118B060AD001EAE87 /* SBEnterpriseSourceLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */; };
+		240FE88019FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 240FE87F19FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m */; };
 		24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101B861896D4A300EDE32C /* SBAboutWindowController.m */; };
 		24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */; };
 		24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24101B8D1896D4DF00EDE32C /* QuartzCore.framework */; };
@@ -101,6 +102,8 @@
 		240F1FAB1891A88F00AE9F82 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		240F989F18B060AD001EAE87 /* SBEnterpriseSourceLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterpriseSourceLocation.h; sourceTree = "<group>"; };
 		240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterpriseSourceLocation.m; sourceTree = "<group>"; };
+		240FE87E19FB0D11004096C7 /* SBEnterpriseConfigurationWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterpriseConfigurationWriter.h; sourceTree = "<group>"; };
+		240FE87F19FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterpriseConfigurationWriter.m; sourceTree = "<group>"; };
 		24101B851896D4A300EDE32C /* SBAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAboutWindowController.h; sourceTree = "<group>"; };
 		24101B861896D4A300EDE32C /* SBAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAboutWindowController.m; sourceTree = "<group>"; };
 		24101B8B1896D4AF00EDE32C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBAboutWindowController.xib; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				24A4EC8E1884966A00CE6CF0 /* MainMenu.xib */,
 				240F989F18B060AD001EAE87 /* SBEnterpriseSourceLocation.h */,
 				240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */,
+				240FE87E19FB0D11004096C7 /* SBEnterpriseConfigurationWriter.h */,
+				240FE87F19FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m */,
 				24A4EC881884966A00CE6CF0 /* SBDocument.h */,
 				24A4EC891884966A00CE6CF0 /* SBDocument.m */,
 				24A4EC8B1884966A00CE6CF0 /* SBDocument.xib */,
@@ -598,6 +603,7 @@
 				2420BA3019A2660A00208240 /* NSImage+SaveToFile.m in Sources */,
 				24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */,
 				249DF3F2189D7A3F00FECE0A /* NSFileManager+Extensions.m in Sources */,
+				240FE88019FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m in Sources */,
 				2415E65C196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m in Sources */,
 				24B29B5719326F6C0009C3D8 /* SBDownloadableDistributionModel.m in Sources */,
 				240F98A118B060AD001EAE87 /* SBEnterpriseSourceLocation.m in Sources */,
