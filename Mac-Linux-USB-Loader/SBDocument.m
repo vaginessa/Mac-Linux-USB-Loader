@@ -239,7 +239,6 @@
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		SBEnterpriseSourceLocation *sourceLocation = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
-		SBLogObject(sourceLocation);
 		[selectedUSBDrive copyEnterpriseFiles:self withEnterpriseSource:sourceLocation];
 	    [selectedUSBDrive copyInstallationFiles:self];
 
@@ -264,6 +263,12 @@
 			[alert setInformativeText:NSLocalizedString(@"The operation completed successfully.", nil)];
 			[alert setAlertStyle:NSWarningAlertStyle];
 			[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+			
+			NSUserNotification *userNotification = [[NSUserNotification alloc] init]; \
+			userNotification.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Finished Installing: ", nil), [[self.fileURL.path lastPathComponent] stringByDeletingPathExtension]];
+			userNotification.informativeText = NSLocalizedString(@"You are now ready to use your USB drive!", nil);
+			[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
 		});
 	});
 }
