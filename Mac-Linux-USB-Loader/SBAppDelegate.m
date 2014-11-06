@@ -92,11 +92,36 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	NSError *err = nil;
 	BOOL res;
 
+	SBLogObject(path);
+
+	// Deal with caches.
 	NSString *file;
+	NSString *completePath;
 	while (file = [en nextObject]) {
 		if (![[path stringByAppendingPathComponent:file] hasSuffix:@".json"]) {
 			res = [fm removeItemAtPath:[path stringByAppendingPathComponent:file] error:&err];
 			if (!res && err) {
+				NSLog(@"Couldn't erase cached file at path: %@", err);
+			}
+		}
+	}
+
+	// Deal with old ISOs.
+	path = [[NSFileManager defaultManager] applicationSupportDirectory];
+	en = [fm enumeratorAtPath:path];
+	while (file = [en nextObject]) {
+		BOOL shouldDelete = YES;
+		completePath = [path stringByAppendingPathComponent:file];
+		for (NSString *dn in self.supportedDistributions) {
+			NSString *distroName = [dn stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+			if ([file containsSubstring:distroName] && [file containsSubstring:self.supportedDistributionsAndVersions[dn]]) {
+				shouldDelete = NO;
+			}
+		}
+
+		if (shouldDelete) {
+			res = [fm removeItemAtPath:[path stringByAppendingPathComponent:file] error:&err];
+			if (err) {
 				NSLog(@"Couldn't erase cached file at path: %@", err);
 			}
 		}
