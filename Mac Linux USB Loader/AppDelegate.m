@@ -108,8 +108,20 @@ NSString *urlArray[] = {
     // Create authorization reference.
     OSStatus status;
     AuthorizationRef authorizationRef;
-    
-    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
+	AuthorizationItem authItem = {kAuthorizationRightExecute, 0, NULL, 0};
+	AuthorizationRights authRights = {1, &authItem};
+	NSString *promptText = NSLocalizedString(@"BLESS-AUTH-DIALOG", nil);
+	AuthorizationItem dialogConfiguration[1] = { kAuthorizationEnvironmentPrompt, [promptText length] + 2, (char *) [promptText UTF8String], 0 };
+
+	AuthorizationEnvironment authorizationEnvironment = { 0 };
+	authorizationEnvironment.items = dialogConfiguration;
+	authorizationEnvironment.count = 1;
+
+	AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed |
+	kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
+
+	// Open dialog and prompt user for password
+	status = AuthorizationCreate(&authRights, &authorizationEnvironment, flags, &authorizationRef);
     if (status != errAuthorizationSuccess) {
         NSLog(@"Error Creating Initial Authorization: %d", status);
         return NO;
@@ -117,16 +129,14 @@ NSString *urlArray[] = {
     
     /*
      * Set the rights we want for our authorization request. The rights we request primarily determine the message
-     * shown on the authentication window, in our case, "Mac Linux USB Loader wants to make changes".
+     * shown on the authentication window, however, in our case, that is set programmatically.
      */
     // kAuthorizationRightExecute == "system.privilege.admin"
-    AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
-    AuthorizationRights rights = {1, &right};
-    AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed |
-    kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
-    
-    // Call AuthorizationCopyRights to determine or extend the allowable rights.
-    status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+	AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+	AuthorizationRights rights = {1, &right};
+
+	// Call AuthorizationCopyRights to determine or extend the allowable rights.
+	status = AuthorizationCopyRights(authorizationRef, &rights, kAuthorizationEmptyEnvironment, flags, NULL);
     if (status != errAuthorizationSuccess) {
 #ifdef DEBUG
         NSLog(@"Copy Rights Unsuccessful: %d", status);
@@ -324,31 +334,45 @@ NSString *urlArray[] = {
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return;
     }
-    // Create authorization reference.
-    OSStatus status;
-    AuthorizationRef authorizationRef;
-    
-    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
-    if (status != errAuthorizationSuccess) {
-        NSLog(@"Error Creating Initial Authorization: %d", status);
-        return;
-    }
-    
-    // kAuthorizationRightExecute == "system.privilege.admin"
-    AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
-    AuthorizationRights rights = {1, &right};
-    AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed |
-    kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
-    
-    // Call AuthorizationCopyRights to determine or extend the allowable rights.
-    status = AuthorizationCopyRights(authorizationRef, &rights, kAuthorizationEmptyEnvironment, flags, NULL);
-    if (status != errAuthorizationSuccess) {
+	// Create authorization reference.
+	OSStatus status;
+	AuthorizationRef authorizationRef;
+	AuthorizationItem authItem = {kAuthorizationRightExecute, 0, NULL, 0};
+	AuthorizationRights authRights = {1, &authItem};
+	NSString *promptText = NSLocalizedString(@"BLESS-AUTH-DIALOG", nil);
+	AuthorizationItem dialogConfiguration[1] = { kAuthorizationEnvironmentPrompt, [promptText length] + 2, (char *) [promptText UTF8String], 0 };
+
+	AuthorizationEnvironment authorizationEnvironment = { 0 };
+	authorizationEnvironment.items = dialogConfiguration;
+	authorizationEnvironment.count = 1;
+
+	AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed |
+	kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
+
+	// Open dialog and prompt user for password
+	status = AuthorizationCreate(&authRights, &authorizationEnvironment, flags, &authorizationRef);
+	if (status != errAuthorizationSuccess) {
+		NSLog(@"Error Creating Initial Authorization: %d", status);
+		return;
+	}
+
+	/*
+	 * Set the rights we want for our authorization request. The rights we request primarily determine the message
+	 * shown on the authentication window, however, in our case, that is set programmatically.
+	 */
+	// kAuthorizationRightExecute == "system.privilege.admin"
+	AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+	AuthorizationRights rights = {1, &right};
+
+	// Call AuthorizationCopyRights to determine or extend the allowable rights.
+	status = AuthorizationCopyRights(authorizationRef, &rights, kAuthorizationEmptyEnvironment, flags, NULL);
+	if (status != errAuthorizationSuccess) {
 #ifdef DEBUG
-        NSLog(@"Copy Rights Unsuccessful: %d", status);
+		NSLog(@"Copy Rights Unsuccessful: %d", status);
 #endif
-        return;
-    }
-    
+		return;
+	}
+
     /* Set up the command line arguments. */
     char *tool = "/usr/sbin/bless";
     char *args[] = {"--unbless", (char *)[[_bootUSBSelector titleOfSelectedItem] UTF8String], NULL};

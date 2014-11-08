@@ -28,6 +28,7 @@ USB-HAS-BEEN-ERASED = "La distribución portable de Linux en su memoria USB ha s
 
 // USB Drive Blesser
 
+BLESS-AUTH-DIALOG = "Mac Linux USB Loader le gustaría modificar la configuración del firmware para arrancar su computadora.";
 NO-USBS-PLUGGED-IN = "No hay memoria USB están conectados.";
 NO-USBS-PLUGGED-IN-LONG = "Usted no tiene cualquier memoria USB insertado que tiene una distribución portable de Linux creado por Mac Linux USB Loader. Por favor, inserte memoria USB que tiene una distribución creado por Mac Linux USB Loader y reanuda Mac Linux USB Loader o pulsa la botón de Actualizar en la panél.";
 BLESS-COMPLETE = "La operación de bendecir ha completado.";

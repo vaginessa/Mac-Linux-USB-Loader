@@ -28,6 +28,7 @@ USB-HAS-BEEN-ERASED = "指定的 live USB 已經被清除.";
 
 // USB Drive Blesser
 
+BLESS-AUTH-DIALOG = "Mac Linux USB Loader would like to modify your computer's boot firmware settings.";
 NO-USBS-PLUGGED-IN = "USB 裝置未連結.";
 NO-USBS-PLUGGED-IN-LONG = "您尚未連結任何使用 Mac Linux USB Loader 製作之可攜式 Linux 發行套件的USB。請連結USB，並選擇重新啓動 Mac Linux USB Loader，或點選界面上的重新整理按鍵。";
 BLESS-COMPLETE = "Bless 模式完成";

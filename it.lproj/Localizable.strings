@@ -29,6 +29,7 @@ USB-HAS-BEEN-ERASED = "The live USB has been erased.";
 
 // USB Drive Blesser
 
+BLESS-AUTH-DIALOG = "Mac Linux USB Loader would like to modify your computer's boot firmware settings.";
 NO-USBS-PLUGGED-IN = "No USB drives are plugged in.";
 NO-USBS-PLUGGED-IN-LONG = "You do not have any USB drives plugged in that contain a portable Linux distribution created by Mac Linux USB Loader. Plug one in and either restart Mac Linux USB Loader or click the Refresh button in the panel.";
 BLESS-COMPLETE = "Bless complete.";

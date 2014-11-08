@@ -29,6 +29,7 @@ USB-HAS-BEEN-ERASED = "Η εκκινήσιμη συσκευή USB διαγράφ
 
 // USB Drive Blesser
 
+BLESS-AUTH-DIALOG = "Mac Linux USB Loader would like to modify your computer's boot firmware settings.";
 NO-USBS-PLUGGED-IN = "Καμμία συσκευή USB δεν έχει εισαχθεί.";
 NO-USBS-PLUGGED-IN-LONG = "Δεν έχετε εισάγει καμμία συσκευή USB που περιέχει μια φορητή έκδοση Linux που έχει δημιουργηθεί από το Mac Linux USB Loader. Εισάγετε μία και επανεκκινήστε το Mac Linux USB Loader ή πατήστε το κουμπί 'Ανανέωση'";
 BLESS-COMPLETE = "Η ευλογία ολοκληρώθηκε.";
