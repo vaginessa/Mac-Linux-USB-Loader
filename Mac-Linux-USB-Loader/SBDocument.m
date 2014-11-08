@@ -65,6 +65,12 @@
 			[self.distributionSelectorPopup selectItemWithTitle:@"Other"];
 			break;
 	}
+
+	if ([[[self.fileURL path] lastPathComponent] containsString:@"+mac"]) {
+		[self.isMacVersionCheckBox setState:NSOnState];
+	} else {
+		[self.isMacVersionCheckBox setState:NSOffState];
+	}
 }
 
 - (void)setupUSBDriveSelector {
