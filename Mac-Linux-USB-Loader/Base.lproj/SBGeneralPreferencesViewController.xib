@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.9"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBGeneralPreferencesViewController">
             <connections>
+                <outlet property="clearCachesCheckbox" destination="s4C-gM-3i6" id="7HO-n1-ynj"/>
                 <outlet property="view" destination="1" id="2"/>
             </connections>
         </customObject>
@@ -42,7 +44,7 @@
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
-                <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Mqp-7t-iHQ">
+                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Mqp-7t-iHQ">
                     <rect key="frame" x="12" y="120" width="429" height="5"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -55,6 +57,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
+                        <action selector="clearCachesCheckboxClicked:" target="-2" id="dSg-Zx-1ty"/>
                         <binding destination="aRH-Yv-lWu" name="value" keyPath="values.PeriodicallyClearCaches" id="4s6-JV-cTL"/>
                     </connections>
                 </button>
@@ -91,7 +94,7 @@
                 <constraint firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" constant="20" id="nwy-fm-9oA"/>
                 <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="v52-e8-W5W"/>
             </constraints>
-            <point key="canvasLocation" x="433.5" y="177.5"/>
+            <point key="canvasLocation" x="157.5" y="105.5"/>
         </customView>
         <userDefaultsController id="xGH-KJ-pxb"/>
         <userDefaultsController representsSharedInstance="YES" id="aRH-Yv-lWu"/>

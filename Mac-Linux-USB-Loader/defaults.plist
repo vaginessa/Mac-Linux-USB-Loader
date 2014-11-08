@@ -5,7 +5,7 @@
 	<key>DefaultEnterpriseSourceLocation</key>
 	<string>Included With Application</string>
 	<key>PeriodicallyClearCaches</key>
-	<true/>
+	<false/>
 	<key>UpdateMirrorListInterval</key>
 	<integer>0</integer>
 	<key>AcceptHFSDrives</key>

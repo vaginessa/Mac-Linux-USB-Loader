@@ -11,6 +11,8 @@
 
 @interface SBGeneralPreferencesViewController ()
 
+@property (weak) IBOutlet NSButton *clearCachesCheckbox;
+
 @end
 
 @implementation SBGeneralPreferencesViewController
@@ -23,12 +25,24 @@
 	return self;
 }
 
+- (IBAction)clearCachesCheckboxClicked:(id)sender {
+	if ([sender state] == NSOnState) {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Yes", nil)];
+		[alert addButtonWithTitle:NSLocalizedString(@"No", nil)];
+		[alert setMessageText:NSLocalizedString(@"Are you sure you want to enable clearing caches?", nil)];
+		[alert setInformativeText:NSLocalizedString(@"This will clear your stored Enterprise sources, downloaded ISO files, and cached download mirror information every two months.", nil)];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:[self.view window] modalDelegate:self didEndSelector:@selector(checkboxAlertSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+	}
+}
+
 - (IBAction)clearCachesButtonPressed:(id)sender {
 	NSAlert *alert = [[NSAlert alloc] init];
 	[alert addButtonWithTitle:NSLocalizedString(@"Yes", nil)];
 	[alert addButtonWithTitle:NSLocalizedString(@"No", nil)];
 	[alert setMessageText:NSLocalizedString(@"Are you sure you want to clear caches?", nil)];
-	[alert setInformativeText:NSLocalizedString(@"This can be useful if you want to conserve your disk space, but it will delete all of your downloaded ISO files and reset your download mirrors. Is this okay?", nil)];
+	[alert setInformativeText:NSLocalizedString(@"This can be useful if you want to conserve your disk space, but it will delete all of your downloaded ISO files and reset your download mirrors.", nil)];
 	[alert setAlertStyle:NSWarningAlertStyle];
 	[alert beginSheetModalForWindow:[self.view window] modalDelegate:self didEndSelector:@selector(deleteCachesAlertSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
@@ -43,6 +57,13 @@
 
 - (NSString *)toolbarItemLabel {
 	return NSLocalizedString(@"General", nil);
+}
+
+- (void)checkboxAlertSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	if (returnCode != NSAlertFirstButtonReturn) {
+		[self.clearCachesCheckbox setState:NSOffState];
+		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"PeriodicallyClearCaches"];
+	}
 }
 
 - (void)deleteCachesAlertSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
