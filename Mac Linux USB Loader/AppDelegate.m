@@ -20,9 +20,9 @@ DistributionDownloader *distributionDownloader;
  */
 NSString *urlArray[] = {
     @"http://releases.ubuntu.com/saucy/ubuntu-13.10-desktop-amd64+mac.iso", // Ubuntu 13.10 for Mac
-    @"http://linuxfreedom.com/linuxmint/stable/15/linuxmint-15-cinnamon-dvd-64bit.iso", // Mint 15 US
-    @"http://distro.ibiblio.org/zorin/6/zorin-os-6.3-core-64.iso", // Zorin OS 6.3 US
-    @"http://downloads.sourceforge.net/project/elementaryos/stable/elementaryos-stable-amd64.20130810.iso?r=http%3A%2F%2Felementaryos.org%2F&ts=1381599543&use_mirror=hivelocity" // Elementary OS Luna
+    @"http://linuxfreedom.com/linuxmint/stable/15/linuxmint-15-cinnamon-dvd-64bit.iso", // Mint 17 US
+    @"http://downloads.sourceforge.net/project/zorin-os/9/zorin-os-9.1-core-64.iso?use_mirror=iweb", // Zorin OS 9 US
+    @"http://downloads.sourceforge.net/project/elementaryos/stable/elementaryos-stable-amd64.20130810.iso?use_mirror=hivelocity" // Elementary OS Luna
     };
 
 - (void)dealloc {
