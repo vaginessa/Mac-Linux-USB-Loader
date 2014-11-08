@@ -182,7 +182,7 @@ BOOL isCopying = NO;
 
 // This is too long... this needs to be split up, perhaps with some components in USBDevice like before.
 - (IBAction)makeLiveUSB:(id)sender {
-    [[NSApp delegate] setCanQuit:NO];
+    [(AppDelegate *)[NSApp delegate] setCanQuit:NO];
     [_makeUSBButton setEnabled:NO];
     [_eraseUSBButton setEnabled:NO];
     [_distributionFamilySelector setEnabled:NO];
@@ -205,7 +205,7 @@ BOOL isCopying = NO;
         [_makeUSBButton setEnabled:NO];
         [_eraseUSBButton setEnabled:NO];
         
-        [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+        [(AppDelegate *)[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
         isCopying = NO;
         
         return;
@@ -237,14 +237,14 @@ BOOL isCopying = NO;
         [_spinner stopAnimation:self];
         [_spinner setIndeterminate:NO];
         [_spinner setDoubleValue:0.0];
-        [[NSApp delegate] setCanQuit:YES];
+        [(AppDelegate *)[NSApp delegate] setCanQuit:YES];
         isCopying = NO;
         
         return;
     }
 
     // Now progress with the copy.
-    [[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
+    [(AppDelegate *)[NSApp delegate] setCanQuit:NO]; // The user can't quit while we're copying.
     if ([device prepareUSB:usbRoot] == YES) {
         [_spinner setIndeterminate:NO];
         [_spinner setUsesThreadedAnimation:YES];
@@ -323,7 +323,7 @@ BOOL isCopying = NO;
         }
     } else {
         // Some form of setup failed. Alert the user.
-        [[NSApp delegate] setCanQuit:YES];
+        [(AppDelegate *)[NSApp delegate] setCanQuit:YES];
         isCopying = NO;
         
         failure = YES;
@@ -384,7 +384,7 @@ BOOL isCopying = NO;
 
 - (void)eraseAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == NSAlertFirstButtonReturn) {
-        [[NSApp delegate] setCanQuit:NO];
+        [(AppDelegate *)[NSApp delegate] setCanQuit:NO];
 
         if ([_usbDriveDropdown numberOfItems] != 0) {
             // Construct the path of the efi folder that we're going to nuke.
@@ -416,7 +416,7 @@ BOOL isCopying = NO;
             }
         }
         
-        [[NSApp delegate] setCanQuit:YES];
+        [(AppDelegate *)[NSApp delegate] setCanQuit:YES];
         isCopying = NO;
     }
 }
@@ -502,13 +502,13 @@ static void copyStatusCallback (FSFileOperationRef fileOp, const FSRef *currentI
 #else
             [NSApp requestUserAttention:NSCriticalRequest];
 #endif
-            [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+            [(AppDelegate *)[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
             [document.makeUSBButton setEnabled:YES]; // Enable the buttons.
             [document.eraseUSBButton setEnabled:YES];
             isCopying = NO;
             
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"automaticallyBless"] == YES) {
-                [[NSApp delegate] blessDrive:usbRoot sender:nil]; // Automatically bless the user's drive.
+                [(AppDelegate *)[NSApp delegate] blessDrive:usbRoot sender:nil]; // Automatically bless the user's drive.
             }
         }
     }

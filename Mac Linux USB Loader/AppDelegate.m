@@ -216,7 +216,7 @@ NSString *urlArray[] = {
 }
 
 - (IBAction)eraseSelectedDrive:(id)sender {
-    [[NSApp delegate] setCanQuit:NO];
+    [(AppDelegate *)[NSApp delegate] setCanQuit:NO];
     
     if ([_eraseUSBSelector numberOfItems] != 0) {
         [_eraseUSBSelector setEnabled:NO];
@@ -260,7 +260,7 @@ NSString *urlArray[] = {
     }
     
     [self detectUSBs:nil]; // Reload the list of USB drives for all main menu functions (eraser, blesser, etc)
-    [[NSApp delegate] setCanQuit:YES];
+    [(AppDelegate *)[NSApp delegate] setCanQuit:YES];
 }
 
 #pragma mark - Modify Boot Settings
@@ -452,7 +452,7 @@ NSString *urlArray[] = {
 
 - (void)quitSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == NSAlertFirstButtonReturn) {
-        [[NSApp delegate] setCanQuit:YES];
+        [(AppDelegate *)[NSApp delegate] setCanQuit:YES];
         [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
     }
 }

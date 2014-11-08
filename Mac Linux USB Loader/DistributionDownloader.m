@@ -64,7 +64,7 @@ long long bytesReceived = 0;
     [NSApp requestUserAttention:NSCriticalRequest];
 #endif
     
-    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+    [(AppDelegate *)[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
 }
 
 - (void)download:(NSURLDownload *)download decideDestinationWithSuggestedFilename:(NSString *)filename {
@@ -109,7 +109,7 @@ long long bytesReceived = 0;
     [NSApp requestUserAttention:NSCriticalRequest];
 #endif
     
-    [[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
+    [(AppDelegate *)[NSApp delegate] setCanQuit:YES]; // We're done, the user can quit the program.
 }
 
 /* When the application recieves some data, we get a "download response". Cache it here in an instance variable so that

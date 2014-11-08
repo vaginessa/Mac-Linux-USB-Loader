@@ -186,7 +186,6 @@
 		24E1AA7D1853CEBD006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		24E1AA7E1853CEBE006CCB5A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24FDAFA318071D5B0013D0DA /* TRANSLATIONS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TRANSLATIONS; sourceTree = "<group>"; };
-		24FDAFA5180731000013D0DA /* libncurses_g.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libncurses_g.a; path = ../../../../../usr/local/Cellar/ncurses/5.9/lib/libncurses_g.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,7 +336,6 @@
 		24CA6BEC1656F7A700061D2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				24FDAFA5180731000013D0DA /* libncurses_g.a */,
 				240C7B5D175AEDBA00AEAFC9 /* Security.framework */,
 				24BDE430172D920B00E964A0 /* IOKit.framework */,
 				244C050716DD8E460083A0C9 /* Sparkle.framework */,

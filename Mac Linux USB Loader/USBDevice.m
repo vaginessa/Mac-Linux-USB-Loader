@@ -54,7 +54,7 @@
         [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
         return NO;
         
-        [[NSApp delegate] setCanQuit:YES];
+        [(AppDelegate *)[NSApp delegate] setCanQuit:YES];
     }
     
     // Make the folder to hold the EFI executable and ISO to boot.
