@@ -39,7 +39,6 @@
 		24A4EC8D1884966A00CE6CF0 /* SBDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A4EC8B1884966A00CE6CF0 /* SBDocument.xib */; };
 		24A4EC901884966A00CE6CF0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A4EC8E1884966A00CE6CF0 /* MainMenu.xib */; };
 		24A4EC921884966A00CE6CF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24A4EC911884966A00CE6CF0 /* Images.xcassets */; };
-		24A4EC991884966A00CE6CF0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A4EC981884966A00CE6CF0 /* XCTest.framework */; };
 		24A4EC9A1884966A00CE6CF0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A4EC761884966900CE6CF0 /* Cocoa.framework */; };
 		24A4ECA21884966A00CE6CF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24A4ECA01884966A00CE6CF0 /* InfoPlist.strings */; };
 		24A4ECA41884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */; };
@@ -64,12 +63,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		24A4EC9B1884966A00CE6CF0 /* PBXContainerItemProxy */ = {
+		245AC8021A17CDC20039E2C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24A4EC6B1884966900CE6CF0 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 24A4EC721884966900CE6CF0;
-			remoteInfo = "Mac-Linux-USB-Loader";
+			remoteInfo = "Mac Linux USB Loader";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -130,6 +129,7 @@
 		24245F3118D222250085C43F /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
 		2424764A194A180A0083033B /* NSProcessInfo+PECocoaBackports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+PECocoaBackports.h"; sourceTree = "<group>"; };
 		2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProcessInfo+PECocoaBackports.m"; sourceTree = "<group>"; };
+		245AC8011A17CBAB0039E2C9 /* Mac-Linux-USB-Loader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mac-Linux-USB-Loader-Prefix.pch"; sourceTree = "<group>"; };
 		24680E4C18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterprisePreferencesViewController.h; sourceTree = "<group>"; };
 		24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterprisePreferencesViewController.m; sourceTree = "<group>"; };
 		24680E5518AE7FE500B6E13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
@@ -147,14 +147,12 @@
 		24A4EC7E1884966A00CE6CF0 /* Mac Linux USB Loader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mac Linux USB Loader-Info.plist"; sourceTree = "<group>"; };
 		24A4EC801884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24A4EC821884966A00CE6CF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		24A4EC841884966A00CE6CF0 /* Mac Linux USB Loader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mac Linux USB Loader-Prefix.pch"; sourceTree = "<group>"; };
 		24A4EC881884966A00CE6CF0 /* SBDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBDocument.h; sourceTree = "<group>"; };
 		24A4EC891884966A00CE6CF0 /* SBDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBDocument.m; sourceTree = "<group>"; };
 		24A4EC8C1884966A00CE6CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDocument.xib; sourceTree = "<group>"; };
 		24A4EC8F1884966A00CE6CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		24A4EC911884966A00CE6CF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24A4EC971884966A00CE6CF0 /* Mac Linux USB LoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mac Linux USB LoaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24A4EC981884966A00CE6CF0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		24A4EC9F1884966A00CE6CF0 /* Mac Linux USB LoaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mac Linux USB LoaderTests-Info.plist"; sourceTree = "<group>"; };
 		24A4ECA11884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mac_Linux_USB_LoaderTests.m; sourceTree = "<group>"; };
@@ -187,7 +185,8 @@
 		24F35F7F19D604B30019CF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Acknowledgements.rtf; sourceTree = "<group>"; };
 		24F35F8019D604BF0019CF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		24F727C418BAC13B00B16013 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
-		97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		26D2E9C87D357805295853E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		59079375EC631F237E059D9E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F38667D994A74956919B4A54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -210,7 +209,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A4EC9A1884966A00CE6CF0 /* Cocoa.framework in Frameworks */,
-				24A4EC991884966A00CE6CF0 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +257,7 @@
 				24A4EC751884966900CE6CF0 /* Frameworks */,
 				24A4EC741884966900CE6CF0 /* Products */,
 				2420474C18849A4300ECAAFE /* README.md */,
-				97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */,
+				7072F27EB8C1AAC2ED5DE72C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,7 +278,6 @@
 				24101B8D1896D4DF00EDE32C /* QuartzCore.framework */,
 				240F1FAB1891A88F00AE9F82 /* IOKit.framework */,
 				24A4EC761884966900CE6CF0 /* Cocoa.framework */,
-				24A4EC981884966A00CE6CF0 /* XCTest.framework */,
 				24A4EC781884966900CE6CF0 /* Other Frameworks */,
 				F38667D994A74956919B4A54 /* libPods.a */,
 			);
@@ -320,7 +317,7 @@
 				24A4EC7E1884966A00CE6CF0 /* Mac Linux USB Loader-Info.plist */,
 				24A4EC7F1884966A00CE6CF0 /* InfoPlist.strings */,
 				24A4EC821884966A00CE6CF0 /* main.m */,
-				24A4EC841884966A00CE6CF0 /* Mac Linux USB Loader-Prefix.pch */,
+				245AC8011A17CBAB0039E2C9 /* Mac-Linux-USB-Loader-Prefix.pch */,
 				24A4EC851884966A00CE6CF0 /* Credits.rtf */,
 				24F35F7C19D604AE0019CF54 /* Acknowledgements.rtf */,
 			);
@@ -426,6 +423,15 @@
 			name = Enterprise;
 			sourceTree = "<group>";
 		};
+		7072F27EB8C1AAC2ED5DE72C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59079375EC631F237E059D9E /* Pods.debug.xcconfig */,
+				26D2E9C87D357805295853E5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -461,7 +467,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				24A4EC9C1884966A00CE6CF0 /* PBXTargetDependency */,
+				245AC8031A17CDC20039E2C9 /* PBXTargetDependency */,
 			);
 			name = "Mac Linux USB LoaderTests";
 			productName = "Mac-Linux-USB-LoaderTests";
@@ -570,7 +576,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -621,10 +627,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		24A4EC9C1884966A00CE6CF0 /* PBXTargetDependency */ = {
+		245AC8031A17CDC20039E2C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24A4EC721884966900CE6CF0 /* Mac Linux USB Loader */;
-			targetProxy = 24A4EC9B1884966A00CE6CF0 /* PBXContainerItemProxy */;
+			targetProxy = 245AC8021A17CDC20039E2C9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -790,7 +796,7 @@
 		};
 		24A4ECA81884966A00CE6CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */;
+			baseConfigurationReference = 59079375EC631F237E059D9E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader.entitlements";
@@ -798,7 +804,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Prefix.pch";
+				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac-Linux-USB-Loader-Prefix.pch";
 				GCC_WARN_PEDANTIC = YES;
 				INFOPLIST_FILE = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -811,7 +817,7 @@
 		};
 		24A4ECA91884966A00CE6CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97D6FD4901564CE0BB25A7DB /* Pods.xcconfig */;
+			baseConfigurationReference = 26D2E9C87D357805295853E5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader.entitlements";
@@ -819,7 +825,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Prefix.pch";
+				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac-Linux-USB-Loader-Prefix.pch";
 				GCC_WARN_PEDANTIC = YES;
 				INFOPLIST_FILE = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -833,7 +839,7 @@
 		24A4ECAB1884966A00CE6CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mac-Linux-USB-Loader.app/Contents/MacOS/Mac-Linux-USB-Loader";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mac Linux USB Loader.app/Contents/MacOS/Mac Linux USB Loader";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -855,7 +861,7 @@
 		24A4ECAC1884966A00CE6CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mac-Linux-USB-Loader.app/Contents/MacOS/Mac-Linux-USB-Loader";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mac Linux USB Loader.app/Contents/MacOS/Mac Linux USB Loader";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
