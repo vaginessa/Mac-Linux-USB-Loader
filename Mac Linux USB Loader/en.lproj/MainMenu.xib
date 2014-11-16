@@ -13,6 +13,19 @@
                 <outlet property="dockMenu" destination="726" id="730"/>
             </connections>
         </customObject>
+        <menu id="TJ3-5a-Dc6">
+            <items>
+                <menuItem title="Item 1" id="XFa-Bc-ESE">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item 2" id="te3-cn-lLM">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item 3" id="CoF-QV-EQf">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+        </menu>
         <menu title="MainMenu" systemMenu="main" id="29">
             <items>
                 <menuItem title="Mac Linux USB Loader" id="56">
@@ -99,6 +112,19 @@
                             <menuItem title="Close" keyEquivalent="w" id="73">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="193"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="View" id="63p-Un-4Vg">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="View" id="O2u-BU-MWA">
+                        <items>
+                            <menuItem title="Show Toolbar" id="WXi-LJ-4MH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleToolbarShown:" target="-1" id="pbB-Fi-G5S"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -320,6 +346,7 @@
                     <toolbarItem reference="1074"/>
                 </defaultToolbarItems>
             </toolbar>
+            <point key="canvasLocation" x="316" y="259"/>
         </window>
         <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="534" userLabel="About Panel" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
