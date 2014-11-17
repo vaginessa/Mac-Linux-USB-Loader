@@ -219,8 +219,12 @@ typedef enum {
 
 - (BOOL)enableStartupDiskSupport {
 	NSString *finalPath = [self.path stringByAppendingString:@"/System/Library/CoreServices/"];
+	NSString *plistFilePath = [[NSBundle mainBundle] pathForResource:@"SystemVersion" ofType:@"plist"];
+	NSError *err;
+	NSFileManager *fm = [NSFileManager defaultManager];
 
-	[[NSFileManager defaultManager] createDirectoryAtPath:finalPath withIntermediateDirectories:YES attributes:nil error:nil];
+	[fm createDirectoryAtPath:finalPath withIntermediateDirectories:YES attributes:nil error:nil];
+	[fm copyItemAtPath:plistFilePath toPath:[finalPath stringByAppendingPathComponent:@"SystemVersion.plist"] error:&err];
 
 	return YES;
 }
