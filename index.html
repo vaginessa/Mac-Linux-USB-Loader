@@ -1,81 +1,88 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Mac Linux USB Loader by SevenBits</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Mac Linux USB Loader by SevenBits</title>
+	<meta name="description" content="Mac Linux USB Loader is an application that allows you to create bootable USB drives containing a Linux distribution that can boot natively on Apple's Macintosh computers using their EFI system, regardless of whether or not the selected distribution has UEFI support.">
+	<meta name="author" content="SevenBits">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+	<script src="js/site.js"></script>
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <div class="wrapper">
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+	<link rel="stylesheet" href="stylesheets/site.css">
 
-      <section>
-        <div id="title">
-          <h1>Mac Linux USB Loader</h1>
-          <p>Tool allowing you to put a Linux distribution on a USB drive and make it bootable on Intel Macs using EFI.</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/SevenBits">SevenBits</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+	<div id="advert">
+		<h2>Thanks so much for downloading!</h2>
+		<p>Would you please consider donating $5 (or any amount) to help further the development of Mac Linux USB Loader? This helps me:</p>
+		<ul class="square">
+			<li>Fund development and research</li>
+			<li>Provide <strong>free</strong> support</li>
+			<li>Publicize and promote the program</li>
+		</ul>
+		
+		<form method="post" target="_payByIpnWindow" action="https://ipn.intuit.com/payNow/start" id="payByIpnForm">  <input type="hidden" name="eId" value="5ef0659fa1f87bd1" /> <input type="hidden" name="uuId" value="2530128f-13f9-4c18-9196-b1239a8c5f50" /> <input type="image" id="payByIpnImg" style="background-color:transparent;border:0 none;" src="https://ipn.intuit.com/images/payButton/btn_Donation_ORG_LG.png" alt="Make payments for less with Intuit Payment Network." /></form>
+		<a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/releases/download/v2.0.2/Mac.Linux.USB.Loader.zip"><small>No thanks, just take me to the download</small></a>
+	</div>
 
-        <h3>
-<a id="what-is-mac-linux-usb-loader" class="anchor" href="#what-is-mac-linux-usb-loader" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Mac Linux USB Loader?</h3>
-
-<p>Mac Linux USB Loader is an application that allows you to create bootable USB drives containing a Linux distribution that can boot natively on Apple's Macintosh computers using their EFI system, regardless of whether or not the selected distribution has UEFI support. It is available in English, Spanish, Traditional Chinese, and Greek. For information on the supported languages, or if you want to help translate, please see <a href="https://raw.githubusercontent.com/SevenBits/Mac-Linux-USB-Loader/stable/TRANSLATIONS">here</a>. Mac Linux USB Loader has a number of features:</p>
-
-<ul>
-<li>Non-destructive install (does not format your USB drive as long as it has a FAT32 filesystem).</li>
-<li>Supports mainstream Linux distributions, such as Ubuntu, Linux Mint, Zorin, and more.</li>
-<li>Includes persistence support for Ubuntu-based distributions (for instructions on how to set it up, see <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki/Using-Persistence-with-Mac-Linux-USB-Loader">this link</a>).</li>
-<li>Automatically detects all removable devices.</li>
-</ul>
-
-<p><strong><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/releases/download/v2.0.2/Mac.Linux.USB.Loader.zip">Click here</a> to download the latest stable version of Mac Linux USB Loader.</strong> You can see all releases, including betas, along with download links <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/releases">here</a> (if, for instance, you want to use an older version), and ancient, seriously old versions (like my initial, pre-1.0 betas) can be found <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/downloads">here</a>, though you <strong>really</strong> shouldn't download those unless you have a good reason.</p>
-
-<p><a href="http://sevenbits.github.io/donate.html">If you can, would you please consider donating to the project?</a> Although not required, donations will certainly be helpful in continuing the development of Mac Linux USB Loader.</p>
-
-<p>If you're using <a href="http://caskroom.io">Homebrew Cask</a>, you can install with this command:</p>
-
-<pre><code>brew cask install mac-linux-usb-loader
-</code></pre>
-
-<p>If you're a developer, hacker, or just computer-savvy, you can build the program from source code too. You can download the source code from the links above. You can also <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki/Building">clone the source from git and build from the command line</a>. Note that if you have to ask, "what's git?" then this is <em>not</em> the best way to obtain Mac Linux USB Loader.</p>
-
-<p><strong><em>Want to see everything cool that I work on? See <a href="http://sevenbits.github.io/">my homepage</a>!</em></strong></p>
-      </section>
-
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-46715734-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-  </body>
+	<nav>
+		<span><a href="https://sevenbits.github.io/" target="_blank"><strong>SevenBits' Tech Site</strong></a></span>
+	</nav>
+	
+	<div class="container">
+		<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 60px">Mac Linux USB Loader</h1>
+			<h5>Created by <a href="https://github.com/SevenBits">SevenBits</a></h5>
+			<hr/>
+		</div>
+		<div class="sixteen columns">
+			<a class="download-btn" href="https://github.com/SevenBits/Mac-Linux-USB-Loader/releases/download/v2.0.2/Mac.Linux.USB.Loader.zip">
+				<img src="images/mlul.png"/>
+				<span>Download Now</span>
+			</a>
+		</div>
+		<div class="one-third column">
+			<h4>What is Mac Linux USB Loader?</h4>
+			<p>Mac Linux USB Loader is an application that allows you to create bootable USB drives containing a Linux distribution that can boot natively on Apple's Macintosh computers using their EFI system, regardless of whether or not the selected distribution has UEFI support. It is available in English, Spanish, Traditional Chinese, and Greek. For information on the supported languages, or if you want to help translate, please see <a href="https://raw.githubusercontent.com/SevenBits/Mac-Linux-USB-Loader/stable/TRANSLATIONS">here</a>.</p>
+		</div>
+		<div class="one-third column">
+			<h3>Some Key Features</h3>
+			<p>Mac Linux USB Loader has a number of key features:</p>
+			<ul class="square">
+				<li><strong>Non-Destructive Install</strong>: (does not format your USB drive as long as it has a FAT32 filesystem).</li>
+				<li><strong>Supports mainstream Linux distributions</strong>, such as Ubuntu, Linux Mint, Zorin, and more</li>
+				<li><strong>Includes persistence support</strong> for Ubuntu-based distributions (for instructions on how to set it up, see <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki/Using-Persistence-with-Mac-Linux-USB-Loader">this link</a>)</li>
+				<li><strong>Automatically detects all removable devices</strong></li>
+			</ul>
+		</div>
+		<div class="one-third column">
+			<h3>Docs &amp; Support</h3>
+			<p>Sources of help for Mac Linux USB Loader are plentiful. Some sources include:</p>
+			<ul class="square">
+				<li>The <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki" target="_blank">Mac Linux USB Loader wiki</a></li>
+				<li>Some online tutorials: <em><a href="https://duckduckgo.com/?t=lm&q=Mac+Linux+USB+Loader+tutorial" target="_none">do a web search</a></em></li>
+				<li>Sending me an <a href="https://sevenbits.github.io/contact.html" target="_blank">email</a></li>
+			</ul>
+			
+			<h3>Bugs</h3>
+			<p>To report a bug, please <a href="https://sevenbits.github.io/tools/bugs/report-mlul.html" target="_blank">click here</a>.</p>
+		</div>
+	</div><!-- container -->
+	
+	<footer>
+		<p>&copy 2014 SevenBits. All rights reserved.</p>
+	</footer>
+</body>
 </html>
