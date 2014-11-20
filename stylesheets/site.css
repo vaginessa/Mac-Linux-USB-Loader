@@ -61,6 +61,8 @@ footer p {
 	top: 50%;
 	right: 5%;
 	transform: translate(0, -50%);
+	-webkit-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
 }
 
 /* BEGIN CSS FOR ADVERT */
@@ -72,6 +74,8 @@ footer p {
 	background: #222;
 	z-index: 100;
 	transform: translate(0, 50%);
+	-webkit-transform: translate(0, 50%);
+	-o-transform: translate(0, 50%);
 }
 
 #advert * {
