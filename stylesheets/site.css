@@ -67,6 +67,7 @@ footer p {
 
 /* BEGIN CSS FOR ADVERT */
 #advert {
+	display: none;
 	position: absolute;
 	width: 100%;
 	height: 300px;
