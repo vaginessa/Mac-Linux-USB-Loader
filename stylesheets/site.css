@@ -93,9 +93,7 @@ footer p {
 	nav {
 		position: absolute;
 	}
-}
-
-@media only screen and (max-width: 767px) {
+	
 	#advert {
 		height: auto;
 	}
