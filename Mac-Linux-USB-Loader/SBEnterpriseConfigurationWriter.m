@@ -21,10 +21,15 @@
 	if (family == SBDistributionUbuntu && (isMacUbuntu || containsLegacyUbuntu)) {
 		NSMutableString *kernelString = [NSMutableString stringWithString:@"kernel "];
 
+		// I know that this seems a bit redundant, checking for legacy Ubuntu twice, but we have to because if we don't,
+		// it would be impossible to have both options be enabled.
 		if (isMacUbuntu) {
 			[kernelString appendString:@"/casper/vmlinuz "];
+			if (containsLegacyUbuntu) {
+				[kernelString appendString:@"file=/cdrom/preseed/ubuntu.seed"];
+			}
 		} else if (containsLegacyUbuntu) {
-			[kernelString appendString:@"file=/cdrom/preseed/ubuntu.seed "];
+			[kernelString appendString:@"/casper/vmlinuz.efi file=/cdrom/preseed/ubuntu.seed"];
 		}
 
 		[kernelString appendString:@"\n"];
