@@ -303,6 +303,8 @@
 	BOOL isUbuntuSelected = [selectedItem isEqualToString:@"Ubuntu"];
 	[self.isMacVersionCheckBox setTransparent:(isUbuntuSelected ? NO : YES)];
 	[self.isMacVersionCheckBox setEnabled:isUbuntuSelected];
+	[self.isLegacyUbuntuVersionCheckBox setTransparent:(isUbuntuSelected ? NO : YES)];
+	[self.isLegacyUbuntuVersionCheckBox setEnabled:isUbuntuSelected];
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {

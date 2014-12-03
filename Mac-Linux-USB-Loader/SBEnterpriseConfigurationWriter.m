@@ -11,15 +11,24 @@
 
 @implementation SBEnterpriseConfigurationWriter
 
-+ (void)writeConfigurationFileAtUSB:(SBUSBDevice *)device distributionFamily:(SBLinuxDistribution)family isMacUbuntu:(BOOL)isMacUbuntu {
++ (void)writeConfigurationFileAtUSB:(SBUSBDevice *)device distributionFamily:(SBLinuxDistribution)family isMacUbuntu:(BOOL)isMacUbuntu containsLegacyUbuntuVersion:(BOOL)containsLegacyUbuntu {
 	NSString *path = [device.path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
 	NSMutableString *string = [NSMutableString stringWithCapacity:30];
 	[string appendString:@"#This file is machine generated. Do not modify it unless you know what you are doing.\n\n"];
 	[string appendFormat:@"entry %@\n", [SBAppDelegate distributionStringForEquivalentEnum:family]];
 	[string appendFormat:@"family %@\n", [SBAppDelegate distributionStringForEquivalentEnum:family]];
 
-	if (isMacUbuntu && family == SBDistributionUbuntu) {
-		[string appendString:@"kernel /casper/vmlinuz\n"];
+	if (family == SBDistributionUbuntu && (isMacUbuntu || containsLegacyUbuntu)) {
+		NSMutableString *kernelString = [NSMutableString stringWithString:@"kernel "];
+
+		if (isMacUbuntu) {
+			[kernelString appendString:@"/casper/vmlinuz "];
+		} else if (containsLegacyUbuntu) {
+			[kernelString appendString:@"file=/cdrom/preseed/ubuntu.seed "];
+		}
+
+		[kernelString appendString:@"\n"];
+		[string appendString:kernelString];
 	}
 
 	[[NSFileManager defaultManager] removeItemAtPath:path error:nil];

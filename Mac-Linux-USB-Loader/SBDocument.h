@@ -22,6 +22,7 @@
 @property (weak) IBOutlet NSButton *performInstallationButton;
 @property (weak) IBOutlet NSPopUpButton *distributionSelectorPopup;
 @property (weak) IBOutlet NSButton *isMacVersionCheckBox;
+@property (weak) IBOutlet NSButton *isLegacyUbuntuVersionCheckBox;
 
 @property (nonatomic, assign) BOOL automaticSetupCheckBoxChecked;
 

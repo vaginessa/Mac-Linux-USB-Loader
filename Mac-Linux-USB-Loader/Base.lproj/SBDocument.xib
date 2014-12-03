@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
@@ -11,6 +11,7 @@
                 <outlet property="distributionSelectorPopup" destination="FN5-Ti-WuH" id="DsR-ip-ZTA"/>
                 <outlet property="enterpriseSourceSelector" destination="3qA-qj-K0g" id="SDh-QA-Ih3"/>
                 <outlet property="installationProgressBar" destination="bdV-ll-emw" id="Ct4-mC-KVI"/>
+                <outlet property="isLegacyUbuntuVersionCheckBox" destination="o16-cH-t1N" id="xhZ-kG-kLF"/>
                 <outlet property="isMacVersionCheckBox" destination="3yc-Pg-5C8" id="adc-FA-NYx"/>
                 <outlet property="usbDriveSelector" destination="9br-dw-B95" id="Z1o-q1-ekS"/>
                 <outlet property="window" destination="5" id="18"/>
@@ -56,8 +57,8 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="dUL-cm-KaX">
                         <rect key="frame" x="216" y="0.0" width="415" height="347"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CDL-Pn-5VN">
-                                <rect key="frame" x="331" y="13" width="70" height="32"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CDL-Pn-5VN">
+                                <rect key="frame" x="332" y="13" width="69" height="32"/>
                                 <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lUE-9Y-ccg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -186,8 +187,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DI5-qN-LvV">
-                                                    <rect key="frame" x="213" y="13" width="148" height="32"/>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DI5-qN-LvV">
+                                                    <rect key="frame" x="214" y="13" width="147" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Begin Installation" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tnc-ZF-mM8">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -196,8 +197,8 @@
                                                         <action selector="performInstallation:" target="-2" id="dEP-u2-IrQ"/>
                                                     </connections>
                                                 </button>
-                                                <progressIndicator misplaced="YES" maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-ll-emw">
-                                                    <rect key="frame" x="20" y="19" width="191" height="20"/>
+                                                <progressIndicator maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-ll-emw">
+                                                    <rect key="frame" x="20" y="19" width="192" height="20"/>
                                                 </progressIndicator>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-58-U8W">
                                                     <rect key="frame" x="18" y="229" width="127" height="17"/>
@@ -231,6 +232,13 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o16-cH-t1N">
+                                                    <rect key="frame" x="18" y="170" width="339" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="This ISO has code older than Ubuntu 14.10" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K4N-ZO-OI0">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="bdV-ll-emw" secondAttribute="bottom" constant="20" id="4r6-Pw-AkU"/>
@@ -251,8 +259,8 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
-                                <rect key="frame" x="238" y="13" width="93" height="32"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
+                                <rect key="frame" x="237" y="13" width="94" height="32"/>
                                 <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6uC-rz-J2n">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -264,7 +272,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="3b6-2Y-5OI" firstAttribute="trailing" secondItem="CDL-Pn-5VN" secondAttribute="trailing" id="0g2-nV-xhD"/>
-                            <constraint firstItem="CDL-Pn-5VN" firstAttribute="leading" secondItem="ztM-rw-dxV" secondAttribute="trailing" constant="12" symbolic="YES" id="1PN-lE-fuj"/>
+                            <constraint firstItem="CDL-Pn-5VN" firstAttribute="leading" secondItem="ztM-rw-dxV" secondAttribute="trailing" constant="13" id="1PN-lE-fuj"/>
                             <constraint firstItem="3b6-2Y-5OI" firstAttribute="leading" secondItem="dUL-cm-KaX" secondAttribute="leading" constant="20" symbolic="YES" id="Pty-gM-3Pw"/>
                             <constraint firstAttribute="bottom" secondItem="ztM-rw-dxV" secondAttribute="bottom" constant="20" symbolic="YES" id="aos-qc-GxX"/>
                             <constraint firstItem="3b6-2Y-5OI" firstAttribute="top" secondItem="dUL-cm-KaX" secondAttribute="top" constant="20" symbolic="YES" id="bdv-OZ-444"/>
@@ -288,7 +296,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
-            <point key="canvasLocation" x="524.5" y="39.5"/>
+            <point key="canvasLocation" x="545.5" y="161.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
@@ -301,7 +309,7 @@
             <rect key="frame" x="0.0" y="0.0" width="118" height="81"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-bJ-zS3">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-bJ-zS3">
                     <rect key="frame" x="-2" y="0.0" width="118" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="USB Device Name" id="acy-rY-KEm">
                         <font key="font" metaFont="system"/>
@@ -312,21 +320,22 @@
                         <binding destination="FVc-oN-hvP" name="value" keyPath="representedObject.name" id="1Nq-sC-WVt"/>
                     </connections>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAe-gQ-VBI">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fAe-gQ-VBI">
                     <rect key="frame" x="23" y="20" width="68" height="61"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="61" id="1QZ-vz-KjJ"/>
-                        <constraint firstAttribute="width" constant="68" id="DZP-64-gga"/>
+                        <constraint firstAttribute="height" constant="61" id="AYu-Tj-dQT"/>
+                        <constraint firstAttribute="width" constant="68" id="Z5O-nn-v5H"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="USB" id="2DE-Pn-31m"/>
                 </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="fAe-gQ-VBI" firstAttribute="centerX" secondItem="Rvb-bJ-zS3" secondAttribute="centerX" id="1OZ-gh-uVT"/>
+                <constraint firstItem="fAe-gQ-VBI" firstAttribute="centerX" secondItem="Rvb-bJ-zS3" secondAttribute="centerX" id="5B3-Rz-h1G"/>
+                <constraint firstItem="fAe-gQ-VBI" firstAttribute="top" secondItem="G0D-Ii-LLi" secondAttribute="top" id="ARM-4v-82t"/>
                 <constraint firstItem="Rvb-bJ-zS3" firstAttribute="leading" secondItem="G0D-Ii-LLi" secondAttribute="leading" id="Dl4-xb-rce"/>
-                <constraint firstItem="fAe-gQ-VBI" firstAttribute="top" secondItem="G0D-Ii-LLi" secondAttribute="top" id="X25-sC-Lql"/>
                 <constraint firstAttribute="trailing" secondItem="Rvb-bJ-zS3" secondAttribute="trailing" id="cWp-jX-GbH"/>
                 <constraint firstAttribute="bottom" secondItem="Rvb-bJ-zS3" secondAttribute="bottom" id="wz8-qz-fBx"/>
+                <constraint firstItem="fAe-gQ-VBI" firstAttribute="leading" secondItem="G0D-Ii-LLi" secondAttribute="leading" constant="23" id="zVx-Wi-HV3"/>
             </constraints>
         </view>
         <arrayController objectClassName="SBUSBDeviceCollectionViewRepresentation" id="7gT-CA-Kky">
