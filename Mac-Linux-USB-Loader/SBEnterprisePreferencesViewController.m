@@ -63,13 +63,18 @@
 
 	if ([cellTitle isEqualToString:@"Installation Name"]) {
 		return loc.name;
-	}
-	else if ([cellTitle isEqualToString:@"Version"]) {
+	} else if ([cellTitle isEqualToString:@"Version"]) {
 		if ([loc.version isEqualToString:@""] || loc.version == nil) {
 			return @"N/A";
-		}
-		else {
-			return loc.version;
+		} else {
+			// If we're dealing with the bundled Enterprise, return the global string representing the version number of
+			// the bundled Enterprise rather than the value stored in the object, as this value will not be updated when
+			// Mac Linux USB Loader ships with an updated copy of Enterprise.
+			if (!loc.deletable && [loc.name isEqualToString:@"Included With Application"]) {
+				return SBBundledEnterpriseVersionNumber;
+			} else {
+				return loc.version;
+			}
 		}
 	}
 	return @"N/A";
@@ -81,7 +86,8 @@
 
 	if (![loc deletable]) {
 		return NO;
-	} if ([cellTitle isEqualToString:@"Version"]) {
+	}
+	if ([cellTitle isEqualToString:@"Version"]) {
 		return NO;
 	}
 
@@ -137,7 +143,7 @@
 
 	// Write source locations to disk.
 	NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
-	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk : filePath];
 
 	// Update user preferences.
 	[[NSUserDefaults standardUserDefaults] setObject:@"Included With Application" forKey:@"DefaultEnterpriseSourceLocation"];
@@ -156,7 +162,9 @@
 	    if (result == NSFileHandlingPanelOKButton) {
 	        [self.sourceLocationPathTextField setStringValue:[[enterpriseSourceLocationOpenPanel URL] path]];
 		}
-	}];
+	}
+
+	];
 }
 
 - (IBAction)confirmSourceLocationInformation:(id)sender {
@@ -222,18 +230,17 @@
 
 		// Write source locations to disk.
 		NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
-		[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+		[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk : filePath];
 
 		// Reload the table with our new data.
 		[self.tableView reloadData];
 		[self hideSourceLocationButtonPressed:nil];
-	}
-	else {
+	} else {
 		NSLog(@"No permissions!");
 	}
 }
 
-- (BOOL)verifyEnterpriseInstallationDirectory:(NSString *) path {
+- (BOOL)verifyEnterpriseInstallationDirectory:(NSString *)path {
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL isValid = [manager fileExistsAtPath:[path stringByAppendingPathComponent:@"boot.efi"]] && [manager fileExistsAtPath:[path stringByAppendingPathComponent:@"bootx64.efi"]];
 	return isValid;
