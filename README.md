@@ -23,6 +23,10 @@ The tool is necessary to make certain Linux distributions boot that do not have 
 
 If you wish to contribute to the code or fork the repository, please do so. Please note that all of the code in the _working_ branch is unstable, and should not be used on production machines. The _stable_ branch contains stable, tested code. The current version of Mac Linux USB Loader is 2.0. Version numbers will likely be higher in development branches.
 
+# Where?
+
+Download the latest release [here](https://github.com/SevenBits/Mac-Linux-USB-Loader/releases)
+
 # Why?
 
 I created this tool, if you care, for several reasons:
