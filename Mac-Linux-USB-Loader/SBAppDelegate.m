@@ -386,7 +386,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	} else if ([name isEqualToString:@"Debian"]) {
 		return SBDistributionDebian;
 	} else {
-		return SBDistributionOther;
+		return SBDistributionUnknown;
 	}
 }
 

@@ -20,7 +20,7 @@ typedef NS_ENUM (NSInteger, SBUSBDriveFileSystem) {
 	/// An enum type representing the HFS+ file system.
 	SBUSBDriveFileSystemHFS,
 	/// An enum type representing an unknown file system.
-	SBDistributionOther
+	SBUSBDriveFileSystemOther
 };
 
 /// The path (including the mount point) of the USB drive represented by this object.
