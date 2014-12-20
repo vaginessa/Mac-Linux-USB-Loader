@@ -218,13 +218,22 @@ typedef enum {
 }
 
 - (BOOL)enableStartupDiskSupport {
-	NSString *finalPath = [self.path stringByAppendingString:@"/System/Library/CoreServices/"];
+	// Create the paths to the necessary files and folders
+	NSString *finalPath = [self.path stringByAppendingPathComponent:@"/System/Library/CoreServices/"];
 	NSString *plistFilePath = [[NSBundle mainBundle] pathForResource:@"SystemVersion" ofType:@"plist"];
 	NSError *err;
 	NSFileManager *fm = [NSFileManager defaultManager];
 
+	// Create dummy files to fool OS X
 	[fm createDirectoryAtPath:finalPath withIntermediateDirectories:YES attributes:nil error:nil];
 	[fm copyItemAtPath:plistFilePath toPath:[finalPath stringByAppendingPathComponent:@"SystemVersion.plist"] error:&err];
+	[@"Dummy EFI boot loader to fool OS X" writeToFile:[finalPath stringByAppendingPathComponent:@"boot.efi"] atomically:YES encoding:NSASCIIStringEncoding error:&err];
+	[@"Dummy kernel to fool OS X" writeToFile:[self.path stringByAppendingPathComponent:@"mach_kernel"] atomically:YES encoding:NSASCIIStringEncoding error:&err];
+
+	// Add an app icon
+	NSString *diskIconPath = [[NSBundle mainBundle] pathForResource:@"mlul-disk" ofType:@"icns"];
+	[fm copyItemAtPath:diskIconPath toPath:[self.path stringByAppendingPathComponent:@".VolumeIcon.icns"] error:&err];
+	//[NSTask launchedTaskWithLaunchPath:@"/usr/bin/SetFile" arguments:@[@"-a", @"C", self.path]];
 
 	return YES;
 }

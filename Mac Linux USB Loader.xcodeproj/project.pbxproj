@@ -48,6 +48,7 @@
 		24B322FA18A00E4900A5E25E /* SBGeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B322F818A00E4900A5E25E /* SBGeneralPreferencesViewController.m */; };
 		24B322FD18A0123F00A5E25E /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24B322FC18A0123F00A5E25E /* defaults.plist */; };
 		24B9F037189870D6002A3697 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */; };
+		24BF93CC1A462B1A00235EC9 /* mlul-disk.icns in Resources */ = {isa = PBXBuildFile; fileRef = 24BF93CB1A462B1A00235EC9 /* mlul-disk.icns */; };
 		24D39C0618DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D39C0518DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.m */; };
 		24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F8E188AE75E00FF5ADC /* SBUSBSetupWindowController.m */; };
 		24D75F92188AE77100FF5ADC /* SBUSBSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D75F94188AE77100FF5ADC /* SBUSBSetupWindowController.xib */; };
@@ -168,6 +169,7 @@
 		24B9F03418986EE4002A3697 /* SBGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGlobals.h; sourceTree = "<group>"; };
 		24B9F035189870D6002A3697 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
+		24BF93CB1A462B1A00235EC9 /* mlul-disk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "mlul-disk.icns"; sourceTree = "<group>"; };
 		24D39C0418DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBDeviceCollectionViewRepresentation.h; sourceTree = "<group>"; };
 		24D39C0518DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBDeviceCollectionViewRepresentation.m; sourceTree = "<group>"; };
 		24D75F8D188AE75E00FF5ADC /* SBUSBSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBSetupWindowController.h; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				24A4EC911884966A00CE6CF0 /* Images.xcassets */,
+				24BF93CB1A462B1A00235EC9 /* mlul-disk.icns */,
 				24E6AB00198493E6002CA3C9 /* Enterprise */,
 				24B29B5419326F320009C3D8 /* JSON Data Models */,
 				24194C7718DBA25400CFF588 /* Apple Class Extensions and Subclasses */,
@@ -535,6 +538,7 @@
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
 				24B322FD18A0123F00A5E25E /* defaults.plist in Resources */,
 				24F35F7E19D604AE0019CF54 /* Acknowledgements.rtf in Resources */,
+				24BF93CC1A462B1A00235EC9 /* mlul-disk.icns in Resources */,
 				24A4EC871884966A00CE6CF0 /* Credits.rtf in Resources */,
 				24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */,
 				24A4EC901884966A00CE6CF0 /* MainMenu.xib in Resources */,
