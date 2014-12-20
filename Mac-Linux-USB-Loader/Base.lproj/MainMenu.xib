@@ -43,6 +43,12 @@
                                     <action selector="showPreferencesWindow:" target="MUZ-eu-C3f" id="h77-th-KVM"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Check for Updates..." id="Ixf-5n-e5Q">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="NbB-fn-Ac8" id="hEX-bR-xAp"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -860,6 +866,7 @@
                 </menuItem>
             </items>
         </menu>
+        <customObject id="NbB-fn-Ac8" userLabel="Sparkle" customClass="SUUpdater"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
