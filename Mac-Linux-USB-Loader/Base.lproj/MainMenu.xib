@@ -826,6 +826,7 @@
                 <constraint firstItem="xNF-xw-Qcf" firstAttribute="leading" secondItem="5h4-lh-Ua3" secondAttribute="leading" constant="20" symbolic="YES" id="aSY-ar-GBg"/>
                 <constraint firstItem="Gew-ZC-hmk" firstAttribute="top" secondItem="5h4-lh-Ua3" secondAttribute="top" constant="20" symbolic="YES" id="uAw-OD-6bH"/>
             </constraints>
+            <point key="canvasLocation" x="282.5" y="175"/>
         </customView>
         <menu id="F19-pk-eIT" userLabel="Dock Menu">
             <items>
