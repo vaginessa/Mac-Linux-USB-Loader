@@ -131,10 +131,11 @@
 
 	// Check to make sure that the user has selected an Enterprise source.
 	NSInteger selectedEnterpriseSourceIndex = [self.enterpriseSourceSelector indexOfSelectedItem];
-	SBUSBDevice *selectedEnterpriseSource = self.usbArrayForContentView[selectedEnterpriseSourceIndex];
+	NSString *selectedEnterpriseSourceName = [self.enterpriseSourceSelector titleOfSelectedItem];
+	SBEnterpriseSourceLocation *sourceLocation = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
 
-	if (selectedEnterpriseSourceIndex == -1 || selectedEnterpriseSource == nil) {
-		if ([selectedEnterpriseSource.name isEqualToString:@""]) {
+	if (selectedEnterpriseSourceIndex == -1 || sourceLocation == nil) {
+		if ([sourceLocation.name isEqualToString:@""]) {
 			NSAlert *alert = [[NSAlert alloc] init];
 			[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 			[alert setMessageText:NSLocalizedString(@"No Enterprise source file selected.", nil)];
@@ -156,9 +157,6 @@
 	//NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
 
 	// Set the size of the file to be the max value of the progress bar.
-	NSString *selectedEnterpriseSourceName = [self.enterpriseSourceSelector titleOfSelectedItem];
-	SBEnterpriseSourceLocation *sourceLocation = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
-
 	NSString *enterprisePath = [sourceLocation.path stringByAppendingPathComponent:@"bootx64.efi"];
 	NSString *grubPath = [sourceLocation.path stringByAppendingPathComponent:@"boot.efi"];
 	if (![manager fileExistsAtPath:enterprisePath isDirectory:NULL] || ![manager fileExistsAtPath:grubPath isDirectory:NULL]) {
