@@ -186,6 +186,7 @@
 	[self.installationProgressBar setIndeterminate:NO];
 	[self.installationProgressBar setDoubleValue:0.0];
 	[self.automaticSetupCheckBox setEnabled:NO];
+	[self.distributionSelectorPopup setEnabled:NO];
 
 	/* STEP 2: Get user permission to install files. We'll only need to do this once. */
 	NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:targetUSBMountPoint withWindowForSheet:[self windowForSheet]];
@@ -202,6 +203,7 @@
 		[sender setEnabled:YES];
 		[self.installationProgressBar setDoubleValue:0.0];
 		[self.automaticSetupCheckBox setEnabled:YES];
+		[self.distributionSelectorPopup setEnabled:YES];
 
 		// Bail.
 		return;
@@ -238,6 +240,7 @@
 		// Enable GUI elements.
 		[self.usbDriveSelector setHidden:NO];
 		[self.enterpriseSourceSelector setEnabled:YES];
+		[self.distributionSelectorPopup setEnabled:YES];
 
 		// Bail.
 		return;
@@ -258,6 +261,7 @@
 	        // Enable GUI elements.
 	        [self.usbDriveSelector setHidden:NO];
 	        [self.enterpriseSourceSelector setEnabled:YES];
+			[self.distributionSelectorPopup setEnabled:YES];
 
 			// Stop accessing the security bookmark.
 	        [outURL stopAccessingSecurityScopedResource];
