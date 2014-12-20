@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.9"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDistributionDownloaderWindowController">
@@ -26,14 +27,14 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="196" y="240" width="669" height="335"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="669" height="335"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIi-nC-45h">
                         <rect key="frame" x="20" y="20" width="240" height="295"/>
-                        <clipView key="contentView" id="HZE-w2-nLw">
+                        <clipView key="contentView" misplaced="YES" id="HZE-w2-nLw">
                             <rect key="frame" x="1" y="17" width="238" height="277"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -121,7 +122,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h8j-38-923">
-                        <rect key="frame" x="480" y="13" width="175" height="32"/>
+                        <rect key="frame" x="483" y="13" width="172" height="32"/>
                         <buttonCell key="cell" type="push" title="Download This Distro" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7le-Xf-L3s">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -130,17 +131,8 @@
                             <action selector="downloadDistroButtonPressed:" target="-2" id="MjO-vK-9BR"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nZk-zu-wac">
-                        <rect key="frame" x="351" y="13" width="129" height="32"/>
-                        <buttonCell key="cell" type="push" title="Visit Webpage" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ua0-E3-SzN">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="h8j-38-923" firstAttribute="leading" secondItem="nZk-zu-wac" secondAttribute="trailing" constant="12" id="1Aq-TC-I2I"/>
-                    <constraint firstAttribute="bottom" secondItem="nZk-zu-wac" secondAttribute="bottom" constant="20" id="4h3-2h-d6G"/>
                     <constraint firstAttribute="trailing" secondItem="EO0-1k-d1r" secondAttribute="trailing" constant="20" symbolic="YES" id="4yM-9s-e2Y"/>
                     <constraint firstItem="EO0-1k-d1r" firstAttribute="top" secondItem="gIi-nC-45h" secondAttribute="top" id="6eP-wc-pDK"/>
                     <constraint firstItem="EO0-1k-d1r" firstAttribute="bottom" secondItem="gIi-nC-45h" secondAttribute="bottom" constant="-41" id="FMr-8T-1nh"/>
@@ -151,7 +143,6 @@
                     <constraint firstAttribute="trailing" secondItem="h8j-38-923" secondAttribute="trailing" constant="20" id="mTG-dC-Xz3"/>
                     <constraint firstItem="EO0-1k-d1r" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="268" id="mwx-YP-FI5"/>
                     <constraint firstItem="gIi-nC-45h" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="pcf-Qh-PH6"/>
-                    <constraint firstItem="nZk-zu-wac" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gIi-nC-45h" secondAttribute="trailing" constant="8" symbolic="YES" id="u76-jG-Fq8"/>
                 </constraints>
             </view>
             <connections>
@@ -182,12 +173,12 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="154" width="534" height="207"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="xyp-9O-kGH">
                 <rect key="frame" x="0.0" y="0.0" width="534" height="207"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-75-Ar8">
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-75-Ar8">
                         <rect key="frame" x="14" y="13" width="74" height="32"/>
                         <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oQd-aW-Z5Q">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -230,7 +221,7 @@
                                         </menu>
                                     </popUpButtonCell>
                                 </popUpButton>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-XE-uFZ">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-XE-uFZ">
                                     <rect key="frame" x="18" y="85" width="59" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Country:" id="cK3-rM-Ug9">
                                         <font key="font" metaFont="system"/>
@@ -253,7 +244,7 @@
                                         </menu>
                                     </popUpButtonCell>
                                 </popUpButton>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AFC-fl-K3y">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFC-fl-K3y">
                                     <rect key="frame" x="25" y="55" width="52" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Bitness:" id="QpP-Zr-Q0G">
                                         <font key="font" metaFont="system"/>
