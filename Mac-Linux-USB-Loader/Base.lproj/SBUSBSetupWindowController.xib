@@ -54,6 +54,7 @@
                                     <connections>
                                         <outlet property="dataSource" destination="-2" id="zq8-Wg-SNY"/>
                                         <outlet property="delegate" destination="-2" id="fXf-rs-Vdp"/>
+                                        <outlet property="menu" destination="x5i-2p-XdH" id="X5q-zA-JX2"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -107,5 +108,16 @@
             </connections>
             <point key="canvasLocation" x="408.5" y="289"/>
         </window>
+        <menu id="x5i-2p-XdH" userLabel="Table View Context Menu">
+            <items>
+                <menuItem title="Refresh" id="doA-4w-haZ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="loadUSBDeviceList:" target="-2" id="3wR-F8-uyM"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="776.5" y="355.5"/>
+        </menu>
     </objects>
 </document>

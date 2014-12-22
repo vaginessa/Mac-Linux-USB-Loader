@@ -29,7 +29,7 @@
 		self.usbDictionary = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
 		self.usbArray = [[NSMutableArray alloc] initWithCapacity:[self.usbDictionary count]];
 
-		[self loadUSBDeviceList];
+		[self loadUSBDeviceList:nil];
 	}
 	return self;
 }
@@ -38,10 +38,10 @@
 	[super showWindow:sender];
 
 	[self.enableStartupDiskButton setEnabled:NO];
-	[self loadUSBDeviceList];
+	[self loadUSBDeviceList:nil];
 }
 
-- (IBAction)loadUSBDeviceList {
+- (IBAction)loadUSBDeviceList:(id)sender {
 	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
 	[self.usbArray removeAllObjects];
 
