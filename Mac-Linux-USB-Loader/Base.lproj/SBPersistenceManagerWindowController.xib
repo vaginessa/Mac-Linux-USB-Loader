@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBPersistenceManagerWindowController">
@@ -23,13 +23,13 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="196" y="399" width="622" height="183"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="622" height="183"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WtK-de-1VS">
-                        <rect key="frame" x="105" y="142" width="500" height="26"/>
+                        <rect key="frame" x="105" y="142" width="416" height="26"/>
                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="CSx-vn-lY9">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -62,11 +62,11 @@
                                         </binding>
                                     </connections>
                                 </textField>
-                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
+                                <slider verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
                                     <rect key="frame" x="130" y="50" width="336" height="21"/>
                                     <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
                                 </slider>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
                                     <rect key="frame" x="18" y="52" width="108" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Persistence Size:" id="Dpm-6U-5pw">
                                         <font key="font" metaFont="system"/>
@@ -74,7 +74,7 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-Bo-nAF">
+                                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-Bo-nAF">
                                     <rect key="frame" x="12" y="7" width="113" height="32"/>
                                     <buttonCell key="cell" type="push" title="Reset Slider" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fCZ-FR-PGe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -84,7 +84,7 @@
                                         <action selector="resetSliderButtonPressed:" target="-2" id="jRO-0T-3ZQ"/>
                                     </connections>
                                 </button>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kSC-Pl-16D">
+                                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSC-Pl-16D">
                                     <rect key="frame" x="419" y="7" width="155" height="32"/>
                                     <buttonCell key="cell" type="push" title="Create Persistence" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zZH-rW-NE2">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -134,20 +134,32 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vn-7m-K0E">
+                        <rect key="frame" x="520" y="138" width="88" height="32"/>
+                        <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lBS-19-NXo">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="loadUSBDeviceList:" target="-2" id="v9C-8u-Lfh"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="WtK-de-1VS" firstAttribute="trailing" secondItem="be7-b0-Wt7" secondAttribute="trailing" id="2E8-Tr-HRd"/>
-                    <constraint firstItem="WtK-de-1VS" firstAttribute="baseline" secondItem="oAg-6S-39i" secondAttribute="baseline" id="6ZQ-oT-IJJ"/>
+                    <constraint firstItem="WtK-de-1VS" firstAttribute="trailing" secondItem="be7-b0-Wt7" secondAttribute="trailing" constant="-84" id="2E8-Tr-HRd"/>
+                    <constraint firstItem="WtK-de-1VS" firstAttribute="baseline" secondItem="oAg-6S-39i" secondAttribute="baseline" constant="-1" id="6ZQ-oT-IJJ"/>
                     <constraint firstItem="fEs-wl-bLJ" firstAttribute="leading" secondItem="be7-b0-Wt7" secondAttribute="leading" id="8zP-Ak-GWk"/>
+                    <constraint firstAttribute="trailing" secondItem="1vn-7m-K0E" secondAttribute="trailing" constant="20" id="NX1-Vc-c7U"/>
                     <constraint firstAttribute="bottom" secondItem="fEs-wl-bLJ" secondAttribute="bottom" constant="20" symbolic="YES" id="T8o-Mf-2do"/>
                     <constraint firstItem="WtK-de-1VS" firstAttribute="leading" secondItem="oAg-6S-39i" secondAttribute="trailing" constant="8" symbolic="YES" id="Vj3-JR-abb"/>
+                    <constraint firstItem="1vn-7m-K0E" firstAttribute="top" secondItem="2" secondAttribute="top" constant="17" id="YbD-QS-mGr"/>
                     <constraint firstItem="htd-Oc-Vqe" firstAttribute="leading" secondItem="fEs-wl-bLJ" secondAttribute="trailing" constant="8" symbolic="YES" id="Zt3-mK-oVp"/>
                     <constraint firstItem="be7-b0-Wt7" firstAttribute="top" secondItem="oAg-6S-39i" secondAttribute="bottom" constant="8" symbolic="YES" id="cIf-us-Psu"/>
                     <constraint firstItem="be7-b0-Wt7" firstAttribute="leading" secondItem="oAg-6S-39i" secondAttribute="leading" id="cXd-CN-EnV"/>
                     <constraint firstItem="oAg-6S-39i" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="fQt-dN-Y8z"/>
                     <constraint firstItem="oAg-6S-39i" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="os3-vc-N9n"/>
                     <constraint firstItem="htd-Oc-Vqe" firstAttribute="bottom" secondItem="fEs-wl-bLJ" secondAttribute="bottom" id="qob-9q-xIP"/>
-                    <constraint firstAttribute="trailing" secondItem="WtK-de-1VS" secondAttribute="trailing" constant="20" symbolic="YES" id="sEa-TQ-tWZ"/>
+                    <constraint firstAttribute="trailing" secondItem="WtK-de-1VS" secondAttribute="trailing" constant="104" id="sEa-TQ-tWZ"/>
                     <constraint firstItem="be7-b0-Wt7" firstAttribute="trailing" secondItem="htd-Oc-Vqe" secondAttribute="trailing" id="ssd-yE-uMp"/>
                     <constraint firstItem="fEs-wl-bLJ" firstAttribute="top" secondItem="be7-b0-Wt7" secondAttribute="bottom" constant="8" symbolic="YES" id="xKL-AG-ANk"/>
                 </constraints>

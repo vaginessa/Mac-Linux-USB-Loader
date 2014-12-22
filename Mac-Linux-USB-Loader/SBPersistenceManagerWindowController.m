@@ -47,20 +47,8 @@
 	[self.operationProgressLabel setStringValue:@""];
 
 	// Setup the USB selector.
-	dict = [NSMutableDictionary dictionaryWithDictionary:[(SBAppDelegate *)[NSApp delegate] usbDictionary]];
-	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[dict count]];
-
-	for (NSString *usb in dict) {
-		if ([usb containsSubstring:@" "]) continue;
-		[array insertObject:[dict[usb] name] atIndex:0];
-	}
-
-	[self.popupValues addObjects:array];
-
-	[self.usbSelectorPopup addItemWithObjectValue:@"---"];
-	[self.usbSelectorPopup setStringValue:@"---"];
-	[self.usbSelectorPopup addItemsWithObjectValues:array];
-	[self.usbSelectorPopup setDelegate:self];
+	dict = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
+	[self loadUSBDeviceList:nil];
 
 	// Set up the USB persistence file size selector.
 	NSDictionary *bindingOptions = @{ NSContinuouslyUpdatesValueBindingOption : @YES,
@@ -69,6 +57,34 @@
 	[self.persistenceVolumeSizeSlider bind:@"value"
 	                              toObject:self.persistenceVolumeSizeTextField
 	                           withKeyPath:@"integerValue" options:bindingOptions];
+}
+
+- (void)showWindow:(id)sender {
+	[super showWindow:sender];
+	[self loadUSBDeviceList:nil];
+}
+
+- (IBAction)loadUSBDeviceList:(id)sender {
+	// Get the USBs from the App Delegate
+	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
+	[self.usbSelectorPopup removeAllItems];
+	[self.popupValues removeObjectsAtArrangedObjectIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [[self.popupValues arrangedObjects] count])]];
+
+	// Create new USB dictionary
+	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[dict count]];
+
+	for (NSString *usb in dict) {
+		if ([usb containsSubstring:@" "]) continue;
+		[array insertObject:[dict[usb] name] atIndex:0];
+	}
+
+	// Add USBs to popup
+	[self.popupValues addObjects:array];
+
+	[self.usbSelectorPopup addItemWithObjectValue:@"---"];
+	[self.usbSelectorPopup setStringValue:@"---"];
+	[self.usbSelectorPopup addItemsWithObjectValues:array];
+	[self.usbSelectorPopup setDelegate:self];
 }
 
 - (void)controlTextDidChange:(NSNotification *)note {
