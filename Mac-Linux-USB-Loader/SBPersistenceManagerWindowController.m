@@ -82,7 +82,7 @@
 	[self.popupValues addObjects:array];
 
 	[self.usbSelectorPopup addItemWithObjectValue:@"---"];
-	[self.usbSelectorPopup setStringValue:@"---"];
+	[self.usbSelectorPopup selectItemAtIndex:0];
 	[self.usbSelectorPopup addItemsWithObjectValues:array];
 	[self.usbSelectorPopup setDelegate:self];
 }
