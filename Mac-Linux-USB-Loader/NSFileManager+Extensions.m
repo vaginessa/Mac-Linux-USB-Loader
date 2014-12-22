@@ -46,8 +46,7 @@ NSOpenPanel * spanel;
 				[prefs setObject:data forKey:[targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"]];
 				[prefs synchronize];
 			}
-		}
-		else {
+		} else {
 			return nil;
 		}
 	}
@@ -72,8 +71,7 @@ NSOpenPanel * spanel;
 		                                 bookmarkDataIsStale:nil
 		                                               error:nil];
 		return returnURL;
-	}
-	else {
+	} else {
 		return nil;
 	}
 }

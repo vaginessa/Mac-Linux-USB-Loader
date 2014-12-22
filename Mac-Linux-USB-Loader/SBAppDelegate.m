@@ -181,6 +181,8 @@ const NSString *SBBundledEnterpriseVersionNumber;
 - (void)detectAndSetupUSBs {
 	if (!self.usbDictionary) {
 		self.usbDictionary = [[NSMutableDictionary alloc] initWithCapacity:10];
+	} else {
+		[self.usbDictionary removeAllObjects];
 	}
 
 	NSArray *volumes = [[NSFileManager defaultManager] mountedVolumeURLsIncludingResourceValuesForKeys:nil options:0];

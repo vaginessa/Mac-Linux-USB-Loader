@@ -27,20 +27,31 @@
 	if (self) {
 		// Initialization code here.
 		self.usbDictionary = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
-
 		self.usbArray = [[NSMutableArray alloc] initWithCapacity:[self.usbDictionary count]];
-		[self.usbDictionary enumerateKeysAndObjectsUsingBlock:^(id key, SBUSBDevice *object, BOOL *stop) {
-			NSLog(@"%@ = %@", key, object);
-			[self.usbArray addObject:object];
-		}];
+
+		[self loadUSBDeviceList];
 	}
 	return self;
 }
 
-- (void)windowDidLoad {
-	[super windowDidLoad];
+- (void)showWindow:(id)sender {
+	[super showWindow:sender];
 
 	[self.enableStartupDiskButton setEnabled:NO];
+	[self loadUSBDeviceList];
+}
+
+- (IBAction)loadUSBDeviceList {
+	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
+	[self.usbArray removeAllObjects];
+
+	self.usbDictionary = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
+	[self.usbDictionary enumerateKeysAndObjectsUsingBlock:^(id key, SBUSBDevice *object, BOOL *stop) {
+		//NSLog(@"%@ = %@", key, object);
+		[self.usbArray addObject:object];
+	}];
+
+	[self.tableView reloadData];
 }
 
 #pragma mark - Button Delegates
