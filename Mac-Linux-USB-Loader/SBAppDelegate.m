@@ -37,7 +37,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		self.supportedDistributionsAndVersions = @{ @"Ubuntu": @"14.10",
 			                                        @"Linux Mint": @"17.1",
 			                                        @"Elementary OS": @"Luna",
-			                                        @"Zorin OS": @"8",
+			                                        @"Zorin OS": @"9",
 													@"Kali Linux": @"" };
 	}
 	return self;
@@ -82,6 +82,27 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	// Detect all available USB drives.
 	[self setupEnterpriseInstallationLocations];
 	[self detectAndSetupUSBs];
+
+	// Check if enough time has passed to where we need to clear all caches, but only if the user has indicated
+	// that they want this behavior to happen.
+	BOOL shouldClearCaches = [[NSUserDefaults standardUserDefaults] boolForKey:@"PeriodicallyClearCaches"];
+	if (shouldClearCaches) {
+		NSInteger clearCachesUpdateInterval = 5184000; // 60 days (i.e two months) in seconds
+		NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastCacheClearCheckTime"];
+		if (lastCheckedDate) {
+			// We have a previous date.
+			NSInteger interval = (NSInteger)abs([lastCheckedDate timeIntervalSinceNow]);
+			if (interval > clearCachesUpdateInterval) {
+				// Delete all caches.
+				NSLog(@"Clearing all caches and old ISO downloads...");
+				[self purgeCachesAndOldFiles];
+			}
+		} else {
+			// User has just opened the application or has cleared defaults. Save the date now as the starting
+			// point for the two-month count to clear caches.
+			[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastCacheClearCheckTime"];
+		}
+	}
 }
 
 - (void)purgeCachesAndOldFiles {
@@ -111,10 +132,14 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		BOOL shouldDelete = YES;
 		completePath = [path stringByAppendingPathComponent:file];
 		for (NSString *dn in self.supportedDistributions) {
+			NSString *shortFileName = [[completePath lastPathComponent] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 			NSString *distroName = [dn stringByReplacingOccurrencesOfString:@" " withString:@"-"];
-			if ([file containsSubstring:distroName]) {
+			if ([shortFileName containsSubstring:distroName] || [shortFileName isEqualToString:@"Downloads"]) {
+				//NSLog(@"Not deleting file %@ because it matches pattern: %@", shortFileName, distroName);
 				shouldDelete = NO;
 				break;
+			} else {
+				//NSLog(@"Deleting file: %@", shortFileName);
 			}
 		}
 
