@@ -92,8 +92,6 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	NSError *err = nil;
 	BOOL res;
 
-	SBLogObject(path);
-
 	// Deal with caches.
 	NSString *file;
 	NSString *completePath;
@@ -101,7 +99,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		if (![[path stringByAppendingPathComponent:file] hasSuffix:@".json"]) {
 			res = [fm removeItemAtPath:[path stringByAppendingPathComponent:file] error:&err];
 			if (!res && err) {
-				NSLog(@"Couldn't erase cached file at path: %@", err);
+				NSLog(@"Couldn't erase cached file at path: %@", err.localizedFailureReason);
 			}
 		}
 	}
@@ -114,15 +112,16 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		completePath = [path stringByAppendingPathComponent:file];
 		for (NSString *dn in self.supportedDistributions) {
 			NSString *distroName = [dn stringByReplacingOccurrencesOfString:@" " withString:@"-"];
-			if ([file containsSubstring:distroName] && [file containsSubstring:self.supportedDistributionsAndVersions[dn]]) {
+			if ([file containsSubstring:distroName]) {
 				shouldDelete = NO;
+				break;
 			}
 		}
 
 		if (shouldDelete) {
-			res = [fm removeItemAtPath:[path stringByAppendingPathComponent:file] error:&err];
+			res = [fm removeItemAtPath:completePath error:&err];
 			if (err) {
-				NSLog(@"Couldn't erase cached file at path: %@", err);
+				NSLog(@"Couldn't erase cached file at path: %@", err.localizedFailureReason);
 			}
 		}
 	}
