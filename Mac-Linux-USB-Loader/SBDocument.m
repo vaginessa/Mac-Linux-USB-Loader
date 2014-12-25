@@ -220,7 +220,7 @@
 	[self.usbDriveSelector setHidden:YES];
 	[self.enterpriseSourceSelector setEnabled:NO];
 
-	SBLinuxDistribution distribution = [SBAppDelegate distributionEnumForEqualivalentName:[self.distributionSelectorPopup stringValue]];
+	SBLinuxDistribution distribution = [SBAppDelegate distributionEnumForEqualivalentName:[self.distributionSelectorPopup titleOfSelectedItem]];
 	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:[self.isMacVersionCheckBox state] == NSOnState containsLegacyUbuntuVersion:[self.isLegacyUbuntuVersionCheckBox state] == NSOnState];
 
 	// Create the required directories on the USB drive.
