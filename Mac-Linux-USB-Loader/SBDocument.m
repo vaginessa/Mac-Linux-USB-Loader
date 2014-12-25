@@ -185,6 +185,8 @@
 	[self.installationProgressBar setDoubleValue:0.0];
 	[self.automaticSetupCheckBox setEnabled:NO];
 	[self.distributionSelectorPopup setEnabled:NO];
+	[self.isMacVersionCheckBox setEnabled:NO];
+	[self.isLegacyUbuntuVersionCheckBox setEnabled:NO];
 
 	/* STEP 2: Get user permission to install files. We'll only need to do this once. */
 	NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:targetUSBMountPoint withWindowForSheet:[self windowForSheet]];
@@ -202,6 +204,8 @@
 		[self.installationProgressBar setDoubleValue:0.0];
 		[self.automaticSetupCheckBox setEnabled:YES];
 		[self.distributionSelectorPopup setEnabled:YES];
+		[self.isMacVersionCheckBox setEnabled:YES];
+		[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
 
 		// Bail.
 		return;
@@ -239,6 +243,8 @@
 		[self.usbDriveSelector setHidden:NO];
 		[self.enterpriseSourceSelector setEnabled:YES];
 		[self.distributionSelectorPopup setEnabled:YES];
+		[self.isMacVersionCheckBox setEnabled:YES];
+		[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
 
 		// Bail.
 		return;
@@ -260,6 +266,8 @@
 	        [self.usbDriveSelector setHidden:NO];
 	        [self.enterpriseSourceSelector setEnabled:YES];
 			[self.distributionSelectorPopup setEnabled:YES];
+			[self.isMacVersionCheckBox setEnabled:YES];
+			[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
 
 			// Stop accessing the security bookmark.
 	        [outURL stopAccessingSecurityScopedResource];
