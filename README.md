@@ -8,7 +8,7 @@ Tool allowing you to put a Linux distro on a USB drive and make it bootable on I
 General Information
 -------------------
 
-This is the Mac Linux USB Loader, a tool allowing you to take an ISO of a Linux distribution and make it boot using EFI. It requires a single USB drive formatted as FAT with at least 2 GB free recommended. The application is available in English and a number of other languages. For all supported languages, see the TRANSLATIONS file. Mac Linux USB Loader is available under the 3-clause BSD license.
+This is the Mac Linux USB Loader, a tool allowing you to take an ISO of a Linux distribution and make it boot using EFI. It requires a single USB drive formatted as FAT with at least 2 GB free recommended. Mac Linux USB Loader is available under the 3-clause BSD license.
 
 The tool is necessary to make certain Linux distributions boot that do not have EFI booting support. Many distributions are adding this with the release of Windows 8, but it has not been finalized and is still nonstandard by most distros. Many common distributions are supported, like Ubuntu and Linux Mint.
 
@@ -26,12 +26,13 @@ That being said, it does have a few shortcomings:
 
 Building from Source
 --------------------
+Requirements: Xcode 6, OS X 10.10 SDK. OS X 10.8+ required to run built app
 
 1. Clone from git:
     `git clone https://github.com/SevenBits/Mac-Linux-USB-Loader.git`
     `git checkout -b rewrite`
 1. Run `pod install` (requires [Cocoapods](http://cocoapods.org)).
-1. Either open `Mac Linux USB Loader.xcworkspace` and do an archive build or run `xcodebuild` from the command line.
+1. Open `Mac Linux USB Loader.xcworkspace` and do an archive build, or simply run and debug it with Xcode
 
 Acknowledgements
 ----------------
