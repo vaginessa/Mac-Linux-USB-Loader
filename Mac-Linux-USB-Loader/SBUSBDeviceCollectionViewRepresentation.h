@@ -13,5 +13,6 @@
 
 @property (strong) NSString *name;
 @property (strong) SBUSBDevice *usbDevice;
+@property (strong) NSImage *image;
 
 @end

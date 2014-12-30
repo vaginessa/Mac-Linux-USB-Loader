@@ -83,7 +83,11 @@
 		SBUSBDevice *deviceRep = usbDictionary[usb];
 		rep.name = deviceRep.name;
 
-		[array addObject:deviceRep];
+		NSImage *icon = [[NSWorkspace sharedWorkspace] iconForFile:deviceRep.path];
+		icon.size = NSMakeSize(512, 512);
+		rep.image = icon;
+
+		[array addObject:rep];
 	}
 
 	[arrayController addObjects:array];

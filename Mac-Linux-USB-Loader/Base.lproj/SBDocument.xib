@@ -327,6 +327,9 @@
                         <constraint firstAttribute="width" constant="68" id="Z5O-nn-v5H"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="USB" id="2DE-Pn-31m"/>
+                    <connections>
+                        <binding destination="FVc-oN-hvP" name="value" keyPath="representedObject.image" id="aQ7-Wc-vVK"/>
+                    </connections>
                 </imageView>
             </subviews>
             <constraints>
@@ -337,6 +340,7 @@
                 <constraint firstAttribute="bottom" secondItem="Rvb-bJ-zS3" secondAttribute="bottom" id="wz8-qz-fBx"/>
                 <constraint firstItem="fAe-gQ-VBI" firstAttribute="leading" secondItem="G0D-Ii-LLi" secondAttribute="leading" constant="23" id="zVx-Wi-HV3"/>
             </constraints>
+            <point key="canvasLocation" x="377" y="88.5"/>
         </view>
         <arrayController objectClassName="SBUSBDeviceCollectionViewRepresentation" id="7gT-CA-Kky">
             <declaredKeys>
