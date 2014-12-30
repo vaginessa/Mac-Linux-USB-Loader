@@ -296,7 +296,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
-            <point key="canvasLocation" x="545.5" y="161.5"/>
+            <point key="canvasLocation" x="495.5" y="146.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>

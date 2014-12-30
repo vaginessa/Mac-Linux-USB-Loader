@@ -82,6 +82,7 @@
 		SBUSBDeviceCollectionViewRepresentation *rep = [[SBUSBDeviceCollectionViewRepresentation alloc] init];
 		SBUSBDevice *deviceRep = usbDictionary[usb];
 		rep.name = deviceRep.name;
+		rep.usbDevice = deviceRep;
 
 		NSImage *icon = [[NSWorkspace sharedWorkspace] iconForFile:deviceRep.path];
 		icon.size = NSMakeSize(512, 512);
@@ -119,10 +120,12 @@
 - (IBAction)performInstallation:(id)sender {
 	/* STEP 1: Setup UI components. */
 	NSIndexSet *indexSet = [self.usbDriveSelector selectionIndexes];
+	SBUSBDeviceCollectionViewRepresentation *selectedCollectionViewRep;
 	SBUSBDevice *selectedUSBDrive;
 
 	if (indexSet && [indexSet firstIndex] != NSNotFound) {
-		selectedUSBDrive = self.usbArrayForContentView[[indexSet firstIndex]];
+		selectedCollectionViewRep = self.usbArrayForContentView[[indexSet firstIndex]];
+		selectedUSBDrive = selectedCollectionViewRep.usbDevice;
 	} else {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
