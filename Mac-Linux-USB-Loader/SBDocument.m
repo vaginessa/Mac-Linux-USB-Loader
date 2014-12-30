@@ -66,7 +66,7 @@
 			break;
 	}
 
-	if ([[[self.fileURL path] lastPathComponent] containsString:@"+mac"]) {
+	if ([[[self.fileURL path] lastPathComponent] containsSubstring:@"+mac"]) {
 		[self.isMacVersionCheckBox setState:NSOnState];
 	} else {
 		[self.isMacVersionCheckBox setState:NSOffState];
