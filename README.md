@@ -12,7 +12,7 @@ This is the Mac Linux USB Loader, a tool allowing you to take an ISO of a Linux 
 
 The tool is necessary to make certain Linux distributions boot that do not have EFI booting support. Many distributions are adding this with the release of Windows 8, but it has not been finalized and is still nonstandard by most distros. Many common distributions are supported, like Ubuntu and Linux Mint.
 
-If you wish to contribute to the code or fork the repository, please do so. Please note that all of the code in the _working_ branch and the _rewrite_ branch is unstable, and should not be used on production machines. The _stable_ branch contains stable, tested code. The current version of Mac Linux USB Loader is 3.0. Version numbers will likely be higher in development branches.
+If you wish to contribute to the code or fork the repository, please do so. All development currently takes place on the _master_ branch, and this is where code should be submitted for pull requests. The _legacy_ branch contains the code for pre-3.0 versions of Mac Linux USB Loader; it will not be maintained and is present for historical interest only.
 
 I created this tool, if you care, for several reasons:
 
