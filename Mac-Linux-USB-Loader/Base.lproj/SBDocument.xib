@@ -24,7 +24,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="133" y="235" width="625" height="347"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
-            <value key="minSize" type="size" width="631" height="347"/>
+            <value key="minSize" type="size" width="625" height="347"/>
             <view key="contentView" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="625" height="347"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -73,7 +73,7 @@
                                     </binding>
                                 </connections>
                             </button>
-                            <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-2Y-5OI">
+                            <tabView type="noTabsNoBorder" initialItem="iID-fj-8Oj" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-2Y-5OI">
                                 <rect key="frame" x="20" y="61" width="375" height="266"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
@@ -277,6 +277,42 @@
                                             </constraints>
                                         </view>
                                     </tabViewItem>
+                                    <tabViewItem label="Third" identifier="" id="206-oW-lz5">
+                                        <view key="view" id="dMs-5u-Xzg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zE-UU-14n">
+                                                    <rect key="frame" x="18" y="20" width="339" height="193"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="193" id="8sa-DW-kwJ"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="8Ja-iN-ujj">
+                                                        <font key="font" metaFont="system"/>
+                                                        <string key="title">Your Live USB has been created successfully. To boot it, please leave this drive in your Mac and restart your computer while holding down the Option (⌥) key pressed and select your drive.</string>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mDZ-m9-S99">
+                                                    <rect key="frame" x="18" y="221" width="339" height="25"/>
+                                                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Success!" id="CpB-zL-Sag">
+                                                        <font key="font" metaFont="system" size="21"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8zE-UU-14n" firstAttribute="leading" secondItem="mDZ-m9-S99" secondAttribute="leading" id="Gc1-HV-VnF"/>
+                                                <constraint firstItem="mDZ-m9-S99" firstAttribute="top" secondItem="dMs-5u-Xzg" secondAttribute="top" constant="20" symbolic="YES" id="dmc-Sh-NxK"/>
+                                                <constraint firstItem="8zE-UU-14n" firstAttribute="top" secondItem="mDZ-m9-S99" secondAttribute="bottom" constant="8" symbolic="YES" id="eVL-BC-g8t"/>
+                                                <constraint firstItem="8zE-UU-14n" firstAttribute="trailing" secondItem="mDZ-m9-S99" secondAttribute="trailing" id="fy4-Uz-pzi"/>
+                                                <constraint firstAttribute="trailing" secondItem="8zE-UU-14n" secondAttribute="trailing" constant="20" symbolic="YES" id="tlj-TB-S6v"/>
+                                                <constraint firstItem="8zE-UU-14n" firstAttribute="leading" secondItem="dMs-5u-Xzg" secondAttribute="leading" constant="20" symbolic="YES" id="wOJ-T1-1J3"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
                                 </tabViewItems>
                             </tabView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
@@ -318,7 +354,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="444.5" y="81.5"/>
+            <point key="canvasLocation" x="538.5" y="75.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
