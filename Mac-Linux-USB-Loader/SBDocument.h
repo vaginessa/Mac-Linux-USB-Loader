@@ -13,7 +13,9 @@
 }
 
 @property (strong) NSMutableArray *usbArrayForContentView;
+@property NSInteger indexOfSelectedTab;
 
+@property (weak) IBOutlet NSTabView *tabView;
 @property (weak) IBOutlet NSImageView *imageIcon;
 @property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
 @property (weak) IBOutlet NSCollectionView *usbDriveSelector;

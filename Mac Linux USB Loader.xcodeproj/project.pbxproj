@@ -14,7 +14,7 @@
 		24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */; };
 		24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24101B8D1896D4DF00EDE32C /* QuartzCore.framework */; };
 		2412CAEC1960E9E700501D7A /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412CAEB1960E9E700501D7A /* DownloadOperation.m */; };
-		24155CC518903AE400FAB98C /* mke2fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		24155CC518903AE400FAB98C /* mke2fs in Copy Files */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
 		2415E65C196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2415E65A196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m */; };
@@ -75,14 +75,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		24155CC418903AD200FAB98C /* CopyFiles */ = {
+		24155CC418903AD200FAB98C /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Tools;
 			dstSubfolderSpec = 7;
 			files = (
-				24155CC518903AE400FAB98C /* mke2fs in CopyFiles */,
+				24155CC518903AE400FAB98C /* mke2fs in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		24743B6C18BBE6E1008B5458 /* CopyFiles */ = {
@@ -449,7 +450,7 @@
 				24A4EC6F1884966900CE6CF0 /* Sources */,
 				24A4EC701884966900CE6CF0 /* Frameworks */,
 				24A4EC711884966900CE6CF0 /* Resources */,
-				24155CC418903AD200FAB98C /* CopyFiles */,
+				24155CC418903AD200FAB98C /* Copy Files */,
 				24743B6C18BBE6E1008B5458 /* CopyFiles */,
 				DBBD09A81F884E8E9EF1B54C /* Copy Pods Resources */,
 			);

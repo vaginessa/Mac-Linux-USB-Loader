@@ -13,6 +13,7 @@
                 <outlet property="installationProgressBar" destination="bdV-ll-emw" id="Ct4-mC-KVI"/>
                 <outlet property="isLegacyUbuntuVersionCheckBox" destination="o16-cH-t1N" id="xhZ-kG-kLF"/>
                 <outlet property="isMacVersionCheckBox" destination="3yc-Pg-5C8" id="adc-FA-NYx"/>
+                <outlet property="tabView" destination="3b6-2Y-5OI" id="GT0-l0-3dB"/>
                 <outlet property="usbDriveSelector" destination="9br-dw-B95" id="Z1o-q1-ekS"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
@@ -64,7 +65,12 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="selectNextTabViewItem:" target="3b6-2Y-5OI" id="WAV-GH-Nbe"/>
+                                    <action selector="nextTabViewItemClicked:" target="-2" id="VfX-iF-24Q"/>
+                                    <binding destination="-2" name="enabled" keyPath="self.indexOfSelectedTab" id="tT9-Ol-Y6b">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </button>
                             <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-2Y-5OI">
@@ -76,14 +82,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-8p-AmO">
-                                                    <rect key="frame" x="18" y="229" width="339" height="17"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Destination:" id="JzD-IM-Mo0">
-                                                        <font key="font" metaFont="systemBold"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VBp-6d-4FK">
                                                     <rect key="frame" x="18" y="114" width="339" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Enterprise Source:" id="4e7-Dc-wKh">
@@ -138,7 +136,7 @@
                                                     </scroller>
                                                 </scrollView>
                                                 <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m7-V1-evP">
-                                                    <rect key="frame" x="20" y="139" width="335" height="82"/>
+                                                    <rect key="frame" x="20" y="139" width="335" height="89"/>
                                                     <clipView key="contentView" id="GeU-39-dSh">
                                                         <rect key="frame" x="1" y="1" width="333" height="80"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,17 +162,25 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-8p-AmO">
+                                                    <rect key="frame" x="18" y="236" width="339" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Destination:" id="JzD-IM-Mo0">
+                                                        <font key="font" metaFont="systemBold"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="a7j-E4-ODU" firstAttribute="trailing" secondItem="VBp-6d-4FK" secondAttribute="trailing" id="210-jn-8D5"/>
                                                 <constraint firstItem="a7j-E4-ODU" firstAttribute="top" secondItem="VBp-6d-4FK" secondAttribute="bottom" constant="8" symbolic="YES" id="3BJ-up-McZ"/>
                                                 <constraint firstItem="VBp-6d-4FK" firstAttribute="trailing" secondItem="3m7-V1-evP" secondAttribute="trailing" id="6tB-bv-Pcf"/>
-                                                <constraint firstItem="3m7-V1-evP" firstAttribute="top" secondItem="Ycg-8p-AmO" secondAttribute="bottom" constant="8" symbolic="YES" id="Efg-57-tf3"/>
+                                                <constraint firstItem="3m7-V1-evP" firstAttribute="top" secondItem="Ycg-8p-AmO" secondAttribute="bottom" constant="8" id="Efg-57-tf3"/>
                                                 <constraint firstAttribute="bottom" secondItem="a7j-E4-ODU" secondAttribute="bottom" constant="10" id="Fhl-xM-sTw"/>
                                                 <constraint firstItem="a7j-E4-ODU" firstAttribute="leading" secondItem="VBp-6d-4FK" secondAttribute="leading" id="Hag-oS-AAm"/>
-                                                <constraint firstItem="Ycg-8p-AmO" firstAttribute="top" secondItem="YOl-y0-9CI" secondAttribute="top" constant="20" symbolic="YES" id="Imn-Lx-yyh"/>
+                                                <constraint firstItem="Ycg-8p-AmO" firstAttribute="top" secondItem="YOl-y0-9CI" secondAttribute="top" constant="13" id="Imn-Lx-yyh"/>
                                                 <constraint firstItem="3m7-V1-evP" firstAttribute="leading" secondItem="VBp-6d-4FK" secondAttribute="leading" id="OFg-wA-D5A"/>
-                                                <constraint firstItem="VBp-6d-4FK" firstAttribute="top" secondItem="3m7-V1-evP" secondAttribute="bottom" constant="8" symbolic="YES" id="OQy-g6-1FK"/>
+                                                <constraint firstItem="VBp-6d-4FK" firstAttribute="top" secondItem="3m7-V1-evP" secondAttribute="bottom" constant="8" id="OQy-g6-1FK"/>
                                                 <constraint firstItem="Ycg-8p-AmO" firstAttribute="leading" secondItem="3m7-V1-evP" secondAttribute="leading" id="RRJ-h5-RXA"/>
                                                 <constraint firstItem="Ycg-8p-AmO" firstAttribute="leading" secondItem="YOl-y0-9CI" secondAttribute="leading" constant="20" symbolic="YES" id="RVE-lQ-qns"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ycg-8p-AmO" secondAttribute="trailing" constant="20" symbolic="YES" id="Wpo-dx-9ko"/>
@@ -266,7 +272,8 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="selectPreviousTabViewItem:" target="3b6-2Y-5OI" id="DzH-9C-1yd"/>
+                                    <action selector="previousTabViewItemClicked:" target="-2" id="kpo-uu-blA"/>
+                                    <binding destination="-2" name="enabled" keyPath="self.indexOfSelectedTab" id="0RJ-vN-3Vv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -296,7 +303,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
-            <point key="canvasLocation" x="495.5" y="146.5"/>
+            <point key="canvasLocation" x="470.5" y="42.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
