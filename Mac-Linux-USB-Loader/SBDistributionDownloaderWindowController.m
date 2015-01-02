@@ -200,10 +200,6 @@
 	}
 
 	self.numberOfFinishedJsonRequests++;
-
-	//if (self.numberOfFinishedJsonRequests == [[[NSApp delegate] supportedDistributions] count]) {
-		[self.downloadDistroButton setEnabled:YES];
-	//}
 	[self.mdLock unlock];
 }
 
