@@ -227,7 +227,7 @@
 #pragma mark - Delegates
 - (void)windowDidResize:(NSNotification *)notification {
 	// Keep the accessory view in the right place in the window.
-	[self placeAccessoryView];
+	//[self placeAccessoryView];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -269,9 +269,6 @@
 	 ];
 }
 
-- (void)menuNeedsUpdate:(NSMenu *)menu {
-}
-
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
 	NSInteger row = [self.tableView selectedRow];
 	[self.downloadDistroButton setEnabled:(row != -1)];
@@ -299,28 +296,27 @@
 
 #pragma mark - UI
 - (void)placeAccessoryView {
-	NSView *themeFrame = [[self.window contentView] superview];
-	NSRect c = [themeFrame frame];  // c for "container"
-	NSRect aV = [self.accessoryView frame]; // aV for "accessory view"
-	NSRect newFrame;
-
-
-	// If the user is running pre-Yosemite, nudge the button to the left to account for the fullscreen button.
 	NSOperatingSystemVersion opVer = [[NSProcessInfo processInfo] operatingSystemVersion];
 	if (opVer.minorVersion <= 9) {
-		newFrame = NSMakeRect(c.size.width - aV.size.width - SBAccessoryViewEdgeOffset, // x position
-		                      c.size.height - aV.size.height,    // y position
-		                      aV.size.width,    // width
-		                      aV.size.height);    // height
-	} else {
-		newFrame = NSMakeRect(c.size.width - aV.size.width - 5, // x position
-		                      c.size.height - aV.size.height, // y position
-		                      aV.size.width, // width
-		                      aV.size.height); // height
-	}
+		NSView *themeFrame = [[self.window contentView] superview];
+		NSRect c = [themeFrame frame];  // c for "container"
+		NSRect aV = [self.accessoryView frame]; // aV for "accessory view"
 
-	[self.accessoryView setFrame:newFrame];
-	[self.accessoryView setNeedsDisplay:YES];
+		// If the user is running pre-Yosemite, nudge the button to the left to account for the fullscreen button.
+		NSRect newFrame = NSMakeRect(c.size.width - aV.size.width - SBAccessoryViewEdgeOffset, // x position
+							  c.size.height - aV.size.height, // y position
+							  aV.size.width, // width
+							  aV.size.height); // height
+
+		[self.accessoryView setFrame:newFrame];
+		[self.accessoryView setNeedsDisplay:YES];
+	} else {
+		NSLog(@"Using new method");
+		NSTitlebarAccessoryViewController *titleBarViewController = [[NSTitlebarAccessoryViewController alloc] init];
+		titleBarViewController.view = self.accessoryViewButton;
+		titleBarViewController.layoutAttribute = NSLayoutAttributeRight;
+		[self.window addTitlebarAccessoryViewController:titleBarViewController];
+	}
 }
 
 - (IBAction)viewInFinderButtonClicked:(id)sender {
