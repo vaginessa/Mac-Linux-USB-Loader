@@ -24,7 +24,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Distribution Downloader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5" userLabel="Main Window">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="196" y="240" width="669" height="335"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
@@ -178,8 +178,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="534" height="207"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-75-Ar8">
-                        <rect key="frame" x="14" y="13" width="74" height="32"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-75-Ar8">
+                        <rect key="frame" x="14" y="13" width="76" height="32"/>
                         <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oQd-aW-Z5Q">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -221,8 +221,8 @@
                                         </menu>
                                     </popUpButtonCell>
                                 </popUpButton>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-XE-uFZ">
-                                    <rect key="frame" x="18" y="85" width="59" height="17"/>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-XE-uFZ">
+                                    <rect key="frame" x="20" y="85" width="57" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Country:" id="cK3-rM-Ug9">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -244,8 +244,8 @@
                                         </menu>
                                     </popUpButtonCell>
                                 </popUpButton>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFC-fl-K3y">
-                                    <rect key="frame" x="25" y="55" width="52" height="17"/>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AFC-fl-K3y">
+                                    <rect key="frame" x="23" y="55" width="54" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Bitness:" id="QpP-Zr-Q0G">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -280,6 +280,7 @@
                     <constraint firstAttribute="bottom" secondItem="x85-73-cY0" secondAttribute="bottom" constant="20" id="aWH-uq-Hcs"/>
                 </constraints>
             </view>
+            <point key="canvasLocation" x="116" y="227.5"/>
         </window>
         <viewController id="W3X-ZW-RQT" userLabel="Popover View Controller">
             <connections>
