@@ -136,6 +136,11 @@
 		return;
 	}
 
+	if (!selectedUSBDrive) {
+		NSLog(@"We couldn't get an SBUSBDevice object from the collection view. This could be a bug...");
+		return;
+	}
+
 	// Check to make sure that the user has selected an Enterprise source.
 	NSInteger selectedEnterpriseSourceIndex = [self.enterpriseSourceSelector indexOfSelectedItem];
 	NSString *selectedEnterpriseSourceName = [self.enterpriseSourceSelector titleOfSelectedItem];
@@ -158,8 +163,8 @@
 
 	// Get the names of files.
 	NSString *targetUSBName = selectedUSBDrive.name;
-	NSString *targetUSBMountPoint = [@"/Volumes/" stringByAppendingString : targetUSBName];
-	NSString *installDirectory = [targetUSBMountPoint stringByAppendingString:@"/efi/boot/"];
+	NSString *targetUSBMountPoint = selectedUSBDrive.path;
+	NSString *installDirectory = [targetUSBMountPoint stringByAppendingPathComponent:@"/efi/boot/"];
 
 	//NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
 
@@ -173,11 +178,6 @@
 		[alert setInformativeText:NSLocalizedString(@"The installation failed because the Enterprise source that you have selected is either incomplete or missing.", nil)];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-
-		// Restore access to the disabled buttons.
-		[sender setEnabled:YES];
-		[self.installationProgressBar setDoubleValue:0.0];
-		[self.automaticSetupCheckBox setEnabled:YES];
 
 		// Bail.
 		return;
@@ -227,13 +227,10 @@
 	[self.usbDriveSelector setHidden:YES];
 	[self.enterpriseSourceSelector setEnabled:NO];
 
-	SBLinuxDistribution distribution = [SBAppDelegate distributionEnumForEqualivalentName:[self.distributionSelectorPopup titleOfSelectedItem]];
-	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:[self.isMacVersionCheckBox state] == NSOnState containsLegacyUbuntuVersion:[self.isLegacyUbuntuVersionCheckBox state] == NSOnState];
-
 	// Create the required directories on the USB drive.
 	NSError *error;
 	BOOL result = [manager createDirectoryAtPath:installDirectory withIntermediateDirectories:YES attributes:nil error:&error];
-	if (!result || error) {
+	if (!result) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:[error localizedDescription]];
@@ -256,6 +253,10 @@
 		// Bail.
 		return;
 	}
+
+	// Write out the Enterprise configuration file.
+	SBLinuxDistribution distribution = [SBAppDelegate distributionEnumForEqualivalentName:[self.distributionSelectorPopup titleOfSelectedItem]];
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:[self.isMacVersionCheckBox state] == NSOnState containsLegacyUbuntuVersion:[self.isLegacyUbuntuVersionCheckBox state] == NSOnState];
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		SBEnterpriseSourceLocation *sourceLocation = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];

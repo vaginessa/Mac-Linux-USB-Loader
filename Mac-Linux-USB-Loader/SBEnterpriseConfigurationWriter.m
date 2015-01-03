@@ -12,6 +12,8 @@
 @implementation SBEnterpriseConfigurationWriter
 
 + (void)writeConfigurationFileAtUSB:(SBUSBDevice *)device distributionFamily:(SBLinuxDistribution)family isMacUbuntu:(BOOL)isMacUbuntu containsLegacyUbuntuVersion:(BOOL)containsLegacyUbuntu {
+	NSError *error;
+
 	NSString *path = [device.path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
 	NSMutableString *string = [NSMutableString stringWithCapacity:30];
 	[string appendString:@"#This file is machine generated. Do not modify it unless you know what you are doing.\n\n"];
@@ -36,8 +38,14 @@
 		[string appendString:kernelString];
 	}
 
-	[[NSFileManager defaultManager] removeItemAtPath:path error:nil];
-	[string writeToFile:path atomically:NO encoding:NSASCIIStringEncoding error:nil];
+	if ([[NSFileManager defaultManager] removeItemAtPath:path error:&error]) {
+		BOOL success = [string writeToFile:path atomically:NO encoding:NSASCIIStringEncoding error:&error];
+		if (!success) {
+			NSLog(@"Error writing configuration file: %@", error);
+		}
+	} else {
+		NSLog(@"Error removing old configuration file: %@", error);
+	}
 }
 
 @end
