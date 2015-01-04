@@ -25,7 +25,7 @@
  * @param error A pointer to an NSError which will contain failure information if this operation fails
  * @return The free space left on the specified drive
  */
-- (NSInteger)freeSpaceRemainingOnDrive:(NSString *)path error:(NSError **)userError
+- (NSInteger)freeSpaceRemainingOnDrive:(NSString *)path error:(NSError **)userError;
 
 /**
  * A custom extension to NSFileManager that provides an easy way to setup a security scoped bookmark to access

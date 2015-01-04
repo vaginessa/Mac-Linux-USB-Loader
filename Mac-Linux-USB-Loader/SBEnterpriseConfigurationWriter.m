@@ -38,13 +38,13 @@
 		[string appendString:kernelString];
 	}
 
-	if ([[NSFileManager defaultManager] removeItemAtPath:path error:&error]) {
-		BOOL success = [string writeToFile:path atomically:NO encoding:NSASCIIStringEncoding error:&error];
-		if (!success) {
-			NSLog(@"Error writing configuration file: %@", error);
-		}
-	} else {
+	if (![[NSFileManager defaultManager] removeItemAtPath:path error:&error]) {
 		NSLog(@"Error removing old configuration file: %@", error);
+	}
+
+	BOOL success = [string writeToFile:path atomically:NO encoding:NSASCIIStringEncoding error:&error];
+	if (!success) {
+		NSLog(@"Error writing configuration file: %@", error);
 	}
 }
 

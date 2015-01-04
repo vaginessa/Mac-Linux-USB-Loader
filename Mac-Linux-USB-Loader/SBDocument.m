@@ -122,6 +122,7 @@
 	NSIndexSet *indexSet = [self.usbDriveSelector selectionIndexes];
 	SBUSBDeviceCollectionViewRepresentation *selectedCollectionViewRep;
 	SBUSBDevice *selectedUSBDrive;
+	NSError *error;
 
 	if (indexSet && [indexSet firstIndex] != NSNotFound) {
 		selectedCollectionViewRep = self.usbArrayForContentView[[indexSet firstIndex]];
@@ -186,6 +187,21 @@
 	double fileSize = [[manager sizeOfFileAtPath:self.fileURL.path] doubleValue] + [[manager sizeOfFileAtPath:grubPath] doubleValue] + [[manager sizeOfFileAtPath:enterprisePath] doubleValue];
 	[self.installationProgressBar setMaxValue:fileSize];
 
+	// Verify that the user has enough free space on the selected drive (assume config file is 500 bytes).
+	NSInteger selectedDriveFreeSpace = [manager freeSpaceRemainingOnDrive:targetUSBMountPoint error:&error];
+	if (selectedDriveFreeSpace < (fileSize + 500)) {
+		// The selected drive lacks enough free space, tell the user then bail.
+		NSString *formattedByteCount = [NSByteCountFormatter stringFromByteCount:selectedDriveFreeSpace countStyle:NSByteCountFormatterCountStyleFile];
+
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"Not enough free space", nil)];
+		[alert setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"The USB drive that you have selected does not have enough free space. At least %@ of space is required.", nil), formattedByteCount]];
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		return;
+	}
+
 	// Disable UI components.
 	[sender setEnabled:NO];
 	[self.installationProgressBar setIndeterminate:NO];
@@ -228,7 +244,6 @@
 	[self.enterpriseSourceSelector setEnabled:NO];
 
 	// Create the required directories on the USB drive.
-	NSError *error;
 	BOOL result = [manager createDirectoryAtPath:installDirectory withIntermediateDirectories:YES attributes:nil error:&error];
 	if (!result) {
 		NSAlert *alert = [[NSAlert alloc] init];
