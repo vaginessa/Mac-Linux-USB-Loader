@@ -17,6 +17,18 @@ NSOpenPanel *spanel;
 	return mySize;
 }
 
+- (NSInteger)freeSpaceRemainingOnDrive:(NSString *)path error:(NSError **)userError {
+	NSError *error = nil;
+	NSDictionary *attr = [self attributesOfFileSystemForPath:path error:&error];
+	double bytesFree = [[attr objectForKey:NSFileSystemFreeSize] longValue];
+
+	if (error) {
+		*userError = error;
+	}
+
+	return bytesFree;
+}
+
 - (NSURL *)setupSecurityScopedBookmarkForUSBAtPath:(NSString *)path withWindowForSheet:(NSWindow *)window {
 	// Setup variables.
 	NSString *targetUSBName = [[path lastPathComponent] stringByDeletingPathExtension];
