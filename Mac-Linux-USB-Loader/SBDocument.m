@@ -103,6 +103,24 @@
 	[self.enterpriseSourceSelector addItemsWithTitles:array];
 }
 
+- (IBAction)refreshUSBListing:(id)sender {
+	// Refresh the list of USBs.
+	[self.usbArrayForContentView removeAllObjects];
+
+	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
+	[self setupUSBDriveSelector];
+
+	// Refresh the list of Enterprise sources.
+	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:3];
+	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations]];
+	for (NSString *usb in enterpriseSourcesDictionary) {
+		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
+	}
+
+	[self.enterpriseSourceSelector removeAllItems];
+	[self.enterpriseSourceSelector addItemsWithTitles:array];
+}
+
 #pragma mark - Document Plumbing
 + (BOOL)autosavesInPlace {
 	return YES;
@@ -117,12 +135,10 @@
 }
 
 #pragma mark - Installation Code
-- (IBAction)performInstallation:(id)sender {
-	/* STEP 1: Setup UI components. */
+- (BOOL)setupInstallationInterface {
 	NSIndexSet *indexSet = [self.usbDriveSelector selectionIndexes];
 	SBUSBDeviceCollectionViewRepresentation *selectedCollectionViewRep;
 	SBUSBDevice *selectedUSBDrive;
-	NSError *error;
 
 	if (indexSet && [indexSet firstIndex] != NSNotFound) {
 		selectedCollectionViewRep = self.usbArrayForContentView[[indexSet firstIndex]];
@@ -134,12 +150,12 @@
 		[alert setInformativeText:NSLocalizedString(@"You need to select the USB drive to install to.", nil)];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-		return;
+		return NO;
 	}
 
 	if (!selectedUSBDrive) {
 		NSLog(@"We couldn't get an SBUSBDevice object from the collection view. This could be a bug...");
-		return;
+		return NO;
 	}
 
 	// Check to make sure that the user has selected an Enterprise source.
@@ -155,17 +171,21 @@
 			[alert setInformativeText:NSLocalizedString(@"You need to select the source of the Enterprise binaries that will be copied to this USB drive.", nil)];
 			[alert setAlertStyle:NSWarningAlertStyle];
 			[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-			return;
+			return NO;
 		}
 	}
 
+	// If all's good, then call the next step.
+	return [self verifyInstallationSettings:selectedUSBDrive andEnterpriseSourceLocation:sourceLocation];
+}
+
+- (BOOL)verifyInstallationSettings:(SBUSBDevice *)selectedUSBDrive andEnterpriseSourceLocation:(SBEnterpriseSourceLocation *)sourceLocation {
 	// Get an NSFileManager object.
 	NSFileManager *manager = [NSFileManager defaultManager];
+	NSError *error = nil;
 
 	// Get the names of files.
-	NSString *targetUSBName = selectedUSBDrive.name;
 	NSString *targetUSBMountPoint = selectedUSBDrive.path;
-	NSString *installDirectory = [targetUSBMountPoint stringByAppendingPathComponent:@"/efi/boot/"];
 
 	//NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
 
@@ -181,7 +201,7 @@
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 		// Bail.
-		return;
+		return NO;
 	}
 
 	double fileSize = [[manager sizeOfFileAtPath:self.fileURL.path] doubleValue] + [[manager sizeOfFileAtPath:grubPath] doubleValue] + [[manager sizeOfFileAtPath:enterprisePath] doubleValue];
@@ -199,17 +219,20 @@
 		[alert setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"The USB drive that you have selected does not have enough free space. At least %@ of space is required.", nil), formattedByteCount]];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-		return;
+		return NO;
 	}
 
-	// Disable UI components.
-	[sender setEnabled:NO];
-	[self.installationProgressBar setIndeterminate:NO];
-	[self.installationProgressBar setDoubleValue:0.0];
-	[self.automaticSetupCheckBox setEnabled:NO];
-	[self.distributionSelectorPopup setEnabled:NO];
-	[self.isMacVersionCheckBox setEnabled:NO];
-	[self.isLegacyUbuntuVersionCheckBox setEnabled:NO];
+	return [self beginFileCopy:selectedUSBDrive];
+}
+
+- (BOOL)beginFileCopy:(SBUSBDevice *)selectedUSBDrive {
+	NSFileManager *manager = [NSFileManager defaultManager];
+	NSString *targetUSBName = selectedUSBDrive.name;
+	NSString *targetUSBMountPoint = selectedUSBDrive.path;
+	NSString *installDirectory = [targetUSBMountPoint stringByAppendingPathComponent:@"/efi/boot/"];
+	NSString *selectedEnterpriseSourceName = [self.enterpriseSourceSelector titleOfSelectedItem];
+
+	NSError *error = nil;
 
 	/* STEP 2: Get user permission to install files. We'll only need to do this once. */
 	NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:targetUSBMountPoint withWindowForSheet:[self windowForSheet]];
@@ -223,7 +246,7 @@
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 		// Restore access to the disabled buttons.
-		[sender setEnabled:YES];
+		[self.performInstallationButton setEnabled:YES];
 		[self.installationProgressBar setDoubleValue:0.0];
 		[self.automaticSetupCheckBox setEnabled:YES];
 		[self.distributionSelectorPopup setEnabled:YES];
@@ -231,7 +254,7 @@
 		[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
 
 		// Bail.
-		return;
+		return NO;
 	} else {
 		NSLog(@"Obtained security scoped bookmark for USB %@.", targetUSBName);
 	}
@@ -254,7 +277,7 @@
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 		// Restore access to the disabled buttons.
-		[sender setEnabled:YES];
+		[self.performInstallationButton setEnabled:YES];
 		[self.installationProgressBar setDoubleValue:0.0];
 		[self.automaticSetupCheckBox setEnabled:YES];
 
@@ -266,7 +289,7 @@
 		[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
 
 		// Bail.
-		return;
+		return NO;
 	}
 
 	// Write out the Enterprise configuration file.
@@ -276,54 +299,53 @@
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		SBEnterpriseSourceLocation *sourceLocation = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][selectedEnterpriseSourceName];
 		[selectedUSBDrive copyEnterpriseFiles:self withEnterpriseSource:sourceLocation];
-	    [selectedUSBDrive copyInstallationFiles:self];
+		[selectedUSBDrive copyInstallationFiles:self];
 
-	    dispatch_async(dispatch_get_main_queue(), ^{
-	        /* STEP 4: Restore access to the disabled buttons. */
-	        [sender setEnabled:YES];
-	        [self.installationProgressBar setDoubleValue:0.0];
-	        [self.installationProgressBar setHidden:YES];
-	        [self.automaticSetupCheckBox setEnabled:YES];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			/* STEP 4: Restore access to the disabled buttons. */
+			[self.performInstallationButton setEnabled:YES];
+			[self.installationProgressBar setDoubleValue:0.0];
+			[self.installationProgressBar setHidden:YES];
+			[self.automaticSetupCheckBox setEnabled:YES];
 
-	        // Enable GUI elements.
-	        [self.usbDriveSelector setHidden:NO];
-	        [self.enterpriseSourceSelector setEnabled:YES];
+			// Enable GUI elements.
+			[self.usbDriveSelector setHidden:NO];
+			[self.enterpriseSourceSelector setEnabled:YES];
 			[self.distributionSelectorPopup setEnabled:YES];
 			[self.isMacVersionCheckBox setEnabled:YES];
 			[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
+			[self.performInstallationButton setEnabled:YES];
 
 			// Stop accessing the security bookmark.
-	        [outURL stopAccessingSecurityScopedResource];
+			[outURL stopAccessingSecurityScopedResource];
 
 			// Tell the user.
 			[NSApp requestUserAttention:NSInformationalRequest];
 			[self.tabView selectTabViewItemAtIndex:2];
 			self.indexOfSelectedTab = 2;
-			
+
 			NSUserNotification *userNotification = [[NSUserNotification alloc] init]; \
 			userNotification.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Finished Installing: ", nil), [[self.fileURL.path lastPathComponent] stringByDeletingPathExtension]];
 			userNotification.informativeText = NSLocalizedString(@"You are now ready to use your USB drive!", nil);
 			[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
 		});
 	});
+
+	return YES;
 }
 
-- (IBAction)refreshUSBListing:(id)sender {
-	// Refresh the list of USBs.
-	[self.usbArrayForContentView removeAllObjects];
+- (IBAction)performInstallation:(id)sender {
+	// Disable UI components.
+	[sender setEnabled:NO];
+	[self.installationProgressBar setIndeterminate:NO];
+	[self.installationProgressBar setDoubleValue:0.0];
+	[self.automaticSetupCheckBox setEnabled:NO];
+	[self.distributionSelectorPopup setEnabled:NO];
+	[self.isMacVersionCheckBox setEnabled:NO];
+	[self.isLegacyUbuntuVersionCheckBox setEnabled:NO];
 
-	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
-	[self setupUSBDriveSelector];
-
-	// Refresh the list of Enterprise sources.
-	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:3];
-	enterpriseSourcesDictionary = [NSMutableDictionary dictionaryWithDictionary:[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations]];
-	for (NSString *usb in enterpriseSourcesDictionary) {
-		[array insertObject:[enterpriseSourcesDictionary[usb] name] atIndex:0];
-	}
-
-	[self.enterpriseSourceSelector removeAllItems];
-	[self.enterpriseSourceSelector addItemsWithTitles:array];
+	// Kick off the process.
+	[self setupInstallationInterface];
 }
 
 #pragma mark - Delegates
