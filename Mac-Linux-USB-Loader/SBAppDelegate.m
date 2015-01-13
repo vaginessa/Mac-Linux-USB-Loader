@@ -158,7 +158,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 }
 
 - (void)setupEnterpriseInstallationLocations {
-	NSString *filePath = [self.pathToApplicationSupportDirectory stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
+	NSString *filePath = [self.pathToApplicationSupportDirectory stringByAppendingPathComponent:@"/EnterpriseInstallationLocations.plist"];
 	BOOL exists = [self.fileManager fileExistsAtPath:filePath];
 
 	if (!exists) {
@@ -195,8 +195,13 @@ const NSString *SBBundledEnterpriseVersionNumber;
 
 		NSString *defaultPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
 		SBEnterpriseSourceLocation *source = self.enterpriseInstallLocations[@"Included With Application"];
-		source.path = defaultPath;
-		//SBLogObject(source.path);
+
+		if (!source) {
+			NSLog(@"The path of the bundled Enterprise source could not have its source path updated. Perhaps there is a problem with the cached Enterprise sources list. This will almost certainly cause problems (if you're a user seeing this message, file a bug)!");
+		} else {
+			source.path = defaultPath;
+			//SBLogObject(source.path);
+		}
 	} @catch (NSException *exception) {
 		NSLog(@"Couldn't decode Enterprise source file locations.");
 	}
