@@ -101,6 +101,17 @@
 
 /* Begin PBXFileReference section */
 		24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
+		240D60131A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		240D60141A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/SBDocument.strings; sourceTree = "<group>"; };
+		240D60151A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/SBAboutWindowController.strings; sourceTree = "<group>"; };
+		240D60161A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/SBUSBSetupWindowController.strings; sourceTree = "<group>"; };
+		240D60171A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/SBPersistenceManagerWindowController.strings; sourceTree = "<group>"; };
+		240D60181A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
+		240D60191A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
+		240D601A1A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		240D601B1A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = el; path = el.lproj/Credits.rtf; sourceTree = "<group>"; };
+		240D601C1A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = el; path = el.lproj/Acknowledgements.rtf; sourceTree = "<group>"; };
+		240D601D1A5C802A00EEC3D1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		240F1FAB1891A88F00AE9F82 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		240F989F18B060AD001EAE87 /* SBEnterpriseSourceLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterpriseSourceLocation.h; sourceTree = "<group>"; };
 		240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterpriseSourceLocation.m; sourceTree = "<group>"; };
@@ -510,6 +521,7 @@
 			knownRegions = (
 				en,
 				Base,
+				el,
 			);
 			mainGroup = 24A4EC6A1884966900CE6CF0;
 			productRefGroup = 24A4EC741884966900CE6CF0 /* Products */;
@@ -647,6 +659,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24101B8B1896D4AF00EDE32C /* Base */,
+				240D60151A5C802A00EEC3D1 /* el */,
 			);
 			name = SBAboutWindowController.xib;
 			sourceTree = "<group>";
@@ -655,6 +668,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24155CCC18903B4500FAB98C /* Base */,
+				240D60171A5C802A00EEC3D1 /* el */,
 			);
 			name = SBPersistenceManagerWindowController.xib;
 			sourceTree = "<group>";
@@ -663,6 +677,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24F727C418BAC13B00B16013 /* Base */,
+				240D60191A5C802A00EEC3D1 /* el */,
 			);
 			name = SBEnterprisePreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -671,6 +686,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24680E5518AE7FE500B6E13F /* Base */,
+				240D60181A5C802A00EEC3D1 /* el */,
 			);
 			name = SBGeneralPreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -679,6 +695,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24A4EC801884966A00CE6CF0 /* en */,
+				240D601A1A5C802A00EEC3D1 /* el */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -687,6 +704,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24F35F8019D604BF0019CF54 /* Base */,
+				240D601B1A5C802A00EEC3D1 /* el */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -695,6 +713,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24A4EC8C1884966A00CE6CF0 /* Base */,
+				240D60141A5C802A00EEC3D1 /* el */,
 			);
 			name = SBDocument.xib;
 			sourceTree = "<group>";
@@ -703,6 +722,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24A4EC8F1884966A00CE6CF0 /* Base */,
+				240D60131A5C802A00EEC3D1 /* el */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -711,6 +731,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24A4ECA11884966A00CE6CF0 /* en */,
+				240D601D1A5C802A00EEC3D1 /* el */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -719,6 +740,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24D75F93188AE77100FF5ADC /* Base */,
+				240D60161A5C802A00EEC3D1 /* el */,
 			);
 			name = SBUSBSetupWindowController.xib;
 			sourceTree = "<group>";
@@ -727,6 +749,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24F35F7F19D604B30019CF54 /* Base */,
+				240D601C1A5C802A00EEC3D1 /* el */,
 			);
 			name = Acknowledgements.rtf;
 			sourceTree = "<group>";
