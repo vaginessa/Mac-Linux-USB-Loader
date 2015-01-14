@@ -201,6 +201,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		} else {
 			source.path = defaultPath;
 			//SBLogObject(source.path);
+			[self writeEnterpriseSourceLocationsToDisk:path];
 		}
 	} @catch (NSException *exception) {
 		NSLog(@"Couldn't decode Enterprise source file locations.");
