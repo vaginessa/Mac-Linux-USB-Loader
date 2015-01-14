@@ -13,6 +13,7 @@
                 <outlet property="installationProgressBar" destination="bdV-ll-emw" id="Ct4-mC-KVI"/>
                 <outlet property="isLegacyUbuntuVersionCheckBox" destination="o16-cH-t1N" id="xhZ-kG-kLF"/>
                 <outlet property="isMacVersionCheckBox" destination="3yc-Pg-5C8" id="adc-FA-NYx"/>
+                <outlet property="performInstallationButton" destination="DI5-qN-LvV" id="cNG-ST-VSt"/>
                 <outlet property="tabView" destination="3b6-2Y-5OI" id="GT0-l0-3dB"/>
                 <outlet property="usbDriveSelector" destination="9br-dw-B95" id="Z1o-q1-ekS"/>
                 <outlet property="window" destination="5" id="18"/>
@@ -354,7 +355,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="616.5" y="-22.5"/>
+            <point key="canvasLocation" x="704.5" y="-50.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>

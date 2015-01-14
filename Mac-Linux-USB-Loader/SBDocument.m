@@ -246,12 +246,7 @@
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 		// Restore access to the disabled buttons.
-		[self.performInstallationButton setEnabled:YES];
-		[self.installationProgressBar setDoubleValue:0.0];
-		[self.automaticSetupCheckBox setEnabled:YES];
-		[self.distributionSelectorPopup setEnabled:YES];
-		[self.isMacVersionCheckBox setEnabled:YES];
-		[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
+		[self setIsDocumentUIEnabled:YES];
 
 		// Bail.
 		return NO;
@@ -277,16 +272,7 @@
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 		// Restore access to the disabled buttons.
-		[self.performInstallationButton setEnabled:YES];
-		[self.installationProgressBar setDoubleValue:0.0];
-		[self.automaticSetupCheckBox setEnabled:YES];
-
-		// Enable GUI elements.
-		[self.usbDriveSelector setHidden:NO];
-		[self.enterpriseSourceSelector setEnabled:YES];
-		[self.distributionSelectorPopup setEnabled:YES];
-		[self.isMacVersionCheckBox setEnabled:YES];
-		[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
+		[self setIsDocumentUIEnabled:YES];
 
 		// Bail.
 		return NO;
@@ -303,18 +289,7 @@
 
 		dispatch_async(dispatch_get_main_queue(), ^{
 			/* STEP 4: Restore access to the disabled buttons. */
-			[self.performInstallationButton setEnabled:YES];
-			[self.installationProgressBar setDoubleValue:0.0];
-			[self.installationProgressBar setHidden:YES];
-			[self.automaticSetupCheckBox setEnabled:YES];
-
-			// Enable GUI elements.
-			[self.usbDriveSelector setHidden:NO];
-			[self.enterpriseSourceSelector setEnabled:YES];
-			[self.distributionSelectorPopup setEnabled:YES];
-			[self.isMacVersionCheckBox setEnabled:YES];
-			[self.isLegacyUbuntuVersionCheckBox setEnabled:YES];
-			[self.performInstallationButton setEnabled:YES];
+			[self setIsDocumentUIEnabled:YES];
 
 			// Stop accessing the security bookmark.
 			[outURL stopAccessingSecurityScopedResource];
@@ -334,15 +309,21 @@
 	return YES;
 }
 
+- (void)setIsDocumentUIEnabled:(BOOL)enabled {
+	[self.performInstallationButton setEnabled:enabled];
+	[self.installationProgressBar setIndeterminate:enabled];
+	[self.installationProgressBar setDoubleValue:0.0];
+	[self.automaticSetupCheckBox setEnabled:enabled];
+	[self.distributionSelectorPopup setEnabled:enabled];
+	[self.isMacVersionCheckBox setEnabled:enabled];
+	[self.isLegacyUbuntuVersionCheckBox setEnabled:enabled];
+	[self.usbDriveSelector setHidden:!enabled];
+	[self.enterpriseSourceSelector setEnabled:enabled];
+}
+
 - (IBAction)performInstallation:(id)sender {
 	// Disable UI components.
-	[sender setEnabled:NO];
-	[self.installationProgressBar setIndeterminate:NO];
-	[self.installationProgressBar setDoubleValue:0.0];
-	[self.automaticSetupCheckBox setEnabled:NO];
-	[self.distributionSelectorPopup setEnabled:NO];
-	[self.isMacVersionCheckBox setEnabled:NO];
-	[self.isLegacyUbuntuVersionCheckBox setEnabled:NO];
+	[self setIsDocumentUIEnabled:NO];
 
 	// Kick off the process.
 	[self setupInstallationInterface];
