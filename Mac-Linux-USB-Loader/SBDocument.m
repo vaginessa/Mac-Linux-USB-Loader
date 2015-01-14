@@ -46,8 +46,6 @@
 	[self distributionTypePopupChanged:self.distributionSelectorPopup];
 
 	[self.enterpriseSourceSelector selectItemWithTitle:[[NSUserDefaults standardUserDefaults] stringForKey:@"DefaultEnterpriseSourceLocation"]];
-
-	[self.performInstallationButton setEnabled:NO];
 }
 
 - (void)detectDistributionFamily {
@@ -150,6 +148,7 @@
 		[alert setInformativeText:NSLocalizedString(@"You need to select the USB drive to install to.", nil)];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
 		return NO;
 	}
 
@@ -171,6 +170,7 @@
 			[alert setInformativeText:NSLocalizedString(@"You need to select the source of the Enterprise binaries that will be copied to this USB drive.", nil)];
 			[alert setAlertStyle:NSWarningAlertStyle];
 			[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
 			return NO;
 		}
 	}
@@ -219,6 +219,7 @@
 		[alert setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"The USB drive that you have selected does not have enough free space. At least %@ of space is required.", nil), formattedByteCount]];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
 		return NO;
 	}
 
@@ -245,9 +246,6 @@
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
-		// Restore access to the disabled buttons.
-		[self setIsDocumentUIEnabled:YES];
-
 		// Bail.
 		return NO;
 	} else {
@@ -270,9 +268,6 @@
 		[alert setInformativeText:[error localizedFailureReason]];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
-
-		// Restore access to the disabled buttons.
-		[self setIsDocumentUIEnabled:YES];
 
 		// Bail.
 		return NO;
@@ -350,7 +345,7 @@
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
-	// Empty
+	[self setIsDocumentUIEnabled:YES];
 }
 
 @end
