@@ -30,7 +30,6 @@ Requirements: Xcode 6, OS X 10.10 SDK. OS X 10.8+ required to run built app
 
 1. Clone from git:
     `git clone https://github.com/SevenBits/Mac-Linux-USB-Loader.git`
-    `git checkout -b rewrite`
 1. Run `pod install` (requires [Cocoapods](http://cocoapods.org)).
 1. Open `Mac Linux USB Loader.xcworkspace` and do an archive build, or simply run and debug it with Xcode
 
