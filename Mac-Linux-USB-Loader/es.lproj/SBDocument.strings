@@ -1,0 +1,66 @@
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "5"; */
+"5.title" = "Ventana";
+
+/* Class = "NSMenuItem"; title = "Ubuntu"; ObjectID = "1Mg-wi-KZr"; */
+"1Mg-wi-KZr.title" = "Ubuntu";
+
+/* Class = "NSTabViewItem"; label = "Third"; ObjectID = "206-oW-lz5"; */
+"206-oW-lz5.label" = "Tercero";
+
+/* Class = "NSButtonCell"; title = "This ISO contains the Mac version of Ubuntu"; ObjectID = "2N3-rh-Hxh"; */
+"2N3-rh-Hxh.title" = "Esto archivo ISO contiene el versión de Ubuntu para Mac";
+
+/* Class = "NSTextFieldCell"; title = "Choose Enterprise Source:"; ObjectID = "4e7-Dc-wKh"; */
+"4e7-Dc-wKh.title" = "Seleccionar fuente de Enterprise:";
+
+/* Class = "NSButtonCell"; title = "Refresh"; ObjectID = "6eC-ug-AG8"; */
+"6eC-ug-AG8.title" = "Refresh";
+
+/* Class = "NSButtonCell"; title = "Previous"; ObjectID = "6uC-rz-J2n"; */
+"6uC-rz-J2n.title" = "Anterior";
+
+/* Class = "NSMenuItem"; title = "Other"; ObjectID = "7Id-gS-sW7"; */
+"7Id-gS-sW7.title" = "Otra";
+
+/* Class = "NSTextFieldCell"; title = "Installation Options"; ObjectID = "85w-Ab-eWi"; */
+"85w-Ab-eWi.title" = "Opciones para la Instalación";
+
+/* Class = "NSTextFieldCell"; title = "Your Live USB has been created successfully. To boot it, please leave this drive in your Mac and restart your computer while holding down the Option (⌥) key. When the boot manager appears, select your drive."; ObjectID = "8Ja-iN-ujj"; */
+"8Ja-iN-ujj.title" = "Su memoria USB ha sido creado con éxito. Para arrancar, por favor ponla en su Mac y reiniciar su computadora cuando la tecla de opciones (⌥) está activado. Cuando la menú de configuración de arrancar aparece, seleccione tu memoria USB.";
+
+/* Class = "NSMenuItem"; title = "Debian"; ObjectID = "ClT-6Q-5sn"; */
+"ClT-6Q-5sn.title" = "Debian";
+
+/* Class = "NSTextFieldCell"; title = "Success!"; ObjectID = "CpB-zL-Sag"; */
+"CpB-zL-Sag.title" = "Éxito!";
+
+/* Class = "NSTextFieldCell"; title = "Choose Destination:"; ObjectID = "JzD-IM-Mo0"; */
+"JzD-IM-Mo0.title" = "Seleccionar Destinación:";
+
+/* Class = "NSButtonCell"; title = "This ISO has code older than Ubuntu 14.10"; ObjectID = "K4N-ZO-OI0"; */
+"K4N-ZO-OI0.title" = "Este archivo ISO contiene codigo de una distribución menos que Ubuntu 14.10";
+
+/* Class = "NSMenuItem"; title = "Refresh"; ObjectID = "Piy-za-BZH"; */
+"Piy-za-BZH.title" = "Refresh";
+
+/* Class = "NSButtonCell"; title = "Begin Installation"; ObjectID = "Tnc-ZF-mM8"; */
+"Tnc-ZF-mM8.title" = "Empezar la Instalación";
+
+/* Class = "NSTabViewItem"; label = "Second"; ObjectID = "Zyc-ZH-ZTl"; */
+"Zyc-ZH-ZTl.label" = "Segundo";
+
+/* Class = "NSTextFieldCell"; title = "Distribution Family:"; ObjectID = "aOF-7O-fM8"; */
+"aOF-7O-fM8.title" = "Familia de la Distribución:";
+
+/* Class = "NSTextFieldCell"; title = "USB Device Name"; ObjectID = "acy-rY-KEm"; */
+"acy-rY-KEm.title" = "Nombre de la Memoria USB";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "e20-PA-yfy"; */
+"e20-PA-yfy.title" = "OtherViews";
+
+/* Class = "NSTabViewItem"; label = "First"; ObjectID = "iID-fj-8Oj"; */
+"iID-fj-8Oj.label" = "Primero";
+
+/* Class = "NSButtonCell"; title = "Next"; ObjectID = "lUE-9Y-ccg"; */
+"lUE-9Y-ccg.title" = "Próximo";

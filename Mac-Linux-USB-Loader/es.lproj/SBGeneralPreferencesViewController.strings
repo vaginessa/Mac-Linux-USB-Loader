@@ -1,0 +1,36 @@
+
+/* Class = "NSMenuItem"; title = "Hourly"; ObjectID = "2XN-Bl-N6x"; */
+"2XN-Bl-N6x.title" = "Cada hora";
+
+/* Class = "NSButtonCell"; title = "Accept HFS+ Formatted Drives"; ObjectID = "9HT-f6-zfH"; */
+"9HT-f6-zfH.title" = "Permitir memoria USB formateado como HFS+";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "DtM-MH-qpg"; */
+"DtM-MH-qpg.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "Mqp-7t-iHQ"; */
+"Mqp-7t-iHQ.title" = "Box";
+
+/* Class = "NSMenuItem"; title = "Daily"; ObjectID = "Nfo-Y2-B4V"; */
+"Nfo-Y2-B4V.title" = "Cada día";
+
+/* Class = "NSButtonCell"; title = "Periodically Clear Caches and Old ISO Downloads"; ObjectID = "XrG-IX-Jnc"; */
+"XrG-IX-Jnc.title" = "Periódicamente borrar cachés y descargados de archivos viejos";
+
+/* Class = "NSButtonCell"; title = "Clear Now"; ObjectID = "j9p-k1-kBV"; */
+"j9p-k1-kBV.title" = "Borrar ahora";
+
+/* Class = "NSButtonCell"; title = "Automatically Check for Updates"; ObjectID = "mf5-Z9-GRI"; */
+"mf5-Z9-GRI.title" = "Buscar actualizaciones automáticamente";
+
+/* Class = "NSMenuItem"; title = "Monthly"; ObjectID = "mwh-In-KYH"; */
+"mwh-In-KYH.title" = "Cada mez";
+
+/* Class = "NSBox"; title = "Experimental"; ObjectID = "nPg-bg-bVL"; */
+"nPg-bg-bVL.title" = "Experimental";
+
+/* Class = "NSTextFieldCell"; title = "Update Check Interval:"; ObjectID = "vno-Rz-5Bh"; */
+"vno-Rz-5Bh.title" = "Intervalo de comprobación actualizaciones:";
+
+/* Class = "NSMenuItem"; title = "Weekly"; ObjectID = "zYc-yI-rOc"; */
+"zYc-yI-rOc.title" = "Cada semana";

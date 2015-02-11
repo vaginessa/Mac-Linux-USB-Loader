@@ -1,0 +1,15 @@
+
+/* Class = "NSWindow"; title = "USB Setup"; ObjectID = "1"; */
+"1.title" = "Configurar Memoria USB";
+
+/* Class = "NSButtonCell"; title = "Enable Startup Disk Support"; ObjectID = "9A4-Nc-kbp"; */
+"9A4-Nc-kbp.title" = "Instalar apoyo por disco de arranque";
+
+/* Class = "NSButtonCell"; title = "Choose Startup Disk"; ObjectID = "SpM-dG-QBu"; */
+"SpM-dG-QBu.title" = "Seleccionar disco de arranque";
+
+/* Class = "NSMenuItem"; title = "Refresh"; ObjectID = "doA-4w-haZ"; */
+"doA-4w-haZ.title" = "Refresh";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "fbC-pL-dAc"; */
+"fbC-pL-dAc.title" = "Text Cell";
