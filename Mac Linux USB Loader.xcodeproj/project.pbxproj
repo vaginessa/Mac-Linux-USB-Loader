@@ -196,7 +196,6 @@
 		24CB34651A8967D400DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBPersistenceManagerWindowController.strings; sourceTree = "<group>"; };
 		24CB34661A8967D400DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		24CB34671A8967D500DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
-		24CB34691A896F8F00DC20BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SBDocument.strings; sourceTree = "<group>"; };
 		24D39C0418DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBDeviceCollectionViewRepresentation.h; sourceTree = "<group>"; };
 		24D39C0518DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBDeviceCollectionViewRepresentation.m; sourceTree = "<group>"; };
 		24D75F8D188AE75E00FF5ADC /* SBUSBSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBSetupWindowController.h; sourceTree = "<group>"; };
@@ -758,7 +757,6 @@
 			children = (
 				24A4EC8C1884966A00CE6CF0 /* Base */,
 				24CB34621A8967D400DC20BC /* es */,
-				24CB34691A896F8F00DC20BC /* en */,
 			);
 			name = SBDocument.xib;
 			sourceTree = "<group>";
