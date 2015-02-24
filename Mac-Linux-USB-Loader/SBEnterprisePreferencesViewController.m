@@ -61,9 +61,9 @@
 	NSString *cellTitle = [aTableColumn.headerCell stringValue];
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
 
-	if ([cellTitle isEqualToString:@"Installation Name"]) {
+	if ([cellTitle isEqualToString:NSLocalizedString(@"Installation Name", nil)]) {
 		return loc.name;
-	} else if ([cellTitle isEqualToString:@"Version"]) {
+	} else if ([cellTitle isEqualToString:NSLocalizedString(@"Version", nil)]) {
 		if ([loc.version isEqualToString:@""] || loc.version == nil) {
 			return @"N/A";
 		} else {
@@ -87,7 +87,7 @@
 	if (![loc deletable]) {
 		return NO;
 	}
-	if ([cellTitle isEqualToString:@"Version"]) {
+	if ([cellTitle isEqualToString:NSLocalizedString(@"Version", nil)]) {
 		return NO;
 	}
 
