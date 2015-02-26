@@ -281,7 +281,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 }
 
 - (IBAction)showProjectWebsite:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://sevenbits.github.io/projects/mlul.html"]];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/Mac-Linux-USB-Loader/"]];
 	[self hideMoreOptionsPopover:nil];
 }
 
