@@ -286,7 +286,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 }
 
 - (IBAction)reportBug:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://sevenbits.github.io/tools/bugs/report-mlul.html"]];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/tools/bugs/report-mlul.html"]];
 	[self hideMoreOptionsPopover:nil];
 }
 
