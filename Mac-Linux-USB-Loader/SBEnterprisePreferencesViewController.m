@@ -160,7 +160,18 @@
 	[enterpriseSourceLocationOpenPanel setCanChooseFiles:NO];
 	[enterpriseSourceLocationOpenPanel beginSheetModalForWindow:self.addNewEnterpriseSourcePanel completionHandler: ^(NSInteger result) {
 	    if (result == NSFileHandlingPanelOKButton) {
-	        [self.sourceLocationPathTextField setStringValue:[[enterpriseSourceLocationOpenPanel URL] path]];
+			NSString *enteredPath = [[enterpriseSourceLocationOpenPanel URL] path];
+			__block NSString *localizedPath = [NSString string];
+			localizedPath = [localizedPath stringByAppendingPathComponent:@"/"];
+			NSArray *localizedPathComponents = [[NSFileManager defaultManager] componentsToDisplayForPath:enteredPath];
+			[localizedPathComponents enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+				// Exclude the name of the hard disk.
+				if (![obj isEqualToString:@"Macintosh HD"]) {
+					localizedPath = [localizedPath stringByAppendingPathComponent:(NSString *)obj];
+				}
+			}];
+
+	        [self.sourceLocationPathTextField setStringValue:localizedPath];
 		}
 	}
 
