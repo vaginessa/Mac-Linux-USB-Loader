@@ -31,6 +31,8 @@
 			[self.listOfArrayKeys addObject:title];
 		}
 	}
+
+	[self.sourceVersionTextField setStringValue:SBBundledEnterpriseVersionNumber];
 	return self;
 }
 
