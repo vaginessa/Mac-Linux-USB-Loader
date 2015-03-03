@@ -32,13 +32,13 @@
 		}
 	}
 
-	[self.sourceVersionTextField setStringValue:SBBundledEnterpriseVersionNumber];
 	return self;
 }
 
 - (void)awakeFromNib {
 	[self.tableView setDataSource:self];
 	[self.tableView setDelegate:self];
+	[self.sourceVersionTextField setStringValue:SBBundledEnterpriseVersionNumber];
 }
 
 - (NSString *)identifier {

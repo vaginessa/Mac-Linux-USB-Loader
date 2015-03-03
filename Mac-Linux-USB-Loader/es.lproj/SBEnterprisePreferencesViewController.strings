@@ -26,9 +26,6 @@
 /* Class = "NSBox"; title = "Setup Options"; ObjectID = "g6S-hW-I9i"; */
 "g6S-hW-I9i.title" = "Setup Options";
 
-/* Class = "NSTextFieldCell"; title = "0.1.2"; ObjectID = "kLv-dc-sPz"; */
-"kLv-dc-sPz.title" = "0.1.2";
-
 /* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "nq4-qd-E2v"; */
 "nq4-qd-E2v.title" = "Cancelar";
 
