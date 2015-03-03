@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
@@ -82,11 +82,8 @@
                             <action selector="enableStartupSupportButtonPressed:" target="-2" id="gLl-3T-wEL"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wgm-Sw-tla">
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wgm-Sw-tla">
                         <rect key="frame" x="432" y="13" width="167" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="155" id="RrS-MX-2cV"/>
-                        </constraints>
                         <buttonCell key="cell" type="push" title="Choose Startup Disk" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SpM-dG-QBu">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -97,19 +94,19 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wgm-Sw-tla" firstAttribute="top" secondItem="03L-Bd-nEK" secondAttribute="bottom" constant="12" id="ZWz-Dl-2lg"/>
                     <constraint firstItem="VPa-9x-ika" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="d80-9q-Lue"/>
-                    <constraint firstAttribute="bottom" secondItem="wgm-Sw-tla" secondAttribute="bottom" constant="20" id="dcJ-3I-Rgb"/>
                     <constraint firstItem="VPa-9x-ika" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="gOB-Lt-nd5"/>
+                    <constraint firstItem="wgm-Sw-tla" firstAttribute="trailing" secondItem="03L-Bd-nEK" secondAttribute="trailing" id="gV4-eI-thP"/>
+                    <constraint firstItem="wgm-Sw-tla" firstAttribute="bottom" secondItem="VPa-9x-ika" secondAttribute="bottom" id="qC0-5t-Nhj"/>
                     <constraint firstAttribute="trailing" secondItem="03L-Bd-nEK" secondAttribute="trailing" constant="20" symbolic="YES" id="qXh-1R-JG0"/>
-                    <constraint firstAttribute="trailing" secondItem="wgm-Sw-tla" secondAttribute="trailing" constant="20" id="wLD-RK-sN2"/>
+                    <constraint firstItem="wgm-Sw-tla" firstAttribute="top" secondItem="03L-Bd-nEK" secondAttribute="bottom" constant="12" symbolic="YES" id="tYF-ue-ReX"/>
                     <constraint firstAttribute="bottom" secondItem="VPa-9x-ika" secondAttribute="bottom" constant="20" id="wup-Md-HhE"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
-            <point key="canvasLocation" x="102.5" y="58"/>
+            <point key="canvasLocation" x="197.5" y="144"/>
         </window>
         <menu id="x5i-2p-XdH" userLabel="Table View Context Menu">
             <items>
