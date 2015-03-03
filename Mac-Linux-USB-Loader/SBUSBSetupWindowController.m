@@ -28,8 +28,6 @@
 		// Initialization code here.
 		self.usbDictionary = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
 		self.usbArray = [[NSMutableArray alloc] initWithCapacity:[self.usbDictionary count]];
-
-		[self loadUSBDeviceList:nil];
 	}
 	return self;
 }
