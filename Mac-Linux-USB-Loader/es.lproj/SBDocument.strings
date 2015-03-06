@@ -36,7 +36,7 @@
 "CpB-zL-Sag.title" = "Éxito!";
 
 /* Class = "NSTextFieldCell"; title = "Choose Destination:"; ObjectID = "JzD-IM-Mo0"; */
-"JzD-IM-Mo0.title" = "Seleccionar Destinación:";
+"JzD-IM-Mo0.title" = "Seleccionar destinación:";
 
 /* Class = "NSButtonCell"; title = "This ISO has code older than Ubuntu 14.10"; ObjectID = "K4N-ZO-OI0"; */
 "K4N-ZO-OI0.title" = "Este archivo ISO contiene codigo de una distribución menos que Ubuntu 14.10";
