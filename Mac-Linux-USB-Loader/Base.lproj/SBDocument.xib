@@ -248,12 +248,12 @@
                                                 </popUpButton>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="3yc-Pg-5C8">
                                                     <rect key="frame" x="18" y="190" width="339" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="This ISO contains the Mac version of Ubuntu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2N3-rh-Hxh">
+                                                    <buttonCell key="cell" type="check" title="This ISO contains the Mac version of Ubuntu" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" state="on" inset="2" id="2N3-rh-Hxh">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
-                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o16-cH-t1N">
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="o16-cH-t1N">
                                                     <rect key="frame" x="18" y="170" width="339" height="18"/>
                                                     <buttonCell key="cell" type="check" title="This ISO has code older than Ubuntu 14.10" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K4N-ZO-OI0">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -264,6 +264,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="bdV-ll-emw" secondAttribute="bottom" constant="20" id="4r6-Pw-AkU"/>
                                                 <constraint firstItem="DI5-qN-LvV" firstAttribute="leading" secondItem="bdV-ll-emw" secondAttribute="trailing" constant="8" id="5jU-ls-fyk"/>
+                                                <constraint firstItem="o16-cH-t1N" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="CRr-dP-rDl"/>
+                                                <constraint firstItem="o16-cH-t1N" firstAttribute="top" secondItem="3yc-Pg-5C8" secondAttribute="bottom" constant="6" id="Lzj-Fv-lxi"/>
                                                 <constraint firstAttribute="trailing" secondItem="3yc-Pg-5C8" secondAttribute="trailing" constant="20" id="OoI-Vq-6XI"/>
                                                 <constraint firstAttribute="trailing" secondItem="FN5-Ti-WuH" secondAttribute="trailing" constant="20" id="R6S-i6-4y1"/>
                                                 <constraint firstItem="3yc-Pg-5C8" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="Tz6-cC-oQl"/>
@@ -274,6 +276,7 @@
                                                 <constraint firstItem="3yc-Pg-5C8" firstAttribute="top" secondItem="FN5-Ti-WuH" secondAttribute="bottom" constant="20" id="pdm-As-o3x"/>
                                                 <constraint firstAttribute="bottom" secondItem="DI5-qN-LvV" secondAttribute="bottom" constant="20" id="pmf-sg-nyY"/>
                                                 <constraint firstAttribute="trailing" secondItem="DI5-qN-LvV" secondAttribute="trailing" constant="20" id="qJb-8A-8F9"/>
+                                                <constraint firstAttribute="trailing" secondItem="o16-cH-t1N" secondAttribute="trailing" constant="20" id="wLj-8o-iXq"/>
                                                 <constraint firstItem="bdV-ll-emw" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="woY-T5-csc"/>
                                             </constraints>
                                         </view>
@@ -355,7 +358,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="607.5" y="12.5"/>
+            <point key="canvasLocation" x="670.5" y="11.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>

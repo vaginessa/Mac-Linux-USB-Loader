@@ -63,7 +63,7 @@
 			[self.distributionSelectorPopup selectItemWithTitle:@"Other"];
 			break;
 	}
-
+	// For Ubuntu, check if this is a Mac ISO (not EFI enabled)
 	if ([[[self.fileURL path] lastPathComponent] containsSubstring:@"+mac"]) {
 		[self.isMacVersionCheckBox setState:NSOnState];
 	} else {
@@ -216,7 +216,7 @@
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"Not enough free space", nil)];
-		[alert setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"The USB drive that you have selected does not have enough free space. At least %@ of space is required.", nil), formattedByteCount]];
+		[alert setInformativeText:[NSString localizedStringWithFormat:NSLocalizedString(@"The USB drive that you have selected does not have enough free space. At least %@ of space is required.", nil), formattedByteCount]];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
