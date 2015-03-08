@@ -87,7 +87,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	// that they want this behavior to happen.
 	BOOL shouldClearCaches = [[NSUserDefaults standardUserDefaults] boolForKey:@"PeriodicallyClearCaches"];
 	if (shouldClearCaches) {
-		NSInteger clearCachesUpdateInterval = 5184000; // 60 days (i.e two months) in seconds
+		const NSInteger clearCachesUpdateInterval = 5184000; // 60 days (i.e two months) in seconds
 		NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastCacheClearCheckTime"];
 		if (lastCheckedDate) {
 			// We have a previous date.
@@ -96,6 +96,9 @@ const NSString *SBBundledEnterpriseVersionNumber;
 				// Delete all caches.
 				NSLog(@"Clearing all caches and old ISO downloads...");
 				[self purgeCachesAndOldFiles];
+
+				// Save the date now as the starting point for the two-month count to clear caches.
+				[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastCacheClearCheckTime"];
 			}
 		} else {
 			// User has just opened the application or has cleared defaults. Save the date now as the starting
