@@ -26,6 +26,7 @@
 @property (weak) IBOutlet NSTextField *distroNameLabel;
 @property (weak) IBOutlet NSButton *downloadDistroButton;
 @property (weak) IBOutlet NSButton *accessoryViewButton;
+@property (weak) IBOutlet NSProgressIndicator *spinner;
 
 @property (strong) IBOutlet NSPopover *downloadQueuePopover;
 @property (strong) IBOutlet SBDistributionDownloaderDownloadsDataSource *downloadQueueDataSource;
@@ -123,6 +124,9 @@
 	canReachInternet = SCNetworkReachabilityGetFlags(target, &flags);
 	CFRelease(target);
 
+	// Start the mirror update spinner.
+	[self.spinner startAnimation:nil];
+
 	if (!(canReachInternet && (flags & kSCNetworkFlagsReachable) && !(flags & kSCNetworkFlagsConnectionRequired))) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
@@ -152,6 +156,11 @@
 		            [alert runModal];
 				});
 			}
+
+			// Stop the spinner.
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self.spinner stopAnimation:nil];
+			});
 		});
 	}
 }
