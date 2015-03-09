@@ -75,7 +75,9 @@
 			// Enough time has elapsed to where it is now time to update the JSON mirrors.
 			// We do this in the background without a lot of pomp so it is transparent to the user.
 			NSLog(@"%ld seconds have elapsed, updating JSON.", (long)interval);
-			[self downloadJSON];
+			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+				[self downloadJSON];
+			});
 
 			[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastMirrorUpdateCheckTime"];
 		} else {
@@ -124,16 +126,15 @@
 	canReachInternet = SCNetworkReachabilityGetFlags(target, &flags);
 	CFRelease(target);
 
-	// Start the mirror update spinner.
-	[self.spinner startAnimation:nil];
-
 	if (!(canReachInternet && (flags & kSCNetworkFlagsReachable) && !(flags & kSCNetworkFlagsConnectionRequired))) {
-		NSAlert *alert = [[NSAlert alloc] init];
-		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-		[alert setMessageText:NSLocalizedString(@"No network connection.", nil)];
-		[alert setInformativeText:NSLocalizedString(@"Mac Linux USB Loader cannot download the mirror lists because you are not connected to the Internet.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
-		[alert runModal];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSAlert *alert = [[NSAlert alloc] init];
+			[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+			[alert setMessageText:NSLocalizedString(@"No network connection.", nil)];
+			[alert setInformativeText:NSLocalizedString(@"Mac Linux USB Loader cannot download the mirror lists because you are not connected to the Internet.", nil)];
+			[alert setAlertStyle:NSWarningAlertStyle];
+			[alert runModal];
+		});
 
 		return;
 	}
@@ -145,6 +146,11 @@
 		    NSError *err;
 		    NSString *temp = [NSString stringWithFormat:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/%@.json", [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
 		    NSURL *url = [NSURL URLWithString:temp];
+
+			// Start the mirror update spinner.
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self.spinner startAnimation:nil];
+			});
 
 		    NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
 		    if (strCon) {
