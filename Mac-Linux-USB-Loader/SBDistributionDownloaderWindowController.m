@@ -96,21 +96,21 @@
 	NSString *cacheDirectory = [[NSFileManager defaultManager] cacheDirectory];
 	__block NSString *tempFileName;
 
-	for (NSString *distroName in [(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
+	for (NSString *distroName in[(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
 		// Grab our JSON, but do it on a background thread so we don't slow down the GUI.
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		    NSError *err;
-		    tempFileName = [NSString stringWithFormat:@"%@/%@.json", cacheDirectory, [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
-		    NSURL *url = [NSURL fileURLWithPath:tempFileName];
+			NSError *err;
+			tempFileName = [NSString stringWithFormat:@"%@/%@.json", cacheDirectory, [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
+			NSURL *url = [NSURL fileURLWithPath:tempFileName];
 
-		    NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
-		    if (strCon) {
-		        //NSLog(@"Recieved JSON data: %@", strCon);
-		        [self processJSON:strCon forDistributionNamed:distroName downloadContent:NO];
+			NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
+			if (strCon) {
+			    //NSLog(@"Recieved JSON data: %@", strCon);
+			    [self processJSON:strCon forDistributionNamed:distroName downloadContent:NO];
 			} else {
-		        dispatch_async(dispatch_get_main_queue(), ^{
-		            NSAlert *alert = [NSAlert alertWithError:err];
-		            [alert runModal];
+			    dispatch_async(dispatch_get_main_queue(), ^{
+					NSAlert *alert = [NSAlert alertWithError:err];
+					[alert runModal];
 				});
 			}
 		});
@@ -140,33 +140,30 @@
 	}
 
 	// We have an Internet connection, so proceed by downloading the JSON.
-	for (NSString *distroName in [(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
-		// Grab our JSON, but do it on a background thread so we don't slow down the GUI.
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		    NSError *err;
-		    NSString *temp = [NSString stringWithFormat:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/%@.json", [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
-		    NSURL *url = [NSURL URLWithString:temp];
+	for (NSString *distroName in[(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
+		NSError *err;
+		NSString *temp = [NSString stringWithFormat:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/%@.json", [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
+		NSURL *url = [NSURL URLWithString:temp];
 
-			// Start the mirror update spinner.
+		// Start the mirror update spinner.
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.spinner startAnimation:nil];
+		});
+
+		NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
+		if (strCon) {
+			//NSLog(@"Recieved JSON data: %@", strCon);
+			[self processJSON:strCon forDistributionNamed:distroName downloadContent:YES];
+		} else {
 			dispatch_async(dispatch_get_main_queue(), ^{
-				[self.spinner startAnimation:nil];
+				NSAlert *alert = [NSAlert alertWithError:err];
+				[alert runModal];
 			});
+		}
 
-		    NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
-		    if (strCon) {
-		        //NSLog(@"Recieved JSON data: %@", strCon);
-		        [self processJSON:strCon forDistributionNamed:distroName downloadContent:YES];
-			} else {
-		        dispatch_async(dispatch_get_main_queue(), ^{
-		            NSAlert *alert = [NSAlert alertWithError:err];
-		            [alert runModal];
-				});
-			}
-
-			// Stop the spinner.
-			dispatch_async(dispatch_get_main_queue(), ^{
-				[self.spinner stopAnimation:nil];
-			});
+		// Stop the spinner.
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.spinner stopAnimation:nil];
 		});
 	}
 }
@@ -177,9 +174,9 @@
 	self.downloadDistroModel = [[SBDownloadableDistributionModel alloc] initWithString:json error:&error];
 	if (error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
-		    NSLog(@"%@: %@", distroName, [error localizedDescription]);
-		    NSAlert *alert = [NSAlert alertWithError:error];
-		    [alert runModal];
+			NSLog(@"%@: %@", distroName, [error localizedDescription]);
+			NSAlert *alert = [NSAlert alertWithError:error];
+			[alert runModal];
 		});
 	} else {
 		[self.idLock lock];
@@ -277,7 +274,7 @@
 	// Open the URL.
 	NSURL *url = [NSURL fileURLWithPath:path];
 	[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler: ^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}
-	 ];
+	];
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
@@ -315,9 +312,9 @@
 
 		// If the user is running pre-Yosemite, nudge the button to the left to account for the fullscreen button.
 		NSRect newFrame = NSMakeRect(c.size.width - aV.size.width - SBAccessoryViewEdgeOffset, // x position
-							  c.size.height - aV.size.height, // y position
-							  aV.size.width, // width
-							  aV.size.height); // height
+		                             c.size.height - aV.size.height, // y position
+		                             aV.size.width, // width
+		                             aV.size.height); // height
 
 		[self.accessoryView setFrame:newFrame];
 		[self.accessoryView setNeedsDisplay:YES];
@@ -341,8 +338,8 @@
 	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
 	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-												 [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
-												 [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
+	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
 
 	// Open the URL.
 	[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:path];

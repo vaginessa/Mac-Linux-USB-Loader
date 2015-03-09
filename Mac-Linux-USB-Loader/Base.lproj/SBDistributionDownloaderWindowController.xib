@@ -17,7 +17,7 @@
                 <outlet property="downloadQueuePopover" destination="sSf-Jm-Ikg" id="hNg-eS-ulU"/>
                 <outlet property="downloadQueueTableView" destination="nb5-NT-9RQ" id="yn8-IK-i0b"/>
                 <outlet property="downloadSettingsPanel" destination="dxA-hL-HgN" id="MD0-73-cWi"/>
-                <outlet property="spinner" destination="rdU-QG-161" id="Y2h-0i-pZg"/>
+                <outlet property="spinner" destination="ssu-us-fii" id="BrV-5X-Ove"/>
                 <outlet property="tableView" destination="vwt-RC-84e" id="vfr-48-1b6"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -132,7 +132,7 @@
                             <action selector="downloadDistroButtonPressed:" target="-2" id="MjO-vK-9BR"/>
                         </connections>
                     </button>
-                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="rdU-QG-161">
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ssu-us-fii">
                         <rect key="frame" x="268" y="22" width="16" height="16"/>
                     </progressIndicator>
                 </subviews>
@@ -140,10 +140,12 @@
                     <constraint firstAttribute="trailing" secondItem="EO0-1k-d1r" secondAttribute="trailing" constant="20" symbolic="YES" id="4yM-9s-e2Y"/>
                     <constraint firstItem="EO0-1k-d1r" firstAttribute="top" secondItem="gIi-nC-45h" secondAttribute="top" id="6eP-wc-pDK"/>
                     <constraint firstItem="EO0-1k-d1r" firstAttribute="bottom" secondItem="gIi-nC-45h" secondAttribute="bottom" constant="-41" id="FMr-8T-1nh"/>
+                    <constraint firstAttribute="bottom" secondItem="ssu-us-fii" secondAttribute="bottom" constant="22" id="PX8-Pn-1EV"/>
                     <constraint firstAttribute="bottom" secondItem="h8j-38-923" secondAttribute="bottom" constant="20" id="TKC-M5-03U"/>
                     <constraint firstItem="gIi-nC-45h" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="V0c-32-9Eq"/>
                     <constraint firstItem="EO0-1k-d1r" firstAttribute="leading" secondItem="gIi-nC-45h" secondAttribute="trailing" constant="8" symbolic="YES" id="cQY-lH-eMY"/>
                     <constraint firstAttribute="bottom" secondItem="gIi-nC-45h" secondAttribute="bottom" constant="20" id="eY0-1C-8nk"/>
+                    <constraint firstItem="ssu-us-fii" firstAttribute="leading" secondItem="gIi-nC-45h" secondAttribute="trailing" constant="8" id="jyt-Pk-xMp"/>
                     <constraint firstAttribute="trailing" secondItem="h8j-38-923" secondAttribute="trailing" constant="20" id="mTG-dC-Xz3"/>
                     <constraint firstItem="EO0-1k-d1r" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="268" id="mwx-YP-FI5"/>
                     <constraint firstItem="gIi-nC-45h" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="pcf-Qh-PH6"/>
