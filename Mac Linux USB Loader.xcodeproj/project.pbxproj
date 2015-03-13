@@ -143,6 +143,16 @@
 		24245F3118D222250085C43F /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
 		2424764A194A180A0083033B /* NSProcessInfo+PECocoaBackports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+PECocoaBackports.h"; sourceTree = "<group>"; };
 		2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProcessInfo+PECocoaBackports.m"; sourceTree = "<group>"; };
+		2424AD7C1AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		2424AD7D1AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBDocument.strings; sourceTree = "<group>"; };
+		2424AD7E1AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBAboutWindowController.strings; sourceTree = "<group>"; };
+		2424AD7F1AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBUSBSetupWindowController.strings; sourceTree = "<group>"; };
+		2424AD801AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBPersistenceManagerWindowController.strings; sourceTree = "<group>"; };
+		2424AD811AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBDistributionDownloaderWindowController.strings; sourceTree = "<group>"; };
+		2424AD821AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
+		2424AD831AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
+		2424AD841AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
+		2424AD851AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		245784931A8AA7680005F32F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		245784971A8AB7B80005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderPreferencesViewController.xib; sourceTree = "<group>"; };
 		2457849C1A8AB7C40005F32F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -539,6 +549,7 @@
 				en,
 				Base,
 				es,
+				nl,
 			);
 			mainGroup = 24A4EC6A1884966900CE6CF0;
 			productRefGroup = 24A4EC741884966900CE6CF0 /* Products */;
@@ -678,6 +689,7 @@
 			children = (
 				24101B8B1896D4AF00EDE32C /* Base */,
 				24CB34631A8967D400DC20BC /* es */,
+				2424AD7E1AB37EE4004610EC /* nl */,
 			);
 			name = SBAboutWindowController.xib;
 			sourceTree = "<group>";
@@ -687,6 +699,7 @@
 			children = (
 				24155CCC18903B4500FAB98C /* Base */,
 				24CB34651A8967D400DC20BC /* es */,
+				2424AD801AB37EE4004610EC /* nl */,
 			);
 			name = SBPersistenceManagerWindowController.xib;
 			sourceTree = "<group>";
@@ -696,6 +709,7 @@
 			children = (
 				245784931A8AA7680005F32F /* es */,
 				249FBF2D1A8BF8C30087A8DF /* Base */,
+				2424AD851AB37EE4004610EC /* nl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -705,6 +719,7 @@
 			children = (
 				245784971A8AB7B80005F32F /* Base */,
 				2457849C1A8AB7C40005F32F /* es */,
+				2424AD841AB37EE4004610EC /* nl */,
 			);
 			name = SBDistributionDownloaderPreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -714,6 +729,7 @@
 			children = (
 				2457849E1A8AB86D0005F32F /* Base */,
 				245784A11A8AB8720005F32F /* es */,
+				2424AD811AB37EE4004610EC /* nl */,
 			);
 			name = SBDistributionDownloaderWindowController.xib;
 			sourceTree = "<group>";
@@ -723,6 +739,7 @@
 			children = (
 				24F727C418BAC13B00B16013 /* Base */,
 				24CB34671A8967D500DC20BC /* es */,
+				2424AD831AB37EE4004610EC /* nl */,
 			);
 			name = SBEnterprisePreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -732,6 +749,7 @@
 			children = (
 				24680E5518AE7FE500B6E13F /* Base */,
 				24CB34661A8967D400DC20BC /* es */,
+				2424AD821AB37EE4004610EC /* nl */,
 			);
 			name = SBGeneralPreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -757,6 +775,7 @@
 			children = (
 				24A4EC8C1884966A00CE6CF0 /* Base */,
 				24CB34621A8967D400DC20BC /* es */,
+				2424AD7D1AB37EE4004610EC /* nl */,
 			);
 			name = SBDocument.xib;
 			sourceTree = "<group>";
@@ -766,6 +785,7 @@
 			children = (
 				24A4EC8F1884966A00CE6CF0 /* Base */,
 				24CB34611A8967D400DC20BC /* es */,
+				2424AD7C1AB37EE4004610EC /* nl */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -783,6 +803,7 @@
 			children = (
 				24D75F93188AE77100FF5ADC /* Base */,
 				24CB34641A8967D400DC20BC /* es */,
+				2424AD7F1AB37EE4004610EC /* nl */,
 			);
 			name = SBUSBSetupWindowController.xib;
 			sourceTree = "<group>";
