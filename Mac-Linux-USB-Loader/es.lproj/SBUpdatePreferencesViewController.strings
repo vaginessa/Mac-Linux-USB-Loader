@@ -1,0 +1,18 @@
+
+/* Class = "NSMenuItem"; title = "Monthly"; ObjectID = "cvz-bF-QuY"; */
+"cvz-bF-QuY.title" = "Cada mez";
+
+/* Class = "NSMenuItem"; title = "Weekly"; ObjectID = "gnV-Vq-dhb"; */
+"gnV-Vq-dhb.title" = "Cada semana";
+
+/* Class = "NSButtonCell"; title = "Automatically Check for Updates"; ObjectID = "kjC-fK-tIu"; */
+"kjC-fK-tIu.title" = "Buscar actualizaciones automáticamente";
+
+/* Class = "NSTextFieldCell"; title = "Update Check Interval:"; ObjectID = "neh-34-5Rp"; */
+"neh-34-5Rp.title" = "Intervalo de comprobación actualizaciones:";
+
+/* Class = "NSMenuItem"; title = "Hourly"; ObjectID = "rVv-ZL-27X"; */
+"rVv-ZL-27X.title" = "Cada hora";
+
+/* Class = "NSMenuItem"; title = "Daily"; ObjectID = "slG-Ox-uWY"; */
+"slG-Ox-uWY.title" = "Cada día";

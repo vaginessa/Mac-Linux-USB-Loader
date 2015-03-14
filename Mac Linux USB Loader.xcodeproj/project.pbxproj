@@ -27,6 +27,8 @@
 		245784941A8AA7680005F32F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 245784921A8AA7680005F32F /* Localizable.strings */; };
 		245784961A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245784981A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib */; };
 		2457849D1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2457849F1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib */; };
+		245A2A8D1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245A2A8B1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m */; };
+		245A2A8F1AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245A2A911AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib */; };
 		24680E4F18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */; };
 		24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5618AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib */; };
 		24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */; };
@@ -158,6 +160,11 @@
 		2457849C1A8AB7C40005F32F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
 		2457849E1A8AB86D0005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderWindowController.xib; sourceTree = "<group>"; };
 		245784A11A8AB8720005F32F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDistributionDownloaderWindowController.strings; sourceTree = "<group>"; };
+		245A2A8A1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUpdatePreferencesViewController.h; sourceTree = "<group>"; };
+		245A2A8B1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUpdatePreferencesViewController.m; sourceTree = "<group>"; };
+		245A2A901AB4A82A00D3C021 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBUpdatePreferencesViewController.xib; sourceTree = "<group>"; };
+		245A2A971AB4ABDB00D3C021 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
+		245A2A991AB4ADB400D3C021 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
 		245AC8011A17CBAB0039E2C9 /* Mac-Linux-USB-Loader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mac-Linux-USB-Loader-Prefix.pch"; sourceTree = "<group>"; };
 		24680E4C18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterprisePreferencesViewController.h; sourceTree = "<group>"; };
 		24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterprisePreferencesViewController.m; sourceTree = "<group>"; };
@@ -407,6 +414,9 @@
 				2415E659196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.h */,
 				2415E65A196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m */,
 				245784981A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib */,
+				245A2A8A1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.h */,
+				245A2A8B1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m */,
+				245A2A911AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib */,
 			);
 			name = "Preferences View Controllers";
 			sourceTree = "<group>";
@@ -576,6 +586,7 @@
 				24A4EC921884966A00CE6CF0 /* Images.xcassets in Resources */,
 				245784961A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib in Resources */,
 				24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */,
+				245A2A8F1AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib in Resources */,
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
 				24B322FD18A0123F00A5E25E /* defaults.plist in Resources */,
 				24F35F7E19D604AE0019CF54 /* Acknowledgements.rtf in Resources */,
@@ -662,6 +673,7 @@
 				2415E65C196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m in Sources */,
 				24B29B5719326F6C0009C3D8 /* SBDownloadableDistributionModel.m in Sources */,
 				240F98A118B060AD001EAE87 /* SBEnterpriseSourceLocation.m in Sources */,
+				245A2A8D1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +744,16 @@
 				2424AD811AB37EE4004610EC /* nl */,
 			);
 			name = SBDistributionDownloaderWindowController.xib;
+			sourceTree = "<group>";
+		};
+		245A2A911AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				245A2A901AB4A82A00D3C021 /* Base */,
+				245A2A971AB4ABDB00D3C021 /* es */,
+				245A2A991AB4ADB400D3C021 /* nl */,
+			);
+			name = SBUpdatePreferencesViewController.xib;
 			sourceTree = "<group>";
 		};
 		24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */ = {

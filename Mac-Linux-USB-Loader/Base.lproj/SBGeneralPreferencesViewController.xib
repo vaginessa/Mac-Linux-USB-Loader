@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBGeneralPreferencesViewController">
@@ -14,17 +14,17 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="1">
-            <rect key="frame" x="0.0" y="0.0" width="461" height="259"/>
+            <rect key="frame" x="0.0" y="0.0" width="461" height="198"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Mqp-7t-iHQ">
-                    <rect key="frame" x="12" y="176" width="429" height="5"/>
+                    <rect key="frame" x="12" y="115" width="429" height="5"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="s4C-gM-3i6">
-                    <rect key="frame" x="64" y="223" width="332" height="18"/>
+                    <rect key="frame" x="64" y="162" width="332" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="pj0-IR-vye"/>
                     </constraints>
@@ -38,7 +38,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZY5-Xk-lAz">
-                    <rect key="frame" x="342" y="183" width="105" height="32"/>
+                    <rect key="frame" x="342" y="122" width="105" height="32"/>
                     <buttonCell key="cell" type="push" title="Clear Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j9p-k1-kBV">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -52,65 +52,14 @@
                         </binding>
                     </connections>
                 </button>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="icx-Ce-F4I">
-                    <rect key="frame" x="118" y="154" width="225" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="14" id="bmJ-ge-Gbl"/>
-                    </constraints>
-                    <buttonCell key="cell" type="check" title="Automatically Check for Updates" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="mf5-Z9-GRI">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="rAB-JL-ANu" name="value" keyPath="automaticallyChecksForUpdates" id="K70-2I-uZY"/>
-                    </connections>
-                </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vaN-bs-CrQ">
-                    <rect key="frame" x="81" y="131" width="146" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="17" id="Jvo-Hm-PpM"/>
-                    </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Update Check Interval:" id="vno-Rz-5Bh">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rcm-f0-Xb1">
-                    <rect key="frame" x="231" y="124" width="148" height="26"/>
-                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="yzc-nR-IFl">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
-                        <menu key="menu" id="8wh-dF-IyE">
-                            <items>
-                                <menuItem title="Hourly" tag="3600" id="2XN-Bl-N6x"/>
-                                <menuItem title="Daily" tag="86400" id="Nfo-Y2-B4V"/>
-                                <menuItem title="Weekly" tag="604800" id="zYc-yI-rOc"/>
-                                <menuItem title="Monthly" tag="2629800" id="mwh-In-KYH">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                    <connections>
-                        <binding destination="rAB-JL-ANu" name="enabled" keyPath="automaticallyChecksForUpdates" id="BS1-tc-M2o"/>
-                        <binding destination="rAB-JL-ANu" name="selectedTag" keyPath="updateCheckInterval" id="X3v-vy-5JA"/>
-                    </connections>
-                </popUpButton>
-                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="DtM-MH-qpg">
-                    <rect key="frame" x="12" y="120" width="429" height="5"/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
-                </box>
                 <box autoresizesSubviews="NO" title="Experimental" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="nPg-bg-bVL">
-                    <rect key="frame" x="13" y="16" width="427" height="98"/>
+                    <rect key="frame" x="13" y="9" width="427" height="100"/>
                     <view key="contentView">
-                        <rect key="frame" x="1" y="1" width="425" height="82"/>
+                        <rect key="frame" x="1" y="1" width="425" height="84"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-OH-hmA">
-                                <rect key="frame" x="16" y="56" width="393" height="18"/>
+                                <rect key="frame" x="16" y="58" width="393" height="18"/>
                                 <buttonCell key="cell" type="check" title="Accept HFS+ Formatted Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9HT-f6-zfH">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -126,33 +75,21 @@
                 </box>
             </subviews>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="nPg-bg-bVL" secondAttribute="bottom" constant="13" id="3Mj-ky-pwg"/>
                 <constraint firstItem="s4C-gM-3i6" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="40n-VX-8ah"/>
-                <constraint firstItem="DtM-MH-qpg" firstAttribute="top" secondItem="vaN-bs-CrQ" secondAttribute="bottom" constant="8" symbolic="YES" id="7K3-RV-QLW"/>
-                <constraint firstItem="vaN-bs-CrQ" firstAttribute="top" secondItem="icx-Ce-F4I" secondAttribute="bottom" constant="8" symbolic="YES" id="87U-10-maV"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="16" id="8Qe-xL-g81"/>
+                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="8" symbolic="YES" id="811-Cx-euA"/>
                 <constraint firstItem="Mqp-7t-iHQ" firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" id="AOI-r9-ggB"/>
                 <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="Bl2-6H-fbK"/>
-                <constraint firstItem="DtM-MH-qpg" firstAttribute="centerX" secondItem="nPg-bg-bVL" secondAttribute="centerX" id="HKb-kt-s9o"/>
-                <constraint firstItem="DtM-MH-qpg" firstAttribute="leading" secondItem="Mqp-7t-iHQ" secondAttribute="leading" id="JiI-qh-tj5"/>
+                <constraint firstItem="nPg-bg-bVL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="16" id="IME-9P-iyH"/>
                 <constraint firstItem="s4C-gM-3i6" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="Kwe-V7-7Wh"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="DtM-MH-qpg" secondAttribute="bottom" constant="8" symbolic="YES" id="M6Q-TG-jMN"/>
                 <constraint firstItem="Mqp-7t-iHQ" firstAttribute="top" secondItem="ZY5-Xk-lAz" secondAttribute="bottom" constant="11" id="RFd-EC-v6l"/>
                 <constraint firstItem="ZY5-Xk-lAz" firstAttribute="top" secondItem="s4C-gM-3i6" secondAttribute="bottom" constant="14" id="S4L-Na-xtD"/>
-                <constraint firstItem="DtM-MH-qpg" firstAttribute="trailing" secondItem="Mqp-7t-iHQ" secondAttribute="trailing" id="dMa-IF-PpW"/>
-                <constraint firstAttribute="bottom" secondItem="nPg-bg-bVL" secondAttribute="bottom" constant="20" symbolic="YES" id="eIq-v8-xI2"/>
-                <constraint firstItem="vaN-bs-CrQ" firstAttribute="top" secondItem="Rcm-f0-Xb1" secondAttribute="top" id="eJf-ye-vQS"/>
-                <constraint firstItem="icx-Ce-F4I" firstAttribute="top" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="8" symbolic="YES" id="eNq-TC-H3H"/>
-                <constraint firstItem="Rcm-f0-Xb1" firstAttribute="leading" secondItem="vaN-bs-CrQ" secondAttribute="trailing" constant="8" symbolic="YES" id="gct-dk-WMz"/>
-                <constraint firstAttribute="trailing" secondItem="Rcm-f0-Xb1" secondAttribute="trailing" constant="85" id="jds-t5-4cV"/>
-                <constraint firstItem="vaN-bs-CrQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="83" id="nZz-xP-W6h"/>
                 <constraint firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" constant="20" symbolic="YES" id="o2O-no-M6L"/>
-                <constraint firstItem="Rcm-f0-Xb1" firstAttribute="baseline" secondItem="vaN-bs-CrQ" secondAttribute="baseline" id="uol-7x-BRz"/>
-                <constraint firstItem="icx-Ce-F4I" firstAttribute="centerX" secondItem="s4C-gM-3i6" secondAttribute="centerX" id="ziF-fX-Vsd"/>
+                <constraint firstItem="nPg-bg-bVL" firstAttribute="centerX" secondItem="Mqp-7t-iHQ" secondAttribute="centerX" id="p7L-W6-mYR"/>
             </constraints>
-            <point key="canvasLocation" x="414.5" y="286.5"/>
+            <point key="canvasLocation" x="414.5" y="256"/>
         </customView>
         <userDefaultsController id="xGH-KJ-pxb"/>
-        <customObject id="rAB-JL-ANu" userLabel="Sparkle" customClass="SUUpdater"/>
         <userDefaultsController representsSharedInstance="YES" id="aRH-Yv-lWu"/>
     </objects>
 </document>
