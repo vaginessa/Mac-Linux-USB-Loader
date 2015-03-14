@@ -243,9 +243,9 @@
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
-	if ([[[aTableColumn headerCell] stringValue] isEqualToString:NSLocalizedString(@"Distribution Name", nil)]) {
+	if ([aTableColumn.identifier isEqualToString:@"nameCol"]) {
 		return [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
-	} else if ([[[aTableColumn headerCell] stringValue] isEqualToString:NSLocalizedString(@"Current Version", nil)]) {
+	} else if ([aTableColumn.identifier isEqualToString:@"versionCol"]) {
 		NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
 		return [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution];
 	} else {

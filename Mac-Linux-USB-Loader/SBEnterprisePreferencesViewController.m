@@ -60,12 +60,12 @@
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
-	NSString *cellTitle = [aTableColumn.headerCell stringValue];
+	NSString *cellTitle = aTableColumn.identifier;
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
 
-	if ([cellTitle isEqualToString:NSLocalizedString(@"Installation Name", nil)]) {
+	if ([cellTitle isEqualToString:@"nameCol"]) {
 		return loc.name;
-	} else if ([cellTitle isEqualToString:NSLocalizedString(@"Version", nil)]) {
+	} else if ([cellTitle isEqualToString:@"versionCol"]) {
 		if ([loc.version isEqualToString:@""] || loc.version == nil) {
 			return @"N/A";
 		} else {
