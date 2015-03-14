@@ -38,3 +38,4 @@ Acknowledgements
 
 - Used some icons from KDE's Oxygen.
     [link](http://www.oxygen-icons.org/)
+- Special thanks to Leander Lismond for translating the application into Dutch!
