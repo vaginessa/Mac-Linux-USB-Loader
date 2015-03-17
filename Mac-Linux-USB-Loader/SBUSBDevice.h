@@ -32,6 +32,9 @@ typedef NS_ENUM (NSInteger, SBUSBDriveFileSystem) {
 /// The file system of the USB drive.
 @property (nonatomic) SBUSBDriveFileSystem fileSystem;
 
+/// The UUID device identifier for the USB drive represented by this object (can be nil).
+@property (nonatomic, strong) NSUUID *uuid;
+
 /**
  * Creates a persistence file on the USB stick of the specified size. The file is formatted to contain
  * a loopback ext4 filesystem.

@@ -241,7 +241,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 						usbDevice.path = usbDeviceMountPoint;
 						usbDevice.name = [usbDeviceMountPoint lastPathComponent];
 						usbDevice.fileSystem = [volumeType isEqualToString:@"msdos"] ? SBUSBDriveFileSystemFAT32 : SBUSBDriveFileSystemHFS;
-						[SBAppDelegate uuidForDeviceName:usbDeviceMountPoint];
+						usbDevice.uuid = [SBAppDelegate uuidForDeviceName:usbDeviceMountPoint];
 
 						self.usbDictionary[usbDevice.name] = usbDevice;
 					}

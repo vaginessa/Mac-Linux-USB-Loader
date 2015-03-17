@@ -145,7 +145,7 @@
 
 	// Write source locations to disk.
 	NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
-	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk : filePath];
+	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
 
 	// Update user preferences.
 	[[NSUserDefaults standardUserDefaults] setObject:@"Included With Application" forKey:@"DefaultEnterpriseSourceLocation"];
