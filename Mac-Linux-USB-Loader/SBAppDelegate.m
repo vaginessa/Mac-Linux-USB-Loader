@@ -66,7 +66,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 
 	/* Set the application version label string. */
 	[self.applicationVersionString setStringValue:
-	 [NSString stringWithFormat:@"Version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+	 [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
 
 	/* Set the popover to be transient, so that it goes away when we click on something else. */
 	[self.moreOptionsPopover setBehavior:NSPopoverBehaviorTransient];
