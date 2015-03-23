@@ -55,8 +55,6 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	// Set window resize behavior.
 	[[self.window standardWindowButton:NSWindowZoomButton] setHidden:YES];
 	[[self.window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
-	[self.window setShowsResizeIndicator:NO];
-	[self.window setResizeIncrements:NSMakeSize(MAXFLOAT, MAXFLOAT)];
 
 	// Remove the title.
 	[self.window setTitle:@""];

@@ -92,7 +92,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-AppleLanguages (es)"
+            argument = "-AppleLanguages (nl)"
             isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
