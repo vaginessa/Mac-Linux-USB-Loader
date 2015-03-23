@@ -93,7 +93,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 			if (interval > clearCachesUpdateInterval) {
 				// Delete all caches.
 				NSLog(@"Clearing all caches and old ISO downloads...");
-				[self purgeCachesAndOldFiles];
+				[NSThread detachNewThreadSelector:@selector(purgeCachesAndOldFiles) toTarget:self withObject:nil];
 
 				// Save the date now as the starting point for the two-month count to clear caches.
 				[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastCacheClearCheckTime"];
