@@ -78,9 +78,8 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 
-	// Detect all available USB drives.
+	// Load the list of Enterprise installation sources
 	[self setupEnterpriseInstallationLocations];
-	[self detectAndSetupUSBs];
 
 	// Check if enough time has passed to where we need to clear all caches, but only if the user has indicated
 	// that they want this behavior to happen.
