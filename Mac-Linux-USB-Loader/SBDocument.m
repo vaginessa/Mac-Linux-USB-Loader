@@ -12,8 +12,6 @@
 #import "SBEnterpriseSourceLocation.h"
 #import "SBUSBDevice.h"
 #import "SBUSBDeviceCollectionViewRepresentation.h"
-#import "NSFileManager+Extensions.h"
-#import "NSString+Extensions.h"
 
 @implementation SBDocument {
 	NSMutableDictionary *usbDictionary;

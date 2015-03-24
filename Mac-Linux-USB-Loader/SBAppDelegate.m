@@ -13,9 +13,6 @@
 #import "SBUpdatePreferencesViewController.h"
 #import "SBEnterpriseSourceLocation.h"
 
-#import "NSFileManager+Extensions.h"
-#import "NSFileManager+DirectoryLocations.h"
-
 const NSString *SBBundledEnterpriseVersionNumber;
 
 @implementation SBAppDelegate
