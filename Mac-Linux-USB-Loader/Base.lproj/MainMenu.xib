@@ -518,7 +518,7 @@
                 <outlet property="view" destination="5h4-lh-Ua3" id="uB0-6c-GoU"/>
             </connections>
         </viewController>
-        <popover id="O0L-Mi-Kr6">
+        <popover behavior="t" id="O0L-Mi-Kr6">
             <connections>
                 <outlet property="contentViewController" destination="b20-HZ-vKs" id="6Rb-DH-FUA"/>
             </connections>

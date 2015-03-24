@@ -66,9 +66,6 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	[self.applicationVersionString setStringValue:
 	 [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
 
-	/* Set the popover to be transient, so that it goes away when we click on something else. */
-	[self.moreOptionsPopover setBehavior:NSPopoverBehaviorTransient];
-
 	/* Setup the rest of the application. */
 	[self applicationSetup];
 }
@@ -139,8 +136,6 @@ const NSString *SBBundledEnterpriseVersionNumber;
 				//NSLog(@"Not deleting file %@ because it matches pattern: %@", shortFileName, distroName);
 				shouldDelete = NO;
 				break;
-			} else {
-				//NSLog(@"Deleting file: %@", shortFileName);
 			}
 		}
 
@@ -333,7 +328,6 @@ const NSString *SBBundledEnterpriseVersionNumber;
 
 - (void)userSelectedOperationFromTable {
 	NSInteger clickedRow = [self.operationsTableView clickedRow];
-	[self hideMoreOptionsPopover:nil];
 
 	if (clickedRow != -1) { // We've selected a valid table entry.
 		[self.window orderOut:nil];
