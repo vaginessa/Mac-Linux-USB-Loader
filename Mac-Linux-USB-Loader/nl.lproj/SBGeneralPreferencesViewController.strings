@@ -16,3 +16,6 @@
 
 /* Class = "NSBox"; title = "Experimental"; ObjectID = "nPg-bg-bVL"; */
 "nPg-bg-bVL.title" = "Experimenteel";
+
+/* Class = "NSButtonCell"; title = "Hide Enterprise Configuration File"; ObjectID = "CG7-vV-ura" */
+"CG7-vV-ura.title" = "Hide Enterprise Configuration File";

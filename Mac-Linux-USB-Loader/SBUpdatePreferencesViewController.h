@@ -2,7 +2,7 @@
 //  SBUpdatePreferencesViewController.h
 //  Mac Linux USB Loader
 //
-//  Created by Ryan Bowring on 3/14/15.
+//  Created by SevenBits on 3/14/15.
 //  Copyright (c) 2015 SevenBits. All rights reserved.
 //
 
