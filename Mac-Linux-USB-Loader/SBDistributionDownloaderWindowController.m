@@ -140,7 +140,7 @@
 	}
 
 	// We have an Internet connection, so proceed by downloading the JSON.
-	for (NSString *distroName in[(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
+	for (NSString *distroName in [(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
 		NSError *err;
 		NSString *temp = [NSString stringWithFormat:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/%@.json", [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
 		NSURL *url = [NSURL URLWithString:temp];
@@ -195,6 +195,7 @@
 			img = [[NSImage alloc] initWithContentsOfFile:imgFilePath];
 		}
 
+		// Register the image and save it to the disk if necessary.
 		if (img) {
 			self.imageDictionary[convertedName] = img;
 
@@ -204,6 +205,7 @@
 		}
 		[self.idLock unlock];
 
+		// Cache the JSON to a file if needed.
 		if (downloadImages) {
 			[json writeToFile:[[[[NSFileManager defaultManager] cacheDirectory] stringByAppendingPathComponent:convertedName] stringByAppendingString:@".json"] atomically:YES encoding:NSUTF8StringEncoding error:nil]; // Cache the JSON to a file.
 		}
@@ -233,10 +235,6 @@
 }
 
 #pragma mark - Delegates
-- (void)windowDidResize:(NSNotification *)notification {
-	// Keep the accessory view in the right place in the window.
-	//[self placeAccessoryView];
-}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 	return [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] count];

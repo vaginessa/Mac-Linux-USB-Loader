@@ -8,8 +8,72 @@
 
 #import "SBEnterpriseConfigurationWriter.h"
 #import "SBAppDelegate.h"
+#import <sys/xattr.h>
 
 @implementation SBEnterpriseConfigurationWriter
+
+/// This is a private method.
++ (BOOL)toggleVisibilityForFile:(NSString *)filename isDirectory:(BOOL)isDirectory
+{
+	// Convert the pathname to HFS+
+	FSRef fsRef;
+	CFURLRef url = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, (CFStringRef)filename, kCFURLPOSIXPathStyle, isDirectory);
+
+	if (!url)
+	{
+		NSLog(@"Error creating CFURL for %@.", filename);
+		return NO;
+	}
+
+	if (!CFURLGetFSRef(url, &fsRef))
+	{
+		NSLog(@"Error creating FSRef for %@.", filename);
+		CFRelease(url);
+		return NO;
+	}
+
+	CFRelease(url);
+
+	// Get the file's catalog info
+	FSCatalogInfo *catalogInfo = (FSCatalogInfo *)malloc(sizeof(FSCatalogInfo));
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+	OSErr err = FSGetCatalogInfo(&fsRef, kFSCatInfoFinderInfo, catalogInfo, NULL, NULL, NULL);
+#pragma clang diagnostic pop
+
+	if (err != noErr)
+	{
+		NSLog(@"Error getting catalog info for %@. The error returned was: %d", filename, err);
+		free(catalogInfo);
+		return NO;
+	}
+
+	// Extract the Finder info from the FSRef's catalog info
+	FInfo *info = (FInfo *)(&catalogInfo->finderInfo[0]);
+
+	// Toggle the invisibility flag
+	if (info->fdFlags & kIsInvisible)
+		info->fdFlags &= ~kIsInvisible;
+	else
+		info->fdFlags |= kIsInvisible;
+
+	// Update the file's visibility
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+	err = FSSetCatalogInfo(&fsRef, kFSCatInfoFinderInfo, catalogInfo);
+#pragma clang diagnostic pop
+
+	if (err != noErr)
+	{
+		NSLog(@"Error setting visibility bit for %@. The error returned was: %d", filename, err);
+		free(catalogInfo);
+		return NO;
+	}
+
+	free(catalogInfo);
+	return YES;
+}
 
 + (void)writeConfigurationFileAtUSB:(SBUSBDevice *)device distributionFamily:(SBLinuxDistribution)family isMacUbuntu:(BOOL)isMacUbuntu containsLegacyUbuntuVersion:(BOOL)containsLegacyUbuntu {
 	NSError *error;
@@ -45,6 +109,15 @@
 	BOOL success = [string writeToFile:path atomically:NO encoding:NSASCIIStringEncoding error:&error];
 	if (!success) {
 		NSLog(@"Error writing configuration file: %@", error);
+	}
+
+	// Hide the configuration file if the user has indicated that they desire this behavior.
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	if ([defaults boolForKey:@"HideConfigurationFile"]) {
+		BOOL result = [self toggleVisibilityForFile:path isDirectory:NO];
+		if (result != 0) {
+			NSLog(@"Failed to hide configuration file.");
+		}
 	}
 }
 
