@@ -13,8 +13,10 @@
 @interface SBUSBSetupWindowController ()
 
 @property (strong) NSDictionary *usbDictionary;
+@property (strong) NSMutableArray *usbIconArray;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSButton *enableStartupDiskButton;
+@property (weak) IBOutlet NSImageView *usbImageView;
 
 @property (strong) NSMutableArray *usbArray;
 
@@ -27,6 +29,7 @@
 	if (self) {
 		// Initialization code here.
 		self.usbDictionary = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
+		self.usbIconArray = [[NSMutableArray alloc] init];
 		self.usbArray = [[NSMutableArray alloc] initWithCapacity:[self.usbDictionary count]];
 	}
 	return self;
@@ -42,11 +45,16 @@
 - (IBAction)loadUSBDeviceList:(id)sender {
 	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
 	[self.usbArray removeAllObjects];
+	[self.usbIconArray removeAllObjects];
 
 	self.usbDictionary = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
 	[self.usbDictionary enumerateKeysAndObjectsUsingBlock:^(id key, SBUSBDevice *object, BOOL *stop) {
 		//NSLog(@"%@ = %@", key, object);
 		[self.usbArray addObject:object];
+
+		NSImage *icon = [[NSWorkspace sharedWorkspace] iconForFile:object.path];
+		icon.size = NSMakeSize(512, 512);
+		[self.usbIconArray addObject:icon];
 	}];
 
 	[self.tableView reloadData];
@@ -88,6 +96,7 @@
 	NSInteger row = [self.tableView selectedRow];
 
 	[self.enableStartupDiskButton setEnabled:(row != -1)];
+	self.usbImageView.image = (row != -1 ? self.usbIconArray[row] : nil);
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
