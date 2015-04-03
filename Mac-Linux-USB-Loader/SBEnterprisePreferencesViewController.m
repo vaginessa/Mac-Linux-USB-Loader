@@ -38,7 +38,7 @@
 - (void)awakeFromNib {
 	[self.tableView setDataSource:self];
 	[self.tableView setDelegate:self];
-	[self.sourceVersionTextField setStringValue:SBBundledEnterpriseVersionNumber];
+	[self.sourceVersionTextField setPlaceholderString:SBBundledEnterpriseVersionNumber];
 }
 
 - (NSString *)identifier {
@@ -174,6 +174,7 @@
 			}];
 
 	        [self.sourceLocationPathTextField setStringValue:localizedPath];
+			[self.addNewEnterpriseSourcePanel makeFirstResponder:self.sourceNameTextField];
 		}
 	}
 
