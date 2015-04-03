@@ -126,6 +126,7 @@
 
 - (IBAction)removeSourceLocationButtonPressed:(id)sender {
 	NSInteger selectedRow = [self.tableView selectedRow];
+	NSAssert(selectedRow != -1, @"The Enterprise sources table should not allow the user to not have a row selected.");
 	SBEnterpriseSourceLocation *deviceHere = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][self.listOfArrayKeys[selectedRow]];
 	if (!deviceHere.deletable) {
 		NSAlert *alert = [[NSAlert alloc] init];
@@ -243,8 +244,8 @@
 		}
 
 		// Write source locations to disk.
-		NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
-		[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk : filePath];
+		NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingPathComponent:@"/EnterpriseInstallationLocations.plist"];
+		[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
 
 		// Reload the table with our new data.
 		[self.tableView reloadData];
@@ -268,6 +269,7 @@
 
 - (IBAction)updateSettingsButtonPressed:(id)sender {
 	NSInteger selectedRow = [self.tableView selectedRow];
+	NSAssert(selectedRow != -1, @"The Enterprise sources table should not allow the user to not have a row selected.");
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSDictionary *enterpriseLocations = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations];
 	NSString *selectedSourceTitle = [enterpriseLocations[self.listOfArrayKeys[selectedRow]] name];
