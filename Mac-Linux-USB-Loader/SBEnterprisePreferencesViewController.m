@@ -255,7 +255,7 @@
 
 - (BOOL)verifyEnterpriseInstallationDirectory:(NSString *)path {
 	NSFileManager *manager = [NSFileManager defaultManager];
-	BOOL isValid = [manager fileExistsAtPath:[path stringByAppendingPathComponent:@"boot.efi"]] && [manager fileExistsAtPath:[path stringByAppendingPathComponent:@"bootx64.efi"]];
+	BOOL isValid = [manager fileExistsAtPath:[path stringByAppendingPathComponent:@"boot.efi"]] && [manager fileExistsAtPath:[path stringByAppendingPathComponent:@"bootX64.efi"]];
 	return isValid;
 }
 

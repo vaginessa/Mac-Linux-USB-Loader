@@ -188,7 +188,7 @@
 	//NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
 
 	// Set the size of the file to be the max value of the progress bar.
-	NSString *enterprisePath = [sourceLocation.path stringByAppendingPathComponent:@"bootx64.efi"];
+	NSString *enterprisePath = [sourceLocation.path stringByAppendingPathComponent:@"bootX64.efi"];
 	NSString *grubPath = [sourceLocation.path stringByAppendingPathComponent:@"boot.efi"];
 	if (![manager fileExistsAtPath:enterprisePath isDirectory:NULL] || ![manager fileExistsAtPath:grubPath isDirectory:NULL]) {
 		NSAlert *alert = [[NSAlert alloc] init];
