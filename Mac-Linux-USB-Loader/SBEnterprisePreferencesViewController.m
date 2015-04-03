@@ -249,6 +249,12 @@
 		// Reload the table with our new data.
 		[self.tableView reloadData];
 		[self hideSourceLocationButtonPressed:nil];
+
+		// Empty the name, source path and version boxes in case the user wants to add another
+		// Enterprise source.
+		[self.sourceNameTextField setStringValue:@""];
+		[self.sourceVersionTextField setStringValue:@""];
+		[self.sourceLocationPathTextField setStringValue:@""];
 	} else {
 		NSLog(@"No permissions!");
 	}
