@@ -131,7 +131,7 @@ typedef enum {
 	// Create an operation for the operation queue to copy over the necessary files.
 	attachedDocument = document;
 	USBIsInUse = YES;
-	NSString *finalEnterpriseCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/bootx64.efi",
+	NSString *finalEnterpriseCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/bootX64.efi",
 	                              self.name];
 	NSString *finalGRUBCopyPath = [NSString stringWithFormat:@"/Volumes/%@/efi/boot/boot.efi",
 										 self.name];
@@ -144,7 +144,7 @@ typedef enum {
 	copyfile_state_t s;
 	s = copyfile_state_alloc();
 
-	const char *fromPath = [[source.path stringByAppendingPathComponent:@"bootx64.efi"] UTF8String];
+	const char *fromPath = [[source.path stringByAppendingPathComponent:@"bootX64.efi"] UTF8String];
 	const char *toPath = [finalEnterpriseCopyPath UTF8String];
 
 	NSLog(@"from: %s to: %s", fromPath, toPath);
