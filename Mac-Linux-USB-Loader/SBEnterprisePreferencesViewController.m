@@ -96,6 +96,26 @@
 	return YES;
 }
 
+- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+	// This code will break if anObject is not a string. Unfortunately, we can't do an assertion
+	// test on this because NSString is actually a class cluster, not a single object.
+	// Fetch the new name and the required arrays
+	NSString *newName = (NSString *)anObject;
+	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
+	[self.enterpriseSourceLocationsDictionary removeObjectForKey:loc.name];
+	[self.listOfArrayKeys removeObject:loc.name];
+
+	// Update the Enterprise source's name and put the object into the required arrays
+	loc.name = newName;
+	self.enterpriseSourceLocationsDictionary[newName] = loc;
+	self.listOfArrayKeys[rowIndex] = newName;
+
+	// Write the Enterprise storage file back out to disk
+	NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingPathComponent:@"/EnterpriseInstallationLocations.plist"];
+	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+	[self.tableView reloadData];
+}
+
 - (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
 	NSFileManager *manager = [NSFileManager defaultManager];
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
