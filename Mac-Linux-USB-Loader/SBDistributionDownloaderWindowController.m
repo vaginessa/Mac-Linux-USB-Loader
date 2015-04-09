@@ -70,7 +70,7 @@
 	NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastMirrorUpdateCheckTime"];
 	if (lastCheckedDate) {
 		// We have a saved date.
-		NSInteger interval = (NSInteger)abs([lastCheckedDate timeIntervalSinceNow]);
+		NSInteger interval = (NSInteger)fabs([lastCheckedDate timeIntervalSinceNow]);
 		if (interval > JSONUpdateInterval) {
 			// Enough time has elapsed to where it is now time to update the JSON mirrors.
 			// We do this in the background without a lot of pomp so it is transparent to the user.

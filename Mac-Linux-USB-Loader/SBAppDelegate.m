@@ -83,7 +83,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastCacheClearCheckTime"];
 		if (lastCheckedDate) {
 			// We have a previous date.
-			NSInteger interval = (NSInteger)abs([lastCheckedDate timeIntervalSinceNow]);
+			NSInteger interval = (NSInteger)fabs([lastCheckedDate timeIntervalSinceNow]);
 			if (interval > clearCachesUpdateInterval) {
 				// Delete all caches.
 				NSLog(@"Clearing all caches and old ISO downloads...");
