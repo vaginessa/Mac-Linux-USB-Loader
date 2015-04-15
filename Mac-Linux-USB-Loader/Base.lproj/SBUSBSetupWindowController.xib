@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7531"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBUSBSetupWindowController">
@@ -10,6 +10,7 @@
                 <outlet property="enableStartupDiskButton" destination="03L-Bd-nEK" id="IUi-eP-HbR"/>
                 <outlet property="tableView" destination="vcS-Jy-AvS" id="oy3-yh-4wc"/>
                 <outlet property="usbImageView" destination="nN5-IQ-9c6" id="RAY-7t-jQ0"/>
+                <outlet property="usbNameLabel" destination="HAN-1D-M9Q" id="o4F-YU-scX"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
         </customObject>
@@ -35,7 +36,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="238" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn width="235" minWidth="40" maxWidth="1000" id="Jt3-dE-F5u">
@@ -74,7 +75,7 @@
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="03L-Bd-nEK">
-                        <rect key="frame" x="383" y="46" width="216" height="32"/>
+                        <rect key="frame" x="274" y="213" width="216" height="32"/>
                         <buttonCell key="cell" type="push" title="Enable Startup Disk Support" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9A4-Nc-kbp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -83,8 +84,8 @@
                             <action selector="enableStartupSupportButtonPressed:" target="-2" id="gLl-3T-wEL"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wgm-Sw-tla">
-                        <rect key="frame" x="432" y="13" width="167" height="32"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wgm-Sw-tla">
+                        <rect key="frame" x="274" y="180" width="168" height="32"/>
                         <buttonCell key="cell" type="push" title="Choose Startup Disk" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SpM-dG-QBu">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -94,10 +95,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HAN-1D-M9Q">
-                        <rect key="frame" x="380" y="266" width="215" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Kr5-cM-AJ6"/>
-                        </constraints>
+                        <rect key="frame" x="301" y="274" width="294" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="E3q-Uh-Ioj">
                             <font key="font" metaFont="system" size="18"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -105,33 +103,64 @@
                         </textFieldCell>
                     </textField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nN5-IQ-9c6">
-                        <rect key="frame" x="268" y="190" width="106" height="106"/>
+                        <rect key="frame" x="268" y="269" width="27" height="27"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="106" id="Y1j-tN-mBI"/>
-                            <constraint firstAttribute="width" constant="106" id="Zjk-15-Nht"/>
+                            <constraint firstAttribute="height" constant="27" id="Y1j-tN-mBI"/>
+                            <constraint firstAttribute="width" constant="27" id="Zjk-15-Nht"/>
                         </constraints>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="RLw-BY-7cr"/>
                     </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BMS-h9-oXF">
+                        <rect key="frame" x="266" y="246" width="329" height="20"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="USB Boot Controls" id="QDJ-np-znb">
+                            <font key="font" size="13" name="HelveticaNeue-Bold"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-9I-gYF">
+                        <rect key="frame" x="266" y="159" width="329" height="20"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Advanced Configuration Options" id="BUZ-un-ZlF">
+                            <font key="font" size="13" name="HelveticaNeue-Bold"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2G3-22-Aw8">
+                        <rect key="frame" x="274" y="123" width="243" height="32"/>
+                        <buttonCell key="cell" type="push" title="Edit Enterprise Configuration File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mdC-pj-boq">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="HAN-1D-M9Q" firstAttribute="trailing" secondItem="03L-Bd-nEK" secondAttribute="trailing" id="G7l-8f-xqO"/>
+                    <constraint firstItem="03L-Bd-nEK" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="20" id="2k7-fJ-d3T"/>
+                    <constraint firstItem="2G3-22-Aw8" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="20" id="2vx-Bf-BPE"/>
+                    <constraint firstAttribute="trailing" secondItem="HAN-1D-M9Q" secondAttribute="trailing" constant="20" id="5A6-Yb-n4F"/>
+                    <constraint firstAttribute="trailing" secondItem="BMS-h9-oXF" secondAttribute="trailing" constant="20" id="6XD-Bo-lGg"/>
+                    <constraint firstItem="2G3-22-Aw8" firstAttribute="top" secondItem="uSc-9I-gYF" secondAttribute="bottom" constant="8" id="9iM-tH-Pwe"/>
+                    <constraint firstItem="BMS-h9-oXF" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="8" id="9p9-L0-MX2"/>
+                    <constraint firstItem="HAN-1D-M9Q" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="D8s-aq-g12"/>
+                    <constraint firstItem="wgm-Sw-tla" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="20" id="OeH-og-Cw5"/>
+                    <constraint firstItem="wgm-Sw-tla" firstAttribute="top" secondItem="03L-Bd-nEK" secondAttribute="bottom" constant="12" id="S11-rt-aF8"/>
                     <constraint firstItem="nN5-IQ-9c6" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="cex-JO-NzQ"/>
                     <constraint firstItem="VPa-9x-ika" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="d80-9q-Lue"/>
-                    <constraint firstItem="HAN-1D-M9Q" firstAttribute="top" secondItem="nN5-IQ-9c6" secondAttribute="top" id="eZw-RX-dEX"/>
                     <constraint firstItem="VPa-9x-ika" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="gOB-Lt-nd5"/>
-                    <constraint firstItem="wgm-Sw-tla" firstAttribute="trailing" secondItem="03L-Bd-nEK" secondAttribute="trailing" id="gV4-eI-thP"/>
                     <constraint firstItem="nN5-IQ-9c6" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="8" id="mOa-BA-QeL"/>
-                    <constraint firstItem="wgm-Sw-tla" firstAttribute="bottom" secondItem="VPa-9x-ika" secondAttribute="bottom" id="qC0-5t-Nhj"/>
-                    <constraint firstAttribute="trailing" secondItem="03L-Bd-nEK" secondAttribute="trailing" constant="20" symbolic="YES" id="qXh-1R-JG0"/>
-                    <constraint firstItem="HAN-1D-M9Q" firstAttribute="leading" secondItem="nN5-IQ-9c6" secondAttribute="trailing" constant="8" symbolic="YES" id="t8R-Nl-Kpc"/>
-                    <constraint firstItem="wgm-Sw-tla" firstAttribute="top" secondItem="03L-Bd-nEK" secondAttribute="bottom" constant="12" symbolic="YES" id="tYF-ue-ReX"/>
+                    <constraint firstItem="uSc-9I-gYF" firstAttribute="top" secondItem="wgm-Sw-tla" secondAttribute="bottom" constant="8" id="mnS-6n-a3s"/>
+                    <constraint firstItem="BMS-h9-oXF" firstAttribute="top" secondItem="HAN-1D-M9Q" secondAttribute="bottom" constant="8" id="nc3-WK-Sk1"/>
+                    <constraint firstAttribute="trailing" secondItem="uSc-9I-gYF" secondAttribute="trailing" constant="20" id="pw2-w0-hZG"/>
+                    <constraint firstItem="HAN-1D-M9Q" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="43" id="qfd-QQ-glU"/>
+                    <constraint firstItem="uSc-9I-gYF" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="8" id="sIW-8r-mgm"/>
+                    <constraint firstItem="03L-Bd-nEK" firstAttribute="top" secondItem="BMS-h9-oXF" secondAttribute="bottom" constant="5" id="vvQ-Fz-YeP"/>
                     <constraint firstAttribute="bottom" secondItem="VPa-9x-ika" secondAttribute="bottom" constant="20" id="wup-Md-HhE"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
-            <point key="canvasLocation" x="197.5" y="144"/>
+            <point key="canvasLocation" x="169.5" y="76"/>
         </window>
         <menu id="x5i-2p-XdH" userLabel="Table View Context Menu">
             <items>
