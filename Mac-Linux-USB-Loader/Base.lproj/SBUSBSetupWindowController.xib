@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBUSBSetupWindowController">
             <connections>
+                <outlet property="editConfigurationFileButton" destination="2G3-22-Aw8" id="kl2-m5-jrA"/>
                 <outlet property="enableStartupDiskButton" destination="03L-Bd-nEK" id="IUi-eP-HbR"/>
                 <outlet property="tableView" destination="vcS-Jy-AvS" id="oy3-yh-4wc"/>
                 <outlet property="usbImageView" destination="nN5-IQ-9c6" id="RAY-7t-jQ0"/>
@@ -132,6 +133,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="editConfigurationFileButtonPressed:" target="-2" id="sYd-GY-k8Q"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

@@ -16,6 +16,7 @@
 @property (strong) NSMutableArray *usbIconArray;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSButton *enableStartupDiskButton;
+@property (weak) IBOutlet NSButton *editConfigurationFileButton;
 @property (weak) IBOutlet NSImageView *usbImageView;
 @property (weak) IBOutlet NSTextField *usbNameLabel;
 
@@ -40,6 +41,7 @@
 	[super showWindow:sender];
 
 	[self.enableStartupDiskButton setEnabled:NO];
+	[self.editConfigurationFileButton setEnabled:NO];
 	[self loadUSBDeviceList:nil];
 	[self.usbNameLabel setStringValue:@""];
 }
@@ -93,11 +95,30 @@
 	}
 }
 
+- (IBAction)editConfigurationFileButtonPressed:(id)sender {
+	if ([self.tableView selectedRow] != -1) {
+		SBUSBDevice *selectedDrive = self.usbArray[[self.tableView selectedRow]];
+		NSString *path = [selectedDrive.path stringByAppendingPathComponent:@"/efi/boot/enterprise.cfg"];
+
+		NSURL *outURL = [[NSFileManager defaultManager] setupSecurityScopedBookmarkForUSBAtPath:selectedDrive.path withWindowForSheet:nil];
+		[outURL startAccessingSecurityScopedResource];
+		if (![[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextEdit"]) {
+			path = [selectedDrive.path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
+			BOOL success = [[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextEdit"];
+
+			if (!success) NSLog(@"Couldn't open configuration file.");
+		}
+		[outURL stopAccessingSecurityScopedResource];
+		return;
+	}
+}
+
 #pragma mark - Table View Delegates
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
 	NSInteger row = [self.tableView selectedRow];
 
 	[self.enableStartupDiskButton setEnabled:(row != -1)];
+	[self.editConfigurationFileButton setEnabled:(row != -1)];
 	self.usbImageView.image = (row != -1 ? self.usbIconArray[row] : nil);
 	self.usbNameLabel.stringValue = (row != -1 ? [(SBUSBDevice *)self.usbArray[row] name] : @"");
 }
