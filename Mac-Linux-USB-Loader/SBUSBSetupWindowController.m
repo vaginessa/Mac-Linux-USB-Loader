@@ -17,6 +17,7 @@
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSButton *enableStartupDiskButton;
 @property (weak) IBOutlet NSImageView *usbImageView;
+@property (weak) IBOutlet NSTextField *usbNameLabel;
 
 @property (strong) NSMutableArray *usbArray;
 
@@ -40,6 +41,7 @@
 
 	[self.enableStartupDiskButton setEnabled:NO];
 	[self loadUSBDeviceList:nil];
+	[self.usbNameLabel setStringValue:@""];
 }
 
 - (IBAction)loadUSBDeviceList:(id)sender {
@@ -97,6 +99,7 @@
 
 	[self.enableStartupDiskButton setEnabled:(row != -1)];
 	self.usbImageView.image = (row != -1 ? self.usbIconArray[row] : nil);
+	self.usbNameLabel.stringValue = (row != -1 ? [(SBUSBDevice *)self.usbArray[row] name] : @"");
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
