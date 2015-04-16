@@ -59,7 +59,7 @@
 		[self.usbArray addObject:object];
 
 		NSImage *icon = [[NSWorkspace sharedWorkspace] iconForFile:object.path];
-		icon.size = NSMakeSize(512, 512);
+		icon.size = NSMakeSize(32, 32);
 		[self.usbIconArray addObject:icon];
 	}];
 
