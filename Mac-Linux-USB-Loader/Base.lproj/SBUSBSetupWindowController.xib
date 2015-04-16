@@ -76,7 +76,7 @@
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="03L-Bd-nEK">
-                        <rect key="frame" x="274" y="213" width="216" height="32"/>
+                        <rect key="frame" x="274" y="210" width="216" height="32"/>
                         <buttonCell key="cell" type="push" title="Enable Startup Disk Support" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9A4-Nc-kbp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -86,7 +86,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wgm-Sw-tla">
-                        <rect key="frame" x="274" y="180" width="168" height="32"/>
+                        <rect key="frame" x="274" y="177" width="168" height="32"/>
                         <buttonCell key="cell" type="push" title="Choose Startup Disk" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SpM-dG-QBu">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -120,7 +120,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-9I-gYF">
-                        <rect key="frame" x="266" y="159" width="329" height="20"/>
+                        <rect key="frame" x="266" y="156" width="329" height="20"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Advanced Configuration Options" id="BUZ-un-ZlF">
                             <font key="font" size="13" name="HelveticaNeue-Bold"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -128,7 +128,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2G3-22-Aw8">
-                        <rect key="frame" x="274" y="123" width="243" height="32"/>
+                        <rect key="frame" x="274" y="120" width="243" height="32"/>
                         <buttonCell key="cell" type="push" title="Edit Enterprise Configuration File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mdC-pj-boq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -157,7 +157,7 @@
                     <constraint firstAttribute="trailing" secondItem="uSc-9I-gYF" secondAttribute="trailing" constant="20" id="pw2-w0-hZG"/>
                     <constraint firstItem="HAN-1D-M9Q" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="43" id="qfd-QQ-glU"/>
                     <constraint firstItem="uSc-9I-gYF" firstAttribute="leading" secondItem="VPa-9x-ika" secondAttribute="trailing" constant="8" id="sIW-8r-mgm"/>
-                    <constraint firstItem="03L-Bd-nEK" firstAttribute="top" secondItem="BMS-h9-oXF" secondAttribute="bottom" constant="5" id="vvQ-Fz-YeP"/>
+                    <constraint firstItem="03L-Bd-nEK" firstAttribute="top" secondItem="BMS-h9-oXF" secondAttribute="bottom" constant="8" id="vvQ-Fz-YeP"/>
                     <constraint firstAttribute="bottom" secondItem="VPa-9x-ika" secondAttribute="bottom" constant="20" id="wup-Md-HhE"/>
                 </constraints>
             </view>
