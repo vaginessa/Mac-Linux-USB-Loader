@@ -39,11 +39,13 @@
 
 - (void)showWindow:(id)sender {
 	[super showWindow:sender];
-
-	[self.enableStartupDiskButton setEnabled:NO];
-	[self.editConfigurationFileButton setEnabled:NO];
 	[self loadUSBDeviceList:nil];
-	[self.usbNameLabel setStringValue:@""];
+
+	if ([self.tableView selectedRow] == -1) {
+		[self.enableStartupDiskButton setEnabled:NO];
+		[self.editConfigurationFileButton setEnabled:NO];
+		[self.usbNameLabel setStringValue:@""];
+	}
 }
 
 - (IBAction)loadUSBDeviceList:(id)sender {
