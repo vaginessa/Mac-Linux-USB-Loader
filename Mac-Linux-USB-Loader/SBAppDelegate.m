@@ -422,6 +422,9 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		case SBDistributionTails:
 			return @"Debian";
 			break;
+		case SBDistributionKali:
+			return @"Kali";
+			break;
 		case SBDistributionUnknown:
 		default:
 			return @"Other";
