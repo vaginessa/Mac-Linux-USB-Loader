@@ -34,7 +34,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		self.supportedDistributions = @[@"Ubuntu", @"Linux Mint", @"Elementary OS", @"Zorin OS", @"Kali Linux"];
 		self.supportedDistributionsAndVersions = @{ @"Ubuntu": @"14.10",
 			                                        @"Linux Mint": @"17.1",
-			                                        @"Elementary OS": @"Luna",
+			                                        @"Elementary OS": @"Freya",
 			                                        @"Zorin OS": @"9",
 													@"Kali Linux": @"" };
 	}
