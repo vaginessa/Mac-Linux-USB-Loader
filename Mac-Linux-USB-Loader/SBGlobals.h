@@ -28,6 +28,8 @@ typedef NS_ENUM (NSInteger, SBLinuxDistribution) {
 	SBDistributionDebian,
 	/// An enum type representing the Tails Linux distribution.
 	SBDistributionTails,
+	/// An enum type representing the Kali Linux distribution.
+	SBDistributionKali,
 	/// An enum type representing an unsupported Linux distribution.
 	SBDistributionUnknown
 };

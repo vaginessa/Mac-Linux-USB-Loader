@@ -74,6 +74,8 @@ typedef enum {
 	    [fileName containsSubstring:@"mint"] ||
 	    [fileName containsSubstring:@"elementary"]) {
 		return SBDistributionUbuntu;
+	} else if ([fileName containsSubstring:@"kali"]) {
+		return SBDistributionKali;
 	}
 
 	return SBDistributionUnknown;

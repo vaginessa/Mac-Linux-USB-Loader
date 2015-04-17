@@ -56,6 +56,9 @@
 		case SBDistributionTails:
 			[self.distributionSelectorPopup selectItemWithTitle:@"Debian"];
 			break;
+		case SBDistributionKali:
+			[self.distributionSelectorPopup selectItemWithTitle:@"Kali"];
+			break;
 		case SBDistributionUnknown:
 		default:
 			[self.distributionSelectorPopup selectItemWithTitle:@"Other"];

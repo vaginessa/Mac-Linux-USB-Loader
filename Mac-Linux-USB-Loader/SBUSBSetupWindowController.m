@@ -41,7 +41,7 @@
 	[super showWindow:sender];
 	[self loadUSBDeviceList:nil];
 
-	if ([self.tableView selectedRow] == -1) {
+	if ([self.tableView selectedRow] == -1 && self.usbArray.count > 0) {
 		[self.enableStartupDiskButton setEnabled:NO];
 		[self.editConfigurationFileButton setEnabled:NO];
 		[self.usbNameLabel setStringValue:@""];
