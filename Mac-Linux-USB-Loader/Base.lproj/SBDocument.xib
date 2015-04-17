@@ -231,14 +231,14 @@
                                                 </textField>
                                                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-Ti-WuH">
                                                     <rect key="frame" x="145" y="223" width="213" height="26"/>
-                                                    <popUpButtonCell key="cell" type="push" title="Kali" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="DJS-vr-iC0" id="eRp-YN-kzd">
+                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="eRp-YN-kzd">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
                                                         <menu key="menu" id="w3c-AQ-qre">
                                                             <items>
-                                                                <menuItem title="Ubuntu" id="1Mg-wi-KZr"/>
+                                                                <menuItem title="Ubuntu" state="on" id="1Mg-wi-KZr"/>
                                                                 <menuItem title="Debian" id="ClT-6Q-5sn"/>
-                                                                <menuItem title="Kali" state="on" id="DJS-vr-iC0">
+                                                                <menuItem title="Kali" id="DJS-vr-iC0">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                 </menuItem>
                                                                 <menuItem title="Other" id="7Id-gS-sW7"/>

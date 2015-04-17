@@ -408,6 +408,8 @@ const NSString *SBBundledEnterpriseVersionNumber;
 		return SBDistributionUbuntu;
 	} else if ([name isEqualToString:@"Debian"]) {
 		return SBDistributionDebian;
+	} else if ([name isEqualToString:@"Kali"]) {
+		return SBDistributionKali;
 	} else {
 		return SBDistributionUnknown;
 	}
