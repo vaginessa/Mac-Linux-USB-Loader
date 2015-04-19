@@ -101,7 +101,7 @@
 		[kernelString appendString:@"\n"];
 		[string appendString:kernelString];
 	} else if (family == SBDistributionKali) {
-		[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live noconfig=sudo username=root hostname=kali"];
+		[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live noconfig=sudo username=root hostname=kali\n"];
 	}
 
 	if (![[NSFileManager defaultManager] removeItemAtPath:path error:&error]) {
