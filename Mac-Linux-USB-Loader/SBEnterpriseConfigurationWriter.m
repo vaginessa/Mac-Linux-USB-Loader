@@ -78,11 +78,13 @@
 + (void)writeConfigurationFileAtUSB:(SBUSBDevice *)device distributionFamily:(SBLinuxDistribution)family isMacUbuntu:(BOOL)isMacUbuntu containsLegacyUbuntuVersion:(BOOL)containsLegacyUbuntu {
 	NSError *error;
 
+	NSString *distributionId = [SBAppDelegate distributionStringForEquivalentEnum:family];
+
 	NSString *path = [device.path stringByAppendingPathComponent:@"/efi/boot/enterprise.cfg"];
 	NSMutableString *string = [NSMutableString stringWithCapacity:30];
 	[string appendString:@"#This file is machine generated. Do not modify it unless you know what you are doing.\n\n"];
-	[string appendFormat:@"entry %@\n", [SBAppDelegate distributionStringForEquivalentEnum:family]];
-	[string appendFormat:@"family %@\n", [SBAppDelegate distributionStringForEquivalentEnum:family]];
+	[string appendFormat:@"entry %@\n", distributionId];
+	[string appendFormat:@"family %@\n", [distributionId isEqualToString:@"Kali"] ? @"Debian" : distributionId];
 
 	if (family == SBDistributionUbuntu && (isMacUbuntu || containsLegacyUbuntu)) {
 		NSMutableString *kernelString = [NSMutableString stringWithString:@"kernel "];
