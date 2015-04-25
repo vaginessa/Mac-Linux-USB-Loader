@@ -77,7 +77,6 @@
 
 + (void)writeConfigurationFileAtUSB:(SBUSBDevice *)device distributionFamily:(SBLinuxDistribution)family isMacUbuntu:(BOOL)isMacUbuntu containsLegacyUbuntuVersion:(BOOL)containsLegacyUbuntu {
 	NSError *error;
-
 	NSString *distributionId = [SBAppDelegate distributionStringForEquivalentEnum:family];
 
 	NSString *path = [device.path stringByAppendingPathComponent:@"/efi/boot/enterprise.cfg"];
