@@ -13,7 +13,7 @@
 #define SBLogBool(x) NSLog(x ? @"YES" : @"NO")
 #define SBLogInteger(x) NSLog(@"%ld", x)
 #define SBBool2NSString(x) (x ? @"YES" : @"NO")
-#define SBCStr2NSString(x) [NSString initWithCString : x encoding : NSUTF8StringEncoding]
+#define SBCStr2NSString(x) [NSString initWithCString:x encoding:NSUTF8StringEncoding]
 #define SBNSString2CStr(x) [x UTF8String]
 
 /// The version number of the Enterprise installation that ships with this copy of Mac
