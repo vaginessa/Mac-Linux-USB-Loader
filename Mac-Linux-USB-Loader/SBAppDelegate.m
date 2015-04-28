@@ -13,7 +13,7 @@
 #import "SBUpdatePreferencesViewController.h"
 #import "SBEnterpriseSourceLocation.h"
 
-const NSString *SBBundledEnterpriseVersionNumber;
+const NSString *SBBundledEnterpriseVersionNumber = @"0.2.1";
 
 @implementation SBAppDelegate
 @synthesize window;
@@ -26,8 +26,6 @@ const NSString *SBBundledEnterpriseVersionNumber;
 	self = [super init];
 	if (self) {
 		// Setup code goes here.
-		SBBundledEnterpriseVersionNumber = @"0.2.1";
-
 		self.fileManager = [NSFileManager defaultManager];
 		self.pathToApplicationSupportDirectory = [self.fileManager applicationSupportDirectory];
 
@@ -61,7 +59,7 @@ const NSString *SBBundledEnterpriseVersionNumber;
 
 	/* Set the application version label string. */
 	[self.applicationVersionString setStringValue:
-	 [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+	[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
 
 	/* Setup the rest of the application. */
 	[self applicationSetup];
