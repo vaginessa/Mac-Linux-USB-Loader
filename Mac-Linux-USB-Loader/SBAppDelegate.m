@@ -13,7 +13,7 @@
 #import "SBUpdatePreferencesViewController.h"
 #import "SBEnterpriseSourceLocation.h"
 
-const NSString *SBBundledEnterpriseVersionNumber = @"0.2.1";
+const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 
 @implementation SBAppDelegate
 @synthesize window;
