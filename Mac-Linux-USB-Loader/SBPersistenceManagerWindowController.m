@@ -21,6 +21,7 @@
 @property (weak) IBOutlet NSProgressIndicator *spinner;
 @property (weak) IBOutlet NSTextField *operationProgressLabel;
 @property (weak) IBOutlet NSButton *resetSliderButton;
+@property (weak) IBOutlet NSButton *refreshButton;
 
 @property id activity;
 
@@ -47,16 +48,10 @@
 	[self.operationProgressLabel setStringValue:@""];
 
 	// Setup the USB selector.
-	dict = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
 	[self loadUSBDeviceList:nil];
 
 	// Set up the USB persistence file size selector.
-	NSDictionary *bindingOptions = @{ NSContinuouslyUpdatesValueBindingOption : @YES,
-		                              NSConditionallySetsEditableBindingOption : @YES };
 	[self.persistenceVolumeSizeTextField setDelegate:self];
-	[self.persistenceVolumeSizeSlider bind:@"value"
-	                              toObject:self.persistenceVolumeSizeTextField
-	                           withKeyPath:@"integerValue" options:bindingOptions];
 }
 
 - (void)showWindow:(id)sender {
@@ -67,6 +62,9 @@
 - (IBAction)loadUSBDeviceList:(id)sender {
 	// Get the USBs from the App Delegate
 	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
+	dict = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
+
+	// Clear the USB selector dropdown.
 	[self.usbSelectorPopup removeAllItems];
 	[self.popupValues removeObjectsAtArrangedObjectIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [[self.popupValues arrangedObjects] count])]];
 
