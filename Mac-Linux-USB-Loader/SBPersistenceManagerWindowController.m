@@ -104,6 +104,7 @@
 	[self.persistenceVolumeSizeSlider setEnabled:NO];
 	[self.persistenceVolumeSizeTextField setEnabled:NO];
 	[self.usbSelectorPopup setEnabled:NO];
+	[self.refreshButton setEnabled:NO];
 
 	NSInteger persistenceSizeInBytes = [self.persistenceVolumeSizeSlider integerValue] / 1048576;
 
@@ -137,6 +138,7 @@
 	                [self.persistenceVolumeSizeSlider setEnabled:YES];
 	                [self.persistenceVolumeSizeTextField setEnabled:YES];
 	                [self.usbSelectorPopup setEnabled:YES];
+					[self.refreshButton setEnabled:YES];
 
 	                NSAlert *alert = [[NSAlert alloc] init];
 	                [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
@@ -160,6 +162,7 @@
 	        [self.persistenceVolumeSizeSlider setEnabled:YES];
 	        [self.persistenceVolumeSizeTextField setEnabled:YES];
 	        [self.usbSelectorPopup setEnabled:YES];
+			[self.refreshButton setEnabled:YES];
 		}
 	}];
 }
