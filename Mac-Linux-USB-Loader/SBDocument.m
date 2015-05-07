@@ -74,6 +74,7 @@
 
 - (void)setupUSBDriveSelector {
 	// Grab the list of USB devices from the App Delegate and setup the USB selector.
+	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
 	usbDictionary = [NSMutableDictionary dictionaryWithDictionary:[(SBAppDelegate *)[NSApp delegate] usbDictionary]];
 	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[usbDictionary count]];
 
