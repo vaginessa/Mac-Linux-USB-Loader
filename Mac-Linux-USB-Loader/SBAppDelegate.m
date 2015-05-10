@@ -276,6 +276,10 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/Mac-Linux-USB-Loader/"]];
 }
 
+- (IBAction)showDonatePage:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/donate.html"]];
+}
+
 - (IBAction)reportBug:(id)sender {
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/tools/bugs/report-mlul.html"]];
 }
