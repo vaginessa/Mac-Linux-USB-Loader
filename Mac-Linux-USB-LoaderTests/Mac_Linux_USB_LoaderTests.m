@@ -63,4 +63,22 @@
 	}
 }
 
+- (void)testCreateTailsConfigurationFile {
+	//XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+	SBUSBDevice *device = [[SBUSBDevice alloc] init];
+	device.path = NSTemporaryDirectory();
+	NSString *directory = [device.path stringByAppendingPathComponent:@"/efi/boot/"];
+	[[NSFileManager defaultManager] createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:NULL];
+
+	NSString *fileName = [directory stringByAppendingPathComponent:@"enterprise.cfg"];
+	NSLog(@"Writing to: %@", device.path);
+
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionTails isMacUbuntu:NO containsLegacyUbuntuVersion:NO];
+	if (![[NSFileManager defaultManager] fileExistsAtPath:fileName isDirectory:NULL]) {
+		XCTFail(@"File doesn't exist.");
+	} else if (![[NSWorkspace sharedWorkspace] openFile:fileName]) {
+		XCTFail(@"Quarantine bit is set");
+	}
+}
+
 @end
