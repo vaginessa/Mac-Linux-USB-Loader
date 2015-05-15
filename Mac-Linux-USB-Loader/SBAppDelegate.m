@@ -412,6 +412,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 		return SBDistributionDebian;
 	} else if ([name isEqualToString:@"Kali"]) {
 		return SBDistributionKali;
+	} else if ([name isEqualToString:@"Tails"]) {
+		return SBDistributionTails;
 	} else {
 		return SBDistributionUnknown;
 	}
@@ -423,8 +425,10 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 			return @"Ubuntu";
 			break;
 		case SBDistributionDebian:
-		case SBDistributionTails:
 			return @"Debian";
+			break;
+		case SBDistributionTails:
+			return @"Tails";
 			break;
 		case SBDistributionKali:
 			return @"Kali";

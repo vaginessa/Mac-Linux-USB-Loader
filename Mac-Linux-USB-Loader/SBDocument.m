@@ -53,8 +53,10 @@
 			[self.distributionSelectorPopup selectItemWithTitle:@"Ubuntu"];
 			break;
 		case SBDistributionDebian:
-		case SBDistributionTails:
 			[self.distributionSelectorPopup selectItemWithTitle:@"Debian"];
+			break;
+		case SBDistributionTails:
+			[self.distributionSelectorPopup selectItemWithTitle:@"Tails"];
 			break;
 		case SBDistributionKali:
 			[self.distributionSelectorPopup selectItemWithTitle:@"Kali"];

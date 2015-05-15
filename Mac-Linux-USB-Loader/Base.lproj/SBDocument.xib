@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDocument">
@@ -231,13 +231,16 @@
                                                 </textField>
                                                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-Ti-WuH">
                                                     <rect key="frame" x="145" y="223" width="213" height="26"/>
-                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="eRp-YN-kzd">
+                                                    <popUpButtonCell key="cell" type="push" title="Debian" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ClT-6Q-5sn" id="eRp-YN-kzd">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
                                                         <menu key="menu" id="w3c-AQ-qre">
                                                             <items>
-                                                                <menuItem title="Ubuntu" state="on" id="1Mg-wi-KZr"/>
-                                                                <menuItem title="Debian" id="ClT-6Q-5sn"/>
+                                                                <menuItem title="Ubuntu" id="1Mg-wi-KZr"/>
+                                                                <menuItem title="Debian" state="on" id="ClT-6Q-5sn"/>
+                                                                <menuItem title="Tails" id="2ch-0e-x2y">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
                                                                 <menuItem title="Kali" id="DJS-vr-iC0">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                 </menuItem>
@@ -361,7 +364,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="670.5" y="11.5"/>
+            <point key="canvasLocation" x="731.5" y="5.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>

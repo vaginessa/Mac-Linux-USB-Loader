@@ -83,7 +83,7 @@
 	NSMutableString *string = [NSMutableString stringWithCapacity:30];
 	[string appendString:@"#This file is machine generated. Do not modify it unless you know what you are doing.\n\n"];
 	[string appendFormat:@"entry %@\n", distributionId];
-	[string appendFormat:@"family %@\n", [distributionId isEqualToString:@"Kali"] ? @"Debian" : distributionId];
+	[string appendFormat:@"family %@\n", ([distributionId isEqualToString:@"Kali"] || [distributionId isEqualToString:@"Tails"]) ? @"Debian" : distributionId];
 
 	if (family == SBDistributionUbuntu && (isMacUbuntu || containsLegacyUbuntu)) {
 		NSMutableString *kernelString = [NSMutableString stringWithString:@"kernel "];
@@ -103,6 +103,8 @@
 		[string appendString:kernelString];
 	} else if (family == SBDistributionKali) {
 		[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live noconfig=sudo username=root hostname=kali\n"];
+	} else if (family == SBDistributionTails) {
+		[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live config live-media=removable noprompt timezone=Etc/UTC block.events_dfl_poll_msecs=1000 splash nox11autologin module=Tails quiet splash\n"];
 	}
 
 	if (![[NSFileManager defaultManager] removeItemAtPath:path error:&error]) {
