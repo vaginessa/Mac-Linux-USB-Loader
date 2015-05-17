@@ -1,3 +1,6 @@
 [submodule "RSTLCopyOperation"]
 	path = RSTLCopyOperation
 	url = https://github.com/rustle/RSTLCopyOperation.git
+[submodule "Sparkle"]
+	path = Sparkle
+	url = https://github.com/ksuther/Sparkle
