@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBGeneralPreferencesViewController">
@@ -23,20 +23,6 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="s4C-gM-3i6">
-                    <rect key="frame" x="64" y="162" width="332" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="14" id="pj0-IR-vye"/>
-                    </constraints>
-                    <buttonCell key="cell" type="check" title="Periodically Clear Caches and Old ISO Downloads" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XrG-IX-Jnc">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="clearCachesCheckboxClicked:" target="-2" id="dSg-Zx-1ty"/>
-                        <binding destination="aRH-Yv-lWu" name="value" keyPath="values.PeriodicallyClearCaches" id="4s6-JV-cTL"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZY5-Xk-lAz">
                     <rect key="frame" x="342" y="122" width="105" height="32"/>
                     <buttonCell key="cell" type="push" title="Clear Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j9p-k1-kBV">
@@ -58,7 +44,7 @@
                         <rect key="frame" x="1" y="1" width="425" height="84"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-OH-hmA">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-OH-hmA">
                                 <rect key="frame" x="16" y="58" width="393" height="18"/>
                                 <buttonCell key="cell" type="check" title="Accept HFS+ Formatted Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9HT-f6-zfH">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -68,7 +54,7 @@
                                     <binding destination="aRH-Yv-lWu" name="value" keyPath="values.AcceptHFSDrives" id="TQM-zP-NYG"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1GF-fo-Apu">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="1GF-fo-Apu">
                                 <rect key="frame" x="16" y="35" width="393" height="18"/>
                                 <buttonCell key="cell" type="check" title="Hide Enterprise Configuration File" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CG7-vV-ura">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -80,9 +66,31 @@
                             </button>
                         </subviews>
                     </view>
+                    <constraints>
+                        <constraint firstItem="1GF-fo-Apu" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="3KE-kP-S1d"/>
+                        <constraint firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" constant="16" id="3XT-xL-bkd"/>
+                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="top" secondItem="nPg-bg-bVL" secondAttribute="top" constant="25" id="aWD-Py-fjE"/>
+                        <constraint firstItem="1GF-fo-Apu" firstAttribute="top" secondItem="rlJ-OH-hmA" secondAttribute="bottom" constant="9" id="faW-fM-rNI"/>
+                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="gY8-3F-obV"/>
+                        <constraint firstAttribute="trailing" secondItem="1GF-fo-Apu" secondAttribute="trailing" constant="16" id="vRt-BX-dAv"/>
+                    </constraints>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="s4C-gM-3i6">
+                    <rect key="frame" x="64" y="162" width="332" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="pj0-IR-vye"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" title="Periodically Clear Caches and Old ISO Downloads" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XrG-IX-Jnc">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clearCachesCheckboxClicked:" target="-2" id="dSg-Zx-1ty"/>
+                        <binding destination="aRH-Yv-lWu" name="value" keyPath="values.PeriodicallyClearCaches" id="4s6-JV-cTL"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="nPg-bg-bVL" secondAttribute="bottom" constant="13" id="3Mj-ky-pwg"/>
@@ -94,6 +102,8 @@
                 <constraint firstItem="s4C-gM-3i6" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="Kwe-V7-7Wh"/>
                 <constraint firstItem="Mqp-7t-iHQ" firstAttribute="top" secondItem="ZY5-Xk-lAz" secondAttribute="bottom" constant="11" id="RFd-EC-v6l"/>
                 <constraint firstItem="ZY5-Xk-lAz" firstAttribute="top" secondItem="s4C-gM-3i6" secondAttribute="bottom" constant="14" id="S4L-Na-xtD"/>
+                <constraint firstAttribute="trailing" secondItem="s4C-gM-3i6" secondAttribute="trailing" constant="67" id="Z4t-7S-eRy"/>
+                <constraint firstItem="s4C-gM-3i6" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="66" id="kdg-Yc-Vfs"/>
                 <constraint firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" constant="20" symbolic="YES" id="o2O-no-M6L"/>
                 <constraint firstItem="nPg-bg-bVL" firstAttribute="centerX" secondItem="Mqp-7t-iHQ" secondAttribute="centerX" id="p7L-W6-mYR"/>
             </constraints>
