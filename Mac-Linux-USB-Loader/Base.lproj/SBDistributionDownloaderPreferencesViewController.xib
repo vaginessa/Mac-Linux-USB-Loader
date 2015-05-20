@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="202"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vt-Cf-z68">
+                <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vt-Cf-z68">
                     <rect key="frame" x="98" y="125" width="48" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="48" id="emp-rD-U3b"/>
@@ -116,7 +116,7 @@
                         <binding destination="2qH-uG-7N7" name="selectedIndex" keyPath="values.DefaultOperationUponISODownloadCompletion" id="lLZ-XK-00S"/>
                     </connections>
                 </matrix>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FME-ii-R0b">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FME-ii-R0b">
                     <rect key="frame" x="18" y="128" width="74" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Allow up to" id="U0W-FU-ZGT">
                         <font key="font" metaFont="system"/>
@@ -124,7 +124,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sps-jS-QR2">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sps-jS-QR2">
                     <rect key="frame" x="154" y="128" width="308" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="simultaneous download operations." id="aFy-72-3os">
                         <font key="font" metaFont="system"/>
@@ -134,29 +134,29 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="nDY-Bg-bvP" firstAttribute="top" secondItem="HM1-hQ-USq" secondAttribute="bottom" constant="8" symbolic="YES" id="2I6-SG-SGR"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="top" secondItem="HM1-hQ-USq" secondAttribute="bottom" constant="8" symbolic="YES" id="1H2-NT-SIc"/>
                 <constraint firstAttribute="trailing" secondItem="Sps-jS-QR2" secondAttribute="trailing" priority="250" constant="20" id="43l-lh-hSJ"/>
                 <constraint firstItem="461-8h-HBz" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="4Ob-9u-Qlz"/>
                 <constraint firstItem="Sps-jS-QR2" firstAttribute="trailing" secondItem="HM1-hQ-USq" secondAttribute="trailing" priority="250" id="4w2-L9-507"/>
                 <constraint firstItem="HM1-hQ-USq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="6Vn-IQ-szf"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="trailing" secondItem="pL0-W8-rfZ" secondAttribute="trailing" id="7Pp-YV-3g0"/>
                 <constraint firstItem="Sps-jS-QR2" firstAttribute="leading" secondItem="1vt-Cf-z68" secondAttribute="trailing" constant="10" id="Aut-rT-ygU"/>
                 <constraint firstItem="jAB-aK-jjZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="19" id="Enu-4t-Wjd"/>
                 <constraint firstItem="HM1-hQ-USq" firstAttribute="leading" secondItem="FME-ii-R0b" secondAttribute="leading" id="FFb-OA-maa"/>
-                <constraint firstAttribute="bottom" secondItem="nDY-Bg-bvP" secondAttribute="bottom" constant="14" id="GuV-6S-lt1"/>
                 <constraint firstItem="Sps-jS-QR2" firstAttribute="top" secondItem="pL0-W8-rfZ" secondAttribute="bottom" constant="10" id="HEe-F4-B2V"/>
-                <constraint firstItem="HM1-hQ-USq" firstAttribute="trailing" secondItem="nDY-Bg-bvP" secondAttribute="trailing" id="JHP-BI-UJr"/>
                 <constraint firstAttribute="trailing" secondItem="pL0-W8-rfZ" secondAttribute="trailing" constant="20" id="JkH-xh-VQP"/>
                 <constraint firstItem="1vt-Cf-z68" firstAttribute="leading" secondItem="FME-ii-R0b" secondAttribute="trailing" constant="8" id="MIW-JI-I1l"/>
                 <constraint firstItem="FME-ii-R0b" firstAttribute="top" secondItem="pL0-W8-rfZ" secondAttribute="bottom" constant="10" id="N04-QU-jhH"/>
                 <constraint firstItem="pL0-W8-rfZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="OAk-jO-GsR"/>
                 <constraint firstItem="1vt-Cf-z68" firstAttribute="top" secondItem="pL0-W8-rfZ" secondAttribute="bottom" constant="8" id="Wyo-rK-6Z0"/>
                 <constraint firstAttribute="trailing" secondItem="jAB-aK-jjZ" secondAttribute="trailing" constant="20" id="afj-o3-skI"/>
-                <constraint firstAttribute="trailing" secondItem="nDY-Bg-bvP" secondAttribute="trailing" constant="20" symbolic="YES" id="b7i-ho-GAb"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="bAQ-c4-6sO"/>
                 <constraint firstItem="jAB-aK-jjZ" firstAttribute="leading" secondItem="461-8h-HBz" secondAttribute="trailing" constant="4" id="dlz-PX-4Q2"/>
                 <constraint firstItem="HM1-hQ-USq" firstAttribute="top" secondItem="Sps-jS-QR2" secondAttribute="bottom" constant="11" id="dwg-w5-c6A"/>
                 <constraint firstItem="461-8h-HBz" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="iT3-wq-6wO"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="trailing" secondItem="Sps-jS-QR2" secondAttribute="trailing" id="ohC-dT-bzv"/>
+                <constraint firstItem="nDY-Bg-bvP" firstAttribute="trailing" secondItem="HM1-hQ-USq" secondAttribute="trailing" id="sow-4u-M7I"/>
                 <constraint firstItem="pL0-W8-rfZ" firstAttribute="top" secondItem="jAB-aK-jjZ" secondAttribute="bottom" constant="6" id="w2F-g6-bUe"/>
-                <constraint firstItem="nDY-Bg-bvP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="wDv-ed-wpo"/>
             </constraints>
             <point key="canvasLocation" x="433" y="312"/>
         </customView>

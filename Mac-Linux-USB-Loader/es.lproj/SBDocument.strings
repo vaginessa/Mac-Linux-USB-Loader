@@ -8,8 +8,8 @@
 /* Class = "NSTabViewItem"; label = "Third"; ObjectID = "206-oW-lz5"; */
 "206-oW-lz5.label" = "Tercero";
 
-/* Class = "NSButtonCell"; title = "This ISO contains the Mac version of Ubuntu"; ObjectID = "2N3-rh-Hxh"; */
-"2N3-rh-Hxh.title" = "Esto archivo ISO contiene el versión de Ubuntu para Mac";
+/* Class = "NSButtonCell"; title = "This ISO lacks an EFI-enabled kernel"; ObjectID = "2N3-rh-Hxh"; */
+"2N3-rh-Hxh.title" = "Este archivo falta la compatibilidad con EFI";
 
 /* Class = "NSTextFieldCell"; title = "Choose Enterprise Source:"; ObjectID = "4e7-Dc-wKh"; */
 "4e7-Dc-wKh.title" = "Seleccionar fuente de Enterprise:";
@@ -39,7 +39,7 @@
 "JzD-IM-Mo0.title" = "Seleccionar destinación:";
 
 /* Class = "NSButtonCell"; title = "This ISO has code older than Ubuntu 14.10"; ObjectID = "K4N-ZO-OI0"; */
-"K4N-ZO-OI0.title" = "Este archivo ISO contiene codigo de una distribución menos que Ubuntu 14.10";
+"K4N-ZO-OI0.title" = "Este archivo contiene código más viejo que Ubuntu 14.10";
 
 /* Class = "NSMenuItem"; title = "Refresh"; ObjectID = "Piy-za-BZH"; */
 "Piy-za-BZH.title" = "Refresh";
