@@ -101,9 +101,6 @@ typedef enum {
 	    progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
 	});
 
-	copyfile_state_t s;
-	s = copyfile_state_alloc();
-
 	const char *fromPath = [document.fileURL.path UTF8String];
 	const char *toPath = [finalISOCopyPath UTF8String];
 
@@ -118,9 +115,13 @@ typedef enum {
 
 		returnCode = copyfile(fromPath, toPath, copyfileState, COPYFILE_ALL);
 
-		state = Finished;
-		[progressTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
-		progressTimer = nil;
+		if (returnCode == 0) {
+			state = Finished;
+			[progressTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
+			progressTimer = nil;
+		} else {
+			NSLog(@"Did finish copying with return code %d", returnCode);
+		}
 	}
 	copyfile_state_free(copyfileState);
 
@@ -143,9 +144,6 @@ typedef enum {
 	});
 
 	// First, copy Enterprise.
-	copyfile_state_t s;
-	s = copyfile_state_alloc();
-
 	const char *fromPath = [[source.path stringByAppendingPathComponent:@"bootX64.efi"] UTF8String];
 	const char *toPath = [finalEnterpriseCopyPath UTF8String];
 
@@ -160,13 +158,15 @@ typedef enum {
 
 		returnCode = copyfile(fromPath, toPath, copyfileState, COPYFILE_ALL);
 
-		state = Finished;
-		[progressTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
-		progressTimer = nil;
+		if (returnCode == 0) {
+			state = Finished;
+			[progressTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
+			progressTimer = nil;
+		} else {
+			NSLog(@"Did finish copying with return code %d", returnCode);
+		}
 	}
 	copyfile_state_free(copyfileState);
-
-	s = copyfile_state_alloc();
 
 	// Next, copy GRUB.
 	fromPath = [[source.path stringByAppendingPathComponent:@"boot.efi"] UTF8String];

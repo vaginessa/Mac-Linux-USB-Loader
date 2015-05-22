@@ -135,7 +135,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 		}
 
 		if (shouldDelete) {
-			res = [fm removeItemAtPath:completePath error:&err];
+			[fm removeItemAtPath:completePath error:&err];
 			if (err) {
 				NSLog(@"Couldn't erase cached file at path: %@", err.localizedFailureReason);
 			}
