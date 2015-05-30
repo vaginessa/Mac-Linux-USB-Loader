@@ -158,8 +158,9 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 
 		// Add the Enterprise installation located in Mac Linux USB Loader's bundle to the list of available
 		// Enterprise installations.
+		NSString *defaultPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
 		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:@"Included With Application"
-		                                                                           andPath:@""
+		                                                                           andPath:defaultPath
 		                                                                  shouldBeVolatile:NO];
 		self.enterpriseInstallLocations[@"Included With Application"] = loc;
 
@@ -184,6 +185,11 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 	@try {
 		self.enterpriseInstallLocations = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 
+		/*
+		 * Even though the path to the default Enterprise source is already set when the configuration file is
+		 * written to disk, if the user moves the application bundle there is a chance that the path won't
+		 * be updated, resulting in errors. So we update it here so that this won't happen.
+		 */
 		NSString *defaultPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
 		SBEnterpriseSourceLocation *source = self.enterpriseInstallLocations[@"Included With Application"];
 
