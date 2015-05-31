@@ -81,36 +81,52 @@
 
 	NSString *path = [device.path stringByAppendingPathComponent:@"/efi/boot/enterprise.cfg"];
 	NSMutableString *string = [NSMutableString stringWithCapacity:30];
-	[string appendString:@"#This file is machine generated. Do not modify it unless you know what you are doing.\n\n"];
-	[string appendFormat:@"entry %@\n", distributionId];
-	[string appendFormat:@"family %@\n", ([distributionId isEqualToString:@"Kali"] || [distributionId isEqualToString:@"Tails"]) ? @"Debian" : distributionId];
 
-	if (family == SBDistributionUbuntu && (isMacUbuntu || containsLegacyUbuntu)) {
-		NSMutableString *kernelString = [NSMutableString stringWithString:@"kernel "];
+	if (family != SBDistributionUnknown) {
+		[string appendString:@"#This file is machine generated. Do not modify it unless you know what you are doing.\n\n"];
+		[string appendFormat:@"entry %@\n", distributionId];
+		[string appendFormat:@"family %@\n", ([distributionId isEqualToString:@"Kali"] || [distributionId isEqualToString:@"Tails"]) ? @"Debian" : distributionId];
 
-		// I know that this seems a bit redundant, checking for legacy Ubuntu twice, but we have to because if we don't,
-		// it would be impossible to have both options be enabled.
-		if (isMacUbuntu) {
-			[kernelString appendString:@"/casper/vmlinuz "];
-			if (containsLegacyUbuntu) {
-				[kernelString appendString:@"file=/cdrom/preseed/ubuntu.seed"];
+		if (family == SBDistributionUbuntu && (isMacUbuntu || containsLegacyUbuntu)) {
+			NSMutableString *kernelString = [NSMutableString stringWithString:@"kernel "];
+
+			// I know that this seems a bit redundant, checking for legacy Ubuntu twice, but we have to because if we don't,
+			// it would be impossible to have both options be enabled.
+			if (isMacUbuntu) {
+				[kernelString appendString:@"/casper/vmlinuz "];
+				if (containsLegacyUbuntu) {
+					[kernelString appendString:@"file=/cdrom/preseed/ubuntu.seed"];
+				}
+			} else if (containsLegacyUbuntu) {
+				[kernelString appendString:@"/casper/vmlinuz.efi file=/cdrom/preseed/ubuntu.seed"];
 			}
-		} else if (containsLegacyUbuntu) {
-			[kernelString appendString:@"/casper/vmlinuz.efi file=/cdrom/preseed/ubuntu.seed"];
-		}
 
-		[kernelString appendString:@"\n"];
-		[string appendString:kernelString];
-	} else if (family == SBDistributionKali) {
-		[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live noconfig=sudo username=root hostname=kali\n"];
-	} else if (family == SBDistributionTails) {
-		[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live config live-media=removable noprompt timezone=Etc/UTC block.events_dfl_poll_msecs=1000 splash nox11autologin module=Tails quiet splash\n"];
+			[kernelString appendString:@"\n"];
+			[string appendString:kernelString];
+		} else if (family == SBDistributionKali) {
+			[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live noconfig=sudo username=root hostname=kali\n"];
+		} else if (family == SBDistributionTails) {
+			[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live config live-media=removable noprompt timezone=Etc/UTC block.events_dfl_poll_msecs=1000 splash nox11autologin module=Tails quiet splash\n"];
+		}
+	} else {
+		// The user has selected the "Other" option in the distribution family.
+		// Put text into the configuration file telling the user how to use it.
+		[string appendString:@"# enterprise.cfg\n"];
+		[string appendString:@"#\n"];
+		[string appendString:@"# This file is used to configure Enterprise. You need to fill out the following parameters "];
+		[string appendString:@"according to how your desired Linux distribution configures its ISO file.\n\n"];
+		[string appendString:@"entry Custom Linux\n"];
+		[string appendString:@"kernel /path/to/kernel ...\n"];
+		[string appendString:@"initrd /path/to/initrd\n"];
+		[string appendString:@"# Please see https://sevenbits.github.io/Enterprise/ for more information.\n"];
 	}
 
+	// Delete the old configuration file; otherwise we can't write a new one.
 	if (![[NSFileManager defaultManager] removeItemAtPath:path error:&error]) {
 		NSLog(@"Error removing old configuration file: %@", error);
 	}
 
+	// Write the new configuration file.
 	BOOL success = [string writeToFile:path atomically:NO encoding:NSASCIIStringEncoding error:&error];
 	if (!success) {
 		NSLog(@"Error writing configuration file: %@", error);
