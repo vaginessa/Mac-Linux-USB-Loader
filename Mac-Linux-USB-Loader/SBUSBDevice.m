@@ -240,4 +240,31 @@ typedef enum {
 	return YES;
 }
 
+- (BOOL)openConfigurationFileWithError:(NSError **)error {
+	NSString *path = [self.path stringByAppendingPathComponent:@"/efi/boot/enterprise.cfg"];
+	NSString *deprecatedPath = [self.path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
+	NSURL *outURL = [[NSFileManager defaultManager] setupSecurityScopedBookmarkForUSBAtPath:self.path withWindowForSheet:nil];
+	[outURL startAccessingSecurityScopedResource];
+	NSFileManager *fm = [NSFileManager defaultManager];
+
+	BOOL success = NO;
+
+	// If the file doesn't exist, print out an error and exit.
+	if (![fm fileExistsAtPath:path] && ![fm fileExistsAtPath:deprecatedPath]) {
+		if (error) *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOENT userInfo:nil];
+		return NO;
+	}
+
+	// Try to open the configuration file in TextEdit.
+	if (![[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextEdit"]) {
+		success = [[NSWorkspace sharedWorkspace] openFile:deprecatedPath withApplication:@"TextEdit"];
+
+		if (!success) NSLog(@"Couldn't open configuration file.");
+	}
+	[outURL stopAccessingSecurityScopedResource];
+
+	if (!success && error) *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:EACCES userInfo:nil];
+	return success;
+}
+
 @end

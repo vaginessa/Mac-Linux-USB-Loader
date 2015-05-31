@@ -88,4 +88,13 @@ typedef NS_ENUM (NSInteger, SBUSBDriveFileSystem) {
  */
 - (BOOL)enableStartupDiskSupport;
 
+/**
+ * Configures this USB drive with the files and options that are needed to add it to the Startup Disk selector
+ * in System Preferences.
+ *
+ * @param error A pointer which will point to an NSError object containing failure information if the file cannot be opened.
+ * @return YES if the operation succeeded, NO if it did not.
+ */
+- (BOOL)openConfigurationFileWithError:(NSError **)error;
+
 @end

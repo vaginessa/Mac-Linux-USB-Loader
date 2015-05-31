@@ -100,17 +100,7 @@
 - (IBAction)editConfigurationFileButtonPressed:(id)sender {
 	if ([self.tableView selectedRow] != -1) {
 		SBUSBDevice *selectedDrive = self.usbArray[[self.tableView selectedRow]];
-		NSString *path = [selectedDrive.path stringByAppendingPathComponent:@"/efi/boot/enterprise.cfg"];
-
-		NSURL *outURL = [[NSFileManager defaultManager] setupSecurityScopedBookmarkForUSBAtPath:selectedDrive.path withWindowForSheet:nil];
-		[outURL startAccessingSecurityScopedResource];
-		if (![[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextEdit"]) {
-			path = [selectedDrive.path stringByAppendingPathComponent:@"/efi/boot/.MLUL-Live-USB"];
-			BOOL success = [[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextEdit"];
-
-			if (!success) NSLog(@"Couldn't open configuration file.");
-		}
-		[outURL stopAccessingSecurityScopedResource];
+		[selectedDrive openConfigurationFileWithError:nil];
 		return;
 	}
 }
