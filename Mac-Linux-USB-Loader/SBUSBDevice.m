@@ -26,7 +26,7 @@ typedef enum {
 }
 
 #pragma mark - Class methods
-+ (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSUInteger)size withWindow:(NSWindow *)window {
++ (void)createPersistenceFileAtUSB:(NSString *)file withSize:(NSUInteger)size withWindow:(NSWindow *)window __attribute__((pure)) {
 	// Initalize the NSTask.
 	NSTask *task = [[NSTask alloc] init];
 	task.launchPath = @"/bin/dd";
@@ -42,7 +42,7 @@ typedef enum {
 	NSLog(@"Done USB persistence creation!");
 }
 
-+ (void)createLoopbackPersistence:(NSString *)file {
++ (void)createLoopbackPersistence:(NSString *)file __attribute__((pure)) {
 	NSBundle *mainBundle = [NSBundle mainBundle];
 	NSString *helperAppPath = [[mainBundle bundlePath]
 	                           stringByAppendingString:@"/Contents/Resources/Tools/mke2fs"];
@@ -66,7 +66,7 @@ typedef enum {
 	[task waitUntilExit];
 }
 
-+ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)path {
++ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)path __attribute__((pure)) {
 	NSString *fileName = [[path lowercaseString] lastPathComponent];
 	if ([fileName containsSubstring:@"tails"]) {
 		return SBDistributionTails;

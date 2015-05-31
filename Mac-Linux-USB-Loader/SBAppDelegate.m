@@ -411,7 +411,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 	return nil;
 }
 
-+ (SBLinuxDistribution)distributionEnumForEqualivalentName:(NSString *)name {
++ (SBLinuxDistribution)distributionEnumForEqualivalentName:(NSString *)name __attribute__((pure)) {
 	if ([name isEqualToString:@"Ubuntu"]) {
 		return SBDistributionUbuntu;
 	} else if ([name isEqualToString:@"Debian"]) {
@@ -425,7 +425,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 	}
 }
 
-+ (NSString *)distributionStringForEquivalentEnum:(SBLinuxDistribution)dist {
++ (NSString *)distributionStringForEquivalentEnum:(SBLinuxDistribution)dist __attribute__((const)) {
 	switch (dist) {
 		case SBDistributionUbuntu:
 			return @"Ubuntu";
