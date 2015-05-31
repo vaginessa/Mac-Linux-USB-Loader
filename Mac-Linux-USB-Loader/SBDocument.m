@@ -302,6 +302,16 @@
 			userNotification.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Finished Installing: ", nil), [[self.fileURL.path lastPathComponent] stringByDeletingPathExtension]];
 			userNotification.informativeText = NSLocalizedString(@"You are now ready to use your USB drive!", nil);
 			[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
+
+			// Open the Enterprise configuration file if required.
+			if (distribution == SBDistributionUnknown) {
+				NSError *error = nil;
+				[selectedUSBDrive openConfigurationFileWithError:&error];
+
+				if (error) {
+					[NSApp presentError:error];
+				}
+			}
 		});
 	});
 
