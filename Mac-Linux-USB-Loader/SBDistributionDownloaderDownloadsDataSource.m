@@ -23,6 +23,9 @@
 
 	SBDistributionDownloaderTableCellView *result = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
 	[result.nameLabel setStringValue:[[downloadOperation.path lastPathComponent] stringByDeletingPathExtension]];
+	[result setController:self.prefsViewController];
+	[result setCurrentDownloadProcessId:row];
+
 	return result;
 }
 

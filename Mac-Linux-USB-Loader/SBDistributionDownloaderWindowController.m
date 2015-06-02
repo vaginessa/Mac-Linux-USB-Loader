@@ -441,15 +441,6 @@
 
 - (IBAction)viewInProgressDownloads:(id)sender {
 	[self.downloadQueuePopover showRelativeToRect:[self.accessoryViewButton bounds] ofView:self.accessoryViewButton preferredEdge:NSMaxYEdge];
-	/*NSAlert *alert = [NSAlert alertWithMessageText:@"Do you really want to delete this item?"
-	                                 defaultButton:@"Delete"
-	                               alternateButton:@"Learn more"
-	                                   otherButton:@"Cancel"
-	                     informativeTextWithFormat:@"Deleting this item will erase all associated data in the database. Click learn more if you need additional information."];
-
-	   [alert runAsPopoverForView:self.accessoryViewButton withCompletionBlock:^(NSInteger result) {
-	    // handle result
-	   }];*/
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "SBDistributionDownloaderTableCellView.h"
+#import "SBDistributionDownloaderWindowController.h"
 
 @implementation SBDistributionDownloaderTableCellView
 
@@ -22,6 +23,23 @@
     [super drawRect:dirtyRect];
     
     // Drawing code here.
+}
+
+- (IBAction)stopCurrentDownload:(id)sender {
+	if (!self.controller) return;
+
+	NSAlert *alert = [[NSAlert alloc] init];
+	[alert addButtonWithTitle:NSLocalizedString(@"Yes", nil)];
+	[alert addButtonWithTitle:NSLocalizedString(@"No", nil)];
+	[alert setMessageText:NSLocalizedString(@"Are you sure that you want to cancel this download operation?", nil)];
+	[alert setInformativeText:NSLocalizedString(@"This operation cannot be undone.", nil)];
+	[alert setAlertStyle:NSWarningAlertStyle];
+
+	[alert runAsPopoverForView:self.deleteButton withCompletionBlock:^(NSInteger result) {
+		if (result == NSAlertFirstButtonReturn) {
+			[self.controller.downloadQueue.operations[self.currentDownloadProcessId] cancel];
+		}
+	}];
 }
 
 @end
