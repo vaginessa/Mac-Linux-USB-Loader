@@ -415,10 +415,12 @@
 		}
 
 		self.numberOfActiveDownloadOperations--;
+		[self.downloadQueueTableView reloadData];
 
 		if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
 			if (self.numberOfActiveDownloadOperations == 0) {
 				[[NSProcessInfo processInfo] endActivity:self.activity];
+				self.activity = nil;
 			}
 		}
 	};
