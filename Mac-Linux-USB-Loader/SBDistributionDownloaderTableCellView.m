@@ -29,14 +29,14 @@
 	if (!self.controller) return;
 
 	NSAlert *alert = [[NSAlert alloc] init];
-	[alert addButtonWithTitle:NSLocalizedString(@"Yes", nil)];
 	[alert addButtonWithTitle:NSLocalizedString(@"No", nil)];
+	[alert addButtonWithTitle:NSLocalizedString(@"Yes", nil)];
 	[alert setMessageText:NSLocalizedString(@"Are you sure that you want to cancel this download operation?", nil)];
 	[alert setInformativeText:NSLocalizedString(@"This operation cannot be undone.", nil)];
 	[alert setAlertStyle:NSWarningAlertStyle];
 
 	[alert runAsPopoverForView:self.deleteButton withCompletionBlock:^(NSInteger result) {
-		if (result == NSAlertFirstButtonReturn) {
+		if (result == NSAlertSecondButtonReturn) {
 			[self.controller.downloadQueue.operations[self.currentDownloadProcessId] cancel];
 		}
 	}];
