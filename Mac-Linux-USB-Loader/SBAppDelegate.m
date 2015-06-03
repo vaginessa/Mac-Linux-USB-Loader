@@ -296,7 +296,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 
 #pragma mark - Table View Delegates
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView __attribute__((const)) {
 	return 4;
 }
 
