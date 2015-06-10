@@ -15,6 +15,16 @@
 
 const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 
+@interface SBAppDelegate ()
+// These need to be here so that we can write to readonly variables within
+// this file, but prohibit others from being able to do so.
+@property (nonatomic, strong) NSMutableDictionary *usbDictionary;
+@property (nonatomic, strong) NSMutableDictionary *enterpriseInstallLocations;
+@property (nonatomic, strong) NSString *pathToApplicationSupportDirectory;
+@property (nonatomic, strong) NSDictionary *supportedDistributionsAndVersions;
+@property (nonatomic, strong) NSArray *supportedDistributions;
+@end
+
 @implementation SBAppDelegate
 @synthesize window;
 @synthesize operationsTableView;
@@ -26,8 +36,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 	self = [super init];
 	if (self) {
 		// Setup code goes here.
-		self.fileManager = [NSFileManager defaultManager];
-		self.pathToApplicationSupportDirectory = [self.fileManager applicationSupportDirectory];
+		self->fileManager = [NSFileManager defaultManager];
+		self.pathToApplicationSupportDirectory = [self->fileManager applicationSupportDirectory];
 
 		self.supportedDistributions = @[@"Ubuntu", @"Linux Mint", @"Elementary OS", @"Zorin OS", @"Kali Linux"];
 		self.supportedDistributionsAndVersions = @{ @"Ubuntu": @"15.04",
@@ -100,7 +110,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 
 - (void)purgeCachesAndOldFiles {
 	/* First, purge all caches and unneeded data that we can re-obtain. */
-	NSString *path = [[NSFileManager defaultManager] cacheDirectory];
+	NSString *path = [self->fileManager cacheDirectory];
 	NSFileManager *fm = [[NSFileManager alloc] init];
 	NSDirectoryEnumerator *en = [fm enumeratorAtPath:path];
 	NSError *err = nil;
@@ -119,7 +129,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 	}
 
 	// Deal with old ISOs.
-	path = [[NSFileManager defaultManager] applicationSupportDirectory];
+	path = [self->fileManager applicationSupportDirectory];
 	en = [fm enumeratorAtPath:path];
 	while (file = [en nextObject]) {
 		BOOL shouldDelete = YES;
@@ -150,7 +160,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 
 - (void)setupEnterpriseInstallationLocations {
 	NSString *filePath = [self.pathToApplicationSupportDirectory stringByAppendingPathComponent:@"/EnterpriseInstallationLocations.plist"];
-	BOOL exists = [self.fileManager fileExistsAtPath:filePath];
+	BOOL exists = [self->fileManager fileExistsAtPath:filePath];
 
 	if (!exists) {
 		NSLog(@"Couldn't find dictionary of Enterprise source file locations. Is this the first run? Creating one now...");
@@ -212,7 +222,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 		[self.usbDictionary removeAllObjects];
 	}
 
-	NSArray *volumes = [[NSFileManager defaultManager] mountedVolumeURLsIncludingResourceValuesForKeys:nil options:0];
+	NSArray *volumes = [self->fileManager mountedVolumeURLsIncludingResourceValuesForKeys:nil options:0];
 	BOOL isRemovable, isWritable, isUnmountable;
 	NSString *description, *volumeType;
 

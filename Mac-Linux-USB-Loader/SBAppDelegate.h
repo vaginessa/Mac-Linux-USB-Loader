@@ -21,6 +21,9 @@
 	__weak NSTextField *applicationVersionString;
 
 	RHPreferencesWindowController *_preferencesWindowController;
+
+	/// An instance of NSFileManager to be used by this instance.
+	NSFileManager *fileManager;
 }
 
 @property (unsafe_unretained) IBOutlet NSWindow *window;
@@ -29,19 +32,16 @@
 @property (weak) IBOutlet NSPopover *moreOptionsPopover;
 
 /// A dictionary containing the keys of plugged in USB devices with the values of those keys being instances of SBUSBDevice.
-@property (nonatomic, strong) NSMutableDictionary *usbDictionary;
+@property (nonatomic, strong, readonly) NSMutableDictionary *usbDictionary;
 /// A dictionary containing the keys of registered Enterprise source locations with the values of those keys being instances
 /// of SBEnterpriseSourceLocation. This dictionary's contents are stored on-disk.
-@property (nonatomic, strong) NSMutableDictionary *enterpriseInstallLocations;
-
+@property (nonatomic, strong, readonly) NSMutableDictionary *enterpriseInstallLocations;
 /// The path to the application's application support directory.
-@property (nonatomic, strong) NSString *pathToApplicationSupportDirectory;
-/// An instance of NSFileManager to be used by this instance.
-@property (nonatomic, strong) NSFileManager *fileManager;
+@property (nonatomic, strong, readonly) NSString *pathToApplicationSupportDirectory;
 /// A dictionary containing a list of supported distributions and their minimum supported versions.
-@property (nonatomic, strong) NSDictionary *supportedDistributionsAndVersions;
+@property (nonatomic, strong, readonly) NSDictionary *supportedDistributionsAndVersions;
 /// An array of supported distributions to be used as keys for the supportedDistributionsAndVersions property.
-@property (nonatomic, strong) NSArray *supportedDistributions;
+@property (nonatomic, strong, readonly) NSArray *supportedDistributions;
 
 @property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
 @property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
