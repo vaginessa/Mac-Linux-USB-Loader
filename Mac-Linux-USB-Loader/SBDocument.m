@@ -298,7 +298,7 @@
 			[self.tabView selectTabViewItemAtIndex:2];
 			self.indexOfSelectedTab = 2;
 
-			NSUserNotification *userNotification = [[NSUserNotification alloc] init]; \
+			NSUserNotification *userNotification = [[NSUserNotification alloc] init];
 			userNotification.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Finished Installing: ", nil), [[self.fileURL.path lastPathComponent] stringByDeletingPathExtension]];
 			userNotification.informativeText = NSLocalizedString(@"You are now ready to use your USB drive!", nil);
 			[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
