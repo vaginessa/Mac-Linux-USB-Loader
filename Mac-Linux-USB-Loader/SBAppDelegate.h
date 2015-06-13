@@ -17,8 +17,6 @@
 
 @interface SBAppDelegate : NSObject {
 	__unsafe_unretained NSWindow *window;
-	__weak NSTableView *operationsTableView;
-	__weak NSTextField *applicationVersionString;
 
 	RHPreferencesWindowController *_preferencesWindowController;
 

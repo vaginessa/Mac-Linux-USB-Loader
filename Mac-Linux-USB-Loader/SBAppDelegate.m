@@ -27,8 +27,6 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 
 @implementation SBAppDelegate
 @synthesize window;
-@synthesize operationsTableView;
-@synthesize applicationVersionString;
 
 #pragma mark - Object Setup
 
