@@ -33,7 +33,7 @@
 @interface NSProcessInfo(PECocoaBackportsPrivate)
 
 #if LOAD_OPERATING_SYSTEM_VERSION
-- (NSOperatingSystemVersion)PECocoaBackports_operatingSystemVersion;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSOperatingSystemVersion PECocoaBackports_operatingSystemVersion;
 - (BOOL)PECocoaBackports_isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion)version;
 #endif
 

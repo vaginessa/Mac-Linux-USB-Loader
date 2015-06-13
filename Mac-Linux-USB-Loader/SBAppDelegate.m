@@ -30,7 +30,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 
 #pragma mark - Object Setup
 
-- (id)init {
+- (instancetype)init {
 	self = [super init];
 	if (self) {
 		// Setup code goes here.

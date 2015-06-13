@@ -41,7 +41,7 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 	kAboutWindowCreditsFadeColor2 = CGColorCreateGenericGray(1.0, 0.0);
 }
 
-- (id)initWithWindow:(NSWindow *)window {
+- (instancetype)initWithWindow:(NSWindow *)window {
 	self = [super initWithWindow:window];
 	if (self) {
 		// Initialization code here.
@@ -185,7 +185,7 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 	CGColorRef color2 = kAboutWindowCreditsFadeColor2;
 	CGFloat height = kAboutWindowCreditsFadeHeight;
 	_creditsTopFadeLayer = [CAGradientLayer layer];
-	_creditsTopFadeLayer.colors = [NSArray arrayWithObjects:(__bridge id)color1, (__bridge id)color2, nil];
+	_creditsTopFadeLayer.colors = @[(__bridge id)color1, (__bridge id)color2];
 	_creditsTopFadeLayer.frame = CGRectMake(0.0, 0.0, self.creditsView.bounds.size.width, height);
 
 	_creditsTopFadeLayer.contentsScale = self.scaleFactor;
@@ -200,7 +200,7 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 	CGColorRef color2 = kAboutWindowCreditsFadeColor2;
 	CGFloat height = kAboutWindowCreditsFadeHeight;
 	_creditsBottomFadeLayer = [CAGradientLayer layer];
-	_creditsBottomFadeLayer.colors = [NSArray arrayWithObjects:(__bridge id)color2, (__bridge id)color1, nil];
+	_creditsBottomFadeLayer.colors = @[(__bridge id)color2, (__bridge id)color1];
 	_creditsBottomFadeLayer.frame = CGRectMake(0.0, self.creditsView.bounds.size.height - height, self.creditsView.bounds.size.width, height);
 
 	_creditsBottomFadeLayer.contentsScale = self.scaleFactor;

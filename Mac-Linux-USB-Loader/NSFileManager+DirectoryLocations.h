@@ -52,7 +52,7 @@
  *
  * @return The path to the Application Support directory
  */
-- (NSString *)applicationSupportDirectory;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *applicationSupportDirectory;
 
 /**
  * Returns the path to the Caches directory (creating it if it doesn't
@@ -60,6 +60,6 @@
  *
  * @return The path to the Caches directory
  */
-- (NSString *)cacheDirectory;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *cacheDirectory;
 
 @end

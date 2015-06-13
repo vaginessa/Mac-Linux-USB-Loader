@@ -14,7 +14,7 @@
 	// Cache the reduced image
 	NSData *imageData = [self TIFFRepresentation];
 	NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:imageData];
-	NSDictionary *imageProps = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:1.0] forKey:NSImageCompressionFactor];
+	NSDictionary *imageProps = @{NSImageCompressionFactor: @1.0f};
 	imageData = [imageRep representationUsingType:NSPNGFileType properties:imageProps];
 	[imageData writeToFile:fileName atomically:NO];
 }

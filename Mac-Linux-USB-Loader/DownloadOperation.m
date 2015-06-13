@@ -25,7 +25,7 @@
 @synthesize executing = _executing;
 @synthesize finished  = _finished;
 
-- (id)initWithURL:(NSURL *)url path:(NSString *)path
+- (instancetype)initWithURL:(NSURL *)url path:(NSString *)path
 {
 	self = [super init];
 	if (self) {
@@ -41,7 +41,7 @@
 	return self;
 }
 
-- (id)initWithURL:(NSURL *)url
+- (instancetype)initWithURL:(NSURL *)url
 {
 	return [self initWithURL:url path:nil];
 }

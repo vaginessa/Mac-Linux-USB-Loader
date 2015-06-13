@@ -40,7 +40,7 @@
 @implementation SBDistributionDownloaderWindowController
 
 #pragma mark - Object Setup
-- (id)initWithWindow:(NSWindow *)window {
+- (instancetype)initWithWindow:(NSWindow *)window {
 	self = [super initWithWindow:window];
 	self.modelDictionary = [[NSMutableDictionary alloc] initWithCapacity:5];
 	self.imageDictionary = [[NSMutableDictionary alloc] initWithCapacity:5];
@@ -242,10 +242,10 @@
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	if ([aTableColumn.identifier isEqualToString:@"nameCol"]) {
-		return [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
+		return [(SBAppDelegate *)[NSApp delegate] supportedDistributions][rowIndex];
 	} else if ([aTableColumn.identifier isEqualToString:@"versionCol"]) {
-		NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:rowIndex];
-		return [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution];
+		NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][rowIndex];
+		return [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution];
 	} else {
 		return @"N/A";
 	}
@@ -263,11 +263,11 @@
 	}
 
 	// Construct the name and path of the downloaded ISO.
-	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
+	NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]];
 	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
-	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]],
+	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution]]];
 
 	// Open the URL.
 	NSURL *url = [NSURL fileURLWithPath:path];
@@ -285,10 +285,10 @@
 		return;
 	}
 
-	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:row];
+	NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][row];
 	[self.distroNameLabel setStringValue:[NSString stringWithFormat:@"%@ %@",
-	                                      [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:row],
-	                                      [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                      [(SBAppDelegate *)[NSApp delegate] supportedDistributions][row],
+	                                      [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution]]];
 
 
 	NSString *convertedName = [distribution stringByReplacingOccurrencesOfString:@" " withString:@"-"];
@@ -333,11 +333,11 @@
 	}
 
 	// Construct the name and path of the downloaded ISO.
-	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
+	NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]];
 	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
-	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]],
+	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution]]];
 
 	// Open the URL.
 	[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:path];
@@ -346,7 +346,7 @@
 - (IBAction)downloadDistroButtonPressed:(id)sender {
 	NSInteger selectedDistro = [self.tableView selectedRow];
 
-	NSString *temp = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:selectedDistro];
+	NSString *temp = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][selectedDistro];
 	temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 
 	if (!self.modelDictionary[temp]) {
@@ -380,11 +380,11 @@
 	NSInteger selectedItem = [self.distroMirrorCountrySelector indexOfSelectedItem];
 	NSAssert(selectedItem != -1, @"Selected item is %ld", (long)selectedItem);
 
-	NSString *distribution = [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]];
+	NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]];
 	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] objectAtIndex:[self.tableView selectedRow]],
-	                                             [[(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions] objectForKey:distribution]]];
+	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]],
+	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution]]];
 
 	// Inform the system that we are starting this operation.
 	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {

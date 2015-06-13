@@ -10,7 +10,7 @@
 
 @implementation SBUSBDeviceCollectionViewRepresentation
 
-- (id)init {
+- (instancetype)init {
 	self = [super init];
 	if (self) {
 		// Add your subclass-specific initialization here.

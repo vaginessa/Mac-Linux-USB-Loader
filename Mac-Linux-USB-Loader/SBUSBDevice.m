@@ -10,11 +10,11 @@
 #import "SBUSBDevice.h"
 #import "NSString+Extensions.h"
 
-typedef enum {
+typedef NS_ENUM(unsigned int, State) {
 	NotStarted = 0,
 	InProgress,
 	Finished,
-} State;
+};
 
 @implementation SBUSBDevice {
 	copyfile_state_t copyfileState;
@@ -82,7 +82,7 @@ typedef enum {
 }
 
 #pragma mark - Instance methods
-- (id)init {
+- (instancetype)init {
 	self = [super init];
 	if (self) {
 		// Add your subclass-specific initialization here.

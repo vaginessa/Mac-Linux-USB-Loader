@@ -29,7 +29,7 @@
  * @param path The path of the source location.
  * @param deletable Whether can user should be able to delete this source.
  */
-- (id)initWithName:(NSString *)name andPath:(NSString *)path shouldBeVolatile:(BOOL)deletable;
+- (instancetype)initWithName:(NSString *)name andPath:(NSString *)path shouldBeVolatile:(BOOL)deletable;
 
 /**
  * Initializes a new SBEnterpriseSourceLocation object immediately after memory for it has been allocated.
@@ -42,6 +42,6 @@
  * @param bookmark A security scoped bookmark to access the directory containing this source.
  * @param deletable Whether can user should be able to delete this source.
  */
-- (id)initWithName:(NSString *)name withPath:(NSString *)path withVersionNumber:(NSString *)version withSecurityScopedBookmark:(NSURL *)bookmark shouldBeVolatile:(BOOL)deletable;
+- (instancetype)initWithName:(NSString *)name withPath:(NSString *)path withVersionNumber:(NSString *)version withSecurityScopedBookmark:(NSURL *)bookmark shouldBeVolatile:(BOOL)deletable;
 
 @end

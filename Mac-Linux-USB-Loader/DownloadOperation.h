@@ -92,7 +92,7 @@ typedef void (^DownloadProgressBlock)(DownloadOperation *operation, long long pr
  * @see initWithURL:
  */
 
-- (id)initWithURL:(NSURL *)url path:(NSString *)path;
+- (instancetype)initWithURL:(NSURL *)url path:(NSString *)path NS_DESIGNATED_INITIALIZER;
 
 /** Initialize `Download` operation, downloading from `url`, saving the file to documents folder, using the URL's `lastPathComponent` as the filename.
  *
@@ -105,7 +105,7 @@ typedef void (^DownloadProgressBlock)(DownloadOperation *operation, long long pr
  * @see initWithURL:path:
  */
 
-- (id)initWithURL:(NSURL *)url;
+- (instancetype)initWithURL:(NSURL *)url;
 
 /// @name Properties
 

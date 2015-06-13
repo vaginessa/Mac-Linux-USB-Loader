@@ -10,7 +10,7 @@
 
 @implementation SBEnterpriseSourceLocation
 
-- (id)initWithName:(NSString *)name withPath:(NSString *)path withVersionNumber:(NSString *)version withSecurityScopedBookmark:(NSURL *)bookmark shouldBeVolatile:(BOOL)deletable {
+- (instancetype)initWithName:(NSString *)name withPath:(NSString *)path withVersionNumber:(NSString *)version withSecurityScopedBookmark:(NSURL *)bookmark shouldBeVolatile:(BOOL)deletable {
 	self = [super init];
 	if (self) {
 		// Add your subclass-specific initialization here.
@@ -23,7 +23,7 @@
 	return self;
 }
 
-- (id)initWithName:(NSString *)name andPath:(NSString *)path shouldBeVolatile:(BOOL)deletable {
+- (instancetype)initWithName:(NSString *)name andPath:(NSString *)path shouldBeVolatile:(BOOL)deletable {
 	self = [self initWithName:name withPath:path withVersionNumber:SBBundledEnterpriseVersionNumber withSecurityScopedBookmark:nil shouldBeVolatile:deletable];
 	if (self) {
 		// Add your subclass-specific initialization here.
@@ -31,7 +31,7 @@
 	return self;
 }
 
-- (id)initWithCoder:(NSCoder *)decoder {
+- (instancetype)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
 	if (!self) {
 		return nil;

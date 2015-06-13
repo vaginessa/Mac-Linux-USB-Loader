@@ -13,14 +13,14 @@
 NSOpenPanel *spanel;
 
 - (NSNumber *)sizeOfFileAtPath:(NSString *)path {
-	NSNumber *mySize = [NSNumber numberWithUnsignedLongLong:[[self attributesOfItemAtPath:path error:nil] fileSize]];
+	NSNumber *mySize = @([[self attributesOfItemAtPath:path error:nil] fileSize]);
 	return mySize;
 }
 
 - (NSInteger)freeSpaceRemainingOnDrive:(NSString *)path error:(NSError **)userError {
 	NSError *error = nil;
 	NSDictionary *attr = [self attributesOfFileSystemForPath:path error:&error];
-	double bytesFree = [[attr objectForKey:NSFileSystemFreeSize] longValue];
+	double bytesFree = [attr[NSFileSystemFreeSize] longValue];
 
 	if (error) {
 		*userError = error;
