@@ -63,7 +63,7 @@
 			break;
 		case SBDistributionUnknown:
 		default:
-			[self.distributionSelectorPopup selectItemWithTitle:@"Other"];
+			[self.distributionSelectorPopup selectItemWithTitle:NSLocalizedString(@"Other", nil)];
 			break;
 	}
 	// For Ubuntu, check if this is a Mac ISO (not EFI enabled)
