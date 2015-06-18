@@ -1,6 +1,5 @@
-
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "3xc-5H-mwd"; */
-"3xc-5H-mwd.title" = "Text Cell";
+"3xc-5H-mwd.title" = "Celda de Texto";
 
 /* Class = "NSBox"; title = "Download Settings"; ObjectID = "6Ho-5a-BD4"; */
 "6Ho-5a-BD4.title" = "Configuración de Descarga";
@@ -9,13 +8,13 @@
 "7le-Xf-L3s.title" = "Descargar esta Distribución";
 
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "9H6-8I-x31"; */
-"9H6-8I-x31.title" = "Text Cell";
+"9H6-8I-x31.title" = "Celda de Texto";
 
 /* Class = "NSWindow"; title = "Distribution Downloader"; ObjectID = "F0z-JX-Cv5"; */
-"F0z-JX-Cv5.title" = "Distribution Downloader";
+"F0z-JX-Cv5.title" = "Gestor de Descarga de Distribuciones";
 
 /* Class = "NSButtonCell"; title = "View In-Progress Downloads"; ObjectID = "Hwd-V5-1q3"; */
-"Hwd-V5-1q3.title" = "View In-Progress Downloads";
+"Hwd-V5-1q3.title" = "Ver Descargas en Progreso";
 
 /* Class = "NSButtonCell"; title = "Begin Download"; ObjectID = "Ie1-Jz-j1W"; */
 "Ie1-Jz-j1W.title" = "Comenzar la Descarga";
@@ -53,7 +52,7 @@
 /* Class = "NSTextFieldCell"; title = "Country:"; ObjectID = "cK3-rM-Ug9"; */
 "cK3-rM-Ug9.title" = "País:";
 
-/* Class = "NSPanel"; title = "Window"; ObjectID = "dxA-hL-HgN"; */
+/* Class = "NSWindow"; title = "Window"; ObjectID = "dxA-hL-HgN"; */
 "dxA-hL-HgN.title" = "Ventana";
 
 /* Class = "NSTextFieldCell"; title = "Something.iso"; ObjectID = "gKI-d9-ORr"; */
@@ -66,4 +65,5 @@
 "oQd-aW-Z5Q.title" = "Cerrar";
 
 /* Class = "NSMenuItem"; title = "View in Finder"; ObjectID = "zHc-Qf-ZKX"; */
-"zHc-Qf-ZKX.title" = "View in Finder";
+"zHc-Qf-ZKX.title" = "Mostrar Finder";
+

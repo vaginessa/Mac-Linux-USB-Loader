@@ -1,12 +1,11 @@
-
 /* Class = "NSWindow"; title = "Persistence Setup"; ObjectID = "1"; */
 "1.title" = "Configuración de la Persistencia";
 
 /* Class = "NSTextFieldCell"; title = "Target USB:"; ObjectID = "Apk-Mg-4gj"; */
-"Apk-Mg-4gj.title" = "Memoria USB deseado:";
+"Apk-Mg-4gj.title" = "Dispositivo USB:";
 
 /* Class = "NSTextFieldCell"; title = "Persistence Size:"; ObjectID = "Dpm-6U-5pw"; */
-"Dpm-6U-5pw.title" = "Persistence Size:";
+"Dpm-6U-5pw.title" = "Tamaño persistencia:";
 
 /* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "NrD-gi-cN6"; */
 "NrD-gi-cN6.title" = "Label";
@@ -18,7 +17,8 @@
 "fCZ-FR-PGe.title" = "Reset Slider";
 
 /* Class = "NSButtonCell"; title = "Refresh"; ObjectID = "lBS-19-NXo"; */
-"lBS-19-NXo.title" = "Refresh";
+"lBS-19-NXo.title" = "Refrescar";
 
 /* Class = "NSButtonCell"; title = "Create Persistence"; ObjectID = "zZH-rW-NE2"; */
-"zZH-rW-NE2.title" = "Crear la Persistencia";
+"zZH-rW-NE2.title" = "Crear Persistencia";
+

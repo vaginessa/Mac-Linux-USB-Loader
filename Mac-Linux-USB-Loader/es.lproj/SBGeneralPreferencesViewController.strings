@@ -1,15 +1,14 @@
-
 /* Class = "NSButtonCell"; title = "Accept HFS+ Formatted Drives"; ObjectID = "9HT-f6-zfH"; */
-"9HT-f6-zfH.title" = "Permitir memoria USB formateado como HFS+";
+"9HT-f6-zfH.title" = "Permitir dispositivos USB con formato HFS+";
 
-/* Class = "NSBox"; title = "Box"; ObjectID = "DtM-MH-qpg"; */
-"DtM-MH-qpg.title" = "Box";
+/* Class = "NSButtonCell"; title = "Hide Enterprise Configuration File"; ObjectID = "CG7-vV-ura"; */
+"CG7-vV-ura.title" = "Ocultar archivo de configuración de Enterprise";
 
 /* Class = "NSBox"; title = "Box"; ObjectID = "Mqp-7t-iHQ"; */
 "Mqp-7t-iHQ.title" = "Box";
 
 /* Class = "NSButtonCell"; title = "Periodically Clear Caches and Old ISO Downloads"; ObjectID = "XrG-IX-Jnc"; */
-"XrG-IX-Jnc.title" = "Periódicamente borrar cachés y descargados de archivos viejos";
+"XrG-IX-Jnc.title" = "Periódicamente borrar cachés y descargas de archivos antiguos";
 
 /* Class = "NSButtonCell"; title = "Clear Now"; ObjectID = "j9p-k1-kBV"; */
 "j9p-k1-kBV.title" = "Borrar ahora";
@@ -17,5 +16,3 @@
 /* Class = "NSBox"; title = "Experimental"; ObjectID = "nPg-bg-bVL"; */
 "nPg-bg-bVL.title" = "Experimental";
 
-/* Class = "NSButtonCell"; title = "Hide Enterprise Configuration File"; ObjectID = "CG7-vV-ura" */
-"CG7-vV-ura.title" = "Ocultar archivo de configuración de Enterprise";
