@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBPersistenceManagerWindowController">
@@ -42,10 +42,10 @@
                             <rect key="frame" x="1" y="1" width="586" height="82"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eon-uz-T23">
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eon-uz-T23">
                                     <rect key="frame" x="472" y="50" width="96" height="22"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="96" id="h3f-JJ-lOq"/>
+                                        <constraint firstAttribute="width" constant="96" id="SgM-P7-bnU"/>
                                     </constraints>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ddJ-0k-WBw">
                                         <byteCountFormatter key="formatter" id="MXU-gc-OCr"/>
@@ -62,11 +62,11 @@
                                         </binding>
                                     </connections>
                                 </textField>
-                                <slider verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
+                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
                                     <rect key="frame" x="130" y="50" width="336" height="21"/>
                                     <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
                                 </slider>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
                                     <rect key="frame" x="18" y="52" width="110" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Persistence Size:" id="Dpm-6U-5pw">
                                         <font key="font" metaFont="system"/>
@@ -74,10 +74,10 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-Bo-nAF">
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-Bo-nAF">
                                     <rect key="frame" x="12" y="7" width="113" height="32"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="101" id="OvO-Ym-Dc6"/>
+                                        <constraint firstAttribute="width" constant="101" id="vhf-XB-mVU"/>
                                     </constraints>
                                     <buttonCell key="cell" type="push" title="Reset Slider" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fCZ-FR-PGe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -87,10 +87,10 @@
                                         <action selector="resetSliderButtonPressed:" target="-2" id="jRO-0T-3ZQ"/>
                                     </connections>
                                 </button>
-                                <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSC-Pl-16D">
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kSC-Pl-16D">
                                     <rect key="frame" x="419" y="7" width="155" height="32"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="143" id="J9a-NA-EDr"/>
+                                        <constraint firstAttribute="width" constant="143" id="hRN-bI-8cC"/>
                                     </constraints>
                                     <buttonCell key="cell" type="push" title="Create Persistence" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zZH-rW-NE2">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -103,12 +103,17 @@
                             </subviews>
                         </view>
                         <constraints>
-                            <constraint firstItem="kSC-Pl-16D" firstAttribute="baseline" secondItem="cw7-Bo-nAF" secondAttribute="baseline" id="Bnl-bq-Hzs"/>
-                            <constraint firstItem="6JB-DA-RJT" firstAttribute="leading" secondItem="gHL-Gw-83z" secondAttribute="trailing" constant="6" id="NUH-fq-GwG"/>
-                            <constraint firstItem="kSC-Pl-16D" firstAttribute="trailing" secondItem="Eon-uz-T23" secondAttribute="trailing" id="cHc-Bc-GeK"/>
-                            <constraint firstItem="Eon-uz-T23" firstAttribute="leading" secondItem="6JB-DA-RJT" secondAttribute="trailing" constant="8" symbolic="YES" id="ezw-TT-Lqp"/>
-                            <constraint firstItem="6JB-DA-RJT" firstAttribute="baseline" secondItem="Eon-uz-T23" secondAttribute="baseline" id="snJ-dL-7Hg"/>
-                            <constraint firstItem="gHL-Gw-83z" firstAttribute="baseline" secondItem="6JB-DA-RJT" secondAttribute="baseline" id="xTN-m4-d40"/>
+                            <constraint firstItem="Eon-uz-T23" firstAttribute="trailing" secondItem="kSC-Pl-16D" secondAttribute="trailing" id="1e2-Uh-Bsu"/>
+                            <constraint firstItem="6JB-DA-RJT" firstAttribute="baseline" secondItem="gHL-Gw-83z" secondAttribute="baseline" id="3Ux-j2-Eo1"/>
+                            <constraint firstItem="6JB-DA-RJT" firstAttribute="leading" secondItem="gHL-Gw-83z" secondAttribute="trailing" constant="6" id="HL3-Jy-8zI"/>
+                            <constraint firstItem="gHL-Gw-83z" firstAttribute="leading" secondItem="be7-b0-Wt7" secondAttribute="leading" constant="18" id="Ihl-76-b4C"/>
+                            <constraint firstItem="cw7-Bo-nAF" firstAttribute="leading" secondItem="be7-b0-Wt7" secondAttribute="leading" constant="16" id="L5C-Dm-WR1"/>
+                            <constraint firstAttribute="trailing" secondItem="Eon-uz-T23" secondAttribute="trailing" constant="16" id="bJe-8u-Fk2"/>
+                            <constraint firstItem="Eon-uz-T23" firstAttribute="leading" secondItem="6JB-DA-RJT" secondAttribute="trailing" constant="8" symbolic="YES" id="bPu-ru-aBs"/>
+                            <constraint firstItem="Eon-uz-T23" firstAttribute="top" secondItem="be7-b0-Wt7" secondAttribute="top" constant="25" id="cSq-5Z-Da1"/>
+                            <constraint firstItem="cw7-Bo-nAF" firstAttribute="baseline" secondItem="kSC-Pl-16D" secondAttribute="baseline" id="e1f-2K-fLR"/>
+                            <constraint firstItem="Eon-uz-T23" firstAttribute="baseline" secondItem="6JB-DA-RJT" secondAttribute="baseline" id="rNC-He-gmu"/>
+                            <constraint firstAttribute="bottom" secondItem="cw7-Bo-nAF" secondAttribute="bottom" constant="11" id="tZc-Xv-xT7"/>
                         </constraints>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

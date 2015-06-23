@@ -165,9 +165,6 @@
                                                 </scrollView>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-KC-Mlc">
                                                     <rect key="frame" x="156" y="228" width="67" height="28"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="57" id="keR-x2-tsP"/>
-                                                    </constraints>
                                                     <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6eC-ug-AG8">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
@@ -194,6 +191,7 @@
                                                 <constraint firstItem="3m7-V1-evP" firstAttribute="leading" secondItem="Ycg-8p-AmO" secondAttribute="leading" id="QtN-e7-gHM"/>
                                                 <constraint firstItem="Ycg-8p-AmO" firstAttribute="leading" secondItem="YOl-y0-9CI" secondAttribute="leading" constant="20" symbolic="YES" id="RVE-lQ-qns"/>
                                                 <constraint firstAttribute="bottom" secondItem="a7j-E4-ODU" secondAttribute="bottom" constant="10" id="U2t-jp-sWX"/>
+                                                <constraint firstAttribute="trailing" secondItem="ehK-KC-Mlc" secondAttribute="trailing" constant="157" id="UiM-u5-jX9"/>
                                                 <constraint firstItem="3m7-V1-evP" firstAttribute="trailing" secondItem="VBp-6d-4FK" secondAttribute="trailing" id="Uix-xe-UUc"/>
                                                 <constraint firstItem="ehK-KC-Mlc" firstAttribute="leading" secondItem="Ycg-8p-AmO" secondAttribute="trailing" constant="8" id="WBL-wf-4lv"/>
                                                 <constraint firstItem="3m7-V1-evP" firstAttribute="top" secondItem="Ycg-8p-AmO" secondAttribute="bottom" constant="8" symbolic="YES" id="bgp-4M-edp"/>

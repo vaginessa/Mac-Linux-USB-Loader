@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDistributionDownloaderPreferencesViewController">
@@ -42,9 +42,6 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="461-8h-HBz">
                     <rect key="frame" x="18" y="165" width="122" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="XNA-tW-FVp"/>
-                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Update mirror lists:" id="DK4-Bn-Yrx">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -134,29 +131,30 @@
                 </textField>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="jAB-aK-jjZ" secondAttribute="trailing" constant="20" id="1F9-q7-ATd"/>
                 <constraint firstItem="nDY-Bg-bvP" firstAttribute="top" secondItem="HM1-hQ-USq" secondAttribute="bottom" constant="8" symbolic="YES" id="1H2-NT-SIc"/>
                 <constraint firstAttribute="trailing" secondItem="Sps-jS-QR2" secondAttribute="trailing" priority="250" constant="20" id="43l-lh-hSJ"/>
-                <constraint firstItem="461-8h-HBz" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="4Ob-9u-Qlz"/>
                 <constraint firstItem="Sps-jS-QR2" firstAttribute="trailing" secondItem="HM1-hQ-USq" secondAttribute="trailing" priority="250" id="4w2-L9-507"/>
                 <constraint firstItem="HM1-hQ-USq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="6Vn-IQ-szf"/>
                 <constraint firstItem="nDY-Bg-bvP" firstAttribute="trailing" secondItem="pL0-W8-rfZ" secondAttribute="trailing" id="7Pp-YV-3g0"/>
                 <constraint firstItem="Sps-jS-QR2" firstAttribute="leading" secondItem="1vt-Cf-z68" secondAttribute="trailing" constant="10" id="Aut-rT-ygU"/>
-                <constraint firstItem="jAB-aK-jjZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="19" id="Enu-4t-Wjd"/>
+                <constraint firstItem="pL0-W8-rfZ" firstAttribute="top" secondItem="461-8h-HBz" secondAttribute="bottom" constant="9" id="Dhn-hx-fis"/>
                 <constraint firstItem="HM1-hQ-USq" firstAttribute="leading" secondItem="FME-ii-R0b" secondAttribute="leading" id="FFb-OA-maa"/>
                 <constraint firstItem="Sps-jS-QR2" firstAttribute="top" secondItem="pL0-W8-rfZ" secondAttribute="bottom" constant="10" id="HEe-F4-B2V"/>
                 <constraint firstAttribute="trailing" secondItem="pL0-W8-rfZ" secondAttribute="trailing" constant="20" id="JkH-xh-VQP"/>
                 <constraint firstItem="1vt-Cf-z68" firstAttribute="leading" secondItem="FME-ii-R0b" secondAttribute="trailing" constant="8" id="MIW-JI-I1l"/>
                 <constraint firstItem="FME-ii-R0b" firstAttribute="top" secondItem="pL0-W8-rfZ" secondAttribute="bottom" constant="10" id="N04-QU-jhH"/>
                 <constraint firstItem="pL0-W8-rfZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="OAk-jO-GsR"/>
+                <constraint firstItem="461-8h-HBz" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="QVO-dG-Yow"/>
                 <constraint firstItem="1vt-Cf-z68" firstAttribute="top" secondItem="pL0-W8-rfZ" secondAttribute="bottom" constant="8" id="Wyo-rK-6Z0"/>
-                <constraint firstAttribute="trailing" secondItem="jAB-aK-jjZ" secondAttribute="trailing" constant="20" id="afj-o3-skI"/>
                 <constraint firstItem="nDY-Bg-bvP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="bAQ-c4-6sO"/>
-                <constraint firstItem="jAB-aK-jjZ" firstAttribute="leading" secondItem="461-8h-HBz" secondAttribute="trailing" constant="4" id="dlz-PX-4Q2"/>
+                <constraint firstItem="jAB-aK-jjZ" firstAttribute="leading" secondItem="461-8h-HBz" secondAttribute="trailing" constant="4" id="dLL-Wj-VlT"/>
                 <constraint firstItem="HM1-hQ-USq" firstAttribute="top" secondItem="Sps-jS-QR2" secondAttribute="bottom" constant="11" id="dwg-w5-c6A"/>
-                <constraint firstItem="461-8h-HBz" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="iT3-wq-6wO"/>
+                <constraint firstItem="461-8h-HBz" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="m7u-Qg-oND"/>
                 <constraint firstItem="nDY-Bg-bvP" firstAttribute="trailing" secondItem="Sps-jS-QR2" secondAttribute="trailing" id="ohC-dT-bzv"/>
                 <constraint firstItem="nDY-Bg-bvP" firstAttribute="trailing" secondItem="HM1-hQ-USq" secondAttribute="trailing" id="sow-4u-M7I"/>
-                <constraint firstItem="pL0-W8-rfZ" firstAttribute="top" secondItem="jAB-aK-jjZ" secondAttribute="bottom" constant="6" id="w2F-g6-bUe"/>
+                <constraint firstItem="pL0-W8-rfZ" firstAttribute="top" secondItem="jAB-aK-jjZ" secondAttribute="bottom" constant="6" id="uwo-6O-84T"/>
+                <constraint firstItem="jAB-aK-jjZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="19" id="xcV-DY-rc9"/>
             </constraints>
             <point key="canvasLocation" x="433" y="312"/>
         </customView>
