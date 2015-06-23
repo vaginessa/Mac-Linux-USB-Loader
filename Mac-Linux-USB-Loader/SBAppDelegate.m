@@ -247,6 +247,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 						self.usbDictionary[usbDevice.name] = usbDevice;
 					}
 				}
+			} else {
+				NSLog(@"Volume at %@ is not eligible. Type: %@", usbDeviceMountPoint, volumeType);
 			}
 		}
 	}
