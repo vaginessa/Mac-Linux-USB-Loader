@@ -31,6 +31,7 @@
 		2457849D1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2457849F1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib */; };
 		245A2A8D1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245A2A8B1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m */; };
 		245A2A8F1AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245A2A911AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib */; };
+		2465344E1B3228F7007706CF /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 246534501B3228F7007706CF /* Errors.strings */; };
 		24680E4F18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */; };
 		24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5618AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib */; };
 		24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */; };
@@ -208,17 +209,27 @@
 		2424AD851AB37EE4004610EC /* nl */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2436C15E1B09396B003A0FDC /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Sparkle.framework; path = "/Users/RyanBowring/Library/Developer/Xcode/DerivedData/Mac_Linux_USB_Loader-ftzupntfxyasrlcinvwljpuogpbh/Build/Products/Debug/Sparkle.framework"; sourceTree = "<absolute>"; };
 		2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = Sparkle/Sparkle.xcodeproj; sourceTree = "<group>"; };
-		245784931A8AA7680005F32F /* es */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		245784971A8AB7B80005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderPreferencesViewController.xib; sourceTree = "<group>"; };
-		2457849C1A8AB7C40005F32F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
 		2457849E1A8AB86D0005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderWindowController.xib; sourceTree = "<group>"; };
-		245784A11A8AB8720005F32F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDistributionDownloaderWindowController.strings; sourceTree = "<group>"; };
 		245A2A8A1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUpdatePreferencesViewController.h; sourceTree = "<group>"; };
 		245A2A8B1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUpdatePreferencesViewController.m; sourceTree = "<group>"; };
 		245A2A901AB4A82A00D3C021 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBUpdatePreferencesViewController.xib; sourceTree = "<group>"; };
-		245A2A971AB4ABDB00D3C021 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
 		245A2A991AB4ADB400D3C021 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
 		245AC8011A17CBAB0039E2C9 /* Mac-Linux-USB-Loader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mac-Linux-USB-Loader-Prefix.pch"; sourceTree = "<group>"; };
+		246534461B3228DD007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDocument.strings; sourceTree = "<group>"; };
+		246534471B3228DD007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
+		246534481B3228DD007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
+		246534491B3228DE007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2465344F1B3228F7007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Errors.strings; sourceTree = "<group>"; };
+		246534511B3228F7007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
+		246534521B3228F8007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		246534531B3228F8007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		246534541B3228F9007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBAboutWindowController.strings; sourceTree = "<group>"; };
+		246534551B3228F9007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
+		246534561B3228FA007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDistributionDownloaderWindowController.strings; sourceTree = "<group>"; };
+		246534571B3228FB007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		246534581B3228FB007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBUSBSetupWindowController.strings; sourceTree = "<group>"; };
+		246534591B3228FC007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBPersistenceManagerWindowController.strings; sourceTree = "<group>"; };
 		24680E4C18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterprisePreferencesViewController.h; sourceTree = "<group>"; };
 		24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterprisePreferencesViewController.m; sourceTree = "<group>"; };
 		24680E5518AE7FE500B6E13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
@@ -226,6 +237,7 @@
 		24764FFC19831B9900E4F9B0 /* SBDistributionDownloaderTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDistributionDownloaderTableCellView.m; sourceTree = "<group>"; };
 		24764FFE19831FE800E4F9B0 /* SBDistributionDownloaderDownloadsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDistributionDownloaderDownloadsDataSource.h; sourceTree = "<group>"; };
 		24764FFF19831FE800E4F9B0 /* SBDistributionDownloaderDownloadsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDistributionDownloaderDownloadsDataSource.m; sourceTree = "<group>"; };
+		2494B5001B2E393E00A8D199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		249DF3F0189D7A3F00FECE0A /* NSFileManager+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Extensions.h"; sourceTree = "<group>"; };
 		249DF3F1189D7A3F00FECE0A /* NSFileManager+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Extensions.m"; sourceTree = "<group>"; };
 		249FBF2D1A8BF8C30087A8DF /* Base */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -235,7 +247,6 @@
 		24A4EC7A1884966900CE6CF0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		24A4EC7B1884966900CE6CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24A4EC7E1884966A00CE6CF0 /* Mac Linux USB Loader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mac Linux USB Loader-Info.plist"; sourceTree = "<group>"; };
-		24A4EC801884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24A4EC821884966A00CE6CF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24A4EC881884966A00CE6CF0 /* SBDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBDocument.h; sourceTree = "<group>"; };
 		24A4EC891884966A00CE6CF0 /* SBDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBDocument.m; sourceTree = "<group>"; };
@@ -258,13 +269,6 @@
 		24B9F035189870D6002A3697 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
 		24BF93CB1A462B1A00235EC9 /* mlul-disk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "mlul-disk.icns"; sourceTree = "<group>"; };
-		24CB34611A8967D400DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		24CB34621A8967D400DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDocument.strings; sourceTree = "<group>"; };
-		24CB34631A8967D400DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBAboutWindowController.strings; sourceTree = "<group>"; };
-		24CB34641A8967D400DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBUSBSetupWindowController.strings; sourceTree = "<group>"; };
-		24CB34651A8967D400DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBPersistenceManagerWindowController.strings; sourceTree = "<group>"; };
-		24CB34661A8967D400DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
-		24CB34671A8967D500DC20BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
 		24D39C0418DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBDeviceCollectionViewRepresentation.h; sourceTree = "<group>"; };
 		24D39C0518DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBDeviceCollectionViewRepresentation.m; sourceTree = "<group>"; };
 		24D75F8D188AE75E00FF5ADC /* SBUSBSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBSetupWindowController.h; sourceTree = "<group>"; };
@@ -272,6 +276,20 @@
 		24D75F93188AE77100FF5ADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBUSBSetupWindowController.xib; sourceTree = "<group>"; };
 		24D75F97188AEC2300FF5ADC /* SBUSBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBDevice.h; sourceTree = "<group>"; };
 		24D75F98188AEC2300FF5ADC /* SBUSBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBDevice.m; sourceTree = "<group>"; };
+		24D808C61B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBDocument.strings; sourceTree = "<group>"; };
+		24D808C71B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBAboutWindowController.strings; sourceTree = "<group>"; };
+		24D808C81B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBUSBSetupWindowController.strings; sourceTree = "<group>"; };
+		24D808C91B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBPersistenceManagerWindowController.strings; sourceTree = "<group>"; };
+		24D808CA1B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBDistributionDownloaderWindowController.strings; sourceTree = "<group>"; };
+		24D808CB1B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
+		24D808CC1B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
+		24D808CD1B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
+		24D808CE1B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
+		24D808CF1B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Errors.strings; sourceTree = "<group>"; };
+		24D808D01B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		24D808D11B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24D808D21B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Acknowledgements.rtf; sourceTree = "<group>"; };
+		24D808D31B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		24E0A592191D7CFF0043C24A /* SBDistributionDownloaderWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDistributionDownloaderWindowController.h; sourceTree = "<group>"; };
 		24E0A593191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDistributionDownloaderWindowController.m; sourceTree = "<group>"; };
 		24E4F8D1196A0DF4002767C8 /* NSAlert+Popover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+Popover.h"; sourceTree = "<group>"; };
@@ -283,6 +301,7 @@
 		24F35F8019D604BF0019CF54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		24F713E81A1AA95D002C5E7F /* SystemVersion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SystemVersion.plist; sourceTree = "<group>"; };
 		24F727C418BAC13B00B16013 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
+		24F92B071B45F2D800B026E6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		26D2E9C87D357805295853E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		59079375EC631F237E059D9E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F38667D994A74956919B4A54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -427,6 +446,7 @@
 		24A4EC7D1884966A00CE6CF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				246534501B3228F7007706CF /* Errors.strings */,
 				245784921A8AA7680005F32F /* Localizable.strings */,
 				24B322FC18A0123F00A5E25E /* defaults.plist */,
 				24A4EC7E1884966A00CE6CF0 /* Mac Linux USB Loader-Info.plist */,
@@ -626,8 +646,8 @@
 			knownRegions = (
 				en,
 				Base,
-				es,
 				nl,
+				de,
 			);
 			mainGroup = 24A4EC6A1884966900CE6CF0;
 			productRefGroup = 24A4EC741884966900CE6CF0 /* Products */;
@@ -696,6 +716,7 @@
 				24F713E91A1AA95D002C5E7F /* SystemVersion.plist in Resources */,
 				2457849D1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib in Resources */,
 				24A4EC921884966A00CE6CF0 /* Images.xcassets in Resources */,
+				2465344E1B3228F7007706CF /* Errors.strings in Resources */,
 				245784961A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib in Resources */,
 				24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */,
 				245A2A8F1AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib in Resources */,
@@ -822,8 +843,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				24101B8B1896D4AF00EDE32C /* Base */,
-				24CB34631A8967D400DC20BC /* es */,
 				2424AD7E1AB37EE4004610EC /* nl */,
+				246534541B3228F9007706CF /* es */,
+				24D808C71B41A87600C95744 /* de */,
 			);
 			name = SBAboutWindowController.xib;
 			sourceTree = "<group>";
@@ -832,8 +854,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				24155CCC18903B4500FAB98C /* Base */,
-				24CB34651A8967D400DC20BC /* es */,
 				2424AD801AB37EE4004610EC /* nl */,
+				246534591B3228FC007706CF /* es */,
+				24D808C91B41A87600C95744 /* de */,
 			);
 			name = SBPersistenceManagerWindowController.xib;
 			sourceTree = "<group>";
@@ -841,9 +864,10 @@
 		245784921A8AA7680005F32F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				245784931A8AA7680005F32F /* es */,
 				249FBF2D1A8BF8C30087A8DF /* Base */,
 				2424AD851AB37EE4004610EC /* nl */,
+				246534521B3228F8007706CF /* es */,
+				24D808D01B41A87700C95744 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -852,8 +876,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				245784971A8AB7B80005F32F /* Base */,
-				2457849C1A8AB7C40005F32F /* es */,
 				2424AD841AB37EE4004610EC /* nl */,
+				246534511B3228F7007706CF /* es */,
+				24D808CD1B41A87600C95744 /* de */,
 			);
 			name = SBDistributionDownloaderPreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -862,8 +887,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				2457849E1A8AB86D0005F32F /* Base */,
-				245784A11A8AB8720005F32F /* es */,
 				2424AD811AB37EE4004610EC /* nl */,
+				246534561B3228FA007706CF /* es */,
+				24D808CA1B41A87600C95744 /* de */,
 			);
 			name = SBDistributionDownloaderWindowController.xib;
 			sourceTree = "<group>";
@@ -872,18 +898,29 @@
 			isa = PBXVariantGroup;
 			children = (
 				245A2A901AB4A82A00D3C021 /* Base */,
-				245A2A971AB4ABDB00D3C021 /* es */,
 				245A2A991AB4ADB400D3C021 /* nl */,
+				246534471B3228DD007706CF /* es */,
+				24D808CE1B41A87600C95744 /* de */,
 			);
 			name = SBUpdatePreferencesViewController.xib;
+			sourceTree = "<group>";
+		};
+		246534501B3228F7007706CF /* Errors.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2465344F1B3228F7007706CF /* es */,
+				24D808CF1B41A87600C95744 /* de */,
+			);
+			name = Errors.strings;
 			sourceTree = "<group>";
 		};
 		24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				24F727C418BAC13B00B16013 /* Base */,
-				24CB34671A8967D500DC20BC /* es */,
 				2424AD831AB37EE4004610EC /* nl */,
+				246534551B3228F9007706CF /* es */,
+				24D808CC1B41A87600C95744 /* de */,
 			);
 			name = SBEnterprisePreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -892,8 +929,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				24680E5518AE7FE500B6E13F /* Base */,
-				24CB34661A8967D400DC20BC /* es */,
 				2424AD821AB37EE4004610EC /* nl */,
+				246534481B3228DD007706CF /* es */,
+				24D808CB1B41A87600C95744 /* de */,
 			);
 			name = SBGeneralPreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -901,7 +939,9 @@
 		24A4EC7F1884966A00CE6CF0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				24A4EC801884966A00CE6CF0 /* en */,
+				2494B5001B2E393E00A8D199 /* Base */,
+				246534531B3228F8007706CF /* es */,
+				24D808D11B41A87700C95744 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -918,8 +958,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				24A4EC8C1884966A00CE6CF0 /* Base */,
-				24CB34621A8967D400DC20BC /* es */,
 				2424AD7D1AB37EE4004610EC /* nl */,
+				246534461B3228DD007706CF /* es */,
+				24D808C61B41A87600C95744 /* de */,
 			);
 			name = SBDocument.xib;
 			sourceTree = "<group>";
@@ -928,8 +969,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				24A4EC8F1884966A00CE6CF0 /* Base */,
-				24CB34611A8967D400DC20BC /* es */,
 				2424AD7C1AB37EE4004610EC /* nl */,
+				246534571B3228FB007706CF /* es */,
+				24D808D31B41A87700C95744 /* de */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -938,6 +980,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				24A4ECA11884966A00CE6CF0 /* en */,
+				246534491B3228DE007706CF /* es */,
+				24F92B071B45F2D800B026E6 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -946,8 +990,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				24D75F93188AE77100FF5ADC /* Base */,
-				24CB34641A8967D400DC20BC /* es */,
 				2424AD7F1AB37EE4004610EC /* nl */,
+				246534581B3228FB007706CF /* es */,
+				24D808C81B41A87600C95744 /* de */,
 			);
 			name = SBUSBSetupWindowController.xib;
 			sourceTree = "<group>";
@@ -956,6 +1001,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				24F35F7F19D604B30019CF54 /* Base */,
+				24D808D21B41A87700C95744 /* de */,
 			);
 			name = Acknowledgements.rtf;
 			sourceTree = "<group>";

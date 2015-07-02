@@ -1,0 +1,18 @@
+/* Class = "NSButtonCell"; title = "Accept HFS+ Formatted Drives"; ObjectID = "9HT-f6-zfH"; */
+"9HT-f6-zfH.title" = "HFS+ formatierte Laufwerke akzeptieren";
+
+/* Class = "NSButtonCell"; title = "Hide Enterprise Configuration File"; ObjectID = "CG7-vV-ura"; */
+"CG7-vV-ura.title" = "Enterprise-Konfigurationsdatei verstecken";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "Mqp-7t-iHQ"; */
+"Mqp-7t-iHQ.title" = "Box???";
+
+/* Class = "NSButtonCell"; title = "Periodically Clear Caches and Old ISO Downloads"; ObjectID = "XrG-IX-Jnc"; */
+"XrG-IX-Jnc.title" = "In regelmäßigen Abständen Zwischenspeicher und alte ISO-Downloads löschen";
+
+/* Class = "NSButtonCell"; title = "Clear Now"; ObjectID = "j9p-k1-kBV"; */
+"j9p-k1-kBV.title" = "Jetzt löschen";
+
+/* Class = "NSBox"; title = "Experimental"; ObjectID = "nPg-bg-bVL"; */
+"nPg-bg-bVL.title" = "Experimentell";
+
