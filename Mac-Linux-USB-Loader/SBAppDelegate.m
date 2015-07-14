@@ -250,6 +250,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 			} else {
 				NSLog(@"Volume at %@ is not eligible. Type: %@", usbDeviceMountPoint, volumeType);
 			}
+		} else {
+			NSLog(@"Couldn't get file system info for USB %@", [usbDeviceMountPoint lastPathComponent]);
 		}
 	}
 }
