@@ -32,7 +32,7 @@
 "58.title" = "Über Mac Linux USB Loader";
 
 /* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
-"72.title" = "Öffnen&hellip;";
+"72.title" = "Öffnen";
 
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "73"; */
 "73.title" = "Schließen";
