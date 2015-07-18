@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBGeneralPreferencesViewController">
@@ -67,21 +67,19 @@
                         </subviews>
                     </view>
                     <constraints>
-                        <constraint firstItem="1GF-fo-Apu" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="3KE-kP-S1d"/>
-                        <constraint firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" constant="16" id="3XT-xL-bkd"/>
-                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="top" secondItem="nPg-bg-bVL" secondAttribute="top" constant="25" id="aWD-Py-fjE"/>
-                        <constraint firstItem="1GF-fo-Apu" firstAttribute="top" secondItem="rlJ-OH-hmA" secondAttribute="bottom" constant="9" id="faW-fM-rNI"/>
-                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="gY8-3F-obV"/>
-                        <constraint firstAttribute="trailing" secondItem="1GF-fo-Apu" secondAttribute="trailing" constant="16" id="vRt-BX-dAv"/>
+                        <constraint firstAttribute="bottom" secondItem="1GF-fo-Apu" secondAttribute="bottom" constant="34" id="BPS-n2-iqS"/>
+                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="top" secondItem="nPg-bg-bVL" secondAttribute="top" constant="25" id="FWB-Tf-Rf2"/>
+                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="JlF-hW-o4X"/>
+                        <constraint firstItem="1GF-fo-Apu" firstAttribute="top" secondItem="rlJ-OH-hmA" secondAttribute="bottom" constant="9" id="PmO-ff-2f3"/>
+                        <constraint firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" constant="16" id="hoJ-N5-Sak"/>
+                        <constraint firstItem="1GF-fo-Apu" firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" id="kh0-pK-RGC"/>
+                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="leading" secondItem="1GF-fo-Apu" secondAttribute="leading" id="yg8-n6-2uX"/>
                     </constraints>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="s4C-gM-3i6">
                     <rect key="frame" x="64" y="162" width="332" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="14" id="pj0-IR-vye"/>
-                    </constraints>
                     <buttonCell key="cell" type="check" title="Periodically Clear Caches and Old ISO Downloads" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XrG-IX-Jnc">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -93,19 +91,16 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="nPg-bg-bVL" secondAttribute="bottom" constant="13" id="3Mj-ky-pwg"/>
-                <constraint firstItem="s4C-gM-3i6" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="40n-VX-8ah"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="8" symbolic="YES" id="811-Cx-euA"/>
-                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" id="AOI-r9-ggB"/>
-                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="Bl2-6H-fbK"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="16" id="IME-9P-iyH"/>
-                <constraint firstItem="s4C-gM-3i6" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="Kwe-V7-7Wh"/>
-                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="top" secondItem="ZY5-Xk-lAz" secondAttribute="bottom" constant="11" id="RFd-EC-v6l"/>
-                <constraint firstItem="ZY5-Xk-lAz" firstAttribute="top" secondItem="s4C-gM-3i6" secondAttribute="bottom" constant="14" id="S4L-Na-xtD"/>
-                <constraint firstAttribute="trailing" secondItem="s4C-gM-3i6" secondAttribute="trailing" constant="67" id="Z4t-7S-eRy"/>
-                <constraint firstItem="s4C-gM-3i6" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="66" id="kdg-Yc-Vfs"/>
-                <constraint firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" constant="20" symbolic="YES" id="o2O-no-M6L"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="centerX" secondItem="Mqp-7t-iHQ" secondAttribute="centerX" id="p7L-W6-mYR"/>
+                <constraint firstItem="s4C-gM-3i6" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="06y-aD-v0b"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" id="0c0-Tb-zbc"/>
+                <constraint firstItem="nPg-bg-bVL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="16" id="3uX-A4-d1j"/>
+                <constraint firstItem="ZY5-Xk-lAz" firstAttribute="top" secondItem="s4C-gM-3i6" secondAttribute="bottom" constant="14" id="64z-qB-0JH"/>
+                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="ZY5-Xk-lAz" secondAttribute="bottom" constant="20" symbolic="YES" id="Gpf-FE-ird"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="cUI-qH-NYp"/>
+                <constraint firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" constant="20" symbolic="YES" id="f4M-L9-xU4"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="centerX" secondItem="nPg-bg-bVL" secondAttribute="centerX" id="f74-pz-qgV"/>
+                <constraint firstItem="s4C-gM-3i6" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="gQ8-xc-dPy"/>
+                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="8" symbolic="YES" id="mEw-er-JGd"/>
             </constraints>
             <point key="canvasLocation" x="414.5" y="256"/>
         </customView>

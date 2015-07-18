@@ -25,9 +25,6 @@
 }
 
 @property (unsafe_unretained) IBOutlet NSWindow *window;
-@property (weak) IBOutlet NSTableView *operationsTableView;
-@property (weak) IBOutlet NSTextField *applicationVersionString;
-@property (weak) IBOutlet NSPopover *moreOptionsPopover;
 
 /// A dictionary containing the keys of plugged in USB devices with the values of those keys being instances of SBUSBDevice.
 @property (nonatomic, strong, readonly) NSMutableDictionary *usbDictionary;
@@ -40,12 +37,6 @@
 @property (nonatomic, strong, readonly) NSDictionary *supportedDistributionsAndVersions;
 /// An array of supported distributions to be used as keys for the supportedDistributionsAndVersions property.
 @property (nonatomic, strong, readonly) NSArray *supportedDistributions;
-
-@property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
-@property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
-@property (nonatomic, strong) SBAboutWindowController *aboutWindowController;
-@property (nonatomic, strong) SBDistributionDownloaderWindowController *downloaderWindowController;
-@property (nonatomic, strong) RHPreferencesWindowController *preferencesWindowController;
 
 - (BOOL)writeEnterpriseSourceLocationsToDisk:(NSString *)path;
 - (void)readEnterpriseSourceLocationsFromDisk:(NSString *)path;

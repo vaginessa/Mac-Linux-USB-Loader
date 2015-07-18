@@ -14,17 +14,7 @@
 
 @property (strong) NSMutableArray *usbArrayForContentView;
 @property NSInteger indexOfSelectedTab;
-
-@property (weak) IBOutlet NSTabView *tabView;
-@property (weak) IBOutlet NSImageView *imageIcon;
 @property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
-@property (weak) IBOutlet NSCollectionView *usbDriveSelector;
-@property (weak) IBOutlet NSPopUpButton *enterpriseSourceSelector;
-@property (weak) IBOutlet NSButton *automaticSetupCheckBox;
-@property (weak) IBOutlet NSButton *performInstallationButton;
-@property (weak) IBOutlet NSPopUpButton *distributionSelectorPopup;
-@property (weak) IBOutlet NSButton *isMacVersionCheckBox;
-@property (weak) IBOutlet NSButton *isLegacyUbuntuVersionCheckBox;
 
 @property (nonatomic, assign) BOOL automaticSetupCheckBoxChecked;
 

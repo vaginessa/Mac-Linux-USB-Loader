@@ -31,6 +31,10 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 @property (nonatomic, readonly) CGFloat creditsFadeHeightCompensation;
 @property (nonatomic, readonly) CGFloat scaleFactor;
 
+@property (weak) IBOutlet NSTextField *applicationVersionLabel;
+@property (weak) IBOutlet NSView *aboutView;
+@property (weak) IBOutlet NSView *creditsView;
+
 @end
 
 @implementation SBAboutWindowController

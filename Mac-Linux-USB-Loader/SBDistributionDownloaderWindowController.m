@@ -18,6 +18,7 @@
 
 @interface SBDistributionDownloaderWindowController ()
 
+// Properties related to the distribution downloader UI
 @property (strong) IBOutlet NSView *accessoryView;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (strong) IBOutlet NSPanel *downloadSettingsPanel;
@@ -34,6 +35,15 @@
 
 @property (strong) id activity;
 @property (strong) NSUserDefaults *defaults;
+
+// Properties related to the distribution download operation
+@property (atomic, strong) id jsonRecieved;
+@property NSInteger numberOfFinishedJsonRequests;
+@property (atomic, strong) SBDownloadableDistributionModel *downloadDistroModel;
+@property (atomic, strong) NSMutableDictionary *modelDictionary;
+@property (strong) NSLock *mdLock;
+@property (atomic, strong) NSMutableDictionary *imageDictionary;
+@property (strong) NSLock *idLock;
 
 @end
 

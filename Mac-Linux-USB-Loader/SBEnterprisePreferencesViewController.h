@@ -11,18 +11,6 @@
 
 @interface SBEnterprisePreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol, NSTableViewDataSource, NSTableViewDelegate>
 
-@property (strong) IBOutlet NSWindow *addNewEnterpriseSourcePanel;
-
-@property (weak) IBOutlet NSTableView *tableView;
-@property (weak) IBOutlet NSButton *updateSettingsButton;
-@property (weak) IBOutlet NSButton *addSourceLocationButton;
-@property (weak) IBOutlet NSButton *deleteSourceLocationButton;
-@property (weak) IBOutlet NSTextField *sourceLocationPathTextField;
-@property (weak) IBOutlet NSTextField *sourceVersionTextField;
-@property (weak) IBOutlet NSTextField *sourceNameTextField;
-
-@property (weak) NSMutableDictionary *enterpriseSourceLocationsDictionary;
-
 - (IBAction)addSourceLocationButtonPressed:(id)sender;
 - (IBAction)hideSourceLocationButtonPressed:(id)sender;
 - (IBAction)removeSourceLocationButtonPressed:(id)sender;

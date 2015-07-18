@@ -23,6 +23,16 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
 @property (nonatomic, strong) NSString *pathToApplicationSupportDirectory;
 @property (nonatomic, strong) NSDictionary *supportedDistributionsAndVersions;
 @property (nonatomic, strong) NSArray *supportedDistributions;
+
+@property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
+@property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
+@property (nonatomic, strong) SBAboutWindowController *aboutWindowController;
+@property (nonatomic, strong) SBDistributionDownloaderWindowController *downloaderWindowController;
+@property (nonatomic, strong) RHPreferencesWindowController *preferencesWindowController;
+
+@property (weak) IBOutlet NSTableView *operationsTableView;
+@property (weak) IBOutlet NSTextField *applicationVersionString;
+@property (weak) IBOutlet NSPopover *moreOptionsPopover;
 @end
 
 @implementation SBAppDelegate

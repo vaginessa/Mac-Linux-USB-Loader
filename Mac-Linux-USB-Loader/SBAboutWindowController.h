@@ -11,10 +11,6 @@
 
 @interface SBAboutWindowController : NSWindowController
 
-@property (weak) IBOutlet NSTextField *applicationVersionLabel;
-@property (weak) IBOutlet NSView *aboutView;
-@property (weak) IBOutlet NSView *creditsView;
-
 - (IBAction)showAcknowledgementsButtonPressed:(id)sender;
 - (IBAction)showLicenseAgreementButtonPressed:(id)sender;
 
