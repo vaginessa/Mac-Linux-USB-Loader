@@ -8,7 +8,7 @@
 "2ch-0e-x2y.title" = "Tails";
 
 /* Class = "NSTextFieldCell"; title = "Choose Enterprise Source:"; ObjectID = "4e7-Dc-wKh"; */
-"4e7-Dc-wKh.title" = "Bitte wählen Sie die Quelle der Enterprise-Datei:";
+"4e7-Dc-wKh.title" = "Bitte wählen Sie die Enterprise-Quelle:";
 
 /* Class = "NSWindow"; title = "Window"; ObjectID = "5"; */
 "5.title" = "Fenster";
@@ -26,7 +26,7 @@
 "8Ja-iN-ujj.title" = "Ihr Live USB-Laufwerk wurde erfolgreich erstellt. Um es zu booten, lassen Sie es eingesteckt und starten Ihren Mac neu. Während des Bootvorgangs müssen Sie die Optionstaste (⌥) gedrückt halten. Wählen Sie dann im Bootmanager Ihr Laufwerk.";
 
 /* Class = "NSTextFieldCell"; title = "Installation Options"; ObjectID = "85w-Ab-eWi"; */
-"85w-Ab-eWi.title" = "Installationseinstellungen";
+"85w-Ab-eWi.title" = "Installations-Setup";
 
 /* Class = "NSTabViewItem"; label = "Third"; ObjectID = "206-oW-lz5"; */
 "206-oW-lz5.label" = "Third???";

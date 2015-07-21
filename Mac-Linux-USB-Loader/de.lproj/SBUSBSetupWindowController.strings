@@ -11,7 +11,7 @@
 "E3q-Uh-Ioj.title" = "Bezeichnung";
 
 /* Class = "NSTextFieldCell"; title = "USB Boot Controls"; ObjectID = "QDJ-np-znb"; */
-"QDJ-np-znb.title" = "USB Boot Steuerelemente";
+"QDJ-np-znb.title" = "USB Boot Steuerung";
 
 /* Class = "NSButtonCell"; title = "Choose Startup Disk"; ObjectID = "SpM-dG-QBu"; */
 "SpM-dG-QBu.title" = "Startup-Disk auswählen";

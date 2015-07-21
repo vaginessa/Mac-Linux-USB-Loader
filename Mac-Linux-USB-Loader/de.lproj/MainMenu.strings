@@ -32,7 +32,7 @@
 "58.title" = "Über Mac Linux USB Loader";
 
 /* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
-"72.title" = "Öffnen";
+"72.title" = "Öffnen&hellip;";
 
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "73"; */
 "73.title" = "Schließen";
@@ -71,7 +71,7 @@
 "136.title" = "Mac Linux USB Loader beenden";
 
 /* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145"; */
-"145.title" = "Andere in den HIntergrund";
+"145.title" = "Andere in den Hintergrund";
 
 /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "150"; */
 "150.title" = "Alle anzeigen";
@@ -230,7 +230,7 @@
 "Ixf-5n-e5Q.title" = "Nach Updates suchen...";
 
 /* Class = "NSButtonCell"; title = "Show Project Website"; ObjectID = "LhO-Jz-UPe"; */
-"LhO-Jz-UPe.title" = "Projekt Website anzeigen";
+"LhO-Jz-UPe.title" = "Projekt-Website anzeigen";
 
 /* Class = "NSTextFieldCell"; title = "Mac Linux USB Loader"; ObjectID = "PbZ-Px-5X8"; */
 "PbZ-Px-5X8.title" = "Mac Linux USB Loader";
@@ -242,7 +242,7 @@
 "XYg-e8-VkS.title" = "Text Cell???";
 
 /* Class = "NSMenu"; title = "Open Tool"; ObjectID = "d8m-Or-MfF"; */
-"d8m-Or-MfF.title" = "Werkzeug öffnen";
+"d8m-Or-MfF.title" = "Öffnen";
 
 /* Class = "NSMenuItem"; title = "Persistence Manager"; ObjectID = "dft-Op-QXY"; */
 "dft-Op-QXY.title" = "Persistenz-Manager";
@@ -257,13 +257,13 @@
 "fjF-O3-g5i.title" = "Spenden...";
 
 /* Class = "NSMenuItem"; title = "Show Project Homepage"; ObjectID = "iNg-8W-mXB"; */
-"iNg-8W-mXB.title" = "Projekt Homepage anzeigen";
+"iNg-8W-mXB.title" = "Projekt-Homepage anzeigen";
 
 /* Class = "NSMenuItem"; title = "Create New Live USB"; ObjectID = "kO5-Pl-dr9"; */
 "kO5-Pl-dr9.title" = "Neues Live USB-Laufwerk erstellen";
 
 /* Class = "NSMenuItem"; title = "Welcome Screen"; ObjectID = "oSM-TE-Nol"; */
-"oSM-TE-Nol.title" = "Willkommensbildschirm";
+"oSM-TE-Nol.title" = "Startansicht";
 
 /* Class = "NSButtonCell"; title = "Close"; ObjectID = "oZ5-WW-zYO"; */
 "oZ5-WW-zYO.title" = "Schließen";

@@ -5,7 +5,7 @@
 "Are you sure you want to clear caches?" = "Sind Sie sicher, dass Sie den Zwischenspeicher löschen wollen?";
 
 /* No comment provided by engineer. */
-"Are you sure you want to enable clearing caches?" = "Sind Sie sicher, dass Sie die automatische Loschung des Zwischenspeichers löschen wollen?";
+"Are you sure you want to enable clearing caches?" = "Wollen Sie es zulassen, dass der Zwischenspeicher gelöscht wird?";
 
 /* No comment provided by engineer. */
 "Can't download this distribution." = "Die Distribution konnte nicht heruntergeladen werden.";
@@ -17,16 +17,16 @@
 "Cannot use this USB as a startup disk." = "Dieses USB-Laufwerk kann nicht als Startup-Disk benutzt werden.";
 
 /* No comment provided by engineer. */
-"Couldn't get security scoped bookmarks." = "Zugriff auf Laufwerk nicht gestattet.";
+"Couldn't get security scoped bookmarks." = "Zugriff auf das Laufwerk nicht gestattet.";
 
 /* No comment provided by engineer. */
 "Create Live USB" = "Live USB erstellen";
 
 /* No comment provided by engineer. */
-"Creating persistence file..." = "Persistenz-Datei erstellen";
+"Creating persistence file..." = "Persistenz-Datei erstellen...";
 
 /* No comment provided by engineer. */
-"Creating virtual loopback filesystem..." = "Erstelle virtuelles Loopback-Dateisystem ...";
+"Creating virtual loopback filesystem..." = "Erstelle virtuelles Loopback-Dateisystem...";
 
 /* No comment provided by engineer. */
 "Distribution Downloader" = "Distributions-Downloader";
@@ -50,7 +50,7 @@
 "Grant Access" = "Zugriff erlauben";
 
 /* No comment provided by engineer. */
-"Invalid location name entered." = "Der Name ist ungültig.";
+"Invalid location name entered." = "Es wurde ein ungültiger Name eingegeben.";
 
 /* No comment provided by engineer. */
 "Mac Linux USB Loader cannot download the mirror lists because you are not connected to the Internet." = "Mac Linux USB Loader konnte die Liste der Spiegel nicht herunterladen, da Sie nicht mit dem Internet verbunden sind.";
@@ -59,7 +59,7 @@
 "No" = "Nein";
 
 /* No comment provided by engineer. */
-"No Enterprise source file selected." = "Keine Enterprisequelldatei ausgewählt.";
+"No Enterprise source file selected." = "Keine Enterprise-Quelldatei ausgewählt.";
 
 /* No comment provided by engineer. */
 "No USB drive selected." = "Kein USB-Laufwerk ausgewählt.";
@@ -101,13 +101,13 @@
 "The USB device that you have selected cannot be accessed because the system denied access to the resource." = "Das USB-Laufwerk, das Sie ausgewählt haben, konnte nicht angesprochen werden, da das System den Zugriff darauf abgelehnt hat.";
 
 /* No comment provided by engineer. */
-"The USB drive that you have selected does not have enough free space. At least %@ of space is required." = "Das USB-Laufwerk, das Sie ausgewählt haben, verfügt nicht über ausreicheden freien Speicherplatz.Mindestens %@ freier Speicherplatz wird benötigt.";
+"The USB drive that you have selected does not have enough free space. At least %@ of space is required." = "Das USB-Laufwerk, das Sie ausgewählt haben, verfügt nicht über ausreichenden freien Speicherplatz. Mindestens %@ freier Speicherplatz wird benötigt.";
 
 /* No comment provided by engineer. */
-"The installation failed because the Enterprise source that you have selected is either incomplete or missing." = "Die Installation ist fehlgeschlagen, da die von Ihnen gewählte Enterprise-Quelle entweder unvolständig oder nicht vorhanden ist.";
+"The installation failed because the Enterprise source that you have selected is either incomplete or missing." = "Die Installation ist fehlgeschlagen, da die von Ihnen gewählte Enterprise-Quelle entweder unvollständig oder nicht vorhanden ist.";
 
 /* No comment provided by engineer. */
-"The name that you have entered for this Enterprise source already exists. Please enter a different name." = "Der Name für die Enterprise-Quelle, den Sie angegeben haben, existiert bereits. Bitte wählen Sie einen anderen Namen.";
+"The name that you have entered for this Enterprise source already exists. Please enter a different name." = "Der Name für die Enterprise-Quelle existiert bereits. Bitte wählen Sie einen anderen Namen.";
 
 /* No comment provided by engineer. */
 "The persistence file has been created. You should be able to boot your selected Linux distribution with persistence on this USB drive now." = "Die Persistens-Datei wurde erstellt. Sie können jetzt die von Ihnen gewählte LINUX-Distribution von diesem Laufwerk booten und die Persistenz nutzen.";
