@@ -39,3 +39,5 @@ Acknowledgements
 - Used some icons from KDE's Oxygen.
     [link](http://www.oxygen-icons.org/)
 - Special thanks to Leander Lismond for translating the application into Dutch!
+- Special thanks to Stephan Rusch for translating the application into German!
+- Special thanks to Cai Argimon for translating the application into Spanish!
