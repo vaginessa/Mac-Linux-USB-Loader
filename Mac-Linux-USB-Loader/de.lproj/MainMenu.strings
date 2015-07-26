@@ -56,7 +56,7 @@
 "126.title" = "Einträge löschen";
 
 /* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
-"129.title" = "Einstellungen&hellip;";
+"129.title" = "Einstellungen...";
 
 /* Class = "NSMenu"; title = "Services"; ObjectID = "130"; */
 "130.title" = "Dienste";
@@ -224,7 +224,7 @@
 "493.title" = "Mac Linux USB Loader Hilfe";
 
 /* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "532"; */
-"532.title" = "Suchen und Ersetzen&hellip;";
+"532.title" = "Suchen und Ersetzen";
 
 /* Class = "NSMenuItem"; title = "Check for Updates..."; ObjectID = "Ixf-5n-e5Q"; */
 "Ixf-5n-e5Q.title" = "Nach Updates suchen...";
