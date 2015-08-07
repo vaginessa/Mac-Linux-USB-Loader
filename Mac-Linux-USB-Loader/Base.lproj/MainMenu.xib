@@ -448,12 +448,18 @@
                                                     <rect key="frame" x="1" y="1" width="359" height="54"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hK8-Tq-fPg">
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hK8-Tq-fPg">
                                                             <rect key="frame" x="3" y="3" width="66" height="48"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="66" id="TRY-30-qhs"/>
+                                                            </constraints>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="DZu-Es-3Vn"/>
                                                         </imageView>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tyR-yF-pjH">
-                                                            <rect key="frame" x="75" y="19" width="284" height="17"/>
+                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tyR-yF-pjH">
+                                                            <rect key="frame" x="75" y="19" width="283" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="279" id="xFE-So-TL0"/>
+                                                            </constraints>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="z0e-73-0dd">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -461,6 +467,13 @@
                                                             </textFieldCell>
                                                         </textField>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="hK8-Tq-fPg" secondAttribute="bottom" constant="3" id="2vh-8L-5qO"/>
+                                                        <constraint firstAttribute="centerY" secondItem="tyR-yF-pjH" secondAttribute="centerY" id="cXA-B7-q7j"/>
+                                                        <constraint firstAttribute="trailing" secondItem="tyR-yF-pjH" secondAttribute="trailing" constant="3" id="l3z-2x-9mO"/>
+                                                        <constraint firstItem="hK8-Tq-fPg" firstAttribute="top" secondItem="Jbz-Tg-ElK" secondAttribute="top" constant="3" id="lnu-YI-a5L"/>
+                                                        <constraint firstItem="hK8-Tq-fPg" firstAttribute="leading" secondItem="Jbz-Tg-ElK" secondAttribute="leading" constant="3" id="vHC-PC-1CW"/>
+                                                    </constraints>
                                                     <connections>
                                                         <outlet property="imageView" destination="hK8-Tq-fPg" id="EoR-qJ-TFn"/>
                                                         <outlet property="textField" destination="tyR-yF-pjH" id="RYf-hs-D2C"/>
