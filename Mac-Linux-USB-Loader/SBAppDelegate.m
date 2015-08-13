@@ -13,7 +13,7 @@
 #import "SBUpdatePreferencesViewController.h"
 #import "SBEnterpriseSourceLocation.h"
 
-const NSString *SBBundledEnterpriseVersionNumber = @"0.3.0";
+const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 
 @interface SBAppDelegate ()
 // These need to be here so that we can write to readonly variables within
