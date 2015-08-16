@@ -42,7 +42,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>9048</string>
+	<string>9185</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -54,6 +54,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://sevenbits.github.io/appcasts/mlul.xml</string>
+	<string>http://localhost:8000/mlul.xml</string>
 </dict>
 </plist>
