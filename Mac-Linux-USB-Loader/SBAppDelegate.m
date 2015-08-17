@@ -374,7 +374,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 			case 2:
 				if (!self.persistenceSetupWindowController) {
 					self.persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
-					                                         initWithWindowNibName:@"SBPersistenceManagerWindowController"];
+															initWithWindowNibName:@"SBPersistenceManagerWindowController"];
 				}
 
 				[self.persistenceSetupWindowController showWindow:nil];
