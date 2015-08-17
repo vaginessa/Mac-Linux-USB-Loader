@@ -17,10 +17,8 @@
 // These need to be here so that we can write to readonly variables within
 // this file, but prohibit others from being able to do so.
 @property (weak) IBOutlet NSTabView *tabView;
-@property (weak) IBOutlet NSImageView *imageIcon;
 @property (weak) IBOutlet NSCollectionView *usbDriveSelector;
 @property (weak) IBOutlet NSPopUpButton *enterpriseSourceSelector;
-@property (weak) IBOutlet NSButton *automaticSetupCheckBox;
 @property (weak) IBOutlet NSButton *performInstallationButton;
 @property (weak) IBOutlet NSPopUpButton *distributionSelectorPopup;
 @property (weak) IBOutlet NSButton *isMacVersionCheckBox;
@@ -336,7 +334,6 @@
 	[self.performInstallationButton setEnabled:enabled];
 	[self.installationProgressBar setIndeterminate:enabled];
 	[self.installationProgressBar setDoubleValue:0.0];
-	[self.automaticSetupCheckBox setEnabled:enabled];
 	[self.distributionSelectorPopup setEnabled:enabled];
 	[self.isMacVersionCheckBox setEnabled:enabled];
 	[self.isLegacyUbuntuVersionCheckBox setEnabled:enabled];
