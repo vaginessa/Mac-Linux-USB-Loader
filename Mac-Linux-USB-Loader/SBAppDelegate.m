@@ -468,4 +468,19 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 	}
 }
 
++ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)path __attribute__((pure)) {
+	NSString *fileName = [[path lowercaseString] lastPathComponent];
+	if ([fileName containsSubstring:@"tails"]) {
+		return SBDistributionTails;
+	} else if ([fileName containsSubstring:@"ubuntu"] ||
+			   [fileName containsSubstring:@"mint"] ||
+			   [fileName containsSubstring:@"elementary"]) {
+		return SBDistributionUbuntu;
+	} else if ([fileName containsSubstring:@"kali"]) {
+		return SBDistributionKali;
+	}
+
+	return SBDistributionUnknown;
+}
+
 @end

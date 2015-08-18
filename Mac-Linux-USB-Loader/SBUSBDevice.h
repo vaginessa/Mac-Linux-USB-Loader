@@ -55,14 +55,6 @@ typedef NS_ENUM (NSInteger, SBUSBDriveFileSystem) {
 + (void)createLoopbackPersistence:(NSString *)file;
 
 /**
- * Given a file name corresponding to a Linux distribution ISO, returns an indicator of which distribution
- * was selected. This method disregards the path of the file and operates on the file name only.
- *
- * @param file The path to the file that should be used.
- */
-+ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)fileName;
-
-/**
  * Copies the ISO file to the USB device represented by this object.
  *
  * @param document The instance of the document class that this object belongs to.

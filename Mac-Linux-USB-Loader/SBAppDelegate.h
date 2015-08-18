@@ -61,4 +61,12 @@
  */
 + (SBLinuxDistribution)distributionEnumForEqualivalentName:(NSString *)name;
 
+/**
+ * Given a file name corresponding to a Linux distribution ISO, returns an indicator of which distribution
+ * was selected. This method disregards the path of the file and operates on the file name only.
+ *
+ * @param file The path to the file that should be used.
+ */
++ (SBLinuxDistribution)distributionTypeForISOName:(NSString *)fileName;
+
 @end

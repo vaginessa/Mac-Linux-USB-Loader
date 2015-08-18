@@ -59,7 +59,7 @@
 }
 
 - (void)detectDistributionFamily {
-	SBLinuxDistribution family = [SBUSBDevice distributionTypeForISOName:self.fileURL.absoluteString.lowercaseString];
+	SBLinuxDistribution family = [SBAppDelegate distributionTypeForISOName:self.fileURL.absoluteString.lowercaseString];
 	switch (family) {
 		case SBDistributionUbuntu:
 			[self.distributionSelectorPopup selectItemWithTitle:@"Ubuntu"];
