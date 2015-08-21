@@ -78,8 +78,11 @@
 			[self.distributionSelectorPopup selectItemWithTitle:NSLocalizedString(@"Other", nil)];
 			break;
 	}
-	// For Ubuntu, check if this is a Mac ISO (not EFI enabled)
-	if ([[[self.fileURL path] lastPathComponent] containsSubstring:@"+mac"]) {
+
+	// If this is Linux Mint or a legacy Mac ISO of Ubuntu, check the
+	// first check box since we need it so that the correct kernel path will be written.
+	if ([[self.fileURL path] containsSubstring:@"linuxmint"] ||
+		[[[self.fileURL path] lastPathComponent] containsSubstring:@"+mac"]) {
 		[self.isMacVersionCheckBox setState:NSOnState];
 	} else {
 		[self.isMacVersionCheckBox setState:NSOffState];
