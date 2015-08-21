@@ -54,6 +54,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://localhost:8000/mlul.xml</string>
+	<string>https://sevenbits.github.io/appcasts/mlul.xml</string>
 </dict>
 </plist>

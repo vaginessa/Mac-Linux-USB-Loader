@@ -24,8 +24,6 @@
 		2420BA3019A2660A00208240 /* NSImage+SaveToFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420BA2F19A2660A00208240 /* NSImage+SaveToFile.m */; };
 		24245F3218D222250085C43F /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24245F3118D222250085C43F /* NSString+Extensions.m */; };
 		2424764C194A180A0083033B /* NSProcessInfo+PECocoaBackports.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */; };
-		2436C1791B0939E8003A0FDC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2436C16E1B0939CA003A0FDC /* Sparkle.framework */; };
-		2436C17A1B0939E8003A0FDC /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2436C16E1B0939CA003A0FDC /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		245784941A8AA7680005F32F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 245784921A8AA7680005F32F /* Localizable.strings */; };
 		245784961A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245784981A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib */; };
 		2457849D1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2457849F1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib */; };
@@ -71,55 +69,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2436C16D1B0939CA003A0FDC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = Sparkle;
-		};
-		2436C16F1B0939CA003A0FDC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61B5F90209C4CEE200B25A18;
-			remoteInfo = "Sparkle Test App";
-		};
-		2436C1711B0939CA003A0FDC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 612279D90DB5470200AB99EA;
-			remoteInfo = "Sparkle Unit Tests";
-		};
-		2436C1731B0939CA003A0FDC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5D06E8D00FD68C7C005AE3F6;
-			remoteInfo = BinaryDelta;
-		};
-		2436C1751B0939CA003A0FDC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 55C14BB7136EEF1500649790;
-			remoteInfo = Autoupdate;
-		};
-		2436C1771B0939E1003A0FDC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = Sparkle;
-		};
-		2436C17B1B0939E8003A0FDC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = Sparkle;
-		};
 		245AC8021A17CDC20039E2C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24A4EC6B1884966900CE6CF0 /* Project object */;
@@ -147,7 +96,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2436C17A1B0939E8003A0FDC /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +156,6 @@
 		2424AD841AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
 		2424AD851AB37EE4004610EC /* nl */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2436C15E1B09396B003A0FDC /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Sparkle.framework; path = "/Users/RyanBowring/Library/Developer/Xcode/DerivedData/Mac_Linux_USB_Loader-ftzupntfxyasrlcinvwljpuogpbh/Build/Products/Debug/Sparkle.framework"; sourceTree = "<absolute>"; };
-		2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = Sparkle/Sparkle.xcodeproj; sourceTree = "<group>"; };
 		245784971A8AB7B80005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderPreferencesViewController.xib; sourceTree = "<group>"; };
 		2457849E1A8AB86D0005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderWindowController.xib; sourceTree = "<group>"; };
 		245A2A8A1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUpdatePreferencesViewController.h; sourceTree = "<group>"; };
@@ -312,7 +259,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2436C1791B0939E8003A0FDC /* Sparkle.framework in Frameworks */,
 				24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */,
 				24B29B5C19328E6E0009C3D8 /* DiskArbitration.framework in Frameworks */,
 				24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */,
@@ -366,22 +312,9 @@
 			name = "Apple Class Extensions and Subclasses";
 			sourceTree = "<group>";
 		};
-		2436C1631B0939CA003A0FDC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2436C16E1B0939CA003A0FDC /* Sparkle.framework */,
-				2436C1701B0939CA003A0FDC /* Sparkle Test App.app */,
-				2436C1721B0939CA003A0FDC /* Sparkle Unit Tests.xctest */,
-				2436C1741B0939CA003A0FDC /* BinaryDelta */,
-				2436C1761B0939CA003A0FDC /* Autoupdate.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		24A4EC6A1884966900CE6CF0 = {
 			isa = PBXGroup;
 			children = (
-				2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */,
 				24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */,
 				24A4EC7C1884966900CE6CF0 /* Mac-Linux-USB-Loader */,
 				24A4EC9D1884966A00CE6CF0 /* Mac-Linux-USB-LoaderTests */,
@@ -590,8 +523,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2436C1781B0939E1003A0FDC /* PBXTargetDependency */,
-				2436C17C1B0939E8003A0FDC /* PBXTargetDependency */,
 			);
 			name = "Mac Linux USB Loader";
 			productName = "Mac-Linux-USB-Loader";
@@ -652,12 +583,6 @@
 			mainGroup = 24A4EC6A1884966900CE6CF0;
 			productRefGroup = 24A4EC741884966900CE6CF0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2436C1631B0939CA003A0FDC /* Products */;
-					ProjectRef = 2436C1621B0939CA003A0FDC /* Sparkle.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				24A4EC721884966900CE6CF0 /* Mac Linux USB Loader */,
@@ -665,44 +590,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2436C16E1B0939CA003A0FDC /* Sparkle.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Sparkle.framework;
-			remoteRef = 2436C16D1B0939CA003A0FDC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2436C1701B0939CA003A0FDC /* Sparkle Test App.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Sparkle Test App.app";
-			remoteRef = 2436C16F1B0939CA003A0FDC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2436C1721B0939CA003A0FDC /* Sparkle Unit Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Sparkle Unit Tests.xctest";
-			remoteRef = 2436C1711B0939CA003A0FDC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2436C1741B0939CA003A0FDC /* BinaryDelta */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = BinaryDelta;
-			remoteRef = 2436C1731B0939CA003A0FDC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2436C1761B0939CA003A0FDC /* Autoupdate.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Autoupdate.app;
-			remoteRef = 2436C1751B0939CA003A0FDC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		24A4EC711884966900CE6CF0 /* Resources */ = {
@@ -821,16 +708,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2436C1781B0939E1003A0FDC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Sparkle;
-			targetProxy = 2436C1771B0939E1003A0FDC /* PBXContainerItemProxy */;
-		};
-		2436C17C1B0939E8003A0FDC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Sparkle;
-			targetProxy = 2436C17B1B0939E8003A0FDC /* PBXContainerItemProxy */;
-		};
 		245AC8031A17CDC20039E2C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24A4EC721884966900CE6CF0 /* Mac Linux USB Loader */;
