@@ -1,7 +1,7 @@
 /* CSS Imports */
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
-@import url(http://fonts.googleapis.com/css?family=Slabo+27px|Indie+Flower);
+@import url(//fonts.googleapis.com/css?family=Slabo+27px|Indie+Flower);
 
 @import url("pure-min.css");
 @import url("grids-responsive-min.css");
