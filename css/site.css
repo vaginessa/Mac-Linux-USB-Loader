@@ -16,10 +16,6 @@
 	position: absolute;
 }
 
-.main-menu ul {
-	float: right;
-}
-
 .main-menu .pure-menu-list {
 	padding: .5em 1em;
 }
