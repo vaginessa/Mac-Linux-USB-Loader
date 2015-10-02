@@ -23,6 +23,10 @@
 
 		color: white;
 	}
+	
+	div.jumbo .jumbo-content aside img {
+		display: none;
+	}
 
 	div.jumbo .jumbo-content header {
 		width: 100%;
