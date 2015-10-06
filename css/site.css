@@ -6,6 +6,29 @@
 @import url("pure-min.css");
 @import url("grids-responsive-min.css");
 
+/* GitHub Ribbon */
+.ribbon {
+	background-color: #a00;
+	overflow: hidden;
+	white-space: nowrap;
+	position: absolute;
+	top: 100px;
+	left: -50px;
+	/*z-index: 999;*/
+	transform: rotate(-45deg);
+}
+
+.ribbon a {
+	border: 1px solid #faa;
+ 	color: #fff;
+	display: block;
+	font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	margin: 1px 0;
+	padding: 10px 50px;
+	text-align: center;
+	text-decoration: none;
+}
+
 /* Extensions to Pure Elements */
 .main-menu {
 	background-color: #2d3e50;
