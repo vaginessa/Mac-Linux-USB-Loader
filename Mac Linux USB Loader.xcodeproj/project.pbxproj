@@ -554,7 +554,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SB;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = SevenBits;
 				TargetAttributes = {
 					24A4EC721884966900CE6CF0 = {
@@ -902,6 +902,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -973,6 +974,7 @@
 				INFOPLIST_FILE = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sevenbits.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Mac Linux USB Loader";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -999,6 +1001,7 @@
 				INFOPLIST_FILE = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sevenbits.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Mac Linux USB Loader";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -1022,6 +1025,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Mac-Linux-USB-LoaderTests/Mac Linux USB LoaderTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sevenbits.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Mac Linux USB LoaderTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1040,6 +1044,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac-Linux-USB-Loader-Prefix.pch";
 				INFOPLIST_FILE = "Mac-Linux-USB-LoaderTests/Mac Linux USB LoaderTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sevenbits.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Mac Linux USB LoaderTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
