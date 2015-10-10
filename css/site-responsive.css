@@ -1,4 +1,8 @@
 @media screen and (max-width: 615px) {
+	.ribbon {
+		display: none;
+	}
+	
 	div.jumbo {
 		background: #1f8dd6;
 		z-index: 1;
