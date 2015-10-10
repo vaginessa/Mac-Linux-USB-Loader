@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDistributionDownloaderWindowController">
@@ -93,7 +94,7 @@
                     </scrollView>
                     <box autoresizesSubviews="NO" boxType="secondary" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="EO0-1k-d1r">
                         <rect key="frame" x="265" y="57" width="387" height="260"/>
-                        <view key="contentView">
+                        <view key="contentView" id="j4A-lO-vwz">
                             <rect key="frame" x="1" y="1" width="385" height="258"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -116,10 +117,10 @@
                             </subviews>
                         </view>
                         <constraints>
-                            <constraint firstItem="NYe-J1-MI2" firstAttribute="top" secondItem="Ul9-Ie-l8T" secondAttribute="top" id="4m7-nD-4eZ"/>
-                            <constraint firstItem="Ul9-Ie-l8T" firstAttribute="leading" secondItem="NYe-J1-MI2" secondAttribute="trailing" constant="8" symbolic="YES" id="F3T-ef-ThK"/>
-                            <constraint firstItem="NYe-J1-MI2" firstAttribute="top" secondItem="EO0-1k-d1r" secondAttribute="top" constant="11" id="Off-hd-2Br"/>
-                            <constraint firstItem="NYe-J1-MI2" firstAttribute="leading" secondItem="EO0-1k-d1r" secondAttribute="leading" constant="16" id="zAk-kV-3ta"/>
+                            <constraint firstItem="Ul9-Ie-l8T" firstAttribute="leading" secondItem="NYe-J1-MI2" secondAttribute="trailing" constant="8" symbolic="YES" id="3F9-rk-rN1"/>
+                            <constraint firstItem="NYe-J1-MI2" firstAttribute="top" secondItem="EO0-1k-d1r" secondAttribute="top" constant="11" id="DIN-w2-FP9"/>
+                            <constraint firstItem="NYe-J1-MI2" firstAttribute="leading" secondItem="EO0-1k-d1r" secondAttribute="leading" constant="16" id="UBt-9n-6X7"/>
+                            <constraint firstItem="NYe-J1-MI2" firstAttribute="top" secondItem="Ul9-Ie-l8T" secondAttribute="top" id="scU-Nu-c93"/>
                         </constraints>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -208,7 +209,7 @@
                     </button>
                     <box autoresizesSubviews="NO" title="Download Settings" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="6Ho-5a-BD4">
                         <rect key="frame" x="17" y="57" width="500" height="130"/>
-                        <view key="contentView">
+                        <view key="contentView" id="3E6-va-oRm">
                             <rect key="frame" x="1" y="1" width="498" height="114"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -263,17 +264,17 @@
                             </subviews>
                         </view>
                         <constraints>
-                            <constraint firstItem="7tK-XE-uFZ" firstAttribute="centerY" secondItem="m4J-OS-S9v" secondAttribute="centerY" id="Alj-dN-V6J"/>
-                            <constraint firstItem="KY1-aP-Q40" firstAttribute="leading" secondItem="AFC-fl-K3y" secondAttribute="trailing" constant="8" symbolic="YES" id="Csz-FL-GNx"/>
-                            <constraint firstItem="KY1-aP-Q40" firstAttribute="leading" secondItem="m4J-OS-S9v" secondAttribute="leading" id="EDj-DZ-eCO"/>
-                            <constraint firstItem="m4J-OS-S9v" firstAttribute="leading" secondItem="6Ho-5a-BD4" secondAttribute="leading" constant="81" id="KOd-wF-byN"/>
-                            <constraint firstItem="KY1-aP-Q40" firstAttribute="top" secondItem="m4J-OS-S9v" secondAttribute="bottom" constant="10" symbolic="YES" id="LLm-pZ-knm"/>
-                            <constraint firstItem="m4J-OS-S9v" firstAttribute="top" secondItem="6Ho-5a-BD4" secondAttribute="top" constant="25" id="N6b-Wu-wwl"/>
-                            <constraint firstAttribute="bottom" secondItem="m4J-OS-S9v" secondAttribute="bottom" constant="80" id="T8S-lv-Is3"/>
-                            <constraint firstItem="KY1-aP-Q40" firstAttribute="trailing" secondItem="m4J-OS-S9v" secondAttribute="trailing" id="f65-mT-NaN"/>
-                            <constraint firstItem="AFC-fl-K3y" firstAttribute="baseline" secondItem="KY1-aP-Q40" secondAttribute="baseline" id="kgQ-kE-CQY"/>
-                            <constraint firstAttribute="trailing" secondItem="m4J-OS-S9v" secondAttribute="trailing" constant="16" id="yTU-O2-sPu"/>
-                            <constraint firstItem="m4J-OS-S9v" firstAttribute="leading" secondItem="7tK-XE-uFZ" secondAttribute="trailing" constant="8" symbolic="YES" id="zZw-as-lgp"/>
+                            <constraint firstItem="KY1-aP-Q40" firstAttribute="leading" secondItem="AFC-fl-K3y" secondAttribute="trailing" constant="8" symbolic="YES" id="01F-T2-29Q"/>
+                            <constraint firstItem="m4J-OS-S9v" firstAttribute="leading" secondItem="6Ho-5a-BD4" secondAttribute="leading" constant="81" id="Gbh-s1-jqA"/>
+                            <constraint firstAttribute="bottom" secondItem="m4J-OS-S9v" secondAttribute="bottom" constant="80" id="MeH-vc-wiU"/>
+                            <constraint firstItem="AFC-fl-K3y" firstAttribute="baseline" secondItem="KY1-aP-Q40" secondAttribute="baseline" id="NuC-ix-tG1"/>
+                            <constraint firstItem="KY1-aP-Q40" firstAttribute="top" secondItem="m4J-OS-S9v" secondAttribute="bottom" constant="10" symbolic="YES" id="dJu-kn-fhw"/>
+                            <constraint firstItem="m4J-OS-S9v" firstAttribute="top" secondItem="6Ho-5a-BD4" secondAttribute="top" constant="25" id="fRH-Vg-sey"/>
+                            <constraint firstItem="m4J-OS-S9v" firstAttribute="leading" secondItem="7tK-XE-uFZ" secondAttribute="trailing" constant="8" symbolic="YES" id="fSG-nJ-oI6"/>
+                            <constraint firstItem="7tK-XE-uFZ" firstAttribute="centerY" secondItem="m4J-OS-S9v" secondAttribute="centerY" id="q2A-Mr-ouv"/>
+                            <constraint firstAttribute="trailing" secondItem="m4J-OS-S9v" secondAttribute="trailing" constant="16" id="rVK-hc-CZh"/>
+                            <constraint firstItem="KY1-aP-Q40" firstAttribute="trailing" secondItem="m4J-OS-S9v" secondAttribute="trailing" id="tif-84-7PD"/>
+                            <constraint firstItem="KY1-aP-Q40" firstAttribute="leading" secondItem="m4J-OS-S9v" secondAttribute="leading" id="y9I-UJ-xkX"/>
                         </constraints>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
