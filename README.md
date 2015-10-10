@@ -26,7 +26,7 @@ That being said, it does have a few shortcomings:
 
 Building from Source
 --------------------
-Requirements: Xcode 6, OS X 10.10 SDK. OS X 10.8+ required to run built app
+Requirements: Xcode 7, OS X 10.11 SDK. OS X 10.8+ required to run built app
 
 1. Clone from git:
     `git clone https://github.com/SevenBits/Mac-Linux-USB-Loader.git`
