@@ -334,7 +334,8 @@
 		NSString *encodedDistributionString = [selectedLinuxDistribution stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
 
 		// Submit the request to Wikipedia and handle the data when it gets back.
-		NSString *URLString = [NSString stringWithFormat:@"https://%@.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=%@", @"en", encodedDistributionString];
+		NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+		NSString *URLString = [NSString stringWithFormat:@"https://%@.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=%@", language, encodedDistributionString];
 		NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
 		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 		if (!response) {
@@ -365,7 +366,7 @@
 			});
 		} else {
 			dispatch_async(dispatch_get_main_queue(), ^{
-				[self.webView.mainFrame loadHTMLString:NSLocalizedString(@"No information about this distribution was found.", nil) baseURL:nil];
+				[self.webView.mainFrame loadHTMLString:NSLocalizedString(@"No information about this distribution was found in your language.", nil) baseURL:nil];
 			});
 		}
 
