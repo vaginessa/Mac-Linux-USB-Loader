@@ -24,6 +24,7 @@
 		2420BA3019A2660A00208240 /* NSImage+SaveToFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420BA2F19A2660A00208240 /* NSImage+SaveToFile.m */; };
 		24245F3218D222250085C43F /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24245F3118D222250085C43F /* NSString+Extensions.m */; };
 		2424764C194A180A0083033B /* NSProcessInfo+PECocoaBackports.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */; };
+		2429600F1BC9D8CC00AB8445 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2429600E1BC9D8CC00AB8445 /* WebKit.framework */; };
 		245784941A8AA7680005F32F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 245784921A8AA7680005F32F /* Localizable.strings */; };
 		245784961A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245784981A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib */; };
 		2457849D1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2457849F1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib */; };
@@ -155,6 +156,7 @@
 		2424AD831AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
 		2424AD841AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
 		2424AD851AB37EE4004610EC /* nl */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2429600E1BC9D8CC00AB8445 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2436C15E1B09396B003A0FDC /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Sparkle.framework; path = "/Users/RyanBowring/Library/Developer/Xcode/DerivedData/Mac_Linux_USB_Loader-ftzupntfxyasrlcinvwljpuogpbh/Build/Products/Debug/Sparkle.framework"; sourceTree = "<absolute>"; };
 		245784971A8AB7B80005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderPreferencesViewController.xib; sourceTree = "<group>"; };
 		2457849E1A8AB86D0005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderWindowController.xib; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2429600F1BC9D8CC00AB8445 /* WebKit.framework in Frameworks */,
 				24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */,
 				24B29B5C19328E6E0009C3D8 /* DiskArbitration.framework in Frameworks */,
 				24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */,
@@ -337,6 +340,7 @@
 		24A4EC751884966900CE6CF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2429600E1BC9D8CC00AB8445 /* WebKit.framework */,
 				2436C15E1B09396B003A0FDC /* Sparkle.framework */,
 				24ED96C219A2444600723C4E /* SystemConfiguration.framework */,
 				24B29B5B19328E6E0009C3D8 /* DiskArbitration.framework */,

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="8191"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -20,6 +21,7 @@
                 <outlet property="downloadSettingsPanel" destination="dxA-hL-HgN" id="MD0-73-cWi"/>
                 <outlet property="spinner" destination="ssu-us-fii" id="BrV-5X-Ove"/>
                 <outlet property="tableView" destination="vwt-RC-84e" id="vfr-48-1b6"/>
+                <outlet property="webView" destination="uGV-Ar-jXJ" id="Bev-Er-zzS"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -114,7 +116,19 @@
                                     </constraints>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="thL-q6-yU1"/>
                                 </imageView>
+                                <webView translatesAutoresizingMaskIntoConstraints="NO" id="uGV-Ar-jXJ">
+                                    <rect key="frame" x="18" y="0.0" width="354" height="110"/>
+                                    <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
+                                        <nil key="identifier"/>
+                                    </webPreferences>
+                                </webView>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="uGV-Ar-jXJ" secondAttribute="bottom" id="5iu-6G-bo7"/>
+                                <constraint firstAttribute="trailing" secondItem="uGV-Ar-jXJ" secondAttribute="trailing" constant="13" id="62r-b7-1gV"/>
+                                <constraint firstItem="uGV-Ar-jXJ" firstAttribute="top" secondItem="NYe-J1-MI2" secondAttribute="bottom" constant="8" id="Gnu-dt-lRk"/>
+                                <constraint firstItem="uGV-Ar-jXJ" firstAttribute="leading" secondItem="j4A-lO-vwz" secondAttribute="leading" constant="18" id="Q6n-gD-W6M"/>
+                            </constraints>
                         </view>
                         <constraints>
                             <constraint firstItem="Ul9-Ie-l8T" firstAttribute="leading" secondItem="NYe-J1-MI2" secondAttribute="trailing" constant="8" symbolic="YES" id="3F9-rk-rN1"/>

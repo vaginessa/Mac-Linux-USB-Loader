@@ -36,6 +36,8 @@
 @property (strong) id activity;
 @property (strong) NSUserDefaults *defaults;
 
+@property (weak) IBOutlet WebView *webView;
+
 // Properties related to the distribution download operation
 @property (atomic, strong) id jsonRecieved;
 @property NSInteger numberOfFinishedJsonRequests;
@@ -74,6 +76,7 @@
 	[self.downloadQueueDataSource setPrefsViewController:self];
 	[self.downloadQueueDataSource setTableView:self.downloadQueueTableView];
 	[self.tableView setDoubleAction:@selector(tableViewDoubleClickAction)];
+	[self.webView setDrawsBackground:NO];
 
 	// Check if enough time has elapsed to where we need to download new JSON.
 	NSInteger JSONUpdateInterval = [[NSUserDefaults standardUserDefaults] integerForKey:@"UpdateMirrorListInterval"];
@@ -304,6 +307,9 @@
 	NSString *convertedName = [distribution stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 	NSImage *img = self.imageDictionary[convertedName];
 	if (img) self.distroImageView.image = img;
+
+	// Load the information on the selected Linux distribution from Wikipedia
+	[self doWikipediaSearch];
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
@@ -311,6 +317,69 @@
 }
 
 #pragma mark - UI
+- (void)doWikipediaSearch {
+	// Fetch Wikipedia information on the selected artist (may not work 100% of the time).
+	[self.spinner startAnimation:nil];
+	dispatch_async(dispatch_get_global_queue(0, 0), ^{
+		NSInteger selectedRowIndex = [self.tableView selectedRow];
+		NSString *selectedLinuxDistribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][selectedRowIndex];
+
+		// There are multiple articles on Wikipedia with the name "Ubuntu", so we have to specific
+		// and specify exactly what we want if we
+		if ([selectedLinuxDistribution isEqualToString:@"Ubuntu"]) {
+			selectedLinuxDistribution = @"Ubuntu (operating system)";
+		}
+
+		// Encode the distribution name by removing any spaces.
+		NSString *encodedDistributionString = [selectedLinuxDistribution stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
+
+		// Submit the request to Wikipedia and handle the data when it gets back.
+		NSString *URLString = [NSString stringWithFormat:@"https://%@.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=%@", @"en", encodedDistributionString];
+		NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
+		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+		if (!response) {
+			NSLog(@"Failed to get a response from Wikipedia.");
+			return;
+		}
+
+		NSDictionary *outputDictionary = [NSJSONSerialization JSONObjectWithData:response
+																		 options:0
+																		   error:nil];
+		NSDictionary *targetDictionary = outputDictionary[@"query"][@"pages"];
+
+		__block NSString *desiredKey = nil;
+		[targetDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+			// Determine if the given key is the one that we want. Since this API request should only
+			// return one result, if it meets our qualifications, we can assume that it is what we want.
+			desiredKey = key;
+			*stop = YES;
+		}];
+
+		NSString *distroBio = [targetDictionary[desiredKey][@"extract"] copy];
+		if (distroBio) {
+			distroBio = [[@"<html><body>" stringByAppendingString:distroBio] stringByAppendingString:@"</body></html>"];
+			//NSLog(@"%@", artistBio);
+
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self.webView.mainFrame loadHTMLString:distroBio baseURL:nil];
+			});
+		} else {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self.webView.mainFrame loadHTMLString:NSLocalizedString(@"No information about this distribution was found.", nil) baseURL:nil];
+			});
+		}
+
+		// Stop the spinner.
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.spinner stopAnimation:nil];
+		});
+
+		// Make sure these things get released
+		outputDictionary = nil;
+		targetDictionary = nil;
+	});
+}
+
 - (void)placeAccessoryView {
 	NSOperatingSystemVersion opVer = [[NSProcessInfo processInfo] operatingSystemVersion];
 	if (opVer.minorVersion <= 9) {
