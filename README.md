@@ -33,6 +33,8 @@ Requirements: Xcode 7, OS X 10.11 SDK. OS X 10.8+ required to run built app
 1. Run `pod install` (requires [Cocoapods](http://cocoapods.org)).
 1. Open `Mac Linux USB Loader.xcworkspace` and do an archive build, or simply run and debug it with Xcode
 
+Mac Linux USB Loader utilizes the OS X app sandbox, and so requires that it code-signed to use all features. This should not be a problem if you are a registered Apple developer.
+
 Acknowledgements
 ----------------
 
