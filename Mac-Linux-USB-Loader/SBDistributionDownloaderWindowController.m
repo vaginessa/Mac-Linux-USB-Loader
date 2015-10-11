@@ -325,7 +325,7 @@
 		NSString *selectedLinuxDistribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][selectedRowIndex];
 
 		// There are multiple articles on Wikipedia with the name "Ubuntu", so we have to specific
-		// and specify exactly what we want if we
+		// and specify exactly what we want if we need to download Ubuntu's info
 		if ([selectedLinuxDistribution isEqualToString:@"Ubuntu"]) {
 			selectedLinuxDistribution = @"Ubuntu (operating system)";
 		}
