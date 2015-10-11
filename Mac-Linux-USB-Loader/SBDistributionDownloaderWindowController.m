@@ -294,6 +294,7 @@
 
 	if (row == -1) {
 		[self.distroNameLabel setStringValue:@""];
+		[self.webView.mainFrame loadHTMLString:@"" baseURL:nil];
 		[self.distroImageView setImage:nil];
 		return;
 	}
