@@ -188,7 +188,7 @@ div.jumbo2 .pure-g.container .full-width-container p {
 div.jumbo2 .pure-g.container h2.big-icon {
 	font-size: 5em;
 	text-align: center;
-	margin: 12px auto 12px auto;
+	margin: 12px auto;
 	width: 100%;
 }
 
@@ -246,14 +246,16 @@ footer p {
 
 @keyframes mymove {
 	from {
-		transform: translateX(200px); opacity: 0;
+		transform: translateX(50px);
+		opacity: 0;
 	}
 	to {opacity: 1}
 }
 
 @-webkit-keyframes mymove /* Safari and Chrome */ {
 	from {
-		-webkit-transform: translateX(200px); opacity: 0;
+		-webkit-transform: translateX(50px);
+		opacity: 0;
 	}
 	to {opacity: 1}
 }
