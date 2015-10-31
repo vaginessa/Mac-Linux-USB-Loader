@@ -28,6 +28,11 @@
 		color: white;
 	}
 	
+	div.jumbo .jumbo-content .download-btn-a .download-btn {
+		width: 100%;
+		padding: 0.5em 0.8em;
+	}
+	
 	div.jumbo .jumbo-content aside img {
 		display: none;
 	}
