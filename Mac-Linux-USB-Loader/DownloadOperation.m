@@ -25,6 +25,11 @@
 @synthesize executing = _executing;
 @synthesize finished  = _finished;
 
+- (instancetype)init
+{
+	return [self initWithURL:nil];
+}
+
 - (instancetype)initWithURL:(NSURL *)url path:(NSString *)path
 {
 	self = [super init];
