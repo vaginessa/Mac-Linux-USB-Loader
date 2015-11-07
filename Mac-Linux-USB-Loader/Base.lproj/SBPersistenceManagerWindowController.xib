@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -30,7 +30,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WtK-de-1VS">
-                        <rect key="frame" x="105" y="142" width="416" height="26"/>
+                        <rect key="frame" x="104" y="142" width="418" height="26"/>
+                        <animations/>
                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="CSx-vn-lY9">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -48,6 +49,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="96" id="SgM-P7-bnU"/>
                                     </constraints>
+                                    <animations/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ddJ-0k-WBw">
                                         <byteCountFormatter key="formatter" id="MXU-gc-OCr"/>
                                         <font key="font" metaFont="system"/>
@@ -55,7 +57,7 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="-2" name="value" keyPath="persistenceVolumeSizeSlider.integerValue" id="Eei-ol-lUe">
+                                        <binding destination="-2" name="value" keyPath="persistenceVolumeSizeSlider.intValue" id="GyZ-CY-ibg">
                                             <dictionary key="options">
                                                 <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                 <bool key="NSValidatesImmediately" value="YES"/>
@@ -64,11 +66,13 @@
                                     </connections>
                                 </textField>
                                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
-                                    <rect key="frame" x="130" y="50" width="336" height="21"/>
+                                    <rect key="frame" x="128" y="51" width="338" height="21"/>
+                                    <animations/>
                                     <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
                                 </slider>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
-                                    <rect key="frame" x="18" y="52" width="110" height="17"/>
+                                    <rect key="frame" x="18" y="53" width="108" height="17"/>
+                                    <animations/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Persistence Size:" id="Dpm-6U-5pw">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -80,6 +84,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="101" id="vhf-XB-mVU"/>
                                     </constraints>
+                                    <animations/>
                                     <buttonCell key="cell" type="push" title="Reset Slider" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fCZ-FR-PGe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -93,6 +98,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="143" id="hRN-bI-8cC"/>
                                     </constraints>
+                                    <animations/>
                                     <buttonCell key="cell" type="push" title="Create Persistence" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zZH-rW-NE2">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -102,6 +108,7 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <animations/>
                         </view>
                         <constraints>
                             <constraint firstItem="Eon-uz-T23" firstAttribute="leading" secondItem="6JB-DA-RJT" secondAttribute="trailing" constant="8" symbolic="YES" id="7oK-rA-9jQ"/>
@@ -116,11 +123,13 @@
                             <constraint firstItem="6JB-DA-RJT" firstAttribute="baseline" secondItem="gHL-Gw-83z" secondAttribute="baseline" id="vXJ-7H-JDM"/>
                             <constraint firstItem="Eon-uz-T23" firstAttribute="baseline" secondItem="6JB-DA-RJT" secondAttribute="baseline" id="y7s-6U-znI"/>
                         </constraints>
+                        <animations/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oAg-6S-39i">
-                        <rect key="frame" x="18" y="146" width="81" height="17"/>
+                        <rect key="frame" x="18" y="146" width="80" height="17"/>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Target USB:" id="Apk-Mg-4gj">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -129,9 +138,11 @@
                     </textField>
                     <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="fEs-wl-bLJ">
                         <rect key="frame" x="20" y="20" width="16" height="16"/>
+                        <animations/>
                     </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="htd-Oc-Vqe">
                         <rect key="frame" x="42" y="20" width="562" height="14"/>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="NrD-gi-cN6">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -139,7 +150,8 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vn-7m-K0E">
-                        <rect key="frame" x="520" y="138" width="88" height="32"/>
+                        <rect key="frame" x="521" y="138" width="87" height="32"/>
+                        <animations/>
                         <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lBS-19-NXo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -168,6 +180,7 @@
                     <constraint firstItem="be7-b0-Wt7" firstAttribute="leading" secondItem="oAg-6S-39i" secondAttribute="leading" id="ye3-DD-Fzc"/>
                     <constraint firstItem="1vn-7m-K0E" firstAttribute="leading" secondItem="WtK-de-1VS" secondAttribute="trailing" constant="8" symbolic="YES" id="zuH-oQ-fT6"/>
                 </constraints>
+                <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
