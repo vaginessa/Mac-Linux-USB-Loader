@@ -26,6 +26,7 @@
 @property (weak) IBOutlet NSImageView *distroImageView;
 @property (weak) IBOutlet NSTextField *distroNameLabel;
 @property (weak) IBOutlet NSButton *downloadDistroButton;
+@property (weak) IBOutlet NSButton *viewMoreInfoButton;
 @property (weak) IBOutlet NSButton *accessoryViewButton;
 @property (weak) IBOutlet NSProgressIndicator *spinner;
 
@@ -72,6 +73,7 @@
 - (void)awakeFromNib {
 	// Setup the UI.
 	[self.downloadDistroButton setEnabled:NO];
+	[self.viewMoreInfoButton setTransparent:YES];
 	[self.downloadQueuePopover setBehavior:NSPopoverBehaviorTransient];
 	[self.downloadQueueDataSource setPrefsViewController:self];
 	[self.downloadQueueDataSource setTableView:self.downloadQueueTableView];
@@ -291,6 +293,7 @@
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
 	NSInteger row = [self.tableView selectedRow];
 	[self.downloadDistroButton setEnabled:(row != -1)];
+	[self.viewMoreInfoButton setTransparent:(row == -1)];
 
 	if (row == -1) {
 		[self.distroNameLabel setStringValue:@""];
@@ -445,11 +448,30 @@
 	self.downloadDistroModel = self.modelDictionary[temp];
 	[self.distroMirrorCountrySelector removeAllItems];
 
-	for (SBDownloadMirrorModel *model in[self.downloadDistroModel mirrors]) {
+	for (SBDownloadMirrorModel *model in [self.downloadDistroModel mirrors]) {
 		[self.distroMirrorCountrySelector addItemWithTitle:model.countryLong];
 	}
 
 	[NSApp beginSheet:self.downloadSettingsPanel modalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+}
+
+- (IBAction)viewDistroWebsiteButtonClicked:(id)sender {
+	// Get the table view selection and make sure that they selected something.
+	NSInteger row = [self.tableView selectedRow];
+	if (row == -1) {
+		return;
+	}
+
+	// Get the JSON model object for the selected distribution.
+	NSString *distroName = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][row];
+	NSString *convertedName = [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+	SBDownloadableDistributionModel *model = self.modelDictionary[convertedName];
+
+	// Construct the URL string and go there.
+	NSString *urlString = model.websiteURL;
+	if (urlString) {
+		[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
+	}
 }
 
 - (IBAction)closeDownloadDistroSheetPressed:(id)sender {

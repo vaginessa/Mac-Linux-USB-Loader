@@ -18,4 +18,7 @@
 /// A URL for an image containing a logo or symbol representing this distribution.
 @property (strong, nonatomic) NSString<Optional> *imageURL;
 
+/// The URL of the distribution's website.
+@property (strong, nonatomic) NSString<Optional> *websiteURL;
+
 @end
