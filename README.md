@@ -43,3 +43,4 @@ Acknowledgements
 - Special thanks to Leander Lismond for translating the application into Dutch!
 - Special thanks to Stephan Rusch for translating the application into German!
 - Special thanks to Cai Argimon for translating the application into Spanish!
+- Special thanks to Daniele Isoni for translating the application into Italian!
