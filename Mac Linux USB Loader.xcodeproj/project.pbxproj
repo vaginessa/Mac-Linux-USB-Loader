@@ -196,6 +196,7 @@
 		24A4EC9F1884966A00CE6CF0 /* Mac Linux USB LoaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mac Linux USB LoaderTests-Info.plist"; sourceTree = "<group>"; };
 		24A4ECA11884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mac_Linux_USB_LoaderTests.m; sourceTree = "<group>"; };
+		24AE41F31BED0D9800E5B111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Errors.strings; sourceTree = "<group>"; };
 		24B29B5519326F6C0009C3D8 /* SBDownloadableDistributionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDownloadableDistributionModel.h; sourceTree = "<group>"; };
 		24B29B5619326F6C0009C3D8 /* SBDownloadableDistributionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDownloadableDistributionModel.m; sourceTree = "<group>"; };
 		24B29B58193270970009C3D8 /* SBDownloadMirrorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDownloadMirrorModel.h; sourceTree = "<group>"; };
@@ -796,6 +797,7 @@
 			children = (
 				2465344F1B3228F7007706CF /* es */,
 				24D808CF1B41A87600C95744 /* de */,
+				24AE41F31BED0D9800E5B111 /* Base */,
 			);
 			name = Errors.strings;
 			sourceTree = "<group>";
