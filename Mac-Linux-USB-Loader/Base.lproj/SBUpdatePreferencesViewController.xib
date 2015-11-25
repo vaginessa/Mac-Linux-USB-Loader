@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBUpdatePreferencesViewController">
@@ -16,8 +16,9 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="83"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="lJx-eB-jmN">
+                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJx-eB-jmN">
                     <rect key="frame" x="128" y="47" width="225" height="18"/>
+                    <animations/>
                     <buttonCell key="cell" type="check" title="Automatically Check for Updates" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="kjC-fK-tIu">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -26,19 +27,21 @@
                         <binding destination="WYi-oU-Tsg" name="value" keyPath="automaticallyChecksForUpdates" id="ch6-iZ-uhY"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L1Q-EK-OXX">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1Q-EK-OXX">
                     <rect key="frame" x="38" y="24" width="146" height="17"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Update Check Interval:" id="neh-34-5Rp">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-4t-G5n">
+                <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-4t-G5n">
                     <rect key="frame" x="188" y="17" width="148" height="26"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="143" id="u9Q-jq-wVL"/>
                     </constraints>
+                    <animations/>
                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="cfD-Zv-KGb">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -58,8 +61,9 @@
                         <binding destination="WYi-oU-Tsg" name="selectedTag" keyPath="updateCheckInterval" id="eE2-0A-fto"/>
                     </connections>
                 </popUpButton>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-KB-bv7">
+                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-KB-bv7">
                     <rect key="frame" x="335" y="13" width="112" height="32"/>
+                    <animations/>
                     <buttonCell key="cell" type="push" title="Check Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Idq-wM-aWT">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -82,6 +86,7 @@
                 <constraint firstAttribute="trailing" secondItem="Aba-KB-bv7" secondAttribute="trailing" constant="39" id="sKz-11-A0C"/>
                 <constraint firstAttribute="bottom" secondItem="ruh-4t-G5n" secondAttribute="bottom" constant="20" id="uCe-X6-Tg4"/>
             </constraints>
+            <animations/>
             <point key="canvasLocation" x="409" y="273.5"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="nQQ-Tp-nU6"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -20,12 +20,14 @@
             <subviews>
                 <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Mqp-7t-iHQ">
                     <rect key="frame" x="12" y="115" width="561" height="5"/>
+                    <animations/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZY5-Xk-lAz">
+                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZY5-Xk-lAz">
                     <rect key="frame" x="474" y="122" width="105" height="32"/>
+                    <animations/>
                     <buttonCell key="cell" type="push" title="Clear Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j9p-k1-kBV">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -47,6 +49,7 @@
                         <subviews>
                             <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-OH-hmA">
                                 <rect key="frame" x="16" y="58" width="401" height="18"/>
+                                <animations/>
                                 <buttonCell key="cell" type="check" title="Accept HFS+ Formatted Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9HT-f6-zfH">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -57,6 +60,7 @@
                             </button>
                             <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1GF-fo-Apu">
                                 <rect key="frame" x="16" y="35" width="401" height="18"/>
+                                <animations/>
                                 <buttonCell key="cell" type="check" title="Hide Enterprise Configuration File" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CG7-vV-ura">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -66,6 +70,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                     </view>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="1GF-fo-Apu" secondAttribute="bottom" constant="34" id="04b-v3-bCh"/>
@@ -76,14 +81,16 @@
                         <constraint firstItem="1GF-fo-Apu" firstAttribute="top" secondItem="rlJ-OH-hmA" secondAttribute="bottom" constant="9" id="pUq-bA-H8q"/>
                         <constraint firstItem="rlJ-OH-hmA" firstAttribute="top" secondItem="nPg-bg-bVL" secondAttribute="top" constant="25" id="pid-fI-uST"/>
                     </constraints>
+                    <animations/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="s4C-gM-3i6">
+                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4C-gM-3i6">
                     <rect key="frame" x="126" y="162" width="332" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="250" constant="328" id="bfU-Ms-9t1"/>
                     </constraints>
+                    <animations/>
                     <buttonCell key="cell" type="check" title="Periodically Clear Caches and Old ISO Downloads" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XrG-IX-Jnc">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -109,6 +116,7 @@
                 <constraint firstAttribute="centerX" secondItem="s4C-gM-3i6" secondAttribute="centerX" constant="4.5" id="wgb-gI-xlc"/>
                 <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="wjh-nJ-YV7"/>
             </constraints>
+            <animations/>
             <point key="canvasLocation" x="466.5" y="256"/>
         </customView>
         <userDefaultsController id="xGH-KJ-pxb"/>
