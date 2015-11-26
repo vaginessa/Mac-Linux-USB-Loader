@@ -438,7 +438,7 @@
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"Can't download this distribution.", nil)];
-		[alert setInformativeText:NSLocalizedString(@"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors.", nil)];
+		[alert setInformativeText:NSLocalizedString(@"You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors.", nil)];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
