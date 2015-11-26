@@ -33,6 +33,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 @property (weak) IBOutlet NSTableView *operationsTableView;
 @property (weak) IBOutlet NSTextField *applicationVersionString;
 @property (weak) IBOutlet NSPopover *moreOptionsPopover;
+@property (weak) IBOutlet NSMenu *registeredDevicesMenu;
 @end
 
 @implementation SBAppDelegate
@@ -91,6 +92,9 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 	// Load the list of Enterprise installation sources
 	[self setupEnterpriseInstallationLocations];
 
+	// Scan for saved USBs.
+	[self scanForSavedUSBs];
+
 	// Check if enough time has passed to where we need to clear all caches, but only if the user has indicated
 	// that they want this behavior to happen.
 	BOOL shouldClearCaches = [[NSUserDefaults standardUserDefaults] boolForKey:@"PeriodicallyClearCaches"];
@@ -112,6 +116,22 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 			// User has just opened the application or has cleared defaults. Save the date now as the starting
 			// point for the two-month count to clear caches.
 			[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastCacheClearCheckTime"];
+		}
+	}
+}
+
+- (void)scanForSavedUSBs {
+	NSDictionary *preferences = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+	NSEnumerator *keys = [preferences keyEnumerator];
+
+	NSString *key;
+	while ((key = [keys nextObject])) {
+		if ([key hasSuffix:@"_USBSecurityBookmarkTarget"]) {
+			// create the menu item with the USB's title.
+			NSRange s = [key rangeOfString:@"_USBSecurityBookmarkTarget"];
+			NSString *usbTitle = [key substringToIndex:s.location];
+			NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:usbTitle action:NULL keyEquivalent:@""];
+			[self.registeredDevicesMenu addItem:item];
 		}
 	}
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -21,6 +21,7 @@
                 <outlet property="applicationVersionString" destination="Ddm-9B-CYW" id="UzP-dt-Ihk"/>
                 <outlet property="moreOptionsPopover" destination="O0L-Mi-Kr6" id="tAm-pj-tiw"/>
                 <outlet property="operationsTableView" destination="Pnw-ad-1UM" id="2Pm-DW-Hri"/>
+                <outlet property="registeredDevicesMenu" destination="bCd-j9-j8y" id="eLO-HS-tUv"/>
                 <outlet property="window" destination="eVZ-OT-8Zw" id="msv-fN-6PT"/>
             </connections>
         </customObject>
@@ -54,6 +55,11 @@
                                 <connections>
                                     <action selector="checkForUpdates:" target="NbB-fn-Ac8" id="hEX-bR-xAp"/>
                                 </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="ngp-NR-GLH"/>
+                            <menuItem title="Registered Devices" id="Rct-bv-4eE">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Registered Devices" id="bCd-j9-j8y"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
@@ -407,10 +413,12 @@
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9oD-tj-dWc">
                         <rect key="frame" x="20" y="20" width="286" height="301"/>
+                        <animations/>
                         <imageCell key="cell" controlSize="small" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="axesIndependently" image="NSApplicationIcon" id="ery-Rt-c36"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pda-w3-ql6">
                         <rect key="frame" x="312" y="291" width="368" height="30"/>
+                        <animations/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Linux USB Loader" id="PbZ-Px-5X8">
                             <font key="font" metaFont="system" size="25"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -426,6 +434,7 @@
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="54" rowSizeStyle="automatic" viewBased="YES" id="Pnw-ad-1UM">
                                     <rect key="frame" x="0.0" y="0.0" width="362" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
@@ -453,6 +462,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="66" id="TRY-30-qhs"/>
                                                             </constraints>
+                                                            <animations/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="DZu-Es-3Vn"/>
                                                         </imageView>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tyR-yF-pjH">
@@ -460,6 +470,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="279" id="xFE-So-TL0"/>
                                                             </constraints>
+                                                            <animations/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="z0e-73-0dd">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -474,6 +485,7 @@
                                                         <constraint firstItem="hK8-Tq-fPg" firstAttribute="top" secondItem="Jbz-Tg-ElK" secondAttribute="top" constant="3" id="lnu-YI-a5L"/>
                                                         <constraint firstItem="hK8-Tq-fPg" firstAttribute="leading" secondItem="Jbz-Tg-ElK" secondAttribute="leading" constant="3" id="vHC-PC-1CW"/>
                                                     </constraints>
+                                                    <animations/>
                                                     <connections>
                                                         <outlet property="imageView" destination="hK8-Tq-fPg" id="EoR-qJ-TFn"/>
                                                         <outlet property="textField" destination="tyR-yF-pjH" id="RYf-hs-D2C"/>
@@ -488,17 +500,22 @@
                                     </connections>
                                 </tableView>
                             </subviews>
+                            <animations/>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
+                        <animations/>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1JO-0z-6ea">
                             <autoresizingMask key="autoresizingMask"/>
+                            <animations/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="P1Y-dA-k3U">
                             <autoresizingMask key="autoresizingMask"/>
+                            <animations/>
                         </scroller>
                     </scrollView>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-zo-Wly">
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-zo-Wly">
                         <rect key="frame" x="585" y="13" width="98" height="28"/>
+                        <animations/>
                         <buttonCell key="cell" type="push" title="More Options" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f5Z-jQ-9Ok">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
@@ -509,6 +526,7 @@
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ddm-9B-CYW">
                         <rect key="frame" x="18" y="0.0" width="288" height="14"/>
+                        <animations/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 0.0.0 (000)" id="SZ2-R9-aee">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -531,6 +549,7 @@
                     <constraint firstItem="v0M-0W-Ded" firstAttribute="trailing" secondItem="Pda-w3-ql6" secondAttribute="trailing" id="o1C-2o-ZRA"/>
                     <constraint firstItem="v0M-0W-Ded" firstAttribute="top" secondItem="Pda-w3-ql6" secondAttribute="bottom" constant="8" symbolic="YES" id="rFg-FF-U0u"/>
                 </constraints>
+                <animations/>
             </view>
         </window>
         <viewController id="b20-HZ-vKs" userLabel="Popover View Controller">
@@ -552,6 +571,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="dYj-am-aS7"/>
                     </constraints>
+                    <animations/>
                     <buttonCell key="cell" type="roundRect" title="Close" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oZ5-WW-zYO">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
@@ -562,6 +582,7 @@
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lkn-Ug-NQ0">
                     <rect key="frame" x="14" y="57" width="175" height="32"/>
+                    <animations/>
                     <buttonCell key="cell" type="push" title="Report Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9zF-bC-eXK">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -572,6 +593,7 @@
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gew-ZC-hmk">
                     <rect key="frame" x="14" y="90" width="175" height="32"/>
+                    <animations/>
                     <buttonCell key="cell" type="push" title="Show Project Website" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LhO-Jz-UPe">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -592,6 +614,7 @@
                 <constraint firstItem="Gew-ZC-hmk" firstAttribute="top" secondItem="5h4-lh-Ua3" secondAttribute="top" constant="20" symbolic="YES" id="tpq-ie-Lyt"/>
                 <constraint firstItem="Gew-ZC-hmk" firstAttribute="leading" secondItem="5h4-lh-Ua3" secondAttribute="leading" constant="20" symbolic="YES" id="uF0-jA-CFA"/>
             </constraints>
+            <animations/>
             <point key="canvasLocation" x="283.5" y="175"/>
         </customView>
         <menu id="F19-pk-eIT" userLabel="Dock Menu">
