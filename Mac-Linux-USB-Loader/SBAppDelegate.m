@@ -13,6 +13,8 @@
 #import "SBUpdatePreferencesViewController.h"
 #import "SBEnterpriseSourceLocation.h"
 
+#define SBClearAllMenuItemTag 552345
+
 const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 
 @interface SBAppDelegate ()
@@ -125,6 +127,12 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 	[self.registeredDevicesMenu removeAllItems];
 	NSDictionary *preferences = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
 	NSEnumerator *keys = [preferences keyEnumerator];
+
+	// Add the 'Clear All' menu item and separator.
+	NSMenuItem *clearAllMenuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Clear All", nil) action:@selector(deleteStoredUSBDevice:) keyEquivalent:@""];
+	clearAllMenuItem.tag = SBClearAllMenuItemTag;
+	[self.registeredDevicesMenu addItem:clearAllMenuItem];
+	[self.registeredDevicesMenu addItem:[NSMenuItem separatorItem]];
 
 	// Enumerate and find all registered USBs.
 	NSString *key;
@@ -305,11 +313,24 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 #pragma mark - IBActions
 
 - (IBAction)deleteStoredUSBDevice:(NSMenuItem *)sender {
-	// get the name of the preferences key to delete based on the USB's name
-	NSString *preferencesKeyToDelete = [sender.title stringByAppendingString:@"_USBSecurityBookmarkTarget"];
-	[[NSUserDefaults standardUserDefaults] removeObjectForKey:preferencesKeyToDelete];
+	if (sender.tag == SBClearAllMenuItemTag) {
+		// delete all registered USB devices.
+		NSDictionary *preferences = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+		NSEnumerator *keys = [preferences keyEnumerator];
 
-	// re-build the list of USBs
+		NSString *key;
+		while ((key = [keys nextObject])) {
+			if ([key hasSuffix:@"_USBSecurityBookmarkTarget"]) {
+				[[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+			}
+		}
+	} else {
+		// get the name of the preferences key to delete based on the USB's name.
+		NSString *preferencesKeyToDelete = [sender.title stringByAppendingString:@"_USBSecurityBookmarkTarget"];
+		[[NSUserDefaults standardUserDefaults] removeObjectForKey:preferencesKeyToDelete];
+	}
+
+	// re-build the list of USBs.
 	[self scanForSavedUSBs];
 }
 
