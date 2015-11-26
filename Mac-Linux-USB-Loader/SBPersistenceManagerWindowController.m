@@ -51,7 +51,8 @@
 	[self loadUSBDeviceList:nil];
 
 	// Set up the USB persistence file size selector.
-	[self.persistenceVolumeSizeTextField setDelegate:self];
+	[self.persistenceVolumeSizeSlider setContinuous:YES];
+	[self.persistenceVolumeSizeTextField setIntegerValue:128000000];
 }
 
 - (void)showWindow:(id)sender {
@@ -85,8 +86,8 @@
 	[self.usbSelectorPopup setDelegate:self];
 }
 
-- (void)controlTextDidChange:(NSNotification *)note {
-	[self.persistenceVolumeSizeSlider setIntegerValue:[self.persistenceVolumeSizeTextField integerValue]];
+- (IBAction)persistenceSizeSliderWasDragged:(id)sender {
+	[self.persistenceVolumeSizeTextField setIntegerValue:[self.persistenceVolumeSizeSlider integerValue]];
 }
 
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {

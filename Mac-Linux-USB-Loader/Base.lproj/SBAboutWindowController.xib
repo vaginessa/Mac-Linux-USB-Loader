@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBAboutWindowController">
@@ -32,10 +32,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="227" id="cxg-dG-t9x"/>
                                 </constraints>
+                                <animations/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="QeR-mP-NgP"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zI1-Wi-chd">
                                 <rect key="frame" x="255" y="219" width="302" height="30"/>
+                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Linux USB Loader" id="Coh-3R-IsA">
                                     <font key="font" metaFont="system" size="25"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -44,6 +46,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z77-Va-dfi">
                                 <rect key="frame" x="255" y="194" width="302" height="17"/>
+                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version x.x.x" id="QWK-Vq-0wS">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -52,6 +55,7 @@
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="NTg-AA-Rc8">
                                 <rect key="frame" x="255" y="20" width="300" height="166"/>
+                                <animations/>
                             </customView>
                         </subviews>
                         <constraints>
@@ -69,12 +73,14 @@
                             <constraint firstItem="zI1-Wi-chd" firstAttribute="leading" secondItem="z77-Va-dfi" secondAttribute="leading" id="weE-ZB-meD"/>
                             <constraint firstItem="zI1-Wi-chd" firstAttribute="trailing" secondItem="z77-Va-dfi" secondAttribute="trailing" id="za5-on-Nzs"/>
                         </constraints>
+                        <animations/>
                     </customView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gRU-f0-5Ia">
                         <rect key="frame" x="402" y="8" width="158" height="28"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="148" id="8Bc-PG-de9"/>
                         </constraints>
+                        <animations/>
                         <buttonCell key="cell" type="push" title="License Agreement" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oaM-od-Jrd">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
@@ -88,6 +94,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="151" id="Vcc-7Q-L3B"/>
                         </constraints>
+                        <animations/>
                         <buttonCell key="cell" type="push" title="Acknowledgements" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a2W-Op-Qva">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
@@ -107,6 +114,7 @@
                     <constraint firstItem="gRU-f0-5Ia" firstAttribute="leading" secondItem="15d-zL-lKl" secondAttribute="trailing" constant="12" id="qDv-ez-4ry"/>
                     <constraint firstItem="ZBk-nm-wkf" firstAttribute="top" secondItem="sII-i5-Vk4" secondAttribute="top" id="x1m-Du-eZf"/>
                 </constraints>
+                <animations/>
             </view>
             <contentBorderThickness minY="0.0" maxY="0.0"/>
         </window>

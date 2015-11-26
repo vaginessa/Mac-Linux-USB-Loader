@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -56,20 +56,7 @@
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
-                                    <connections>
-                                        <binding destination="-2" name="value" keyPath="persistenceVolumeSizeSlider.intValue" id="GyZ-CY-ibg">
-                                            <dictionary key="options">
-                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                                <bool key="NSValidatesImmediately" value="YES"/>
-                                            </dictionary>
-                                        </binding>
-                                    </connections>
                                 </textField>
-                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
-                                    <rect key="frame" x="128" y="51" width="338" height="21"/>
-                                    <animations/>
-                                    <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
-                                </slider>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHL-Gw-83z">
                                     <rect key="frame" x="18" y="53" width="108" height="17"/>
                                     <animations/>
@@ -107,6 +94,14 @@
                                         <action selector="createPersistenceButtonPressed:" target="-2" id="kwF-kf-hUN"/>
                                     </connections>
                                 </button>
+                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
+                                    <rect key="frame" x="128" y="51" width="338" height="21"/>
+                                    <animations/>
+                                    <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
+                                    <connections>
+                                        <action selector="persistenceSizeSliderWasDragged:" target="-2" id="4Jo-21-nBB"/>
+                                    </connections>
+                                </slider>
                             </subviews>
                             <animations/>
                         </view>
@@ -185,7 +180,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
-            <point key="canvasLocation" x="205" y="226.5"/>
+            <point key="canvasLocation" x="402" y="146.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="9q0-ST-OZz"/>
     </objects>
