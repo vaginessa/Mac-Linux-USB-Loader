@@ -322,7 +322,7 @@
 
 #pragma mark - UI
 - (void)doWikipediaSearch {
-	// Fetch Wikipedia information on the selected artist (may not work 100% of the time).
+	// Fetch Wikipedia information on the selected distribution (may not work 100% of the time).
 	[self.spinner startAnimation:nil];
 	dispatch_async(dispatch_get_global_queue(0, 0), ^{
 		NSInteger selectedRowIndex = [self.tableView selectedRow];
@@ -338,12 +338,17 @@
 		NSString *encodedDistributionString = [selectedLinuxDistribution stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
 
 		// Submit the request to Wikipedia and handle the data when it gets back.
-		NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+		NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
 		NSString *URLString = [NSString stringWithFormat:@"https://%@.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=%@", language, encodedDistributionString];
 		NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
 		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 		if (!response) {
 			NSLog(@"Failed to get a response from Wikipedia.");
+
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self.webView.mainFrame loadHTMLString:NSLocalizedString(@"No information on this distribution could be found due to a network problem. You might not be connected to the Internet.", nil) baseURL:nil];
+				[self.spinner stopAnimation:nil];
+			});
 			return;
 		}
 
