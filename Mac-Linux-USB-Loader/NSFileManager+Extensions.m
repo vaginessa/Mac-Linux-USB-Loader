@@ -7,6 +7,7 @@
 //
 
 #import "NSFileManager+Extensions.h"
+#import "SBAppDelegate.h"
 
 @implementation NSFileManager (Extensions)
 
@@ -66,6 +67,9 @@ NSOpenPanel *spanel;
 		} else {
 			return nil;
 		}
+
+		// Inform the App Delegate about this new device.
+		[(SBAppDelegate *)[NSApp delegate] scanForSavedUSBs];
 	}
 
 	// Return an NSURL object corresponding to the bookmark.

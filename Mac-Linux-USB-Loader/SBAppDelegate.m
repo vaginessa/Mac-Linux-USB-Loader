@@ -121,18 +121,30 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 }
 
 - (void)scanForSavedUSBs {
+	NSInteger detectedKeys = 0;
+	[self.registeredDevicesMenu removeAllItems];
 	NSDictionary *preferences = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
 	NSEnumerator *keys = [preferences keyEnumerator];
 
+	// Enumerate and find all registered USBs.
 	NSString *key;
 	while ((key = [keys nextObject])) {
 		if ([key hasSuffix:@"_USBSecurityBookmarkTarget"]) {
 			// create the menu item with the USB's title.
+			// we don't have to worry about getting an NSNotFound here because we already
+			// know that the target string exists
 			NSRange s = [key rangeOfString:@"_USBSecurityBookmarkTarget"];
 			NSString *usbTitle = [key substringToIndex:s.location];
-			NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:usbTitle action:NULL keyEquivalent:@""];
+			NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:usbTitle action:@selector(deleteStoredUSBDevice:) keyEquivalent:@""];
 			[self.registeredDevicesMenu addItem:item];
+			detectedKeys++;
 		}
+	}
+
+	// Tell the user if there are no detected devices.
+	if (detectedKeys == 0) {
+		NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"No Registered Devices", nil) action:NULL keyEquivalent:@""];
+		[self.registeredDevicesMenu addItem:item];
 	}
 }
 
@@ -234,9 +246,13 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 		if (!source) {
 			NSLog(@"The path of the bundled Enterprise source could not have its source path updated. Perhaps there is a problem with the cached Enterprise sources list. This will almost certainly cause problems (if you're a user seeing this message, file a bug)!");
 		} else {
-			source.path = defaultPath;
-			//SBLogObject(source.path);
-			[self writeEnterpriseSourceLocationsToDisk:path];
+			// If the path stored in the Enterprise source is not the one in our app bundle (i.e, the application
+			// has been fixed, fix this by setting it to the correct path and writing to disk.
+			if (![source.path isEqualToString:defaultPath]) {
+				source.path = defaultPath;
+				//SBLogObject(source.path);
+				[self writeEnterpriseSourceLocationsToDisk:path];
+			}
 		}
 	} @catch (NSException *exception) {
 		NSLog(@"Couldn't decode Enterprise source file locations.");
@@ -287,6 +303,15 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
 }
 
 #pragma mark - IBActions
+
+- (IBAction)deleteStoredUSBDevice:(NSMenuItem *)sender {
+	// get the name of the preferences key to delete based on the USB's name
+	NSString *preferencesKeyToDelete = [sender.title stringByAppendingString:@"_USBSecurityBookmarkTarget"];
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:preferencesKeyToDelete];
+
+	// re-build the list of USBs
+	[self scanForSavedUSBs];
+}
 
 - (IBAction)showPreferencesWindow:(id)sender {
 	if (!self.preferencesWindowController) {

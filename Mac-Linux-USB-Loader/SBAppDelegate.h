@@ -41,6 +41,7 @@
 - (BOOL)writeEnterpriseSourceLocationsToDisk:(NSString *)path;
 - (void)readEnterpriseSourceLocationsFromDisk:(NSString *)path;
 
+- (void)scanForSavedUSBs;
 - (void)detectAndSetupUSBs;
 
 - (void)purgeCachesAndOldFiles;
