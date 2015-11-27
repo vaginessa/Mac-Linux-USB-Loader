@@ -97,7 +97,7 @@
                                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6JB-DA-RJT">
                                     <rect key="frame" x="128" y="51" width="338" height="21"/>
                                     <animations/>
-                                    <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="128000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
+                                    <sliderCell key="cell" state="on" alignment="left" minValue="1048576" maxValue="4294967296" doubleValue="512000000" tickMarkPosition="above" sliderType="linear" id="wQO-9E-4K3"/>
                                     <connections>
                                         <action selector="persistenceSizeSliderWasDragged:" target="-2" id="4Jo-21-nBB"/>
                                     </connections>

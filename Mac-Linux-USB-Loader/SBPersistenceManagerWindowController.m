@@ -52,7 +52,7 @@
 
 	// Set up the USB persistence file size selector.
 	[self.persistenceVolumeSizeSlider setContinuous:YES];
-	[self.persistenceVolumeSizeTextField setIntegerValue:128000000];
+	[self.persistenceVolumeSizeTextField setIntegerValue:512000000];
 }
 
 - (void)showWindow:(id)sender {
@@ -169,8 +169,8 @@
 }
 
 - (IBAction)resetSliderButtonPressed:(id)sender {
-	[self.persistenceVolumeSizeSlider setIntegerValue:(128 * 1048576)];
-	[self.persistenceVolumeSizeTextField setStringValue:@"128 MB"];
+	[self.persistenceVolumeSizeSlider setIntegerValue:(512 * 1048576)];
+	[self.persistenceVolumeSizeTextField setStringValue:@"512 MB"];
 }
 
 - (void)regularSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
