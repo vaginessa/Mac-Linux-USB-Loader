@@ -6,29 +6,6 @@
 @import url("pure-min.css");
 @import url("grids-responsive-min.css");
 
-/* GitHub Ribbon */
-.ribbon {
-	background-color: #a00;
-	overflow: hidden;
-	white-space: nowrap;
-	position: absolute;
-	top: 100px;
-	left: -50px;
-	/*z-index: 999;*/
-	transform: rotate(-45deg);
-}
-
-.ribbon a {
-	border: 1px solid #faa;
- 	color: #fff;
-	display: block;
-	font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	margin: 1px 0;
-	padding: 10px 50px;
-	text-align: center;
-	text-decoration: none;
-}
-
 /* Extensions to Pure Elements */
 .main-menu {
 	background-color: #2d3e50;
@@ -78,6 +55,62 @@ html, button, input, select, textarea,
 	font-family: 'Slabo 27px', serif;
 }
 
+/* Announcements Area */
+div.banner {
+	margin-top: 66px;
+	height: auto;
+	background-color: crimson;
+}
+
+div.banner p {
+	line-height: 40px;
+	margin: 0px 1em;
+	color: white;
+	letter-spacing: normal;
+}
+
+div.banner .donate-btn-a {
+	text-decoration: none;
+}
+
+div.banner .donate-btn-a .donate-btn {
+	font-size: 30px;
+	font-weight: bold;
+	width: auto;
+	color: white;
+	border: 3px solid white;
+	padding: 0.2em 0.8em;
+	margin: 10px 0px;
+	vertical-align: middle;
+	font-weight: 100;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+/* GitHub Ribbon */
+.ribbon {
+	background-color: #a00;
+	overflow: hidden;
+	white-space: nowrap;
+	position: absolute;
+	top: 100px;
+	/*top: 145px;*/
+	left: -50px;
+	/*z-index: 999;*/
+	transform: rotate(-45deg);
+}
+
+.ribbon a {
+	border: 1px solid #faa;
+ 	color: #fff;
+	display: block;
+	font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	margin: 1px 0;
+	padding: 10px 50px;
+	text-align: center;
+	text-decoration: none;
+}
+
 /* CENTER JUMBOTRON */
 div.jumbo {
 	background: #1f8dd6;
@@ -87,19 +120,18 @@ div.jumbo {
 }
 
 div.jumbo .jumbo-content {
-	position: absolute;
 	text-align: center;
 	display: table-cell;
 	vertical-align: middle;
 	width: 80%;
 	height: auto;
 	margin: auto;
-	top: 150px;
-	left: 0;
-	bottom: 0;
-	right: 0;
 
 	color: white;
+}
+
+div.jumbo .jumbo-content p {
+	margin-left: 1em;
 }
 
 div.jumbo .jumbo-content header {
@@ -246,7 +278,6 @@ footer p {
 
 @keyframes mymove {
 	from {
-		transform: translateX(50px);
 		opacity: 0;
 	}
 	to {opacity: 1}
@@ -254,7 +285,6 @@ footer p {
 
 @-webkit-keyframes mymove /* Safari and Chrome */ {
 	from {
-		-webkit-transform: translateX(50px);
 		opacity: 0;
 	}
 	to {opacity: 1}

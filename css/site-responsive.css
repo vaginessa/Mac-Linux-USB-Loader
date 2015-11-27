@@ -2,7 +2,7 @@
 	.ribbon {
 		display: none;
 	}
-	
+
 	div.jumbo {
 		background: #1f8dd6;
 		z-index: 1;
@@ -10,8 +10,6 @@
 		width: 100%;
 		height: auto;
 		position: relative;
-
-		top: 70px;
 	}
 
 	div.jumbo .jumbo-content {
@@ -27,12 +25,12 @@
 
 		color: white;
 	}
-	
+
 	div.jumbo .jumbo-content .download-btn-a .download-btn {
 		width: 100%;
 		padding: 0.5em 0.8em;
 	}
-	
+
 	div.jumbo .jumbo-content aside img {
 		display: none;
 	}
@@ -47,20 +45,6 @@
 
 	.main-menu .pure-menu-list {
 		display: none;
-	}
-}
-
-@media screen and (max-width: 605px) {
-	div.jumbo2 {
-		top: 70px;
-	}
-
-	div.jumbo3 {
-		top: 70px;
-	}
-
-	footer {
-		top: 55px;
 	}
 }
 
