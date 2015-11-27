@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="9060"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -206,11 +206,14 @@
             </connections>
         </window>
         <customView id="uXa-ZR-DbK" userLabel="Accessory View">
-            <rect key="frame" x="0.0" y="0.0" width="168" height="22"/>
+            <rect key="frame" x="0.0" y="0.0" width="288" height="22"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2M-qt-irJ">
-                    <rect key="frame" x="4" y="1" width="164" height="19"/>
+                <button horizontalHuggingPriority="1000" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F2M-qt-irJ">
+                    <rect key="frame" x="88" y="1" width="200" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="kAo-pI-D8g"/>
+                    </constraints>
                     <animations/>
                     <buttonCell key="cell" type="roundTextured" title="View In-Progress Downloads" bezelStyle="texturedRounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Hwd-V5-1q3">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -222,10 +225,12 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="F2M-qt-irJ" secondAttribute="trailing" id="O5X-bL-075"/>
-                <constraint firstItem="F2M-qt-irJ" firstAttribute="centerY" secondItem="uXa-ZR-DbK" secondAttribute="centerY" id="h7U-IL-K0s"/>
+                <constraint firstAttribute="trailing" secondItem="F2M-qt-irJ" secondAttribute="trailing" id="B5d-86-5fe"/>
+                <constraint firstItem="F2M-qt-irJ" firstAttribute="top" secondItem="uXa-ZR-DbK" secondAttribute="top" constant="2" id="QcJ-Hh-WRo"/>
+                <constraint firstAttribute="bottom" secondItem="F2M-qt-irJ" secondAttribute="bottom" constant="2" id="a6c-Go-er4"/>
             </constraints>
             <animations/>
+            <point key="canvasLocation" x="388" y="257"/>
         </customView>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="dxA-hL-HgN" userLabel="Download Settings Sheet" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
