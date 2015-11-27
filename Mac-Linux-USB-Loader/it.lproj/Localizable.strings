@@ -17,6 +17,9 @@
 "Cannot use this USB as a startup disk." = "Impossibile usare questa USB come startup disk.";
 
 /* No comment provided by engineer. */
+"Clear All" = "Cancella Tutto";
+
+/* No comment provided by engineer. */
 "Couldn't get security scoped bookmarks." = "Impossibile ottenere l'ambito di sicurezza dei segnalibri.";
 
 /* No comment provided by engineer. */
@@ -62,10 +65,16 @@
 "No Enterprise source file selected." = "File sorgente Enterprise non selezionato.";
 
 /* No comment provided by engineer. */
+"No Registered Devices" = "Nessun Dispositivo Registrato";
+
+/* No comment provided by engineer. */
 "No USB drive selected." = "Dispositivo USB non selezionato.";
 
 /* No comment provided by engineer. */
 "No information about this distribution was found in your language." = "Nessuna informazione su questa distribuzione è stata trovata nella tua lingua.";
+
+/* No comment provided by engineer. */
+"No information on this distribution could be found due to a network problem. You might not be connected to the Internet." = "Nessuna informazione su questa distripuzione trovata a causa di un problema di rete. Potresti non essere connesso a Internet.";
 
 /* No comment provided by engineer. */
 "No network connection." = "Nessuna connessione.";
@@ -158,7 +167,7 @@
 "You are now ready to use your USB drive!" = "Sei pronto per usare il tuo dispositivo USB ora!";
 
 /* No comment provided by engineer. */
-"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors." = "Non puoi scaricare la distribuzione perchè Mac USB Linux Loader non ha finito di scaricare la sua lista di mirror.";
+"You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors." = "Non puoi scaricare questa distribuzione perchè Mac Linux USB Loader non ha finito di scaricare la lista di mirror.";
 
 /* No comment provided by engineer. */
 "You need to enter a name for this Enterprise installation source." = "È necessario inserire un nome per questa sorgente di installazione Enterprise.";
