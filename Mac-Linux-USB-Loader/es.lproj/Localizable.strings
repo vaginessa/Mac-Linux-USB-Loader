@@ -62,6 +62,9 @@
 "No Enterprise source file selected." = "No se ha seleccionado ninguna fuente de Enterprise.";
 
 /* No comment provided by engineer. */
+"No Registered Devices" = "No hay dispositivos registrados.";
+
+/* No comment provided by engineer. */
 "No USB drive selected." = "No se ha seleccionado ningún dispositivo USB.";
 
 /* No comment provided by engineer. */
@@ -144,9 +147,6 @@
 
 /* No comment provided by engineer. */
 "You are now ready to use your USB drive!" = "¡Ahora está listo para usar su dispositivo USB!";
-
-/* No comment provided by engineer. */
-"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors." = "No puede descargar esta distribución porque Mac Usb Linux Loader no ha acabado de bajar su listado de repositorios.";
 
 /* No comment provided by engineer. */
 "You need to enter a name for this Enterprise installation source." = "Es necesario especificar un nombre para esta la fuente de instalación de Enterprise.";
