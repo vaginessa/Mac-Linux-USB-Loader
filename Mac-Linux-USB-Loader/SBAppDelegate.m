@@ -15,7 +15,7 @@
 
 #define SBClearAllMenuItemTag 552345
 
-const NSString *SBBundledEnterpriseVersionNumber = @"0.3.1";
+const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 
 @interface SBAppDelegate ()
 // These need to be here so that we can write to readonly variables within
