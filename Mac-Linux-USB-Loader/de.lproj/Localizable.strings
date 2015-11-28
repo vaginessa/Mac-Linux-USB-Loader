@@ -17,6 +17,9 @@
 "Cannot use this USB as a startup disk." = "Dieses USB-Laufwerk kann nicht als Startup-Disk benutzt werden.";
 
 /* No comment provided by engineer. */
+"Clear All" = "Alle entfernen";
+
+/* No comment provided by engineer. */
 "Couldn't get security scoped bookmarks." = "Zugriff auf das Laufwerk nicht gestattet.";
 
 /* No comment provided by engineer. */
@@ -62,7 +65,16 @@
 "No Enterprise source file selected." = "Keine Enterprise-Quelldatei ausgewählt.";
 
 /* No comment provided by engineer. */
+"No Registered Devices" = "Keine registrierten Geräte";
+
+/* No comment provided by engineer. */
 "No USB drive selected." = "Kein USB-Laufwerk ausgewählt.";
+
+/* No comment provided by engineer. */
+"No information about this distribution was found in your language." = "Es wurden keine Informationen über diese Distribution in Ihrer Sprache gefunden.";
+
+/* No comment provided by engineer. */
+"No information on this distribution could be found due to a network problem. You might not be connected to the Internet." = "Wegen eines Netzwerkproblems konnten keine Informationen über diese Distribution gefunden werden. Eventuell sind Sie nicht mit dem Internet verbunden.";
 
 /* No comment provided by engineer. */
 "No network connection." = "Keine Netzwerk-Verbindung.";
@@ -134,7 +146,7 @@
 "This source can't be deleted." = "Diese Quelle kann nicht gelöscht werden.";
 
 /* No comment provided by engineer. */
-"This will clear your stored Enterprise sources, downloaded ISO files, and cached download mirror information every two months." = "Dies wird Ihre gespeicherten Enterprise-Quelldateien, heruntergeladene ISO-Dateien und zwischengespeicherte herunterlade Spiegel-Informationen alle zwei Monate löschen.";
+"This will clear your stored Enterprise sources, downloaded ISO files, and cached download mirror information every two months." = "Dies wird Ihre gespeicherten Enterprise-Quelldateien, heruntergeladene ISO-Dateien und zwischengespeicherte heruntergeladene Spiegel-Informationen alle zwei Monate löschen.";
 
 /* No comment provided by engineer. */
 "To authorize Mac Linux USB Loader to access your USB drive, please click Grant Access below." = "Damit Mac Linux USB Loader auf Ihr USB-Laufwerk zugreifen kann, klicken Sie bitte auf \"Zugriff erlauben\".";
@@ -155,7 +167,7 @@
 "You are now ready to use your USB drive!" = "Sie können das USB-Laufwerk nun benutzen!";
 
 /* No comment provided by engineer. */
-"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors." = "Sie können diese Distribution im Moment nicht herunterladen, weil die korrespondierende Spiegelliste noch nicht vollständig heruntergeladen ist.";
+"You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors." = "Sie können diese Distribution noch nicht herunterladen, da Mac Linux USB Loader die Liste der Spiegel noch nicht vollständig geladen hat.";
 
 /* No comment provided by engineer. */
 "You need to enter a name for this Enterprise installation source." = "Sie müssen einen Namen für die Enterprise-Quelldateien angeben.";

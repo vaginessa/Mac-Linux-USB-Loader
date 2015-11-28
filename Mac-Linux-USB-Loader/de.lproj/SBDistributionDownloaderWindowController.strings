@@ -55,6 +55,9 @@
 /* Class = "NSWindow"; title = "Window"; ObjectID = "dxA-hL-HgN"; */
 "dxA-hL-HgN.title" = "Fenster";
 
+/* Class = "NSButtonCell"; title = "More Information"; ObjectID = "e9B-4d-oSW"; */
+"e9B-4d-oSW.title" = "Mehr Informationen";
+
 /* Class = "NSTextFieldCell"; title = "Something.iso"; ObjectID = "gKI-d9-ORr"; */
 "gKI-d9-ORr.title" = "IrgendeinName.iso";
 

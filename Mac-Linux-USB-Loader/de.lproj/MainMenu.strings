@@ -14,7 +14,7 @@
 "19.title" = "Fenster";
 
 /* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "23"; */
-"23.title" = "Im Dock ablegen";
+"23.title" = "An Dock anheften";
 
 /* Class = "NSMenu"; title = "Window"; ObjectID = "24"; */
 "24.title" = "Fenster";
@@ -32,7 +32,7 @@
 "58.title" = "Über Mac Linux USB Loader";
 
 /* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
-"72.title" = "Öffnen&hellip;";
+"72.title" = "Öffnen...";
 
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "73"; */
 "73.title" = "Schließen";
@@ -235,11 +235,17 @@
 /* Class = "NSTextFieldCell"; title = "Mac Linux USB Loader"; ObjectID = "PbZ-Px-5X8"; */
 "PbZ-Px-5X8.title" = "Mac Linux USB Loader";
 
+/* Class = "NSMenuItem"; title = "Registered Devices"; ObjectID = "Rct-bv-4eE"; */
+"Rct-bv-4eE.title" = "Registered Devices";
+
 /* Class = "NSTextFieldCell"; title = "Version 0.0.0 (000)"; ObjectID = "SZ2-R9-aee"; */
 "SZ2-R9-aee.title" = "Version 0.0.0 (000)";
 
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "XYg-e8-VkS"; */
 "XYg-e8-VkS.title" = "Text Cell???";
+
+/* Class = "NSMenu"; title = "Registered Devices"; ObjectID = "bCd-j9-j8y"; */
+"bCd-j9-j8y.title" = "Registered Devices";
 
 /* Class = "NSMenu"; title = "Open Tool"; ObjectID = "d8m-Or-MfF"; */
 "d8m-Or-MfF.title" = "Öffnen";
