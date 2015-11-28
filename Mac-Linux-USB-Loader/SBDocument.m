@@ -321,9 +321,8 @@
 			// Open the Enterprise configuration file if required.
 			if (distribution == SBDistributionUnknown) {
 				NSError *error = nil;
-				[selectedUSBDrive openConfigurationFileWithError:&error];
 
-				if (error) {
+				if ([selectedUSBDrive openConfigurationFileWithError:&error]) {
 					[NSApp presentError:error];
 				}
 			}
