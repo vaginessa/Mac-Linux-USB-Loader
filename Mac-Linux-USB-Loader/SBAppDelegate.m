@@ -331,6 +331,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	}
 
 	// re-build the list of USBs.
+	[[NSUserDefaults standardUserDefaults] synchronize];
 	[self scanForSavedUSBs];
 }
 
