@@ -480,18 +480,24 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 				CFStringRef strValue = CFStringCreateWithFormat(NULL, NULL,
 				                                                CFSTR("%@"), value);
 				//NSLog(@"%@", strValue);
+				CFRelease(session);
+				CFRelease(url);
+				CFRelease(disk);
 				CFRelease(descDict);
 
 				NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:CFBridgingRelease(strValue)];
 				//SBLogObject([uuid UUIDString]);
 				return uuid;
 			} else {
+				CFRelease(disk);
 				NSLog(@"Sorry, no Disk Arbitration description.");
 			}
-			CFRelease(disk);
 		} else {
 			NSLog(@"Sorry, no Disk Arbitration disk.");
 		}
+
+		CFRelease(url);
+		CFRelease(session);
 	} else {
 		NSLog(@"Sorry, no Disk Arbitration session.");
 	}
