@@ -180,7 +180,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
-            <point key="canvasLocation" x="402" y="146.5"/>
+            <point key="canvasLocation" x="475" y="128.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="9q0-ST-OZz"/>
     </objects>
