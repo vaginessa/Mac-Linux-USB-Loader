@@ -1,6 +1,14 @@
-
 /* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "5"; */
 "5.title" = "Alles op voorgrond";
+
+/* Class = "NSMenuItem"; title = "Open Tool"; ObjectID = "5DD-hP-clY"; */
+"5DD-hP-clY.title" = "Open Tool";
+
+/* Class = "NSMenuItem"; title = "Distribution Downloader"; ObjectID = "5S3-fG-xVw"; */
+"5S3-fG-xVw.title" = "Distributie Downloader";
+
+/* Class = "NSButtonCell"; title = "Report Bug"; ObjectID = "9zF-bC-eXK"; */
+"9zF-bC-eXK.title" = "Rapporteer Bug";
 
 /* Class = "NSMenuItem"; title = "Window"; ObjectID = "19"; */
 "19.title" = "Venster";
@@ -218,15 +226,6 @@
 /* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "532"; */
 "532.title" = "Zoek en Vervang…";
 
-/* Class = "NSMenuItem"; title = "Open Tool"; ObjectID = "5DD-hP-clY"; */
-"5DD-hP-clY.title" = "Open Tool";
-
-/* Class = "NSMenuItem"; title = "Distribution Downloader"; ObjectID = "5S3-fG-xVw"; */
-"5S3-fG-xVw.title" = "Distributie Downloader";
-
-/* Class = "NSButtonCell"; title = "Report Bug"; ObjectID = "9zF-bC-eXK"; */
-"9zF-bC-eXK.title" = "Rapporteer Bug";
-
 /* Class = "NSMenuItem"; title = "Check for Updates..."; ObjectID = "Ixf-5n-e5Q"; */
 "Ixf-5n-e5Q.title" = "Conroleer voor Updates...";
 
@@ -274,3 +273,4 @@
 
 /* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "z0e-73-0dd"; */
 "z0e-73-0dd.title" = "Table View Cell";
+

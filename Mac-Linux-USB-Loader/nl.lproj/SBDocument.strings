@@ -1,18 +1,14 @@
-
-/* Class = "NSWindow"; title = "Window"; ObjectID = "5"; */
-"5.title" = "Venster";
-
 /* Class = "NSMenuItem"; title = "Ubuntu"; ObjectID = "1Mg-wi-KZr"; */
 "1Mg-wi-KZr.title" = "Ubuntu";
 
-/* Class = "NSTabViewItem"; label = "Third"; ObjectID = "206-oW-lz5"; */
-"206-oW-lz5.label" = "Derde";
-
-/* Class = "NSButtonCell"; title = "This ISO contains the Mac version of Ubuntu"; ObjectID = "2N3-rh-Hxh"; */
+/* Class = "NSButtonCell"; title = "This ISO lacks an EFI-enabled kernel"; ObjectID = "2N3-rh-Hxh"; */
 "2N3-rh-Hxh.title" = "Deze ISO bevat de Mac versie van Ubuntu";
 
 /* Class = "NSTextFieldCell"; title = "Choose Enterprise Source:"; ObjectID = "4e7-Dc-wKh"; */
 "4e7-Dc-wKh.title" = "Kies Enterprise Bron:";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "5"; */
+"5.title" = "Venster";
 
 /* Class = "NSButtonCell"; title = "Refresh"; ObjectID = "6eC-ug-AG8"; */
 "6eC-ug-AG8.title" = "Ververs";
@@ -23,11 +19,14 @@
 /* Class = "NSMenuItem"; title = "Other"; ObjectID = "7Id-gS-sW7"; */
 "7Id-gS-sW7.title" = "Overige";
 
+/* Class = "NSTextFieldCell"; title = "Your Live USB has been created successfully. To boot it, please leave this drive in your Mac and restart your computer while holding down the Option (⌥) key. When the boot manager appears, select your drive."; ObjectID = "8Ja-iN-ujj"; */
+"8Ja-iN-ujj.title" = "Uw Live USB is successvol aangemaakt. Om ze te starten, laat je deze in je Mac en herstart je je computer terwijl je de Option (⌥) toets indrukt. Wanneer de boot manager verschijnt, selecteer je je schijf.";
+
 /* Class = "NSTextFieldCell"; title = "Installation Options"; ObjectID = "85w-Ab-eWi"; */
 "85w-Ab-eWi.title" = "Installatieopties";
 
-/* Class = "NSTextFieldCell"; title = "Your Live USB has been created successfully. To boot it, please leave this drive in your Mac and restart your computer while holding down the Option (⌥) key. When the boot manager appears, select your drive."; ObjectID = "8Ja-iN-ujj"; */
-"8Ja-iN-ujj.title" = "Uw Live USB is successvol aangemaakt. Om ze te starten, laat je deze in je Mac en herstart je je computer terwijl je de Option (⌥) toets indrukt. Wanneer de boot manager verschijnt, selecteer je je schijf.";
+/* Class = "NSTabViewItem"; label = "Third"; ObjectID = "206-oW-lz5"; */
+"206-oW-lz5.label" = "Derde";
 
 /* Class = "NSMenuItem"; title = "Debian"; ObjectID = "ClT-6Q-5sn"; */
 "ClT-6Q-5sn.title" = "Debian";
@@ -64,3 +63,4 @@
 
 /* Class = "NSButtonCell"; title = "Next"; ObjectID = "lUE-9Y-ccg"; */
 "lUE-9Y-ccg.title" = "Volgende";
+

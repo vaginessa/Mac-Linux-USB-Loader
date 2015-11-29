@@ -145,7 +145,7 @@
 		2424AD821AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		2424AD831AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
 		2424AD841AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
-		2424AD851AB37EE4004610EC /* nl */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2424AD851AB37EE4004610EC /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2429600E1BC9D8CC00AB8445 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2436C15E1B09396B003A0FDC /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Sparkle.framework; path = "/Users/RyanBowring/Library/Developer/Xcode/DerivedData/Mac_Linux_USB_Loader-ftzupntfxyasrlcinvwljpuogpbh/Build/Products/Debug/Sparkle.framework"; sourceTree = "<absolute>"; };
 		245784971A8AB7B80005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderPreferencesViewController.xib; sourceTree = "<group>"; };
@@ -223,6 +223,9 @@
 		24B9F035189870D6002A3697 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
 		24BF93CB1A462B1A00235EC9 /* mlul-disk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "mlul-disk.icns"; sourceTree = "<group>"; };
+		24C720AE1C0B74C2008565FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24C720AF1C0B74C2008565FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Errors.strings; sourceTree = "<group>"; };
+		24C720B01C0B74C4008565FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24D39C0418DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBDeviceCollectionViewRepresentation.h; sourceTree = "<group>"; };
 		24D39C0518DA45FE0043C38F /* SBUSBDeviceCollectionViewRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBUSBDeviceCollectionViewRepresentation.m; sourceTree = "<group>"; };
 		24D75F8D188AE75E00FF5ADC /* SBUSBSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUSBSetupWindowController.h; sourceTree = "<group>"; };
@@ -242,7 +245,6 @@
 		24D808CF1B41A87600C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Errors.strings; sourceTree = "<group>"; };
 		24D808D01B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		24D808D11B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24D808D21B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Acknowledgements.rtf; sourceTree = "<group>"; };
 		24D808D31B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		24E0A592191D7CFF0043C24A /* SBDistributionDownloaderWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDistributionDownloaderWindowController.h; sourceTree = "<group>"; };
 		24E0A593191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDistributionDownloaderWindowController.m; sourceTree = "<group>"; };
@@ -819,6 +821,7 @@
 				24D808CF1B41A87600C95744 /* de */,
 				24AE41F31BED0D9800E5B111 /* Base */,
 				2477EBCB1C062FA2006EAA0D /* it */,
+				24C720AF1C0B74C2008565FB /* nl */,
 			);
 			name = Errors.strings;
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 				246534531B3228F8007706CF /* es */,
 				24D808D11B41A87700C95744 /* de */,
 				2477EBD21C062FA7006EAA0D /* it */,
+				24C720B01C0B74C4008565FB /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -897,6 +901,7 @@
 				246534491B3228DE007706CF /* es */,
 				24F92B071B45F2D800B026E6 /* de */,
 				2477EBCA1C062FA1006EAA0D /* it */,
+				24C720AE1C0B74C2008565FB /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -917,7 +922,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				24F35F7F19D604B30019CF54 /* Base */,
-				24D808D21B41A87700C95744 /* de */,
 			);
 			name = Acknowledgements.rtf;
 			sourceTree = "<group>";
