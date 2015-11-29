@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDistributionDownloaderPreferencesViewController">
@@ -22,6 +22,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="48" id="emp-rD-U3b"/>
                     </constraints>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="o9D-CJ-RGH">
                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="XJQ-fz-pyN"/>
                         <font key="font" metaFont="system"/>
@@ -34,14 +35,16 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HM1-hQ-USq">
                     <rect key="frame" x="18" y="100" width="444" height="17"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="When a download has completed:" id="pf6-Co-bXh">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="461-8h-HBz">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="461-8h-HBz">
                     <rect key="frame" x="18" y="165" width="122" height="17"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Update mirror lists:" id="DK4-Bn-Yrx">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -53,12 +56,14 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="440" id="P1q-xq-A7b"/>
                     </constraints>
+                    <animations/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
-                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jAB-aK-jjZ">
+                <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAB-aK-jjZ">
                     <rect key="frame" x="140" y="159" width="323" height="26"/>
+                    <animations/>
                     <popUpButtonCell key="cell" type="push" title="once per application launch" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="8vt-ts-25C" id="EC7-9a-hAe">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -82,8 +87,9 @@
                 </popUpButton>
                 <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDY-Bg-bvP">
                     <rect key="frame" x="32" y="14" width="428" height="78"/>
+                    <animations/>
                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    <size key="cellSize" width="207" height="18"/>
+                    <size key="cellSize" width="203" height="18"/>
                     <size key="intercellSpacing" width="4" height="2"/>
                     <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="pwa-Ux-7V3">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -115,6 +121,7 @@
                 </matrix>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FME-ii-R0b">
                     <rect key="frame" x="18" y="128" width="74" height="17"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Allow up to" id="U0W-FU-ZGT">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -123,6 +130,7 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sps-jS-QR2">
                     <rect key="frame" x="154" y="128" width="308" height="17"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="simultaneous download operations." id="aFy-72-3os">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -156,6 +164,7 @@
                 <constraint firstItem="pL0-W8-rfZ" firstAttribute="top" secondItem="jAB-aK-jjZ" secondAttribute="bottom" constant="6" id="uwo-6O-84T"/>
                 <constraint firstItem="jAB-aK-jjZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="19" id="xcV-DY-rc9"/>
             </constraints>
+            <animations/>
             <point key="canvasLocation" x="433" y="312"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="2qH-uG-7N7"/>
