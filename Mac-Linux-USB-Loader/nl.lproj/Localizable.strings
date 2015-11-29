@@ -1,4 +1,7 @@
 /* No comment provided by engineer. */
+"Are you sure that you want to cancel this download operation?" = "Ben je zeker dat je deze downloadoperatie wilt annuleren?";
+
+/* No comment provided by engineer. */
 "Are you sure you want to clear caches?" = "Ben je zeker dat je de caches wilt leegmaken?";
 
 /* No comment provided by engineer. */
@@ -12,6 +15,9 @@
 
 /* No comment provided by engineer. */
 "Cannot use this USB as a startup disk." = "Kan deze USB niet als opstartschijf gebruiken.";
+
+/* No comment provided by engineer. */
+"Clear All" = "Wis Alles";
 
 /* No comment provided by engineer. */
 "Couldn't get security scoped bookmarks." = "Kon beveiligings-gerelateerde bladwijzers niet verkrijgen";
@@ -59,7 +65,16 @@
 "No Enterprise source file selected." = "Geen Enterprise bronbestand geselecteerd.";
 
 /* No comment provided by engineer. */
+"No Registered Devices" = "Geen Geregistreerde Apparaten";
+
+/* No comment provided by engineer. */
 "No USB drive selected." = "Geen USB-station geselecteerd.";
+
+/* No comment provided by engineer. */
+"No information about this distribution was found in your language." = "Geen informatie over deze distributie was gevonden in jouw taal.";
+
+/* No comment provided by engineer. */
+"No information on this distribution could be found due to a network problem. You might not be connected to the Internet." = "Geen informatie over deze distributie kon gevonden worden door een netwerkfout. Je bent misschien niet verbonden met het internet.";
 
 /* No comment provided by engineer. */
 "No network connection." = "Geen netwerkverbinding.";
@@ -74,10 +89,13 @@
 "No source location version entered." = "Geen bronlocatieversie ingevoerd.";
 
 /* No comment provided by engineer. */
-"Not enough free space" = "Not enough free space";
+"Not enough free space" = "Niet genoeg vrije ruimte";
 
 /* No comment provided by engineer. */
 "Okay" = "Oké";
+
+/* No comment provided by engineer. */
+"Other" = "Overige";
 
 /* No comment provided by engineer. */
 "Persistence Manager" = "Persistence Manager";
@@ -147,6 +165,9 @@
 
 /* No comment provided by engineer. */
 "You are now ready to use your USB drive!" = "Je bent nu klaar om je USB-station te gebruiken!";
+
+/* No comment provided by engineer. */
+"You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors." = "Je kan deze distributie niet downloaden omdat Mac Linux USB Loader nog niet klaar is met het downloaden van de lijst van spiegelservers.";
 
 /* No comment provided by engineer. */
 "You need to enter a name for this Enterprise installation source." = "Je moet een naam invoeren voor deze Enterprise installatiebron";

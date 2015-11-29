@@ -34,7 +34,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" id="vcS-Jy-AvS">
-                                    <rect key="frame" x="0.0" y="0.0" width="259" height="316"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="259" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -179,7 +179,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
-            <point key="canvasLocation" x="179.5" y="101"/>
+            <point key="canvasLocation" x="185.5" y="104"/>
         </window>
         <menu id="x5i-2p-XdH" userLabel="Table View Context Menu">
             <items>

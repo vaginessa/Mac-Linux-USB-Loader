@@ -2,7 +2,10 @@
 "1Mg-wi-KZr.title" = "Ubuntu";
 
 /* Class = "NSButtonCell"; title = "This ISO lacks an EFI-enabled kernel"; ObjectID = "2N3-rh-Hxh"; */
-"2N3-rh-Hxh.title" = "Deze ISO bevat de Mac versie van Ubuntu";
+"2N3-rh-Hxh.title" = "Deze ISO bevat geen EFI kernel";
+
+/* Class = "NSMenuItem"; title = "Tails"; ObjectID = "2ch-0e-x2y"; */
+"2ch-0e-x2y.title" = "Tails";
 
 /* Class = "NSTextFieldCell"; title = "Choose Enterprise Source:"; ObjectID = "4e7-Dc-wKh"; */
 "4e7-Dc-wKh.title" = "Kies Enterprise Bron:";
@@ -33,6 +36,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Success!"; ObjectID = "CpB-zL-Sag"; */
 "CpB-zL-Sag.title" = "Success!";
+
+/* Class = "NSMenuItem"; title = "Kali"; ObjectID = "DJS-vr-iC0"; */
+"DJS-vr-iC0.title" = "Kali";
 
 /* Class = "NSTextFieldCell"; title = "Choose Destination:"; ObjectID = "JzD-IM-Mo0"; */
 "JzD-IM-Mo0.title" = "Kies Bestemming:";

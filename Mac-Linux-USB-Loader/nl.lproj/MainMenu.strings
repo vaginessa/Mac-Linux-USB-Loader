@@ -143,7 +143,7 @@
 "218.title" = "Vind";
 
 /* Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "219"; */
-"219.title" = "Check Spelling While Typing";
+"219.title" = "Controleer Spelling Tijdens Typing";
 
 /* Class = "NSMenu"; title = "Find"; ObjectID = "220"; */
 "220.title" = "Vind";
@@ -235,11 +235,17 @@
 /* Class = "NSTextFieldCell"; title = "Mac Linux USB Loader"; ObjectID = "PbZ-Px-5X8"; */
 "PbZ-Px-5X8.title" = "Mac Linux USB Loader";
 
+/* Class = "NSMenuItem"; title = "Registered Devices"; ObjectID = "Rct-bv-4eE"; */
+"Rct-bv-4eE.title" = "Geregistreerde Apparaten";
+
 /* Class = "NSTextFieldCell"; title = "Version 0.0.0 (000)"; ObjectID = "SZ2-R9-aee"; */
 "SZ2-R9-aee.title" = "Versie 0.0.0 (000)";
 
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "XYg-e8-VkS"; */
 "XYg-e8-VkS.title" = "Tekstvak";
+
+/* Class = "NSMenu"; title = "Registered Devices"; ObjectID = "bCd-j9-j8y"; */
+"bCd-j9-j8y.title" = "Geregistreerde Apparaten";
 
 /* Class = "NSMenu"; title = "Open Tool"; ObjectID = "d8m-Or-MfF"; */
 "d8m-Or-MfF.title" = "Open Tool";
@@ -253,8 +259,11 @@
 /* Class = "NSButtonCell"; title = "More Options"; ObjectID = "f5Z-jQ-9Ok"; */
 "f5Z-jQ-9Ok.title" = "Meer Options";
 
+/* Class = "NSMenuItem"; title = "Donate..."; ObjectID = "fjF-O3-g5i"; */
+"fjF-O3-g5i.title" = "Doneer…";
+
 /* Class = "NSMenuItem"; title = "Show Project Homepage"; ObjectID = "iNg-8W-mXB"; */
-"iNg-8W-mXB.title" = "Toon Projecthomepagina";
+"iNg-8W-mXB.title" = "Toon Projecthomepagina…";
 
 /* Class = "NSMenuItem"; title = "Create New Live USB"; ObjectID = "kO5-Pl-dr9"; */
 "kO5-Pl-dr9.title" = "Maak Nieuwe Live USB";
@@ -272,5 +281,5 @@
 "vSy-lw-pcI.title" = "Stel USB Device in";
 
 /* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "z0e-73-0dd"; */
-"z0e-73-0dd.title" = "Table View Cell";
+"z0e-73-0dd.title" = "Table View-Cel";
 

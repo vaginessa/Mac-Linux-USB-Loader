@@ -2,7 +2,7 @@
 "9HT-f6-zfH.title" = "Accepteer HFS+ Geformateerde Schijven";
 
 /* Class = "NSButtonCell"; title = "Hide Enterprise Configuration File"; ObjectID = "CG7-vV-ura"; */
-"CG7-vV-ura.title" = "Hide Enterprise Configuration File";
+"CG7-vV-ura.title" = "Verberg Enterprise Configuratiebestand";
 
 /* Class = "NSBox"; title = "Box"; ObjectID = "Mqp-7t-iHQ"; */
 "Mqp-7t-iHQ.title" = "Doos";
