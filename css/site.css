@@ -116,16 +116,14 @@ div.jumbo {
 	background: #1f8dd6;
 	width: 100%;
 	height: 700px;
-	display: flex;
-	align-items: center;
-	align-self: center;
-	justify-content: center;
+	display: table;
 }
 
 div.jumbo .jumbo-content {
 	text-align: center;
-	display: flex;
-	flex: 0 0 auto;
+	display: table-cell;
+	vertical-align: middle;
+	width: 80%;
 	height: auto;
 	margin: auto;
 
@@ -151,10 +149,11 @@ div.jumbo .jumbo-content header {
 div.jumbo .jumbo-content aside {
 	float: right;
 	width: 35%;
+	left: 100px;
 }
 
 div.jumbo .jumbo-content aside img {
-	/*width: 100%;*/
+	width: 100%;
 }
 
 div.jumbo .jumbo-content .download-btn-a {
