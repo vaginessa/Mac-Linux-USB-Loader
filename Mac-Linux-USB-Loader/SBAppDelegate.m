@@ -55,7 +55,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 			                                        @"Linux Mint": @"17.3",
 			                                        @"Elementary OS": @"Freya",
 			                                        @"Zorin OS": @"10",
-													@"Kali Linux": @"" };
+		                                            @"Kali Linux": @"" };
 	}
 	return self;
 }
