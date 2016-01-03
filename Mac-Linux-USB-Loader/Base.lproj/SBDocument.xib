@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDocument">
@@ -38,7 +38,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="307" id="qQi-f3-gn4"/>
                                 </constraints>
-                                <animations/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Installation Options" id="85w-Ab-eWi">
                                     <font key="font" metaFont="system" size="16"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -51,7 +50,6 @@
                             <constraint firstItem="Uph-Ba-Mfu" firstAttribute="top" secondItem="4Dx-4e-R74" secondAttribute="top" constant="20" symbolic="YES" id="a6W-vo-ER3"/>
                             <constraint firstItem="Uph-Ba-Mfu" firstAttribute="leading" secondItem="4Dx-4e-R74" secondAttribute="leading" constant="20" symbolic="YES" id="e2J-Jm-BeK"/>
                         </constraints>
-                        <animations/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="gb_backgroundColor">
                                 <color key="value" red="0.99444444444444446" green="0.98888888888888893" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,7 +61,6 @@
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CDL-Pn-5VN">
                                 <rect key="frame" x="332" y="13" width="69" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lUE-9Y-ccg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -79,7 +76,6 @@
                             </button>
                             <tabView type="noTabsNoBorder" initialItem="iID-fj-8Oj" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-2Y-5OI">
                                 <rect key="frame" x="20" y="61" width="375" height="266"/>
-                                <animations/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="First" identifier="1" id="iID-fj-8Oj" userLabel="Tab View Item - First">
@@ -89,7 +85,6 @@
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VBp-6d-4FK">
                                                     <rect key="frame" x="18" y="114" width="339" height="17"/>
-                                                    <animations/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Enterprise Source:" id="4e7-Dc-wKh">
                                                         <font key="font" metaFont="systemBold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -107,7 +102,6 @@
                                                                 <subviews>
                                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3qA-qj-K0g">
                                                                         <rect key="frame" x="18" y="50" width="298" height="26"/>
-                                                                        <animations/>
                                                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="MSR-3v-sqh">
                                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                             <font key="font" metaFont="menu"/>
@@ -121,7 +115,6 @@
                                                                     <constraint firstAttribute="bottom" secondItem="3qA-qj-K0g" secondAttribute="bottom" constant="53" id="sFM-Y1-sLP"/>
                                                                     <constraint firstAttribute="trailing" secondItem="3qA-qj-K0g" secondAttribute="trailing" constant="20" symbolic="YES" id="tPU-hu-sk5"/>
                                                                 </constraints>
-                                                                <animations/>
                                                                 <connections>
                                                                     <outlet property="menu" destination="djN-uI-KMi" id="ERC-Ag-JCO"/>
                                                                 </connections>
@@ -133,18 +126,14 @@
                                                             <constraint firstItem="Vgi-Dz-efq" firstAttribute="leading" secondItem="Jxb-Id-ecE" secondAttribute="leading" id="wbn-3i-Wv7"/>
                                                             <constraint firstAttribute="trailing" secondItem="Vgi-Dz-efq" secondAttribute="trailing" id="xtt-mX-5Wf"/>
                                                         </constraints>
-                                                        <animations/>
                                                     </clipView>
-                                                    <animations/>
                                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="scV-sl-hwX">
                                                         <rect key="frame" x="-100" y="-100" width="318" height="15"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <animations/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="8Dv-f4-SAv">
                                                         <rect key="frame" x="319" y="1" width="15" height="94"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <animations/>
                                                     </scroller>
                                                 </scrollView>
                                                 <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m7-V1-evP">
@@ -156,7 +145,6 @@
                                                             <collectionView selectable="YES" id="9br-dw-B95">
                                                                 <rect key="frame" x="0.0" y="0.0" width="333" height="80"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                <animations/>
                                                                 <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <connections>
                                                                     <binding destination="7gT-CA-Kky" name="content" keyPath="arrangedObjects" id="NXp-wU-TL3"/>
@@ -165,23 +153,18 @@
                                                                 </connections>
                                                             </collectionView>
                                                         </subviews>
-                                                        <animations/>
                                                     </clipView>
-                                                    <animations/>
                                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="HFo-hc-Q3A">
                                                         <rect key="frame" x="1" y="144" width="233" height="15"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <animations/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Kfn-bL-wP8">
                                                         <rect key="frame" x="234" y="1" width="15" height="143"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <animations/>
                                                     </scroller>
                                                 </scrollView>
                                                 <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-KC-Mlc">
                                                     <rect key="frame" x="156" y="228" width="67" height="28"/>
-                                                    <animations/>
                                                     <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6eC-ug-AG8">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
@@ -192,7 +175,6 @@
                                                 </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-8p-AmO">
                                                     <rect key="frame" x="18" y="236" width="137" height="17"/>
-                                                    <animations/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Destination:" id="JzD-IM-Mo0">
                                                         <font key="font" metaFont="systemBold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -217,7 +199,6 @@
                                                 <constraint firstItem="a7j-E4-ODU" firstAttribute="leading" secondItem="VBp-6d-4FK" secondAttribute="leading" id="gJ1-HU-XSz"/>
                                                 <constraint firstItem="ehK-KC-Mlc" firstAttribute="top" secondItem="YOl-y0-9CI" secondAttribute="top" constant="14" id="unL-Sb-KCw"/>
                                             </constraints>
-                                            <animations/>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="Second" identifier="2" id="Zyc-ZH-ZTl">
@@ -227,7 +208,6 @@
                                             <subviews>
                                                 <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DI5-qN-LvV">
                                                     <rect key="frame" x="214" y="13" width="147" height="32"/>
-                                                    <animations/>
                                                     <buttonCell key="cell" type="push" title="Begin Installation" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tnc-ZF-mM8">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -238,11 +218,9 @@
                                                 </button>
                                                 <progressIndicator misplaced="YES" maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-ll-emw">
                                                     <rect key="frame" x="20" y="19" width="192" height="20"/>
-                                                    <animations/>
                                                 </progressIndicator>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-58-U8W">
                                                     <rect key="frame" x="18" y="229" width="123" height="17"/>
-                                                    <animations/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Distribution Family:" id="aOF-7O-fM8">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -251,7 +229,6 @@
                                                 </textField>
                                                 <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-Ti-WuH">
                                                     <rect key="frame" x="145" y="223" width="213" height="26"/>
-                                                    <animations/>
                                                     <popUpButtonCell key="cell" type="push" title="Ubuntu" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1Mg-wi-KZr" id="eRp-YN-kzd">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
@@ -276,7 +253,6 @@
                                                 </popUpButton>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="3yc-Pg-5C8">
                                                     <rect key="frame" x="18" y="190" width="339" height="18"/>
-                                                    <animations/>
                                                     <buttonCell key="cell" type="check" title="This ISO lacks an EFI-enabled kernel" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" state="on" inset="2" id="2N3-rh-Hxh">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -284,7 +260,6 @@
                                                 </button>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="o16-cH-t1N">
                                                     <rect key="frame" x="18" y="170" width="339" height="18"/>
-                                                    <animations/>
                                                     <buttonCell key="cell" type="check" title="This ISO has code older than Ubuntu 14.10" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K4N-ZO-OI0">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -309,7 +284,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="o16-cH-t1N" secondAttribute="trailing" constant="20" id="wLj-8o-iXq"/>
                                                 <constraint firstItem="bdV-ll-emw" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="woY-T5-csc"/>
                                             </constraints>
-                                            <animations/>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="Third" identifier="" id="206-oW-lz5">
@@ -322,7 +296,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="193" id="8sa-DW-kwJ"/>
                                                     </constraints>
-                                                    <animations/>
                                                     <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="8Ja-iN-ujj">
                                                         <font key="font" metaFont="system"/>
                                                         <string key="title">Your Live USB has been created successfully. To boot it, please leave this drive in your Mac and restart your computer while holding down the Option (⌥) key. When the boot manager appears, select your drive.</string>
@@ -332,7 +305,6 @@
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mDZ-m9-S99">
                                                     <rect key="frame" x="18" y="221" width="339" height="25"/>
-                                                    <animations/>
                                                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Success!" id="CpB-zL-Sag">
                                                         <font key="font" metaFont="system" size="21"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -348,14 +320,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="8zE-UU-14n" secondAttribute="trailing" constant="20" symbolic="YES" id="tlj-TB-S6v"/>
                                                 <constraint firstItem="8zE-UU-14n" firstAttribute="leading" secondItem="dMs-5u-Xzg" secondAttribute="leading" constant="20" symbolic="YES" id="wOJ-T1-1J3"/>
                                             </constraints>
-                                            <animations/>
                                         </view>
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
                             <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
                                 <rect key="frame" x="237" y="13" width="94" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6uC-rz-J2n">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -376,7 +346,6 @@
                             <constraint firstAttribute="trailing" secondItem="3b6-2Y-5OI" secondAttribute="trailing" constant="20" symbolic="YES" id="nLt-hY-fnE"/>
                             <constraint firstItem="ztM-rw-dxV" firstAttribute="top" secondItem="3b6-2Y-5OI" secondAttribute="bottom" constant="20" symbolic="YES" id="tcG-tC-oqH"/>
                         </constraints>
-                        <animations/>
                     </customView>
                 </subviews>
                 <constraints>
@@ -389,7 +358,6 @@
                     <constraint firstItem="4Dx-4e-R74" firstAttribute="leading" secondItem="6" secondAttribute="leading" id="cwp-7R-VIq"/>
                     <constraint firstItem="dUL-cm-KaX" firstAttribute="top" secondItem="4Dx-4e-R74" secondAttribute="top" id="fbt-GR-MUh"/>
                 </constraints>
-                <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
@@ -410,7 +378,6 @@
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-bJ-zS3">
                     <rect key="frame" x="-2" y="0.0" width="118" height="17"/>
-                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="USB Device Name" id="acy-rY-KEm">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -426,7 +393,6 @@
                         <constraint firstAttribute="height" constant="61" id="AYu-Tj-dQT"/>
                         <constraint firstAttribute="width" constant="68" id="Z5O-nn-v5H"/>
                     </constraints>
-                    <animations/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="USB" id="2DE-Pn-31m"/>
                     <connections>
                         <binding destination="FVc-oN-hvP" name="value" keyPath="representedObject.image" id="aQ7-Wc-vVK"/>
@@ -441,8 +407,7 @@
                 <constraint firstAttribute="bottom" secondItem="Rvb-bJ-zS3" secondAttribute="bottom" id="wz8-qz-fBx"/>
                 <constraint firstItem="fAe-gQ-VBI" firstAttribute="leading" secondItem="G0D-Ii-LLi" secondAttribute="leading" constant="23" id="zVx-Wi-HV3"/>
             </constraints>
-            <animations/>
-            <point key="canvasLocation" x="377" y="88.5"/>
+            <point key="canvasLocation" x="767" y="-194.5"/>
         </view>
         <arrayController objectClassName="SBUSBDeviceCollectionViewRepresentation" id="7gT-CA-Kky">
             <declaredKeys>
