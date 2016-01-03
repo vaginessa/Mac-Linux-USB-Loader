@@ -1,0 +1,18 @@
+/* Class = "NSButtonCell"; title = "Accept HFS+ Formatted Drives"; ObjectID = "9HT-f6-zfH"; */
+"9HT-f6-zfH.title" = "HFS+でフォーマットされたドライブを受け入れる";
+
+/* Class = "NSButtonCell"; title = "Hide Enterprise Configuration File"; ObjectID = "CG7-vV-ura"; */
+"CG7-vV-ura.title" = "Enterpriseの構成ファイルを隠す";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "Mqp-7t-iHQ"; */
+"Mqp-7t-iHQ.title" = "Box";
+
+/* Class = "NSButtonCell"; title = "Periodically Clear Caches and Old ISO Downloads"; ObjectID = "XrG-IX-Jnc"; */
+"XrG-IX-Jnc.title" = "定期的にキャッシュと古いISOのダウンロードを削除する";
+
+/* Class = "NSButtonCell"; title = "Clear Now"; ObjectID = "j9p-k1-kBV"; */
+"j9p-k1-kBV.title" = "今すぐ消去";
+
+/* Class = "NSBox"; title = "Experimental"; ObjectID = "nPg-bg-bVL"; */
+"nPg-bg-bVL.title" = "試験的";
+
