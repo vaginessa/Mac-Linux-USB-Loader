@@ -44,3 +44,4 @@ Acknowledgements
 - Special thanks to Stephan Rusch for translating the application into German!
 - Special thanks to Cai Argimon for translating the application into Spanish!
 - Special thanks to Daniele Isoni for translating the application into Italian!
+- Special thanks to Uhucream (@TK_CH291) for translating the application into Japanese!
