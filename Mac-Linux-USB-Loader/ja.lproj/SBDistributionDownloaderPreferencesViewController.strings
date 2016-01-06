@@ -14,7 +14,7 @@
 "DEP-br-4VI.title" = "ダウンロードされたISOファイルを開く";
 
 /* Class = "NSTextFieldCell"; title = "Update mirror lists:"; ObjectID = "DK4-Bn-Yrx"; */
-"DK4-Bn-Yrx.title" = "ミラーリストを更新:";
+"DK4-Bn-Yrx.title" = "ミラーリストの更新:";
 
 /* Class = "NSButtonCell"; title = "Reveal in Finder"; ObjectID = "KgJ-iP-2yG"; */
 "KgJ-iP-2yG.title" = "Finderで表示";

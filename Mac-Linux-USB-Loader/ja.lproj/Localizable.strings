@@ -59,7 +59,13 @@
 "No Enterprise source file selected." = "Enterpriseのソースファイルが選択されていません";
 
 /* No comment provided by engineer. */
+"No Registered Devices" = "登録されているドライブがありません";
+
+/* No comment provided by engineer. */
 "No USB drive selected." = "USBドライブが選択されていません";
+
+/* No comment provided by engineer. */
+"No information about this distribution was found in your language." = "この言語においてこのディストリビューションに関する詳しい情報が見つかりませんでした";
 
 /* No comment provided by engineer. */
 "No network connection." = "ネットワーク接続がありません";
@@ -129,6 +135,9 @@
 
 /* No comment provided by engineer. */
 "To authorize Mac Linux USB Loader to access your USB drive, please click Grant Access below." = "Mac Linux USB LoaderにUSBドライブへのアクセス権限を与えるには下のアクセス権限をクリックしてください";
+
+/* No comment provided by engineer. */
+"Updates" = "アップデート";
 
 /* No comment provided by engineer. */
 "Version" = "バージョン";
