@@ -22,6 +22,9 @@
 /* Class = "NSMenuItem"; title = "Other"; ObjectID = "7Id-gS-sW7"; */
 "7Id-gS-sW7.title" = "他";
 
+/* Class = "NSTextFieldCell"; title = "Your Live USB has been created successfully. To boot it, please leave this drive in your Mac and restart your computer while holding down the Option (⌥) key. When the boot manager appears, select your drive."; ObjectID = "8Ja-iN-ujj"; */
+"8Ja-iN-ujj.title" = "Live USBの作成は成功しました。これを起動するにはデバイスをこのMacに挿したままの状態で再起動し、起動直後にOptionキーを押し続けてください。ブートマネージャーが表示されたらデバイスを選択してください。";
+
 /* Class = "NSTextFieldCell"; title = "Installation Options"; ObjectID = "85w-Ab-eWi"; */
 "85w-Ab-eWi.title" = "インストールオプション";
 
