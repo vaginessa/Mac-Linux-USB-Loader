@@ -59,7 +59,7 @@ html, button, input, select, textarea,
 div.banner {
 	margin-top: 66px;
 	height: auto;
-	background-color: crimson;
+	background-color: #3D7499;
 }
 
 div.banner p {
@@ -85,6 +85,10 @@ div.banner .donate-btn-a .donate-btn {
 	font-weight: 100;
 	border-radius: 5px;
 	text-decoration: none;
+}
+
+div.banner a {
+	color: #ffffff;
 }
 
 /* GitHub Ribbon */
