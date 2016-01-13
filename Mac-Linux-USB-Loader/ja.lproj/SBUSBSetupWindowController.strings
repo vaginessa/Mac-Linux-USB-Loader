@@ -2,7 +2,7 @@
 "1.title" = "USBのセットアップ";
 
 /* Class = "NSButtonCell"; title = "Enable Startup Disk Support"; ObjectID = "9A4-Nc-kbp"; */
-"9A4-Nc-kbp.title" = "起動ディスクサポートを有効ににする";
+"9A4-Nc-kbp.title" = "起動ディスクサポートを有効にする";
 
 /* Class = "NSTextFieldCell"; title = "Advanced Configuration Options"; ObjectID = "BUZ-un-ZlF"; */
 "BUZ-un-ZlF.title" = "高度な構成設定";
