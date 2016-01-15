@@ -18,6 +18,16 @@
 	return self;
 }
 
+- (void)setSelected:(BOOL)selected {
+	_selected = selected;
+
+	if (selected) {
+		[(NSTextField *)self.subviews[0] setTextColor:[NSColor alternateSelectedControlTextColor]];
+	} else {
+		[(NSTextField *)self.subviews[0] setTextColor:[NSColor blackColor]];
+	}
+}
+
 - (void)drawRect:(NSRect)dirtyRect {
 	[super drawRect:dirtyRect];
 

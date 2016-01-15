@@ -10,6 +10,6 @@
 
 @interface SBSelectableCollectionView : NSView
 
-@property (readwrite) BOOL selected;
+@property (nonatomic, readwrite) BOOL selected;
 
 @end
