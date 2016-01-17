@@ -241,9 +241,6 @@
 	// Setup the accessory view.
 	[self placeAccessoryView];
 
-	NSView *themeFrame = [[self.window contentView] superview];
-	[themeFrame addSubview:self.accessoryView];
-
 	// Setup delegates.
 	[self.tableView setDataSource:self];
 	[self.tableView setDelegate:self];
@@ -392,12 +389,13 @@
 
 - (void)placeAccessoryView {
 	NSOperatingSystemVersion opVer = [[NSProcessInfo processInfo] operatingSystemVersion];
+	// If the user is running pre-Yosemite...
 	if (opVer.minorVersion <= 9) {
 		NSView *themeFrame = [[self.window contentView] superview];
 		NSRect c = [themeFrame frame];  // c for "container"
 		NSRect aV = [self.accessoryView frame]; // aV for "accessory view"
 
-		// If the user is running pre-Yosemite, nudge the button to the left to account for the fullscreen button.
+		// Nudge the button to the left to account for the fullscreen button.
 		NSRect newFrame = NSMakeRect(c.size.width - aV.size.width - SBAccessoryViewEdgeOffset, // x position
 		                             c.size.height - aV.size.height, // y position
 		                             aV.size.width, // width
@@ -405,6 +403,7 @@
 
 		[self.accessoryView setFrame:newFrame];
 		[self.accessoryView setNeedsDisplay:YES];
+		[themeFrame addSubview:self.accessoryView];
 	} else {
 		NSLog(@"Using new method");
 		NSTitlebarAccessoryViewController *titleBarViewController = [[NSTitlebarAccessoryViewController alloc] init];
