@@ -405,7 +405,7 @@
 		[self.accessoryView setNeedsDisplay:YES];
 		[themeFrame addSubview:self.accessoryView];
 	} else {
-		NSLog(@"Using new method");
+		//NSLog(@"Using new method");
 		NSTitlebarAccessoryViewController *titleBarViewController = [[NSTitlebarAccessoryViewController alloc] init];
 		titleBarViewController.view = self.accessoryViewButton;
 		titleBarViewController.layoutAttribute = NSLayoutAttributeRight;

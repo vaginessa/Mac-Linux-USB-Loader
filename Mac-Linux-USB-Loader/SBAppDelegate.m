@@ -372,7 +372,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 }
 
 - (IBAction)showDonatePage:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/donate.html"]];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/support.html"]];
 }
 
 - (IBAction)reportBug:(id)sender {
