@@ -47,7 +47,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	self = [super init];
 	if (self) {
 		// Setup code goes here.
-		self->fileManager = [NSFileManager defaultManager];
+		self->fileManager = [NSFileManager new];
 		self.pathToApplicationSupportDirectory = [self->fileManager applicationSupportDirectory];
 
 		self.supportedDistributions = @[@"Ubuntu", @"Linux Mint", @"Elementary OS", @"Zorin OS", @"Kali Linux"];
