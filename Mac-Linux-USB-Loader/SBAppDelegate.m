@@ -17,7 +17,13 @@
 
 const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 
-@interface SBAppDelegate ()
+@interface SBAppDelegate () {
+	SBUSBSetupWindowController *usbSetupWindowController;
+	SBPersistenceManagerWindowController *persistenceSetupWindowController;
+	SBAboutWindowController *aboutWindowController;
+	SBDistributionDownloaderWindowController *downloaderWindowController;
+	RHPreferencesWindowController *preferencesWindowController;
+}
 // These need to be here so that we can write to readonly variables within
 // this file, but prohibit others from being able to do so.
 @property (nonatomic, strong) NSMutableDictionary *usbDictionary;
@@ -25,12 +31,6 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 @property (nonatomic, strong) NSString *pathToApplicationSupportDirectory;
 @property (nonatomic, strong) NSDictionary *supportedDistributionsAndVersions;
 @property (nonatomic, strong) NSArray *supportedDistributions;
-
-@property (nonatomic, strong) SBUSBSetupWindowController *usbSetupWindowController;
-@property (nonatomic, strong) SBPersistenceManagerWindowController *persistenceSetupWindowController;
-@property (nonatomic, strong) SBAboutWindowController *aboutWindowController;
-@property (nonatomic, strong) SBDistributionDownloaderWindowController *downloaderWindowController;
-@property (nonatomic, strong) RHPreferencesWindowController *preferencesWindowController;
 
 @property (weak) IBOutlet NSTableView *operationsTableView;
 @property (weak) IBOutlet NSTextField *applicationVersionString;
@@ -336,7 +336,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 }
 
 - (IBAction)showPreferencesWindow:(id)sender {
-	if (!self.preferencesWindowController) {
+	if (!self->preferencesWindowController) {
 		SBGeneralPreferencesViewController *generalPreferences = [[SBGeneralPreferencesViewController alloc] initWithNibName:@"SBGeneralPreferencesViewController" bundle:nil];
 		SBEnterprisePreferencesViewController *enterprisePreferences = [[SBEnterprisePreferencesViewController alloc] initWithNibName:@"SBEnterprisePreferencesViewController" bundle:nil];
 		SBDistributionDownloaderPreferencesViewController *downloaderPreferences = [[SBDistributionDownloaderPreferencesViewController alloc] initWithNibName:@"SBDistributionDownloaderPreferencesViewController" bundle:nil];
@@ -344,17 +344,17 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 
 		NSArray *controllers = @[generalPreferences, enterprisePreferences, downloaderPreferences, updaterPreferences,
 		                         [RHPreferencesWindowController flexibleSpacePlaceholderController]];
-		self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", nil)];
+		self->preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", nil)];
 	}
 
-	[self.preferencesWindowController showWindow:self];
+	[self->preferencesWindowController showWindow:self];
 }
 
 - (IBAction)showAboutWindow:(id)sender {
-	[self.aboutWindowController.window performClose:nil]; // This works because messages can be sent to nil.
+	[self->aboutWindowController.window performClose:nil]; // This works because messages can be sent to nil.
 
-	self.aboutWindowController = [[SBAboutWindowController alloc] initWithWindowNibName:@"SBAboutWindowController"];
-	[self.aboutWindowController showWindow:nil];
+	self->aboutWindowController = [[SBAboutWindowController alloc] initWithWindowNibName:@"SBAboutWindowController"];
+	[self->aboutWindowController showWindow:nil];
 }
 
 - (IBAction)showMoreOptionsPopover:(id)sender {
@@ -430,30 +430,30 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 				break;
 
 			case 1:
-				if (!self.usbSetupWindowController) {
-					self.usbSetupWindowController = [[SBUSBSetupWindowController alloc]
+				if (!self->usbSetupWindowController) {
+					self->usbSetupWindowController = [[SBUSBSetupWindowController alloc]
 					                                 initWithWindowNibName:@"SBUSBSetupWindowController"];
 				}
 
-				[self.usbSetupWindowController showWindow:nil];
+				[self->usbSetupWindowController showWindow:nil];
 				break;
 
 			case 2:
-				if (!self.persistenceSetupWindowController) {
-					self.persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
+				if (!self->persistenceSetupWindowController) {
+					self->persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
 															initWithWindowNibName:@"SBPersistenceManagerWindowController"];
 				}
 
-				[self.persistenceSetupWindowController showWindow:nil];
+				[self->persistenceSetupWindowController showWindow:nil];
 				break;
 
 			case 3:
-				if (!self.downloaderWindowController) {
-					self.downloaderWindowController = [[SBDistributionDownloaderWindowController alloc]
+				if (!self->downloaderWindowController) {
+					self->downloaderWindowController = [[SBDistributionDownloaderWindowController alloc]
 					                                   initWithWindowNibName:@"SBDistributionDownloaderWindowController"];
 				}
 
-				[self.downloaderWindowController showWindow:nil];
+				[self->downloaderWindowController showWindow:nil];
 				break;
 
 			default:
