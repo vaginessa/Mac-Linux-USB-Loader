@@ -279,11 +279,12 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	NSString *description, *volumeType;
 
 	BOOL acceptHFSDrives = [[NSUserDefaults standardUserDefaults] boolForKey:@"AcceptHFSDrives"];
+    BOOL acceptHardDrives = [[NSUserDefaults standardUserDefaults] boolForKey:@"AcceptHardDrives"];
 
 	for (NSURL *mountURL in volumes) {
 		NSString *usbDeviceMountPoint = [mountURL path];
 		if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
-			if (isRemovable && isWritable && isUnmountable) {
+			if (isWritable && (acceptHardDrives || (isRemovable && isUnmountable))) {
 				NSLog(@"Detected eligible volume at %@. Type: %@", usbDeviceMountPoint, volumeType);
 
 				if ([usbDeviceMountPoint isEqualToString:@"/"]) {

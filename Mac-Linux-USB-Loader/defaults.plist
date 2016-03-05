@@ -12,6 +12,8 @@
 	<integer>0</integer>
 	<key>AcceptHFSDrives</key>
 	<false/>
+	<key>AcceptHardDrives</key>
+	<false/>
 	<key>HideConfigurationFile</key>
 	<true/>
 	<key>SimultaneousDownloadOperationsNumber</key>
