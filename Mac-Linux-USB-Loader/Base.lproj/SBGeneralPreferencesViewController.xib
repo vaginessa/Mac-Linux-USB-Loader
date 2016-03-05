@@ -45,8 +45,8 @@
                         <rect key="frame" x="1" y="1" width="565" height="84"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-OH-hmA">
-                                <rect key="frame" x="16" y="58" width="401" height="18"/>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-OH-hmA">
+                                <rect key="frame" x="16" y="58" width="531" height="18"/>
                                 <buttonCell key="cell" type="check" title="Accept HFS+ Formatted Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9HT-f6-zfH">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -55,8 +55,8 @@
                                     <binding destination="aRH-Yv-lWu" name="value" keyPath="values.AcceptHFSDrives" id="TQM-zP-NYG"/>
                                 </connections>
                             </button>
-                            <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1GF-fo-Apu">
-                                <rect key="frame" x="16" y="35" width="401" height="18"/>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="1GF-fo-Apu">
+                                <rect key="frame" x="16" y="35" width="531" height="18"/>
                                 <buttonCell key="cell" type="check" title="Hide Enterprise Configuration File" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CG7-vV-ura">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -65,8 +65,8 @@
                                     <binding destination="aRH-Yv-lWu" name="value" keyPath="values.HideConfigurationFile" id="1mV-BO-uzH"/>
                                 </connections>
                             </button>
-                            <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2N-71-0Ys">
-                                <rect key="frame" x="16" y="12" width="401" height="18"/>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="S2N-71-0Ys">
+                                <rect key="frame" x="16" y="12" width="531" height="18"/>
                                 <buttonCell key="cell" type="check" title="Accept Hard Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="auA-Ob-KZq">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -85,7 +85,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="1GF-fo-Apu" secondAttribute="bottom" constant="34" id="04b-v3-bCh"/>
                         <constraint firstItem="rlJ-OH-hmA" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="LgH-q2-0Cf"/>
-                        <constraint firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" constant="123" id="Nis-3x-EFU"/>
+                        <constraint firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" constant="18" id="Nis-3x-EFU"/>
                         <constraint firstItem="1GF-fo-Apu" firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" id="geU-Fd-F7W"/>
                         <constraint firstItem="1GF-fo-Apu" firstAttribute="leading" secondItem="rlJ-OH-hmA" secondAttribute="leading" id="o9K-qX-w79"/>
                         <constraint firstItem="1GF-fo-Apu" firstAttribute="top" secondItem="rlJ-OH-hmA" secondAttribute="bottom" constant="9" id="pUq-bA-H8q"/>
