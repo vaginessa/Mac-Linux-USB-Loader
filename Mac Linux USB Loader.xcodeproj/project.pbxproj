@@ -208,7 +208,6 @@
 		24A4EC911884966A00CE6CF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24A4EC971884966A00CE6CF0 /* Mac Linux USB LoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mac Linux USB LoaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A4EC9F1884966A00CE6CF0 /* Mac Linux USB LoaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mac Linux USB LoaderTests-Info.plist"; sourceTree = "<group>"; };
-		24A4ECA11884966A00CE6CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mac_Linux_USB_LoaderTests.m; sourceTree = "<group>"; };
 		24AE41F31BED0D9800E5B111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Errors.strings; sourceTree = "<group>"; };
 		24B29B5519326F6C0009C3D8 /* SBDownloadableDistributionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDownloadableDistributionModel.h; sourceTree = "<group>"; };
@@ -600,7 +599,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 				nl,
 				de,
@@ -924,7 +922,6 @@
 		24A4ECA01884966A00CE6CF0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				24A4ECA11884966A00CE6CF0 /* en */,
 				246534491B3228DE007706CF /* es */,
 				24F92B071B45F2D800B026E6 /* de */,
 				2477EBCA1C062FA1006EAA0D /* it */,
