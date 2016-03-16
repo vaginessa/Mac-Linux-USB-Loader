@@ -13,7 +13,7 @@
 	<key>AcceptHFSDrives</key>
 	<false/>
 	<key>AcceptHardDrives</key>
-	<false/>
+	<true/>
 	<key>HideConfigurationFile</key>
 	<true/>
 	<key>SimultaneousDownloadOperationsNumber</key>
