@@ -34,6 +34,9 @@
 /* No comment provided by engineer. */
 "Distribution Downloader" = "Downloader di Distribuzione";
 
+/* (No Commment) */
+"Distribution Name" = "Nome della Distribuzione";
+
 /* No comment provided by engineer. */
 "Done creating persistence." = "Creazione persistence avvenuta.";
 
@@ -168,6 +171,9 @@
 
 /* No comment provided by engineer. */
 "You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors." = "Non puoi scaricare questa distribuzione perchè Mac Linux USB Loader non ha finito di scaricare la lista di mirror.";
+
+/* (No Commment) */
+"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors." = "Non puoi scaricare questa distribuzione perchè Mac Linux USB Loader non ha finito di scaricare la lista di mirror.";
 
 /* No comment provided by engineer. */
 "You need to enter a name for this Enterprise installation source." = "È necessario inserire un nome per questa sorgente di installazione Enterprise.";

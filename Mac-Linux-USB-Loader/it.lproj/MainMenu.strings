@@ -200,7 +200,7 @@
 "453.title" = "Rendi Maiuscola la prima lettera";
 
 /* Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "457"; */
-"457.title" = "Dash Intelligenti";
+"457.title" = "Trattini Intelligenti";
 
 /* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "458"; */
 "458.title" = "Mostra Sostituzioni";
@@ -281,5 +281,5 @@
 "vSy-lw-pcI.title" = "Setup Dispositivo USB";
 
 /* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "z0e-73-0dd"; */
-"z0e-73-0dd.title" = "Table View Cell";
+"z0e-73-0dd.title" = "Tabella di vista caselle";
 

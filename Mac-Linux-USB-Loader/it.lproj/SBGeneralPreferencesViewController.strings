@@ -10,6 +10,9 @@
 /* Class = "NSButtonCell"; title = "Periodically Clear Caches and Old ISO Downloads"; ObjectID = "XrG-IX-Jnc"; */
 "XrG-IX-Jnc.title" = "Pulisci periodicamente la Cache e i Vecchi ISO Scaricati";
 
+/* Class = "NSButtonCell"; title = "Accept Hard Drives"; ObjectID = "auA-Ob-KZq"; */
+"auA-Ob-KZq.title" = "Accetta Hard Drives";
+
 /* Class = "NSButtonCell"; title = "Clear Now"; ObjectID = "j9p-k1-kBV"; */
 "j9p-k1-kBV.title" = "Pulisci Ora";
 
