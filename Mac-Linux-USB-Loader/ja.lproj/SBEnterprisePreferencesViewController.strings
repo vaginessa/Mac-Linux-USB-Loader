@@ -2,7 +2,7 @@
 "0kk-YU-L6Y.title" = "名前:";
 
 /* Class = "NSTextFieldCell"; title = "From here you can select which Enterprise installation you wish to use. You may use the version shipping with this version of Mac Linux USB Loader or a custom version."; ObjectID = "4JQ-lJ-RBO"; */
-"4JQ-lJ-RBO.title" = "From here you can select which Enterprise installation you wish to use. You may use the version shipping with this version of Mac Linux USB Loader or a custom version.";
+"4JQ-lJ-RBO.title" = "使用を希望されるEnterpriseのインストールはここから選ぶことができます。カスタムバージョンを使うこともできますし、Mac Linux USB Loaderバージョンを使うこともできます。";
 
 /* Class = "NSTextFieldCell"; title = "Version:"; ObjectID = "6Ws-MU-uUV"; */
 "6Ws-MU-uUV.title" = "バージョン:";

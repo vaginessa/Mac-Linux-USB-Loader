@@ -20,13 +20,13 @@
 "KgJ-iP-2yG.title" = "Finderで表示";
 
 /* Class = "NSTextFieldCell"; title = "Allow up to"; ObjectID = "U0W-FU-ZGT"; */
-"U0W-FU-ZGT.title" = "Allow up to";
+"U0W-FU-ZGT.title" = "ダウンロード作業を";
 
 /* Class = "NSButtonCell"; title = "Ask each time"; ObjectID = "WoO-Ht-kfm"; */
 "WoO-Ht-kfm.title" = "毎回確認する";
 
 /* Class = "NSTextFieldCell"; title = "simultaneous download operations."; ObjectID = "aFy-72-3os"; */
-"aFy-72-3os.title" = "simultaneous download operations.";
+"aFy-72-3os.title" = "個まで許可";
 
 /* Class = "NSMenuItem"; title = "monthly"; ObjectID = "cGw-9o-3M3"; */
 "cGw-9o-3M3.title" = "毎月";

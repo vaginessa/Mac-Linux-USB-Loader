@@ -1,4 +1,7 @@
 /* No comment provided by engineer. */
+"Are you sure that you want to cancel this download operation?" = "このダウンロードを本当にキャンセルしますか？";
+
+/* No comment provided by engineer. */
 "Are you sure you want to clear caches?" = "本当にキャッシュを削除しますか？";
 
 /* No comment provided by engineer. */
@@ -14,6 +17,9 @@
 "Cannot use this USB as a startup disk." = "このUSBデバイスを起動ディスクとして使用することはできません";
 
 /* No comment provided by engineer. */
+"Clear All" = "すべて消去";
+
+/* No comment provided by engineer. */
 "Couldn't get security scoped bookmarks." = "security-scoped bookmarkを取得できませんでした。";
 
 /* No comment provided by engineer. */
@@ -25,8 +31,14 @@
 /* No comment provided by engineer. */
 "Creating virtual loopback filesystem..." = "仮想ループバックファイルシステムを作成しています...";
 
+/* (No Commment) */
+"Current Version" = "現在のバージョン";
+
 /* No comment provided by engineer. */
 "Distribution Downloader" = "ディストリビューションダウンローダー";
+
+/* (No Commment) */
+"Distribution Name" = "ディストリビューション名";
 
 /* No comment provided by engineer. */
 "Done creating persistence." = "保存領域の作成が完了しました";
@@ -68,6 +80,9 @@
 "No information about this distribution was found in your language." = "この言語においてこのディストリビューションに関する詳しい情報が見つかりませんでした";
 
 /* No comment provided by engineer. */
+"No information on this distribution could be found due to a network problem. You might not be connected to the Internet." = "ネットワークに関する問題のため、このディストリビューションの情報を探すことが出来ませんでした。";
+
+/* No comment provided by engineer. */
 "No network connection." = "ネットワーク接続がありません";
 
 /* No comment provided by engineer. */
@@ -84,6 +99,9 @@
 
 /* No comment provided by engineer. */
 "Okay" = "OK";
+
+/* No comment provided by engineer. */
+"Other" = "その他";
 
 /* No comment provided by engineer. */
 "Persistence Manager" = "保存領域マネージャー";
@@ -110,7 +128,7 @@
 "The name that you have entered for this Enterprise source already exists. Please enter a different name." = "入力したEnterpriseのソース名はすでに存在しています。違う名前を入力してください。";
 
 /* No comment provided by engineer. */
-"The persistence file has been created. You should be able to boot your selected Linux distribution with persistence on this USB drive now." = "The persistence file has been created. You should be able to boot your selected Linux distribution with persistence on this USB drive now.";
+"The persistence file has been created. You should be able to boot your selected Linux distribution with persistence on this USB drive now." = "保存領域ファイルが作成されました。選択したLinuxディストリビューションが保存領域でUSBから起動できるようにすべきでしょう。";
 
 /* No comment provided by engineer. */
 "The source that you entered is not valid." = "入力したソースは有効ではありません";
@@ -123,6 +141,9 @@
 
 /* No comment provided by engineer. */
 "This can be useful if you want to conserve your disk space, but it will delete all of your downloaded ISO files and reset your download mirrors." = "これは空き容量を確保したい場合に役立つかもしれませんがダウンロードしたすべてのISOファイルが削除され、またダウンロードしたミラーリストがリセットされます。";
+
+/* No comment provided by engineer. */
+"This operation cannot be undone." = "この作業はできません";
 
 /* No comment provided by engineer. */
 "This source can't be deleted because it is included with Mac Linux USB Loader." = "このソースはMac Linux USB Loaderに含まれているため、削除できませんでした。";
@@ -150,6 +171,12 @@
 
 /* No comment provided by engineer. */
 "You are now ready to use your USB drive!" = "今すぐUSBドライブを使用することができます！";
+
+/* No comment provided by engineer. */
+"You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors." = "Mac Linux USB Loaderのミラーリストのダウンロードが完了していないため、このディストリビューションをダウンロードすることができません。";
+
+/* (No Commment) */
+"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors." = "Mac Linux USB Loaderのミラーリストのダウンロードが完了していないため、このディストリビューションをダウンロードすることができません。";
 
 /* No comment provided by engineer. */
 "You need to enter a name for this Enterprise installation source." = "Enterpriseのインストールソースの名前を入力する必要があります";
