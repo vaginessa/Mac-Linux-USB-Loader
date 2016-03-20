@@ -31,8 +31,14 @@
 /* No comment provided by engineer. */
 "Creating virtual loopback filesystem..." = "Erstelle virtuelles Loopback-Dateisystem...";
 
+/* (No Commment) */
+"Current Version" = "Aktuelle Version";
+
 /* No comment provided by engineer. */
 "Distribution Downloader" = "Distributions-Downloader";
+
+/* (No Commment) */
+"Distribution Name" = "Name der Distribution";
 
 /* No comment provided by engineer. */
 "Done creating persistence." = "Persistenz wurde erfolgreich erstellt.";
@@ -168,6 +174,9 @@
 
 /* No comment provided by engineer. */
 "You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors." = "Sie können diese Distribution noch nicht herunterladen, da Mac Linux USB Loader die Liste der Spiegel noch nicht vollständig geladen hat.";
+
+/* (No Commment) */
+"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors." = "Sie können diese Distribution noch nicht herunterladen, da Mac Linux USB Loader die Liste der Spiegel noch nicht vollständig geladen hat.";
 
 /* No comment provided by engineer. */
 "You need to enter a name for this Enterprise installation source." = "Sie müssen einen Namen für die Enterprise-Quelldateien angeben.";

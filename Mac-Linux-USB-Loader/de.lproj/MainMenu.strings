@@ -236,7 +236,7 @@
 "PbZ-Px-5X8.title" = "Mac Linux USB Loader";
 
 /* Class = "NSMenuItem"; title = "Registered Devices"; ObjectID = "Rct-bv-4eE"; */
-"Rct-bv-4eE.title" = "Registered Devices";
+"Rct-bv-4eE.title" = "Registrierte Geräte";
 
 /* Class = "NSTextFieldCell"; title = "Version 0.0.0 (000)"; ObjectID = "SZ2-R9-aee"; */
 "SZ2-R9-aee.title" = "Version 0.0.0 (000)";
@@ -245,7 +245,7 @@
 "XYg-e8-VkS.title" = "Text Cell???";
 
 /* Class = "NSMenu"; title = "Registered Devices"; ObjectID = "bCd-j9-j8y"; */
-"bCd-j9-j8y.title" = "Registered Devices";
+"bCd-j9-j8y.title" = "Registrierte Geräte";
 
 /* Class = "NSMenu"; title = "Open Tool"; ObjectID = "d8m-Or-MfF"; */
 "d8m-Or-MfF.title" = "Öffnen";
