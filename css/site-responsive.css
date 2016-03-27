@@ -31,7 +31,8 @@
 		padding: 0.5em 0.8em;
 	}
 
-	div.jumbo .jumbo-content aside img {
+	div.jumbo .jumbo-content aside *,
+	div.jumbo .jumbo-content aside {
 		display: none;
 	}
 

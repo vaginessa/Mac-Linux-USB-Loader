@@ -160,6 +160,11 @@ div.jumbo .jumbo-content aside img {
 	width: 100%;
 }
 
+div.jumbo .jumbo-content aside iframe {
+	width: 90%;
+	height: 450px;
+}
+
 div.jumbo .jumbo-content .download-btn-a {
 	text-decoration: none;
 }
