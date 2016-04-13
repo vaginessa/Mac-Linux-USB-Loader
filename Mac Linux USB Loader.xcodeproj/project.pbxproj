@@ -597,7 +597,7 @@
 				ORGANIZATIONNAME = SevenBits;
 				TargetAttributes = {
 					24A4EC721884966900CE6CF0 = {
-						DevelopmentTeam = T47PR9EQY5;
+						DevelopmentTeam = 8PA6GA85US;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
