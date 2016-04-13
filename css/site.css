@@ -1,300 +1,299 @@
-/* CSS Imports */
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
 
-@import url("//fonts.googleapis.com/css?family=Slabo+27px|Indie+Flower");
+/*
+ * -- BASE STYLES --
+ * Most of these are inherited from Base, but I want to change a few.
+ */
+body {
+	line-height: 1.7em;
+	color: #7f8c8d;
+	font-size: 13px;
+	font-family: "Arvo", sans-serif;
+}
 
-@import url("pure-min.css");
-@import url("grids-responsive-min.css");
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+	color: #34495e;
+}
 
-/* Extensions to Pure Elements */
-.main-menu {
-	background-color: #2d3e50;
+.pure-img-responsive, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+p, li, b, i {
+	font-family: "Arvo", sans-serif;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ * These are some useful classes which I will need
+ */
+.l-box {
+	padding: 1em;
+}
+
+.l-box-lrg {
+	padding: 2em;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+	text-align: center;
+}
+
+/*
+ * -- PURE FORM STYLES --
+ * Style the form inputs and labels
+ */
+.pure-form label {
+	margin: 1em 0 0;
+	font-weight: bold;
+	font-size: 100%;
+}
+
+.pure-form input[type] {
+	border: 2px solid #ddd;
+	box-shadow: none;
+	font-size: 100%;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+/*
+ * -- PURE BUTTON STYLES --
+ * I want my pure-button elements to look a little different
+ */
+.pure-button {
+	background-color: #1f8dd6;
+	color: white;
+	padding: 0.5em 2em;
+	border-radius: 5px;
+}
+
+a.pure-button-primary {
+	background: white;
+	color: #1f8dd6;
+	border-radius: 5px;
+	font-size: 120%;
+}
+
+
+/*
+ * -- MENU STYLES --
+ * I want to customize how my .pure-menu looks at the top of the page
+ */
+.home-menu {
 	padding: 0.5em;
-	box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
-
-	text-align: left;
-	position: absolute;
+	text-align: center;
+	box-shadow: 0 4px 1px rgba(0,0,0, 0.15);
 }
-
-.main-menu .pure-menu-list {
-	padding: .5em 1em;
+.home-menu {
+	background: #2d3e50;
 }
-
 .pure-menu.pure-menu-fixed {
+	/* Fixed menus normally have a border at the bottom. */
 	border-bottom: none;
+	/* I need a higher z-index here because of the scroll-over effect. */
+	z-index: 4;
 }
 
-.main-menu .pure-menu-heading {
+.home-menu .pure-menu-heading {
 	color: white;
 	font-weight: 400;
 	font-size: 120%;
 }
 
-.main-menu .pure-menu-selected a {
+.home-menu .pure-menu-selected a {
 	color: white;
 }
 
-.main-menu a {
+.home-menu a {
 	color: #6FBEF3;
 }
-
-.main-menu li a:hover,
-.main-menu li a:focus {
+.home-menu li a:hover,
+.home-menu li a:focus {
 	background: none;
 	border: none;
 	color: #AECFE5;
 }
 
-/* === MAIN PAGE ELEMENTS === */
-body {
-	background-color: #2d3e50;
-}
 
-html, button, input, select, textarea,
-.pure-g [class *= "pure-u"] {
-	font-family: 'Slabo 27px', serif;
-}
+/*
+ * -- SPLASH STYLES --
+ * This is the blue top section that appears on the page.
+ */
 
-/* Announcements Area */
-div.banner {
-	margin-top: 66px;
-	height: auto;
-	background-color: #3D7499;
-}
-
-div.banner p {
-	line-height: 40px;
-	margin: 0px 1em;
-	color: white;
-	letter-spacing: normal;
-}
-
-div.banner .donate-btn-a {
-	text-decoration: none;
-}
-
-div.banner .donate-btn-a .donate-btn {
-	font-size: 30px;
-	font-weight: bold;
-	width: auto;
-	color: white;
-	border: 3px solid white;
-	padding: 0.2em 0.8em;
-	margin: 10px 0px;
-	vertical-align: middle;
-	font-weight: 100;
-	border-radius: 5px;
-	text-decoration: none;
-}
-
-div.banner a {
-	color: #ffffff;
-}
-
-/* GitHub Ribbon */
-.ribbon {
-	background-color: #a00;
-	overflow: hidden;
-	white-space: nowrap;
-	position: absolute;
-	top: 100px;
-	/*top: 145px;*/
-	left: -50px;
-	/*z-index: 999;*/
-	transform: rotate(-45deg);
-}
-
-.ribbon a {
-	border: 1px solid #faa;
- 	color: #fff;
-	display: block;
-	font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	margin: 1px 0;
-	padding: 10px 50px;
-	text-align: center;
-	text-decoration: none;
-}
-
-/* CENTER JUMBOTRON */
-div.jumbo {
+.splash-container {
 	background: #1f8dd6;
+	z-index: 1;
+	overflow: hidden;
+	/* The following styles are required for the "scroll-over" effect */
 	width: 100%;
-	height: 700px;
-	display: table;
+	height: 88%;
+	top: 0;
+	left: 0;
+	position: fixed !important;
 }
 
-div.jumbo .jumbo-content {
-	text-align: center;
-	display: table-cell;
-	vertical-align: middle;
+.splash {
+	/* absolute center .splash within .splash-container */
 	width: 80%;
-	height: auto;
+	height: 50%;
 	margin: auto;
-
-	color: white;
-}
-
-div.jumbo .jumbo-content p {
-	margin-left: 1em;
-}
-
-div.jumbo .jumbo-content header {
-	width: 65%;
-
-	text-transform: uppercase;
+	position: absolute;
+	top: 100px; left: 0; bottom: 0; right: 0;
 	text-align: center;
-	font-size: 2em;
-	/*border: 2px dashed white;
-	border-radius: 30px;*/
-
-	padding: 0.5em 0 0.5em 0;
+	text-transform: uppercase;
 }
 
-div.jumbo .jumbo-content aside {
-	float: right;
-	width: 35%;
-	left: 100px;
-}
-
-div.jumbo .jumbo-content aside img {
-	width: 100%;
-}
-
-div.jumbo .jumbo-content aside iframe {
-	width: 90%;
-	height: 450px;
-}
-
-div.jumbo .jumbo-content .download-btn-a {
-	text-decoration: none;
-}
-
-div.jumbo .jumbo-content .download-btn-a .download-btn {
-	font-size: 30px;
+/* This is the main heading that appears on the blue section */
+.splash-head {
+	font-size: 20px;
 	font-weight: bold;
-	width: 300px;
 	color: white;
 	border: 3px solid white;
-	padding: 0.5em 0.8em;
+	padding: 1em 1.6em;
 	font-weight: 100;
 	border-radius: 5px;
 	line-height: 1em;
-	text-decoration: none;
 }
 
-div.jumbo .jumbo-content a {
-	text-decoration: underline;
+/* This is the subheading that appears on the blue section */
+.splash-subhead {
 	color: white;
+	letter-spacing: 0.05em;
+	opacity: 0.8;
 }
 
-div.jumbo .jumbo-content p {
-	font-size: 1.2em;
-	line-height: 1.3em;
-	text-align: left;
-	letter-spacing: 0.0625em;
+iframe {
+	width: 100%;
+	height: 300px;
 }
 
-/* BACKGROUND INFO PANES */
-/* Features Pane */
-div.jumbo2 {
+/*
+ * -- CONTENT STYLES --
+ * This represents the content area (everything below the blue section)
+ */
+.content-wrapper {
+	/* These styles are required for the "scroll-over" effect */
+	position: absolute;
+	top: 87%;
+	width: 100%;
+	min-height: 12%;
+	z-index: 2;
 	background: white;
-	width: 100%;
-	height: auto;
-	font-family: 'Indie Flower', cursive;
+	
 }
 
-div.jumbo2 header {
-	margin-left: 25px;
-	padding-top: 25px;
-	font-size: 1.5em;
+.content-wrapper.plain {
+	top: 2em;
 }
 
-div.jumbo2 .pure-g.container {
-	width: 75%;
-	margin-left: auto; margin-right: auto;
+/* This is the class used for the main content headers (<h2>) */
+.content-head {
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin: 2em 0 1em;
 }
 
-div.jumbo2 .pure-g.container .full-width-container {
-	width: 100%;
-}
-
-div.jumbo2 .pure-g.container .full-width-container blockquote {
-	margin: 0 20px 0 20px;
-}
-
-div.jumbo2 .pure-g.container .full-width-container p {
-	margin: 0;
-}
-
-div.jumbo2 .pure-g.container h2.big-icon {
-	font-size: 5em;
-	text-align: center;
-	margin: 12px auto;
-	width: 100%;
-}
-
-div.jumbo2 p {
-	font-family: 'Slabo 27px', serif;
-	padding: 0 5px;
-}
-
-/* Downloads Pane */
-div.jumbo3 {
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB1WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOkNvbXByZXNzaW9uPjU8L3RpZmY6Q29tcHJlc3Npb24+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlBob3RvbWV0cmljSW50ZXJwcmV0YXRpb24+MjwvdGlmZjpQaG90b21ldHJpY0ludGVycHJldGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4Ki08EsgAAAKtJREFUKBXNkk0OQyEIhFG5/1F6lC56Hn/aj5dJ3Mhrd53EAOowIpTH87XsgFKK9d5trWWtNau12hgjYnw/8GIbAsSdzAEx5JqR785SZZ6oZ0pRcajfZc/OU+X/rdnp5QnuHm2Zc16t+bRHiD7zayfotyEDLPe/6rMuypIAX/A90KYsz0aN0jSeKvOnCRNJibHph6GqRf2oEQvpkKCmBVE+ZPxUeW+VapYyyd6325N4+XFoVgAAAABJRU5ErkJggg==");
-	width: 100%;
-	height: auto;
-	font-family: 'Indie Flower', cursive;
-}
-
-div.jumbo3 header {
-	margin-left: 25px;
-	padding-top: 25px;
-	font-size: 1.5em;
-}
-
-div.jumbo3 .pure-g.container {
-	width: 75%;
-	margin-left: auto; margin-right: auto;
-}
-
-div.jumbo3 p {
-	font-family: 'Slabo 27px', serif;
-}
-
-/* Footer */
-footer {
-	width: 100%;
-	height: 45px;
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
-
-	display: block;
-	position: relative;
-}
-
-footer p {
-	margin-left: 25px;
-	line-height: 45px;
-	vertical-align: middle;
+/* This is a modifier class used when the content-head is inside a ribbon */
+.content-head-ribbon {
 	color: white;
 }
 
-/* CSS Animation */
-.image-flyin {
-	animation:mymove 1s ease-in forwards;
-	-webkit-animation:mymove 1s ease-in forwards;
+/* This is the class used for the content sub-headers (<h3>) */
+.content-subhead {
+	color: #1f8dd6;
+}
+.content-subhead i {
+	margin-right: 7px;
 }
 
-@keyframes mymove {
-	from {
-		opacity: 0;
-	}
-	to {opacity: 1}
+/* This is the class used for the dark-background areas. */
+.ribbon {
+	background: #2d3e50;
+	color: #aaa;
 }
 
-@-webkit-keyframes mymove /* Safari and Chrome */ {
-	from {
-		opacity: 0;
+.ribbon form label {
+	color: #aaa;
+}
+
+.ribbon .pure-form input {
+	width: 80%;
+}
+
+.ribbon a {
+	color: #bbb;
+}
+
+/* This is the class used for the footer */
+.footer {
+	background: #111;
+}
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 48em) {
+	/* We increase the body font size */
+	body {
+		font-size: 16px;
 	}
-	to {opacity: 1}
+	/* We want to give the content area some more padding */
+	.content {
+		padding: 1em;
+	}
+
+	/* We can align the menu header to the left, but float the
+	menu items to the right. */
+	.home-menu {
+		text-align: left;
+	}
+
+	/* We increase the height of the splash-container */
+/*	  .splash-container {
+		height: 500px;
+	}*/
+
+	/* We decrease the width of the .splash, since we have more width
+	to work with */
+	.splash {
+		width: 50%;
+		height: 50%;
+	}
+
+	.splash-head {
+		font-size: 225%;
+	}
+
+	/* We remove the border-separator assigned to .l-box-lrg */
+	.l-box-lrg {
+		border: none;
+	}
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large devices, we want to over-ride some
+ * of the mobile and tablet styles.
+ */
+@media (min-width: 78em) {
+	/* We increase the header font size even more */
+	.splash-head {
+		font-size: 275%;
+	}
 }

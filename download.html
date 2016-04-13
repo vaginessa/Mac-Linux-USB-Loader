@@ -2,81 +2,101 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-	<title>Mac Linux USB Loader by SevenBits</title>
 	<meta name="description" content="Mac Linux USB Loader is an application that allows you to create bootable USB drives containing a Linux distribution that can boot natively on Apple's Macintosh computers using their EFI system, regardless of whether or not the selected distribution has UEFI support.">
 	<meta name="author" content="SevenBits">
+	<title>Download | Mac Linux USB Loader by SevenBits</title>
 
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo:400,600">
 	<link rel="stylesheet" href="css/site.css">
-	<link rel="stylesheet" href="css/site-responsive.css">
-	<link rel="canonical" href="/download.html">
+	<link rel="stylesheet" href="css/controls.css">
+	<link rel="canonical" href="download.html">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-
-	<!--[if lt IE 9]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
 </head>
-
 <body>
-	<!-- Main Page Content -->
-	<div class="header">
-		<div class="main-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-			<a class="pure-menu-heading" href="https://sevenbits.github.io">SevenBits' Tech Site</a>
+<div class="header">
+	<div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+		<a class="pure-menu-heading" href="https://www.sevenbits.tk/">SevenBits</a>
 
-			<ul class="pure-menu-list">
-				<li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
-				<li class="pure-menu-item"><a href="index.html#features" class="pure-menu-link">Features</a></li>
-				<li class="pure-menu-item"><a href="index.html#downloads" class="pure-menu-link">Downloads</a></li>
-				<li class="pure-menu-item"><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki" class="pure-menu-link">Documentation</a></li>
-			</ul>
-		</div>
+		<ul class="pure-menu-list">
+			<li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
+			<li class="pure-menu-item"><a href="index.html#features" class="pure-menu-link">Features</a></li>
+			<li class="pure-menu-item"><a href="index.html#downloads" class="pure-menu-link">Downloads</a></li>
+			<li class="pure-menu-item"><a href="index.html#documentation" class="pure-menu-link">Documentation</a></li>
+		</ul>
 	</div>
+</div>
 
-	<div class="jumbo2" style="margin-top: 60px;">
-		<header> Thanks for Downloading Mac Linux USB Loader! </header>
-		<div class="pure-g container">
-			<div class="pure-u-1">
-				<h4>Awesome &mdash; now downloading Mac Linux USB Loader <span id="version"></span>!</h4>
-				<p>Thanks for choosing to download Mac Linux USB Loader &mdash; with your download, you're helping to make Linux&trade; more accessible to all!</p>
-				<p>Your download should start shortly. If not, you can <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/releases/latest">click here to manually download the latest release</a>. </p>
+<div class="content-wrapper plain">
+	<div class="content">
+		<h2 class="content-head is-center">Now Downloading Mac Linux USB Loader</h2>
+
+		<div class="pure-g">
+			<div class="l-box pure-u-1">
+				<p>Your download will start momentarily. If it does not, click
+				<a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/releases/latest" id="payloadLink">here</a>
+				to download it manually.</p>
 			</div>
 		</div>
 	</div>
-	<footer>
-		<p>&copy; 2016 SevenBits. All rights reserved.</p>
-	</footer>
 
-	<!-- Load the prefixfree.js file to eliminate CSS prefixes. -->
-	<script src="js/prefixfree.min.js"></script>
-	<!-- Load the retina.js Javascript file so we can get high-resolution images. -->
-	<script src="js/retina.min.js"></script>
-	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-  	<script>
-		var _gaq=[['_setAccount','UA-46715734-1'],['_trackPageview']];
-		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-		g.src='//www.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g,s)}(document,'script'));
-  	</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
-	<script>
-		$( document ).ready(function() {
-			$.getJSON("https://api.github.com/repos/SevenBits/Mac-Linux-USB-Loader/releases/latest", function(data) {
-				var url = data.assets[0].browser_download_url;
-				var version = $('#version');
-				version.text(data.tag_name);
-				setTimeout(function() {
-					var win = window.open(url, "mywindow", "location=1,status=1,scrollbars=1,width=100,height=100");
-					if (win) {
-						win.moveTo(0,0);
-						setTimeout(function() {win.close();}, 1500);
-					} else {
-						window.location.replace(url);
-					}
-				}, 1000);
-			});
-		});
-	</script>
+	<div class="ribbon l-box-lrg pure-g">
+		<!-- Donation form -->
+		<div class="pure-u-1">
+			<p>Now that you've downloaded Mac Linux USB Loader, why not help out and contribute to make the
+			project even better? You can help out by:</p>
+			<ul>
+				<li><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/issues/new">filing bug reports</a>
+				or <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/issues">taking a look at existing reports</li>
+				<li><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki/Translating-Mac-Linux-USB-Loader">translating it
+				into your native language</a></li>
+				<li>contributing to the <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader">source code</a></li>
+				<li>making tutorial videos and reviews online (and be sure to send me a link!)</li>
+				<li>improving the <a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki">documentation</a></li>
+				<li>adding <a href="https://github.com/SevenBits/mlul-iso-mirrors">more mirrors</a> of the supported
+				distributions</li>
+				<li>using and improving <a href="https://github.com/SevenBits/Enterprise">Enterprise</a></li>
+				<li>buying my <a href="https://www.sevenbits.tk/">commercial apps</a> on the Mac App Store</li>
+			</ul>
+			<p>If nothing else, I appreciate questions, comments, etc. from my users. Feel free to
+			<a href="https://www.sevenbits.tk/contact.html">reach out to me</a> to give advice or to
+			suggest new features. Saying hi is okay too!</p>
+		</div>
+	</div>
+	<div class="footer l-box is-center">
+		&copy; 2016 <a href="https://www.sevenbits.tk/">SevenBits</a>. All rights reserved.
+	</div>
+</div>
+<script>
+	var _gaq=[['_setAccount','UA-46715734-1'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src='//www.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+<script>
+$( document ).ready(function() {
+	$.getJSON("https://api.github.com/repos/SevenBits/Mac-Linux-USB-Loader/releases/latest", function(data) {
+		var url = data.assets[0].browser_download_url;
+		var version = $('#version');
+		version.text(data.tag_name);
+		
+		$("#payloadLink").attr("href", data.assets[0].browser_download_url);
+		setTimeout(function() {
+			var win = window.open(url, "mywindow", "location=1,status=1,scrollbars=1,width=100,height=100");
+			if (win) {
+				win.moveTo(0,0);
+				setTimeout(function() {win.close();}, 1500);
+			} else {
+				window.location.replace(url);
+			}
+		}, 1000);
+	});
+});
+</script>
 </body>
 </html>

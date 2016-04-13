@@ -2,86 +2,86 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-	<title>Mac Linux USB Loader by SevenBits</title>
 	<meta name="description" content="Mac Linux USB Loader is an application that allows you to create bootable USB drives containing a Linux distribution that can boot natively on Apple's Macintosh computers using their EFI system, regardless of whether or not the selected distribution has UEFI support.">
 	<meta name="author" content="SevenBits">
+	<title>System Requirements | Mac Linux USB Loader by SevenBits</title>
 
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo:400,600">
 	<link rel="stylesheet" href="css/site.css">
-	<link rel="stylesheet" href="css/site-responsive.css">
-	<link rel="canonical" href="/sys-requir.html">
+	<link rel="stylesheet" href="css/controls.css">
+	<link rel="canonical" href="sys-requir.html">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-
-	<!--[if lt IE 9]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
 </head>
-
 <body>
-	<!-- Main Page Content -->
-	<div class="header">
-		<div class="main-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-			<a class="pure-menu-heading" href="https://sevenbits.github.io">SevenBits' Tech Site</a>
+<div class="header">
+	<div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+		<a class="pure-menu-heading" href="https://www.sevenbits.tk/">SevenBits</a>
 
-			<ul class="pure-menu-list">
-				<li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
-				<li class="pure-menu-item"><a href="index.html#features" class="pure-menu-link">Features</a></li>
-				<li class="pure-menu-item"><a href="index.html#downloads" class="pure-menu-link">Downloads</a></li>
-				<li class="pure-menu-item"><a href="https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki" class="pure-menu-link">Documentation</a></li>
-			</ul>
-		</div>
+		<ul class="pure-menu-list">
+			<li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
+			<li class="pure-menu-item"><a href="index.html#features" class="pure-menu-link">Features</a></li>
+			<li class="pure-menu-item"><a href="index.html#downloads" class="pure-menu-link">Downloads</a></li>
+			<li class="pure-menu-item"><a href="index.html#documentation" class="pure-menu-link">Documentation</a></li>
+		</ul>
 	</div>
+</div>
 
-	<div class="jumbo2" style="margin-top: 60px;">
-		<header> <span class="fa fa-wrench"></span> System Requirements</header>
-		<div class="pure-g container">
-			<div class="pure-u-1">
-				<h4>The following is required to <strong>download and run</strong> Mac Linux USB Loader&#58;</h4>
-				<ul>
-					<li>A Mac running OS X 10.8 (Mountain Lion) or later</li>
-					<li>A USB drive containing at least 2 GB of free space (&gt; 3 GB recommended)</li>
-					<li>A <a href="#compat-list">compatible Linux distribution</a></li>
-				</ul>
-				<h4>The following is required to <strong>boot USB drives created with</strong> Mac Linux USB Loader&#58;</h4>
-				<ul>
-					<li>A Mac or PC with 64-bit UEFI firmware (any Mac made since 2007 should work)</li>
-					<li>Firmware with Secure Boot <strong>disabled</strong> (this doesn't apply to Macs since they don't have this feature anyway)</li>
-					<li>A video card that works with Linux on your hardware (Intel cards generally have the least number of issues)</li>
-				</ul>
+<div class="content-wrapper plain">
+	<div class="content">
+		<h2 class="content-head is-center">Mac Linux USB Loader System Requirements</h2>
 
-				<p>Please note that rEFIt, rEFInd, and similar boot managers are <strong>not</strong> required to boot USB drives created with Mac Linux USB Loader. You do <strong>not</strong> need to modify your system or install anything on your system to boot a USB drive created with Mac Linux USB Loader.</p>
-
-				<a id="compat-list"></a>
-				<h4>Compatible Linux Distributions</h4>
-				<p>Mac Linux USB Loader generally works with the following Linux distributions, though things may change or vary somewhat as new versions are released. Please note that this is not an exhaustive list and it is not necessarily complete or up-to-date, and your results may vary.</p>
-				<ul>
-					<li>Ubuntu &mdash; pretty much any version</li>
-					<li>Linux Mint &mdash; recent versions have been tested and are known to work</li>
-					<li>Elementary OS &mdash; Freya should work, Luna should work as well</li>
-					<li>Kali Linux &mdash; version 2.0 and later has been demonstrated to work on compatible Macs</li>
-					<li>TAILS &mdash; not tested, but believed to work</li>
-				</ul>
+		<div class="pure-g">
+			<div class="l-box pure-u-1">
+				<p>Below are the system requirements for Mac Linux USB Loader. Any recent Mac should
+				be compatible.</p>
 			</div>
 		</div>
 	</div>
-	<footer>
-		<p>&copy; 2016 SevenBits. All rights reserved.</p>
-	</footer>
 
-	<!-- Load the prefixfree.js file to eliminate CSS prefixes. -->
-	<script src="js/prefixfree.min.js"></script>
-	<!-- Load the retina.js Javascript file so we can get high-resolution images. -->
-	<script src="js/retina.min.js"></script>
-	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-  	<script>
-		var _gaq=[['_setAccount','UA-46715734-1'],['_trackPageview']];
-		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-		g.src='//www.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g,s)}(document,'script'));
-  	</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
-	<script src="js/main.js"></script>
+	<div class="ribbon l-box-lrg pure-g">
+		<!-- Donation form -->
+		<div class="pure-u-1">
+			<b>The following is required to <strong>download and run</strong> Mac Linux USB Loader&#58;</b>
+			<ul>
+				<li>A Mac running OS X 10.8 (Mountain Lion) or later</li>
+				<li>A USB drive containing at least 2 GB of free space (&gt; 3 GB recommended)</li>
+				<li>A <a href="#compat-list">compatible Linux distribution</a></li>
+			</ul>
+			<b>The following is required to <strong>boot USB drives created with</strong> Mac Linux USB Loader&#58;</b>
+			<ul>
+				<li>A Mac or PC with 64-bit UEFI firmware (any Mac made since 2007 should work)</li>
+				<li>Firmware with Secure Boot <strong>disabled</strong> (this doesn't apply to Macs since they don't have this feature anyway)</li>
+				<li>A video card that works with Linux on your hardware (Intel cards generally have the least number of issues)</li>
+			</ul>
+
+			<p>Please note that rEFIt, rEFInd, and similar boot managers are <strong>not</strong> required to boot USB drives created with Mac Linux USB Loader. You do <strong>not</strong> need to modify your system or install anything on your system to boot a USB drive created with Mac Linux USB Loader.</p>
+
+			<a id="compat-list"></a>
+			<b>Compatible Linux Distributions</b>
+			<p>Mac Linux USB Loader generally works with the following Linux distributions, though things may change or vary somewhat as new versions are released. Please note that this is not an exhaustive list and it is not necessarily complete or up-to-date, and your results may vary.</p>
+			<ul>
+				<li>Ubuntu &mdash; pretty much any version</li>
+				<li>Linux Mint &mdash; recent versions have been tested and are known to work</li>
+				<li>Elementary OS &mdash; Freya should work, Luna should work as well</li>
+				<li>Kali Linux &mdash; version 2.0 and later has been demonstrated to work on compatible Macs</li>
+				<li>TAILS &mdash; not tested, but believed to work</li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer l-box is-center">
+		&copy; 2016 <a href="https://www.sevenbits.tk/">SevenBits</a>. All rights reserved.
+	</div>
+</div>
+<script>
+	var _gaq=[['_setAccount','UA-46715734-1'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src='//www.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 </body>
 </html>
