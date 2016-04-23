@@ -51,7 +51,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 		self.pathToApplicationSupportDirectory = [self->fileManager applicationSupportDirectory];
 
 		self.supportedDistributions = @[@"Ubuntu", @"Linux Mint", @"Elementary OS", @"Zorin OS", @"Kali Linux"];
-		self.supportedDistributionsAndVersions = @{ @"Ubuntu": @"15.10",
+		self.supportedDistributionsAndVersions = @{ @"Ubuntu": @"16.04",
 		                                            @"Linux Mint": @"17.3",
 		                                            @"Elementary OS": @"Freya",
 		                                            @"Zorin OS": @"11",
