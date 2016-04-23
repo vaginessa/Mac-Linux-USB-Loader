@@ -63,6 +63,7 @@
 	switch (family) {
 		case SBDistributionUbuntu:
 			[self.distributionSelectorPopup selectItemWithTitle:@"Ubuntu"];
+			self.isLegacyUbuntuVersionCheckBox.state = NSOffState;
 			break;
 		case SBDistributionDebian:
 			[self.distributionSelectorPopup selectItemWithTitle:@"Debian"];
