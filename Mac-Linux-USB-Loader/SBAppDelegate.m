@@ -91,7 +91,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 
-	// Load the list of Enterprise installation sources
+	// Load the list of Enterprise installation sources.
 	[self setupEnterpriseInstallationLocations];
 
 	// Scan for saved USBs.

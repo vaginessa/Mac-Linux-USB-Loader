@@ -327,7 +327,7 @@
 		NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
 
 		// There are multiple articles on Wikipedia with the name "Ubuntu", so we have to specific
-		// and specify exactly what we want if we need to download Ubuntu's info
+		// and specify exactly what we want if we need to download Ubuntu's info.
 		if ([selectedLinuxDistribution isEqualToString:@"Ubuntu"]) {
 			if ([language isEqualToString:@"en"]) {
 				selectedLinuxDistribution = @"Ubuntu (operating system)";
@@ -385,7 +385,7 @@
 			[self.spinner stopAnimation:nil];
 		});
 
-		// Make sure these things get released
+		// Make sure these things get released.
 		outputDictionary = nil;
 		targetDictionary = nil;
 	});
