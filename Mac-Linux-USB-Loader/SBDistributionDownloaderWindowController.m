@@ -324,18 +324,22 @@
 	dispatch_async(dispatch_get_global_queue(0, 0), ^{
 		NSInteger selectedRowIndex = [self.tableView selectedRow];
 		NSString *selectedLinuxDistribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][selectedRowIndex];
+		NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
 
 		// There are multiple articles on Wikipedia with the name "Ubuntu", so we have to specific
 		// and specify exactly what we want if we need to download Ubuntu's info
 		if ([selectedLinuxDistribution isEqualToString:@"Ubuntu"]) {
-			selectedLinuxDistribution = @"Ubuntu (operating system)";
+			if ([language isEqualToString:@"en"]) {
+				selectedLinuxDistribution = @"Ubuntu (operating system)";
+			} else if ([language isEqualToString:@"nl"]) {
+				selectedLinuxDistribution = @"Ubuntu (Linuxdistributie)";
+			}
 		}
 
 		// Encode the distribution name by removing any spaces.
 		NSString *encodedDistributionString = [selectedLinuxDistribution stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
 
 		// Submit the request to Wikipedia and handle the data when it gets back.
-		NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
 		NSString *URLString = [NSString stringWithFormat:@"https://%@.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=%@", language, encodedDistributionString];
 		NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
 		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
