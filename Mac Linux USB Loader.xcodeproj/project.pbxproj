@@ -66,7 +66,8 @@
 		24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ED96C219A2444600723C4E /* SystemConfiguration.framework */; };
 		24F35F7E19D604AE0019CF54 /* Acknowledgements.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 24F35F7C19D604AE0019CF54 /* Acknowledgements.rtf */; };
 		24F713E91A1AA95D002C5E7F /* SystemVersion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24F713E81A1AA95D002C5E7F /* SystemVersion.plist */; };
-		B4383D6F79C144C58D8B337A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F38667D994A74956919B4A54 /* libPods.a */; };
+		7BC593D41A12C2FDCDD8F3BC /* libPods-Mac Linux USB Loader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B19F9DC3F03C13317D00C60 /* libPods-Mac Linux USB Loader.a */; };
+		823A1D3BFFD7EBD71A31098F /* libPods-Mac Linux USB LoaderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5E30E33300CD49DE227A6C /* libPods-Mac Linux USB LoaderTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		085D80CD642314AEF05AE98C /* Pods-Mac Linux USB Loader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mac Linux USB Loader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mac Linux USB Loader/Pods-Mac Linux USB Loader.debug.xcconfig"; sourceTree = "<group>"; };
+		0A5E30E33300CD49DE227A6C /* libPods-Mac Linux USB LoaderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mac Linux USB LoaderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D46DD03C22338C5DD37172A /* Pods-Mac Linux USB LoaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mac Linux USB LoaderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mac Linux USB LoaderTests/Pods-Mac Linux USB LoaderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mac Linux USB Loader.entitlements"; sourceTree = "<group>"; };
 		240F1FAB1891A88F00AE9F82 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		240F989F18B060AD001EAE87 /* SBEnterpriseSourceLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterpriseSourceLocation.h; sourceTree = "<group>"; };
@@ -286,9 +290,9 @@
 		24F713E81A1AA95D002C5E7F /* SystemVersion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SystemVersion.plist; sourceTree = "<group>"; };
 		24F727C418BAC13B00B16013 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBEnterprisePreferencesViewController.xib; sourceTree = "<group>"; };
 		24F92B071B45F2D800B026E6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		26D2E9C87D357805295853E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		59079375EC631F237E059D9E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		F38667D994A74956919B4A54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B69926B485D5615F5D276FF /* Pods-Mac Linux USB LoaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mac Linux USB LoaderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mac Linux USB LoaderTests/Pods-Mac Linux USB LoaderTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A5F675328D9CBE0D83F2E3F /* Pods-Mac Linux USB Loader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mac Linux USB Loader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mac Linux USB Loader/Pods-Mac Linux USB Loader.release.xcconfig"; sourceTree = "<group>"; };
+		9B19F9DC3F03C13317D00C60 /* libPods-Mac Linux USB Loader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mac Linux USB Loader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,7 +306,7 @@
 				24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */,
 				240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */,
 				24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */,
-				B4383D6F79C144C58D8B337A /* libPods.a in Frameworks */,
+				7BC593D41A12C2FDCDD8F3BC /* libPods-Mac Linux USB Loader.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A4EC9A1884966A00CE6CF0 /* Cocoa.framework in Frameworks */,
+				823A1D3BFFD7EBD71A31098F /* libPods-Mac Linux USB LoaderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +364,7 @@
 				24A4EC751884966900CE6CF0 /* Frameworks */,
 				24A4EC741884966900CE6CF0 /* Products */,
 				2420474C18849A4300ECAAFE /* README.md */,
-				7072F27EB8C1AAC2ED5DE72C /* Pods */,
+				91DB98AF21698683680A8D2C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -383,7 +388,8 @@
 				240F1FAB1891A88F00AE9F82 /* IOKit.framework */,
 				24A4EC761884966900CE6CF0 /* Cocoa.framework */,
 				24A4EC781884966900CE6CF0 /* Other Frameworks */,
-				F38667D994A74956919B4A54 /* libPods.a */,
+				9B19F9DC3F03C13317D00C60 /* libPods-Mac Linux USB Loader.a */,
+				0A5E30E33300CD49DE227A6C /* libPods-Mac Linux USB LoaderTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -534,11 +540,13 @@
 			name = Enterprise;
 			sourceTree = "<group>";
 		};
-		7072F27EB8C1AAC2ED5DE72C /* Pods */ = {
+		91DB98AF21698683680A8D2C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				59079375EC631F237E059D9E /* Pods.debug.xcconfig */,
-				26D2E9C87D357805295853E5 /* Pods.release.xcconfig */,
+				085D80CD642314AEF05AE98C /* Pods-Mac Linux USB Loader.debug.xcconfig */,
+				6A5F675328D9CBE0D83F2E3F /* Pods-Mac Linux USB Loader.release.xcconfig */,
+				0D46DD03C22338C5DD37172A /* Pods-Mac Linux USB LoaderTests.debug.xcconfig */,
+				3B69926B485D5615F5D276FF /* Pods-Mac Linux USB LoaderTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -550,14 +558,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24A4ECA71884966A00CE6CF0 /* Build configuration list for PBXNativeTarget "Mac Linux USB Loader" */;
 			buildPhases = (
-				52C52CB45BF3447490AD4165 /* Check Pods Manifest.lock */,
+				666BF4E42EADEB61B21C5F57 /* 📦 Check Pods Manifest.lock */,
 				24A4EC6F1884966900CE6CF0 /* Sources */,
 				24A4EC701884966900CE6CF0 /* Frameworks */,
 				24A4EC711884966900CE6CF0 /* Resources */,
 				24155CC418903AD200FAB98C /* Copy Files */,
 				24743B6C18BBE6E1008B5458 /* CopyFiles */,
-				DBBD09A81F884E8E9EF1B54C /* Copy Pods Resources */,
-				8B59531E0D581F160D23A86C /* Embed Pods Frameworks */,
+				23CEDE1621F57F74D2B40B86 /* 📦 Embed Pods Frameworks */,
+				B68F4842EA4D3222B5C0E7CB /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -572,9 +580,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24A4ECAA1884966A00CE6CF0 /* Build configuration list for PBXNativeTarget "Mac Linux USB LoaderTests" */;
 			buildPhases = (
+				4F3F6972FB1C5E258B1AE7D5 /* 📦 Check Pods Manifest.lock */,
 				24A4EC931884966A00CE6CF0 /* Sources */,
 				24A4EC941884966A00CE6CF0 /* Frameworks */,
 				24A4EC951884966A00CE6CF0 /* Resources */,
+				722DCB879FE10ECD835EE403 /* 📦 Embed Pods Frameworks */,
+				86DC207A43C8B95B3F02CCEA /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -669,14 +680,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		52C52CB45BF3447490AD4165 /* Check Pods Manifest.lock */ = {
+		23CEDE1621F57F74D2B40B86 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac Linux USB Loader/Pods-Mac Linux USB Loader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F3F6972FB1C5E258B1AE7D5 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,34 +710,64 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8B59531E0D581F160D23A86C /* Embed Pods Frameworks */ = {
+		666BF4E42EADEB61B21C5F57 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DBBD09A81F884E8E9EF1B54C /* Copy Pods Resources */ = {
+		722DCB879FE10ECD835EE403 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac Linux USB LoaderTests/Pods-Mac Linux USB LoaderTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86DC207A43C8B95B3F02CCEA /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac Linux USB LoaderTests/Pods-Mac Linux USB LoaderTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B68F4842EA4D3222B5C0E7CB /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac Linux USB Loader/Pods-Mac Linux USB Loader-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1057,7 +1113,7 @@
 		};
 		24A4ECA81884966A00CE6CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59079375EC631F237E059D9E /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 085D80CD642314AEF05AE98C /* Pods-Mac Linux USB Loader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader.entitlements";
@@ -1084,7 +1140,7 @@
 		};
 		24A4ECA91884966A00CE6CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26D2E9C87D357805295853E5 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 6A5F675328D9CBE0D83F2E3F /* Pods-Mac Linux USB Loader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mac Linux USB Loader.entitlements";
@@ -1111,6 +1167,7 @@
 		};
 		24A4ECAB1884966A00CE6CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D46DD03C22338C5DD37172A /* Pods-Mac Linux USB LoaderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mac Linux USB Loader.app/Contents/MacOS/Mac Linux USB Loader";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1134,6 +1191,7 @@
 		};
 		24A4ECAC1884966A00CE6CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B69926B485D5615F5D276FF /* Pods-Mac Linux USB LoaderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mac Linux USB Loader.app/Contents/MacOS/Mac Linux USB Loader";
 				COMBINE_HIDPI_IMAGES = YES;
