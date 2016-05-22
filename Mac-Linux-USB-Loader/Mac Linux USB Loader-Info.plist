@@ -57,14 +57,11 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>cdimage.kali.org</key>
+			<key>kali.org</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
-			</dict>
-			<key>archive-7.kali.org</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
 		</dict>
