@@ -55,12 +55,14 @@
 	<string>NSApplication</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>kali.org</key>
+			<key>sourceforge.net</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
+				<false/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
