@@ -106,7 +106,7 @@
 		} else if (family == SBDistributionKali) {
 			[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live noconfig=sudo username=root hostname=kali\n"];
 		} else if (family == SBDistributionTails) {
-			[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live config live-media=removable noprompt timezone=Etc/UTC block.events_dfl_poll_msecs=1000 splash nox11autologin module=Tails quiet splash\n"];
+			[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live config live-media=removable noprompt timezone=Etc/UTC block.events_dfl_poll_msecs=1000 nox11autologin module=Tails quiet splash\n"];
 		} else if (family == SBDistributionDebian) {
 			[string appendString:@"kernel /live/vmlinuz findiso=/efi/boot/boot.iso boot=live config live-config quiet splash"];
 		}
