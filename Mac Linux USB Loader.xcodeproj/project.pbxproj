@@ -25,6 +25,8 @@
 		24245F3218D222250085C43F /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24245F3118D222250085C43F /* NSString+Extensions.m */; };
 		2424764C194A180A0083033B /* NSProcessInfo+PECocoaBackports.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424764B194A180A0083033B /* NSProcessInfo+PECocoaBackports.m */; };
 		2429600F1BC9D8CC00AB8445 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2429600E1BC9D8CC00AB8445 /* WebKit.framework */; };
+		242E92BA1CF201A40096DECA /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242E92B41CF200260096DECA /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		242E92BB1CF202140096DECA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E92B41CF200260096DECA /* Sparkle.framework */; };
 		245784941A8AA7680005F32F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 245784921A8AA7680005F32F /* Localizable.strings */; };
 		245784961A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245784981A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib */; };
 		2457849D1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2457849F1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib */; };
@@ -92,6 +94,17 @@
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		242E92B81CF200380096DECA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				242E92BA1CF201A40096DECA /* Sparkle.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24743B6C18BBE6E1008B5458 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -151,7 +164,7 @@
 		2424AD841AB37EE4004610EC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
 		2424AD851AB37EE4004610EC /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2429600E1BC9D8CC00AB8445 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		2436C15E1B09396B003A0FDC /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Sparkle.framework; path = "/Users/RyanBowring/Library/Developer/Xcode/DerivedData/Mac_Linux_USB_Loader-ftzupntfxyasrlcinvwljpuogpbh/Build/Products/Debug/Sparkle.framework"; sourceTree = "<absolute>"; };
+		242E92B41CF200260096DECA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Dependencies/Sparkle.framework; sourceTree = "<group>"; };
 		245784971A8AB7B80005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderPreferencesViewController.xib; sourceTree = "<group>"; };
 		2457849E1A8AB86D0005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderWindowController.xib; sourceTree = "<group>"; };
 		245A2A8A1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUpdatePreferencesViewController.h; sourceTree = "<group>"; };
@@ -305,6 +318,7 @@
 				24B29B5C19328E6E0009C3D8 /* DiskArbitration.framework in Frameworks */,
 				24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */,
 				240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */,
+				242E92BB1CF202140096DECA /* Sparkle.framework in Frameworks */,
 				24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */,
 				7BC593D41A12C2FDCDD8F3BC /* libPods-Mac Linux USB Loader.a in Frameworks */,
 			);
@@ -380,8 +394,8 @@
 		24A4EC751884966900CE6CF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				242E92B41CF200260096DECA /* Sparkle.framework */,
 				2429600E1BC9D8CC00AB8445 /* WebKit.framework */,
-				2436C15E1B09396B003A0FDC /* Sparkle.framework */,
 				24ED96C219A2444600723C4E /* SystemConfiguration.framework */,
 				24B29B5B19328E6E0009C3D8 /* DiskArbitration.framework */,
 				24101B8D1896D4DF00EDE32C /* QuartzCore.framework */,
@@ -566,6 +580,7 @@
 				24743B6C18BBE6E1008B5458 /* CopyFiles */,
 				23CEDE1621F57F74D2B40B86 /* 📦 Embed Pods Frameworks */,
 				B68F4842EA4D3222B5C0E7CB /* 📦 Copy Pods Resources */,
+				242E92B81CF200380096DECA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1123,6 +1138,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Mac_Linux_USB_Loader-ftzupntfxyasrlcinvwljpuogpbh/Build/Products/Debug",
+					"$(PROJECT_DIR)/Pods/Sparkle",
+					"$(PROJECT_DIR)/Dependencies",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac-Linux-USB-Loader-Prefix.pch";
@@ -1150,6 +1167,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Mac_Linux_USB_Loader-ftzupntfxyasrlcinvwljpuogpbh/Build/Products/Debug",
+					"$(PROJECT_DIR)/Pods/Sparkle",
+					"$(PROJECT_DIR)/Dependencies",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac-Linux-USB-Loader-Prefix.pch";

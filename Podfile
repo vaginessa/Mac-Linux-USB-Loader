@@ -8,7 +8,6 @@ target 'Mac Linux USB Loader' do
   # Pods for Mac Linux USB Loader
   pod 'RHPreferences', '~> 1.0.0'
   pod 'JSONModel'
-  pod 'Sparkle', '~> 1.14.0'
 
   target 'Mac Linux USB LoaderTests' do
     inherit! :search_paths
