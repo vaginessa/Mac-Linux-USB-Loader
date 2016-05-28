@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDocument">
             <connections>
                 <outlet property="arrayController" destination="7gT-CA-Kky" id="CTx-js-ekS"/>
+                <outlet property="backwardsButton" destination="ztM-rw-dxV" id="50e-Ar-YbU"/>
                 <outlet property="distributionSelectorPopup" destination="FN5-Ti-WuH" id="DsR-ip-ZTA"/>
                 <outlet property="enterpriseSourceSelector" destination="3qA-qj-K0g" id="SDh-QA-Ih3"/>
+                <outlet property="forwardButton" destination="CDL-Pn-5VN" id="04o-0r-cid"/>
                 <outlet property="installationProgressBar" destination="bdV-ll-emw" id="Ct4-mC-KVI"/>
                 <outlet property="isLegacyUbuntuVersionCheckBox" destination="o16-cH-t1N" id="xhZ-kG-kLF"/>
                 <outlet property="isMacVersionCheckBox" destination="3yc-Pg-5C8" id="adc-FA-NYx"/>
-                <outlet property="performInstallationButton" destination="DI5-qN-LvV" id="cNG-ST-VSt"/>
                 <outlet property="tabView" destination="3b6-2Y-5OI" id="GT0-l0-3dB"/>
                 <outlet property="usbDriveSelector" destination="9br-dw-B95" id="Z1o-q1-ekS"/>
                 <outlet property="window" destination="5" id="18"/>
@@ -66,7 +67,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="nextTabViewItemClicked:" target="-2" id="VfX-iF-24Q"/>
+                                    <action selector="paneNavigation:" target="-2" id="GiG-on-6qG"/>
                                     <binding destination="-2" name="enabled" keyPath="self.indexOfSelectedTab" id="tT9-Ol-Y6b">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
@@ -206,18 +207,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DI5-qN-LvV">
-                                                    <rect key="frame" x="214" y="13" width="147" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="Begin Installation" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tnc-ZF-mM8">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="performInstallation:" target="-2" id="dEP-u2-IrQ"/>
-                                                    </connections>
-                                                </button>
-                                                <progressIndicator misplaced="YES" maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-ll-emw">
-                                                    <rect key="frame" x="20" y="19" width="192" height="20"/>
+                                                <progressIndicator wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-ll-emw">
+                                                    <rect key="frame" x="20" y="19" width="335" height="20"/>
                                                 </progressIndicator>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-58-U8W">
                                                     <rect key="frame" x="18" y="229" width="123" height="17"/>
@@ -268,7 +259,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="bdV-ll-emw" secondAttribute="bottom" constant="20" id="4r6-Pw-AkU"/>
-                                                <constraint firstItem="DI5-qN-LvV" firstAttribute="leading" secondItem="bdV-ll-emw" secondAttribute="trailing" constant="8" id="5jU-ls-fyk"/>
                                                 <constraint firstItem="o16-cH-t1N" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="CRr-dP-rDl"/>
                                                 <constraint firstItem="o16-cH-t1N" firstAttribute="top" secondItem="3yc-Pg-5C8" secondAttribute="bottom" constant="6" id="Lzj-Fv-lxi"/>
                                                 <constraint firstAttribute="trailing" secondItem="3yc-Pg-5C8" secondAttribute="trailing" constant="20" id="OoI-Vq-6XI"/>
@@ -279,8 +269,7 @@
                                                 <constraint firstItem="PJn-58-U8W" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="hPs-7b-ahR"/>
                                                 <constraint firstItem="FN5-Ti-WuH" firstAttribute="leading" secondItem="PJn-58-U8W" secondAttribute="trailing" constant="8" id="l6N-6U-oI7"/>
                                                 <constraint firstItem="3yc-Pg-5C8" firstAttribute="top" secondItem="FN5-Ti-WuH" secondAttribute="bottom" constant="20" id="pdm-As-o3x"/>
-                                                <constraint firstAttribute="bottom" secondItem="DI5-qN-LvV" secondAttribute="bottom" constant="20" id="pmf-sg-nyY"/>
-                                                <constraint firstAttribute="trailing" secondItem="DI5-qN-LvV" secondAttribute="trailing" constant="20" id="qJb-8A-8F9"/>
+                                                <constraint firstAttribute="trailing" secondItem="bdV-ll-emw" secondAttribute="trailing" constant="20" id="wGT-fa-hcJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="o16-cH-t1N" secondAttribute="trailing" constant="20" id="wLj-8o-iXq"/>
                                                 <constraint firstItem="bdV-ll-emw" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="woY-T5-csc"/>
                                             </constraints>
@@ -324,14 +313,14 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
-                                <rect key="frame" x="237" y="13" width="94" height="32"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
+                                <rect key="frame" x="238" y="13" width="93" height="32"/>
                                 <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6uC-rz-J2n">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="previousTabViewItemClicked:" target="-2" id="kpo-uu-blA"/>
+                                    <action selector="paneNavigation:" target="-2" id="quk-MH-xBk"/>
                                     <binding destination="-2" name="enabled" keyPath="self.indexOfSelectedTab" id="0RJ-vN-3Vv"/>
                                 </connections>
                             </button>

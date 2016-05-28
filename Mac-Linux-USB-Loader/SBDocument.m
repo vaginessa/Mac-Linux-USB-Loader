@@ -19,15 +19,20 @@
 @property (weak) IBOutlet NSTabView *tabView;
 @property (weak) IBOutlet NSCollectionView *usbDriveSelector;
 @property (weak) IBOutlet NSPopUpButton *enterpriseSourceSelector;
-@property (weak) IBOutlet NSButton *performInstallationButton;
 @property (weak) IBOutlet NSPopUpButton *distributionSelectorPopup;
 @property (weak) IBOutlet NSButton *isMacVersionCheckBox;
 @property (weak) IBOutlet NSButton *isLegacyUbuntuVersionCheckBox;
+@property (weak) IBOutlet NSButton *forwardButton;
+@property (weak) IBOutlet NSButton *backwardsButton;
 @end
 
 @implementation SBDocument {
 	NSMutableDictionary *usbDictionary;
 	NSMutableDictionary *enterpriseSourcesDictionary;
+
+	NSString *originalForwardButtonString;
+	NSString *originalBackwardsButtonString;
+	BOOL installationOperationStarted;
 }
 
 #pragma mark - Document class crap
@@ -46,6 +51,9 @@
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
 	[super windowControllerDidLoadNib:aController];
+
+	originalForwardButtonString = self.forwardButton.title;
+	originalBackwardsButtonString = self.backwardsButton.title;
 
 	// If the user opens the document by dragging the file from the Dock, the main screen will still be open.
 	// We hide it here for a better user experience.
@@ -274,6 +282,7 @@
 
 	/* STEP 3: Start copying files. */
 	[outURL startAccessingSecurityScopedResource];
+	installationOperationStarted = YES;
 
 	// Disable GUI elements.
 	[self.usbDriveSelector setHidden:YES];
@@ -313,6 +322,7 @@
 			[NSApp requestUserAttention:NSInformationalRequest];
 			[self.tabView selectTabViewItemAtIndex:2];
 			self.indexOfSelectedTab = 2;
+			[self.forwardButton setEnabled:NO];
 
 			NSUserNotification *userNotification = [[NSUserNotification alloc] init];
 			userNotification.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Finished Installing: ", nil), [[self.fileURL.path lastPathComponent] stringByDeletingPathExtension]];
@@ -334,7 +344,8 @@
 }
 
 - (void)setIsDocumentUIEnabled:(BOOL)enabled {
-	[self.performInstallationButton setEnabled:enabled];
+	installationOperationStarted = !enabled;
+	[self.forwardButton setEnabled:enabled];
 	[self.installationProgressBar setIndeterminate:enabled];
 	[self.installationProgressBar setDoubleValue:0.0];
 	[self.distributionSelectorPopup setEnabled:enabled];
@@ -353,7 +364,34 @@
 }
 
 #pragma mark - Delegates
-- (IBAction)nextTabViewItemClicked:(id)sender {
+- (IBAction)paneNavigation:(NSButton *)sender {
+	NSInteger currentTab = [self.tabView indexOfTabViewItem:self.tabView.selectedTabViewItem];
+	if (sender == self.forwardButton) {
+		[self.tabView selectNextTabViewItem:sender];
+		self.backwardsButton.enabled = YES;
+
+		if (++currentTab == 1) { // if the user is on the 2nd panel
+			self.forwardButton.title = NSLocalizedString(@"Perform Installation", nil);
+			self.forwardButton.action = @selector(performInstallation:);
+
+			if (installationOperationStarted) {
+				self.forwardButton.enabled = NO;
+			}
+		}
+	} else if (sender == self.backwardsButton) {
+		[self.tabView selectPreviousTabViewItem:sender];
+		self.forwardButton.enabled = YES;
+
+		if (--currentTab == 0) {
+			self.backwardsButton.enabled = NO;
+
+			self.forwardButton.title = originalForwardButtonString;
+			self.forwardButton.action = @selector(paneNavigation:);
+		}
+	}
+}
+
+/*- (IBAction)nextTabViewItemClicked:(id)sender {
 	[self.tabView selectNextTabViewItem:nil];
 	self.indexOfSelectedTab++;
 }
@@ -361,7 +399,7 @@
 - (IBAction)previousTabViewItemClicked:(id)sender {
 	[self.tabView selectPreviousTabViewItem:nil];
 	self.indexOfSelectedTab--;
-}
+}*/
 
 - (IBAction)distributionTypePopupChanged:(id)sender {
 	NSString *selectedItem = [(NSPopUpButton *)sender titleOfSelectedItem];
