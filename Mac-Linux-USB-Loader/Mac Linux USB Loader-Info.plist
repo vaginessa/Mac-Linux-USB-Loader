@@ -53,6 +53,11 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>sevenbits.tk</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+			</dict>
 			<key>sourceforge.net</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
