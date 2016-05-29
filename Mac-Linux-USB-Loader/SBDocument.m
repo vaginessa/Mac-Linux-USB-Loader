@@ -303,7 +303,7 @@
 	}
 
 	// Write out the Enterprise configuration file.
-	SBLinuxDistribution distribution = [SBAppDelegate distributionEnumForEqualivalentName:[self.distributionSelectorPopup titleOfSelectedItem]];
+	SBLinuxDistribution distribution = [SBAppDelegate distributionEnumForEquivalentName:[self.distributionSelectorPopup titleOfSelectedItem]];
 	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:[self.isMacVersionCheckBox state] == NSOnState containsLegacyUbuntuVersion:[self.isLegacyUbuntuVersionCheckBox state] == NSOnState];
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
