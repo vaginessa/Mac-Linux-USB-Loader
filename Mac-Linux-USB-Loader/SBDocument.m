@@ -392,16 +392,6 @@
 	}
 }
 
-/*- (IBAction)nextTabViewItemClicked:(id)sender {
-	[self.tabView selectNextTabViewItem:nil];
-	self.indexOfSelectedTab++;
-}
-
-- (IBAction)previousTabViewItemClicked:(id)sender {
-	[self.tabView selectPreviousTabViewItem:nil];
-	self.indexOfSelectedTab--;
-}*/
-
 - (IBAction)distributionTypePopupChanged:(id)sender {
 	NSString *selectedItem = [(NSPopUpButton *)sender titleOfSelectedItem];
 	BOOL isUbuntuSelected = [selectedItem isEqualToString:@"Ubuntu"];
