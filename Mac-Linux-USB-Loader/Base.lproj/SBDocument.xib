@@ -68,11 +68,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="paneNavigation:" target="-2" id="GiG-on-6qG"/>
-                                    <binding destination="-2" name="enabled" keyPath="self.indexOfSelectedTab" id="tT9-Ol-Y6b">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
                                 </connections>
                             </button>
                             <tabView type="noTabsNoBorder" initialItem="iID-fj-8Oj" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-2Y-5OI">
@@ -321,7 +316,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="paneNavigation:" target="-2" id="quk-MH-xBk"/>
-                                    <binding destination="-2" name="enabled" keyPath="self.indexOfSelectedTab" id="0RJ-vN-3Vv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -352,7 +346,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="791.5" y="-78.5"/>
+            <point key="canvasLocation" x="859.5" y="-44.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>

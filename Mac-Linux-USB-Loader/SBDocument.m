@@ -54,6 +54,7 @@
 
 	originalForwardButtonString = self.forwardButton.title;
 	originalBackwardsButtonString = self.backwardsButton.title;
+	self.backwardsButton.enabled = NO;
 
 	// If the user opens the document by dragging the file from the Dock, the main screen will still be open.
 	// We hide it here for a better user experience.
