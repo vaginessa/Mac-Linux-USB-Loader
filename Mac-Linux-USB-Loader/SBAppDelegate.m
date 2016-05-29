@@ -351,6 +351,10 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	[self->preferencesWindowController showWindow:self];
 }
 
+- (IBAction)userSelectedToolFromDockMenu:(NSMenuItem *)sender {
+	[self loadWindowControllerForTool:sender.tag];
+}
+
 - (IBAction)showAboutWindow:(id)sender {
 	[self->aboutWindowController.window performClose:nil]; // This works because messages can be sent to nil.
 
@@ -423,48 +427,51 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	NSInteger clickedRow = [self.operationsTableView clickedRow];
 
 	if (clickedRow != -1) { // We've selected a valid table entry.
-		[self.window orderOut:nil];
-
-		switch (clickedRow) {
-			case 0:
-				[[NSDocumentController sharedDocumentController] openDocument:nil];
-				break;
-
-			case 1:
-				if (!self->usbSetupWindowController) {
-					self->usbSetupWindowController = [[SBUSBSetupWindowController alloc]
-					                                 initWithWindowNibName:@"SBUSBSetupWindowController"];
-				}
-
-				[self->usbSetupWindowController showWindow:nil];
-				break;
-
-			case 2:
-				if (!self->persistenceSetupWindowController) {
-					self->persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
-															initWithWindowNibName:@"SBPersistenceManagerWindowController"];
-				}
-
-				[self->persistenceSetupWindowController showWindow:nil];
-				break;
-
-			case 3:
-				if (!self->downloaderWindowController) {
-					self->downloaderWindowController = [[SBDistributionDownloaderWindowController alloc]
-					                                   initWithWindowNibName:@"SBDistributionDownloaderWindowController"];
-				}
-
-				[self->downloaderWindowController showWindow:nil];
-				break;
-
-			default:
-				NSLog(@"Selected table index %ld is not valid.", (long)clickedRow);
-				break;
-		}
+		[self loadWindowControllerForTool:clickedRow];
 	}
 }
 
 #pragma mark - Utility Functions
+
+- (void)loadWindowControllerForTool:(NSInteger)clickedRow {
+	[self.window orderOut:nil];
+	switch (clickedRow) {
+		case 0:
+			[[NSDocumentController sharedDocumentController] openDocument:nil];
+			break;
+
+		case 1:
+			if (!self->usbSetupWindowController) {
+				self->usbSetupWindowController = [[SBUSBSetupWindowController alloc]
+												  initWithWindowNibName:@"SBUSBSetupWindowController"];
+			}
+
+			[self->usbSetupWindowController showWindow:nil];
+			break;
+
+		case 2:
+			if (!self->persistenceSetupWindowController) {
+				self->persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
+														  initWithWindowNibName:@"SBPersistenceManagerWindowController"];
+			}
+
+			[self->persistenceSetupWindowController showWindow:nil];
+			break;
+
+		case 3:
+			if (!self->downloaderWindowController) {
+				self->downloaderWindowController = [[SBDistributionDownloaderWindowController alloc]
+													initWithWindowNibName:@"SBDistributionDownloaderWindowController"];
+			}
+
+			[self->downloaderWindowController showWindow:nil];
+			break;
+
+		default:
+			NSLog(@"Selected table index %ld is not valid.", (long)clickedRow);
+			break;
+	}
+}
 
 + (NSUUID *)uuidForDeviceName:(NSString *)name {
 	DADiskRef disk = NULL;
