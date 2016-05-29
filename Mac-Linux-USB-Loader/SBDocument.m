@@ -321,7 +321,6 @@
 			// Tell the user.
 			[NSApp requestUserAttention:NSInformationalRequest];
 			[self.tabView selectTabViewItemAtIndex:2];
-			self.indexOfSelectedTab = 2;
 			[self.forwardButton setEnabled:NO];
 
 			NSUserNotification *userNotification = [[NSUserNotification alloc] init];

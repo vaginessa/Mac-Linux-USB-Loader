@@ -13,7 +13,6 @@
 }
 
 @property (strong) NSMutableArray *usbArrayForContentView;
-@property NSInteger indexOfSelectedTab;
 @property (weak) IBOutlet NSProgressIndicator *installationProgressBar;
 
 @property (nonatomic, assign) BOOL automaticSetupCheckBoxChecked;
