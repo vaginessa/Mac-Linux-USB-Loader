@@ -365,6 +365,8 @@
 #pragma mark - Delegates
 - (IBAction)paneNavigation:(NSButton *)sender {
 	NSInteger currentTab = [self.tabView indexOfTabViewItem:self.tabView.selectedTabViewItem];
+	if (currentTab == NSNotFound) return;
+
 	if (sender == self.forwardButton) {
 		[self.tabView selectNextTabViewItem:sender];
 		self.backwardsButton.enabled = YES;
