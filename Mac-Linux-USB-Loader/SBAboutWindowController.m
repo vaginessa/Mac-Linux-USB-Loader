@@ -78,16 +78,18 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 
 #pragma mark - IBActions
 
-- (IBAction)showAcknowledgementsButtonPressed:(id)sender {
+- (IBAction)showAcknowledgementsButtonPressed:(NSButton *)sender {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
 	[self.acknowledgementsText readRTFDFromFile:path];
 	[self.acknowledgementsPanel makeKeyAndOrderFront:nil];
+	[self.acknowledgementsPanel setTitle:sender.title];
 }
 
-- (IBAction)showLicenseAgreementButtonPressed:(id)sender {
+- (IBAction)showLicenseAgreementButtonPressed:(NSButton *)sender {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
 	[self.acknowledgementsText readRTFDFromFile:path];
 	[self.acknowledgementsPanel makeKeyAndOrderFront:nil];
+	[self.acknowledgementsPanel setTitle:sender.title];
 }
 
 #pragma mark - Properties
