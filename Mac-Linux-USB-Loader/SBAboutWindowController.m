@@ -34,6 +34,8 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 @property (weak) IBOutlet NSTextField *applicationVersionLabel;
 @property (weak) IBOutlet NSView *aboutView;
 @property (weak) IBOutlet NSView *creditsView;
+@property (weak) IBOutlet NSPanel *acknowledgementsPanel;
+@property (strong) IBOutlet NSTextView *acknowledgementsText;
 
 @end
 
@@ -77,37 +79,15 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 #pragma mark - IBActions
 
 - (IBAction)showAcknowledgementsButtonPressed:(id)sender {
-	NSError *err;
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
-	NSString *tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"Acknowledgements"];
-	if (![[NSFileManager defaultManager] removeItemAtPath:tempPath error:&err] && [[NSFileManager defaultManager] fileExistsAtPath:tempPath isDirectory:NULL]) {
-		return;
-	}
-
-	if (![[NSWorkspace sharedWorkspace] openFile:tempPath withApplication:@"TextEdit"]) {
-		if ([[NSFileManager defaultManager] copyItemAtPath:path toPath:tempPath error:&err]) {
-			[[NSWorkspace sharedWorkspace] openFile:tempPath withApplication:@"TextEdit"];
-		} else {
-			SBLogObject([err localizedDescription]);
-		}
-	}
+	[self.acknowledgementsText readRTFDFromFile:path];
+	[self.acknowledgementsPanel makeKeyAndOrderFront:nil];
 }
 
 - (IBAction)showLicenseAgreementButtonPressed:(id)sender {
-	NSError *err;
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
-	NSString *tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"Credits"];
-	if (![[NSFileManager defaultManager] removeItemAtPath:tempPath error:&err] && [[NSFileManager defaultManager] fileExistsAtPath:tempPath isDirectory:NULL]) {
-		return;
-	}
-
-	if (![[NSWorkspace sharedWorkspace] openFile:tempPath withApplication:@"TextEdit"]) {
-		if ([[NSFileManager defaultManager] copyItemAtPath:path toPath:tempPath error:&err]) {
-			[[NSWorkspace sharedWorkspace] openFile:tempPath withApplication:@"TextEdit"];
-		} else {
-			SBLogObject([err localizedDescription]);
-		}
-	}
+	[self.acknowledgementsText readRTFDFromFile:path];
+	[self.acknowledgementsPanel makeKeyAndOrderFront:nil];
 }
 
 #pragma mark - Properties
