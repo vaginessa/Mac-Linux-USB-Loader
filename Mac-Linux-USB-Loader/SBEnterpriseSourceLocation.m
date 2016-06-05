@@ -44,6 +44,15 @@
 	return self;
 }
 
+- (instancetype)init {
+	self = [self initWithName:nil withPath:nil withVersionNumber:nil withSecurityScopedBookmark:nil shouldBeVolatile:NO];
+	if (!self) {
+		return nil;
+	}
+
+	return self;
+}
+
 - (void)encodeWithCoder:(NSCoder *)encoder {
 	[encoder encodeObject:self.name forKey:@"name"];
 	[encoder encodeObject:self.path forKey:@"path"];
