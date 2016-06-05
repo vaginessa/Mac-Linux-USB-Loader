@@ -79,7 +79,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	(self.operationsTableView).doubleAction = @selector(userSelectedOperationFromTable);
 
 	/* Set the application version label string. */
-	(self.applicationVersionString).stringValue =	[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+	(self.applicationVersionString).stringValue = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
 
 	/* Setup the rest of the application. */
 	[self applicationSetup];
