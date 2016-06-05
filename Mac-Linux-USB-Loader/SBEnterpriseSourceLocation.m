@@ -32,16 +32,15 @@
 }
 
 - (instancetype)initWithCoder:(NSCoder *)decoder {
-	self = [super init];
+	self = [self initWithName:[decoder decodeObjectForKey:@"name"]
+					 withPath:[decoder decodeObjectForKey:@"path"]
+			withVersionNumber:[decoder decodeObjectForKey:@"version"]
+   withSecurityScopedBookmark:[decoder decodeObjectForKey:@"bookmark"]
+			 shouldBeVolatile:[decoder decodeBoolForKey:@"deletable"]];
 	if (!self) {
 		return nil;
 	}
 
-	self.name = [decoder decodeObjectForKey:@"name"];
-	self.path = [decoder decodeObjectForKey:@"path"];
-	self.version = [decoder decodeObjectForKey:@"version"];
-	self.securityScopedBookmark = [decoder decodeObjectForKey:@"bookmark"];
-	self.deletable = [decoder decodeBoolForKey:@"deletable"];
 	return self;
 }
 
