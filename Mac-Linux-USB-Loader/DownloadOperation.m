@@ -55,7 +55,7 @@
 
 - (void)start
 {
-	if ([self isCancelled]) {
+	if (self.cancelled) {
 		self.finished = YES;
 		return;
 	}
@@ -63,7 +63,7 @@
 	if (!self.path)
 	{
 		NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-		self.path = [docsPath stringByAppendingPathComponent:[self.url lastPathComponent]];
+		self.path = [docsPath stringByAppendingPathComponent:(self.url).lastPathComponent];
 	}
 
 	self.tempPath = [self pathForTemporaryFileWithPrefix:@"download"];
@@ -105,7 +105,7 @@
 
 + (void)networkRequestThreadEntryPoint:(id __unused)object {
 	@autoreleasepool {
-		[[NSThread currentThread] setName:@"com.robertmryan.networkthread"];
+		[NSThread currentThread].name = @"com.robertmryan.networkthread";
 
 		NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 		[runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
@@ -151,7 +151,7 @@
 {
 	NSError *error;
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSString *folder = [filePath stringByDeletingLastPathComponent];
+	NSString *folder = filePath.stringByDeletingLastPathComponent;
 	BOOL isDirectory;
 
 	if (![fileManager fileExistsAtPath:folder isDirectory:&isDirectory])
@@ -284,7 +284,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-	if ([self isCancelled])
+	if (self.cancelled)
 	{
 		[self completeWithSuccess:NO];
 		return;
@@ -294,11 +294,11 @@
 	{
 		NSHTTPURLResponse *httpResponse = (id)response;
 
-		NSInteger statusCode = [httpResponse statusCode];
+		NSInteger statusCode = httpResponse.statusCode;
 
 		if (statusCode == 200)
 		{
-			self.expectedContentLength = [response expectedContentLength];
+			self.expectedContentLength = response.expectedContentLength;
 		}
 		else if (statusCode >= 400)
 		{
@@ -326,11 +326,11 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-	const uint8_t *buffer = [data bytes];
-	NSUInteger bytesRemaining = [data length];
+	const uint8_t *buffer = data.bytes;
+	NSUInteger bytesRemaining = data.length;
 	NSInteger bytesWritten;
 
-	if ([self isCancelled])
+	if (self.cancelled)
 	{
 		[self completeWithSuccess:NO];
 		return;
@@ -346,7 +346,7 @@
 										 userInfo:@{
 													@"message"  : @"Unable to write bytes",
 													@"function" : @(__FUNCTION__),
-													@"url"      : [self.url absoluteString]
+													@"url"      : (self.url).absoluteString
 													}];
 
 			[self completeWithSuccess:NO];
@@ -358,7 +358,7 @@
 		buffer += bytesWritten;
 	}
 
-	self.progressContentLength += [data length];
+	self.progressContentLength += data.length;
 
 	if (self.downloadProgressBlock)
 	{

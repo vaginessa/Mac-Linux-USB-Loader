@@ -24,9 +24,9 @@
 }
 
 - (void)setSelected:(BOOL)flag {
-	[super setSelected:flag];
-	[(SBSelectableCollectionView *)[self view] setSelected : flag];
-	[(SBSelectableCollectionView *)[self view] setNeedsDisplay : YES];
+	super.selected = flag;
+	((SBSelectableCollectionView *)self.view).selected = flag;
+	[(SBSelectableCollectionView *)self.view setNeedsDisplay : YES];
 }
 
 @end

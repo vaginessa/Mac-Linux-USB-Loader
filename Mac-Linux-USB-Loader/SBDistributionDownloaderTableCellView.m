@@ -33,7 +33,7 @@
 	[alert addButtonWithTitle:NSLocalizedString(@"Yes", nil)];
 	[alert setMessageText:NSLocalizedString(@"Are you sure that you want to cancel this download operation?", nil)];
 	[alert setInformativeText:NSLocalizedString(@"This operation cannot be undone.", nil)];
-	[alert setAlertStyle:NSWarningAlertStyle];
+	alert.alertStyle = NSWarningAlertStyle;
 
 	[alert runAsPopoverForView:self.deleteButton withCompletionBlock:^(NSInteger result) {
 		if (result == NSAlertSecondButtonReturn) {

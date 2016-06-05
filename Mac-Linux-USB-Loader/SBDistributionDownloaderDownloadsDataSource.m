@@ -22,15 +22,15 @@
 	DownloadOperation *downloadOperation = queue.operations[row];
 
 	SBDistributionDownloaderTableCellView *result = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-	[result.nameLabel setStringValue:[[downloadOperation.path lastPathComponent] stringByDeletingPathExtension]];
-	[result setController:self.prefsViewController];
-	[result setCurrentDownloadProcessId:row];
+	(result.nameLabel).stringValue = (downloadOperation.path).lastPathComponent.stringByDeletingPathExtension;
+	result.controller = self.prefsViewController;
+	result.currentDownloadProcessId = row;
 
 	return result;
 }
 
 - (void)userSelectedOperationFromTable {
-	NSInteger clickedRow = [self.tableView clickedRow];
+	NSInteger clickedRow = (self.tableView).clickedRow;
 	NSOperationQueue *queue = self.prefsViewController.downloadQueue;
 	DownloadOperation *downloadOperation = queue.operations[clickedRow];
 

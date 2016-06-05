@@ -82,7 +82,7 @@
 }
 
 - (BOOL)PECocoaBackports_isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion)version {
-	const NSOperatingSystemVersion systemVersion = [self operatingSystemVersion];
+	const NSOperatingSystemVersion systemVersion = self.operatingSystemVersion;
 	if (systemVersion.majorVersion == version.majorVersion) {
 		if (systemVersion.minorVersion == version.minorVersion) {
 			return systemVersion.patchVersion >= version.patchVersion;

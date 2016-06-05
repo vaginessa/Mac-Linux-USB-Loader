@@ -44,7 +44,7 @@ typedef NS_ENUM(unsigned int, State) {
 
 + (void)createLoopbackPersistence:(NSString *)file __attribute__((pure)) {
 	NSBundle *mainBundle = [NSBundle mainBundle];
-	NSString *helperAppPath = [[mainBundle bundlePath]
+	NSString *helperAppPath = [mainBundle.bundlePath
 	                           stringByAppendingString:@"/Contents/Resources/Tools/mke2fs"];
 
 	NSTask *task = [[NSTask alloc] init];
@@ -53,10 +53,10 @@ typedef NS_ENUM(unsigned int, State) {
 
 	// Create a pipe for writing.
 	NSPipe *inputPipe = [NSPipe pipe];
-	dup2([[inputPipe fileHandleForReading] fileDescriptor], STDIN_FILENO);
-	[task setStandardInput:inputPipe];
+	dup2(inputPipe.fileHandleForReading.fileDescriptor, STDIN_FILENO);
+	task.standardInput = inputPipe;
 
-	NSFileHandle *handle = [inputPipe fileHandleForWriting];
+	NSFileHandle *handle = inputPipe.fileHandleForWriting;
 	[task launch];
 
 	// Answer "yes" to the message where the program complains that the file is not a block
@@ -86,8 +86,8 @@ typedef NS_ENUM(unsigned int, State) {
 	    progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
 	});
 
-	const char *fromPath = [document.fileURL.path UTF8String];
-	const char *toPath = [finalISOCopyPath UTF8String];
+	const char *fromPath = (document.fileURL.path).UTF8String;
+	const char *toPath = finalISOCopyPath.UTF8String;
 
 	NSLog(@"from: %s to: %s", fromPath, toPath);
 
@@ -129,8 +129,8 @@ typedef NS_ENUM(unsigned int, State) {
 	});
 
 	// First, copy Enterprise.
-	const char *fromPath = [[source.path stringByAppendingPathComponent:@"bootX64.efi"] UTF8String];
-	const char *toPath = [finalEnterpriseCopyPath UTF8String];
+	const char *fromPath = [source.path stringByAppendingPathComponent:@"bootX64.efi"].UTF8String;
+	const char *toPath = finalEnterpriseCopyPath.UTF8String;
 
 	NSLog(@"from: %s to: %s", fromPath, toPath);
 
@@ -154,8 +154,8 @@ typedef NS_ENUM(unsigned int, State) {
 	copyfile_state_free(copyfileState);
 
 	// Next, copy GRUB.
-	fromPath = [[source.path stringByAppendingPathComponent:@"boot.efi"] UTF8String];
-	toPath = [finalGRUBCopyPath UTF8String];
+	fromPath = [source.path stringByAppendingPathComponent:@"boot.efi"].UTF8String;
+	toPath = finalGRUBCopyPath.UTF8String;
 
 	NSLog(@"from: %s to: %s", fromPath, toPath);
 
@@ -193,7 +193,7 @@ typedef NS_ENUM(unsigned int, State) {
 			const int returnCode = copyfile_state_get(copyfileState, COPYFILE_STATE_COPIED, &copiedBytes);
 			if (returnCode == 0) {
 				//NSLog(@"Copied %@ so far", [NSByteCountFormatter stringFromByteCount:copiedBytes countStyle:NSByteCountFormatterCountStyleFile]);
-				[attachedDocument.installationProgressBar setDoubleValue:copiedBytes];
+				(attachedDocument.installationProgressBar).doubleValue = copiedBytes;
 			}
 			else {
 				NSLog(@"Could not retrieve copyfile state");

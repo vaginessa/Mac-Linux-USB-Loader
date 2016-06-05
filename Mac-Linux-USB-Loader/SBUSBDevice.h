@@ -78,7 +78,7 @@ typedef NS_ENUM (NSInteger, SBUSBDriveFileSystem) {
  *
  * @return YES if the operation succeeded, NO if it did not.
  */
-- (BOOL)enableStartupDiskSupport;
+@property (NS_NONATOMIC_IOSONLY, readonly) BOOL enableStartupDiskSupport;
 
 /**
  * Configures this USB drive with the files and options that are needed to add it to the Startup Disk selector

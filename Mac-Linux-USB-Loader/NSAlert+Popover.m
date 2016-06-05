@@ -24,9 +24,9 @@ static NSAlert *currentlyOpenedAlert;
 
 - (void)runAsPopoverForView:(NSView *)view preferredEdge:(NSRectEdge)preferredEdge withCompletionBlock:(NSAlertCompletionBlock)block {
 	// Set this alert as the target of all its buttons
-	for (NSButton *button in[self buttons]) {
-		[button setTarget:self];
-		[button setAction:@selector(stopSynchronousPopoverAlert:)];
+	for (NSButton *button in self.buttons) {
+		button.target = self;
+		button.action = @selector(stopSynchronousPopoverAlert:);
 	}
 
 	// Store block and target view references for later usage
@@ -43,11 +43,11 @@ static NSAlert *currentlyOpenedAlert;
 	// Instantiate a new NSPopover with a view controller that manages this alert's view
 	NSViewController *controller = [[NSViewController alloc] init];
 	NSPopover *popover = [[NSPopover alloc] init];
-	[controller setView:[self.window contentView]];
-	[popover setContentViewController:controller];
+	controller.view = (self.window).contentView;
+	popover.contentViewController = controller;
 
 	// Store the reference to this alert's parent popover
-	[self setParentPopover:popover];
+	self.parentPopover = popover;
 
 	// Enqueue the potentially currently opened alert
 	if (currentlyOpenedPopover) {
@@ -63,7 +63,7 @@ static NSAlert *currentlyOpenedAlert;
 
 - (void)stopSynchronousPopoverAlert:(NSButton *)clickedButton {
 	// Determine clicked button index
-	NSUInteger clickedIx = [[self buttons] indexOfObject:clickedButton];
+	NSUInteger clickedIx = [self.buttons indexOfObject:clickedButton];
 
 	// And determine the return code of this button
 	NSInteger returnCode = 0;
@@ -95,7 +95,7 @@ static NSAlert *currentlyOpenedAlert;
 - (void)checkForPreviouslyShownAlerts {
 	// If previously opened alerts are referenced, open the last one.
 	if (previouslyOpenedAlerts && previouslyOpenedAlerts.count > 0) {
-		NSAlert *alert = [previouslyOpenedAlerts lastObject];
+		NSAlert *alert = previouslyOpenedAlerts.lastObject;
 		[previouslyOpenedAlerts removeObject:alert];
 		[alert runAsPopoverForView:alert.targetView withCompletionBlock:alert.completionBlock];
 	}

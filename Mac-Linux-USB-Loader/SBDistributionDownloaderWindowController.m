@@ -74,10 +74,10 @@
 	// Setup the UI.
 	[self.downloadDistroButton setEnabled:NO];
 	[self.viewMoreInfoButton setTransparent:YES];
-	[self.downloadQueuePopover setBehavior:NSPopoverBehaviorTransient];
-	[self.downloadQueueDataSource setPrefsViewController:self];
-	[self.downloadQueueDataSource setTableView:self.downloadQueueTableView];
-	[self.tableView setDoubleAction:@selector(tableViewDoubleClickAction)];
+	(self.downloadQueuePopover).behavior = NSPopoverBehaviorTransient;
+	(self.downloadQueueDataSource).prefsViewController = self;
+	(self.downloadQueueDataSource).tableView = self.downloadQueueTableView;
+	(self.tableView).doubleAction = @selector(tableViewDoubleClickAction);
 	[self.webView setDrawsBackground:NO];
 
 	// Check if enough time has elapsed to where we need to download new JSON.
@@ -85,7 +85,7 @@
 	NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastMirrorUpdateCheckTime"];
 	if (lastCheckedDate) {
 		// We have a saved date.
-		NSInteger interval = (NSInteger)fabs([lastCheckedDate timeIntervalSinceNow]);
+		NSInteger interval = (NSInteger)fabs(lastCheckedDate.timeIntervalSinceNow);
 		if (interval > JSONUpdateInterval) {
 			// Enough time has elapsed to where it is now time to update the JSON mirrors.
 			// We do this in the background without a lot of pomp so it is transparent to the user.
@@ -108,10 +108,10 @@
 }
 
 - (void)loadCachedJSON {
-	NSString *cacheDirectory = [[NSFileManager defaultManager] cacheDirectory];
+	NSString *cacheDirectory = [NSFileManager defaultManager].cacheDirectory;
 	__block NSString *tempFileName;
 
-	for (NSString *distroName in[(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
+	for (NSString *distroName in((SBAppDelegate *)NSApp.delegate).supportedDistributions) {
 		// Grab our JSON, but do it on a background thread so we don't slow down the GUI.
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 			NSError *err;
@@ -147,7 +147,7 @@
 			[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 			[alert setMessageText:NSLocalizedString(@"No network connection.", nil)];
 			[alert setInformativeText:NSLocalizedString(@"Mac Linux USB Loader cannot download the mirror lists because you are not connected to the Internet.", nil)];
-			[alert setAlertStyle:NSWarningAlertStyle];
+			alert.alertStyle = NSWarningAlertStyle;
 			[alert runModal];
 		});
 
@@ -155,7 +155,7 @@
 	}
 
 	// We have an Internet connection, so proceed by downloading the JSON.
-	for (NSString *distroName in [(SBAppDelegate *)[NSApp delegate] supportedDistributions]) {
+	for (NSString *distroName in ((SBAppDelegate *)NSApp.delegate).supportedDistributions) {
 		NSError *err;
 		NSString *temp = [NSString stringWithFormat:@"https://github.com/SevenBits/mlul-iso-mirrors/raw/master/mirrors/%@.json", [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
 		NSURL *url = [NSURL URLWithString:temp];
@@ -189,7 +189,7 @@
 	self.downloadDistroModel = [[SBDownloadableDistributionModel alloc] initWithString:json error:&error];
 	if (error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
-			NSLog(@"%@: %@", distroName, [error localizedDescription]);
+			NSLog(@"%@: %@", distroName, error.localizedDescription);
 			NSAlert *alert = [NSAlert alertWithError:error];
 			[alert runModal];
 		});
@@ -205,7 +205,7 @@
 			img = [[NSImage alloc] initWithContentsOfURL:imgSourceURL];
 		} else {
 			// Grab the images from the cache.
-			NSString *cacheDirectory = [[NSFileManager defaultManager] cacheDirectory];
+			NSString *cacheDirectory = [NSFileManager defaultManager].cacheDirectory;
 			NSString *imgFilePath = [[cacheDirectory stringByAppendingPathComponent:convertedName] stringByAppendingString:@".png"];
 			img = [[NSImage alloc] initWithContentsOfFile:imgFilePath];
 		}
@@ -215,14 +215,14 @@
 			self.imageDictionary[convertedName] = img;
 
 			if (downloadImages) {
-				[img saveAsPNGWithName:[[[[NSFileManager defaultManager] cacheDirectory] stringByAppendingPathComponent:convertedName] stringByAppendingString:@".png"]]; // Cache the image to a file.
+				[img saveAsPNGWithName:[[[NSFileManager defaultManager].cacheDirectory stringByAppendingPathComponent:convertedName] stringByAppendingString:@".png"]]; // Cache the image to a file.
 			}
 		}
 		[self.idLock unlock];
 
 		// Cache the JSON to a file if needed.
 		if (downloadImages) {
-			[json writeToFile:[[[[NSFileManager defaultManager] cacheDirectory] stringByAppendingPathComponent:convertedName] stringByAppendingString:@".json"] atomically:YES encoding:NSUTF8StringEncoding error:nil]; // Cache the JSON to a file.
+			[json writeToFile:[[[NSFileManager defaultManager].cacheDirectory stringByAppendingPathComponent:convertedName] stringByAppendingString:@".json"] atomically:YES encoding:NSUTF8StringEncoding error:nil]; // Cache the JSON to a file.
 		}
 
 		if (self.downloadDistroModel) self.modelDictionary[convertedName] = self.downloadDistroModel;
@@ -236,7 +236,7 @@
 	[super windowDidLoad];
 
 	// Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-	[self.window setDelegate:self];
+	(self.window).delegate = self;
 
 	// Setup the accessory view.
 	[self placeAccessoryView];
@@ -249,15 +249,15 @@
 #pragma mark - Delegates
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [[(SBAppDelegate *)[NSApp delegate] supportedDistributions] count];
+	return ((SBAppDelegate *)NSApp.delegate).supportedDistributions.count;
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	if ([aTableColumn.identifier isEqualToString:@"nameCol"]) {
-		return [(SBAppDelegate *)[NSApp delegate] supportedDistributions][rowIndex];
+		return ((SBAppDelegate *)NSApp.delegate).supportedDistributions[rowIndex];
 	} else if ([aTableColumn.identifier isEqualToString:@"versionCol"]) {
-		NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][rowIndex];
-		return [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution];
+		NSString *distribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[rowIndex];
+		return ((SBAppDelegate *)NSApp.delegate).supportedDistributionsAndVersions[distribution];
 	} else {
 		return @"N/A";
 	}
@@ -269,17 +269,17 @@
 
 - (void)tableViewDoubleClickAction {
 	// Get the table view selection and make sure that they selected something.
-	NSInteger row = [self.tableView selectedRow];
+	NSInteger row = (self.tableView).selectedRow;
 	if (row == -1) {
 		return;
 	}
 
 	// Construct the name and path of the downloaded ISO.
-	NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]];
-	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
+	NSString *distribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow];
+	NSString *path = [[NSFileManager defaultManager].applicationSupportDirectory stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]],
-	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution]]];
+	                                             ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow],
+	                                             ((SBAppDelegate *)NSApp.delegate).supportedDistributionsAndVersions[distribution]]];
 
 	// Open the URL.
 	NSURL *url = [NSURL fileURLWithPath:path];
@@ -288,21 +288,21 @@
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
-	NSInteger row = [self.tableView selectedRow];
-	[self.downloadDistroButton setEnabled:(row != -1)];
-	[self.viewMoreInfoButton setTransparent:(row == -1)];
+	NSInteger row = (self.tableView).selectedRow;
+	(self.downloadDistroButton).enabled = (row != -1);
+	(self.viewMoreInfoButton).transparent = (row == -1);
 
 	if (row == -1) {
-		[self.distroNameLabel setStringValue:@""];
+		(self.distroNameLabel).stringValue = @"";
 		[self.webView.mainFrame loadHTMLString:@"" baseURL:nil];
 		[self.distroImageView setImage:nil];
 		return;
 	}
 
-	NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][row];
-	[self.distroNameLabel setStringValue:[NSString stringWithFormat:@"%@ %@",
-	                                      [(SBAppDelegate *)[NSApp delegate] supportedDistributions][row],
-	                                      [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution]]];
+	NSString *distribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[row];
+	(self.distroNameLabel).stringValue = [NSString stringWithFormat:@"%@ %@",
+	                                      ((SBAppDelegate *)NSApp.delegate).supportedDistributions[row],
+	                                      ((SBAppDelegate *)NSApp.delegate).supportedDistributionsAndVersions[distribution]];
 
 
 	NSString *convertedName = [distribution stringByReplacingOccurrencesOfString:@" " withString:@"-"];
@@ -322,9 +322,9 @@
 	// Fetch Wikipedia information on the selected distribution (may not work 100% of the time).
 	[self.spinner startAnimation:nil];
 	dispatch_async(dispatch_get_global_queue(0, 0), ^{
-		NSInteger selectedRowIndex = [self.tableView selectedRow];
-		NSString *selectedLinuxDistribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][selectedRowIndex];
-		NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+		NSInteger selectedRowIndex = (self.tableView).selectedRow;
+		NSString *selectedLinuxDistribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[selectedRowIndex];
+		NSString *language = [NSLocale preferredLanguages][0];
 
 		// There are multiple articles on Wikipedia with the name "Ubuntu", so we have to specific
 		// and specify exactly what we want if we need to download Ubuntu's info.
@@ -392,12 +392,12 @@
 }
 
 - (void)placeAccessoryView {
-	NSOperatingSystemVersion opVer = [[NSProcessInfo processInfo] operatingSystemVersion];
+	NSOperatingSystemVersion opVer = [NSProcessInfo processInfo].operatingSystemVersion;
 	// If the user is running pre-Yosemite...
 	if (opVer.minorVersion <= 9) {
-		NSView *themeFrame = [[self.window contentView] superview];
-		NSRect c = [themeFrame frame];  // c for "container"
-		NSRect aV = [self.accessoryView frame]; // aV for "accessory view"
+		NSView *themeFrame = (self.window).contentView.superview;
+		NSRect c = themeFrame.frame;  // c for "container"
+		NSRect aV = (self.accessoryView).frame; // aV for "accessory view"
 
 		// Nudge the button to the left to account for the fullscreen button.
 		NSRect newFrame = NSMakeRect(c.size.width - aV.size.width - SBAccessoryViewEdgeOffset, // x position
@@ -405,7 +405,7 @@
 		                             aV.size.width, // width
 		                             aV.size.height); // height
 
-		[self.accessoryView setFrame:newFrame];
+		(self.accessoryView).frame = newFrame;
 		[self.accessoryView setNeedsDisplay:YES];
 		[themeFrame addSubview:self.accessoryView];
 	} else {
@@ -419,26 +419,26 @@
 
 - (IBAction)viewInFinderButtonClicked:(id)sender {
 	// Get the table view selection and make sure that they selected something.
-	NSInteger row = [self.tableView clickedRow];
+	NSInteger row = (self.tableView).clickedRow;
 	if (row == -1) {
 		return;
 	}
 
 	// Construct the name and path of the downloaded ISO.
-	NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]];
-	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
+	NSString *distribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow];
+	NSString *path = [[NSFileManager defaultManager].applicationSupportDirectory stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]],
-	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution]]];
+	                                             ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow],
+	                                             ((SBAppDelegate *)NSApp.delegate).supportedDistributionsAndVersions[distribution]]];
 
 	// Open the URL.
 	[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:path];
 }
 
 - (IBAction)downloadDistroButtonPressed:(id)sender {
-	NSInteger selectedDistro = [self.tableView selectedRow];
+	NSInteger selectedDistro = (self.tableView).selectedRow;
 
-	NSString *temp = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][selectedDistro];
+	NSString *temp = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[selectedDistro];
 	temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 
 	if (!self.modelDictionary[temp]) {
@@ -447,7 +447,7 @@
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"Can't download this distribution.", nil)];
 		[alert setInformativeText:NSLocalizedString(@"You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
+		alert.alertStyle = NSWarningAlertStyle;
 		[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 		return;
@@ -456,7 +456,7 @@
 	self.downloadDistroModel = self.modelDictionary[temp];
 	[self.distroMirrorCountrySelector removeAllItems];
 
-	for (SBDownloadMirrorModel *model in [self.downloadDistroModel mirrors]) {
+	for (SBDownloadMirrorModel *model in (self.downloadDistroModel).mirrors) {
 		[self.distroMirrorCountrySelector addItemWithTitle:model.countryLong];
 	}
 
@@ -465,13 +465,13 @@
 
 - (IBAction)viewDistroWebsiteButtonClicked:(id)sender {
 	// Get the table view selection and make sure that they selected something.
-	NSInteger row = [self.tableView selectedRow];
+	NSInteger row = (self.tableView).selectedRow;
 	if (row == -1) {
 		return;
 	}
 
 	// Get the JSON model object for the selected distribution.
-	NSString *distroName = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][row];
+	NSString *distroName = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[row];
 	NSString *convertedName = [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 	SBDownloadableDistributionModel *model = self.modelDictionary[convertedName];
 
@@ -488,14 +488,14 @@
 }
 
 - (IBAction)commenceDownload:(id)sender {
-	NSInteger selectedItem = [self.distroMirrorCountrySelector indexOfSelectedItem];
+	NSInteger selectedItem = (self.distroMirrorCountrySelector).indexOfSelectedItem;
 	NSAssert(selectedItem != -1, @"Selected item is %ld", (long)selectedItem);
 
-	NSString *distribution = [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]];
-	NSString *path = [[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"/Downloads/"];
+	NSString *distribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow];
+	NSString *path = [[NSFileManager defaultManager].applicationSupportDirectory stringByAppendingPathComponent:@"/Downloads/"];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributions][[self.tableView selectedRow]],
-	                                             [(SBAppDelegate *)[NSApp delegate] supportedDistributionsAndVersions][distribution]]];
+	                                             ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow],
+	                                             ((SBAppDelegate *)NSApp.delegate).supportedDistributionsAndVersions[distribution]]];
 
 	// Inform the system that we are starting this operation.
 	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
@@ -541,7 +541,7 @@
 
 		NSInteger row = operation.correspondingTableViewRow;
 		SBDistributionDownloaderTableCellView *cellView = [self.downloadQueueTableView viewAtColumn:0 row:row makeIfNecessary:YES];
-		[cellView.progressBar setDoubleValue:progress * 100];
+		(cellView.progressBar).doubleValue = progress * 100;
 	};
 	downloadOperation.correspondingTableViewRow = self.numberOfActiveDownloadOperations - 1;
 
@@ -551,7 +551,7 @@
 }
 
 - (IBAction)viewInProgressDownloads:(id)sender {
-	[self.downloadQueuePopover showRelativeToRect:[self.accessoryViewButton bounds] ofView:self.accessoryViewButton preferredEdge:NSMaxYEdge];
+	[self.downloadQueuePopover showRelativeToRect:(self.accessoryViewButton).bounds ofView:self.accessoryViewButton preferredEdge:NSMaxYEdge];
 }
 
 @end

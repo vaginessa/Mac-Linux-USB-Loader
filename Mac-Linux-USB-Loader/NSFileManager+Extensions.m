@@ -32,7 +32,7 @@ NSOpenPanel *spanel;
 
 - (NSURL *)setupSecurityScopedBookmarkForUSBAtPath:(NSString *)path withWindowForSheet:(NSWindow *)window {
 	// Setup variables.
-	NSString *targetUSBName = [[path lastPathComponent] stringByDeletingPathExtension];
+	NSString *targetUSBName = path.lastPathComponent.stringByDeletingPathExtension;
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSURL *outURL;
 
@@ -44,8 +44,8 @@ NSOpenPanel *spanel;
 		spanel = [NSOpenPanel openPanel];
 		[spanel setMessage:NSLocalizedString(@"To authorize Mac Linux USB Loader to access your USB drive, please click Grant Access below.", nil)];
 		[spanel setPrompt:NSLocalizedString(@"Grant Access", nil)];
-		[spanel setDirectoryURL:[NSURL URLWithString:path]];
-		[spanel setNameFieldStringValue:@""];
+		spanel.directoryURL = [NSURL URLWithString:path];
+		spanel.nameFieldStringValue = @"";
 		[spanel setCanChooseDirectories:YES];
 		[spanel setCanChooseFiles:NO];
 		[spanel setCanSelectHiddenExtension:NO];
@@ -54,7 +54,7 @@ NSOpenPanel *spanel;
 
 		// Create a security scoped bookmark here so we don't ask the user again.
 		if (result == NSFileHandlingPanelOKButton) {
-			NSURL *url = [spanel URL];
+			NSURL *url = spanel.URL;
 			if ([url.path isEqualToString:path]) {
 				NSData *data = [url bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:nil];
 				if (data) {
@@ -69,7 +69,7 @@ NSOpenPanel *spanel;
 		}
 
 		// Inform the App Delegate about this new device.
-		[(SBAppDelegate *)[NSApp delegate] scanForSavedUSBs];
+		[(SBAppDelegate *)NSApp.delegate scanForSavedUSBs];
 	}
 
 	// Return an NSURL object corresponding to the bookmark.

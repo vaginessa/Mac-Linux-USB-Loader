@@ -48,7 +48,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	if (self) {
 		// Setup code goes here.
 		self->fileManager = [NSFileManager new];
-		self.pathToApplicationSupportDirectory = [self->fileManager applicationSupportDirectory];
+		self.pathToApplicationSupportDirectory = self->fileManager.applicationSupportDirectory;
 
 		self.supportedDistributions = @[@"Ubuntu", @"Linux Mint", @"Elementary OS", @"Zorin OS", @"Kali Linux"];
 		self.supportedDistributionsAndVersions = @{ @"Ubuntu": @"16.04",
@@ -65,7 +65,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/* Set window properties. */
 	// Make the window background white.
-	[self.window setBackgroundColor:[NSColor whiteColor]];
+	(self.window).backgroundColor = [NSColor whiteColor];
 	[self.window setMovableByWindowBackground:NO];
 
 	// Set window resize behavior.
@@ -73,14 +73,13 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	[[self.window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
 
 	// Remove the title.
-	[self.window setTitle:@""];
+	(self.window).title = @"";
 
 	/* Make the table respond to our double click operations. */
-	[self.operationsTableView setDoubleAction:@selector(userSelectedOperationFromTable)];
+	(self.operationsTableView).doubleAction = @selector(userSelectedOperationFromTable);
 
 	/* Set the application version label string. */
-	[self.applicationVersionString setStringValue:
-	[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+	(self.applicationVersionString).stringValue =	[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
 
 	/* Setup the rest of the application. */
 	[self applicationSetup];
@@ -105,7 +104,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 		NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastCacheClearCheckTime"];
 		if (lastCheckedDate) {
 			// We have a previous date.
-			NSInteger interval = (NSInteger)fabs([lastCheckedDate timeIntervalSinceNow]);
+			NSInteger interval = (NSInteger)fabs(lastCheckedDate.timeIntervalSinceNow);
 			if (interval > clearCachesUpdateInterval) {
 				// Delete all caches.
 				NSLog(@"Clearing all caches and old ISO downloads...");
@@ -158,7 +157,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 
 - (void)purgeCachesAndOldFiles {
 	/* First, purge all caches and unneeded data that we can re-obtain. */
-	NSString *path = [self->fileManager cacheDirectory];
+	NSString *path = self->fileManager.cacheDirectory;
 	NSFileManager *fm = [[NSFileManager alloc] init];
 	NSDirectoryEnumerator *en = [fm enumeratorAtPath:path];
 	NSError *err = nil;
@@ -177,13 +176,13 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	}
 
 	// Deal with old ISOs.
-	path = [self->fileManager applicationSupportDirectory];
+	path = self->fileManager.applicationSupportDirectory;
 	en = [fm enumeratorAtPath:path];
 	while (file = [en nextObject]) {
 		BOOL shouldDelete = YES;
 		completePath = [path stringByAppendingPathComponent:file];
 		for (NSString *dn in self.supportedDistributions) {
-			NSString *shortFileName = [[completePath lastPathComponent] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+			NSString *shortFileName = [completePath.lastPathComponent stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 			NSString *distroName = [dn stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 			if ([shortFileName containsSubstring:distroName] || [shortFileName isEqualToString:@"Downloads"]) {
 				//NSLog(@"Not deleting file %@ because it matches pattern: %@", shortFileName, distroName);
@@ -216,7 +215,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 
 		// Add the Enterprise installation located in Mac Linux USB Loader's bundle to the list of available
 		// Enterprise installations.
-		NSString *defaultPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
+		NSString *defaultPath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
 		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:@"Included With Application"
 		                                                                           andPath:defaultPath
 		                                                                  shouldBeVolatile:NO];
@@ -248,7 +247,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 		 * written to disk, if the user moves the application bundle there is a chance that the path won't
 		 * be updated, resulting in errors. So we update it here so that this won't happen.
 		 */
-		NSString *defaultPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
+		NSString *defaultPath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
 		SBEnterpriseSourceLocation *source = self.enterpriseInstallLocations[@"Included With Application"];
 
 		if (!source) {
@@ -282,7 +281,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
     BOOL acceptHardDrives = [[NSUserDefaults standardUserDefaults] boolForKey:@"AcceptHardDrives"];
 
 	for (NSURL *mountURL in volumes) {
-		NSString *usbDeviceMountPoint = [mountURL path];
+		NSString *usbDeviceMountPoint = mountURL.path;
 		if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
 			if (isWritable && (acceptHardDrives || (isRemovable && isUnmountable))) {
 				NSLog(@"Detected eligible volume at %@. Type: %@", usbDeviceMountPoint, volumeType);
@@ -295,7 +294,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 					    ([volumeType isEqualToString:@"hfs"] && acceptHFSDrives)) {
 						SBUSBDevice *usbDevice = [[SBUSBDevice alloc] init];
 						usbDevice.path = usbDeviceMountPoint;
-						usbDevice.name = [usbDeviceMountPoint lastPathComponent];
+						usbDevice.name = usbDeviceMountPoint.lastPathComponent;
 						usbDevice.fileSystem = [volumeType isEqualToString:@"msdos"] ? SBUSBDriveFileSystemFAT32 : SBUSBDriveFileSystemHFS;
 						usbDevice.uuid = [SBAppDelegate uuidForDeviceName:usbDeviceMountPoint];
 
@@ -306,7 +305,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 				NSLog(@"Volume at %@ is not eligible. Type: %@", usbDeviceMountPoint, volumeType);
 			}
 		} else {
-			NSLog(@"Couldn't get file system info for USB %@", [usbDeviceMountPoint lastPathComponent]);
+			NSLog(@"Couldn't get file system info for USB %@", usbDeviceMountPoint.lastPathComponent);
 		}
 	}
 }
@@ -424,7 +423,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 }
 
 - (void)userSelectedOperationFromTable {
-	NSInteger clickedRow = [self.operationsTableView clickedRow];
+	NSInteger clickedRow = (self.operationsTableView).clickedRow;
 
 	if (clickedRow != -1) { // We've selected a valid table entry.
 		[self loadWindowControllerForTool:clickedRow];
@@ -550,7 +549,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 }
 
 + (SBLinuxDistribution)distributionTypeForISOName:(NSString *)path __attribute__((pure)) {
-	NSString *fileName = [[path lowercaseString] lastPathComponent];
+	NSString *fileName = path.lowercaseString.lastPathComponent;
 	if ([fileName containsSubstring:@"tails"]) {
 		return SBDistributionTails;
 	} else if ([fileName containsSubstring:@"ubuntu"] ||

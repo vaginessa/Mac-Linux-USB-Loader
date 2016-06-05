@@ -41,7 +41,7 @@ NSString *const DirectoryLocationDomain = @"DirectoryLocationDomain";
 	        searchPathDirectory,
 	        domainMask,
 	        YES);
-	if ([paths count] == 0) {
+	if (paths.count == 0) {
 		if (errorOut) {
 			NSDictionary *userInfo =
 			    @{NSLocalizedDescriptionKey: NSLocalizedStringFromTable(
@@ -99,7 +99,7 @@ NSString *const DirectoryLocationDomain = @"DirectoryLocationDomain";
 
 - (NSString *)applicationSupportDirectory {
 	NSString *executableName =
-	    [[NSBundle mainBundle] infoDictionary][@"CFBundleExecutable"];
+	    [NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"];
 	NSError *error;
 	NSString *result =
 	    [self
@@ -115,7 +115,7 @@ NSString *const DirectoryLocationDomain = @"DirectoryLocationDomain";
 
 - (NSString *)cacheDirectory {
 	NSString *executableName =
-	[[NSBundle mainBundle] infoDictionary][@"CFBundleExecutable"];
+	[NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"];
 	NSError *error;
 	NSString *result =
 	[self

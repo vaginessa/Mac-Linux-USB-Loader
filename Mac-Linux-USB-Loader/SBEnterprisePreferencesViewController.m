@@ -36,8 +36,8 @@
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	if (self) {
 		// Initialization code here.
-		self.enterpriseSourceLocationsDictionary = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations];
-		self.listOfArrayKeys = [[NSMutableArray alloc] initWithCapacity:[self.enterpriseSourceLocationsDictionary count]];
+		self.enterpriseSourceLocationsDictionary = ((SBAppDelegate *)NSApp.delegate).enterpriseInstallLocations;
+		self.listOfArrayKeys = [[NSMutableArray alloc] initWithCapacity:(self.enterpriseSourceLocationsDictionary).count];
 
 		for (NSString *title in self.enterpriseSourceLocationsDictionary) {
 			[self.listOfArrayKeys addObject:title];
@@ -50,7 +50,7 @@
 - (void)awakeFromNib {
 	[self.tableView setDataSource:self];
 	[self.tableView setDelegate:self];
-	[self.sourceVersionTextField setPlaceholderString:SBBundledEnterpriseVersionNumber];
+	(self.sourceVersionTextField).placeholderString = SBBundledEnterpriseVersionNumber;
 }
 
 - (NSString *)identifier {
@@ -68,7 +68,7 @@
 #pragma mark - Table View Delegates
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [self.enterpriseSourceLocationsDictionary count];
+	return (self.enterpriseSourceLocationsDictionary).count;
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
@@ -96,9 +96,9 @@
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldEditTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
-	NSString *cellTitle = [aTableColumn.headerCell stringValue];
+	NSString *cellTitle = (aTableColumn.headerCell).stringValue;
 
-	if (![loc deletable]) {
+	if (!loc.deletable) {
 		return NO;
 	}
 	if ([cellTitle isEqualToString:NSLocalizedString(@"Version", nil)]) {
@@ -123,8 +123,8 @@
 	self.listOfArrayKeys[rowIndex] = newName;
 
 	// Write the Enterprise storage file back out to disk
-	NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingPathComponent:@"/EnterpriseInstallationLocations.plist"];
-	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+	NSString *filePath = [((SBAppDelegate *)NSApp.delegate).pathToApplicationSupportDirectory stringByAppendingPathComponent:@"/EnterpriseInstallationLocations.plist"];
+	[(SBAppDelegate *)NSApp.delegate writeEnterpriseSourceLocationsToDisk:filePath];
 	[self.tableView reloadData];
 }
 
@@ -132,13 +132,13 @@
 	NSFileManager *manager = [NSFileManager defaultManager];
 	SBEnterpriseSourceLocation *loc = self.enterpriseSourceLocationsDictionary[self.listOfArrayKeys[rowIndex]];
 	[loc.securityScopedBookmark startAccessingSecurityScopedResource];
-	NSTextFieldCell *cell = [tableColumn dataCell];
-	if (!loc.deletable && [self.tableView selectedRow] != rowIndex) {
-		[cell setTextColor:[NSColor darkGrayColor]];
+	NSTextFieldCell *cell = tableColumn.dataCell;
+	if (!loc.deletable && (self.tableView).selectedRow != rowIndex) {
+		cell.textColor = [NSColor darkGrayColor];
 	} else if (![manager fileExistsAtPath:loc.path] && loc.securityScopedBookmark) {
-		[cell setTextColor:[NSColor redColor]];
+		cell.textColor = [NSColor redColor];
 	} else {
-		[cell setTextColor:[NSColor blackColor]];
+		cell.textColor = [NSColor blackColor];
 	}
 
 	[loc.securityScopedBookmark stopAccessingSecurityScopedResource];
@@ -148,7 +148,7 @@
 #pragma mark - IBActions
 
 - (IBAction)addSourceLocationButtonPressed:(id)sender {
-	[NSApp beginSheet:self.addNewEnterpriseSourcePanel modalForWindow:[self.view window] modalDelegate:self didEndSelector:NULL contextInfo:nil];
+	[NSApp beginSheet:self.addNewEnterpriseSourcePanel modalForWindow:(self.view).window modalDelegate:self didEndSelector:NULL contextInfo:nil];
 }
 
 - (IBAction)hideSourceLocationButtonPressed:(id)sender {
@@ -157,28 +157,28 @@
 }
 
 - (IBAction)removeSourceLocationButtonPressed:(id)sender {
-	NSInteger selectedRow = [self.tableView selectedRow];
+	NSInteger selectedRow = (self.tableView).selectedRow;
 	NSAssert(selectedRow != -1, @"The Enterprise sources table should not allow the user to not have a row selected.");
-	SBEnterpriseSourceLocation *deviceHere = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][self.listOfArrayKeys[selectedRow]];
+	SBEnterpriseSourceLocation *deviceHere = ((SBAppDelegate *)NSApp.delegate).enterpriseInstallLocations[self.listOfArrayKeys[selectedRow]];
 	if (!deviceHere.deletable) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"This source can't be deleted.", nil)];
 		[alert setInformativeText:NSLocalizedString(@"This source can't be deleted because it is included with Mac Linux USB Loader.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
-		[alert beginSheetModalForWindow:[self.view window] modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		alert.alertStyle = NSWarningAlertStyle;
+		[alert beginSheetModalForWindow:(self.view).window modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
 	}
 
-	[[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations] removeObjectForKey:self.listOfArrayKeys[selectedRow]];
+	[((SBAppDelegate *)NSApp.delegate).enterpriseInstallLocations removeObjectForKey:self.listOfArrayKeys[selectedRow]];
 	[self.listOfArrayKeys removeAllObjects];
 	for (NSString *title in self.enterpriseSourceLocationsDictionary) {
 		[self.listOfArrayKeys addObject:title];
 	}
 
 	// Write source locations to disk.
-	NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
-	[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+	NSString *filePath = [((SBAppDelegate *)NSApp.delegate).pathToApplicationSupportDirectory stringByAppendingString:@"/EnterpriseInstallationLocations.plist"];
+	[(SBAppDelegate *)NSApp.delegate writeEnterpriseSourceLocationsToDisk:filePath];
 
 	// Update user preferences.
 	[[NSUserDefaults standardUserDefaults] setObject:@"Included With Application" forKey:@"DefaultEnterpriseSourceLocation"];
@@ -195,7 +195,7 @@
 	[enterpriseSourceLocationOpenPanel setCanChooseFiles:NO];
 	[enterpriseSourceLocationOpenPanel beginSheetModalForWindow:self.addNewEnterpriseSourcePanel completionHandler: ^(NSInteger result) {
 	    if (result == NSFileHandlingPanelOKButton) {
-			NSString *enteredPath = [[enterpriseSourceLocationOpenPanel URL] path];
+			NSString *enteredPath = enterpriseSourceLocationOpenPanel.URL.path;
 			__block NSString *localizedPath = [NSString string];
 			localizedPath = [localizedPath stringByAppendingPathComponent:@"/"];
 			NSArray *localizedPathComponents = [[NSFileManager defaultManager] componentsToDisplayForPath:enteredPath];
@@ -206,7 +206,7 @@
 				}
 			}];
 
-	        [self.sourceLocationPathTextField setStringValue:localizedPath];
+	        (self.sourceLocationPathTextField).stringValue = localizedPath;
 			[self.addNewEnterpriseSourcePanel makeFirstResponder:self.sourceNameTextField];
 		}
 	}
@@ -215,16 +215,16 @@
 }
 
 - (IBAction)confirmSourceLocationInformation:(id)sender {
-	NSString *name = [self.sourceNameTextField stringValue];
-	NSString *version = [self.sourceVersionTextField stringValue];
-	NSString *location = [[[self.sourceLocationPathTextField stringValue] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] componentsJoinedByString:@""];
+	NSString *name = (self.sourceNameTextField).stringValue;
+	NSString *version = (self.sourceVersionTextField).stringValue;
+	NSString *location = [[(self.sourceLocationPathTextField).stringValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] componentsJoinedByString:@""];
 
 	if ([location isEqualToString:@""]) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"No source location path entered.", nil)];
 		[alert setInformativeText:NSLocalizedString(@"You need to enter a path to a folder containing a valid set of Enterprise binaries.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
+		alert.alertStyle = NSWarningAlertStyle;
 		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
 	} else if ([name isEqualToString:@""]) {
@@ -232,7 +232,7 @@
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"No source location name entered.", nil)];
 		[alert setInformativeText:NSLocalizedString(@"You need to enter a name for this Enterprise installation source.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
+		alert.alertStyle = NSWarningAlertStyle;
 		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
 	} else if ([version isEqualToString:@""]) {
@@ -240,15 +240,15 @@
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"No source location version entered.", nil)];
 		[alert setInformativeText:NSLocalizedString(@"You need to enter the version of this Enterprise installation source.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
+		alert.alertStyle = NSWarningAlertStyle;
 		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
-	} else if ([(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][name]) {
+	} else if (((SBAppDelegate *)NSApp.delegate).enterpriseInstallLocations[name]) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 		[alert setMessageText:NSLocalizedString(@"Invalid location name entered.", nil)];
 		[alert setInformativeText:NSLocalizedString(@"The name that you have entered for this Enterprise source already exists. Please enter a different name.", nil)];
-		[alert setAlertStyle:NSWarningAlertStyle];
+		alert.alertStyle = NSWarningAlertStyle;
 		[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 		return;
 	}
@@ -262,13 +262,13 @@
 			[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 			[alert setMessageText:NSLocalizedString(@"The source that you entered is not valid.", nil)];
 			[alert setInformativeText:NSLocalizedString(@"The source that you have selected is not valid because one or more of the Enterprise binaries are missing.", nil)];
-			[alert setAlertStyle:NSWarningAlertStyle];
+			alert.alertStyle = NSWarningAlertStyle;
 			[alert beginSheetModalForWindow:self.addNewEnterpriseSourcePanel modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 			return;
 		}
 
 		// Add the newly-created object to our list of Enterprise source locations.
-		[(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations][name] = loc;
+		((SBAppDelegate *)NSApp.delegate).enterpriseInstallLocations[name] = loc;
 		self.enterpriseSourceLocationsDictionary[name] = loc;
 		[self.listOfArrayKeys removeAllObjects];
 		for (NSString *title in self.enterpriseSourceLocationsDictionary) {
@@ -276,8 +276,8 @@
 		}
 
 		// Write source locations to disk.
-		NSString *filePath = [[(SBAppDelegate *)[NSApp delegate] pathToApplicationSupportDirectory] stringByAppendingPathComponent:@"/EnterpriseInstallationLocations.plist"];
-		[(SBAppDelegate *)[NSApp delegate] writeEnterpriseSourceLocationsToDisk:filePath];
+		NSString *filePath = [((SBAppDelegate *)NSApp.delegate).pathToApplicationSupportDirectory stringByAppendingPathComponent:@"/EnterpriseInstallationLocations.plist"];
+		[(SBAppDelegate *)NSApp.delegate writeEnterpriseSourceLocationsToDisk:filePath];
 
 		// Reload the table with our new data.
 		[self.tableView reloadData];
@@ -285,9 +285,9 @@
 
 		// Empty the name, source path and version boxes in case the user wants to add another
 		// Enterprise source.
-		[self.sourceNameTextField setStringValue:@""];
-		[self.sourceVersionTextField setStringValue:@""];
-		[self.sourceLocationPathTextField setStringValue:@""];
+		(self.sourceNameTextField).stringValue = @"";
+		(self.sourceVersionTextField).stringValue = @"";
+		(self.sourceLocationPathTextField).stringValue = @"";
 	} else {
 		NSLog(@"No permissions!");
 	}
@@ -300,10 +300,10 @@
 }
 
 - (IBAction)updateSettingsButtonPressed:(id)sender {
-	NSInteger selectedRow = [self.tableView selectedRow];
+	NSInteger selectedRow = (self.tableView).selectedRow;
 	NSAssert(selectedRow != -1, @"The Enterprise sources table should not allow the user to not have a row selected.");
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSDictionary *enterpriseLocations = [(SBAppDelegate *)[NSApp delegate] enterpriseInstallLocations];
+	NSDictionary *enterpriseLocations = ((SBAppDelegate *)NSApp.delegate).enterpriseInstallLocations;
 	NSString *selectedSourceTitle = [enterpriseLocations[self.listOfArrayKeys[selectedRow]] name];
 
 	[defaults setObject:selectedSourceTitle forKey:@"DefaultEnterpriseSourceLocation"];

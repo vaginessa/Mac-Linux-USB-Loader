@@ -45,14 +45,14 @@
 
 	// Hide the setup view until we need it.
 	[self.persistenceOptionsSetupBox setHidden:YES];
-	[self.operationProgressLabel setStringValue:@""];
+	(self.operationProgressLabel).stringValue = @"";
 
 	// Setup the USB selector.
 	[self loadUSBDeviceList:nil];
 
 	// Set up the USB persistence file size selector.
 	[self.persistenceVolumeSizeSlider setContinuous:YES];
-	[self.persistenceVolumeSizeTextField setIntegerValue:512000000];
+	(self.persistenceVolumeSizeTextField).integerValue = 512000000;
 }
 
 - (void)showWindow:(id)sender {
@@ -62,15 +62,15 @@
 
 - (IBAction)loadUSBDeviceList:(id)sender {
 	// Get the USBs from the App Delegate
-	[(SBAppDelegate *)[NSApp delegate] detectAndSetupUSBs];
-	dict = [(SBAppDelegate *)[NSApp delegate] usbDictionary];
+	[(SBAppDelegate *)NSApp.delegate detectAndSetupUSBs];
+	dict = ((SBAppDelegate *)NSApp.delegate).usbDictionary;
 
 	// Clear the USB selector dropdown.
 	[self.usbSelectorPopup removeAllItems];
-	[self.popupValues removeObjectsAtArrangedObjectIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [[self.popupValues arrangedObjects] count])]];
+	[self.popupValues removeObjectsAtArrangedObjectIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [(self.popupValues).arrangedObjects count])]];
 
 	// Create new USB dictionary
-	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[dict count]];
+	NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:dict.count];
 
 	for (NSString *usb in dict) {
 		if ([usb containsSubstring:@" "]) continue;
@@ -87,11 +87,11 @@
 }
 
 - (IBAction)persistenceSizeSliderWasDragged:(id)sender {
-	[self.persistenceVolumeSizeTextField setIntegerValue:[self.persistenceVolumeSizeSlider integerValue]];
+	(self.persistenceVolumeSizeTextField).integerValue = (self.persistenceVolumeSizeSlider).integerValue;
 }
 
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
-	if ([self.usbSelectorPopup indexOfSelectedItem] != 0) {
+	if ((self.usbSelectorPopup).indexOfSelectedItem != 0) {
 		[self.persistenceOptionsSetupBox setHidden:NO];
 	} else {
 		[self.persistenceOptionsSetupBox setHidden:YES];
@@ -107,12 +107,12 @@
 	[self.usbSelectorPopup setEnabled:NO];
 	[self.refreshButton setEnabled:NO];
 
-	NSInteger persistenceSizeInBytes = [self.persistenceVolumeSizeSlider integerValue] / 1048576;
+	NSInteger persistenceSizeInBytes = (self.persistenceVolumeSizeSlider).integerValue / 1048576;
 
-	NSString *selectedUSB = [self.usbSelectorPopup objectValueOfSelectedItem];
+	NSString *selectedUSB = (self.usbSelectorPopup).objectValueOfSelectedItem;
 	spanel = [NSSavePanel savePanel];
-	[spanel setDirectoryURL:[NSURL URLWithString:[dict[selectedUSB] path]]];
-	[spanel setNameFieldStringValue:@"casper-rw"];
+	spanel.directoryURL = [NSURL URLWithString:[dict[selectedUSB] path]];
+	spanel.nameFieldStringValue = @"casper-rw";
 	[spanel setCanCreateDirectories:NO];
 	[spanel setCanSelectHiddenExtension:NO];
 	[spanel setTreatsFilePackagesAsDirectories:NO];
@@ -128,9 +128,9 @@
 
 	            [self.spinner startAnimation:nil];
 	            [self.operationProgressLabel setStringValue:NSLocalizedString(@"Creating persistence file...", nil)];
-	            [SBUSBDevice createPersistenceFileAtUSB:[[spanel URL] path] withSize:persistenceSizeInBytes withWindow:self.window];
+	            [SBUSBDevice createPersistenceFileAtUSB:spanel.URL.path withSize:persistenceSizeInBytes withWindow:self.window];
 	            [self.operationProgressLabel setStringValue:NSLocalizedString(@"Creating virtual loopback filesystem...", nil)];
-	            [SBUSBDevice createLoopbackPersistence:[[spanel URL] path]];
+	            [SBUSBDevice createLoopbackPersistence:spanel.URL.path];
 
 	            // Enable everything that was disabled.
 	            dispatch_async(dispatch_get_main_queue(), ^{
@@ -145,11 +145,11 @@
 	                [alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
 	                [alert setMessageText:NSLocalizedString(@"Done creating persistence.", nil)];
 	                [alert setInformativeText:NSLocalizedString(@"The persistence file has been created. You should be able to boot your selected Linux distribution with persistence on this USB drive now.", nil)];
-	                [alert setAlertStyle:NSWarningAlertStyle];
+	                alert.alertStyle = NSWarningAlertStyle;
 	                [alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(regularSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
 	                [self.spinner stopAnimation:nil];
-	                [self.operationProgressLabel setStringValue:@""];
+	                (self.operationProgressLabel).stringValue = @"";
 
 					// Tell the system that we have finished the activity.
 					if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
@@ -169,8 +169,8 @@
 }
 
 - (IBAction)resetSliderButtonPressed:(id)sender {
-	[self.persistenceVolumeSizeSlider setIntegerValue:(512 * 1048576)];
-	[self.persistenceVolumeSizeTextField setStringValue:@"512 MB"];
+	(self.persistenceVolumeSizeSlider).integerValue = (512 * 1048576);
+	(self.persistenceVolumeSizeTextField).stringValue = @"512 MB";
 }
 
 - (void)regularSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {

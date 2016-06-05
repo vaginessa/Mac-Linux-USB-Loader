@@ -12,7 +12,7 @@
 
 - (void)saveAsPNGWithName:(NSString *)fileName {
 	// Cache the reduced image
-	NSData *imageData = [self TIFFRepresentation];
+	NSData *imageData = self.TIFFRepresentation;
 	NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:imageData];
 	NSDictionary *imageProps = @{NSImageCompressionFactor: @1.0f};
 	imageData = [imageRep representationUsingType:NSPNGFileType properties:imageProps];

@@ -61,10 +61,10 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 
 	NSString *versionFormat = NSLocalizedString(@"Version %@ (%@)", nil);
 	NSString *versionString = [NSString stringWithFormat:versionFormat, self.applicationVersionString, self.applicationBuildNumberString];
-	_scaleFactor = [[self.creditsView window] backingScaleFactor];
-	[self.creditsView setLayer:self.creditsRootLayer];
+	_scaleFactor = (self.creditsView).window.backingScaleFactor;
+	(self.creditsView).layer = self.creditsRootLayer;
 	[self.creditsView setWantsLayer:YES];
-	[self.applicationVersionLabel setStringValue:versionString];
+	(self.applicationVersionLabel).stringValue = versionString;
 }
 
 - (void)showWindow:(id)sender {
@@ -82,14 +82,14 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
 	[self.acknowledgementsText readRTFDFromFile:path];
 	[self.acknowledgementsPanel makeKeyAndOrderFront:nil];
-	[self.acknowledgementsPanel setTitle:sender.title];
+	(self.acknowledgementsPanel).title = sender.title;
 }
 
 - (IBAction)showLicenseAgreementButtonPressed:(NSButton *)sender {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
 	[self.acknowledgementsText readRTFDFromFile:path];
 	[self.acknowledgementsPanel makeKeyAndOrderFront:nil];
-	[self.acknowledgementsPanel setTitle:sender.title];
+	(self.acknowledgementsPanel).title = sender.title;
 }
 
 #pragma mark - Properties
@@ -221,7 +221,7 @@ static CGColorRef kAboutWindowCreditsFadeColor2 = NULL;
 		offset += length;
 		height += ascent + descent + leading;
 	}
-	while (offset < [string length]);
+	while (offset < string.length);
 	CFRelease(typesetter);
 	return CGSizeMake(width, ceil(height));
 }

@@ -42,6 +42,6 @@
  * @param bookmark A security scoped bookmark to access the directory containing this source.
  * @param deletable Whether can user should be able to delete this source.
  */
-- (instancetype)initWithName:(NSString *)name withPath:(NSString *)path withVersionNumber:(NSString *)version withSecurityScopedBookmark:(NSURL *)bookmark shouldBeVolatile:(BOOL)deletable;
+- (instancetype)initWithName:(NSString *)name withPath:(NSString *)path withVersionNumber:(NSString *)version withSecurityScopedBookmark:(NSURL *)bookmark shouldBeVolatile:(BOOL)deletable NS_DESIGNATED_INITIALIZER;
 
 @end

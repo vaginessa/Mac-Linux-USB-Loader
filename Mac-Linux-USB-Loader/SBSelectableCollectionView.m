@@ -22,9 +22,9 @@
 	_selected = selected;
 
 	if (selected) {
-		[(NSTextField *)self.subviews[0] setTextColor:[NSColor alternateSelectedControlTextColor]];
+		((NSTextField *)self.subviews[0]).textColor = [NSColor alternateSelectedControlTextColor];
 	} else {
-		[(NSTextField *)self.subviews[0] setTextColor:[NSColor blackColor]];
+		((NSTextField *)self.subviews[0]).textColor = [NSColor blackColor];
 	}
 }
 
@@ -33,7 +33,7 @@
 
 	if (self.selected) {
 		[[NSColor alternateSelectedControlColor] set];
-		NSRectFill([self bounds]);
+		NSRectFill(self.bounds);
 	}
 }
 
