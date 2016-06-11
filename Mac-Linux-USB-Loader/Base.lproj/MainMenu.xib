@@ -503,8 +503,8 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-zo-Wly">
-                        <rect key="frame" x="585" y="13" width="98" height="28"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-zo-Wly">
+                        <rect key="frame" x="586" y="13" width="97" height="28"/>
                         <buttonCell key="cell" type="push" title="More Options" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f5Z-jQ-9Ok">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
