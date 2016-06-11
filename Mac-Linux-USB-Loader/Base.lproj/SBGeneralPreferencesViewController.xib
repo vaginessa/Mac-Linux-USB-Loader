@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBGeneralPreferencesViewController">
@@ -15,17 +14,17 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="1">
-            <rect key="frame" x="0.0" y="0.0" width="593" height="198"/>
+            <rect key="frame" x="0.0" y="0.0" width="593" height="160"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Mqp-7t-iHQ">
-                    <rect key="frame" x="12" y="115" width="561" height="5"/>
+                    <rect key="frame" x="12" y="86" width="569" height="5"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZY5-Xk-lAz">
-                    <rect key="frame" x="476" y="122" width="103" height="32"/>
+                    <rect key="frame" x="476" y="93" width="103" height="32"/>
                     <buttonCell key="cell" type="push" title="Clear Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j9p-k1-kBV">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -39,65 +38,10 @@
                         </binding>
                     </connections>
                 </button>
-                <box autoresizesSubviews="NO" title="Experimental" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="nPg-bg-bVL">
-                    <rect key="frame" x="9" y="9" width="567" height="100"/>
-                    <view key="contentView" id="x7v-es-Oh0">
-                        <rect key="frame" x="1" y="1" width="565" height="84"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-OH-hmA">
-                                <rect key="frame" x="16" y="58" width="531" height="18"/>
-                                <buttonCell key="cell" type="check" title="Accept HFS+ Formatted Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9HT-f6-zfH">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <binding destination="aRH-Yv-lWu" name="value" keyPath="values.AcceptHFSDrives" id="TQM-zP-NYG"/>
-                                </connections>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="1GF-fo-Apu">
-                                <rect key="frame" x="16" y="35" width="531" height="18"/>
-                                <buttonCell key="cell" type="check" title="Hide Enterprise Configuration File" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CG7-vV-ura">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <binding destination="aRH-Yv-lWu" name="value" keyPath="values.HideConfigurationFile" id="1mV-BO-uzH"/>
-                                </connections>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="S2N-71-0Ys">
-                                <rect key="frame" x="16" y="12" width="531" height="18"/>
-                                <buttonCell key="cell" type="check" title="Accept Hard Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="auA-Ob-KZq">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <binding destination="aRH-Yv-lWu" name="value" keyPath="values.AcceptHardDrives" id="baT-ZV-zRq"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="S2N-71-0Ys" firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" id="5Rd-df-JsX"/>
-                            <constraint firstItem="S2N-71-0Ys" firstAttribute="leading" secondItem="rlJ-OH-hmA" secondAttribute="leading" id="KL3-cS-RcJ"/>
-                            <constraint firstItem="S2N-71-0Ys" firstAttribute="top" secondItem="1GF-fo-Apu" secondAttribute="bottom" constant="9" id="XKm-9S-IN6"/>
-                        </constraints>
-                    </view>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="1GF-fo-Apu" secondAttribute="bottom" constant="34" id="04b-v3-bCh"/>
-                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="leading" secondItem="nPg-bg-bVL" secondAttribute="leading" constant="16" id="LgH-q2-0Cf"/>
-                        <constraint firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" constant="18" id="Nis-3x-EFU"/>
-                        <constraint firstItem="1GF-fo-Apu" firstAttribute="trailing" secondItem="rlJ-OH-hmA" secondAttribute="trailing" id="geU-Fd-F7W"/>
-                        <constraint firstItem="1GF-fo-Apu" firstAttribute="leading" secondItem="rlJ-OH-hmA" secondAttribute="leading" id="o9K-qX-w79"/>
-                        <constraint firstItem="1GF-fo-Apu" firstAttribute="top" secondItem="rlJ-OH-hmA" secondAttribute="bottom" constant="9" id="pUq-bA-H8q"/>
-                        <constraint firstItem="rlJ-OH-hmA" firstAttribute="top" secondItem="nPg-bg-bVL" secondAttribute="top" constant="25" id="pid-fI-uST"/>
-                    </constraints>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </box>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="s4C-gM-3i6">
-                    <rect key="frame" x="131" y="162" width="323" height="18"/>
+                    <rect key="frame" x="131" y="124" width="323" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" priority="250" constant="328" id="bfU-Ms-9t1"/>
+                        <constraint firstAttribute="width" priority="250" constant="319" id="bfU-Ms-9t1"/>
                     </constraints>
                     <buttonCell key="cell" type="check" title="Periodically Clear Caches and Old ISO Downloads" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XrG-IX-Jnc">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -108,23 +52,76 @@
                         <binding destination="aRH-Yv-lWu" name="value" keyPath="values.PeriodicallyClearCaches" id="4s6-JV-cTL"/>
                     </connections>
                 </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="1GF-fo-Apu">
+                    <rect key="frame" x="227" y="60" width="227" height="18"/>
+                    <buttonCell key="cell" type="check" title="Hide Enterprise Configuration File" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CG7-vV-ura">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="aRH-Yv-lWu" name="value" keyPath="values.HideConfigurationFile" id="1mV-BO-uzH"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="S2N-71-0Ys">
+                    <rect key="frame" x="227" y="40" width="140" height="18"/>
+                    <buttonCell key="cell" type="check" title="Accept Hard Drives" bezelStyle="regularSquare" imagePosition="left" inset="2" id="auA-Ob-KZq">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="aRH-Yv-lWu" name="value" keyPath="values.AcceptHardDrives" id="baT-ZV-zRq"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oPL-Bv-m3J">
+                    <rect key="frame" x="132" y="61" width="91" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Configuration:" id="UCE-cK-tdW">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="9nk-am-t2s">
+                    <rect key="frame" x="227" y="18" width="210" height="18"/>
+                    <buttonCell key="cell" type="check" title="Accept HFS+ Formatted Drives" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="BIC-8x-10F">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="aRH-Yv-lWu" name="value" keyPath="values.AcceptHFSDrives" id="kf9-Sm-1fw"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XEn-4C-Mcq">
+                    <rect key="frame" x="136" y="19" width="87" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Experimental:" id="v6c-3K-l9F">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Mqp-7t-iHQ" secondAttribute="trailing" constant="20" id="68P-NA-Ad7"/>
-                <constraint firstAttribute="trailing" secondItem="nPg-bg-bVL" secondAttribute="trailing" constant="20" id="AvE-Kn-dTz"/>
+                <constraint firstItem="oPL-Bv-m3J" firstAttribute="baseline" secondItem="1GF-fo-Apu" secondAttribute="baseline" id="1Ix-I0-Xg2"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="top" secondItem="ZY5-Xk-lAz" secondAttribute="bottom" constant="11" id="4Qv-7g-1SF"/>
+                <constraint firstItem="9nk-am-t2s" firstAttribute="leading" secondItem="XEn-4C-Mcq" secondAttribute="trailing" constant="8" id="90z-qI-mVu"/>
+                <constraint firstItem="1GF-fo-Apu" firstAttribute="leading" secondItem="oPL-Bv-m3J" secondAttribute="trailing" constant="8" symbolic="YES" id="9DK-y1-8hK"/>
                 <constraint firstItem="s4C-gM-3i6" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="CZW-t7-aLr"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="s4C-gM-3i6" secondAttribute="trailing" constant="41" id="DiM-KW-oQq"/>
-                <constraint firstAttribute="bottom" secondItem="nPg-bg-bVL" secondAttribute="bottom" constant="13" id="Fck-eA-m3V"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="8" id="IsD-0H-JeC"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="RsR-Y3-ech"/>
+                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="Kme-ws-URV"/>
+                <constraint firstItem="ZY5-Xk-lAz" firstAttribute="top" secondItem="1" secondAttribute="top" constant="39" id="O0H-7l-HuA"/>
+                <constraint firstItem="1GF-fo-Apu" firstAttribute="top" secondItem="Mqp-7t-iHQ" secondAttribute="bottom" constant="12" id="U9B-DY-g4b"/>
                 <constraint firstItem="s4C-gM-3i6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1" secondAttribute="leading" constant="41" id="UVv-i6-T7V"/>
-                <constraint firstItem="nPg-bg-bVL" firstAttribute="top" secondItem="ZY5-Xk-lAz" secondAttribute="bottom" constant="20" symbolic="YES" id="WAV-dy-GkZ"/>
-                <constraint firstAttribute="centerY" secondItem="s4C-gM-3i6" secondAttribute="centerY" constant="72" id="ig1-vb-0Om"/>
-                <constraint firstItem="ZY5-Xk-lAz" firstAttribute="trailing" secondItem="Mqp-7t-iHQ" secondAttribute="trailing" id="kJj-Po-cAG"/>
+                <constraint firstAttribute="trailing" secondItem="ZY5-Xk-lAz" secondAttribute="trailing" constant="20" id="WUq-OX-AKr"/>
+                <constraint firstItem="9nk-am-t2s" firstAttribute="leading" secondItem="S2N-71-0Ys" secondAttribute="leading" id="YQy-Dt-FY0"/>
+                <constraint firstAttribute="trailing" secondItem="Mqp-7t-iHQ" secondAttribute="trailing" constant="12" id="bsE-eC-PEG"/>
+                <constraint firstItem="S2N-71-0Ys" firstAttribute="leading" secondItem="1GF-fo-Apu" secondAttribute="leading" id="cWt-bh-gBP"/>
+                <constraint firstItem="9nk-am-t2s" firstAttribute="top" secondItem="S2N-71-0Ys" secondAttribute="bottom" constant="8" id="gM0-yG-CZ6"/>
+                <constraint firstAttribute="centerY" secondItem="s4C-gM-3i6" secondAttribute="centerY" constant="53" id="ig1-vb-0Om"/>
+                <constraint firstItem="XEn-4C-Mcq" firstAttribute="baseline" secondItem="9nk-am-t2s" secondAttribute="baseline" id="og8-Tj-IJP"/>
+                <constraint firstItem="1GF-fo-Apu" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" constant="44" id="u1F-QD-eln"/>
                 <constraint firstAttribute="centerX" secondItem="s4C-gM-3i6" secondAttribute="centerX" constant="4.5" id="wgb-gI-xlc"/>
-                <constraint firstItem="Mqp-7t-iHQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="wjh-nJ-YV7"/>
+                <constraint firstItem="S2N-71-0Ys" firstAttribute="top" secondItem="1GF-fo-Apu" secondAttribute="bottom" constant="6" id="zOq-DI-QvN"/>
             </constraints>
-            <point key="canvasLocation" x="466.5" y="256"/>
+            <point key="canvasLocation" x="434.5" y="407"/>
         </customView>
         <userDefaultsController id="xGH-KJ-pxb"/>
         <userDefaultsController representsSharedInstance="YES" id="aRH-Yv-lWu"/>
