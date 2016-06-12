@@ -16,6 +16,6 @@
 
 @end
 
-@interface BackgroundColorView : NSView
-@property (nonatomic, strong) NSColor *gb_backgroundColor;
+IB_DESIGNABLE @interface BackgroundColorView : NSView
+@property (nonatomic, strong) IBInspectable NSColor *backgroundColor;
 @end

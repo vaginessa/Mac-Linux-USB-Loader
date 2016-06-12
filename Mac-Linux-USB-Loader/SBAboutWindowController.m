@@ -67,17 +67,9 @@
 @end
 @implementation BackgroundColorView
 
-@synthesize gb_backgroundColor = _gb_backgroundColor;
-
 - (void)drawRect:(NSRect)dirtyRect {
-	[self.gb_backgroundColor set];
+	[self.backgroundColor set];
 	NSRectFillUsingOperation(dirtyRect, NSCompositeSourceOver);
-}
-
-- (NSColor *)gb_backgroundColor {
-	if (_gb_backgroundColor) return _gb_backgroundColor;
-	_gb_backgroundColor = [NSColor whiteColor];
-	return _gb_backgroundColor;
 }
 
 @end
