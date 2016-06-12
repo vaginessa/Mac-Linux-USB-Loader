@@ -12,7 +12,6 @@
 		240FE88019FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 240FE87F19FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m */; };
 		24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101B861896D4A300EDE32C /* SBAboutWindowController.m */; };
 		24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */; };
-		24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24101B8D1896D4DF00EDE32C /* QuartzCore.framework */; };
 		2412CAEC1960E9E700501D7A /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412CAEB1960E9E700501D7A /* DownloadOperation.m */; };
 		24155CC518903AE400FAB98C /* mke2fs in Copy Files */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
@@ -316,7 +315,6 @@
 				2429600F1BC9D8CC00AB8445 /* WebKit.framework in Frameworks */,
 				24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */,
 				24B29B5C19328E6E0009C3D8 /* DiskArbitration.framework in Frameworks */,
-				24101B8E1896D4DF00EDE32C /* QuartzCore.framework in Frameworks */,
 				240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */,
 				242E92BB1CF202140096DECA /* Sparkle.framework in Frameworks */,
 				24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */,
