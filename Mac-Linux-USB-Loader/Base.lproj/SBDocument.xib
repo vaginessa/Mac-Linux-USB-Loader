@@ -55,6 +55,9 @@
                             <userDefinedRuntimeAttribute type="color" keyPath="gb_backgroundColor">
                                 <color key="value" red="0.99444444444444446" green="0.98888888888888893" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="dUL-cm-KaX">
@@ -159,8 +162,8 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
-                                                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-KC-Mlc">
-                                                    <rect key="frame" x="156" y="228" width="67" height="28"/>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-KC-Mlc">
+                                                    <rect key="frame" x="154" y="228" width="69" height="28"/>
                                                     <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6eC-ug-AG8">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
@@ -169,8 +172,8 @@
                                                         <action selector="refreshUSBListing:" target="-2" id="njo-Pa-Uso"/>
                                                     </connections>
                                                 </button>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-8p-AmO">
-                                                    <rect key="frame" x="18" y="236" width="137" height="17"/>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-8p-AmO">
+                                                    <rect key="frame" x="18" y="236" width="135" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Destination:" id="JzD-IM-Mo0">
                                                         <font key="font" metaFont="systemBold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -205,16 +208,16 @@
                                                 <progressIndicator wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-ll-emw">
                                                     <rect key="frame" x="20" y="19" width="335" height="20"/>
                                                 </progressIndicator>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-58-U8W">
-                                                    <rect key="frame" x="18" y="229" width="123" height="17"/>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-58-U8W">
+                                                    <rect key="frame" x="18" y="229" width="121" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Distribution Family:" id="aOF-7O-fM8">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-Ti-WuH">
-                                                    <rect key="frame" x="145" y="223" width="213" height="26"/>
+                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-Ti-WuH">
+                                                    <rect key="frame" x="143" y="223" width="215" height="26"/>
                                                     <popUpButtonCell key="cell" type="push" title="Ubuntu" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1Mg-wi-KZr" id="eRp-YN-kzd">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
@@ -246,7 +249,7 @@
                                                 </button>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="o16-cH-t1N">
                                                     <rect key="frame" x="18" y="170" width="339" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="This ISO has code older than Ubuntu 14.10" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K4N-ZO-OI0">
+                                                    <buttonCell key="cell" type="check" title="This ISO is based on a legacy version of Ubuntu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K4N-ZO-OI0">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
@@ -346,7 +349,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="859.5" y="-44.5"/>
+            <point key="canvasLocation" x="884.5" y="-7.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
