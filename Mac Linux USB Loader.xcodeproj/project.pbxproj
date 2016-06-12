@@ -1143,7 +1143,7 @@
 				GCC_PREFIX_HEADER = "Mac-Linux-USB-Loader/Mac-Linux-USB-Loader-Prefix.pch";
 				GCC_WARN_PEDANTIC = YES;
 				INFOPLIST_FILE = "Mac-Linux-USB-Loader/Mac Linux USB Loader-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sevenbits.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Mac Linux USB Loader";

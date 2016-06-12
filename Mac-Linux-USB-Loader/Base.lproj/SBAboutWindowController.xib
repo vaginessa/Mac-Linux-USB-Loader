@@ -124,7 +124,7 @@
                 </constraints>
             </view>
             <contentBorderThickness minY="47"/>
-            <point key="canvasLocation" x="631.5" y="446.5"/>
+            <point key="canvasLocation" x="415.5" y="290.5"/>
         </window>
         <window title="Acknowledgments" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="KNs-Wj-UOa" userLabel="Acknowledgments Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" documentModal="YES"/>
