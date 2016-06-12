@@ -355,9 +355,10 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 }
 
 - (IBAction)showAboutWindow:(id)sender {
-	[self->aboutWindowController.window performClose:nil]; // This works because messages can be sent to nil.
+	if (!self->aboutWindowController) {
+		self->aboutWindowController = [[SBAboutWindowController alloc] initWithWindowNibName:@"SBAboutWindowController"];
+	}
 
-	self->aboutWindowController = [[SBAboutWindowController alloc] initWithWindowNibName:@"SBAboutWindowController"];
 	[self->aboutWindowController showWindow:nil];
 }
 
