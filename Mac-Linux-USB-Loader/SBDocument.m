@@ -384,9 +384,8 @@ get_bookmarks:
 	}
 }
 
-- (IBAction)distributionTypePopupChanged:(id)sender {
-	NSString *selectedItem = ((NSPopUpButton *)sender).titleOfSelectedItem;
-	BOOL isUbuntuSelected = [selectedItem isEqualToString:@"Ubuntu"];
+- (IBAction)distributionTypePopupChanged:(NSPopUpButton *)sender {
+	BOOL isUbuntuSelected = (sender.selectedTag == SBDistributionUbuntu);
 	(self.isMacVersionCheckBox).transparent = (isUbuntuSelected ? NO : YES);
 	(self.isMacVersionCheckBox).enabled = isUbuntuSelected;
 	(self.isLegacyUbuntuVersionCheckBox).transparent = (isUbuntuSelected ? NO : YES);
