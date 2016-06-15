@@ -264,19 +264,26 @@
 
 	NSError *error = nil;
 
-	/* STEP 2: Get user permission to install files. We'll only need to do this once. */
+get_bookmarks:
+	;/* STEP 2: Get user permission to install files. We'll only need to do this once. */
 	NSURL *outURL = [manager setupSecurityScopedBookmarkForUSBAtPath:targetUSBMountPoint withWindowForSheet:self.windowForSheet];
 
 	if (!outURL) {
-		NSAlert *alert = [[NSAlert alloc] init];
-		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
-		[alert setMessageText:NSLocalizedString(@"Couldn't get security scoped bookmarks.", nil)];
-		[alert setInformativeText:NSLocalizedString(@"The USB device that you have selected cannot be accessed because the system denied access to the resource.", nil)];
-		alert.alertStyle = NSWarningAlertStyle;
-		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		NSString *bookmarkName = [targetUSBName stringByAppendingString:@"_USBSecurityBookmarkTarget"];
+		if ([[NSUserDefaults standardUserDefaults] objectForKey:bookmarkName] != nil) {
+			[[NSUserDefaults standardUserDefaults] removeObjectForKey:bookmarkName];
+			goto get_bookmarks;
+		} else {
+			NSAlert *alert = [[NSAlert alloc] init];
+			[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+			[alert setMessageText:NSLocalizedString(@"Couldn't get security scoped bookmarks.", nil)];
+			[alert setInformativeText:NSLocalizedString(@"The USB device that you have selected cannot be accessed because the system denied access to the resource.", nil)];
+			alert.alertStyle = NSWarningAlertStyle;
+			[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 
-		// Bail.
-		return NO;
+			// Bail.
+			return NO;
+		}
 	} else {
 		NSLog(@"Obtained security scoped bookmark for USB %@.", targetUSBName);
 	}
