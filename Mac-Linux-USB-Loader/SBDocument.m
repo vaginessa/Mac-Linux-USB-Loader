@@ -285,7 +285,9 @@ get_bookmarks:
 			return NO;
 		}
 	} else {
+#ifdef DEBUG
 		NSLog(@"Obtained security scoped bookmark for USB %@.", targetUSBName);
+#endif
 	}
 
 	/* STEP 3: Start copying files. */

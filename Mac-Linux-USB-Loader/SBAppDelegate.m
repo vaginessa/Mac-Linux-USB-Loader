@@ -227,7 +227,9 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 		}
 	}
 	else {
+#ifdef DEBUG
 		NSLog(@"Found dictionary of Enterprise source file locations.");
+#endif
 		[self readEnterpriseSourceLocationsFromDisk:filePath];
 	}
 }
@@ -284,7 +286,9 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 		NSString *usbDeviceMountPoint = mountURL.path;
 		if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
 			if (isWritable && (acceptHardDrives || (isRemovable && isUnmountable))) {
+#ifdef DEBUG
 				NSLog(@"Detected eligible volume at %@. Type: %@", usbDeviceMountPoint, volumeType);
+#endif
 
 				if ([usbDeviceMountPoint isEqualToString:@"/"]) {
 					// Don't include the root partition in the list of USBs.
@@ -301,10 +305,14 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 					}
 				}
 			} else {
+#ifdef DEBUG
 				NSLog(@"Volume at %@ is not eligible. Type: %@", usbDeviceMountPoint, volumeType);
+#endif
 			}
 		} else {
+#ifdef DEBUG
 			NSLog(@"Couldn't get file system info for USB %@", usbDeviceMountPoint.lastPathComponent);
+#endif
 		}
 	}
 }
