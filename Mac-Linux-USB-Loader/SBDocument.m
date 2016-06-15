@@ -69,25 +69,7 @@
 
 - (void)detectDistributionFamily {
 	SBLinuxDistribution family = [SBAppDelegate distributionTypeForISOName:self.fileURL.absoluteString.lowercaseString];
-	switch (family) {
-		case SBDistributionUbuntu:
-			[self.distributionSelectorPopup selectItemWithTitle:@"Ubuntu"];
-			self.isLegacyUbuntuVersionCheckBox.state = NSOffState;
-			break;
-		case SBDistributionDebian:
-			[self.distributionSelectorPopup selectItemWithTitle:@"Debian"];
-			break;
-		case SBDistributionTails:
-			[self.distributionSelectorPopup selectItemWithTitle:@"Tails"];
-			break;
-		case SBDistributionKali:
-			[self.distributionSelectorPopup selectItemWithTitle:@"Kali"];
-			break;
-		case SBDistributionUnknown:
-		default:
-			[self.distributionSelectorPopup selectItemWithTitle:NSLocalizedString(@"Other", nil)];
-			break;
-	}
+	[self.distributionSelectorPopup selectItemWithTag:family];
 
 	// If this is Linux Mint or a legacy Mac ISO of Ubuntu, check the
 	// first check box since we need it so that the correct kernel path will be written.
@@ -313,7 +295,7 @@ get_bookmarks:
 	}
 
 	// Write out the Enterprise configuration file.
-	SBLinuxDistribution distribution = [SBAppDelegate distributionEnumForEquivalentName:(self.distributionSelectorPopup).titleOfSelectedItem];
+	SBLinuxDistribution distribution = [self.distributionSelectorPopup selectedTag];
 	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:(self.isMacVersionCheckBox).state == NSOnState containsLegacyUbuntuVersion:(self.isLegacyUbuntuVersionCheckBox).state == NSOnState];
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

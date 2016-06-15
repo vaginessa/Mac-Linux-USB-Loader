@@ -29,7 +29,7 @@
             <value key="minSize" type="size" width="625" height="347"/>
             <view key="contentView" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="625" height="347"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="4Dx-4e-R74" customClass="BackgroundColorView">
                         <rect key="frame" x="0.0" y="0.0" width="208" height="347"/>
@@ -71,6 +71,16 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="paneNavigation:" target="-2" id="GiG-on-6qG"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
+                                <rect key="frame" x="238" y="13" width="93" height="32"/>
+                                <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6uC-rz-J2n">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="paneNavigation:" target="-2" id="quk-MH-xBk"/>
                                 </connections>
                             </button>
                             <tabView type="noTabsNoBorder" initialItem="iID-fj-8Oj" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-2Y-5OI">
@@ -224,15 +234,15 @@
                                                         <menu key="menu" id="w3c-AQ-qre">
                                                             <items>
                                                                 <menuItem title="Ubuntu" state="on" id="1Mg-wi-KZr"/>
-                                                                <menuItem title="Debian" id="ClT-6Q-5sn"/>
-                                                                <menuItem title="Tails" id="2ch-0e-x2y">
+                                                                <menuItem title="Debian" tag="1" id="ClT-6Q-5sn"/>
+                                                                <menuItem title="Tails" tag="2" id="2ch-0e-x2y">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                 </menuItem>
-                                                                <menuItem title="Kali" id="DJS-vr-iC0">
+                                                                <menuItem title="Kali" tag="3" id="DJS-vr-iC0">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                 </menuItem>
                                                                 <menuItem isSeparatorItem="YES" id="4LZ-L2-aSS"/>
-                                                                <menuItem title="Other" id="7Id-gS-sW7"/>
+                                                                <menuItem title="Other" tag="4" id="7Id-gS-sW7"/>
                                                             </items>
                                                         </menu>
                                                     </popUpButtonCell>
@@ -311,16 +321,6 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-rw-dxV">
-                                <rect key="frame" x="238" y="13" width="93" height="32"/>
-                                <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6uC-rz-J2n">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="paneNavigation:" target="-2" id="quk-MH-xBk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="3b6-2Y-5OI" firstAttribute="trailing" secondItem="CDL-Pn-5VN" secondAttribute="trailing" id="0g2-nV-xhD"/>
@@ -349,7 +349,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="902.5" y="67.5"/>
+            <point key="canvasLocation" x="923.5" y="94.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
