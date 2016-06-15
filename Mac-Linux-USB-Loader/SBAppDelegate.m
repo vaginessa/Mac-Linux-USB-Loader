@@ -480,20 +480,6 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	}
 }
 
-+ (SBLinuxDistribution)distributionEnumForEquivalentName:(NSString *)name __attribute__((pure)) {
-	if ([name isEqualToString:@"Ubuntu"]) {
-		return SBDistributionUbuntu;
-	} else if ([name isEqualToString:@"Debian"]) {
-		return SBDistributionDebian;
-	} else if ([name isEqualToString:@"Kali"]) {
-		return SBDistributionKali;
-	} else if ([name isEqualToString:@"Tails"]) {
-		return SBDistributionTails;
-	} else {
-		return SBDistributionUnknown;
-	}
-}
-
 + (NSString *)distributionStringForEquivalentEnum:(SBLinuxDistribution)dist __attribute__((const)) {
 	switch (dist) {
 		case SBDistributionUbuntu:

@@ -55,11 +55,6 @@
 - (IBAction)reportBug:(id)sender;
 
 + (NSString *)distributionStringForEquivalentEnum:(SBLinuxDistribution)dist;
-/**
- * Given a string of a Linux distribution, returns the SBLinuxDistribution epresenting that distribution.
- * @returns the SBLinuxDistribution epresenting that distribution
- */
-+ (SBLinuxDistribution)distributionEnumForEquivalentName:(NSString *)name;
 
 /**
  * Given a file name corresponding to a Linux distribution ISO, returns an indicator of which distribution
