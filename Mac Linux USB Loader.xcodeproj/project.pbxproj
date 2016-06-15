@@ -51,7 +51,6 @@
 		24A4ECA41884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4ECA31884966A00CE6CF0 /* Mac_Linux_USB_LoaderTests.m */; };
 		24B29B5719326F6C0009C3D8 /* SBDownloadableDistributionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B29B5619326F6C0009C3D8 /* SBDownloadableDistributionModel.m */; };
 		24B29B5A193270970009C3D8 /* SBDownloadMirrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B29B59193270970009C3D8 /* SBDownloadMirrorModel.m */; };
-		24B29B5C19328E6E0009C3D8 /* DiskArbitration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B29B5B19328E6E0009C3D8 /* DiskArbitration.framework */; };
 		24B322FA18A00E4900A5E25E /* SBGeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B322F818A00E4900A5E25E /* SBGeneralPreferencesViewController.m */; };
 		24B322FD18A0123F00A5E25E /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24B322FC18A0123F00A5E25E /* defaults.plist */; };
 		24B9F037189870D6002A3697 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B9F036189870D6002A3697 /* NSFileManager+DirectoryLocations.m */; };
@@ -314,7 +313,6 @@
 			files = (
 				2429600F1BC9D8CC00AB8445 /* WebKit.framework in Frameworks */,
 				24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */,
-				24B29B5C19328E6E0009C3D8 /* DiskArbitration.framework in Frameworks */,
 				240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */,
 				242E92BB1CF202140096DECA /* Sparkle.framework in Frameworks */,
 				24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */,

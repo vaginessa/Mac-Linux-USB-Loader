@@ -296,7 +296,6 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 						usbDevice.path = usbDeviceMountPoint;
 						usbDevice.name = usbDeviceMountPoint.lastPathComponent;
 						usbDevice.fileSystem = [volumeType isEqualToString:@"msdos"] ? SBUSBDriveFileSystemFAT32 : SBUSBDriveFileSystemHFS;
-						usbDevice.uuid = [SBAppDelegate uuidForDeviceName:usbDeviceMountPoint];
 
 						self.usbDictionary[usbDevice.name] = usbDevice;
 					}
@@ -471,47 +470,6 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 			NSLog(@"Selected table index %ld is not valid.", (long)clickedRow);
 			break;
 	}
-}
-
-+ (NSUUID *)uuidForDeviceName:(NSString *)name {
-	DADiskRef disk = NULL;
-	CFDictionaryRef descDict;
-	DASessionRef session = DASessionCreate(NULL);
-	if (session) {
-		const char *mountPoint = [name cStringUsingEncoding:NSASCIIStringEncoding];
-		CFURLRef url = CFURLCreateFromFileSystemRepresentation(NULL, (const UInt8 *)mountPoint, strlen(mountPoint), TRUE);
-		disk = DADiskCreateFromVolumePath(NULL, session, url);
-		if (disk) {
-			descDict = DADiskCopyDescription(disk);
-			if (descDict) {
-				CFTypeRef value = (CFTypeRef)CFDictionaryGetValue(descDict,
-				                                                  CFSTR("DAVolumeUUID"));
-				CFStringRef strValue = CFStringCreateWithFormat(NULL, NULL,
-				                                                CFSTR("%@"), value);
-				//NSLog(@"%@", strValue);
-				CFRelease(session);
-				CFRelease(url);
-				CFRelease(disk);
-				CFRelease(descDict);
-
-				NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:CFBridgingRelease(strValue)];
-				//SBLogObject([uuid UUIDString]);
-				return uuid;
-			} else {
-				CFRelease(disk);
-				NSLog(@"Sorry, no Disk Arbitration description.");
-			}
-		} else {
-			NSLog(@"Sorry, no Disk Arbitration disk.");
-		}
-
-		CFRelease(url);
-		CFRelease(session);
-	} else {
-		NSLog(@"Sorry, no Disk Arbitration session.");
-	}
-
-	return nil;
 }
 
 + (SBLinuxDistribution)distributionEnumForEquivalentName:(NSString *)name __attribute__((pure)) {
