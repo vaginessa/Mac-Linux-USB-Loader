@@ -249,7 +249,7 @@
                                                 </button>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="o16-cH-t1N">
                                                     <rect key="frame" x="18" y="170" width="339" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="This ISO is based on a legacy version of Ubuntu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K4N-ZO-OI0">
+                                                    <buttonCell key="cell" type="check" title="This ISO is based on a legacy version of Ubuntu" bezelStyle="regularSquare" imagePosition="left" inset="2" id="K4N-ZO-OI0">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
@@ -349,7 +349,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="884.5" y="-7.5"/>
+            <point key="canvasLocation" x="902.5" y="67.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
