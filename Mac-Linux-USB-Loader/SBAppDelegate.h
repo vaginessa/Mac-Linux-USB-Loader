@@ -51,7 +51,6 @@
 - (IBAction)showHelp:(id)sender;
 - (IBAction)showProjectWebsite:(id)sender;
 - (IBAction)showMoreOptionsPopover:(id)sender;
-- (IBAction)hideMoreOptionsPopover:(id)sender;
 - (IBAction)reportBug:(id)sender;
 
 + (NSString *)distributionStringForEquivalentEnum:(SBLinuxDistribution)dist;
