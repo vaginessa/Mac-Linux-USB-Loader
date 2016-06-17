@@ -46,13 +46,6 @@
 
 - (void)purgeCachesAndOldFiles;
 
-- (IBAction)showPreferencesWindow:(id)sender;
-- (IBAction)showAboutWindow:(id)sender;
-- (IBAction)showHelp:(id)sender;
-- (IBAction)showProjectWebsite:(id)sender;
-- (IBAction)showMoreOptionsPopover:(id)sender;
-- (IBAction)reportBug:(id)sender;
-
 + (NSString *)distributionStringForEquivalentEnum:(SBLinuxDistribution)dist;
 
 /**
