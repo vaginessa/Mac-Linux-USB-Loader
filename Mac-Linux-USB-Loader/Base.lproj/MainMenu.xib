@@ -550,24 +550,11 @@
             </connections>
         </popover>
         <customView id="5h4-lh-Ua3" userLabel="Popover View">
-            <rect key="frame" x="0.0" y="0.0" width="205" height="138"/>
+            <rect key="frame" x="0.0" y="0.0" width="205" height="94"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xNF-xw-Qcf">
-                    <rect key="frame" x="20" y="19" width="46" height="19"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="46" id="dYj-am-aS7"/>
-                    </constraints>
-                    <buttonCell key="cell" type="roundRect" title="Close" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oZ5-WW-zYO">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="cellTitle"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="hideMoreOptionsPopover:" target="MUZ-eu-C3f" id="joU-oB-LE5"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lkn-Ug-NQ0">
-                    <rect key="frame" x="14" y="57" width="175" height="32"/>
+                    <rect key="frame" x="14" y="13" width="175" height="32"/>
                     <buttonCell key="cell" type="push" title="Report Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9zF-bC-eXK">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -577,7 +564,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gew-ZC-hmk">
-                    <rect key="frame" x="14" y="90" width="175" height="32"/>
+                    <rect key="frame" x="14" y="46" width="175" height="32"/>
                     <buttonCell key="cell" type="push" title="Show Project Website" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LhO-Jz-UPe">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -589,16 +576,14 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="lkn-Ug-NQ0" secondAttribute="trailing" constant="22" id="4al-1T-BZL"/>
-                <constraint firstAttribute="bottom" secondItem="xNF-xw-Qcf" secondAttribute="bottom" constant="20" symbolic="YES" id="SXn-ZF-YUr"/>
                 <constraint firstItem="Gew-ZC-hmk" firstAttribute="trailing" secondItem="lkn-Ug-NQ0" secondAttribute="trailing" id="WDK-Re-9Ng"/>
-                <constraint firstItem="xNF-xw-Qcf" firstAttribute="leading" secondItem="lkn-Ug-NQ0" secondAttribute="leading" id="Ytu-C8-R9e"/>
                 <constraint firstItem="Gew-ZC-hmk" firstAttribute="leading" secondItem="lkn-Ug-NQ0" secondAttribute="leading" id="fMc-2W-Jhf"/>
                 <constraint firstAttribute="trailing" secondItem="Gew-ZC-hmk" secondAttribute="trailing" constant="22" id="q4M-Wq-cJP"/>
                 <constraint firstItem="lkn-Ug-NQ0" firstAttribute="top" secondItem="Gew-ZC-hmk" secondAttribute="bottom" constant="12" symbolic="YES" id="t2l-Vc-0uS"/>
                 <constraint firstItem="Gew-ZC-hmk" firstAttribute="top" secondItem="5h4-lh-Ua3" secondAttribute="top" constant="20" symbolic="YES" id="tpq-ie-Lyt"/>
                 <constraint firstItem="Gew-ZC-hmk" firstAttribute="leading" secondItem="5h4-lh-Ua3" secondAttribute="leading" constant="20" symbolic="YES" id="uF0-jA-CFA"/>
             </constraints>
-            <point key="canvasLocation" x="283.5" y="175"/>
+            <point key="canvasLocation" x="283.5" y="153"/>
         </customView>
         <menu id="F19-pk-eIT" userLabel="Dock Menu">
             <items>

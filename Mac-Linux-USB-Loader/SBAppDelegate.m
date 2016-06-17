@@ -375,10 +375,6 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	                              preferredEdge:NSMaxYEdge];
 }
 
-- (IBAction)hideMoreOptionsPopover:(id)sender {
-	[self.moreOptionsPopover close];
-}
-
 - (IBAction)showProjectWebsite:(id)sender {
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/Mac-Linux-USB-Loader/"]];
 }
