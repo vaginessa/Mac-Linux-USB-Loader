@@ -26,11 +26,11 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 }
 // These need to be here so that we can write to readonly variables within
 // this file, but prohibit others from being able to do so.
-@property (nonatomic, strong) NSMutableDictionary *usbDictionary;
-@property (nonatomic, strong) NSMutableDictionary *enterpriseInstallLocations;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, SBUSBDevice *> *usbDictionary;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, SBEnterpriseSourceLocation *> *enterpriseInstallLocations;
 @property (nonatomic, strong) NSString *pathToApplicationSupportDirectory;
-@property (nonatomic, strong) NSDictionary *supportedDistributionsAndVersions;
-@property (nonatomic, strong) NSArray *supportedDistributions;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> *supportedDistributionsAndVersions;
+@property (nonatomic, strong) NSArray<NSString *> *supportedDistributions;
 
 @property (weak) IBOutlet NSTableView *operationsTableView;
 @property (weak) IBOutlet NSTextField *applicationVersionString;
