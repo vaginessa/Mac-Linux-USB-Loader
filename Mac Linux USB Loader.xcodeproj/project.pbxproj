@@ -568,14 +568,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24A4ECA71884966A00CE6CF0 /* Build configuration list for PBXNativeTarget "Mac Linux USB Loader" */;
 			buildPhases = (
-				666BF4E42EADEB61B21C5F57 /* 📦 Check Pods Manifest.lock */,
+				666BF4E42EADEB61B21C5F57 /* [CP] Check Pods Manifest.lock */,
 				24A4EC6F1884966900CE6CF0 /* Sources */,
 				24A4EC701884966900CE6CF0 /* Frameworks */,
 				24A4EC711884966900CE6CF0 /* Resources */,
 				24155CC418903AD200FAB98C /* Copy Files */,
 				24743B6C18BBE6E1008B5458 /* CopyFiles */,
-				23CEDE1621F57F74D2B40B86 /* 📦 Embed Pods Frameworks */,
-				B68F4842EA4D3222B5C0E7CB /* 📦 Copy Pods Resources */,
+				23CEDE1621F57F74D2B40B86 /* [CP] Embed Pods Frameworks */,
+				B68F4842EA4D3222B5C0E7CB /* [CP] Copy Pods Resources */,
 				242E92B81CF200380096DECA /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -591,12 +591,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24A4ECAA1884966A00CE6CF0 /* Build configuration list for PBXNativeTarget "Mac Linux USB LoaderTests" */;
 			buildPhases = (
-				4F3F6972FB1C5E258B1AE7D5 /* 📦 Check Pods Manifest.lock */,
+				4F3F6972FB1C5E258B1AE7D5 /* [CP] Check Pods Manifest.lock */,
 				24A4EC931884966A00CE6CF0 /* Sources */,
 				24A4EC941884966A00CE6CF0 /* Frameworks */,
 				24A4EC951884966A00CE6CF0 /* Resources */,
-				722DCB879FE10ECD835EE403 /* 📦 Embed Pods Frameworks */,
-				86DC207A43C8B95B3F02CCEA /* 📦 Copy Pods Resources */,
+				722DCB879FE10ECD835EE403 /* [CP] Embed Pods Frameworks */,
+				86DC207A43C8B95B3F02CCEA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -691,14 +691,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23CEDE1621F57F74D2B40B86 /* 📦 Embed Pods Frameworks */ = {
+		23CEDE1621F57F74D2B40B86 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,14 +706,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac Linux USB Loader/Pods-Mac Linux USB Loader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4F3F6972FB1C5E258B1AE7D5 /* 📦 Check Pods Manifest.lock */ = {
+		4F3F6972FB1C5E258B1AE7D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,14 +721,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		666BF4E42EADEB61B21C5F57 /* 📦 Check Pods Manifest.lock */ = {
+		666BF4E42EADEB61B21C5F57 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,14 +736,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		722DCB879FE10ECD835EE403 /* 📦 Embed Pods Frameworks */ = {
+		722DCB879FE10ECD835EE403 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,14 +751,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac Linux USB LoaderTests/Pods-Mac Linux USB LoaderTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		86DC207A43C8B95B3F02CCEA /* 📦 Copy Pods Resources */ = {
+		86DC207A43C8B95B3F02CCEA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -766,14 +766,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac Linux USB LoaderTests/Pods-Mac Linux USB LoaderTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B68F4842EA4D3222B5C0E7CB /* 📦 Copy Pods Resources */ = {
+		B68F4842EA4D3222B5C0E7CB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
