@@ -22,6 +22,7 @@
 @property (weak) IBOutlet NSPopUpButton *distributionSelectorPopup;
 @property (weak) IBOutlet NSButton *isMacVersionCheckBox;
 @property (weak) IBOutlet NSButton *isLegacyUbuntuVersionCheckBox;
+@property (weak) IBOutlet NSButton *shouldSkipBootMenuCheckbox;
 @property (weak) IBOutlet NSButton *forwardButton;
 @property (weak) IBOutlet NSButton *backwardsButton;
 @end
@@ -296,7 +297,7 @@ get_bookmarks:
 
 	// Write out the Enterprise configuration file.
 	SBLinuxDistribution distribution = [self.distributionSelectorPopup selectedTag];
-	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:(self.isMacVersionCheckBox).state == NSOnState containsLegacyUbuntuVersion:(self.isLegacyUbuntuVersionCheckBox).state == NSOnState];
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:(self.isMacVersionCheckBox).state == NSOnState containsLegacyUbuntuVersion:(self.isLegacyUbuntuVersionCheckBox).state == NSOnState shouldSkipBootMenu:(self.shouldSkipBootMenuCheckbox).state == NSOnState];
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		SBEnterpriseSourceLocation *sourceLocation = ((SBAppDelegate *)NSApp.delegate).enterpriseInstallLocations[selectedEnterpriseSourceName];

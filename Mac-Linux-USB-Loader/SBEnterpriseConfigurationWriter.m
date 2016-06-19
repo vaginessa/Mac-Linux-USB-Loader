@@ -75,7 +75,7 @@
 	return YES;
 }
 
-+ (void)writeConfigurationFileAtUSB:(SBUSBDevice *)device distributionFamily:(SBLinuxDistribution)family isMacUbuntu:(BOOL)isMacUbuntu containsLegacyUbuntuVersion:(BOOL)containsLegacyUbuntu {
++ (void)writeConfigurationFileAtUSB:(SBUSBDevice *)device distributionFamily:(SBLinuxDistribution)family isMacUbuntu:(BOOL)isMacUbuntu containsLegacyUbuntuVersion:(BOOL)containsLegacyUbuntu shouldSkipBootMenu:(BOOL)shouldSkip {
 	NSError *error;
 	NSString *distributionId = [SBAppDelegate distributionStringForEquivalentEnum:family];
 
@@ -84,6 +84,7 @@
 
 	if (family != SBDistributionUnknown) {
 		[string appendString:@"#This file is machine generated. Do not modify it unless you know what you are doing.\n\n"];
+		if (shouldSkip) [string appendString:@"autoboot 0\n"];
 		[string appendFormat:@"entry %@\n", distributionId];
 		[string appendFormat:@"family %@\n", ([distributionId isEqualToString:@"Kali"] || [distributionId isEqualToString:@"Tails"]) ? @"Debian" : distributionId];
 

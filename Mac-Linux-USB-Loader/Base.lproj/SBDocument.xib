@@ -15,6 +15,7 @@
                 <outlet property="installationProgressBar" destination="bdV-ll-emw" id="Ct4-mC-KVI"/>
                 <outlet property="isLegacyUbuntuVersionCheckBox" destination="o16-cH-t1N" id="xhZ-kG-kLF"/>
                 <outlet property="isMacVersionCheckBox" destination="3yc-Pg-5C8" id="adc-FA-NYx"/>
+                <outlet property="shouldSkipBootMenuCheckbox" destination="ZcM-fL-Xsr" id="Ucw-r6-X8M"/>
                 <outlet property="tabView" destination="3b6-2Y-5OI" id="GT0-l0-3dB"/>
                 <outlet property="usbDriveSelector" destination="9br-dw-B95" id="Z1o-q1-ekS"/>
                 <outlet property="window" destination="5" id="18"/>
@@ -25,7 +26,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="133" y="235" width="625" height="347"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
             <value key="minSize" type="size" width="625" height="347"/>
             <view key="contentView" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="625" height="347"/>
@@ -56,7 +57,7 @@
                                 <color key="value" red="0.99444444444444446" green="0.98888888888888893" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                <color key="value" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="value" red="0.95634497933135076" green="1" blue="0.97608839542601133" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </customView>
@@ -251,15 +252,22 @@
                                                     </connections>
                                                 </popUpButton>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="3yc-Pg-5C8">
-                                                    <rect key="frame" x="18" y="190" width="339" height="18"/>
+                                                    <rect key="frame" x="18" y="170" width="339" height="18"/>
                                                     <buttonCell key="cell" type="check" title="This ISO lacks an EFI-enabled kernel" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" state="on" inset="2" id="2N3-rh-Hxh">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="o16-cH-t1N">
-                                                    <rect key="frame" x="18" y="170" width="339" height="18"/>
+                                                    <rect key="frame" x="18" y="150" width="339" height="18"/>
                                                     <buttonCell key="cell" type="check" title="This ISO is based on a legacy version of Ubuntu" bezelStyle="regularSquare" imagePosition="left" inset="2" id="K4N-ZO-OI0">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="ZcM-fL-Xsr">
+                                                    <rect key="frame" x="18" y="190" width="339" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Skip the boot selection menu" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" state="on" inset="2" id="RBA-Ti-vGI">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
@@ -267,19 +275,22 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="bdV-ll-emw" secondAttribute="bottom" constant="20" id="4r6-Pw-AkU"/>
+                                                <constraint firstItem="3yc-Pg-5C8" firstAttribute="top" secondItem="ZcM-fL-Xsr" secondAttribute="bottom" constant="6" id="8Gd-vp-q6k"/>
                                                 <constraint firstItem="o16-cH-t1N" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="CRr-dP-rDl"/>
                                                 <constraint firstItem="o16-cH-t1N" firstAttribute="top" secondItem="3yc-Pg-5C8" secondAttribute="bottom" constant="6" id="Lzj-Fv-lxi"/>
+                                                <constraint firstItem="ZcM-fL-Xsr" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="NPc-AM-Z25"/>
                                                 <constraint firstAttribute="trailing" secondItem="3yc-Pg-5C8" secondAttribute="trailing" constant="20" id="OoI-Vq-6XI"/>
                                                 <constraint firstAttribute="trailing" secondItem="FN5-Ti-WuH" secondAttribute="trailing" constant="20" id="R6S-i6-4y1"/>
                                                 <constraint firstItem="3yc-Pg-5C8" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="Tz6-cC-oQl"/>
                                                 <constraint firstItem="FN5-Ti-WuH" firstAttribute="top" secondItem="pVC-o9-IvQ" secondAttribute="top" constant="19" id="UZE-UD-gp4"/>
                                                 <constraint firstItem="PJn-58-U8W" firstAttribute="top" secondItem="pVC-o9-IvQ" secondAttribute="top" constant="20" id="cKr-xW-ui5"/>
                                                 <constraint firstItem="PJn-58-U8W" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="hPs-7b-ahR"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZcM-fL-Xsr" secondAttribute="trailing" constant="20" id="huh-vg-e56"/>
                                                 <constraint firstItem="FN5-Ti-WuH" firstAttribute="leading" secondItem="PJn-58-U8W" secondAttribute="trailing" constant="8" id="l6N-6U-oI7"/>
-                                                <constraint firstItem="3yc-Pg-5C8" firstAttribute="top" secondItem="FN5-Ti-WuH" secondAttribute="bottom" constant="20" id="pdm-As-o3x"/>
                                                 <constraint firstAttribute="trailing" secondItem="bdV-ll-emw" secondAttribute="trailing" constant="20" id="wGT-fa-hcJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="o16-cH-t1N" secondAttribute="trailing" constant="20" id="wLj-8o-iXq"/>
                                                 <constraint firstItem="bdV-ll-emw" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="woY-T5-csc"/>
+                                                <constraint firstItem="ZcM-fL-Xsr" firstAttribute="top" secondItem="FN5-Ti-WuH" secondAttribute="bottom" constant="20" id="z6l-FW-5by"/>
                                             </constraints>
                                         </view>
                                     </tabViewItem>
@@ -349,7 +360,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="923.5" y="94.5"/>
+            <point key="canvasLocation" x="1136.5" y="328.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
