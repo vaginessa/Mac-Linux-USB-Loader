@@ -343,6 +343,7 @@ get_bookmarks:
 	(self.distributionSelectorPopup).enabled = enabled;
 	(self.isMacVersionCheckBox).enabled = enabled;
 	(self.isLegacyUbuntuVersionCheckBox).enabled = enabled;
+	(self.shouldSkipBootMenuCheckbox).enabled = enabled;
 	(self.usbDriveSelector).hidden = !enabled;
 	(self.enterpriseSourceSelector).enabled = enabled;
 }
