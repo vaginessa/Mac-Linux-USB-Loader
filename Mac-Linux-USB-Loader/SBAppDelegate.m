@@ -183,7 +183,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	}
 
 	// Deal with old ISOs.
-	path = self->fileManager.applicationSupportDirectory;
+	path = self.pathToApplicationSupportDirectory;
 	en = [fm enumeratorAtPath:path];
 	while (file = [en nextObject]) {
 		BOOL shouldDelete = YES;
