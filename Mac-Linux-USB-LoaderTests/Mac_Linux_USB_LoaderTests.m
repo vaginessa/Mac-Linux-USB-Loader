@@ -37,7 +37,7 @@
 	NSString *fileName = [directory stringByAppendingPathComponent:@"enterprise.cfg"];
 	NSLog(@"Writing to: %@", device.path);
 
-	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionKali isMacUbuntu:NO containsLegacyUbuntuVersion:NO];
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionKali isMacUbuntu:NO containsLegacyUbuntuVersion:NO shouldSkipBootMenu:NO];
 	if (![[NSFileManager defaultManager] fileExistsAtPath:fileName isDirectory:NULL]) {
 		XCTFail(@"File doesn't exist.");
 	} else if (![[NSWorkspace sharedWorkspace] openFile:fileName]) {
@@ -55,7 +55,7 @@
 	NSString *fileName = [directory stringByAppendingPathComponent:@"enterprise.cfg"];
 	NSLog(@"Writing to: %@", device.path);
 
-	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionUbuntu isMacUbuntu:NO containsLegacyUbuntuVersion:NO];
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionUbuntu isMacUbuntu:NO containsLegacyUbuntuVersion:NO shouldSkipBootMenu:NO];
 	if (![[NSFileManager defaultManager] fileExistsAtPath:fileName isDirectory:NULL]) {
 		XCTFail(@"File doesn't exist.");
 	} else if (![[NSWorkspace sharedWorkspace] openFile:fileName]) {
@@ -73,7 +73,7 @@
 	NSString *fileName = [directory stringByAppendingPathComponent:@"enterprise.cfg"];
 	NSLog(@"Writing to: %@", device.path);
 
-	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionTails isMacUbuntu:NO containsLegacyUbuntuVersion:NO];
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionTails isMacUbuntu:NO containsLegacyUbuntuVersion:NO shouldSkipBootMenu:NO];
 	if (![[NSFileManager defaultManager] fileExistsAtPath:fileName isDirectory:NULL]) {
 		XCTFail(@"File doesn't exist.");
 	} else if (![[NSWorkspace sharedWorkspace] openFile:fileName]) {
@@ -91,7 +91,7 @@
 	NSString *fileName = [directory stringByAppendingPathComponent:@"enterprise.cfg"];
 	NSLog(@"Writing to: %@", device.path);
 
-	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionUnknown isMacUbuntu:NO containsLegacyUbuntuVersion:NO];
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:device distributionFamily:SBDistributionUnknown isMacUbuntu:NO containsLegacyUbuntuVersion:NO shouldSkipBootMenu:NO];
 	if (![[NSFileManager defaultManager] fileExistsAtPath:fileName isDirectory:NULL]) {
 		XCTFail(@"File doesn't exist.");
 	} else if (![[NSWorkspace sharedWorkspace] openFile:fileName]) {
