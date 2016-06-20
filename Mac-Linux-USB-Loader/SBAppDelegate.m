@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 SevenBits. All rights reserved.
 //
 
+#import <Sparkle/Sparkle.h>
+
 #import "SBAppDelegate.h"
 #import "SBGeneralPreferencesViewController.h"
 #import "SBEnterprisePreferencesViewController.h"
@@ -96,6 +98,12 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 	// Register default defaults.
 	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+
+	// Customize the update channel based on the user's settings.
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"UserOnBetaUpdateChannel"]) {
+		NSURL *feedURL = [NSURL URLWithString:@"https://www.sevenbits.tk/appcasts/mlul-beta.xml"];
+		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
+	}
 
 	// Load the list of Enterprise installation sources.
 	[self setupEnterpriseInstallationLocations];

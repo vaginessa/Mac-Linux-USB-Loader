@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 SevenBits. All rights reserved.
 //
 
+#import <Sparkle/Sparkle.h>
+
 #import "SBUpdatePreferencesViewController.h"
 
 @interface SBUpdatePreferencesViewController ()
@@ -29,6 +31,21 @@
 
 - (NSString *)toolbarItemLabel {
 	return NSLocalizedString(@"Updates", nil);
+}
+
+#pragma mark - IBActions
+
+- (IBAction)changeUpdateChannel:(NSPopUpButton *)sender {
+	SBLogInteger(sender.selectedTag);
+	if (sender.selectedTag == 1) {
+		NSURL *feedURL = [NSURL URLWithString:@"https://www.sevenbits.tk/appcasts/mlul-beta.xml"];
+		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
+	} else {
+		// TODO: Change this so it grabs from app's plist file, in case this ever changes in the
+		// future.
+		NSURL *feedURL = [NSURL URLWithString:@"https://www.sevenbits.tk/appcasts/mlul.xml"];
+		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
+	}
 }
 
 @end
