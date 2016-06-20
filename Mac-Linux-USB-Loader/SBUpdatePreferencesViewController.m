@@ -36,7 +36,6 @@
 #pragma mark - IBActions
 
 - (IBAction)changeUpdateChannel:(NSPopUpButton *)sender {
-	SBLogInteger(sender.selectedTag);
 	if (sender.selectedTag == 1) {
 		NSURL *feedURL = [NSURL URLWithString:@"https://www.sevenbits.tk/appcasts/mlul-beta.xml"];
 		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
