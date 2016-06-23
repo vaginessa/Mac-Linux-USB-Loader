@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240F1FAB1891A88F00AE9F82 /* IOKit.framework */; };
 		240F98A118B060AD001EAE87 /* SBEnterpriseSourceLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 240F98A018B060AD001EAE87 /* SBEnterpriseSourceLocation.m */; };
 		240FE88019FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 240FE87F19FB0D11004096C7 /* SBEnterpriseConfigurationWriter.m */; };
 		24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101B861896D4A300EDE32C /* SBAboutWindowController.m */; };
@@ -313,7 +312,6 @@
 			files = (
 				2429600F1BC9D8CC00AB8445 /* WebKit.framework in Frameworks */,
 				24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */,
-				240F1FAC1891A88F00AE9F82 /* IOKit.framework in Frameworks */,
 				242E92BB1CF202140096DECA /* Sparkle.framework in Frameworks */,
 				24A4EC771884966900CE6CF0 /* Cocoa.framework in Frameworks */,
 				7BC593D41A12C2FDCDD8F3BC /* libPods-Mac Linux USB Loader.a in Frameworks */,
