@@ -75,5 +75,7 @@
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
 	<string>https://www.sevenbits.tk/appcasts/mlul.xml</string>
+	<key>SUBetaFeedURL</key>
+	<string>https://www.sevenbits.tk/appcasts/mlul-beta.xml</string>
 </dict>
 </plist>

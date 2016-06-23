@@ -101,7 +101,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 
 	// Customize the update channel based on the user's settings.
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"UserOnBetaUpdateChannel"]) {
-		NSURL *feedURL = [NSURL URLWithString:@"https://www.sevenbits.tk/appcasts/mlul-beta.xml"];
+		NSString *feedString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUBetaFeedURL"];
+		NSURL *feedURL = [NSURL URLWithString:feedString];
 		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
 	}
 

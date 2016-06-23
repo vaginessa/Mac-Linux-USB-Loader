@@ -36,14 +36,15 @@
 #pragma mark - IBActions
 
 - (IBAction)changeUpdateChannel:(NSPopUpButton *)sender {
+	NSString *feedString;
 	if (sender.selectedTag == 1) {
-		NSURL *feedURL = [NSURL URLWithString:@"https://www.sevenbits.tk/appcasts/mlul-beta.xml"];
-		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
+		feedString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUBetaFeedURL"];
 	} else {
-		NSString *feedString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUFeedURL"];
-		NSURL *feedURL = [NSURL URLWithString:feedString];
-		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
+		feedString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUFeedURL"];
 	}
+
+	NSURL *feedURL = [NSURL URLWithString:feedString];
+	[[SUUpdater sharedUpdater] setFeedURL:feedURL];
 }
 
 @end
