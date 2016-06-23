@@ -40,9 +40,8 @@
 		NSURL *feedURL = [NSURL URLWithString:@"https://www.sevenbits.tk/appcasts/mlul-beta.xml"];
 		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
 	} else {
-		// TODO: Change this so it grabs from app's plist file, in case this ever changes in the
-		// future.
-		NSURL *feedURL = [NSURL URLWithString:@"https://www.sevenbits.tk/appcasts/mlul.xml"];
+		NSString *feedString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUFeedURL"];
+		NSURL *feedURL = [NSURL URLWithString:feedString];
 		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
 	}
 }
