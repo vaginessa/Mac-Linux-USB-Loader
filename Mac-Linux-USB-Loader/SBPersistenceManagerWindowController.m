@@ -23,6 +23,8 @@
 @property (weak) IBOutlet NSButton *resetSliderButton;
 @property (weak) IBOutlet NSButton *refreshButton;
 
+@property (assign) BOOL usbIsSelected;
+
 @property id activity;
 
 @end
@@ -91,11 +93,8 @@
 }
 
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
-	if ((self.usbSelectorPopup).indexOfSelectedItem != 0) {
-		[self.persistenceOptionsSetupBox setHidden:NO];
-	} else {
-		[self.persistenceOptionsSetupBox setHidden:YES];
-	}
+	// This will update the UI via Cocoa bindings.
+	self.usbIsSelected = (self.usbSelectorPopup).indexOfSelectedItem != 0;
 }
 
 - (IBAction)createPersistenceButtonPressed:(id)sender {
