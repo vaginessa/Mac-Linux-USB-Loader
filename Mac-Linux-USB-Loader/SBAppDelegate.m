@@ -360,13 +360,18 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
 
 - (IBAction)showPreferencesWindow:(id)sender {
 	if (!self->preferencesWindowController) {
+		BOOL showEnterprisePrefs = [[NSUserDefaults standardUserDefaults] boolForKey:@"ShowEnterpriseSourcesPanel"];
 		SBGeneralPreferencesViewController *generalPreferences = [[SBGeneralPreferencesViewController alloc] initWithNibName:@"SBGeneralPreferencesViewController" bundle:nil];
 		SBEnterprisePreferencesViewController *enterprisePreferences = [[SBEnterprisePreferencesViewController alloc] initWithNibName:@"SBEnterprisePreferencesViewController" bundle:nil];
 		SBDistributionDownloaderPreferencesViewController *downloaderPreferences = [[SBDistributionDownloaderPreferencesViewController alloc] initWithNibName:@"SBDistributionDownloaderPreferencesViewController" bundle:nil];
 		SBUpdatePreferencesViewController *updaterPreferences = [[SBUpdatePreferencesViewController alloc] initWithNibName:@"SBUpdatePreferencesViewController" bundle:nil];
 
-		NSArray *controllers = @[generalPreferences, enterprisePreferences, downloaderPreferences, updaterPreferences,
-		                         [RHPreferencesWindowController flexibleSpacePlaceholderController]];
+		NSArray *controllers = nil;
+		if (showEnterprisePrefs) {
+			controllers = @[generalPreferences, enterprisePreferences, downloaderPreferences, updaterPreferences, [RHPreferencesWindowController flexibleSpacePlaceholderController]];
+		} else {
+			controllers = @[generalPreferences, downloaderPreferences, updaterPreferences, [RHPreferencesWindowController flexibleSpacePlaceholderController]];
+		}
 		self->preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:controllers andTitle:NSLocalizedString(@"Preferences", nil)];
 	}
 
