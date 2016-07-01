@@ -54,7 +54,7 @@
 
 	// Set up the USB persistence file size selector.
 	[self.persistenceVolumeSizeSlider setContinuous:YES];
-	(self.persistenceVolumeSizeTextField).integerValue = 512000000;
+	(self.persistenceVolumeSizeTextField).integerValue = 512000000; // 512 MB
 }
 
 - (void)showWindow:(id)sender {
