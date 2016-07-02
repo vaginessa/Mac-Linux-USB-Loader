@@ -32,7 +32,9 @@ typedef NS_ENUM(unsigned int, State) {
 	task.launchPath = @"/bin/dd";
 	task.arguments = @[@"if=/dev/zero", [@"of=" stringByAppendingString:file], @"bs=1m",
 	                   [NSString stringWithFormat:@"count=%ld", (long)size]];
+#ifdef DEBUG
 	NSLog(@"command: %@ %@", task.launchPath, [task.arguments componentsJoinedByString:@" "]);
+#endif
 
 	// Launch the NSTask.
 	[task launch];
