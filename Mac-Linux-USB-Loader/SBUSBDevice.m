@@ -41,7 +41,9 @@ typedef NS_ENUM(unsigned int, State) {
 	[task waitUntilExit];
 
 	// Create the loopback file.
+#ifdef DEBUG
 	NSLog(@"Done USB persistence creation!");
+#endif
 }
 
 + (void)createLoopbackPersistence:(NSString *)file __attribute__((pure)) {
