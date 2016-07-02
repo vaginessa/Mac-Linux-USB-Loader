@@ -49,20 +49,8 @@ typedef NS_ENUM(unsigned int, State) {
 
 	NSTask *task = [[NSTask alloc] init];
 	task.launchPath = helperAppPath;
-	task.arguments = @[@"-t", @"ext4", file, @"-q"];
-
-	// Create a pipe for writing.
-	NSPipe *inputPipe = [NSPipe pipe];
-	dup2(inputPipe.fileHandleForReading.fileDescriptor, STDIN_FILENO);
-	task.standardInput = inputPipe;
-
-	NSFileHandle *handle = inputPipe.fileHandleForWriting;
+	task.arguments = @[@"-qF", @"-t", @"ext4", file];
 	[task launch];
-
-	// Answer "yes" to the message where the program complains that the file is not a block
-	// special device and asks if we want to continue anyway.
-	[handle writeData:[NSData dataWithBytes:"y" length:strlen("y")]];
-	[handle closeFile];
 	[task waitUntilExit];
 }
 
