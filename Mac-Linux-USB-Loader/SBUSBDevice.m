@@ -49,7 +49,7 @@ typedef NS_ENUM(unsigned int, State) {
 
 	NSTask *task = [[NSTask alloc] init];
 	task.launchPath = helperAppPath;
-	task.arguments = @[@"-t", @"ext4", file];
+	task.arguments = @[@"-t", @"ext4", file, @"-q"];
 
 	// Create a pipe for writing.
 	NSPipe *inputPipe = [NSPipe pipe];
