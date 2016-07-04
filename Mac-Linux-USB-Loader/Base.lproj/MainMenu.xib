@@ -348,6 +348,31 @@
                                     <action selector="makeKeyAndOrderFront:" target="eVZ-OT-8Zw" id="Wom-fb-q2k"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Open Tool" id="YZF-Y6-wHH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Open Tool" id="kqZ-Ze-RYr">
+                                    <items>
+                                        <menuItem title="Setup USB Device" tag="1" id="t7M-Sl-0ab">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="userSelectedToolFromDockMenu:" target="MUZ-eu-C3f" id="i48-gf-ubi"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Persistence Manager" tag="2" id="Enj-Bs-24S">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="userSelectedToolFromDockMenu:" target="MUZ-eu-C3f" id="6ut-z1-6yR"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Distribution Downloader" tag="3" id="ihd-oV-PL0">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="userSelectedToolFromDockMenu:" target="MUZ-eu-C3f" id="2Bl-Y4-iVc"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="0T8-YA-4Eo"/>
                             <menuItem title="Show Toolbar" keyEquivalent="t" id="297">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
@@ -405,7 +430,7 @@
         <window title="Mac Linux USB Loader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="eVZ-OT-8Zw" userLabel="Main Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <rect key="contentRect" x="90" y="307" width="698" height="341"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="698" height="341"/>
             <view key="contentView" id="tKZ-SI-zXF">
                 <rect key="frame" x="0.0" y="0.0" width="698" height="341"/>
@@ -635,6 +660,28 @@
             <point key="canvasLocation" x="299" y="255.5"/>
         </menu>
         <customObject id="NbB-fn-Ac8" userLabel="Sparkle" customClass="SUUpdater"/>
+        <menu title="Open Tool" id="ceI-01-83m">
+            <items>
+                <menuItem title="Setup USB Device" tag="1" id="Q1v-1v-FkZ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="userSelectedToolFromDockMenu:" target="MUZ-eu-C3f" id="CEF-FO-yUV"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Persistence Manager" tag="2" id="exP-uc-VcW">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="userSelectedToolFromDockMenu:" target="MUZ-eu-C3f" id="SPM-gH-1Hh"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Distribution Downloader" tag="3" id="r2D-fo-zsg">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="userSelectedToolFromDockMenu:" target="MUZ-eu-C3f" id="YVL-7x-ABa"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
