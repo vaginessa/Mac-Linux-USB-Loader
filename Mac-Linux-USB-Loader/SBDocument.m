@@ -199,8 +199,6 @@
 	// Get the names of files.
 	NSString *targetUSBMountPoint = selectedUSBDrive.path;
 
-	//NSString *enterpriseInstallFileName = [installDirectory stringByAppendingString:@"bootX64.efi"];
-
 	// Set the size of the file to be the max value of the progress bar.
 	NSString *enterprisePath = [sourceLocation.path stringByAppendingPathComponent:@"bootX64.efi"];
 	NSString *grubPath = [sourceLocation.path stringByAppendingPathComponent:@"boot.efi"];
