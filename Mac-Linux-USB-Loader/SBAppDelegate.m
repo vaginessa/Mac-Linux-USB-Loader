@@ -17,7 +17,7 @@
 
 #define SBClearAllMenuItemTag 552345
 
-const NSString *SBBundledEnterpriseVersionNumber = @"0.3.2";
+const NSString *SBBundledEnterpriseVersionNumber = @"0.4";
 
 @interface SBAppDelegate () {
 	SBUSBSetupWindowController *usbSetupWindowController;
