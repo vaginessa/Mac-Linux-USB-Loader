@@ -42,7 +42,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>9506</string>
+	<string>9515</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -73,9 +73,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUFeedURL</key>
-	<string>https://www.sevenbits.tk/appcasts/mlul.xml</string>
 	<key>SUBetaFeedURL</key>
 	<string>https://www.sevenbits.tk/appcasts/mlul-beta.xml</string>
+	<key>SUFeedURL</key>
+	<string>https://www.sevenbits.tk/appcasts/mlul.xml</string>
 </dict>
 </plist>
