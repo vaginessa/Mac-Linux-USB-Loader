@@ -337,7 +337,12 @@
 		}
 
 		// Encode the distribution name by removing any spaces.
-		NSString *encodedDistributionString = [selectedLinuxDistribution stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
+		NSString *encodedDistributionString = nil;
+		if ([NSString instancesRespondToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) {
+			encodedDistributionString = [selectedLinuxDistribution stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
+		} else {
+			encodedDistributionString = [selectedLinuxDistribution stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+		}
 
 		// Submit the request to Wikipedia and handle the data when it gets back.
 		NSString *URLString = [NSString stringWithFormat:@"https://%@.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=%@", language, encodedDistributionString];
