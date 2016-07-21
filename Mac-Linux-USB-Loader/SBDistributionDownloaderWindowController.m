@@ -520,12 +520,12 @@
 			/* The download was completed successfully. TODO: Show a notification. */
 
 			// Open the downloaded ISO file.
-			NSInteger completionOperation = [self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"];
-			if (completionOperation == 0) {
+			ISODownloadCompletionOperation completionOperation = [self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"];
+			if (completionOperation == ISODownloadCompletionOperationOpenDocument) {
 				NSURL *url = [NSURL fileURLWithPath:operation.path];
 				[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler: ^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}
 				];
-			} else if (completionOperation == 1) {
+			} else if (completionOperation == ISODownloadCompletionOperationShowInFinder) {
 				[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:path];
 			}
 		}

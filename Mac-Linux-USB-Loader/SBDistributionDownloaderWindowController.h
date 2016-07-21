@@ -13,6 +13,12 @@
 #import <JSONHTTPClient.h>
 #import "SBDownloadableDistributionModel.h"
 
+typedef NS_ENUM(NSUInteger, ISODownloadCompletionOperation) {
+	ISODownloadCompletionOperationOpenDocument = 0,
+	ISODownloadCompletionOperationShowInFinder,
+	ISODownloadCompletionOperationDoNothing
+};
+
 @interface SBDistributionDownloaderWindowController : NSWindowController <NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate, NSMenuDelegate>
 
 - (IBAction)downloadDistroButtonPressed:(id)sender;
