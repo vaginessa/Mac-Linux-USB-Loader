@@ -307,7 +307,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 #endif
 
 				if ([usbDeviceMountPoint isEqualToString:@"/"]) {
-					// Don't include the root partition in the list of USBs.
+					// Don't include the root partition in the list of external media.
 					continue;
 				} else {
 					if ([volumeType isEqualToString:@"msdos"] ||
