@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
@@ -24,7 +24,7 @@
         <window title="Persistence Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="196" y="399" width="624" height="156"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="624" height="156"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -125,6 +125,7 @@
                                 <constraint firstItem="cw7-Bo-nAF" firstAttribute="top" secondItem="vK6-dK-6jg" secondAttribute="top" constant="1" id="DAF-dT-830"/>
                                 <constraint firstAttribute="trailing" secondItem="Eon-uz-T23" secondAttribute="trailing" constant="20" id="EVd-XR-bQ9"/>
                                 <constraint firstItem="6JB-DA-RJT" firstAttribute="leading" secondItem="vK6-dK-6jg" secondAttribute="leading" constant="20" id="GAn-5A-2EU"/>
+                                <constraint firstItem="cw7-Bo-nAF" firstAttribute="leading" secondItem="gHL-Gw-83z" secondAttribute="trailing" constant="10" id="WEG-CI-IBK"/>
                                 <constraint firstItem="6JB-DA-RJT" firstAttribute="top" secondItem="gHL-Gw-83z" secondAttribute="bottom" constant="15" id="iBj-w1-7i7"/>
                                 <constraint firstItem="Eon-uz-T23" firstAttribute="top" secondItem="vK6-dK-6jg" secondAttribute="top" constant="30" id="qAF-mI-Yhy"/>
                                 <constraint firstItem="6JB-DA-RJT" firstAttribute="top" secondItem="cw7-Bo-nAF" secondAttribute="bottom" constant="13" id="uXG-zS-E8M"/>
@@ -190,7 +191,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
-            <point key="canvasLocation" x="1216" y="692"/>
+            <point key="canvasLocation" x="1203" y="751"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="9q0-ST-OZz"/>
     </objects>
