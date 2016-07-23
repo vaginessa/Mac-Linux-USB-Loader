@@ -26,10 +26,10 @@
 "L03-sB-mO5.title" = "Item 3";
 
 /* Class = "NSMenu"; title = "OtherViews"; ObjectID = "MXN-UG-9v0"; */
-"MXN-UG-9v0.title" = "OtherViews";
+"MXN-UG-9v0.title" = "Otras vistas";
 
 /* Class = "NSMenu"; title = "OtherViews"; ObjectID = "PGL-sf-a57"; */
-"PGL-sf-a57.title" = "OtherViews";
+"PGL-sf-a57.title" = "Otras vistas";
 
 /* Class = "NSTextFieldCell"; title = "Bitness:"; ObjectID = "QpP-Zr-Q0G"; */
 "QpP-Zr-Q0G.title" = "Bitness:";
@@ -55,8 +55,11 @@
 /* Class = "NSWindow"; title = "Window"; ObjectID = "dxA-hL-HgN"; */
 "dxA-hL-HgN.title" = "Ventana";
 
+/* Class = "NSButtonCell"; title = "More Information"; ObjectID = "e9B-4d-oSW"; */
+"e9B-4d-oSW.title" = "Más información";
+
 /* Class = "NSTextFieldCell"; title = "Something.iso"; ObjectID = "gKI-d9-ORr"; */
-"gKI-d9-ORr.title" = "Something.iso";
+"gKI-d9-ORr.title" = "Algo.iso";
 
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "oCQ-zG-why"; */
 "oCQ-zG-why.title" = "Text Cell";

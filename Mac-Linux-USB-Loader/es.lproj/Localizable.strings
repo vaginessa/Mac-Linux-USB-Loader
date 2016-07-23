@@ -17,6 +17,9 @@
 "Cannot use this USB as a startup disk." = "No es posible usar esta memoria USB como un disco de arranque.";
 
 /* No comment provided by engineer. */
+"Clear All" = "Limpiar todo";
+
+/* No comment provided by engineer. */
 "Couldn't get security scoped bookmarks." = "No se pudo obtener marcadores de seguridad.";
 
 /* No comment provided by engineer. */
@@ -28,8 +31,14 @@
 /* No comment provided by engineer. */
 "Creating virtual loopback filesystem..." = "Creando sistema de archivos virtual ...";
 
+/* (No Commment) */
+"Current Version" = "Versión actual";
+
 /* No comment provided by engineer. */
 "Distribution Downloader" = "Gestor de Descarga de Distribuciones";
+
+/* (No Commment) */
+"Distribution Name" = "Nombre distribución";
 
 /* No comment provided by engineer. */
 "Done creating persistence." = "Se ha creado la persistencia.";
@@ -68,6 +77,12 @@
 "No USB drive selected." = "No se ha seleccionado ningún dispositivo USB.";
 
 /* No comment provided by engineer. */
+"No information about this distribution was found in your language." = "No se ha encontrado información de esta distribución en tu idioma.";
+
+/* No comment provided by engineer. */
+"No information on this distribution could be found due to a network problem. You might not be connected to the Internet." = "No se ha encontrado información de esta distribución por un problema de red. Puede que estés desconectado.";
+
+/* No comment provided by engineer. */
 "No network connection." = "No hay conexión de red.";
 
 /* No comment provided by engineer. */
@@ -84,6 +99,9 @@
 
 /* No comment provided by engineer. */
 "Okay" = "Cerrar";
+
+/* No comment provided by engineer. */
+"Perform Installation" = "Instalar";
 
 /* No comment provided by engineer. */
 "Persistence Manager" = "Configuración de la Persistencia";
@@ -140,6 +158,12 @@
 "To authorize Mac Linux USB Loader to access your USB drive, please click Grant Access below." = "Por favor haz click en Permitir Acceso para autorizar Mac Linus USB Loader a acceder a tu dispositivo USB.";
 
 /* No comment provided by engineer. */
+"Updates" = "Actualizaciones";
+
+/* No comment provided by engineer. */
+"Version" = "Versión";
+
+/* No comment provided by engineer. */
 "Version %@ (%@)" = "Versión %1$@ (%2$@)";
 
 /* No comment provided by engineer. */
@@ -147,6 +171,12 @@
 
 /* No comment provided by engineer. */
 "You are now ready to use your USB drive!" = "¡Ahora está listo para usar su dispositivo USB!";
+
+/* No comment provided by engineer. */
+"You cannot download this distribution because Mac Linux USB Loader has not finished downloading its list of mirrors." = "No puedes bajar esta distribución porque Mac Linux USB Loader no ha acabado de descargar la lista de mirrors.";
+
+/* (No Commment) */
+"You cannot download this distribution because Mac USB Linux Loader has not finished downloading its list of mirrors." = "No puedes bajar esta distribución porque Mac Linux USB Loader no ha acabado de descargar la lista de mirrors.";
 
 /* No comment provided by engineer. */
 "You need to enter a name for this Enterprise installation source." = "Es necesario especificar un nombre para esta la fuente de instalación de Enterprise.";

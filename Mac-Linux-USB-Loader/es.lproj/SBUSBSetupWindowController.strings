@@ -20,7 +20,7 @@
 "doA-4w-haZ.title" = "Refrescar";
 
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "fbC-pL-dAc"; */
-"fbC-pL-dAc.title" = "Text Cell";
+"fbC-pL-dAc.title" = "Celda de texto";
 
 /* Class = "NSButtonCell"; title = "Edit Enterprise Configuration File"; ObjectID = "mdC-pj-boq"; */
 "mdC-pj-boq.title" = "Editar Archivo de Configuración Enterprise";
