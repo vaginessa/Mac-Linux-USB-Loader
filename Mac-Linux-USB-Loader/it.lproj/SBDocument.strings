@@ -43,13 +43,16 @@
 /* Class = "NSTextFieldCell"; title = "Choose Destination:"; ObjectID = "JzD-IM-Mo0"; */
 "JzD-IM-Mo0.title" = "Seleziona Destinazione:";
 
-/* Class = "NSButtonCell"; title = "This ISO has code older than Ubuntu 14.10"; ObjectID = "K4N-ZO-OI0"; */
+/* Class = "NSButtonCell"; title = "This ISO is based on a legacy version of Ubuntu"; ObjectID = "K4N-ZO-OI0"; */
 "K4N-ZO-OI0.title" = "Questa ISO ha codice più vecchio di Ubuntu 14.10";
 
 /* Class = "NSMenuItem"; title = "Refresh"; ObjectID = "Piy-za-BZH"; */
 "Piy-za-BZH.title" = "Aggiorna";
 
-/* Class = "NSButtonCell"; title = "Begin Installation"; ObjectID = "Tnc-ZF-mM8"; */
+/* Class = "NSButtonCell"; title = "Skip the boot selection menu"; ObjectID = "RBA-Ti-vGI"; */
+"RBA-Ti-vGI.title" = "Salta il menu di selezione del boot";
+
+/* (No Commment) */
 "Tnc-ZF-mM8.title" = "Inizia Installatione";
 
 /* Class = "NSTabViewItem"; label = "Second"; ObjectID = "Zyc-ZH-ZTl"; */

@@ -31,6 +31,9 @@
 /* No comment provided by engineer. */
 "Creating virtual loopback filesystem..." = "Creando virtual loopback filesystem...";
 
+/* (No Commment) */
+"Current Version" = "Versione Attuale";
+
 /* No comment provided by engineer. */
 "Distribution Downloader" = "Downloader di Distribuzione";
 
@@ -98,7 +101,7 @@
 "Okay" = "Okay";
 
 /* No comment provided by engineer. */
-"Other" = "Altro";
+"Perform Installation" = "Esegui Installazione";
 
 /* No comment provided by engineer. */
 "Persistence Manager" = "Gestore Persistence";

@@ -4,8 +4,14 @@
 /* Class = "NSMenuItem"; title = "Monthly"; ObjectID = "cvz-bF-QuY"; */
 "cvz-bF-QuY.title" = "Mensilmente";
 
+/* Class = "NSMenuItem"; title = "Beta"; ObjectID = "evE-1O-uww"; */
+"evE-1O-uww.title" = "Beta";
+
 /* Class = "NSMenuItem"; title = "Weekly"; ObjectID = "gnV-Vq-dhb"; */
 "gnV-Vq-dhb.title" = "Settimanalmente";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "hEu-HU-gLl"; */
+"hEu-HU-gLl.title" = "Box";
 
 /* Class = "NSButtonCell"; title = "Automatically Check for Updates"; ObjectID = "kjC-fK-tIu"; */
 "kjC-fK-tIu.title" = "Controlla Automaticamente Aggiornamenti";
@@ -18,4 +24,7 @@
 
 /* Class = "NSMenuItem"; title = "Daily"; ObjectID = "slG-Ox-uWY"; */
 "slG-Ox-uWY.title" = "Giornalmente";
+
+/* Class = "NSMenuItem"; title = "Stable"; ObjectID = "zL7-bw-ada"; */
+"zL7-bw-ada.title" = "Stabile";
 

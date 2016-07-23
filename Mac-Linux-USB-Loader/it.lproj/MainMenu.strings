@@ -226,6 +226,9 @@
 /* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "532"; */
 "532.title" = "Trova e Sostituisci...";
 
+/* Class = "NSMenuItem"; title = "Persistence Manager"; ObjectID = "Enj-Bs-24S"; */
+"Enj-Bs-24S.title" = "Persistence Manager";
+
 /* Class = "NSMenuItem"; title = "Check for Updates..."; ObjectID = "Ixf-5n-e5Q"; */
 "Ixf-5n-e5Q.title" = "Controlla Aggiornamenti..";
 
@@ -234,6 +237,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Mac Linux USB Loader"; ObjectID = "PbZ-Px-5X8"; */
 "PbZ-Px-5X8.title" = "Mac Linux USB Loader";
+
+/* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "Q1v-1v-FkZ"; */
+"Q1v-1v-FkZ.title" = "Configura Device USB";
 
 /* Class = "NSMenuItem"; title = "Registered Devices"; ObjectID = "Rct-bv-4eE"; */
 "Rct-bv-4eE.title" = "Dispositivi Registrati";
@@ -244,8 +250,14 @@
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "XYg-e8-VkS"; */
 "XYg-e8-VkS.title" = "Casella di Testo";
 
+/* Class = "NSMenuItem"; title = "Open Tool"; ObjectID = "YZF-Y6-wHH"; */
+"YZF-Y6-wHH.title" = "Apri Strumento";
+
 /* Class = "NSMenu"; title = "Registered Devices"; ObjectID = "bCd-j9-j8y"; */
 "bCd-j9-j8y.title" = "Dispositivi Registrati";
+
+/* Class = "NSMenu"; title = "Open Tool"; ObjectID = "ceI-01-83m"; */
+"ceI-01-83m.title" = "Apri Strumento";
 
 /* Class = "NSMenu"; title = "Open Tool"; ObjectID = "d8m-Or-MfF"; */
 "d8m-Or-MfF.title" = "Apri Strumento";
@@ -256,6 +268,9 @@
 /* Class = "NSWindow"; title = "Mac Linux USB Loader"; ObjectID = "eVZ-OT-8Zw"; */
 "eVZ-OT-8Zw.title" = "Mac Linux USB Loader";
 
+/* Class = "NSMenuItem"; title = "Persistence Manager"; ObjectID = "exP-uc-VcW"; */
+"exP-uc-VcW.title" = "Persistence Manager";
+
 /* Class = "NSButtonCell"; title = "More Options"; ObjectID = "f5Z-jQ-9Ok"; */
 "f5Z-jQ-9Ok.title" = "Più Opzioni";
 
@@ -265,17 +280,29 @@
 /* Class = "NSMenuItem"; title = "Show Project Homepage"; ObjectID = "iNg-8W-mXB"; */
 "iNg-8W-mXB.title" = "Mostra Hompage Progetto";
 
+/* Class = "NSMenuItem"; title = "Distribution Downloader"; ObjectID = "ihd-oV-PL0"; */
+"ihd-oV-PL0.title" = "Downloader di Distribuzioni";
+
 /* Class = "NSMenuItem"; title = "Create New Live USB"; ObjectID = "kO5-Pl-dr9"; */
 "kO5-Pl-dr9.title" = "Crea Nuova Live USB";
+
+/* Class = "NSMenu"; title = "Open Tool"; ObjectID = "kqZ-Ze-RYr"; */
+"kqZ-Ze-RYr.title" = "Apri Strumento";
 
 /* Class = "NSMenuItem"; title = "Welcome Screen"; ObjectID = "oSM-TE-Nol"; */
 "oSM-TE-Nol.title" = "Schermata di Benvenuto";
 
-/* Class = "NSButtonCell"; title = "Close"; ObjectID = "oZ5-WW-zYO"; */
+/* (No Commment) */
 "oZ5-WW-zYO.title" = "Chiudi";
+
+/* Class = "NSMenuItem"; title = "Distribution Downloader"; ObjectID = "r2D-fo-zsg"; */
+"r2D-fo-zsg.title" = "Downloader di Distribuzioni";
 
 /* Class = "NSMenuItem"; title = "Report Bug"; ObjectID = "sDa-Rj-9rb"; */
 "sDa-Rj-9rb.title" = "Segnala Bug";
+
+/* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "t7M-Sl-0ab"; */
+"t7M-Sl-0ab.title" = "Setup Dispositivo USB";
 
 /* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "vSy-lw-pcI"; */
 "vSy-lw-pcI.title" = "Setup Dispositivo USB";
