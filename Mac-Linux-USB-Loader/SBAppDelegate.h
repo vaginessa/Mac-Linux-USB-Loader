@@ -15,6 +15,18 @@
 #import "SBAboutWindowController.h"
 #import "SBDistributionDownloaderWindowController.h"
 
+/// An enumeration containing the various operations the user can do from the menu screen.
+typedef NS_ENUM (NSInteger, SBWelcomeScreenOperation) {
+	/// Show a file chooser to create a new live USB.
+	SBWelcomeScreenOperationCreateUSB = 0,
+	/// Show the USB setup window.
+	SBWelcomeScreenOperationSetupUSB,
+	/// Show the persistence setup window.
+	SBWelcomeScreenOperationSetupPersistence,
+	/// Show the distribution downloader.
+	SBWelcomeScreenOperationDistributionDownloader
+};
+
 @interface SBAppDelegate : NSObject {
 	__unsafe_unretained NSWindow *window;
 

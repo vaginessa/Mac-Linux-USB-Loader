@@ -457,14 +457,14 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 #pragma mark - Utility Functions
 
-- (void)loadWindowControllerForTool:(NSInteger)clickedRow {
+- (void)loadWindowControllerForTool:(SBWelcomeScreenOperation)clickedRow {
 	[self.window orderOut:nil];
 	switch (clickedRow) {
-		case 0:
+		case SBWelcomeScreenOperationCreateUSB:
 			[[NSDocumentController sharedDocumentController] openDocument:nil];
 			break;
 
-		case 1:
+		case SBWelcomeScreenOperationSetupUSB:
 			if (!self->usbSetupWindowController) {
 				self->usbSetupWindowController = [[SBUSBSetupWindowController alloc]
 												  initWithWindowNibName:@"SBUSBSetupWindowController"];
@@ -473,7 +473,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 			[self->usbSetupWindowController showWindow:nil];
 			break;
 
-		case 2:
+		case SBWelcomeScreenOperationSetupPersistence:
 			if (!self->persistenceSetupWindowController) {
 				self->persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
 														  initWithWindowNibName:@"SBPersistenceManagerWindowController"];
@@ -482,7 +482,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 			[self->persistenceSetupWindowController showWindow:nil];
 			break;
 
-		case 3:
+		case SBWelcomeScreenOperationDistributionDownloader:
 			if (!self->downloaderWindowController) {
 				self->downloaderWindowController = [[SBDistributionDownloaderWindowController alloc]
 													initWithWindowNibName:@"SBDistributionDownloaderWindowController"];
