@@ -226,6 +226,9 @@
 /* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "532"; */
 "532.title" = "検索して置換";
 
+/* Class = "NSMenuItem"; title = "Persistence Manager"; ObjectID = "Enj-Bs-24S"; */
+"Enj-Bs-24S.title" = "保存領域マネージャー";
+
 /* Class = "NSMenuItem"; title = "Check for Updates..."; ObjectID = "Ixf-5n-e5Q"; */
 "Ixf-5n-e5Q.title" = "アップデートを確認";
 
@@ -234,6 +237,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Mac Linux USB Loader"; ObjectID = "PbZ-Px-5X8"; */
 "PbZ-Px-5X8.title" = "Mac Linux USB Loader";
+
+/* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "Q1v-1v-FkZ"; */
+"Q1v-1v-FkZ.title" = "USBデバイスのセットアップ";
 
 /* Class = "NSMenuItem"; title = "Registered Devices"; ObjectID = "Rct-bv-4eE"; */
 "Rct-bv-4eE.title" = "登録されたデバイス";
@@ -244,8 +250,14 @@
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "XYg-e8-VkS"; */
 "XYg-e8-VkS.title" = "テキストセル";
 
+/* Class = "NSMenuItem"; title = "Open Tool"; ObjectID = "YZF-Y6-wHH"; */
+"YZF-Y6-wHH.title" = "ツールを開く";
+
 /* Class = "NSMenu"; title = "Registered Devices"; ObjectID = "bCd-j9-j8y"; */
 "bCd-j9-j8y.title" = "登録されたデバイス";
+
+/* Class = "NSMenu"; title = "Open Tool"; ObjectID = "ceI-01-83m"; */
+"ceI-01-83m.title" = "ツールを開く";
 
 /* Class = "NSMenu"; title = "Open Tool"; ObjectID = "d8m-Or-MfF"; */
 "d8m-Or-MfF.title" = "ツールを開く";
@@ -256,6 +268,9 @@
 /* Class = "NSWindow"; title = "Mac Linux USB Loader"; ObjectID = "eVZ-OT-8Zw"; */
 "eVZ-OT-8Zw.title" = "Mac Linux USB Loader";
 
+/* Class = "NSMenuItem"; title = "Persistence Manager"; ObjectID = "exP-uc-VcW"; */
+"exP-uc-VcW.title" = "保存領域マネージャー";
+
 /* Class = "NSButtonCell"; title = "More Options"; ObjectID = "f5Z-jQ-9Ok"; */
 "f5Z-jQ-9Ok.title" = "他のオプション";
 
@@ -265,21 +280,33 @@
 /* Class = "NSMenuItem"; title = "Show Project Homepage"; ObjectID = "iNg-8W-mXB"; */
 "iNg-8W-mXB.title" = "プロジェクトのホームページを表示";
 
+/* Class = "NSMenuItem"; title = "Distribution Downloader"; ObjectID = "ihd-oV-PL0"; */
+"ihd-oV-PL0.title" = "ディストリビューションダウンローダー";
+
 /* Class = "NSMenuItem"; title = "Create New Live USB"; ObjectID = "kO5-Pl-dr9"; */
 "kO5-Pl-dr9.title" = "Live USBを新規作成";
 
-/* Class = "NSMenuItem"; title = "Welcome Screen"; ObjectID = "oSM-TE-Nol"; */
-"oSM-TE-Nol.title" = "初期画面";
+/* Class = "NSMenu"; title = "Open Tool"; ObjectID = "kqZ-Ze-RYr"; */
+"kqZ-Ze-RYr.title" = "ツールを開く";
 
-/* Class = "NSButtonCell"; title = "Close"; ObjectID = "oZ5-WW-zYO"; */
+/* Class = "NSMenuItem"; title = "Welcome Screen"; ObjectID = "oSM-TE-Nol"; */
+"oSM-TE-Nol.title" = "最初の画面を表示";
+
+/* (No Commment) */
 "oZ5-WW-zYO.title" = "閉じる";
+
+/* Class = "NSMenuItem"; title = "Distribution Downloader"; ObjectID = "r2D-fo-zsg"; */
+"r2D-fo-zsg.title" = "ディストリビューションダウンローダー";
 
 /* Class = "NSMenuItem"; title = "Report Bug"; ObjectID = "sDa-Rj-9rb"; */
 "sDa-Rj-9rb.title" = "バグを報告";
+
+/* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "t7M-Sl-0ab"; */
+"t7M-Sl-0ab.title" = "USBデバイスのセットアップ";
 
 /* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "vSy-lw-pcI"; */
 "vSy-lw-pcI.title" = "USBデバイスのセットアップ";
 
 /* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "z0e-73-0dd"; */
-"z0e-73-0dd.title" = "テーブルビューセル";
+"z0e-73-0dd.title" = "Table View Cell";
 

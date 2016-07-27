@@ -101,7 +101,7 @@
 "Okay" = "OK";
 
 /* No comment provided by engineer. */
-"Other" = "その他";
+"Perform Installation" = "インストールを実行";
 
 /* No comment provided by engineer. */
 "Persistence Manager" = "保存領域マネージャー";
@@ -152,10 +152,10 @@
 "This source can't be deleted." = "このソースは削除できませんでした。";
 
 /* No comment provided by engineer. */
-"This will clear your stored Enterprise sources, downloaded ISO files, and cached download mirror information every two months." = "二カ月毎に保存されたEnterpriseのソースやダウンロードしたISOファイルそしてキャッシュされたダウンロードしたミラーリストの情報が消去されます";
+"This will clear your stored Enterprise sources, downloaded ISO files, and cached download mirror information every two months." = "二カ月毎に保存されたEnterpriseのソースやダウンロードしたISOファイルとキャッシュされたダウンロードのミラーリストの情報が消去されます";
 
 /* No comment provided by engineer. */
-"To authorize Mac Linux USB Loader to access your USB drive, please click Grant Access below." = "Mac Linux USB LoaderにUSBドライブへのアクセス権限を与えるには下のアクセス権限をクリックしてください";
+"To authorize Mac Linux USB Loader to access your USB drive, please click Grant Access below." = "Mac Linux USB LoaderにUSBドライブへのアクセス権限を与えるには下の\"アクセス権限を付与\"クリックしてください";
 
 /* No comment provided by engineer. */
 "Updates" = "アップデート";
@@ -164,7 +164,7 @@
 "Version" = "バージョン";
 
 /* No comment provided by engineer. */
-"Version %@ (%@)" = "バージョン%1$@ (%2$@)";
+"Version %@ (%@)" = "バージョン %1$@ (%2$@)";
 
 /* No comment provided by engineer. */
 "Yes" = "はい";

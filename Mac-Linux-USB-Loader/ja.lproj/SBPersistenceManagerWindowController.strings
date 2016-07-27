@@ -10,7 +10,7 @@
 /* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "NrD-gi-cN6"; */
 "NrD-gi-cN6.title" = "ラベル";
 
-/* Class = "NSBox"; title = "Persistence Options"; ObjectID = "be7-b0-Wt7"; */
+/* (No Commment) */
 "be7-b0-Wt7.title" = "保存領域オプション";
 
 /* Class = "NSButtonCell"; title = "Reset Slider"; ObjectID = "fCZ-FR-PGe"; */
@@ -18,6 +18,12 @@
 
 /* Class = "NSButtonCell"; title = "Refresh"; ObjectID = "lBS-19-NXo"; */
 "lBS-19-NXo.title" = "更新";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "pU6-Lx-5pd"; */
+"pU6-Lx-5pd.title" = "";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "zJc-F1-8LP"; */
+"zJc-F1-8LP.title" = "";
 
 /* Class = "NSButtonCell"; title = "Create Persistence"; ObjectID = "zZH-rW-NE2"; */
 "zZH-rW-NE2.title" = "保存領域を作成";
