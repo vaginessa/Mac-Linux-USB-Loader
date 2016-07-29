@@ -74,7 +74,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/* Set window properties. */
 	// Make the window background white.
-	(self.window).backgroundColor = [NSColor whiteColor];
+	(self.window).backgroundColor = NSColor.whiteColor;
 	[self.window setMovableByWindowBackground:NO];
 
 	// Set window resize behavior.
@@ -97,13 +97,13 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 - (void)applicationSetup {
 	// Register default defaults.
 	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
-	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+	[NSUserDefaults.standardUserDefaults registerDefaults:dictionary];
 
 	// Customize the update channel based on the user's settings.
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"UserOnBetaUpdateChannel"]) {
+	if ([NSUserDefaults.standardUserDefaults boolForKey:@"UserOnBetaUpdateChannel"]) {
 		NSString *feedString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUBetaFeedURL"];
 		NSURL *feedURL = [NSURL URLWithString:feedString];
-		[[SUUpdater sharedUpdater] setFeedURL:feedURL];
+		SUUpdater.sharedUpdater.feedURL = feedURL;
 	}
 
 	// Load the list of Enterprise installation sources.
@@ -114,10 +114,10 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 	// Check if enough time has passed to where we need to clear all caches, but only if the user has indicated
 	// that they want this behavior to happen.
-	BOOL shouldClearCaches = [[NSUserDefaults standardUserDefaults] boolForKey:@"PeriodicallyClearCaches"];
+	BOOL shouldClearCaches = [NSUserDefaults.standardUserDefaults boolForKey:@"PeriodicallyClearCaches"];
 	if (shouldClearCaches) {
 		const NSInteger clearCachesUpdateInterval = 5184000; // 60 days (i.e two months) in seconds
-		NSDate *lastCheckedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"LastCacheClearCheckTime"];
+		NSDate *lastCheckedDate = [NSUserDefaults.standardUserDefaults objectForKey:@"LastCacheClearCheckTime"];
 		if (lastCheckedDate) {
 			// We have a previous date.
 			NSInteger interval = (NSInteger)fabs(lastCheckedDate.timeIntervalSinceNow);
@@ -127,12 +127,12 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 				[NSThread detachNewThreadSelector:@selector(purgeCachesAndOldFiles) toTarget:self withObject:nil];
 
 				// Save the date now as the starting point for the two-month count to clear caches.
-				[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastCacheClearCheckTime"];
+				[NSUserDefaults.standardUserDefaults setObject:[NSDate date] forKey:@"LastCacheClearCheckTime"];
 			}
 		} else {
 			// User has just opened the application or has cleared defaults. Save the date now as the starting
 			// point for the two-month count to clear caches.
-			[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastCacheClearCheckTime"];
+			[NSUserDefaults.standardUserDefaults setObject:[NSDate date] forKey:@"LastCacheClearCheckTime"];
 		}
 	}
 }
@@ -140,14 +140,14 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 - (void)scanForSavedUSBs {
 	NSInteger detectedKeys = 0;
 	[self.registeredDevicesMenu removeAllItems];
-	NSDictionary *preferences = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+	NSDictionary *preferences = [NSUserDefaults.standardUserDefaults dictionaryRepresentation];
 	NSEnumerator *keys = [preferences keyEnumerator];
 
 	// Add the 'Clear All' menu item and separator.
 	NSMenuItem *clearAllMenuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Clear All", nil) action:@selector(deleteStoredUSBDevice:) keyEquivalent:@""];
 	clearAllMenuItem.tag = SBClearAllMenuItemTag;
 	[self.registeredDevicesMenu addItem:clearAllMenuItem];
-	[self.registeredDevicesMenu addItem:[NSMenuItem separatorItem]];
+	[self.registeredDevicesMenu addItem:NSMenuItem.separatorItem];
 
 	// Enumerate and find all registered USBs.
 	NSString *key;
@@ -231,7 +231,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 		// Add the Enterprise installation located in Mac Linux USB Loader's bundle to the list of available
 		// Enterprise installations.
-		NSString *defaultPath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
+		NSString *defaultPath = [NSBundle.mainBundle.bundlePath stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
 		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:@"Included With Application"
 		                                                                           andPath:defaultPath
 		                                                                  shouldBeVolatile:NO];
@@ -265,7 +265,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 		 * written to disk, if the user moves the application bundle there is a chance that the path won't
 		 * be updated, resulting in errors. So we update it here so that this won't happen.
 		 */
-		NSString *defaultPath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
+		NSString *defaultPath = [NSBundle.mainBundle.bundlePath stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
 		SBEnterpriseSourceLocation *source = self.enterpriseInstallLocations[@"Included With Application"];
 
 		if (!source) {
@@ -295,12 +295,12 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	BOOL isRemovable, isWritable, isUnmountable;
 	NSString *description, *volumeType;
 
-	BOOL acceptHFSDrives = [[NSUserDefaults standardUserDefaults] boolForKey:@"AcceptHFSDrives"];
-    BOOL acceptHardDrives = [[NSUserDefaults standardUserDefaults] boolForKey:@"AcceptHardDrives"];
+	BOOL acceptHFSDrives = [NSUserDefaults.standardUserDefaults boolForKey:@"AcceptHFSDrives"];
+    BOOL acceptHardDrives = [NSUserDefaults.standardUserDefaults boolForKey:@"AcceptHardDrives"];
 
 	for (NSURL *mountURL in volumes) {
 		NSString *usbDeviceMountPoint = mountURL.path;
-		if ([[NSWorkspace sharedWorkspace] getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
+		if ([NSWorkspace.sharedWorkspace getFileSystemInfoForPath:usbDeviceMountPoint isRemovable:&isRemovable isWritable:&isWritable isUnmountable:&isUnmountable description:&description type:&volumeType]) {
 			if (isWritable && (acceptHardDrives || (isRemovable && isUnmountable))) {
 #ifdef DEBUG
 				NSLog(@"Detected eligible volume at %@. Type: %@", usbDeviceMountPoint, volumeType);
@@ -338,29 +338,29 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 - (IBAction)deleteStoredUSBDevice:(NSMenuItem *)sender {
 	if (sender.tag == SBClearAllMenuItemTag) {
 		// delete all registered USB devices.
-		NSDictionary *preferences = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+		NSDictionary *preferences = [NSUserDefaults.standardUserDefaults dictionaryRepresentation];
 		NSEnumerator *keys = [preferences keyEnumerator];
 
 		NSString *key;
 		while ((key = [keys nextObject])) {
 			if ([key hasSuffix:@"_USBSecurityBookmarkTarget"]) {
-				[[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+				[NSUserDefaults.standardUserDefaults removeObjectForKey:key];
 			}
 		}
 	} else {
 		// get the name of the preferences key to delete based on the USB's name.
 		NSString *preferencesKeyToDelete = [sender.title stringByAppendingString:@"_USBSecurityBookmarkTarget"];
-		[[NSUserDefaults standardUserDefaults] removeObjectForKey:preferencesKeyToDelete];
+		[NSUserDefaults.standardUserDefaults removeObjectForKey:preferencesKeyToDelete];
 	}
 
 	// re-build the list of USBs.
-	[[NSUserDefaults standardUserDefaults] synchronize];
+	[NSUserDefaults.standardUserDefaults synchronize];
 	[self scanForSavedUSBs];
 }
 
 - (IBAction)showPreferencesWindow:(id)sender {
 	if (!self->preferencesWindowController) {
-		BOOL showEnterprisePrefs = [[NSUserDefaults standardUserDefaults] boolForKey:@"ShowEnterpriseSourcesPanel"];
+		BOOL showEnterprisePrefs = [NSUserDefaults.standardUserDefaults boolForKey:@"ShowEnterpriseSourcesPanel"];
 		SBGeneralPreferencesViewController *generalPreferences = [[SBGeneralPreferencesViewController alloc] initWithNibName:@"SBGeneralPreferencesViewController" bundle:nil];
 		SBEnterprisePreferencesViewController *enterprisePreferences = [[SBEnterprisePreferencesViewController alloc] initWithNibName:@"SBEnterprisePreferencesViewController" bundle:nil];
 		SBDistributionDownloaderPreferencesViewController *downloaderPreferences = [[SBDistributionDownloaderPreferencesViewController alloc] initWithNibName:@"SBDistributionDownloaderPreferencesViewController" bundle:nil];
@@ -397,19 +397,19 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 }
 
 - (IBAction)showProjectWebsite:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/Mac-Linux-USB-Loader/"]];
+	[NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://sevenbits.github.io/Mac-Linux-USB-Loader/"]];
 }
 
 - (IBAction)showDonatePage:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sevenbits.github.io/Mac-Linux-USB-Loader/support.html"]];
+	[NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://sevenbits.github.io/Mac-Linux-USB-Loader/support.html"]];
 }
 
 - (IBAction)reportBug:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader/issues/new"]];
+	[NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader/issues/new"]];
 }
 
 - (IBAction)showHelp:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki"]];
+	[NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://github.com/SevenBits/Mac-Linux-USB-Loader/wiki"]];
 }
 
 #pragma mark - Table View Delegates
@@ -461,7 +461,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	[self.window orderOut:nil];
 	switch (clickedRow) {
 		case SBWelcomeScreenOperationCreateUSB:
-			[[NSDocumentController sharedDocumentController] openDocument:nil];
+			[NSDocumentController.sharedDocumentController openDocument:nil];
 			break;
 
 		case SBWelcomeScreenOperationSetupUSB:
