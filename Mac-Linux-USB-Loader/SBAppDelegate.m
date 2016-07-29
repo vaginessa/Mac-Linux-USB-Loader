@@ -74,7 +74,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/* Set window properties. */
 	// Make the window background white.
-	(self.window).backgroundColor = NSColor.whiteColor;
+	self.window.backgroundColor = NSColor.whiteColor;
 	[self.window setMovableByWindowBackground:NO];
 
 	// Set window resize behavior.
