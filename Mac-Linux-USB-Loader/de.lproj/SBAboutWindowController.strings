@@ -1,5 +1,8 @@
-/* Class = "NSTextFieldCell"; title = "Mac Linux USB Loader"; ObjectID = "Coh-3R-IsA"; */
+/* (No Commment) */
 "Coh-3R-IsA.title" = "Mac Linux USB Loader";
+
+/* Class = "NSWindow"; title = "Acknowledgments"; ObjectID = "KNs-Wj-UOa"; */
+"KNs-Wj-UOa.title" = "Anmerkungen";
 
 /* Class = "NSTextFieldCell"; title = "Version x.x.x"; ObjectID = "QWK-Vq-0wS"; */
 "QWK-Vq-0wS.title" = "Version x.x.x";

@@ -235,6 +235,9 @@
 /* Class = "NSTextFieldCell"; title = "Mac Linux USB Loader"; ObjectID = "PbZ-Px-5X8"; */
 "PbZ-Px-5X8.title" = "Mac Linux USB Loader";
 
+/* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "Q1v-1v-FkZ"; */
+"Q1v-1v-FkZ.title" = "USB-Laufwerk einrichten";
+
 /* Class = "NSMenuItem"; title = "Registered Devices"; ObjectID = "Rct-bv-4eE"; */
 "Rct-bv-4eE.title" = "Registrierte Geräte";
 
@@ -244,17 +247,26 @@
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "XYg-e8-VkS"; */
 "XYg-e8-VkS.title" = "Text Cell???";
 
+/* Class = "NSMenuItem"; title = "Open Tool"; ObjectID = "YZF-Y6-wHH"; */
+"YZF-Y6-wHH.title" = "Tool öffnen";
+
 /* Class = "NSMenu"; title = "Registered Devices"; ObjectID = "bCd-j9-j8y"; */
 "bCd-j9-j8y.title" = "Registrierte Geräte";
 
+/* Class = "NSMenu"; title = "Open Tool"; ObjectID = "ceI-01-83m"; */
+"ceI-01-83m.title" = "Tool öffnen";
+
 /* Class = "NSMenu"; title = "Open Tool"; ObjectID = "d8m-Or-MfF"; */
-"d8m-Or-MfF.title" = "Öffnen";
+"d8m-Or-MfF.title" = "Tool öffnen";
 
 /* Class = "NSMenuItem"; title = "Persistence Manager"; ObjectID = "dft-Op-QXY"; */
 "dft-Op-QXY.title" = "Persistenz-Manager";
 
 /* Class = "NSWindow"; title = "Mac Linux USB Loader"; ObjectID = "eVZ-OT-8Zw"; */
 "eVZ-OT-8Zw.title" = "Mac Linux USB Loader";
+
+/* Class = "NSMenuItem"; title = "Persistence Manager"; ObjectID = "exP-uc-VcW"; */
+"exP-uc-VcW.title" = "Persistenz Manager";
 
 /* Class = "NSButtonCell"; title = "More Options"; ObjectID = "f5Z-jQ-9Ok"; */
 "f5Z-jQ-9Ok.title" = "Weitere Optionen";
@@ -268,14 +280,20 @@
 /* Class = "NSMenuItem"; title = "Create New Live USB"; ObjectID = "kO5-Pl-dr9"; */
 "kO5-Pl-dr9.title" = "Neues Live USB-Laufwerk erstellen";
 
+/* Class = "NSMenu"; title = "Open Tool"; ObjectID = "kqZ-Ze-RYr"; */
+"kqZ-Ze-RYr.title" = "Tool öffnen";
+
 /* Class = "NSMenuItem"; title = "Welcome Screen"; ObjectID = "oSM-TE-Nol"; */
 "oSM-TE-Nol.title" = "Startansicht";
 
-/* Class = "NSButtonCell"; title = "Close"; ObjectID = "oZ5-WW-zYO"; */
+/* (No Commment) */
 "oZ5-WW-zYO.title" = "Schließen";
 
 /* Class = "NSMenuItem"; title = "Report Bug"; ObjectID = "sDa-Rj-9rb"; */
 "sDa-Rj-9rb.title" = "Bug melden";
+
+/* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "t7M-Sl-0ab"; */
+"t7M-Sl-0ab.title" = "USB-Laufwerk einrichten";
 
 /* Class = "NSMenuItem"; title = "Setup USB Device"; ObjectID = "vSy-lw-pcI"; */
 "vSy-lw-pcI.title" = "USB-Laufwerk einrichten";

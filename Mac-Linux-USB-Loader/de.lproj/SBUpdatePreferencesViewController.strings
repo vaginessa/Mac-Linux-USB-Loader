@@ -1,6 +1,9 @@
 /* Class = "NSButtonCell"; title = "Check Now"; ObjectID = "Idq-wM-aWT"; */
 "Idq-wM-aWT.title" = "Jetzt überprüfen";
 
+/* Class = "NSTextFieldCell"; title = "Update Channel:"; ObjectID = "Zrd-Qz-uAS"; */
+"Zrd-Qz-uAS.title" = "Update Kanal:";
+
 /* Class = "NSMenuItem"; title = "Monthly"; ObjectID = "cvz-bF-QuY"; */
 "cvz-bF-QuY.title" = "Monatlich";
 
@@ -18,4 +21,7 @@
 
 /* Class = "NSMenuItem"; title = "Daily"; ObjectID = "slG-Ox-uWY"; */
 "slG-Ox-uWY.title" = "Täglich";
+
+/* Class = "NSMenuItem"; title = "Stable"; ObjectID = "zL7-bw-ada"; */
+"zL7-bw-ada.title" = "Stabil";
 
