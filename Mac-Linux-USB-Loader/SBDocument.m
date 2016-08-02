@@ -68,7 +68,6 @@
 	[self distributionTypePopupChanged:self.distributionSelectorPopup];
 
 	[self.enterpriseSourceSelector selectItemWithTitle:[[NSUserDefaults standardUserDefaults] stringForKey:@"DefaultEnterpriseSourceLocation"]];
-	SBLogObject(self.sideView);
 }
 
 - (void)useVisualEffectViewIfPossible {
