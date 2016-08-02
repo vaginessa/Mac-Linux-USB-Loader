@@ -16,6 +16,7 @@
 @interface SBDocument ()
 // These need to be here so that we can write to readonly variables within
 // this file, but prohibit others from being able to do so.
+@property (strong) IBOutlet NSView *sideView;
 @property (weak) IBOutlet NSTabView *tabView;
 @property (weak) IBOutlet NSCollectionView *usbDriveSelector;
 @property (weak) IBOutlet NSPopUpButton *enterpriseSourceSelector;
@@ -52,6 +53,7 @@
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
 	[super windowControllerDidLoadNib:aController];
+	[self useVisualEffectViewIfPossible];
 
 	originalForwardButtonString = self.forwardButton.title;
 	originalBackwardsButtonString = self.backwardsButton.title;
@@ -66,8 +68,40 @@
 	[self distributionTypePopupChanged:self.distributionSelectorPopup];
 
 	[self.enterpriseSourceSelector selectItemWithTitle:[[NSUserDefaults standardUserDefaults] stringForKey:@"DefaultEnterpriseSourceLocation"]];
+	SBLogObject(self.sideView);
 }
 
+- (void)useVisualEffectViewIfPossible {
+	if (NSClassFromString(@"NSVisualEffectView") != nil) {
+		// Grab everything currently in the window.
+		NSView *oldView = self.sideView;
+		NSRect frame = oldView.frame;
+
+		// Create and swap the frames.
+		self.sideView = [[NSVisualEffectView alloc] initWithFrame:frame];
+		[self fillView:oldView withView:self.sideView];
+		[self.sideView addSubview:oldView.subviews[0]];
+	}
+}
+
+- (void)fillView:(NSView *)oldView withView:(NSView*)view {
+	view.frame = oldView.bounds;
+	[view setTranslatesAutoresizingMaskIntoConstraints:NO];
+	
+	[oldView addSubview:view];
+	
+	[oldView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|"
+	                                            options:0
+	                                            metrics:nil
+	                                            views:NSDictionaryOfVariableBindings(view)]];
+	
+	[oldView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|"
+	                                            options:0
+	                                            metrics:nil
+	                                            views:NSDictionaryOfVariableBindings(view)]];
+}
+
+#pragma mark - USB and distribution detection
 - (void)detectDistributionFamily {
 	SBLinuxDistribution family = [SBAppDelegate distributionTypeForISOName:self.fileURL.absoluteString.lowercaseString];
 	[self.distributionSelectorPopup selectItemWithTag:family];
