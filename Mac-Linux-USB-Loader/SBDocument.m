@@ -88,12 +88,11 @@
 	[view setTranslatesAutoresizingMaskIntoConstraints:NO];
 	
 	[oldView addSubview:view];
-	
 	[oldView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|"
 	                                            options:0
 	                                            metrics:nil
 	                                            views:NSDictionaryOfVariableBindings(view)]];
-	
+
 	[oldView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|"
 	                                            options:0
 	                                            metrics:nil
