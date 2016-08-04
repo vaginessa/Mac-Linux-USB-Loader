@@ -249,6 +249,19 @@
 	double fileSize = [manager sizeOfFileAtPath:self.fileURL.path].doubleValue + [manager sizeOfFileAtPath:grubPath].doubleValue + [manager sizeOfFileAtPath:enterprisePath].doubleValue;
 	(self.installationProgressBar).maxValue = fileSize;
 
+	// If the user has a FAT32 filesystem, then we can't have files larger than 4 GB.
+	if (selectedUSBDrive.fileSystem == SBUSBDriveFileSystemFAT32 && fileSize > 4 * 1073741824.f) {
+		// The selected file is too big for this file system, warn the user then bail.
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert addButtonWithTitle:NSLocalizedString(@"Okay", nil)];
+		[alert setMessageText:NSLocalizedString(@"File too big", nil)];
+		alert.informativeText = NSLocalizedString(@"The ISO file that you have selected is too big to fit on the selected USB drive. Files on a FAT32 volume cannot be larger than 4 GB.", nil);
+		alert.alertStyle = NSWarningAlertStyle;
+		[alert beginSheetModalForWindow:self.windowForSheet modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+
+		return NO;
+	}
+
 	// Verify that the user has enough free space on the selected drive (assume config file is 500 bytes).
 	NSInteger selectedDriveFreeSpace = [manager freeSpaceRemainingOnDrive:targetUSBMountPoint error:&error];
 	if (selectedDriveFreeSpace < (fileSize + 500)) {
