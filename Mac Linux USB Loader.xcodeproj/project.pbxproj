@@ -162,6 +162,19 @@
 		2424AD851AB37EE4004610EC /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2429600E1BC9D8CC00AB8445 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		242E92B41CF200260096DECA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Dependencies/Sparkle.framework; sourceTree = "<group>"; };
+		244A1D891D5147380064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		244A1D8A1D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBDocument.strings; sourceTree = "<group>"; };
+		244A1D8B1D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBAboutWindowController.strings; sourceTree = "<group>"; };
+		244A1D8C1D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBUSBSetupWindowController.strings; sourceTree = "<group>"; };
+		244A1D8D1D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBPersistenceManagerWindowController.strings; sourceTree = "<group>"; };
+		244A1D8E1D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBDistributionDownloaderWindowController.strings; sourceTree = "<group>"; };
+		244A1D8F1D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
+		244A1D901D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBEnterprisePreferencesViewController.strings; sourceTree = "<group>"; };
+		244A1D911D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBDistributionDownloaderPreferencesViewController.strings; sourceTree = "<group>"; };
+		244A1D921D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
+		244A1D931D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Errors.strings; sourceTree = "<group>"; };
+		244A1D941D5147390064E19E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		244A1D951D5147390064E19E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		245784971A8AB7B80005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderPreferencesViewController.xib; sourceTree = "<group>"; };
 		2457849E1A8AB86D0005F32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBDistributionDownloaderWindowController.xib; sourceTree = "<group>"; };
 		245A2A8A1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBUpdatePreferencesViewController.h; sourceTree = "<group>"; };
@@ -169,6 +182,7 @@
 		245A2A901AB4A82A00D3C021 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBUpdatePreferencesViewController.xib; sourceTree = "<group>"; };
 		245A2A991AB4ADB400D3C021 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
 		245AC8011A17CBAB0039E2C9 /* Mac-Linux-USB-Loader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mac-Linux-USB-Loader-Prefix.pch"; sourceTree = "<group>"; };
+		246204201D54E84700B39F8B /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		246534461B3228DD007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBDocument.strings; sourceTree = "<group>"; };
 		246534471B3228DD007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBUpdatePreferencesViewController.strings; sourceTree = "<group>"; };
 		246534481B3228DD007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -639,6 +653,7 @@
 				de,
 				ja,
 				en,
+				nb,
 			);
 			mainGroup = 24A4EC6A1884966900CE6CF0;
 			productRefGroup = 24A4EC741884966900CE6CF0 /* Products */;
@@ -846,6 +861,7 @@
 				2477EBCF1C062FA5006EAA0D /* it */,
 				24D2ED631C2F13F600F64DA9 /* ja */,
 				24BB598C1C98D8B3006CA0C0 /* en */,
+				244A1D8B1D5147390064E19E /* nb */,
 			);
 			name = SBAboutWindowController.xib;
 			sourceTree = "<group>";
@@ -860,6 +876,7 @@
 				2477EBD11C062FA6006EAA0D /* it */,
 				24D2ED651C2F13F600F64DA9 /* ja */,
 				24BB598E1C98D8B3006CA0C0 /* en */,
+				244A1D8D1D5147390064E19E /* nb */,
 			);
 			name = SBPersistenceManagerWindowController.xib;
 			sourceTree = "<group>";
@@ -874,6 +891,7 @@
 				2477EBCE1C062FA4006EAA0D /* it */,
 				24D2ED6C1C2F13F700F64DA9 /* ja */,
 				24BB59951C98D8B4006CA0C0 /* en */,
+				244A1D941D5147390064E19E /* nb */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -888,6 +906,7 @@
 				2477EBCC1C062FA3006EAA0D /* it */,
 				24D2ED691C2F13F700F64DA9 /* ja */,
 				24BB59921C98D8B3006CA0C0 /* en */,
+				244A1D911D5147390064E19E /* nb */,
 			);
 			name = SBDistributionDownloaderPreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -902,6 +921,7 @@
 				2477EBCD1C062FA4006EAA0D /* it */,
 				24D2ED661C2F13F600F64DA9 /* ja */,
 				24BB598F1C98D8B3006CA0C0 /* en */,
+				244A1D8E1D5147390064E19E /* nb */,
 			);
 			name = SBDistributionDownloaderWindowController.xib;
 			sourceTree = "<group>";
@@ -916,6 +936,7 @@
 				2477EBC81C062FA0006EAA0D /* it */,
 				24D2ED6A1C2F13F700F64DA9 /* ja */,
 				24BB59931C98D8B4006CA0C0 /* en */,
+				244A1D921D5147390064E19E /* nb */,
 			);
 			name = SBUpdatePreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -930,6 +951,7 @@
 				24C720AF1C0B74C2008565FB /* nl */,
 				24D2ED6B1C2F13F700F64DA9 /* ja */,
 				24BB59941C98D8B4006CA0C0 /* en */,
+				244A1D931D5147390064E19E /* nb */,
 			);
 			name = Errors.strings;
 			sourceTree = "<group>";
@@ -944,6 +966,7 @@
 				2477EBD41C062FA7006EAA0D /* it */,
 				24D2ED681C2F13F700F64DA9 /* ja */,
 				24BB59911C98D8B3006CA0C0 /* en */,
+				244A1D901D5147390064E19E /* nb */,
 			);
 			name = SBEnterprisePreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -958,6 +981,7 @@
 				2477EBC91C062FA1006EAA0D /* it */,
 				24D2ED671C2F13F600F64DA9 /* ja */,
 				24BB59901C98D8B3006CA0C0 /* en */,
+				244A1D8F1D5147390064E19E /* nb */,
 			);
 			name = SBGeneralPreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -972,6 +996,7 @@
 				24C720B01C0B74C4008565FB /* nl */,
 				24D2ED6D1C2F13F700F64DA9 /* ja */,
 				24BB59961C98D8B4006CA0C0 /* en */,
+				244A1D951D5147390064E19E /* nb */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -995,6 +1020,7 @@
 				2477EBC71C062FA0006EAA0D /* it */,
 				24D2ED621C2F13F600F64DA9 /* ja */,
 				24BB598B1C98D8B3006CA0C0 /* en */,
+				244A1D8A1D5147390064E19E /* nb */,
 			);
 			name = SBDocument.xib;
 			sourceTree = "<group>";
@@ -1009,6 +1035,7 @@
 				2477EBD31C062FA7006EAA0D /* it */,
 				24D2ED611C2F13F600F64DA9 /* ja */,
 				24BB598A1C98D8B3006CA0C0 /* en */,
+				244A1D891D5147380064E19E /* nb */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1021,6 +1048,7 @@
 				2477EBCA1C062FA1006EAA0D /* it */,
 				24C720AE1C0B74C2008565FB /* nl */,
 				24D2ED6E1C2F13F700F64DA9 /* ja */,
+				246204201D54E84700B39F8B /* nb */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1035,6 +1063,7 @@
 				2477EBD01C062FA5006EAA0D /* it */,
 				24D2ED641C2F13F600F64DA9 /* ja */,
 				24BB598D1C98D8B3006CA0C0 /* en */,
+				244A1D8C1D5147390064E19E /* nb */,
 			);
 			name = SBUSBSetupWindowController.xib;
 			sourceTree = "<group>";
