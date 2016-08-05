@@ -333,6 +333,8 @@
 				selectedLinuxDistribution = @"Ubuntu (operating system)";
 			} else if ([language isEqualToString:@"nl"]) {
 				selectedLinuxDistribution = @"Ubuntu (Linuxdistributie)";
+			} else if ([language isEqualToString:@"nb"]) {
+				selectedLinuxDistribution = @"Ubuntu (operativsystem)";
 			}
 		}
 
