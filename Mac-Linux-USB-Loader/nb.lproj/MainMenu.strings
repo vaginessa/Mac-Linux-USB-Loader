@@ -32,7 +32,7 @@
 "58.title" = "Om Mac Linux USB Loader";
 
 /* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
-"72.title" = "Åpne&hellip;";
+"72.title" = "Åpne…";
 
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "73"; */
 "73.title" = "Lukk";
@@ -56,7 +56,7 @@
 "126.title" = "Tøm Meny";
 
 /* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
-"129.title" = "Preferanser&hellip;";
+"129.title" = "Preferanser…";
 
 /* Class = "NSMenu"; title = "Services"; ObjectID = "130"; */
 "130.title" = "Servicer";
@@ -224,13 +224,13 @@
 "493.title" = "Mac Linux USB Loader Hjelp";
 
 /* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "532"; */
-"532.title" = "Finn og Erstatt&hellip;";
+"532.title" = "Finn og Erstatt…";
 
 /* Class = "NSMenuItem"; title = "Persistence Manager"; ObjectID = "Enj-Bs-24S"; */
 "Enj-Bs-24S.title" = "Standhaftighets Organiserings Hjelp";
 
 /* Class = "NSMenuItem"; title = "Check for Updates..."; ObjectID = "Ixf-5n-e5Q"; */
-"Ixf-5n-e5Q.title" = "Sjekk for Oppdateringer..";
+"Ixf-5n-e5Q.title" = "Sjekk for Oppdateringer…";
 
 /* Class = "NSButtonCell"; title = "Show Project Website"; ObjectID = "LhO-Jz-UPe"; */
 "LhO-Jz-UPe.title" = "Vis Prosjekt Nettside";
@@ -275,7 +275,7 @@
 "f5Z-jQ-9Ok.title" = "Flere Valg";
 
 /* Class = "NSMenuItem"; title = "Donate..."; ObjectID = "fjF-O3-g5i"; */
-"fjF-O3-g5i.title" = "Donere...";
+"fjF-O3-g5i.title" = "Donere…";
 
 /* Class = "NSMenuItem"; title = "Show Project Homepage"; ObjectID = "iNg-8W-mXB"; */
 "iNg-8W-mXB.title" = "Vis Prosjekt Nettside";
