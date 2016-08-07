@@ -45,3 +45,4 @@ Acknowledgements
 - Special thanks to Cai Argimon for translating the application into Spanish!
 - Special thanks to Daniele Isoni for translating the application into Italian!
 - Special thanks to Uhucream ([@TK_CH291](https://twitter.com/@TK_CH291)) for translating the application into Japanese!
+- Special thanks to Thor-Jakob G. Løberg for translating the application into Norwegian Bokmål!
