@@ -283,8 +283,11 @@
 
 	// Open the URL.
 	NSURL *url = [NSURL fileURLWithPath:path];
-	[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler: ^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {}
-	];
+	[[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler: ^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
+		if (!document && !documentWasAlreadyOpen) {
+			[self downloadDistroButtonPressed:nil];
+		}
+	}];
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
