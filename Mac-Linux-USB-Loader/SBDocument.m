@@ -107,7 +107,8 @@
 	// If this is Linux Mint or a legacy Mac ISO of Ubuntu, check the
 	// first check box since we need it so that the correct kernel path will be written.
 	if ([(self.fileURL).path containsSubstring:@"linuxmint"] ||
-		[(self.fileURL).path.lastPathComponent containsSubstring:@"+mac"]) {
+	    [(self.fileURL).path containsSubstring:@"Linux Mint"] ||
+	    [(self.fileURL).path.lastPathComponent containsSubstring:@"+mac"]) {
 		(self.isMacVersionCheckBox).state = NSOnState;
 	} else {
 		(self.isMacVersionCheckBox).state = NSOffState;
