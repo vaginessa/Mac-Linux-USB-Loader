@@ -27,7 +27,8 @@
 }
 
 - (NSImage *)toolbarItemImage {
-	return [NSImage imageNamed:@"DistributionDownloader"];
+	NSImage *icon = [[NSImage alloc] initWithContentsOfFile:@"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/SidebarNetwork.icns"];
+	return icon ? icon : [NSImage imageNamed:@"DistributionDownloader"];
 }
 
 - (NSString *)toolbarItemLabel {

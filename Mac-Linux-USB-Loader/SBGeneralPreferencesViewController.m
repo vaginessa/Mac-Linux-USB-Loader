@@ -52,7 +52,8 @@
 }
 
 - (NSImage *)toolbarItemImage {
-	return [NSImage imageNamed:@"NSApplicationIcon"];
+	NSImage *icon = [[NSImage alloc] initWithContentsOfFile:@"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/General.icns"];
+	return icon ? icon : [NSImage imageNamed:@"NSApplicationIcon"];
 }
 
 - (NSString *)toolbarItemLabel {

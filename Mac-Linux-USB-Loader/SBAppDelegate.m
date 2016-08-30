@@ -320,8 +320,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 						self.usbDictionary[usbDevice.name] = usbDevice;
 					}
 				}
-			} else {
 #ifdef DEBUG
+			} else {
 				NSLog(@"Volume at %@ is not eligible. Type: %@", usbDeviceMountPoint, volumeType);
 #endif
 			}
@@ -422,23 +422,40 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	NSTableCellView *result = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
 	switch (row) {
 		case 0:
-			result.imageView.image = [NSImage imageNamed:@"AppIcon"];
+		{
+			NSImage *icon = [[NSImage alloc] initWithContentsOfFile:@"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/SidebarDropBoxFolder.icns"];
+			icon.template = YES;
+			result.imageView.image = icon;
 			result.textField.stringValue = NSLocalizedString(@"Create Live USB", nil);
+		}
 			break;
 
 		case 1:
-			result.imageView.image = [NSImage imageNamed:@"USB"];
+		{
+			NSImage *icon = [[NSImage alloc] initWithContentsOfFile:@"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/SidebarRemovableDisk.icns"];
+			icon.template = YES;
+			result.imageView.image = icon;
 			result.textField.stringValue = NSLocalizedString(@"Setup USB Device", nil);
+		}
 			break;
 
 		case 2:
-			result.imageView.image = [NSImage imageNamed:@"Persistence"];
+		{
+			NSImage *icon = [[NSImage alloc] initWithContentsOfFile:@"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/SidebarBurnFolder.icns"];
+			icon.template = YES;
+			result.imageView.image = icon;
 			result.textField.stringValue = NSLocalizedString(@"Persistence Manager", nil);
+		}
 			break;
 
 		case 3:
-			result.imageView.image = [NSImage imageNamed:@"DistributionDownloader"];
+		{
+			NSImage *icon = [[NSImage alloc] initWithContentsOfFile:@"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/SidebarDownloadsFolder.icns"];
+			//NSImage *icon = [NSImage imageNamed:NSImageNameNetwork];
+			icon.template = YES;
+			result.imageView.image = icon;
 			result.textField.stringValue = NSLocalizedString(@"Distribution Downloader", nil);
+		}
 			break;
 
 		default:
