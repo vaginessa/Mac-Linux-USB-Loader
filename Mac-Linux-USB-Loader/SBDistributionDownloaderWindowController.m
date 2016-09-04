@@ -118,7 +118,7 @@
 			tempFileName = [NSString stringWithFormat:@"%@/%@.json", cacheDirectory, [distroName stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
 			NSURL *url = [NSURL fileURLWithPath:tempFileName];
 
-			NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
+			NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&err];
 			if (strCon) {
 			    //NSLog(@"Recieved JSON data: %@", strCon);
 			    [self processJSON:strCon forDistributionNamed:distroName downloadContent:NO];
@@ -165,7 +165,7 @@
 			[self.spinner startAnimation:nil];
 		});
 
-		NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
+		NSString *strCon = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&err];
 		if (strCon) {
 			//NSLog(@"Recieved JSON data: %@", strCon);
 			[self processJSON:strCon forDistributionNamed:distroName downloadContent:YES];
