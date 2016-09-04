@@ -467,7 +467,8 @@
 	[self.distroMirrorCountrySelector removeAllItems];
 
 	for (SBDownloadMirrorModel *model in (self.downloadDistroModel).mirrors) {
-		[self.distroMirrorCountrySelector addItemWithTitle:model.countryLong];
+		NSString *format = [NSString stringWithFormat:@"%@ (%@)", model.countryLong, model.name];
+		[self.distroMirrorCountrySelector addItemWithTitle:format];
 	}
 
 	[NSApp beginSheet:self.downloadSettingsPanel modalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
