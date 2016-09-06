@@ -102,13 +102,15 @@
 #pragma mark - USB and distribution detection
 - (void)detectDistributionFamily {
 	SBLinuxDistribution family = [SBAppDelegate distributionTypeForISOName:self.fileURL.absoluteString.lowercaseString];
+	NSString *isoName = self.fileURL.path.lowercaseString.lastPathComponent;
 	[self.distributionSelectorPopup selectItemWithTag:family];
 
 	// If this is Linux Mint or a legacy Mac ISO of Ubuntu, check the
 	// first check box since we need it so that the correct kernel path will be written.
-	if ([(self.fileURL).path containsSubstring:@"linuxmint"] ||
-	    [(self.fileURL).path containsSubstring:@"Linux Mint"] ||
-	    [(self.fileURL).path.lastPathComponent containsSubstring:@"+mac"]) {
+	if ([isoName containsSubstring:@"linuxmint"] ||
+	    [isoName containsSubstring:@"linux mint"] ||
+	    [isoName containsSubstring:@"elementary"] || // for Loki, and possibly Freya
+	    [isoName containsSubstring:@"+mac"]) {
 		(self.isMacVersionCheckBox).state = NSOnState;
 	} else {
 		(self.isMacVersionCheckBox).state = NSOffState;
