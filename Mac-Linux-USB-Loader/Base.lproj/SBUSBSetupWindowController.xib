@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBUSBSetupWindowController">
@@ -22,7 +22,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="468" y="380" width="613" height="316"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="613" height="316"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -36,7 +36,6 @@
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" id="vcS-Jy-AvS">
                                     <rect key="frame" x="0.0" y="0.0" width="259" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
@@ -62,27 +61,22 @@
                                     </connections>
                                 </tableView>
                             </subviews>
-                            <animations/>
                             <nil key="backgroundColor"/>
                         </clipView>
                         <constraints>
                             <constraint firstAttribute="width" constant="261" id="FoT-nv-p4V"/>
                         </constraints>
-                        <animations/>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="9nH-J1-Mpn">
                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
-                            <animations/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="0VE-TK-llp">
                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                             <autoresizingMask key="autoresizingMask"/>
-                            <animations/>
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="03L-Bd-nEK">
                         <rect key="frame" x="274" y="210" width="212" height="32"/>
-                        <animations/>
                         <buttonCell key="cell" type="push" title="Enable Startup Disk Support" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9A4-Nc-kbp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -93,7 +87,6 @@
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wgm-Sw-tla">
                         <rect key="frame" x="274" y="177" width="165" height="32"/>
-                        <animations/>
                         <buttonCell key="cell" type="push" title="Choose Startup Disk" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SpM-dG-QBu">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -108,12 +101,10 @@
                             <constraint firstAttribute="height" constant="50" id="Y1j-tN-mBI"/>
                             <constraint firstAttribute="width" constant="50" id="Zjk-15-Nht"/>
                         </constraints>
-                        <animations/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="RLw-BY-7cr"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BMS-h9-oXF">
                         <rect key="frame" x="266" y="246" width="329" height="20"/>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="USB Boot Controls" id="QDJ-np-znb">
                             <font key="font" size="13" name="HelveticaNeue-Bold"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -122,16 +113,14 @@
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-9I-gYF">
                         <rect key="frame" x="266" y="156" width="329" height="20"/>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Advanced Configuration Options" id="BUZ-un-ZlF">
                             <font key="font" size="13" name="HelveticaNeue-Bold"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2G3-22-Aw8">
-                        <rect key="frame" x="274" y="120" width="243" height="32"/>
-                        <animations/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2G3-22-Aw8">
+                        <rect key="frame" x="274" y="120" width="240" height="32"/>
                         <buttonCell key="cell" type="push" title="Edit Enterprise Configuration File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mdC-pj-boq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -142,7 +131,6 @@
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HAN-1D-M9Q">
                         <rect key="frame" x="324" y="280" width="271" height="22"/>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="E3q-Uh-Ioj">
                             <font key="font" metaFont="system" size="18"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -162,6 +150,7 @@
                     <constraint firstItem="wgm-Sw-tla" firstAttribute="leading" secondItem="03L-Bd-nEK" secondAttribute="leading" id="QLK-Fv-3FS"/>
                     <constraint firstItem="wgm-Sw-tla" firstAttribute="top" secondItem="03L-Bd-nEK" secondAttribute="bottom" constant="12" id="S11-rt-aF8"/>
                     <constraint firstItem="BMS-h9-oXF" firstAttribute="leading" secondItem="nN5-IQ-9c6" secondAttribute="leading" id="VmC-s2-rP1"/>
+                    <constraint firstItem="2G3-22-Aw8" firstAttribute="top" secondItem="uSc-9I-gYF" secondAttribute="bottom" constant="8" id="aOg-sj-7En"/>
                     <constraint firstItem="nN5-IQ-9c6" firstAttribute="top" secondItem="2" secondAttribute="top" id="cex-JO-NzQ"/>
                     <constraint firstItem="VPa-9x-ika" firstAttribute="top" secondItem="2" secondAttribute="top" constant="-1" id="d80-9q-Lue"/>
                     <constraint firstItem="VPa-9x-ika" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="-1" id="gOB-Lt-nd5"/>
@@ -174,12 +163,11 @@
                     <constraint firstItem="03L-Bd-nEK" firstAttribute="top" secondItem="BMS-h9-oXF" secondAttribute="bottom" constant="8" id="vvQ-Fz-YeP"/>
                     <constraint firstAttribute="bottom" secondItem="VPa-9x-ika" secondAttribute="bottom" constant="-1" id="wup-Md-HhE"/>
                 </constraints>
-                <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
-            <point key="canvasLocation" x="185.5" y="104"/>
+            <point key="canvasLocation" x="341.5" y="291"/>
         </window>
         <menu id="x5i-2p-XdH" userLabel="Table View Context Menu">
             <items>
