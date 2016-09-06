@@ -102,7 +102,6 @@
 		// We are missing the saved date, so re-save it and update the JSON mirrors.
 		// We do this in the background without a lot of pomp so it is transparent to the user.
 		[self downloadJSON];
-
 		[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastMirrorUpdateCheckTime"];
 	}
 }
