@@ -462,7 +462,7 @@
                     </textField>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="65" horizontalPageScroll="10" verticalLineScroll="65" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0M-0W-Ded">
                         <rect key="frame" x="314" y="20" width="364" height="263"/>
-                        <clipView key="contentView" id="cIA-vy-zWA">
+                        <clipView key="contentView" drawsBackground="NO" id="cIA-vy-zWA">
                             <rect key="frame" x="1" y="1" width="362" height="261"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -470,7 +470,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="362" height="261"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
-                                    <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
@@ -488,7 +488,7 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView id="Jbz-Tg-ElK">
-                                                    <rect key="frame" x="1" y="1" width="359" height="63"/>
+                                                    <rect key="frame" x="1" y="1" width="365" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hK8-Tq-fPg">
@@ -499,9 +499,9 @@
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="DZu-Es-3Vn"/>
                                                         </imageView>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tyR-yF-pjH">
-                                                            <rect key="frame" x="83" y="23" width="275" height="17"/>
+                                                            <rect key="frame" x="86" y="23" width="278" height="17"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="271" id="xFE-So-TL0"/>
+                                                                <constraint firstAttribute="width" constant="274" id="xFE-So-TL0"/>
                                                             </constraints>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="z0e-73-0dd">
                                                                 <font key="font" metaFont="system"/>
@@ -531,7 +531,7 @@
                                     </connections>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <nil key="backgroundColor"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1JO-0z-6ea">
                             <autoresizingMask key="autoresizingMask"/>
@@ -563,7 +563,7 @@
                     <constraint firstItem="v0M-0W-Ded" firstAttribute="top" secondItem="Pda-w3-ql6" secondAttribute="bottom" constant="8" symbolic="YES" id="rFg-FF-U0u"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="888" y="525.5"/>
+            <point key="canvasLocation" x="931" y="533.5"/>
         </window>
         <menu id="F19-pk-eIT" userLabel="Dock Menu">
             <items>

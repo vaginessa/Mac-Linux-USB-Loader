@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
@@ -11,6 +11,7 @@
                 <outlet property="aboutView" destination="5cY-p8-LQV" id="jRM-93-tcA"/>
                 <outlet property="acknowledgementsPanel" destination="KNs-Wj-UOa" id="593-jY-3Gc"/>
                 <outlet property="acknowledgementsText" destination="4hZ-Ib-9TA" id="Z3E-6D-dAw"/>
+                <outlet property="applicationNameLabel" destination="934-Ri-YXH" id="pUF-WM-QsM"/>
                 <outlet property="applicationVersionLabel" destination="z77-Va-dfi" id="820-v4-SLe"/>
                 <outlet property="window" destination="b30-GT-VXY" id="WOu-YP-sCC"/>
             </connections>
@@ -21,7 +22,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="484" y="363" width="561" height="279"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="sII-i5-Vk4">
                 <rect key="frame" x="0.0" y="0.0" width="561" height="279"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,7 +130,7 @@
         <window title="Acknowledgments" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="KNs-Wj-UOa" userLabel="Acknowledgments Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" documentModal="YES"/>
             <rect key="contentRect" x="139" y="151" width="491" height="301"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="Kh0-2X-929">
                 <rect key="frame" x="0.0" y="0.0" width="491" height="301"/>
                 <autoresizingMask key="autoresizingMask"/>

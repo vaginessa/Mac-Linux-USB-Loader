@@ -71,16 +71,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/* Set window properties. */
-	// Make the window background white.
-	self.window.backgroundColor = NSColor.whiteColor;
-	[self.window setMovableByWindowBackground:NO];
-
-	// Set window resize behavior.
-	[[self.window standardWindowButton:NSWindowZoomButton] setHidden:YES];
-	[[self.window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
-
-	// Remove the title.
-	(self.window).title = @"";
+	[self setupWelcomeScreenUI];
 
 	/* Make the table respond to our double click operations. */
 	(self.operationsTableView).doubleAction = @selector(userSelectedOperationFromTable);
@@ -90,6 +81,31 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 	/* Setup the rest of the application. */
 	[self applicationSetup];
+}
+
+- (void)setupWelcomeScreenUI {
+	// Make the window background white.
+	self.window.backgroundColor = NSColor.whiteColor;
+	self.window.movableByWindowBackground = NO;
+
+	// Remove the standard window buttons.
+	[[self.window standardWindowButton:NSWindowZoomButton] setHidden:YES];
+	[[self.window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
+
+	// Remove the title.
+	self.window.title = @"";
+
+	// If we're on Yosemite or higher, make the UI more modern.
+	// Otherwise, keep with the current look.
+	NSOperatingSystemVersion opVer = [NSProcessInfo processInfo].operatingSystemVersion;
+	if (opVer.minorVersion >= 10) {
+		self.window.styleMask = self.window.styleMask | NSFullSizeContentViewWindowMask;
+		self.window.titleVisibility = NSWindowTitleHidden;
+		self.window.titlebarAppearsTransparent = YES;
+		self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantLight];
+
+		//self.operationsTableView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleSourceList;
+	}
 }
 
 - (void)applicationSetup {

@@ -10,6 +10,7 @@
 
 @interface SBAboutWindowController ()
 
+@property (weak) IBOutlet NSTextField *applicationNameLabel;
 @property (weak) IBOutlet NSTextField *applicationVersionLabel;
 @property (weak) IBOutlet NSView *aboutView;
 @property (weak) IBOutlet NSPanel *acknowledgementsPanel;
@@ -36,6 +37,20 @@
 	NSString *versionFormat = NSLocalizedString(@"Version %@ (%@)", nil);
 	NSString *versionString = [NSString stringWithFormat:versionFormat, self.applicationVersionString, self.applicationBuildNumberString];
 	(self.applicationVersionLabel).stringValue = versionString;
+
+	// If we're on Yosemite or higher, make the UI more modern.
+	// Otherwise, keep with the current look.
+	NSOperatingSystemVersion opVer = [NSProcessInfo processInfo].operatingSystemVersion;
+	if (opVer.minorVersion >= 10) {
+		self.window.styleMask = self.window.styleMask | NSFullSizeContentViewWindowMask;
+		self.window.titleVisibility = NSWindowTitleHidden;
+		self.window.titlebarAppearsTransparent = YES;
+
+		[[self.window standardWindowButton:NSWindowZoomButton] setHidden:YES];
+		[[self.window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
+
+		self.aboutView.constraints[4].constant += 10;
+	}
 }
 
 #pragma mark - IBActions
