@@ -25,6 +25,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	SBAboutWindowController *aboutWindowController;
 	SBDistributionDownloaderWindowController *downloaderWindowController;
 	RHPreferencesWindowController *preferencesWindowController;
+
+	__weak IBOutlet SPUStandardUpdaterController *updater;
 }
 // These need to be here so that we can write to readonly variables within
 // this file, but prohibit others from being able to do so.
@@ -103,7 +105,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	if ([NSUserDefaults.standardUserDefaults boolForKey:@"UserOnBetaUpdateChannel"]) {
 		NSString *feedString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUBetaFeedURL"];
 		NSURL *feedURL = [NSURL URLWithString:feedString];
-		SUUpdater.sharedUpdater.feedURL = feedURL;
+		updater.updater.feedURL = feedURL;
 	}
 
 	// Load the list of Enterprise installation sources.
