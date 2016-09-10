@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
@@ -19,7 +19,6 @@
         <customObject id="MUZ-eu-C3f" customClass="SBAppDelegate">
             <connections>
                 <outlet property="applicationVersionString" destination="Ddm-9B-CYW" id="UzP-dt-Ihk"/>
-                <outlet property="moreOptionsPopover" destination="O0L-Mi-Kr6" id="tAm-pj-tiw"/>
                 <outlet property="operationsTableView" destination="Pnw-ad-1UM" id="2Pm-DW-Hri"/>
                 <outlet property="registeredDevicesMenu" destination="bCd-j9-j8y" id="eLO-HS-tUv"/>
                 <outlet property="window" destination="eVZ-OT-8Zw" id="msv-fN-6PT"/>
@@ -421,6 +420,19 @@
                                     <action selector="showHelp:" target="MUZ-eu-C3f" id="vDg-Gv-Fb6"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="hD2-RC-vuW"/>
+                            <menuItem title="Show Project Website" id="1wx-Wi-Onb">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showProjectWebsite:" target="MUZ-eu-C3f" id="0OT-cI-pog"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Report Bug" id="wZe-Cn-2iG">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="reportBug:" target="MUZ-eu-C3f" id="dMg-gd-GtQ"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -448,14 +460,14 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="56" horizontalPageScroll="10" verticalLineScroll="56" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0M-0W-Ded">
-                        <rect key="frame" x="314" y="57" width="364" height="226"/>
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="65" horizontalPageScroll="10" verticalLineScroll="65" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0M-0W-Ded">
+                        <rect key="frame" x="314" y="20" width="364" height="263"/>
                         <clipView key="contentView" id="cIA-vy-zWA">
-                            <rect key="frame" x="1" y="1" width="362" height="224"/>
+                            <rect key="frame" x="1" y="1" width="362" height="261"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="54" rowSizeStyle="automatic" viewBased="YES" id="Pnw-ad-1UM">
-                                    <rect key="frame" x="0.0" y="0.0" width="362" height="0.0"/>
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="63" rowSizeStyle="automatic" viewBased="YES" id="Pnw-ad-1UM">
+                                    <rect key="frame" x="0.0" y="0.0" width="362" height="261"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -476,20 +488,20 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView id="Jbz-Tg-ElK">
-                                                    <rect key="frame" x="1" y="1" width="359" height="54"/>
+                                                    <rect key="frame" x="1" y="1" width="359" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hK8-Tq-fPg">
-                                                            <rect key="frame" x="3" y="3" width="66" height="48"/>
+                                                            <rect key="frame" x="3" y="3" width="66" height="57"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="66" id="TRY-30-qhs"/>
                                                             </constraints>
-                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="DZu-Es-3Vn"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="DZu-Es-3Vn"/>
                                                         </imageView>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tyR-yF-pjH">
-                                                            <rect key="frame" x="75" y="19" width="283" height="17"/>
+                                                            <rect key="frame" x="83" y="23" width="275" height="17"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="279" id="xFE-So-TL0"/>
+                                                                <constraint firstAttribute="width" constant="271" id="xFE-So-TL0"/>
                                                             </constraints>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="z0e-73-0dd">
                                                                 <font key="font" metaFont="system"/>
@@ -528,16 +540,6 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-zo-Wly">
-                        <rect key="frame" x="586" y="13" width="97" height="28"/>
-                        <buttonCell key="cell" type="push" title="More Options" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f5Z-jQ-9Ok">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="showMoreOptionsPopover:" target="MUZ-eu-C3f" id="LUL-Ca-s4m"/>
-                        </connections>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ddm-9B-CYW">
                         <rect key="frame" x="18" y="0.0" width="288" height="14"/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 0.0.0 (000)" id="SZ2-R9-aee">
@@ -548,8 +550,6 @@
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="IJg-zo-Wly" secondAttribute="trailing" constant="20" id="8Vf-KQ-zNm"/>
-                    <constraint firstAttribute="bottom" secondItem="IJg-zo-Wly" secondAttribute="bottom" constant="19" id="CJv-vb-Wab"/>
                     <constraint firstItem="9oD-tj-dWc" firstAttribute="centerY" secondItem="tKZ-SI-zXF" secondAttribute="centerY" id="EWW-sN-thH"/>
                     <constraint firstItem="Pda-w3-ql6" firstAttribute="leading" secondItem="9oD-tj-dWc" secondAttribute="trailing" constant="8" symbolic="YES" id="L83-6M-nMR"/>
                     <constraint firstItem="v0M-0W-Ded" firstAttribute="leading" secondItem="tKZ-SI-zXF" secondAttribute="leading" constant="314" id="M84-in-ZsY"/>
@@ -558,58 +558,13 @@
                     <constraint firstItem="v0M-0W-Ded" firstAttribute="top" secondItem="tKZ-SI-zXF" secondAttribute="top" constant="58" id="bwR-UC-5JV"/>
                     <constraint firstItem="9oD-tj-dWc" firstAttribute="top" secondItem="Pda-w3-ql6" secondAttribute="top" id="g6S-00-jOV"/>
                     <constraint firstAttribute="trailing" secondItem="v0M-0W-Ded" secondAttribute="trailing" constant="20" symbolic="YES" id="hsa-Yf-ydw"/>
-                    <constraint firstAttribute="bottom" secondItem="v0M-0W-Ded" secondAttribute="bottom" constant="57" id="nzP-d1-BDx"/>
+                    <constraint firstAttribute="bottom" secondItem="v0M-0W-Ded" secondAttribute="bottom" constant="20" id="nzP-d1-BDx"/>
                     <constraint firstItem="v0M-0W-Ded" firstAttribute="trailing" secondItem="Pda-w3-ql6" secondAttribute="trailing" id="o1C-2o-ZRA"/>
                     <constraint firstItem="v0M-0W-Ded" firstAttribute="top" secondItem="Pda-w3-ql6" secondAttribute="bottom" constant="8" symbolic="YES" id="rFg-FF-U0u"/>
                 </constraints>
             </view>
+            <point key="canvasLocation" x="888" y="525.5"/>
         </window>
-        <viewController id="b20-HZ-vKs" userLabel="Popover View Controller">
-            <connections>
-                <outlet property="view" destination="5h4-lh-Ua3" id="uB0-6c-GoU"/>
-            </connections>
-        </viewController>
-        <popover behavior="t" id="O0L-Mi-Kr6">
-            <connections>
-                <outlet property="contentViewController" destination="b20-HZ-vKs" id="6Rb-DH-FUA"/>
-            </connections>
-        </popover>
-        <customView id="5h4-lh-Ua3" userLabel="Popover View">
-            <rect key="frame" x="0.0" y="0.0" width="205" height="94"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lkn-Ug-NQ0">
-                    <rect key="frame" x="14" y="13" width="175" height="32"/>
-                    <buttonCell key="cell" type="push" title="Report Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9zF-bC-eXK">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="reportBug:" target="MUZ-eu-C3f" id="JGo-nN-M14"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gew-ZC-hmk">
-                    <rect key="frame" x="14" y="46" width="175" height="32"/>
-                    <buttonCell key="cell" type="push" title="Show Project Website" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LhO-Jz-UPe">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="showProjectWebsite:" target="MUZ-eu-C3f" id="x0N-w6-Skk"/>
-                    </connections>
-                </button>
-            </subviews>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="lkn-Ug-NQ0" secondAttribute="trailing" constant="22" id="4al-1T-BZL"/>
-                <constraint firstItem="Gew-ZC-hmk" firstAttribute="trailing" secondItem="lkn-Ug-NQ0" secondAttribute="trailing" id="WDK-Re-9Ng"/>
-                <constraint firstItem="Gew-ZC-hmk" firstAttribute="leading" secondItem="lkn-Ug-NQ0" secondAttribute="leading" id="fMc-2W-Jhf"/>
-                <constraint firstAttribute="trailing" secondItem="Gew-ZC-hmk" secondAttribute="trailing" constant="22" id="q4M-Wq-cJP"/>
-                <constraint firstItem="lkn-Ug-NQ0" firstAttribute="top" secondItem="Gew-ZC-hmk" secondAttribute="bottom" constant="12" symbolic="YES" id="t2l-Vc-0uS"/>
-                <constraint firstItem="Gew-ZC-hmk" firstAttribute="top" secondItem="5h4-lh-Ua3" secondAttribute="top" constant="20" symbolic="YES" id="tpq-ie-Lyt"/>
-                <constraint firstItem="Gew-ZC-hmk" firstAttribute="leading" secondItem="5h4-lh-Ua3" secondAttribute="leading" constant="20" symbolic="YES" id="uF0-jA-CFA"/>
-            </constraints>
-            <point key="canvasLocation" x="283.5" y="153"/>
-        </customView>
         <menu id="F19-pk-eIT" userLabel="Dock Menu">
             <items>
                 <menuItem title="Create New Live USB" id="kO5-Pl-dr9">
@@ -684,7 +639,6 @@
         </menu>
     </objects>
     <resources>
-        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSApplicationIcon" width="128" height="128"/>
     </resources>
 </document>

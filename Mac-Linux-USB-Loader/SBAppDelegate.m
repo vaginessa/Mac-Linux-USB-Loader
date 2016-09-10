@@ -36,14 +36,12 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 @property (weak) IBOutlet NSTableView *operationsTableView;
 @property (weak) IBOutlet NSTextField *applicationVersionString;
-@property (weak) IBOutlet NSPopover *moreOptionsPopover;
 @property (weak) IBOutlet NSMenu *registeredDevicesMenu;
 
 - (IBAction)showPreferencesWindow:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;
 - (IBAction)showHelp:(id)sender;
 - (IBAction)showProjectWebsite:(id)sender;
-- (IBAction)showMoreOptionsPopover:(id)sender;
 - (IBAction)reportBug:(id)sender;
 @end
 
@@ -388,12 +386,6 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	}
 
 	[self->aboutWindowController showWindow:nil];
-}
-
-- (IBAction)showMoreOptionsPopover:(id)sender {
-	[self.moreOptionsPopover showRelativeToRect:[sender bounds]
-	                                     ofView:sender
-	                              preferredEdge:NSMaxYEdge];
 }
 
 - (IBAction)showProjectWebsite:(id)sender {
