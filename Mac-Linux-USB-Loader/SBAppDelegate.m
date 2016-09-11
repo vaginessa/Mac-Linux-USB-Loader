@@ -103,8 +103,9 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 		self.window.titleVisibility = NSWindowTitleHidden;
 		self.window.titlebarAppearsTransparent = YES;
 		self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantLight];
-
-		//self.operationsTableView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleSourceList;
+		self.operationsTableView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleSourceList;
+		self.operationsTableView.usesAlternatingRowBackgroundColors = NO;
+		[self.window layoutIfNeeded];
 	}
 }
 

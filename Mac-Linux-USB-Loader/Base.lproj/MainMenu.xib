@@ -467,7 +467,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="63" rowSizeStyle="automatic" viewBased="YES" id="Pnw-ad-1UM">
-                                    <rect key="frame" x="0.0" y="0.0" width="362" height="261"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="362" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -499,7 +499,7 @@
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="DZu-Es-3Vn"/>
                                                         </imageView>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tyR-yF-pjH">
-                                                            <rect key="frame" x="86" y="23" width="278" height="17"/>
+                                                            <rect key="frame" x="80" y="23" width="278" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="274" id="xFE-So-TL0"/>
                                                             </constraints>
