@@ -1,0 +1,27 @@
+
+/* Class = "NSButtonCell"; title = "Accept HFS+ Formatted Drives"; ObjectID = "BIC-8x-10F"; */
+"BIC-8x-10F.title" = "Accept HFS+ Formatted Drives";
+
+/* Class = "NSButtonCell"; title = "Hide Enterprise Configuration File"; ObjectID = "CG7-vV-ura"; */
+"CG7-vV-ura.title" = "Hide Enterprise Configuration File";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "Mqp-7t-iHQ"; */
+"Mqp-7t-iHQ.title" = "Box";
+
+/* Class = "NSButtonCell"; title = "Show Enterprise Sources (requires relaunch)"; ObjectID = "RH7-Fp-QFy"; */
+"RH7-Fp-QFy.title" = "Show Enterprise Sources (requires relaunch)";
+
+/* Class = "NSTextFieldCell"; title = "Configuration:"; ObjectID = "UCE-cK-tdW"; */
+"UCE-cK-tdW.title" = "Configuration:";
+
+/* Class = "NSButtonCell"; title = "Periodically Clear Caches and Old ISO Downloads"; ObjectID = "XrG-IX-Jnc"; */
+"XrG-IX-Jnc.title" = "Periodically Clear Caches and Old ISO Downloads";
+
+/* Class = "NSButtonCell"; title = "Accept Hard Drives"; ObjectID = "auA-Ob-KZq"; */
+"auA-Ob-KZq.title" = "Accept Hard Drives";
+
+/* Class = "NSButtonCell"; title = "Clear Now"; ObjectID = "j9p-k1-kBV"; */
+"j9p-k1-kBV.title" = "Clear Now";
+
+/* Class = "NSTextFieldCell"; title = "Experimental:"; ObjectID = "v6c-3K-l9F"; */
+"v6c-3K-l9F.title" = "Experimental:";
