@@ -475,8 +475,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 		case SBWelcomeScreenOperationSetupUSB:
 			if (!self->usbSetupWindowController) {
-				self->usbSetupWindowController = [[SBUSBSetupWindowController alloc]
-												  initWithWindowNibName:@"SBUSBSetupWindowController"];
+				self->usbSetupWindowController = [[SBUSBSetupWindowController alloc] initWithWindowNibName:@"SBUSBSetupWindowController"];
 			}
 
 			[self->usbSetupWindowController showWindow:nil];
@@ -484,8 +483,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 		case SBWelcomeScreenOperationSetupPersistence:
 			if (!self->persistenceSetupWindowController) {
-				self->persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc]
-														  initWithWindowNibName:@"SBPersistenceManagerWindowController"];
+				self->persistenceSetupWindowController = [[SBPersistenceManagerWindowController alloc] initWithWindowNibName:@"SBPersistenceManagerWindowController"];
 			}
 
 			[self->persistenceSetupWindowController showWindow:nil];
@@ -493,8 +491,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 		case SBWelcomeScreenOperationDistributionDownloader:
 			if (!self->downloaderWindowController) {
-				self->downloaderWindowController = [[SBDistributionDownloaderWindowController alloc]
-													initWithWindowNibName:@"SBDistributionDownloaderWindowController"];
+				self->downloaderWindowController = [[SBDistributionDownloaderWindowController alloc] initWithWindowNibName:@"SBDistributionDownloaderWindowController"];
 			}
 
 			[self->downloaderWindowController showWindow:nil];
