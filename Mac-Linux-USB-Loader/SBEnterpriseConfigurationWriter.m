@@ -88,7 +88,7 @@
 		[string appendFormat:@"entry %@\n", distributionId];
 		[string appendFormat:@"family %@\n", ([distributionId isEqualToString:@"Kali"] || [distributionId isEqualToString:@"Tails"]) ? @"Debian" : distributionId];
 
-		if (family == SBDistributionUbuntu && (isMacUbuntu || containsLegacyUbuntu)) {
+		if (family == SBDistributionUbuntu) {
 			NSMutableString *kernelString = [NSMutableString stringWithString:@"kernel "];
 
 			// I know that this seems a bit redundant, checking for legacy Ubuntu twice, but we have to because if we don't,
@@ -100,6 +100,8 @@
 				}
 			} else if (containsLegacyUbuntu) {
 				[kernelString appendString:@"/casper/vmlinuz.efi file=/cdrom/preseed/ubuntu.seed"];
+			} else {
+				[kernelString appendString:@"/casper/vmlinuz.efi "];
 			}
 
 			[kernelString appendString:@"\n"];
