@@ -70,7 +70,9 @@
 	return self;
 }
 
-- (void)awakeFromNib {
+- (void)showWindow:(id)sender {
+	[super showWindow:sender];
+
 	// Setup the UI.
 	[self.downloadDistroButton setEnabled:NO];
 	[self.viewMoreInfoButton setTransparent:YES];

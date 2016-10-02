@@ -198,13 +198,17 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	NSString *file;
 	NSString *completePath;
 	while (file = [en nextObject]) {
-		if (![[path stringByAppendingPathComponent:file] hasSuffix:@".json"]) {
-			res = [fm removeItemAtPath:[path stringByAppendingPathComponent:file] error:&err];
-			if (!res && err) {
-				NSLog(@"Couldn't erase cached file at path: %@", err.localizedFailureReason);
-			}
+		res = [fm removeItemAtPath:[path stringByAppendingPathComponent:file] error:&err];
+		if (!res && err) {
+			NSLog(@"Couldn't erase cached file at path: %@", err.localizedFailureReason);
 		}
 	}
+
+	// Tell the distribution downloader to re-download its data, otherwise
+	// we'll get some very ugly errors. We do this by setting the date of the
+	// last check to the lowest possible value, to ensure that the data will
+	// always be re-downloaded.
+	[[NSUserDefaults standardUserDefaults] setObject:[NSDate dateWithTimeIntervalSince1970:0] forKey:@"LastMirrorUpdateCheckTime"];
 
 	// Deal with ISOs.
 	path = self.pathToApplicationSupportDirectory;
