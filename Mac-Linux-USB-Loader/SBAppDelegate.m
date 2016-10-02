@@ -248,7 +248,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 		// Enterprise installations.
 		NSString *defaultPath = [NSBundle.mainBundle.bundlePath stringByAppendingPathComponent:@"/Contents/Resources/Enterprise/"];
 		SBEnterpriseSourceLocation *loc = [[SBEnterpriseSourceLocation alloc] initWithName:@"Included With Application"
-		                                                                           andPath:defaultPath
+																				   andPath:defaultPath
 		                                                                  shouldBeVolatile:NO];
 		self.enterpriseInstallLocations[@"Included With Application"] = loc;
 
