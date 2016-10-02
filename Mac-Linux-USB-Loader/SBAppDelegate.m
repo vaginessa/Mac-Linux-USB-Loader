@@ -206,27 +206,16 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 		}
 	}
 
-	// Deal with old ISOs.
+	// Deal with ISOs.
 	path = self.pathToApplicationSupportDirectory;
 	en = [fm enumeratorAtPath:path];
 	while (file = [en nextObject]) {
-		BOOL shouldDelete = YES;
 		completePath = [path stringByAppendingPathComponent:file];
-		for (NSString *dn in self.supportedDistributions) {
-			NSString *shortFileName = [completePath.lastPathComponent stringByReplacingOccurrencesOfString:@" " withString:@"-"];
-			NSString *distroName = [dn stringByReplacingOccurrencesOfString:@" " withString:@"-"];
-			if ([shortFileName containsSubstring:distroName] || [shortFileName isEqualToString:@"Downloads"]) {
-				//NSLog(@"Not deleting file %@ because it matches pattern: %@", shortFileName, distroName);
-				shouldDelete = NO;
-				break;
-			}
-		}
+		SBLogObject(completePath);
 
-		if (shouldDelete) {
-			[fm removeItemAtPath:completePath error:&err];
-			if (err) {
-				NSLog(@"Couldn't erase cached file at path: %@", err.localizedFailureReason);
-			}
+		[fm removeItemAtPath:completePath error:&err];
+		if (err) {
+			NSLog(@"Couldn't erase cached file at path: %@", err.localizedFailureReason);
 		}
 	}
 }
