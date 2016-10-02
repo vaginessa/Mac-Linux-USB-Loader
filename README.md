@@ -1,9 +1,7 @@
-Mac Linux USB Loader
-====================
+<img src="https://github.com/SevenBits/Mac-Linux-USB-Loader/blob/master/Mac-Linux-USB-Loader/Images.xcassets/AppIcon.appiconset/icon_128x128.png?raw=true" alt="Mac Linux USB Loader logo" align="left"/>
+<p align="left"><b>Mac Linux USB Loader</b></p>
 
 Tool allowing you to put a Linux distribution on a USB drive and make it bootable on Intel Macs using EFI.
-
-![Mac Linux USB Loader logo](Mac-Linux-USB-Loader/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png)
 
 General Information
 -------------------
