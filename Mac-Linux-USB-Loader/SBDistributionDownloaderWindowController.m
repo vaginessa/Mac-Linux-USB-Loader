@@ -70,9 +70,7 @@
 	return self;
 }
 
-- (void)showWindow:(id)sender {
-	[super showWindow:sender];
-
+- (void)awakeFromNib {
 	// Setup the UI.
 	[self.downloadDistroButton setEnabled:NO];
 	[self.viewMoreInfoButton setTransparent:YES];
@@ -81,6 +79,10 @@
 	(self.downloadQueueDataSource).tableView = self.downloadQueueTableView;
 	(self.tableView).doubleAction = @selector(tableViewDoubleClickAction);
 	[self.webView setDrawsBackground:NO];
+}
+
+- (void)showWindow:(id)sender {
+	[super showWindow:sender];
 
 	// Check if enough time has elapsed to where we need to download new JSON.
 	NSInteger JSONUpdateInterval = [[NSUserDefaults standardUserDefaults] integerForKey:@"UpdateMirrorListInterval"];
