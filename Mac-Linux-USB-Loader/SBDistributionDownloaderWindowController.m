@@ -328,9 +328,16 @@
 	// Fetch Wikipedia information on the selected distribution (may not work 100% of the time).
 	[self.spinner startAnimation:nil];
 	dispatch_async(dispatch_get_global_queue(0, 0), ^{
+		NSError *error;
 		NSInteger selectedRowIndex = (self.tableView).selectedRow;
 		NSString *selectedLinuxDistribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[selectedRowIndex];
-		NSString *language = [NSLocale preferredLanguages][0];
+
+		NSString *language = nil;
+		if ([NSLocale respondsToSelector:@selector(currentLocale)]) {
+			language = [NSLocale currentLocale].languageCode;
+		} else {
+			language = [NSLocale preferredLanguages][0];
+		}
 
 		// There are multiple articles on Wikipedia with the name "Ubuntu", so we have to specific
 		// and specify exactly what we want if we need to download Ubuntu's info.
@@ -355,9 +362,9 @@
 		// Submit the request to Wikipedia and handle the data when it gets back.
 		NSString *URLString = [NSString stringWithFormat:@"https://%@.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=%@", language, encodedDistributionString];
 		NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
-		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
 		if (!response) {
-			NSLog(@"Failed to get a response from Wikipedia.");
+			NSLog(@"Failed to get a response from Wikipedia: %@", error.localizedDescription);
 
 			dispatch_async(dispatch_get_main_queue(), ^{
 				[self.webView.mainFrame loadHTMLString:NSLocalizedString(@"No information on this distribution could be found due to a network problem. You might not be connected to the Internet.", nil) baseURL:nil];
