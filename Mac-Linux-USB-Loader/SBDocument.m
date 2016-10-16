@@ -438,6 +438,7 @@ get_bookmarks:
 	(self.isMacVersionCheckBox).enabled = isUbuntuSelected;
 	(self.isLegacyUbuntuVersionCheckBox).transparent = (isUbuntuSelected ? NO : YES);
 	(self.isLegacyUbuntuVersionCheckBox).enabled = isUbuntuSelected;
+	(self.shouldSkipBootMenuCheckbox).transparent = (sender.selectedTag == SBDistributionUnknown);
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
