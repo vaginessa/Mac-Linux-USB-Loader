@@ -171,8 +171,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 			// create the menu item with the USB's title.
 			// we don't have to worry about getting an NSNotFound here because we already
 			// know that the target string exists
-			NSRange s = [key rangeOfString:@"_USBSecurityBookmarkTarget"];
-			NSString *usbTitle = [key substringToIndex:s.location];
+			NSRange targetStr = [key rangeOfString:@"_USBSecurityBookmarkTarget"];
+			NSString *usbTitle = [key substringToIndex:targetStr.location];
 			NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:usbTitle action:@selector(deleteStoredUSBDevice:) keyEquivalent:@""];
 			[self.registeredDevicesMenu addItem:item];
 			detectedKeys++;
