@@ -12,7 +12,7 @@
 		24101B881896D4A300EDE32C /* SBAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101B861896D4A300EDE32C /* SBAboutWindowController.m */; };
 		24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24101B8C1896D4AF00EDE32C /* SBAboutWindowController.xib */; };
 		2412CAEC1960E9E700501D7A /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412CAEB1960E9E700501D7A /* DownloadOperation.m */; };
-		24155CC518903AE400FAB98C /* mke2fs in Copy Files */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		24155CC518903AE400FAB98C /* mke2fs in Copy mke2fs */ = {isa = PBXBuildFile; fileRef = 24155CC218903AAB00FAB98C /* mke2fs */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		24155CC918903B3800FAB98C /* SBPersistenceManagerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24155CC718903B3800FAB98C /* SBPersistenceManagerWindowController.m */; };
 		24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155CCD18903B4500FAB98C /* SBPersistenceManagerWindowController.xib */; };
 		2415E65C196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2415E65A196766FB00D26A4C /* SBDistributionDownloaderPreferencesViewController.m */; };
@@ -58,10 +58,14 @@
 		24D75F90188AE75E00FF5ADC /* SBUSBSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F8E188AE75E00FF5ADC /* SBUSBSetupWindowController.m */; };
 		24D75F92188AE77100FF5ADC /* SBUSBSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D75F94188AE77100FF5ADC /* SBUSBSetupWindowController.xib */; };
 		24D75F99188AEC2300FF5ADC /* SBUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D75F98188AEC2300FF5ADC /* SBUSBDevice.m */; };
+		24DD1A851D847C5C000C61BE /* Autoupdate in Resources */ = {isa = PBXBuildFile; fileRef = 24DD1A821D847C5C000C61BE /* Autoupdate */; };
+		24DD1A861D847C5C000C61BE /* org.sparkle-project.InstallerLauncher.xpc in Resources */ = {isa = PBXBuildFile; fileRef = 24DD1A831D847C5C000C61BE /* org.sparkle-project.InstallerLauncher.xpc */; };
+		24DD1A871D847C5C000C61BE /* Updater.app in Resources */ = {isa = PBXBuildFile; fileRef = 24DD1A841D847C5C000C61BE /* Updater.app */; };
+		24DD1A8A1D8480CC000C61BE /* org.sparkle-project.InstallerLauncher.xpc in Embed Sparkle XPC Service */ = {isa = PBXBuildFile; fileRef = 24DD1A831D847C5C000C61BE /* org.sparkle-project.InstallerLauncher.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24E0A595191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E0A593191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m */; };
 		24E4F8D3196A0DF4002767C8 /* NSAlert+Popover.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E4F8D2196A0DF4002767C8 /* NSAlert+Popover.m */; };
-		24E6AB0519849611002CA3C9 /* boot.efi in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24E6AB01198495E7002CA3C9 /* boot.efi */; };
-		24E6AB0619849612002CA3C9 /* bootX64.efi in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24E6AB02198495E7002CA3C9 /* bootX64.efi */; };
+		24E6AB0519849611002CA3C9 /* boot.efi in Copy Enterprise Files */ = {isa = PBXBuildFile; fileRef = 24E6AB01198495E7002CA3C9 /* boot.efi */; };
+		24E6AB0619849612002CA3C9 /* bootX64.efi in Copy Enterprise Files */ = {isa = PBXBuildFile; fileRef = 24E6AB02198495E7002CA3C9 /* bootX64.efi */; };
 		24ED96C319A2444600723C4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ED96C219A2444600723C4E /* SystemConfiguration.framework */; };
 		24F35F7E19D604AE0019CF54 /* Acknowledgements.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 24F35F7C19D604AE0019CF54 /* Acknowledgements.rtf */; };
 		24F713E91A1AA95D002C5E7F /* SystemVersion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24F713E81A1AA95D002C5E7F /* SystemVersion.plist */; };
@@ -80,15 +84,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		24155CC418903AD200FAB98C /* Copy Files */ = {
+		24155CC418903AD200FAB98C /* Copy mke2fs */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Tools;
 			dstSubfolderSpec = 7;
 			files = (
-				24155CC518903AE400FAB98C /* mke2fs in Copy Files */,
+				24155CC518903AE400FAB98C /* mke2fs in Copy mke2fs */,
 			);
-			name = "Copy Files";
+			name = "Copy mke2fs";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		242E92B81CF200380096DECA /* Embed Frameworks */ = {
@@ -102,16 +106,28 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24743B6C18BBE6E1008B5458 /* CopyFiles */ = {
+		24743B6C18BBE6E1008B5458 /* Copy Enterprise Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Enterprise;
 			dstSubfolderSpec = 7;
 			files = (
-				24E6AB0519849611002CA3C9 /* boot.efi in CopyFiles */,
-				24E6AB0619849612002CA3C9 /* bootX64.efi in CopyFiles */,
+				24E6AB0519849611002CA3C9 /* boot.efi in Copy Enterprise Files */,
+				24E6AB0619849612002CA3C9 /* bootX64.efi in Copy Enterprise Files */,
 			);
+			name = "Copy Enterprise Files";
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24DD1A891D8480C3000C61BE /* Embed Sparkle XPC Service */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				24DD1A8A1D8480CC000C61BE /* org.sparkle-project.InstallerLauncher.xpc in Embed Sparkle XPC Service */,
+			);
+			name = "Embed Sparkle XPC Service";
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -316,6 +332,9 @@
 		24D808D01B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		24D808D11B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24D808D31B41A87700C95744 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		24DD1A821D847C5C000C61BE /* Autoupdate */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = Autoupdate; path = Dependencies/Autoupdate; sourceTree = "<group>"; };
+		24DD1A831D847C5C000C61BE /* org.sparkle-project.InstallerLauncher.xpc */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.xpc-service"; name = "org.sparkle-project.InstallerLauncher.xpc"; path = "Dependencies/org.sparkle-project.InstallerLauncher.xpc"; sourceTree = "<group>"; };
+		24DD1A841D847C5C000C61BE /* Updater.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Updater.app; path = Dependencies/Updater.app; sourceTree = "<group>"; };
 		24E0A592191D7CFF0043C24A /* SBDistributionDownloaderWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDistributionDownloaderWindowController.h; sourceTree = "<group>"; };
 		24E0A593191D7CFF0043C24A /* SBDistributionDownloaderWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDistributionDownloaderWindowController.m; sourceTree = "<group>"; };
 		24E4F8D1196A0DF4002767C8 /* NSAlert+Popover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+Popover.h"; sourceTree = "<group>"; };
@@ -361,6 +380,7 @@
 		24155CC118903A6E00FAB98C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				24DD1A881D847C77000C61BE /* Sparkle */,
 				24155CC218903AAB00FAB98C /* mke2fs */,
 			);
 			path = Tools;
@@ -566,6 +586,17 @@
 			name = "Core Classes and XIBs";
 			sourceTree = "<group>";
 		};
+		24DD1A881D847C77000C61BE /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				24DD1A821D847C5C000C61BE /* Autoupdate */,
+				24DD1A831D847C5C000C61BE /* org.sparkle-project.InstallerLauncher.xpc */,
+				24DD1A841D847C5C000C61BE /* Updater.app */,
+			);
+			name = Sparkle;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		24E6AB00198493E6002CA3C9 /* Enterprise */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,8 +629,9 @@
 				24A4EC6F1884966900CE6CF0 /* Sources */,
 				24A4EC701884966900CE6CF0 /* Frameworks */,
 				24A4EC711884966900CE6CF0 /* Resources */,
-				24155CC418903AD200FAB98C /* Copy Files */,
-				24743B6C18BBE6E1008B5458 /* CopyFiles */,
+				24155CC418903AD200FAB98C /* Copy mke2fs */,
+				24743B6C18BBE6E1008B5458 /* Copy Enterprise Files */,
+				24DD1A891D8480C3000C61BE /* Embed Sparkle XPC Service */,
 				23CEDE1621F57F74D2B40B86 /* [CP] Embed Pods Frameworks */,
 				B68F4842EA4D3222B5C0E7CB /* [CP] Copy Pods Resources */,
 				242E92B81CF200380096DECA /* Embed Frameworks */,
@@ -691,15 +723,18 @@
 				24101B8A1896D4AF00EDE32C /* SBAboutWindowController.xib in Resources */,
 				24A4EC8D1884966A00CE6CF0 /* SBDocument.xib in Resources */,
 				24155CCB18903B4500FAB98C /* SBPersistenceManagerWindowController.xib in Resources */,
+				24DD1A861D847C5C000C61BE /* org.sparkle-project.InstallerLauncher.xpc in Resources */,
 				24F713E91A1AA95D002C5E7F /* SystemVersion.plist in Resources */,
 				2457849D1A8AB86D0005F32F /* SBDistributionDownloaderWindowController.xib in Resources */,
 				24A4EC921884966A00CE6CF0 /* Images.xcassets in Resources */,
 				2465344E1B3228F7007706CF /* Errors.strings in Resources */,
 				245784961A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib in Resources */,
 				24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */,
+				24DD1A851D847C5C000C61BE /* Autoupdate in Resources */,
 				245A2A8F1AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib in Resources */,
 				24A4EC811884966A00CE6CF0 /* InfoPlist.strings in Resources */,
 				24B322FD18A0123F00A5E25E /* defaults.plist in Resources */,
+				24DD1A871D847C5C000C61BE /* Updater.app in Resources */,
 				24F35F7E19D604AE0019CF54 /* Acknowledgements.rtf in Resources */,
 				24BF93CC1A462B1A00235EC9 /* mlul-disk.icns in Resources */,
 				24A4EC871884966A00CE6CF0 /* Credits.rtf in Resources */,

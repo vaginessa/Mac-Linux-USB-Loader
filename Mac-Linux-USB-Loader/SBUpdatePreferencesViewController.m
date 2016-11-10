@@ -12,6 +12,8 @@
 
 @interface SBUpdatePreferencesViewController ()
 
+@property (strong) IBOutlet SPUStandardUpdaterController *updater;
+
 @end
 
 @implementation SBUpdatePreferencesViewController
@@ -44,7 +46,7 @@
 	}
 
 	NSURL *feedURL = [NSURL URLWithString:feedString];
-	[[SUUpdater sharedUpdater] setFeedURL:feedURL];
+	[self.updater.updater setFeedURL:feedURL];
 }
 
 @end

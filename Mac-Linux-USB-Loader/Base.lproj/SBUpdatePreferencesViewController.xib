@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBUpdatePreferencesViewController">
             <connections>
+                <outlet property="updater" destination="WYi-oU-Tsg" id="3ow-6g-eNz"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -23,7 +24,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <binding destination="WYi-oU-Tsg" name="value" keyPath="automaticallyChecksForUpdates" id="ch6-iZ-uhY"/>
+                        <binding destination="WYi-oU-Tsg" name="value" keyPath="updater.automaticallyChecksForUpdates" id="qtJ-0r-f4X"/>
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L1Q-EK-OXX">
@@ -54,8 +55,8 @@
                         </menu>
                     </popUpButtonCell>
                     <connections>
-                        <binding destination="WYi-oU-Tsg" name="enabled" keyPath="automaticallyChecksForUpdates" id="7xq-0W-GEJ"/>
-                        <binding destination="WYi-oU-Tsg" name="selectedTag" keyPath="updateCheckInterval" id="eE2-0A-fto"/>
+                        <binding destination="WYi-oU-Tsg" name="enabled" keyPath="updater.automaticallyChecksForUpdates" id="lHr-wE-Eaa"/>
+                        <binding destination="WYi-oU-Tsg" name="selectedTag" keyPath="updater.updateCheckInterval" id="VV4-Lu-umA"/>
                     </connections>
                 </popUpButton>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-KB-bv7">
@@ -91,7 +92,7 @@
                     </popUpButtonCell>
                     <connections>
                         <action selector="changeUpdateChannel:" target="-2" id="NWA-4k-ooq"/>
-                        <binding destination="WYi-oU-Tsg" name="enabled" keyPath="automaticallyChecksForUpdates" id="xiT-zD-Ez6"/>
+                        <binding destination="WYi-oU-Tsg" name="enabled" keyPath="updater.automaticallyChecksForUpdates" id="JYj-IW-Y6x"/>
                         <binding destination="nQQ-Tp-nU6" name="selectedTag" keyPath="values.UserOnBetaUpdateChannel" id="KkW-5Y-wAx"/>
                     </connections>
                 </popUpButton>
@@ -125,9 +126,9 @@
                 <constraint firstItem="2ch-Bw-vgM" firstAttribute="centerY" secondItem="AJx-09-wVQ" secondAttribute="centerY" constant="-1" id="w4B-SH-zkN"/>
                 <constraint firstItem="2ch-Bw-vgM" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="132" id="whr-gH-fRY"/>
             </constraints>
-            <point key="canvasLocation" x="733" y="724"/>
+            <point key="canvasLocation" x="815" y="496"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="nQQ-Tp-nU6"/>
-        <customObject id="WYi-oU-Tsg" userLabel="Sparkle" customClass="SUUpdater"/>
+        <customObject id="WYi-oU-Tsg" userLabel="Sparkle" customClass="SPUStandardUpdaterController"/>
     </objects>
 </document>

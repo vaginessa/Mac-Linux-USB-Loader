@@ -21,6 +21,7 @@
                 <outlet property="applicationVersionString" destination="Ddm-9B-CYW" id="UzP-dt-Ihk"/>
                 <outlet property="operationsTableView" destination="Pnw-ad-1UM" id="2Pm-DW-Hri"/>
                 <outlet property="registeredDevicesMenu" destination="bCd-j9-j8y" id="eLO-HS-tUv"/>
+                <outlet property="updater" destination="NbB-fn-Ac8" id="s0O-w3-uNy"/>
                 <outlet property="window" destination="eVZ-OT-8Zw" id="msv-fN-6PT"/>
             </connections>
         </customObject>
@@ -614,7 +615,7 @@
             </items>
             <point key="canvasLocation" x="299" y="255.5"/>
         </menu>
-        <customObject id="NbB-fn-Ac8" userLabel="Sparkle" customClass="SUUpdater"/>
+        <customObject id="NbB-fn-Ac8" userLabel="Sparkle" customClass="SPUStandardUpdaterController"/>
         <menu title="Open Tool" id="ceI-01-83m">
             <items>
                 <menuItem title="Setup USB Device" tag="1" id="Q1v-1v-FkZ">
