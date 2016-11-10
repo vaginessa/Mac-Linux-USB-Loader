@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/SUStatus.nib</key>
 		<data>
-		q1L26IMMBfWVsimJdamiaoG9bHc=
+		BVbhz1/yoJNZgUI80RhgxA3xOGk=
 		</data>
 		<key>Resources/ar.lproj/Sparkle.strings</key>
 		<dict>
@@ -66,7 +66,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9kxQXywmbUqq7wX1l9/Qua08n8U=
+			SbBeYIvogYICYUfqQT19wWA8p1k=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -285,11 +285,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			q1L26IMMBfWVsimJdamiaoG9bHc=
+			BVbhz1/yoJNZgUI80RhgxA3xOGk=
 			</data>
 			<key>hash2</key>
 			<data>
-			1PXpEo5l9vXpBFgtcNJhUJ87DbpjnRPQBZn2evN6XAQ=
+			SN25eEuJlK+jcJYSsoZLujt1ACGInRnKD189N5OxBqs=
 			</data>
 		</dict>
 		<key>Resources/ar.lproj/Sparkle.strings</key>
@@ -374,11 +374,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9kxQXywmbUqq7wX1l9/Qua08n8U=
+			SbBeYIvogYICYUfqQT19wWA8p1k=
 			</data>
 			<key>hash2</key>
 			<data>
-			ufLMidrngAmf9liRSaXVZMkCdQR3HRqNyaIoqj0Yl/U=
+			i+ON380OlgT/z7hnsTHOpYAoCKoLyHs+vPBKmHAiFfY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -711,6 +711,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -769,6 +774,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^[^/]+$</key>
 		<dict>
