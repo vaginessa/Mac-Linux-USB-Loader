@@ -333,7 +333,7 @@
 		NSString *selectedLinuxDistribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[selectedRowIndex];
 
 		NSString *language = nil;
-		if ([NSLocale respondsToSelector:@selector(currentLocale)]) {
+		if ([NSLocale instancesRespondToSelector:@selector(currentLocale)]) {
 			language = [NSLocale currentLocale].languageCode;
 		} else {
 			language = [NSLocale preferredLanguages][0];
