@@ -25,7 +25,9 @@
 @property (weak) IBOutlet NSPopUpButton *distroMirrorCountrySelector;
 @property (weak) IBOutlet NSImageView *distroImageView;
 @property (weak) IBOutlet NSTextField *distroNameLabel;
+@property (weak) IBOutlet NSTextField *distroISOPathLabel;
 @property (weak) IBOutlet NSButton *downloadDistroButton;
+@property (weak) IBOutlet NSButton *viewInFinderButton;
 @property (weak) IBOutlet NSButton *viewMoreInfoButton;
 @property (weak) IBOutlet NSButton *accessoryViewButton;
 @property (weak) IBOutlet NSProgressIndicator *spinner;
@@ -79,6 +81,10 @@
 	(self.downloadQueueDataSource).tableView = self.downloadQueueTableView;
 	(self.tableView).doubleAction = @selector(tableViewDoubleClickAction);
 	[self.webView setDrawsBackground:NO];
+
+	self.distroISOPathLabel.stringValue = @"";
+	self.viewInFinderButton.enabled = NO;
+	self.viewInFinderButton.transparent = YES;
 }
 
 - (void)showWindow:(id)sender {
@@ -249,6 +255,15 @@
 	[self.tableView setDelegate:self];
 }
 
+- (NSString *)pathForDownloadedISOOfCurrentlySelectedDistro {
+	NSString *distribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow];
+	NSString *path = [[NSFileManager defaultManager].applicationSupportDirectory stringByAppendingPathComponent:@"/Downloads/"];
+	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
+												 ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow],
+												 ((SBAppDelegate *)NSApp.delegate).supportedDistributionsAndVersions[distribution]]];
+	return path;
+}
+
 #pragma mark - Delegates
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -278,11 +293,7 @@
 	}
 
 	// Construct the name and path of the downloaded ISO.
-	NSString *distribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow];
-	NSString *path = [[NSFileManager defaultManager].applicationSupportDirectory stringByAppendingPathComponent:@"/Downloads/"];
-	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.iso",
-	                                             ((SBAppDelegate *)NSApp.delegate).supportedDistributions[(self.tableView).selectedRow],
-	                                             ((SBAppDelegate *)NSApp.delegate).supportedDistributionsAndVersions[distribution]]];
+	NSString *path = [self pathForDownloadedISOOfCurrentlySelectedDistro];
 
 	// Open the URL.
 	NSURL *url = [NSURL fileURLWithPath:path];
@@ -302,6 +313,7 @@
 		(self.distroNameLabel).stringValue = @"";
 		[self.webView.mainFrame loadHTMLString:@"" baseURL:nil];
 		[self.distroImageView setImage:nil];
+		(self.distroISOPathLabel).stringValue = @"";
 		return;
 	}
 
@@ -314,6 +326,19 @@
 	NSString *convertedName = [distribution stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 	NSImage *img = self.imageDictionary[convertedName];
 	if (img) self.distroImageView.image = img;
+
+	// Check if the selected distro's ISO has been downloaded.
+	// If so, show the path and the button to view it in Finder.
+	NSString *ISOPath = [self pathForDownloadedISOOfCurrentlySelectedDistro];
+	if ([[NSFileManager defaultManager] fileExistsAtPath:ISOPath]) {
+		self.distroISOPathLabel.stringValue = ISOPath;
+		self.viewInFinderButton.enabled = YES;
+		self.viewInFinderButton.transparent = NO;
+	} else {
+		self.distroISOPathLabel.stringValue = @"";
+		self.viewInFinderButton.enabled = NO;
+		self.viewInFinderButton.transparent = YES;
+	}
 
 	// Load the information on the selected Linux distribution from Wikipedia
 	[self doWikipediaSearch];
@@ -503,6 +528,14 @@
 	}
 }
 
+- (IBAction)viewDownloadedISOInFinderButtonClicked:(NSButton *)sender {
+	// Construct the name and path of the downloaded ISO.
+	NSString *path = [self pathForDownloadedISOOfCurrentlySelectedDistro];
+	
+	// Open the file.
+	[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:path];
+}
+
 - (IBAction)closeDownloadDistroSheetPressed:(id)sender {
 	[NSApp endSheet:self.downloadSettingsPanel];
 	[self.downloadSettingsPanel orderOut:nil];
@@ -534,6 +567,11 @@
 			NSLog(@"%s: downloadCompletionBlock error: %@", __FUNCTION__, error);
 		} else {
 			/* The download was completed successfully. TODO: Show a notification. */
+
+			// Activate the button to show you the file.
+			self.distroISOPathLabel.stringValue = operation.path;
+			self.viewInFinderButton.enabled = YES;
+			self.viewInFinderButton.transparent = NO;
 
 			// Open the downloaded ISO file.
 			ISODownloadCompletionOperation completionOperation = [self.defaults integerForKey:@"DefaultOperationUponISODownloadCompletion"];

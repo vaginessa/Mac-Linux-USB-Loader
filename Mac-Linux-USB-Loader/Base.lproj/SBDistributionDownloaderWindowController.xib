@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="11762"/>
         <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SBDistributionDownloaderWindowController">
             <connections>
                 <outlet property="accessoryView" destination="uXa-ZR-DbK" id="dNc-ZI-FcM"/>
                 <outlet property="accessoryViewButton" destination="F2M-qt-irJ" id="eel-Bh-jQq"/>
+                <outlet property="distroISOPathLabel" destination="JUf-ST-cES" id="M4k-Ji-HcD"/>
                 <outlet property="distroImageView" destination="NYe-J1-MI2" id="q6K-xT-XR2"/>
                 <outlet property="distroMirrorCountrySelector" destination="m4J-OS-S9v" id="49x-t3-7kf"/>
                 <outlet property="distroNameLabel" destination="Ul9-Ie-l8T" id="sBZ-Mf-vlf"/>
@@ -21,6 +23,7 @@
                 <outlet property="downloadSettingsPanel" destination="dxA-hL-HgN" id="MD0-73-cWi"/>
                 <outlet property="spinner" destination="ssu-us-fii" id="BrV-5X-Ove"/>
                 <outlet property="tableView" destination="vwt-RC-84e" id="vfr-48-1b6"/>
+                <outlet property="viewInFinderButton" destination="BSU-70-B0n" id="eLc-DI-FRT"/>
                 <outlet property="viewMoreInfoButton" destination="aBz-eF-TP9" id="9CH-xQ-ogY"/>
                 <outlet property="webView" destination="uGV-Ar-jXJ" id="Bev-Er-zzS"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
@@ -32,7 +35,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="196" y="240" width="669" height="335"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="669" height="335"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -127,7 +130,7 @@
                                     </webPreferences>
                                 </webView>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aBz-eF-TP9">
-                                    <rect key="frame" x="148" y="205" width="223" height="32"/>
+                                    <rect key="frame" x="157" y="205" width="223" height="32"/>
                                     <buttonCell key="cell" type="push" title="More Information" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e9B-4d-oSW">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -136,17 +139,42 @@
                                         <action selector="viewDistroWebsiteButtonClicked:" target="-2" id="8GY-BT-JYW"/>
                                     </connections>
                                 </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BSU-70-B0n">
+                                    <rect key="frame" x="279" y="182" width="100" height="28"/>
+                                    <buttonCell key="cell" type="push" title="View in Finder" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HjQ-lq-LvX">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="smallSystem"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="viewDownloadedISOInFinderButtonClicked:" target="-2" id="7ze-Ah-wkO"/>
+                                    </connections>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-ST-cES">
+                                    <rect key="frame" x="164" y="190" width="114" height="14"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="110" id="Gmf-mf-ZWs"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" id="XvJ-kP-Str">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="aBz-eF-TP9" secondAttribute="trailing" constant="22" id="55f-gD-HdT"/>
+                                <constraint firstAttribute="trailing" secondItem="aBz-eF-TP9" secondAttribute="trailing" constant="13" id="55f-gD-HdT"/>
                                 <constraint firstAttribute="bottom" secondItem="uGV-Ar-jXJ" secondAttribute="bottom" id="5iu-6G-bo7"/>
                                 <constraint firstAttribute="trailing" secondItem="uGV-Ar-jXJ" secondAttribute="trailing" constant="13" id="62r-b7-1gV"/>
+                                <constraint firstItem="BSU-70-B0n" firstAttribute="top" secondItem="aBz-eF-TP9" secondAttribute="bottom" constant="6" id="9Ry-uq-nkp"/>
                                 <constraint firstItem="uGV-Ar-jXJ" firstAttribute="top" secondItem="NYe-J1-MI2" secondAttribute="bottom" constant="8" id="Gnu-dt-lRk"/>
                                 <constraint firstItem="aBz-eF-TP9" firstAttribute="top" secondItem="Ul9-Ie-l8T" secondAttribute="bottom" constant="8" symbolic="YES" id="Ign-ve-rLJ"/>
+                                <constraint firstItem="BSU-70-B0n" firstAttribute="leading" secondItem="JUf-ST-cES" secondAttribute="trailing" constant="8" id="KPo-Ey-AO4"/>
                                 <constraint firstItem="uGV-Ar-jXJ" firstAttribute="leading" secondItem="j4A-lO-vwz" secondAttribute="leading" constant="18" id="Q6n-gD-W6M"/>
                                 <constraint firstItem="Ul9-Ie-l8T" firstAttribute="top" secondItem="NYe-J1-MI2" secondAttribute="top" id="Rbh-06-fOS"/>
-                                <constraint firstItem="aBz-eF-TP9" firstAttribute="leading" secondItem="NYe-J1-MI2" secondAttribute="trailing" constant="8" id="clk-2g-IHr"/>
-                                <constraint firstItem="Ul9-Ie-l8T" firstAttribute="leading" secondItem="aBz-eF-TP9" secondAttribute="leading" id="g0L-5m-sWr"/>
+                                <constraint firstItem="aBz-eF-TP9" firstAttribute="leading" secondItem="NYe-J1-MI2" secondAttribute="trailing" constant="17" id="clk-2g-IHr"/>
+                                <constraint firstItem="JUf-ST-cES" firstAttribute="top" secondItem="aBz-eF-TP9" secondAttribute="bottom" constant="8" id="eL7-pJ-57S"/>
+                                <constraint firstItem="Ul9-Ie-l8T" firstAttribute="leading" secondItem="aBz-eF-TP9" secondAttribute="leading" constant="-9" id="g0L-5m-sWr"/>
+                                <constraint firstItem="JUf-ST-cES" firstAttribute="leading" secondItem="NYe-J1-MI2" secondAttribute="trailing" constant="20" id="hlO-21-EoL"/>
                                 <constraint firstAttribute="trailing" secondItem="Ul9-Ie-l8T" secondAttribute="trailing" constant="22" id="ryv-8Y-7At"/>
                             </constraints>
                         </view>
@@ -154,8 +182,6 @@
                             <constraint firstItem="NYe-J1-MI2" firstAttribute="top" secondItem="EO0-1k-d1r" secondAttribute="top" constant="10" id="DIN-w2-FP9"/>
                             <constraint firstItem="NYe-J1-MI2" firstAttribute="leading" secondItem="EO0-1k-d1r" secondAttribute="leading" constant="15" id="UBt-9n-6X7"/>
                         </constraints>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h8j-38-923">
                         <rect key="frame" x="486" y="13" width="169" height="32"/>
@@ -189,7 +215,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="343.5" y="273.5"/>
+            <point key="canvasLocation" x="525.5" y="400.5"/>
         </window>
         <customView id="uXa-ZR-DbK" userLabel="Accessory View">
             <rect key="frame" x="0.0" y="0.0" width="288" height="22"/>
@@ -197,6 +223,7 @@
             <subviews>
                 <button horizontalHuggingPriority="1000" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2M-qt-irJ">
                     <rect key="frame" x="88" y="1" width="200" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="roundTextured" title="View In-Progress Downloads" bezelStyle="texturedRounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Hwd-V5-1q3">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
@@ -212,7 +239,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="154" width="534" height="127"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="xyp-9O-kGH">
                 <rect key="frame" x="0.0" y="0.0" width="534" height="127"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -301,7 +328,7 @@
                     <constraint firstItem="AFC-fl-K3y" firstAttribute="leading" secondItem="xyp-9O-kGH" secondAttribute="leading" constant="20" id="pog-e9-Rna"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="578" y="442.5"/>
+            <point key="canvasLocation" x="696" y="337"/>
         </window>
         <viewController id="W3X-ZW-RQT" userLabel="Popover View Controller">
             <connections>
@@ -324,7 +351,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="52" rowSizeStyle="automatic" viewBased="YES" id="nb5-NT-9RQ">
-                                <rect key="frame" x="0.0" y="0.0" width="258" height="0.0"/>
+                                <rect key="frame" x="0.0" y="0.0" width="258" height="172"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -397,7 +424,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="jSR-CF-d63">
                         <autoresizingMask key="autoresizingMask"/>
@@ -413,7 +439,7 @@
                 <constraint firstAttribute="trailing" secondItem="PkL-yk-xO5" secondAttribute="trailing" id="mui-JV-jAa"/>
                 <constraint firstAttribute="bottom" secondItem="PkL-yk-xO5" secondAttribute="bottom" id="o0g-EL-zBf"/>
             </constraints>
-            <point key="canvasLocation" x="194" y="321"/>
+            <point key="canvasLocation" x="250" y="318"/>
         </customView>
         <customObject id="vyI-Bo-zrb" userLabel="In-Progress Downloads Delegate" customClass="SBDistributionDownloaderDownloadsDataSource"/>
         <userDefaultsController representsSharedInstance="YES" id="Ehm-iZ-Xew"/>
