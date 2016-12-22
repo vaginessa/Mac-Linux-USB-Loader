@@ -292,8 +292,6 @@
 		24BB59941C98D8B4006CA0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Errors.strings; sourceTree = "<group>"; };
 		24BB59951C98D8B4006CA0C0 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		24BB59961C98D8B4006CA0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24BB59971C98D8B4006CA0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		24BB59981C98D8B4006CA0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Acknowledgements.rtf; sourceTree = "<group>"; };
 		24BF93CB1A462B1A00235EC9 /* mlul-disk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "mlul-disk.icns"; sourceTree = "<group>"; };
 		24C720AE1C0B74C2008565FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24C720AF1C0B74C2008565FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Errors.strings; sourceTree = "<group>"; };
@@ -1066,7 +1064,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				24F35F8019D604BF0019CF54 /* Base */,
-				24BB59971C98D8B4006CA0C0 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -1137,7 +1134,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				24F35F7F19D604B30019CF54 /* Base */,
-				24BB59981C98D8B4006CA0C0 /* en */,
 			);
 			name = Acknowledgements.rtf;
 			sourceTree = "<group>";
