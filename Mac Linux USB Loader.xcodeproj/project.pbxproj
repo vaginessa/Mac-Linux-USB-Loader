@@ -31,6 +31,7 @@
 		245A2A8D1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245A2A8B1AB4A81E00D3C021 /* SBUpdatePreferencesViewController.m */; };
 		245A2A8F1AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245A2A911AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib */; };
 		2465344E1B3228F7007706CF /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 246534501B3228F7007706CF /* Errors.strings */; };
+		2465946C1E0C31C000614F75 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2465946B1E0C31C000614F75 /* dsa_pub.pem */; };
 		24680E4F18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */; };
 		24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5618AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib */; };
 		24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */; };
@@ -225,6 +226,7 @@
 		246534571B3228FB007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		246534581B3228FB007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBUSBSetupWindowController.strings; sourceTree = "<group>"; };
 		246534591B3228FC007706CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SBPersistenceManagerWindowController.strings; sourceTree = "<group>"; };
+		2465946B1E0C31C000614F75 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		24680E4C18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterprisePreferencesViewController.h; sourceTree = "<group>"; };
 		24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterprisePreferencesViewController.m; sourceTree = "<group>"; };
 		24680E5518AE7FE500B6E13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 		24A4EC7D1884966A00CE6CF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2465946B1E0C31C000614F75 /* dsa_pub.pem */,
 				246534501B3228F7007706CF /* Errors.strings */,
 				245784921A8AA7680005F32F /* Localizable.strings */,
 				24B322FC18A0123F00A5E25E /* defaults.plist */,
@@ -727,6 +730,7 @@
 				24A4EC921884966A00CE6CF0 /* Images.xcassets in Resources */,
 				2465344E1B3228F7007706CF /* Errors.strings in Resources */,
 				245784961A8AB7B80005F32F /* SBDistributionDownloaderPreferencesViewController.xib in Resources */,
+				2465946C1E0C31C000614F75 /* dsa_pub.pem in Resources */,
 				24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */,
 				24DD1A851D847C5C000C61BE /* Autoupdate in Resources */,
 				245A2A8F1AB4A82A00D3C021 /* SBUpdatePreferencesViewController.xib in Resources */,
