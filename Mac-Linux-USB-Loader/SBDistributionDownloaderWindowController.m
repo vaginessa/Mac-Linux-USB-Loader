@@ -358,14 +358,14 @@
 		NSString *selectedLinuxDistribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[selectedRowIndex];
 
 		NSString *language = nil;
-		if ([NSLocale instancesRespondToSelector:@selector(currentLocale)]) {
+		if (NSAppKitVersionNumber >= NSAppKitVersionNumber10_12) {
 			language = [NSLocale currentLocale].languageCode;
 		} else {
 			language = [NSLocale preferredLanguages][0];
 		}
 
-		// There are multiple articles on Wikipedia with the name "Ubuntu", so we have to specific
-		// and specify exactly what we want if we need to download Ubuntu's info.
+		// There are multiple articles on Wikipedia with the name "Ubuntu", so we have to
+		// be specific and specify exactly what we want if we need to download Ubuntu's info.
 		if ([selectedLinuxDistribution isEqualToString:@"Ubuntu"]) {
 			if ([language isEqualToString:@"en"]) {
 				selectedLinuxDistribution = @"Ubuntu (operating system)";
