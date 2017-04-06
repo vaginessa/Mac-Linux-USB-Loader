@@ -433,7 +433,7 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 
 		case 1:
 			result.imageView.image = [NSImage imageNamed:@"USB"];
-			result.textField.stringValue = NSLocalizedString(@"Setup USB Device", nil);
+			result.textField.stringValue = NSLocalizedString(@"Advanced USB Setup Options", nil);
 			break;
 
 		case 2:
