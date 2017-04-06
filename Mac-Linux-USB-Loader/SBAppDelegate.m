@@ -59,10 +59,11 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 		self->fileManager = [NSFileManager new];
 		self.pathToApplicationSupportDirectory = self->fileManager.applicationSupportDirectory;
 
-		self.supportedDistributions = @[@"Ubuntu", @"Linux Mint", @"Elementary OS", @"Zorin OS", @"Kali Linux"];
+		self.supportedDistributions = @[@"Ubuntu", @"Linux Mint", @"Elementary OS", @"Debian", @"Zorin OS", @"Kali Linux"];
 		self.supportedDistributionsAndVersions = @{ @"Ubuntu": @"16.10",
 		                                            @"Linux Mint": @"18.1",
 		                                            @"Elementary OS": @"Freya",
+													@"Debian": @"8.7.1",
 		                                            @"Zorin OS": @"12",
 		                                            @"Kali Linux": @"" };
 	}
@@ -529,6 +530,8 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 		return SBDistributionUbuntu;
 	} else if ([fileName containsSubstring:@"kali"]) {
 		return SBDistributionKali;
+	} else if ([fileName containsSubstring:@"debian"]) {
+		return SBDistributionDebian;
 	}
 
 	return SBDistributionUnknown;
