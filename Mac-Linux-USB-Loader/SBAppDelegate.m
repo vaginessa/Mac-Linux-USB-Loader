@@ -83,7 +83,9 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	(self.applicationVersionString).stringValue = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
 
 	/* Setup the rest of the application. */
-	[self applicationSetup];
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[self applicationSetup];
+	});
 }
 
 - (void)setupWelcomeScreenUI {
