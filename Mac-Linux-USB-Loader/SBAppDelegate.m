@@ -97,9 +97,6 @@ const NSString *SBBundledEnterpriseVersionNumber = @"0.4.0";
 	[[self.window standardWindowButton:NSWindowZoomButton] setHidden:YES];
 	[[self.window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
 
-	// Remove the title.
-	self.window.title = @"";
-
 	// If we're on Yosemite or higher, make the UI more modern.
 	// Otherwise, keep with the current look.
 	NSOperatingSystemVersion opVer = [NSProcessInfo processInfo].operatingSystemVersion;
