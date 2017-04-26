@@ -469,7 +469,7 @@
                             <rect key="frame" x="1" y="1" width="362" height="261"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="63" rowSizeStyle="automatic" viewBased="YES" id="Pnw-ad-1UM">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="63" rowSizeStyle="automatic" viewBased="YES" id="Pnw-ad-1UM">
                                     <rect key="frame" x="0.0" y="0.0" width="362" height="261"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -567,7 +567,7 @@
                     <constraint firstItem="v0M-0W-Ded" firstAttribute="top" secondItem="Pda-w3-ql6" secondAttribute="bottom" constant="8" symbolic="YES" id="rFg-FF-U0u"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="931" y="533.5"/>
+            <point key="canvasLocation" x="739" y="589"/>
         </window>
         <menu id="F19-pk-eIT" userLabel="Dock Menu">
             <items>
