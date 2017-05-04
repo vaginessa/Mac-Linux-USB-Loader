@@ -36,8 +36,8 @@ Mac Linux USB Loader utilizes the OS X app sandbox, and so it requires that it b
 Acknowledgements
 ----------------
 
-- Used some icons from KDE's Oxygen.
-    [link](http://www.oxygen-icons.org/)
+- Used some icons from KDE's [Oxygen](http://www.oxygen-icons.org/)
+- Mac Linux USB Loader icon by [Todd Gaunt](http://toddgaunt.com)
 - Special thanks to Leander Lismond for translating the application into Dutch!
 - Special thanks to Stephan Rusch for translating the application into German!
 - Special thanks to Cai Argimon for translating the application into Spanish!
