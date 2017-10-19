@@ -341,7 +341,7 @@
 	}
 
 	// Load the information on the selected Linux distribution from Wikipedia
-	[self doWikipediaSearch];
+	[self doWikipediaSearch:self.tableView.selectedRow];
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
@@ -349,12 +349,11 @@
 }
 
 #pragma mark - UI
-- (void)doWikipediaSearch {
+- (void)doWikipediaSearch:(NSInteger)selectedRowIndex {
 	// Fetch Wikipedia information on the selected distribution (may not work 100% of the time).
 	[self.spinner startAnimation:nil];
 	dispatch_async(dispatch_get_global_queue(0, 0), ^{
 		NSError *error;
-		NSInteger selectedRowIndex = (self.tableView).selectedRow;
 		NSString *selectedLinuxDistribution = ((SBAppDelegate *)NSApp.delegate).supportedDistributions[selectedRowIndex];
 
 		NSString *language = nil;
