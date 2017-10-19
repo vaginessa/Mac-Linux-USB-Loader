@@ -67,16 +67,11 @@ static NSAlert *currentlyOpenedAlert;
 
 	// And determine the return code of this button
 	NSInteger returnCode = 0;
-	switch (clickedIx) {
-		case NSAlertFirstButtonReturn:
-		case NSAlertSecondButtonReturn:
-		case NSAlertThirdButtonReturn:
+	if (clickedIx == NSAlertFirstButtonReturn || clickedIx == NSAlertSecondButtonReturn ||
+		clickedIx == NSAlertThirdButtonReturn) {
 			returnCode = clickedIx;
-			break;
-
-		default:
+	} else {
 			returnCode = NSAlertThirdButtonReturn + clickedIx - 2;
-			break;
 	}
 
 	// Execute the calback with the return code
