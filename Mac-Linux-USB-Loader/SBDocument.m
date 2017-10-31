@@ -21,7 +21,6 @@
 @property (weak) IBOutlet NSCollectionView *usbDriveSelector;
 @property (weak) IBOutlet NSPopUpButton *enterpriseSourceSelector;
 @property (weak) IBOutlet NSPopUpButton *distributionSelectorPopup;
-@property (weak) IBOutlet NSButton *isMacVersionCheckBox;
 @property (weak) IBOutlet NSButton *isLegacyUbuntuVersionCheckBox;
 @property (weak) IBOutlet NSButton *shouldSkipBootMenuCheckbox;
 @property (weak) IBOutlet NSButton *forwardButton;
@@ -35,6 +34,9 @@
 	NSString *originalForwardButtonString;
 	NSString *originalBackwardsButtonString;
 	BOOL installationOperationStarted;
+
+	// For Linux Mint, etc. compatibility
+	BOOL useOldMacVersion;
 }
 
 #pragma mark - Document class crap
@@ -111,9 +113,9 @@
 	    [isoName containsSubstring:@"linux mint"] ||
 	    [isoName containsSubstring:@"elementary"] || // for Loki, and possibly Freya
 	    [isoName containsSubstring:@"+mac"]) {
-		(self.isMacVersionCheckBox).state = NSOnState;
+		useOldMacVersion = YES;
 	} else {
-		(self.isMacVersionCheckBox).state = NSOffState;
+		useOldMacVersion = NO;
 	}
 }
 
@@ -343,7 +345,11 @@ get_bookmarks:
 
 	// Write out the Enterprise configuration file.
 	SBLinuxDistribution distribution = [self.distributionSelectorPopup selectedTag];
-	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive distributionFamily:distribution isMacUbuntu:(self.isMacVersionCheckBox).state == NSOnState containsLegacyUbuntuVersion:(self.isLegacyUbuntuVersionCheckBox).state == NSOnState shouldSkipBootMenu:(self.shouldSkipBootMenuCheckbox).state == NSOnState];
+	[SBEnterpriseConfigurationWriter writeConfigurationFileAtUSB:selectedUSBDrive
+											  distributionFamily:distribution
+													 isMacUbuntu:useOldMacVersion
+									 containsLegacyUbuntuVersion:(self.isLegacyUbuntuVersionCheckBox).state == NSOnState
+											  shouldSkipBootMenu:(self.shouldSkipBootMenuCheckbox).state == NSOnState];
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		SBEnterpriseSourceLocation *sourceLocation = ((SBAppDelegate *)NSApp.delegate).enterpriseInstallLocations[selectedEnterpriseSourceName];
@@ -387,7 +393,6 @@ get_bookmarks:
 	(self.installationProgressBar).indeterminate = enabled;
 	(self.installationProgressBar).doubleValue = 0.0;
 	(self.distributionSelectorPopup).enabled = enabled;
-	(self.isMacVersionCheckBox).enabled = enabled;
 	(self.isLegacyUbuntuVersionCheckBox).enabled = enabled;
 	(self.shouldSkipBootMenuCheckbox).enabled = enabled;
 	(self.usbDriveSelector).hidden = !enabled;
@@ -434,8 +439,6 @@ get_bookmarks:
 
 - (IBAction)distributionTypePopupChanged:(NSPopUpButton *)sender {
 	BOOL isUbuntuSelected = (sender.selectedTag == SBDistributionUbuntu);
-	(self.isMacVersionCheckBox).transparent = (isUbuntuSelected ? NO : YES);
-	(self.isMacVersionCheckBox).enabled = isUbuntuSelected;
 	(self.isLegacyUbuntuVersionCheckBox).transparent = (isUbuntuSelected ? NO : YES);
 	(self.isLegacyUbuntuVersionCheckBox).enabled = isUbuntuSelected;
 	(self.shouldSkipBootMenuCheckbox).transparent = (sender.selectedTag == SBDistributionUnknown);

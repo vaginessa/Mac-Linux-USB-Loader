@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,7 +14,6 @@
                 <outlet property="enterpriseSourceSelector" destination="3qA-qj-K0g" id="SDh-QA-Ih3"/>
                 <outlet property="forwardButton" destination="CDL-Pn-5VN" id="04o-0r-cid"/>
                 <outlet property="installationProgressBar" destination="bdV-ll-emw" id="Ct4-mC-KVI"/>
-                <outlet property="isLegacyUbuntuVersionCheckBox" destination="o16-cH-t1N" id="xhZ-kG-kLF"/>
                 <outlet property="isMacVersionCheckBox" destination="3yc-Pg-5C8" id="adc-FA-NYx"/>
                 <outlet property="shouldSkipBootMenuCheckbox" destination="ZcM-fL-Xsr" id="Ucw-r6-X8M"/>
                 <outlet property="sideView" destination="KuY-po-env" id="yYL-I8-auy"/>
@@ -40,7 +39,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="KuY-po-env" customClass="BackgroundColorView">
                                 <rect key="frame" x="0.0" y="0.0" width="208" height="347"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uph-Ba-Mfu">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uph-Ba-Mfu">
                                         <rect key="frame" x="18" y="20" width="172" height="307"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="307" id="qQi-f3-gn4"/>
@@ -103,7 +102,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBp-6d-4FK">
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VBp-6d-4FK">
                                                     <rect key="frame" x="18" y="114" width="339" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Enterprise Source:" id="4e7-Dc-wKh">
                                                         <font key="font" metaFont="systemBold"/>
@@ -207,7 +206,7 @@
                                                         <action selector="refreshUSBListing:" target="-2" id="njo-Pa-Uso"/>
                                                     </connections>
                                                 </button>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-8p-AmO">
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-8p-AmO">
                                                     <rect key="frame" x="18" y="236" width="135" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Destination:" id="JzD-IM-Mo0">
                                                         <font key="font" metaFont="systemBold"/>
@@ -243,7 +242,7 @@
                                                 <progressIndicator wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-ll-emw">
                                                     <rect key="frame" x="20" y="19" width="335" height="20"/>
                                                 </progressIndicator>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-58-U8W">
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-58-U8W">
                                                     <rect key="frame" x="18" y="229" width="121" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Distribution Family:" id="aOF-7O-fM8">
                                                         <font key="font" metaFont="system"/>
@@ -282,13 +281,6 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
-                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="o16-cH-t1N">
-                                                    <rect key="frame" x="18" y="150" width="339" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="This ISO is based on a legacy version of Ubuntu" bezelStyle="regularSquare" imagePosition="left" inset="2" id="K4N-ZO-OI0">
-                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ZcM-fL-Xsr">
                                                     <rect key="frame" x="18" y="190" width="339" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Skip the boot selection menu" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" state="on" inset="2" id="RBA-Ti-vGI">
@@ -300,8 +292,6 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="bdV-ll-emw" secondAttribute="bottom" constant="20" id="4r6-Pw-AkU"/>
                                                 <constraint firstItem="3yc-Pg-5C8" firstAttribute="top" secondItem="ZcM-fL-Xsr" secondAttribute="bottom" constant="6" id="8Gd-vp-q6k"/>
-                                                <constraint firstItem="o16-cH-t1N" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="CRr-dP-rDl"/>
-                                                <constraint firstItem="o16-cH-t1N" firstAttribute="top" secondItem="3yc-Pg-5C8" secondAttribute="bottom" constant="6" id="Lzj-Fv-lxi"/>
                                                 <constraint firstItem="ZcM-fL-Xsr" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="NPc-AM-Z25"/>
                                                 <constraint firstAttribute="trailing" secondItem="3yc-Pg-5C8" secondAttribute="trailing" constant="20" id="OoI-Vq-6XI"/>
                                                 <constraint firstAttribute="trailing" secondItem="FN5-Ti-WuH" secondAttribute="trailing" constant="20" id="R6S-i6-4y1"/>
@@ -312,7 +302,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="ZcM-fL-Xsr" secondAttribute="trailing" constant="20" id="huh-vg-e56"/>
                                                 <constraint firstItem="FN5-Ti-WuH" firstAttribute="leading" secondItem="PJn-58-U8W" secondAttribute="trailing" constant="8" id="l6N-6U-oI7"/>
                                                 <constraint firstAttribute="trailing" secondItem="bdV-ll-emw" secondAttribute="trailing" constant="20" id="wGT-fa-hcJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="o16-cH-t1N" secondAttribute="trailing" constant="20" id="wLj-8o-iXq"/>
                                                 <constraint firstItem="bdV-ll-emw" firstAttribute="leading" secondItem="pVC-o9-IvQ" secondAttribute="leading" constant="20" id="woY-T5-csc"/>
                                                 <constraint firstItem="ZcM-fL-Xsr" firstAttribute="top" secondItem="FN5-Ti-WuH" secondAttribute="bottom" constant="20" id="z6l-FW-5by"/>
                                             </constraints>
@@ -323,7 +312,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zE-UU-14n">
+                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zE-UU-14n">
                                                     <rect key="frame" x="18" y="20" width="339" height="193"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="193" id="8sa-DW-kwJ"/>
@@ -335,7 +324,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDZ-m9-S99">
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mDZ-m9-S99">
                                                     <rect key="frame" x="18" y="221" width="339" height="25"/>
                                                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Success!" id="CpB-zL-Sag">
                                                         <font key="font" metaFont="system" size="21"/>
@@ -365,6 +354,7 @@
                             <constraint firstItem="3b6-2Y-5OI" firstAttribute="top" secondItem="dUL-cm-KaX" secondAttribute="top" constant="20" symbolic="YES" id="bdv-OZ-444"/>
                             <constraint firstItem="ztM-rw-dxV" firstAttribute="baseline" secondItem="CDL-Pn-5VN" secondAttribute="baseline" id="nAZ-8O-nSG"/>
                             <constraint firstAttribute="trailing" secondItem="3b6-2Y-5OI" secondAttribute="trailing" constant="20" symbolic="YES" id="nLt-hY-fnE"/>
+                            <constraint firstItem="ztM-rw-dxV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dUL-cm-KaX" secondAttribute="leading" constant="20" symbolic="YES" id="nVr-xQ-fOs"/>
                             <constraint firstItem="ztM-rw-dxV" firstAttribute="top" secondItem="3b6-2Y-5OI" secondAttribute="bottom" constant="20" symbolic="YES" id="tcG-tC-oqH"/>
                         </constraints>
                     </customView>
@@ -384,7 +374,7 @@
                 <outlet property="delegate" destination="-2" id="17"/>
                 <outlet property="initialFirstResponder" destination="CDL-Pn-5VN" id="w3G-wv-V7j"/>
             </connections>
-            <point key="canvasLocation" x="1838.5" y="597.5"/>
+            <point key="canvasLocation" x="2095" y="517"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="xVb-jV-XHu"/>
@@ -397,7 +387,7 @@
             <rect key="frame" x="0.0" y="0.0" width="114" height="81"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-bJ-zS3">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-bJ-zS3">
                     <rect key="frame" x="-2" y="0.0" width="118" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="USB Device Name" id="acy-rY-KEm">
                         <font key="font" metaFont="system"/>
@@ -423,8 +413,8 @@
             <constraints>
                 <constraint firstItem="fAe-gQ-VBI" firstAttribute="centerX" secondItem="Rvb-bJ-zS3" secondAttribute="centerX" id="5B3-Rz-h1G"/>
                 <constraint firstItem="fAe-gQ-VBI" firstAttribute="top" secondItem="G0D-Ii-LLi" secondAttribute="top" id="ARM-4v-82t"/>
-                <constraint firstItem="Rvb-bJ-zS3" firstAttribute="leading" secondItem="G0D-Ii-LLi" secondAttribute="leading" id="Dl4-xb-rce"/>
-                <constraint firstAttribute="trailing" secondItem="Rvb-bJ-zS3" secondAttribute="trailing" id="cWp-jX-GbH"/>
+                <constraint firstItem="Rvb-bJ-zS3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G0D-Ii-LLi" secondAttribute="leading" id="Dl4-xb-rce"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rvb-bJ-zS3" secondAttribute="trailing" id="cWp-jX-GbH"/>
                 <constraint firstAttribute="bottom" secondItem="Rvb-bJ-zS3" secondAttribute="bottom" id="wz8-qz-fBx"/>
                 <constraint firstItem="fAe-gQ-VBI" firstAttribute="leading" secondItem="G0D-Ii-LLi" secondAttribute="leading" constant="23" id="zVx-Wi-HV3"/>
             </constraints>
