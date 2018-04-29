@@ -35,6 +35,8 @@
 		24680E4F18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */; };
 		24680E5418AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5618AE7FE500B6E13F /* SBGeneralPreferencesViewController.xib */; };
 		24680E5B18AE8C3A00B6E13F /* SBEnterprisePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24680E5318AE7FE000B6E13F /* SBEnterprisePreferencesViewController.xib */; };
+		2469D12D1FF0446C002F411B /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469D12C1FF0446C002F411B /* FinderSync.m */; };
+		2469D1321FF0446C002F411B /* findercontext.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2469D1291FF0446C002F411B /* findercontext.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		246AFF841E0C4947001AD081 /* org.sparkle-project.InstallerConnection.xpc in Copy XPC Services */ = {isa = PBXBuildFile; fileRef = 2465946D1E0C3D8700614F75 /* org.sparkle-project.InstallerConnection.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		246AFF851E0C4947001AD081 /* org.sparkle-project.InstallerStatus.xpc in Copy XPC Services */ = {isa = PBXBuildFile; fileRef = 2465946E1E0C3D8700614F75 /* org.sparkle-project.InstallerStatus.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		246AFF861E0C4947001AD081 /* org.sparkle-project.InstallerLauncher.xpc in Copy XPC Services */ = {isa = PBXBuildFile; fileRef = 24DD1A831D847C5C000C61BE /* org.sparkle-project.InstallerLauncher.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -83,6 +85,13 @@
 			remoteGlobalIDString = 24A4EC721884966900CE6CF0;
 			remoteInfo = "Mac Linux USB Loader";
 		};
+		2469D1301FF0446C002F411B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24A4EC6B1884966900CE6CF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2469D1281FF0446C002F411B;
+			remoteInfo = findercontext;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +115,17 @@
 				242E92BA1CF201A40096DECA /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2469D1361FF0446C002F411B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2469D1321FF0446C002F411B /* findercontext.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		246AFF831E0C4938001AD081 /* Copy XPC Services */ = {
@@ -235,6 +255,11 @@
 		24680E4C18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEnterprisePreferencesViewController.h; sourceTree = "<group>"; };
 		24680E4D18AE7FD000B6E13F /* SBEnterprisePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEnterprisePreferencesViewController.m; sourceTree = "<group>"; };
 		24680E5518AE7FE500B6E13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		2469D1291FF0446C002F411B /* findercontext.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = findercontext.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2469D12B1FF0446C002F411B /* FinderSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinderSync.h; sourceTree = "<group>"; };
+		2469D12C1FF0446C002F411B /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
+		2469D12E1FF0446C002F411B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2469D12F1FF0446C002F411B /* findercontext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = findercontext.entitlements; sourceTree = "<group>"; };
 		2474CC651DB91AEE00B45F8F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2474CC661DB91AEE00B45F8F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		24764FFB19831B9900E4F9B0 /* SBDistributionDownloaderTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDistributionDownloaderTableCellView.h; sourceTree = "<group>"; };
@@ -358,6 +383,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2469D1261FF0446C002F411B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24A4EC701884966900CE6CF0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,12 +448,24 @@
 			name = "Apple Class Extensions and Subclasses";
 			sourceTree = "<group>";
 		};
+		2469D12A1FF0446C002F411B /* findercontext */ = {
+			isa = PBXGroup;
+			children = (
+				2469D12B1FF0446C002F411B /* FinderSync.h */,
+				2469D12C1FF0446C002F411B /* FinderSync.m */,
+				2469D12E1FF0446C002F411B /* Info.plist */,
+				2469D12F1FF0446C002F411B /* findercontext.entitlements */,
+			);
+			path = findercontext;
+			sourceTree = "<group>";
+		};
 		24A4EC6A1884966900CE6CF0 = {
 			isa = PBXGroup;
 			children = (
 				24087B9E1884CF2D00DC3D88 /* Mac Linux USB Loader.entitlements */,
 				24A4EC7C1884966900CE6CF0 /* Mac-Linux-USB-Loader */,
 				24A4EC9D1884966A00CE6CF0 /* Mac-Linux-USB-LoaderTests */,
+				2469D12A1FF0446C002F411B /* findercontext */,
 				24A4EC751884966900CE6CF0 /* Frameworks */,
 				24A4EC741884966900CE6CF0 /* Products */,
 				2420474C18849A4300ECAAFE /* README.md */,
@@ -434,6 +478,7 @@
 			children = (
 				24A4EC731884966900CE6CF0 /* Mac Linux USB Loader.app */,
 				24A4EC971884966A00CE6CF0 /* Mac Linux USB LoaderTests.xctest */,
+				2469D1291FF0446C002F411B /* findercontext.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -629,6 +674,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2469D1281FF0446C002F411B /* findercontext */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2469D1351FF0446C002F411B /* Build configuration list for PBXNativeTarget "findercontext" */;
+			buildPhases = (
+				2469D1251FF0446C002F411B /* Sources */,
+				2469D1261FF0446C002F411B /* Frameworks */,
+				2469D1271FF0446C002F411B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = findercontext;
+			productName = findercontext;
+			productReference = 2469D1291FF0446C002F411B /* findercontext.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		24A4EC721884966900CE6CF0 /* Mac Linux USB Loader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24A4ECA71884966A00CE6CF0 /* Build configuration list for PBXNativeTarget "Mac Linux USB Loader" */;
@@ -643,10 +705,12 @@
 				23CEDE1621F57F74D2B40B86 /* [CP] Embed Pods Frameworks */,
 				B68F4842EA4D3222B5C0E7CB /* [CP] Copy Pods Resources */,
 				242E92B81CF200380096DECA /* Embed Frameworks */,
+				2469D1361FF0446C002F411B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2469D1311FF0446C002F411B /* PBXTargetDependency */,
 			);
 			name = "Mac Linux USB Loader";
 			productName = "Mac-Linux-USB-Loader";
@@ -681,9 +745,14 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SB;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = SevenBits;
 				TargetAttributes = {
+					2469D1281FF0446C002F411B = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 8PA6GA85US;
+						ProvisioningStyle = Automatic;
+					};
 					24A4EC721884966900CE6CF0 = {
 						DevelopmentTeam = 8PA6GA85US;
 						SystemCapabilities = {
@@ -718,11 +787,19 @@
 			targets = (
 				24A4EC721884966900CE6CF0 /* Mac Linux USB Loader */,
 				24A4EC961884966A00CE6CF0 /* Mac Linux USB LoaderTests */,
+				2469D1281FF0446C002F411B /* findercontext */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2469D1271FF0446C002F411B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24A4EC711884966900CE6CF0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -856,6 +933,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2469D1251FF0446C002F411B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2469D12D1FF0446C002F411B /* FinderSync.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24A4EC6F1884966900CE6CF0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -906,6 +991,11 @@
 			isa = PBXTargetDependency;
 			target = 24A4EC721884966900CE6CF0 /* Mac Linux USB Loader */;
 			targetProxy = 245AC8021A17CDC20039E2C9 /* PBXContainerItemProxy */;
+		};
+		2469D1311FF0446C002F411B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2469D1281FF0446C002F411B /* findercontext */;
+			targetProxy = 2469D1301FF0446C002F411B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1151,6 +1241,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2469D1331FF0446C002F411B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = findercontext/findercontext.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8PA6GA85US;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = findercontext/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sevenbits.Mac-Linux-USB-Loader.findercontext";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2469D1341FF0446C002F411B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = findercontext/findercontext.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 8PA6GA85US;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = findercontext/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sevenbits.Mac-Linux-USB-Loader.findercontext";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		24A4ECA51884966A00CE6CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1163,12 +1309,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1213,12 +1361,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1351,6 +1501,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2469D1351FF0446C002F411B /* Build configuration list for PBXNativeTarget "findercontext" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2469D1331FF0446C002F411B /* Debug */,
+				2469D1341FF0446C002F411B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		24A4EC6E1884966900CE6CF0 /* Build configuration list for PBXProject "Mac Linux USB Loader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
