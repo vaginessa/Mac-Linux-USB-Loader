@@ -127,9 +127,9 @@
 
 	            [self.spinner startAnimation:nil];
 	            [self.operationProgressLabel setStringValue:NSLocalizedString(@"Creating persistence file...", nil)];
-	            [SBUSBDevice createPersistenceFileAtUSB:spanel.URL.path withSize:persistenceSizeInBytes withWindow:self.window];
+				[SBUSBDevice createPersistenceFileAtUSB:self->spanel.URL.path withSize:persistenceSizeInBytes withWindow:self.window];
 	            [self.operationProgressLabel setStringValue:NSLocalizedString(@"Creating virtual loopback filesystem...", nil)];
-	            [SBUSBDevice createLoopbackPersistence:spanel.URL.path];
+				[SBUSBDevice createLoopbackPersistence:self->spanel.URL.path];
 
 	            // Enable everything that was disabled.
 	            dispatch_async(dispatch_get_main_queue(), ^{

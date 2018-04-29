@@ -75,7 +75,7 @@ typedef NS_ENUM(unsigned int, State) {
 	                              self.name];
 
 	dispatch_async(dispatch_get_main_queue(), ^{
-	    progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
+		self->progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
 	});
 
 	const char *fromPath = (document.fileURL.path).UTF8String;
@@ -117,7 +117,7 @@ typedef NS_ENUM(unsigned int, State) {
 										 self.name];
 
 	dispatch_async(dispatch_get_main_queue(), ^{
-	    progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
+		self->progressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(outputProgress:) userInfo:@{} repeats:YES];
 	});
 
 	// First, copy Enterprise.

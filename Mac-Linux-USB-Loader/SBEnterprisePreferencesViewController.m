@@ -195,7 +195,7 @@
 	[enterpriseSourceLocationOpenPanel setCanChooseFiles:NO];
 	[enterpriseSourceLocationOpenPanel beginSheetModalForWindow:self.addNewEnterpriseSourcePanel completionHandler: ^(NSInteger result) {
 	    if (result == NSFileHandlingPanelOKButton) {
-			NSString *enteredPath = enterpriseSourceLocationOpenPanel.URL.path;
+			NSString *enteredPath = self->enterpriseSourceLocationOpenPanel.URL.path;
 			__block NSString *localizedPath = [NSString string];
 			localizedPath = [localizedPath stringByAppendingPathComponent:@"/"];
 			NSArray *localizedPathComponents = [[NSFileManager defaultManager] componentsToDisplayForPath:enteredPath];
